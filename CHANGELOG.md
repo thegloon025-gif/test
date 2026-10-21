@@ -1,3 +1,12 @@
+## Unreleased — coherent multi-card investment and regression tracing
+
+- Preserve the user's actual €108.02 Ulalek list and real-world evaluator regression as historical evidence, without claiming price equivalence to v1.1.1.
+- Add bounded atomic two/three-card investments and spell/land packages. Compare supported full-deck functions before falling back to the old scalar score; spending earns no bonus.
+- Protect original true-colorless capacity, combo commitments, functional coverage and exact-record budget gates; require mana support for additional expensive threats and prevent ramp overprovision.
+- Reject unsupported/delayed/quoted mana and conditional, temporary, consumed or self-replacing draw as reliable engines. Expose accepted packages and bounded rejection traces; preserve the existing research/pricing/Windows flows.
+- Retain structural source ordering, add the complete re-invested reference as a candidate, and bound expensive package expansion to three candidates.
+- Add synthetic regressions and read-only replay tools. See `docs/COHERENT_INVESTMENT.md` and `benchmarks/coherent-investment-VALIDATION.md` for actual results and limitations. No gameplay improvement is certified.
+
 ## Unreleased — bounded budget-search portfolio
 
 - Compare completed quality, intermediate-investment and value paths with the unchanged deck, using existing strategy/deck evidence. Permit cheaper improvements and continued upgrades at the cap; remove spending bonuses.

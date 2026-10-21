@@ -1,5 +1,6 @@
+import {investmentEvidence,functionallyBetter} from './packageInvestment.mjs';
 import {constructStrategyDeck,strategyScore} from './strategyFirst.mjs';
-import {withSelectedCards} from './deckSelection.mjs';
+import {withSelectedCards,selectedCards} from './deckSelection.mjs';
 import {COLORS,faces,castHasType,castHasSubtype,playableLand,isLandSlot,isBasic,priceOf,legalFor,trueColorlessSource,coloredSources,oracleId,isCommander,landManaQuality,castFaces} from './cards.mjs';
 import {planFor,analysis,synergy} from './mechanics.mjs';
 import {proposeComboPackages} from './comboConstruction.mjs';
@@ -576,7 +577,10 @@ export function generateDeck(opts){
   return legacy;
  }
  const plan=planFor(commander),landQuota=BRACKETS[Number(bracket)].lands+((commander.color_identity||[]).length>=4?1:0);
- const pool=constructStrategyDeck({cards,commander,bracket,budget,powerTarget,communityBuild,communityDecks,preferredCombos:legacy.comboPlan?.selected||[],comboVariants});
+ const referenceCards=selectedCards(legacy)?.slice(1)||[];
+ const referenceDeck=referenceCards.length===99?{status:'ok',strategy:'reference:legacy',label:'Complete reference with coordinated investment',cards:referenceCards,price:legacy.price,
+  committedCombos:[...(legacy.comboPlan?.selected||[]).map(c=>({id:c.id,added:c.added||[],cards:[...(c.namedCards||[]),...(c.added||[]),...(c.templateMatches||[]).map(t=>t.card)]})),...(legacy.communityConstruction?.committedPackages||[])]}:null;
+ const pool=constructStrategyDeck({cards,commander,bracket,budget,powerTarget,communityBuild,communityDecks,preferredCombos:legacy.comboPlan?.selected||[],comboVariants,investmentTrace:opts.investmentTrace||[],referenceDeck});
  const baselineCards=legacy.deck.split('\n').slice(1).map(row=>row.replace(/^1 /,''));
  const lookup=new Map(cards.map(c=>[exportCardName(c),c]));
  const baseline=baselineCards.map(n=>lookup.get(n)).filter(Boolean);
@@ -585,7 +589,8 @@ export function generateDeck(opts){
  // Never advertise heuristic improvements as verified competitive power.
  const failed=!candidate||candidate.cards.length!==99||candidate.cards.filter(isLandSlot).length!==landQuota||
   candidate.price>Number(budget)+1e-5||!validateCommanderSingleton(commander,candidate.cards).valid;
- const materiallyWorse=!!candidate&&!!baselineScore&&candidate.score.value<baselineScore.value-18;
+ const functionalImprovement=!!candidate&&baseline.length===99&&functionallyBetter(investmentEvidence(candidate.cards,commander,plan),investmentEvidence(baseline,commander,plan));
+ const materiallyWorse=!!candidate&&!!baselineScore&&!functionalImprovement&&candidate.score.value<baselineScore.value-18;
  if(failed||materiallyWorse){
   return {...legacy,constructionEngine:{...pool.report,mode:'strategy-first',selected:'legacy-fallback',
    reason:failed?'Independent complete-deck candidate failed a hard validation gate.':'Independent whole-deck evidence was materially below the legacy reference.',
@@ -612,7 +617,7 @@ export function generateDeck(opts){
    {commanderIds:[oracleId(commander)],mainboard:all.map(c=>({id:oracleId(c),quantity:1}))},cards):null;
  const comboCommitted=candidate.committedCombos||[];
  const comboPlan={network:{packagesCommitted:comboCommitted.length,newCards:sumComboCards(comboCommitted),completeEligibleNetworks:0,selections:[],method:'Legacy Spellbook candidate packages checked atomically by independent constructor; inventory completion is not proof of execution'},
-  source:'Recorded local Commander Spellbook variants',knownVariants:comboVariants.length,candidatePackages:0,rejectedPackages:0,selected:comboCommitted.map(x=>({id:x.id,added:x.added,namedCards:x.cards,results:[],prerequisites:[],templateMatches:[]})),
+  source:'Recorded local Commander Spellbook variants',knownVariants:comboVariants.length,candidatePackages:0,rejectedPackages:0,selected:comboCommitted.map(x=>({id:x.id||'retained-package',added:x.added||[],namedCards:x.cards,results:[],prerequisites:[],templateMatches:[]})),
   inventoryComplete:comboInventory?.counts.complete??0,inventoryInfinite:comboInventory?.counts.infiniteComplete??0,
   inventoryCombinations:(comboInventory?.complete||[]).slice(0,20).map(v=>({id:v.id,url:v.url,namedCards:v.cards,templateMatches:v.templateMatches,
     results:v.results,prerequisites:v.prerequisites,executionVerified:false})),executionVerified:false};
@@ -628,7 +633,7 @@ export function generateDeck(opts){
   comboPlan,needs,qualityAudit:quality,roleAudit:evidence,selectionAudit:selection,
   highPowerAudit:high?highPowerAudit(all):null,openingHands:sampleOpeningHands(all,{seed:`${oracleId(commander)}:B${bracket}:strategy-first`}),
   communityConstruction:community,wholeDeckOptimization:null,manaOptimization:null,reinvestment:null,
-  budgetInvestment:candidate.budgetInvestment||null,
+  budgetInvestment:candidate.budgetInvestment||null,packageInvestment:candidate.packageInvestment||null,
   earlyAcceleration:spells.filter(c=>manaRole(c).effective&&c.cmc<=3).length,
   highManaValueSpells:spells.filter(c=>c.cmc>=5).length,sevenPlusSpells:spells.filter(c=>c.cmc>=7).length,
   coloredMana:{demand,sources:Object.fromEntries(Object.keys(demand).map(k=>[k,quality.landSources[k]||0]))},

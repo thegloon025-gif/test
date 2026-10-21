@@ -2,6 +2,19 @@
 
 Last revised: 2026-10-21. Local, deterministic Commander generator: **no paid AI API** is needed to build a deck.
 
+## Coherent investment follow-up after merged PR #1
+
+- [x] Preserve and reprice the reported €108.02 Ulalek deck under one eligible-printing catalog.
+- [x] Trace individual-merit, shortlist, finalist, role, source, budget and fixed-mana barriers.
+- [x] Evaluate atomic two/three-card packages, including colored engine plus land repair, without a spending bonus.
+- [x] Compare full supported-function dominance before the legacy scalar; preserve input functions, exact colorless capacity, commitments and final budget.
+- [x] Add guards against unsupported mana/draw, excessive ramp and unsupported high-curve investments; record candidate expansion limits and accepted/rejected outcomes.
+- [ ] Calibrate independent/scalable draw, native support and threat capability against actual gameplay and permitted external evaluation. Static dominance is not certified strength.
+- [ ] Fix combined enter/cast and enter/attack draw-trigger recognition, expand bounded engine frontiers, and find safe outgoing choices for fixing upgrades. The real-list replay still leaves draw improvements unexplored.
+- [ ] Model life costs, deployment/land sequencing and true-colorless availability after casting expensive spells.
+
+See `benchmarks/coherent-investment-VALIDATION.md` for current results. Prior reports below remain historical.
+
 ## Current development after v1.1.5
 
 - [x] Preserve uploaded source as a tagged Git baseline and retain Windows launcher unchanged.
@@ -12,7 +25,7 @@ Last revised: 2026-10-21. Local, deterministic Commander generator: **no paid AI
 - [x] Add request-scoped caching for unchanged selection-limit counts, with equivalent-gate regression coverage.
 - [ ] Prioritize activation/loyalty timing, modal/adventure additional costs and whole-board versus single-target protection before treating further internal-score gains as card-quality improvements.
 - [ ] Calibrate against measured gameplay and fresh external evaluation. Historical scores remain unchanged; cached-catalog results are not live quotes.
-- [ ] Expand the investment search beyond fixed lands and one-card improvements, with realistic mana sequencing and atomic package alternatives.
+- [ ] Extend the new bounded atomic investment beyond its current frontier and land-repair limits, with realistic mana sequencing.
 - [ ] Support and verify the complete current official bracket 1–5 policy; current implementation retains approximate 2–4 profiles.
 
 The user has now supplied a 32,197-record Scryfall catalog and cached community/Spellbook data. Current offline comparisons and limitations are recorded in `benchmarks/budget-search-VALIDATION.md`; prior absence-of-data statements below describe historical releases.

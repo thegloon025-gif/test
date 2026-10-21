@@ -1,0 +1,1365 @@
+{
+  "price": 134.07,
+  "investment": {
+    "startingPrice": 108.02,
+    "finalPrice": 134.07,
+    "ceiling": 191,
+    "remaining": 56.93,
+    "swaps": [
+      {
+        "out": "Annie Joins Up",
+        "in": "Idol of False Gods",
+        "extraCost": -0.73,
+        "qualityGain": 39.2
+      },
+      {
+        "out": "Valorous Stance",
+        "in": "Gideon Blackblade",
+        "extraCost": 0.71,
+        "qualityGain": 34.15
+      },
+      {
+        "out": "Twins of Discord",
+        "in": "Ulamog, the Infinite Gyre",
+        "extraCost": 26.05,
+        "qualityGain": 16.6
+      },
+      {
+        "out": "World Breaker",
+        "in": "Desolation Twin",
+        "extraCost": 0,
+        "qualityGain": 27.45
+      },
+      {
+        "out": "Bismuth Mindrender",
+        "in": "Blisterpod",
+        "extraCost": -0.16,
+        "qualityGain": 34.7
+      },
+      {
+        "out": "Hedron Archive",
+        "in": "Parting Thoughts",
+        "extraCost": 0.18,
+        "qualityGain": 5.85
+      }
+    ],
+    "searchMode": "quality",
+    "qualityGain": 157.95,
+    "diagnostics": {
+      "pool": 32197,
+      "shortlist": 850,
+      "shortlistLimit": 850,
+      "feasibleFinalistsPerRound": 3,
+      "rejections": {
+        "seven-plus spell cap": 2993,
+        "role floor": 1753,
+        "positive draw floor": 267,
+        "high-output early mana": 20,
+        "fixed-land mana demand": 48,
+        "scalar deck score": 92
+      },
+      "qualityShortlistTop": [
+        {
+          "card": "Warped Tusker",
+          "price": 0.06,
+          "merit": 125.95
+        },
+        {
+          "card": "Drownyard Lurker",
+          "price": 0.11,
+          "merit": 125.94999999999999
+        },
+        {
+          "card": "Eldrazi Repurposer",
+          "price": 0.13,
+          "merit": 107.15
+        },
+        {
+          "card": "Glaring Fleshraker",
+          "price": 0.78,
+          "merit": 107.15
+        },
+        {
+          "card": "Writhing Chrysalis",
+          "price": 0.45,
+          "merit": 103.3
+        },
+        {
+          "card": "Kozilek's Unsealing",
+          "price": 0.36,
+          "merit": 102.15
+        },
+        {
+          "card": "Spawn-Gang Commander",
+          "price": 0.14,
+          "merit": 99.45
+        },
+        {
+          "card": "Desolation Twin",
+          "price": 0.3,
+          "merit": 94.39999999999999
+        },
+        {
+          "card": "Devourer of Destiny",
+          "price": 1.28,
+          "merit": 92.95
+        },
+        {
+          "card": "Deathless Behemoth",
+          "price": 0.09,
+          "merit": 89.8
+        },
+        {
+          "card": "Drowner of Hope",
+          "price": 0.19,
+          "merit": 89.8
+        },
+        {
+          "card": "Rapacious One",
+          "price": 0.09,
+          "merit": 89.8
+        }
+      ],
+      "deck": [
+        "Idol of False Gods",
+        "Azlask, the Swelling Scourge",
+        "Basking Broodscale",
+        "Blisterpod",
+        "Chittering Dispatcher",
+        "Conduit of Ruin",
+        "Deathless Behemoth",
+        "Deranged Assistant",
+        "Devourer of Destiny",
+        "Drowner of Hope",
+        "Drownyard Lurker",
+        "Echoes of Eternity",
+        "Eldrazi Confluence",
+        "Eldrazi Displacer",
+        "Eldrazi Ravager",
+        "Eldrazi Repurposer",
+        "Eldritch Immunity",
+        "Emrakul's Influence",
+        "Emrakul's Messenger",
+        "Endbringer",
+        "Giant's Boulder",
+        "Glaring Fleshraker",
+        "Guardian Idol",
+        "Parting Thoughts",
+        "Inversion Behemoth",
+        "Kozilek, the Great Distortion",
+        "Kozilek's Command",
+        "Kozilek's Pathfinder",
+        "Kozilek's Return",
+        "Kozilek's Unsealing",
+        "Magus of the Library",
+        "Mind Stone",
+        "Nest Invader",
+        "Oblivion Sower",
+        "Propagator Drone",
+        "Rapacious One",
+        "Sifter of Skulls",
+        "Sire of Stagnation",
+        "Snapping Voidcraw",
+        "Sol Ring",
+        "Solar Transformer",
+        "Spawn-Gang Commander",
+        "Spawnbed Protector",
+        "Spell Satchel",
+        "Strionic Resonator",
+        "Tablet of Compleation",
+        "Talisman of Curiosity",
+        "Talisman of Dominance",
+        "Talisman of Impulse",
+        "Talisman of Resilience",
+        "Ulamog, the Infinite Gyre",
+        "Ulamog's Despoiler",
+        "Ulamog's Nullifier",
+        "Gideon Blackblade",
+        "Vile Redeemer",
+        "Void Grafter",
+        "Warped Tusker",
+        "Warping Wail",
+        "Wastescape Battlemage",
+        "Desolation Twin",
+        "Writhing Chrysalis",
+        "Zhulodok, Void Gorger",
+        "Adarkar Wastes",
+        "Battlefield Forge",
+        "Bonders' Enclave",
+        "Brushland",
+        "Caves of Koilos",
+        "Command Tower",
+        "Exotic Orchard",
+        "Forest",
+        "Forest",
+        "Island",
+        "Island",
+        "Karplusan Forest",
+        "Llanowar Wastes",
+        "Mountain",
+        "Mountain",
+        "Path of Ancestry",
+        "Plains",
+        "Reliquary Tower",
+        "Ruins of Oran-Rief",
+        "Shivan Reef",
+        "Sulfurous Springs",
+        "Swamp",
+        "Tectonic Edge",
+        "Temple of Malady",
+        "Temple of Silence",
+        "Temple of the False God",
+        "Tendo Ice Bridge",
+        "Tomb of the Spirit Dragon",
+        "Tranquil Landscape",
+        "Twisted Landscape",
+        "Underground River",
+        "Wastes",
+        "Wastes",
+        "Wastes",
+        "Wastes",
+        "Wastes",
+        "Yavimaya Coast"
+      ],
+      "watched": [
+        {
+          "card": "Arcane Signet",
+          "reasons": {
+            "individual merit threshold": 431,
+            "role floor": 2
+          },
+          "inShortlist": true,
+          "selected": false
+        },
+        {
+          "card": "Sol Ring",
+          "reasons": {},
+          "inShortlist": true,
+          "selected": true
+        },
+        {
+          "card": "Thran Dynamo",
+          "reasons": {},
+          "inShortlist": false,
+          "selected": false
+        },
+        {
+          "card": "Worn Powerstone",
+          "reasons": {},
+          "inShortlist": false,
+          "selected": false
+        },
+        {
+          "card": "Hedron Archive",
+          "reasons": {
+            "individual merit threshold": 57
+          },
+          "inShortlist": true,
+          "selected": false
+        },
+        {
+          "card": "The One Ring",
+          "reasons": {},
+          "inShortlist": false,
+          "selected": false
+        },
+        {
+          "card": "Rhystic Study",
+          "reasons": {},
+          "inShortlist": false,
+          "selected": false
+        },
+        {
+          "card": "Kindred Discovery",
+          "reasons": {},
+          "inShortlist": false,
+          "selected": false
+        },
+        {
+          "card": "Guardian Project",
+          "reasons": {},
+          "inShortlist": false,
+          "selected": false
+        },
+        {
+          "card": "Mystic Forge",
+          "reasons": {},
+          "inShortlist": false,
+          "selected": false
+        },
+        {
+          "card": "Up the Beanstalk",
+          "reasons": {},
+          "inShortlist": false,
+          "selected": false
+        },
+        {
+          "card": "Ulamog, the Infinite Gyre",
+          "reasons": {
+            "seven-plus spell cap": 129,
+            "individual merit threshold": 48,
+            "high-output early mana": 3
+          },
+          "inShortlist": true,
+          "selected": true
+        }
+      ]
+    },
+    "note": "Bounded positive-utility search; unused budget is allowed. Costs are estimates, not verified EN NM carts.",
+    "candidates": [
+      {
+        "mode": "quality",
+        "price": 134.07,
+        "score": 184.22,
+        "qualityGain": 157.95,
+        "swaps": 6,
+        "diagnostics": {
+          "pool": 32197,
+          "shortlist": 850,
+          "shortlistLimit": 850,
+          "feasibleFinalistsPerRound": 3,
+          "rejections": {
+            "seven-plus spell cap": 2993,
+            "role floor": 1753,
+            "positive draw floor": 267,
+            "high-output early mana": 20,
+            "fixed-land mana demand": 48,
+            "scalar deck score": 92
+          },
+          "qualityShortlistTop": [
+            {
+              "card": "Warped Tusker",
+              "price": 0.06,
+              "merit": 125.95
+            },
+            {
+              "card": "Drownyard Lurker",
+              "price": 0.11,
+              "merit": 125.94999999999999
+            },
+            {
+              "card": "Eldrazi Repurposer",
+              "price": 0.13,
+              "merit": 107.15
+            },
+            {
+              "card": "Glaring Fleshraker",
+              "price": 0.78,
+              "merit": 107.15
+            },
+            {
+              "card": "Writhing Chrysalis",
+              "price": 0.45,
+              "merit": 103.3
+            },
+            {
+              "card": "Kozilek's Unsealing",
+              "price": 0.36,
+              "merit": 102.15
+            },
+            {
+              "card": "Spawn-Gang Commander",
+              "price": 0.14,
+              "merit": 99.45
+            },
+            {
+              "card": "Desolation Twin",
+              "price": 0.3,
+              "merit": 94.39999999999999
+            },
+            {
+              "card": "Devourer of Destiny",
+              "price": 1.28,
+              "merit": 92.95
+            },
+            {
+              "card": "Deathless Behemoth",
+              "price": 0.09,
+              "merit": 89.8
+            },
+            {
+              "card": "Drowner of Hope",
+              "price": 0.19,
+              "merit": 89.8
+            },
+            {
+              "card": "Rapacious One",
+              "price": 0.09,
+              "merit": 89.8
+            }
+          ],
+          "deck": [
+            "Idol of False Gods",
+            "Azlask, the Swelling Scourge",
+            "Basking Broodscale",
+            "Blisterpod",
+            "Chittering Dispatcher",
+            "Conduit of Ruin",
+            "Deathless Behemoth",
+            "Deranged Assistant",
+            "Devourer of Destiny",
+            "Drowner of Hope",
+            "Drownyard Lurker",
+            "Echoes of Eternity",
+            "Eldrazi Confluence",
+            "Eldrazi Displacer",
+            "Eldrazi Ravager",
+            "Eldrazi Repurposer",
+            "Eldritch Immunity",
+            "Emrakul's Influence",
+            "Emrakul's Messenger",
+            "Endbringer",
+            "Giant's Boulder",
+            "Glaring Fleshraker",
+            "Guardian Idol",
+            "Parting Thoughts",
+            "Inversion Behemoth",
+            "Kozilek, the Great Distortion",
+            "Kozilek's Command",
+            "Kozilek's Pathfinder",
+            "Kozilek's Return",
+            "Kozilek's Unsealing",
+            "Magus of the Library",
+            "Mind Stone",
+            "Nest Invader",
+            "Oblivion Sower",
+            "Propagator Drone",
+            "Rapacious One",
+            "Sifter of Skulls",
+            "Sire of Stagnation",
+            "Snapping Voidcraw",
+            "Sol Ring",
+            "Solar Transformer",
+            "Spawn-Gang Commander",
+            "Spawnbed Protector",
+            "Spell Satchel",
+            "Strionic Resonator",
+            "Tablet of Compleation",
+            "Talisman of Curiosity",
+            "Talisman of Dominance",
+            "Talisman of Impulse",
+            "Talisman of Resilience",
+            "Ulamog, the Infinite Gyre",
+            "Ulamog's Despoiler",
+            "Ulamog's Nullifier",
+            "Gideon Blackblade",
+            "Vile Redeemer",
+            "Void Grafter",
+            "Warped Tusker",
+            "Warping Wail",
+            "Wastescape Battlemage",
+            "Desolation Twin",
+            "Writhing Chrysalis",
+            "Zhulodok, Void Gorger",
+            "Adarkar Wastes",
+            "Battlefield Forge",
+            "Bonders' Enclave",
+            "Brushland",
+            "Caves of Koilos",
+            "Command Tower",
+            "Exotic Orchard",
+            "Forest",
+            "Forest",
+            "Island",
+            "Island",
+            "Karplusan Forest",
+            "Llanowar Wastes",
+            "Mountain",
+            "Mountain",
+            "Path of Ancestry",
+            "Plains",
+            "Reliquary Tower",
+            "Ruins of Oran-Rief",
+            "Shivan Reef",
+            "Sulfurous Springs",
+            "Swamp",
+            "Tectonic Edge",
+            "Temple of Malady",
+            "Temple of Silence",
+            "Temple of the False God",
+            "Tendo Ice Bridge",
+            "Tomb of the Spirit Dragon",
+            "Tranquil Landscape",
+            "Twisted Landscape",
+            "Underground River",
+            "Wastes",
+            "Wastes",
+            "Wastes",
+            "Wastes",
+            "Wastes",
+            "Yavimaya Coast"
+          ],
+          "watched": [
+            {
+              "card": "Arcane Signet",
+              "reasons": {
+                "individual merit threshold": 431,
+                "role floor": 2
+              },
+              "inShortlist": true,
+              "selected": false
+            },
+            {
+              "card": "Sol Ring",
+              "reasons": {},
+              "inShortlist": true,
+              "selected": true
+            },
+            {
+              "card": "Thran Dynamo",
+              "reasons": {},
+              "inShortlist": false,
+              "selected": false
+            },
+            {
+              "card": "Worn Powerstone",
+              "reasons": {},
+              "inShortlist": false,
+              "selected": false
+            },
+            {
+              "card": "Hedron Archive",
+              "reasons": {
+                "individual merit threshold": 57
+              },
+              "inShortlist": true,
+              "selected": false
+            },
+            {
+              "card": "The One Ring",
+              "reasons": {},
+              "inShortlist": false,
+              "selected": false
+            },
+            {
+              "card": "Rhystic Study",
+              "reasons": {},
+              "inShortlist": false,
+              "selected": false
+            },
+            {
+              "card": "Kindred Discovery",
+              "reasons": {},
+              "inShortlist": false,
+              "selected": false
+            },
+            {
+              "card": "Guardian Project",
+              "reasons": {},
+              "inShortlist": false,
+              "selected": false
+            },
+            {
+              "card": "Mystic Forge",
+              "reasons": {},
+              "inShortlist": false,
+              "selected": false
+            },
+            {
+              "card": "Up the Beanstalk",
+              "reasons": {},
+              "inShortlist": false,
+              "selected": false
+            },
+            {
+              "card": "Ulamog, the Infinite Gyre",
+              "reasons": {
+                "seven-plus spell cap": 129,
+                "individual merit threshold": 48,
+                "high-output early mana": 3
+              },
+              "inShortlist": true,
+              "selected": true
+            }
+          ]
+        }
+      },
+      {
+        "mode": "balanced",
+        "price": 107.63,
+        "score": 181.22,
+        "qualityGain": 137.5,
+        "swaps": 6,
+        "diagnostics": {
+          "pool": 32197,
+          "shortlist": 850,
+          "shortlistLimit": 850,
+          "feasibleFinalistsPerRound": 3,
+          "rejections": {
+            "seven-plus spell cap": 3091,
+            "role floor": 1753,
+            "positive draw floor": 262,
+            "high-output early mana": 21,
+            "fixed-land mana demand": 62,
+            "scalar deck score": 121
+          },
+          "qualityShortlistTop": [
+            {
+              "card": "Warped Tusker",
+              "price": 0.06,
+              "merit": 125.95
+            },
+            {
+              "card": "Drownyard Lurker",
+              "price": 0.11,
+              "merit": 125.94999999999999
+            },
+            {
+              "card": "Eldrazi Repurposer",
+              "price": 0.13,
+              "merit": 107.15
+            },
+            {
+              "card": "Glaring Fleshraker",
+              "price": 0.78,
+              "merit": 107.15
+            },
+            {
+              "card": "Writhing Chrysalis",
+              "price": 0.45,
+              "merit": 103.3
+            },
+            {
+              "card": "Kozilek's Unsealing",
+              "price": 0.36,
+              "merit": 102.15
+            },
+            {
+              "card": "Spawn-Gang Commander",
+              "price": 0.14,
+              "merit": 99.45
+            },
+            {
+              "card": "Desolation Twin",
+              "price": 0.3,
+              "merit": 94.39999999999999
+            },
+            {
+              "card": "Devourer of Destiny",
+              "price": 1.28,
+              "merit": 92.95
+            },
+            {
+              "card": "Deathless Behemoth",
+              "price": 0.09,
+              "merit": 89.8
+            },
+            {
+              "card": "Drowner of Hope",
+              "price": 0.19,
+              "merit": 89.8
+            },
+            {
+              "card": "Rapacious One",
+              "price": 0.09,
+              "merit": 89.8
+            }
+          ],
+          "deck": [
+            "Idol of False Gods",
+            "Azlask, the Swelling Scourge",
+            "Basking Broodscale",
+            "Bismuth Mindrender",
+            "Blisterpod",
+            "Conduit of Ruin",
+            "Deathless Behemoth",
+            "Deranged Assistant",
+            "Devourer of Destiny",
+            "Drowner of Hope",
+            "Drownyard Lurker",
+            "Echoes of Eternity",
+            "Eldrazi Confluence",
+            "Eldrazi Displacer",
+            "Eldrazi Ravager",
+            "Eldrazi Repurposer",
+            "Eldritch Immunity",
+            "Emrakul's Influence",
+            "Emrakul's Messenger",
+            "Endbringer",
+            "Giant's Boulder",
+            "Glaring Fleshraker",
+            "Guardian Idol",
+            "Parting Thoughts",
+            "Inversion Behemoth",
+            "Kozilek, the Great Distortion",
+            "Kozilek's Command",
+            "Kozilek's Pathfinder",
+            "Kozilek's Return",
+            "Kozilek's Unsealing",
+            "Magus of the Library",
+            "Mind Stone",
+            "Nest Invader",
+            "Oblivion Sower",
+            "Propagator Drone",
+            "Rapacious One",
+            "Sifter of Skulls",
+            "Sire of Stagnation",
+            "Snapping Voidcraw",
+            "Sol Ring",
+            "Solar Transformer",
+            "Spawn-Gang Commander",
+            "Spawnbed Protector",
+            "Spell Satchel",
+            "Strionic Resonator",
+            "Tablet of Compleation",
+            "Talisman of Curiosity",
+            "Talisman of Dominance",
+            "Talisman of Impulse",
+            "Talisman of Resilience",
+            "Desolation Twin",
+            "Ulamog's Despoiler",
+            "Ulamog's Nullifier",
+            "Gideon Blackblade",
+            "Vile Redeemer",
+            "Void Grafter",
+            "Warped Tusker",
+            "Warping Wail",
+            "Wastescape Battlemage",
+            "Birthing Hulk",
+            "Writhing Chrysalis",
+            "Zhulodok, Void Gorger",
+            "Adarkar Wastes",
+            "Battlefield Forge",
+            "Bonders' Enclave",
+            "Brushland",
+            "Caves of Koilos",
+            "Command Tower",
+            "Exotic Orchard",
+            "Forest",
+            "Forest",
+            "Island",
+            "Island",
+            "Karplusan Forest",
+            "Llanowar Wastes",
+            "Mountain",
+            "Mountain",
+            "Path of Ancestry",
+            "Plains",
+            "Reliquary Tower",
+            "Ruins of Oran-Rief",
+            "Shivan Reef",
+            "Sulfurous Springs",
+            "Swamp",
+            "Tectonic Edge",
+            "Temple of Malady",
+            "Temple of Silence",
+            "Temple of the False God",
+            "Tendo Ice Bridge",
+            "Tomb of the Spirit Dragon",
+            "Tranquil Landscape",
+            "Twisted Landscape",
+            "Underground River",
+            "Wastes",
+            "Wastes",
+            "Wastes",
+            "Wastes",
+            "Wastes",
+            "Yavimaya Coast"
+          ],
+          "watched": [
+            {
+              "card": "Arcane Signet",
+              "reasons": {
+                "individual merit threshold": 431,
+                "role floor": 2
+              },
+              "inShortlist": true,
+              "selected": false
+            },
+            {
+              "card": "Sol Ring",
+              "reasons": {},
+              "inShortlist": true,
+              "selected": true
+            },
+            {
+              "card": "Thran Dynamo",
+              "reasons": {},
+              "inShortlist": false,
+              "selected": false
+            },
+            {
+              "card": "Worn Powerstone",
+              "reasons": {},
+              "inShortlist": false,
+              "selected": false
+            },
+            {
+              "card": "Hedron Archive",
+              "reasons": {
+                "individual merit threshold": 112
+              },
+              "inShortlist": true,
+              "selected": false
+            },
+            {
+              "card": "The One Ring",
+              "reasons": {},
+              "inShortlist": false,
+              "selected": false
+            },
+            {
+              "card": "Rhystic Study",
+              "reasons": {},
+              "inShortlist": false,
+              "selected": false
+            },
+            {
+              "card": "Kindred Discovery",
+              "reasons": {},
+              "inShortlist": false,
+              "selected": false
+            },
+            {
+              "card": "Guardian Project",
+              "reasons": {},
+              "inShortlist": false,
+              "selected": false
+            },
+            {
+              "card": "Mystic Forge",
+              "reasons": {},
+              "inShortlist": false,
+              "selected": false
+            },
+            {
+              "card": "Up the Beanstalk",
+              "reasons": {},
+              "inShortlist": false,
+              "selected": false
+            },
+            {
+              "card": "Ulamog, the Infinite Gyre",
+              "reasons": {
+                "seven-plus spell cap": 301,
+                "individual merit threshold": 117,
+                "high-output early mana": 7
+              },
+              "inShortlist": true,
+              "selected": false
+            }
+          ]
+        }
+      },
+      {
+        "mode": "value",
+        "price": 107.63,
+        "score": 181.22,
+        "qualityGain": 137.5,
+        "swaps": 6,
+        "diagnostics": {
+          "pool": 32197,
+          "shortlist": 850,
+          "shortlistLimit": 850,
+          "feasibleFinalistsPerRound": 3,
+          "rejections": {
+            "seven-plus spell cap": 3091,
+            "role floor": 1753,
+            "positive draw floor": 262,
+            "high-output early mana": 21,
+            "fixed-land mana demand": 61,
+            "scalar deck score": 121
+          },
+          "qualityShortlistTop": [
+            {
+              "card": "Warped Tusker",
+              "price": 0.06,
+              "merit": 125.95
+            },
+            {
+              "card": "Drownyard Lurker",
+              "price": 0.11,
+              "merit": 125.94999999999999
+            },
+            {
+              "card": "Eldrazi Repurposer",
+              "price": 0.13,
+              "merit": 107.15
+            },
+            {
+              "card": "Glaring Fleshraker",
+              "price": 0.78,
+              "merit": 107.15
+            },
+            {
+              "card": "Writhing Chrysalis",
+              "price": 0.45,
+              "merit": 103.3
+            },
+            {
+              "card": "Kozilek's Unsealing",
+              "price": 0.36,
+              "merit": 102.15
+            },
+            {
+              "card": "Spawn-Gang Commander",
+              "price": 0.14,
+              "merit": 99.45
+            },
+            {
+              "card": "Desolation Twin",
+              "price": 0.3,
+              "merit": 94.39999999999999
+            },
+            {
+              "card": "Devourer of Destiny",
+              "price": 1.28,
+              "merit": 92.95
+            },
+            {
+              "card": "Deathless Behemoth",
+              "price": 0.09,
+              "merit": 89.8
+            },
+            {
+              "card": "Drowner of Hope",
+              "price": 0.19,
+              "merit": 89.8
+            },
+            {
+              "card": "Rapacious One",
+              "price": 0.09,
+              "merit": 89.8
+            }
+          ],
+          "deck": [
+            "Idol of False Gods",
+            "Azlask, the Swelling Scourge",
+            "Basking Broodscale",
+            "Bismuth Mindrender",
+            "Blisterpod",
+            "Conduit of Ruin",
+            "Deathless Behemoth",
+            "Deranged Assistant",
+            "Devourer of Destiny",
+            "Drowner of Hope",
+            "Drownyard Lurker",
+            "Echoes of Eternity",
+            "Eldrazi Confluence",
+            "Eldrazi Displacer",
+            "Eldrazi Ravager",
+            "Eldrazi Repurposer",
+            "Eldritch Immunity",
+            "Emrakul's Influence",
+            "Emrakul's Messenger",
+            "Endbringer",
+            "Giant's Boulder",
+            "Glaring Fleshraker",
+            "Guardian Idol",
+            "Parting Thoughts",
+            "Inversion Behemoth",
+            "Kozilek, the Great Distortion",
+            "Kozilek's Command",
+            "Kozilek's Pathfinder",
+            "Kozilek's Return",
+            "Kozilek's Unsealing",
+            "Magus of the Library",
+            "Mind Stone",
+            "Nest Invader",
+            "Oblivion Sower",
+            "Propagator Drone",
+            "Rapacious One",
+            "Sifter of Skulls",
+            "Sire of Stagnation",
+            "Snapping Voidcraw",
+            "Sol Ring",
+            "Solar Transformer",
+            "Spawn-Gang Commander",
+            "Spawnbed Protector",
+            "Spell Satchel",
+            "Strionic Resonator",
+            "Tablet of Compleation",
+            "Talisman of Curiosity",
+            "Talisman of Dominance",
+            "Talisman of Impulse",
+            "Talisman of Resilience",
+            "Desolation Twin",
+            "Ulamog's Despoiler",
+            "Ulamog's Nullifier",
+            "Gideon Blackblade",
+            "Vile Redeemer",
+            "Void Grafter",
+            "Warped Tusker",
+            "Warping Wail",
+            "Wastescape Battlemage",
+            "Birthing Hulk",
+            "Writhing Chrysalis",
+            "Zhulodok, Void Gorger",
+            "Adarkar Wastes",
+            "Battlefield Forge",
+            "Bonders' Enclave",
+            "Brushland",
+            "Caves of Koilos",
+            "Command Tower",
+            "Exotic Orchard",
+            "Forest",
+            "Forest",
+            "Island",
+            "Island",
+            "Karplusan Forest",
+            "Llanowar Wastes",
+            "Mountain",
+            "Mountain",
+            "Path of Ancestry",
+            "Plains",
+            "Reliquary Tower",
+            "Ruins of Oran-Rief",
+            "Shivan Reef",
+            "Sulfurous Springs",
+            "Swamp",
+            "Tectonic Edge",
+            "Temple of Malady",
+            "Temple of Silence",
+            "Temple of the False God",
+            "Tendo Ice Bridge",
+            "Tomb of the Spirit Dragon",
+            "Tranquil Landscape",
+            "Twisted Landscape",
+            "Underground River",
+            "Wastes",
+            "Wastes",
+            "Wastes",
+            "Wastes",
+            "Wastes",
+            "Yavimaya Coast"
+          ],
+          "watched": [
+            {
+              "card": "Arcane Signet",
+              "reasons": {
+                "individual merit threshold": 431,
+                "role floor": 2
+              },
+              "inShortlist": true,
+              "selected": false
+            },
+            {
+              "card": "Sol Ring",
+              "reasons": {},
+              "inShortlist": true,
+              "selected": true
+            },
+            {
+              "card": "Thran Dynamo",
+              "reasons": {},
+              "inShortlist": false,
+              "selected": false
+            },
+            {
+              "card": "Worn Powerstone",
+              "reasons": {},
+              "inShortlist": false,
+              "selected": false
+            },
+            {
+              "card": "Hedron Archive",
+              "reasons": {
+                "individual merit threshold": 112
+              },
+              "inShortlist": true,
+              "selected": false
+            },
+            {
+              "card": "The One Ring",
+              "reasons": {},
+              "inShortlist": false,
+              "selected": false
+            },
+            {
+              "card": "Rhystic Study",
+              "reasons": {},
+              "inShortlist": false,
+              "selected": false
+            },
+            {
+              "card": "Kindred Discovery",
+              "reasons": {},
+              "inShortlist": false,
+              "selected": false
+            },
+            {
+              "card": "Guardian Project",
+              "reasons": {},
+              "inShortlist": false,
+              "selected": false
+            },
+            {
+              "card": "Mystic Forge",
+              "reasons": {},
+              "inShortlist": false,
+              "selected": false
+            },
+            {
+              "card": "Up the Beanstalk",
+              "reasons": {},
+              "inShortlist": false,
+              "selected": false
+            },
+            {
+              "card": "Ulamog, the Infinite Gyre",
+              "reasons": {
+                "seven-plus spell cap": 301,
+                "individual merit threshold": 117,
+                "high-output early mana": 7
+              },
+              "inShortlist": true,
+              "selected": false
+            }
+          ]
+        }
+      },
+      {
+        "mode": "unchanged",
+        "price": 108.02,
+        "score": 174.12,
+        "qualityGain": 0,
+        "swaps": 0,
+        "diagnostics": {
+          "pool": 32197,
+          "shortlist": 850,
+          "shortlistLimit": 850,
+          "feasibleFinalistsPerRound": 3,
+          "rejections": {},
+          "qualityShortlistTop": [
+            {
+              "card": "Warped Tusker",
+              "price": 0.06,
+              "merit": 125.95
+            },
+            {
+              "card": "Drownyard Lurker",
+              "price": 0.11,
+              "merit": 125.94999999999999
+            },
+            {
+              "card": "Eldrazi Repurposer",
+              "price": 0.13,
+              "merit": 107.15
+            },
+            {
+              "card": "Glaring Fleshraker",
+              "price": 0.78,
+              "merit": 107.15
+            },
+            {
+              "card": "Writhing Chrysalis",
+              "price": 0.45,
+              "merit": 103.3
+            },
+            {
+              "card": "Kozilek's Unsealing",
+              "price": 0.36,
+              "merit": 102.15
+            },
+            {
+              "card": "Spawn-Gang Commander",
+              "price": 0.14,
+              "merit": 99.45
+            },
+            {
+              "card": "Desolation Twin",
+              "price": 0.3,
+              "merit": 94.39999999999999
+            },
+            {
+              "card": "Devourer of Destiny",
+              "price": 1.28,
+              "merit": 92.95
+            },
+            {
+              "card": "Deathless Behemoth",
+              "price": 0.09,
+              "merit": 89.8
+            },
+            {
+              "card": "Drowner of Hope",
+              "price": 0.19,
+              "merit": 89.8
+            },
+            {
+              "card": "Rapacious One",
+              "price": 0.09,
+              "merit": 89.8
+            }
+          ],
+          "deck": [
+            "Annie Joins Up",
+            "Azlask, the Swelling Scourge",
+            "Basking Broodscale",
+            "Bismuth Mindrender",
+            "Chittering Dispatcher",
+            "Conduit of Ruin",
+            "Deathless Behemoth",
+            "Deranged Assistant",
+            "Devourer of Destiny",
+            "Drowner of Hope",
+            "Drownyard Lurker",
+            "Echoes of Eternity",
+            "Eldrazi Confluence",
+            "Eldrazi Displacer",
+            "Eldrazi Ravager",
+            "Eldrazi Repurposer",
+            "Eldritch Immunity",
+            "Emrakul's Influence",
+            "Emrakul's Messenger",
+            "Endbringer",
+            "Giant's Boulder",
+            "Glaring Fleshraker",
+            "Guardian Idol",
+            "Hedron Archive",
+            "Inversion Behemoth",
+            "Kozilek, the Great Distortion",
+            "Kozilek's Command",
+            "Kozilek's Pathfinder",
+            "Kozilek's Return",
+            "Kozilek's Unsealing",
+            "Magus of the Library",
+            "Mind Stone",
+            "Nest Invader",
+            "Oblivion Sower",
+            "Propagator Drone",
+            "Rapacious One",
+            "Sifter of Skulls",
+            "Sire of Stagnation",
+            "Snapping Voidcraw",
+            "Sol Ring",
+            "Solar Transformer",
+            "Spawn-Gang Commander",
+            "Spawnbed Protector",
+            "Spell Satchel",
+            "Strionic Resonator",
+            "Tablet of Compleation",
+            "Talisman of Curiosity",
+            "Talisman of Dominance",
+            "Talisman of Impulse",
+            "Talisman of Resilience",
+            "Twins of Discord",
+            "Ulamog's Despoiler",
+            "Ulamog's Nullifier",
+            "Valorous Stance",
+            "Vile Redeemer",
+            "Void Grafter",
+            "Warped Tusker",
+            "Warping Wail",
+            "Wastescape Battlemage",
+            "World Breaker",
+            "Writhing Chrysalis",
+            "Zhulodok, Void Gorger",
+            "Adarkar Wastes",
+            "Battlefield Forge",
+            "Bonders' Enclave",
+            "Brushland",
+            "Caves of Koilos",
+            "Command Tower",
+            "Exotic Orchard",
+            "Forest",
+            "Forest",
+            "Island",
+            "Island",
+            "Karplusan Forest",
+            "Llanowar Wastes",
+            "Mountain",
+            "Mountain",
+            "Path of Ancestry",
+            "Plains",
+            "Reliquary Tower",
+            "Ruins of Oran-Rief",
+            "Shivan Reef",
+            "Sulfurous Springs",
+            "Swamp",
+            "Tectonic Edge",
+            "Temple of Malady",
+            "Temple of Silence",
+            "Temple of the False God",
+            "Tendo Ice Bridge",
+            "Tomb of the Spirit Dragon",
+            "Tranquil Landscape",
+            "Twisted Landscape",
+            "Underground River",
+            "Wastes",
+            "Wastes",
+            "Wastes",
+            "Wastes",
+            "Wastes",
+            "Yavimaya Coast"
+          ],
+          "watched": [
+            {
+              "card": "Arcane Signet",
+              "reasons": {},
+              "inShortlist": true,
+              "selected": false
+            },
+            {
+              "card": "Sol Ring",
+              "reasons": {},
+              "inShortlist": true,
+              "selected": true
+            },
+            {
+              "card": "Thran Dynamo",
+              "reasons": {},
+              "inShortlist": false,
+              "selected": false
+            },
+            {
+              "card": "Worn Powerstone",
+              "reasons": {},
+              "inShortlist": false,
+              "selected": false
+            },
+            {
+              "card": "Hedron Archive",
+              "reasons": {},
+              "inShortlist": true,
+              "selected": true
+            },
+            {
+              "card": "The One Ring",
+              "reasons": {},
+              "inShortlist": false,
+              "selected": false
+            },
+            {
+              "card": "Rhystic Study",
+              "reasons": {},
+              "inShortlist": false,
+              "selected": false
+            },
+            {
+              "card": "Kindred Discovery",
+              "reasons": {},
+              "inShortlist": false,
+              "selected": false
+            },
+            {
+              "card": "Guardian Project",
+              "reasons": {},
+              "inShortlist": false,
+              "selected": false
+            },
+            {
+              "card": "Mystic Forge",
+              "reasons": {},
+              "inShortlist": false,
+              "selected": false
+            },
+            {
+              "card": "Up the Beanstalk",
+              "reasons": {},
+              "inShortlist": false,
+              "selected": false
+            },
+            {
+              "card": "Ulamog, the Infinite Gyre",
+              "reasons": {},
+              "inShortlist": true,
+              "selected": false
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "deck": "1 Ulalek, Fused Atrocity *CMDR*\n1 Idol of False Gods\n1 Azlask, the Swelling Scourge\n1 Basking Broodscale\n1 Blisterpod\n1 Chittering Dispatcher\n1 Conduit of Ruin\n1 Deathless Behemoth\n1 Deranged Assistant\n1 Devourer of Destiny\n1 Drowner of Hope\n1 Drownyard Lurker\n1 Echoes of Eternity\n1 Eldrazi Confluence\n1 Eldrazi Displacer\n1 Eldrazi Ravager\n1 Eldrazi Repurposer\n1 Eldritch Immunity\n1 Emrakul's Influence\n1 Emrakul's Messenger\n1 Endbringer\n1 Giant's Boulder\n1 Glaring Fleshraker\n1 Guardian Idol\n1 Parting Thoughts\n1 Inversion Behemoth\n1 Kozilek, the Great Distortion\n1 Kozilek's Command\n1 Kozilek's Pathfinder\n1 Kozilek's Return\n1 Kozilek's Unsealing\n1 Magus of the Library\n1 Mind Stone\n1 Nest Invader\n1 Oblivion Sower\n1 Propagator Drone\n1 Rapacious One\n1 Sifter of Skulls\n1 Sire of Stagnation\n1 Snapping Voidcraw\n1 Sol Ring\n1 Solar Transformer\n1 Spawn-Gang Commander\n1 Spawnbed Protector\n1 Spell Satchel\n1 Strionic Resonator\n1 Tablet of Compleation\n1 Talisman of Curiosity\n1 Talisman of Dominance\n1 Talisman of Impulse\n1 Talisman of Resilience\n1 Ulamog, the Infinite Gyre\n1 Ulamog's Despoiler\n1 Ulamog's Nullifier\n1 Gideon Blackblade\n1 Vile Redeemer\n1 Void Grafter\n1 Warped Tusker\n1 Warping Wail\n1 Wastescape Battlemage\n1 Desolation Twin\n1 Writhing Chrysalis\n1 Zhulodok, Void Gorger\n1 Adarkar Wastes\n1 Battlefield Forge\n1 Bonders' Enclave\n1 Brushland\n1 Caves of Koilos\n1 Command Tower\n1 Exotic Orchard\n1 Forest\n1 Forest\n1 Island\n1 Island\n1 Karplusan Forest\n1 Llanowar Wastes\n1 Mountain\n1 Mountain\n1 Path of Ancestry\n1 Plains\n1 Reliquary Tower\n1 Ruins of Oran-Rief\n1 Shivan Reef\n1 Sulfurous Springs\n1 Swamp\n1 Tectonic Edge\n1 Temple of Malady\n1 Temple of Silence\n1 Temple of the False God\n1 Tendo Ice Bridge\n1 Tomb of the Spirit Dragon\n1 Tranquil Landscape\n1 Twisted Landscape\n1 Underground River\n1 Wastes\n1 Wastes\n1 Wastes\n1 Wastes\n1 Wastes\n1 Yavimaya Coast"
+}
