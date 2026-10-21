@@ -1,5 +1,7 @@
 # PR #2 follow-up: strategy infrastructure and supported card access
 
+Later stage: [coordinated restoration and deployment validation](restoration-followup-VALIDATION.md) records the new €174.24 fresh Ulalek output, separate frozen replays and remaining risks. Results below describe the preceding commit and remain historical.
+
 This continues draft PR #2 from `b55cc01`. Historical results in [the initial report](coherent-investment-VALIDATION.md) remain unchanged. No new EDHCheck or EDHPowerLevel scores were obtained. Static evidence, prices and changed lists below do not certify gameplay improvement.
 
 ## Why €131.88 won

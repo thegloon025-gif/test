@@ -24,7 +24,7 @@ export function manaCapacity(c){
  const none={units:0,fast:0,colorless:0,fixing:0,burst:0};
  if(isLandSlot(c)||Number(c.cmc)>4)return none;
  const t=castFaces(c)[0]?.oracle_text||c.oracle_text||'';
- if(/spend this mana only|use this mana only|can't be spent|\bsuspend\b/i.test(t))return none;
+ if(/spend this mana only|use this mana only|can't be spent|\bsuspend\b|\blevel up\b|\bLevel \d/i.test(t))return none;
  let units=0,colorless=0,fixing=0;
  for(const line of t.split('\n')){
   const manaLine=line.replace(/, Mill (?:a|one) card(?=\s*:)/i,'').replace(/:\s*Mill (?:a|one) card\.\s*Add/i,': Add');
@@ -84,7 +84,10 @@ function profile(c,cards,plan,context=contextFor(cards,plan)){
  const removal=role.removal==='broad'&&!delayedRemoval;
  const temporary=/until end of turn/i.test(t)&&!castFaces(c).some(f=>/Instant/.test(f.type_line||'')&&/hexproof|indestructible|phase/i.test(f.oracle_text||''));
  const shield=role.shield==='dedicated'&&!temporary&&!/Planeswalker/.test(c.type_line||'');
- const wideShield=/creatures you control|permanents you control/i.test(t)&&/indestructible|phase out|phases out/i.test(t);
+ // Match one unconditional group clause, not a pump in one sentence and
+ // protection for a narrower token subset in another (or a paid level/mode).
+ const wideShield=!/\btiered\b|if (?:this spell was|it was) kicked|\blevel up\b/i.test(t)&&t.split(/\n|\. /).some(line=>
+  /(?:^|:\s*)(?:all )?(?:creatures|permanents) you control [^.;]*(?:indestructible|phase out|phases out)/i.test(line));
  const threat=relevant.some(type=>castHasSubtype(c,type))&&Number(c.cmc)>=5&&/annihilator|trample|flying|when you cast|when this [^.\n]*enters|when this [^.\n]*attacks/i.test(t);
  const annihilator=threat?Math.max(0,...[...t.matchAll(/annihilator (\d+)/gi)].map(m=>Number(m[1]))):0;
  const power=threat&&Number.isFinite(Number(c.power))?Math.max(0,Number(c.power)):0;
@@ -124,9 +127,13 @@ export const functionallyBetter=dominatesCandidateEvidence;
 /** Only full functional dominance overrides the existing scorer. A core-role
  * surplus alone cannot erase threats, support or another essential function.
  * Incomparable tradeoffs retain the existing scorer; cost never earns merit. */
-export function selectInvestmentDeck(decks,{commander,plan=planFor(commander),score=()=>0,evidenceFor=cards=>investmentEvidence(cards,commander,plan)}={}){
+export function selectInvestmentDeck(decks,{commander,plan=planFor(commander),score=()=>0,evidenceFor=cards=>investmentEvidence(cards,commander,plan),executionFor=null,executionDominates=null}={}){
  const rows=decks.map(deck=>({deck,evidence:evidenceFor(deck.cards)}));
- const frontier=rows.filter(a=>!rows.some(b=>b!==a&&(b.deck.strategy===a.deck.strategy?dominatesEvidence(b.evidence,a.evidence):dominatesCandidateEvidence(b.evidence,a.evidence))));
+ let frontier=rows.filter(a=>!rows.some(b=>b!==a&&(b.deck.strategy===a.deck.strategy?dominatesEvidence(b.evidence,a.evidence):dominatesCandidateEvidence(b.evidence,a.evidence))));
+ if(executionFor&&executionDominates){
+  const measured=new Map(frontier.map(r=>[r,executionFor(r.deck.cards)]));
+  frontier=frontier.filter(a=>!frontier.some(b=>a!==b&&executionDominates(measured.get(b),measured.get(a))));
+ }
  frontier.sort((a,b)=>score(b.deck.cards)-score(a.deck.cards)||stable(a.deck.strategy,b.deck.strategy));
  return frontier[0]?.deck||null;
 }
@@ -147,13 +154,17 @@ export function refinePackageInvestments({built,pool,commander,plan=planFor(comm
  const strategyTargets={engine:plan.needs.some(n=>n.kind==='typed-cast')?21:13,fodder:plan.needs.some(n=>n.kind==='death-tribal')?24:18,opener:10,finisher:4,payoff:8,enabler:8,outlet:6,recursion:6};
  const strategyFloors=Object.fromEntries(Object.entries(original.raw.strategyRoles).map(([role,n])=>[role,Math.min(n,strategyTargets[role]??n)]));
  const preservesStrategy=e=>Object.entries(strategyFloors).every(([role,n])=>(e.raw.strategyRoles[role]||0)>=n);
- const preservesInput=cards=>{const e=evidenceFor(cards);return preservesStrategy(e)&&Object.keys(original.vector).every(k=>e.vector[k]>=original.vector[k])&&(!requireColorless||(e.raw.trueColorless>=original.raw.trueColorless&&e.land.realColorless>=original.land.realColorless));};
+ // Coverage targets are minimum functions, not a commitment to every surplus
+ // card. Native infrastructure, draw capabilities and raw {C} stay protected.
+ const coverageTargets={fastMana:8,flow:8,answers:7,shields:3,wideShields:1,threats:4,castAnswers:2};
+ const functionalFloors=Object.fromEntries(Object.entries(original.vector).map(([k,n])=>[k,Math.min(n,coverageTargets[k]??n)]));
+ const preservesInput=cards=>{const e=evidenceFor(cards);return preservesStrategy(e)&&Object.keys(functionalFloors).every(k=>e.vector[k]>=functionalFloors[k])&&(!requireColorless||(e.raw.trueColorless>=original.raw.trueColorless&&e.land.realColorless>=original.land.realColorless));};
  const committed=new Set((built.committedCombos||[]).flatMap(p=>p.cards||[]).map(name=>singletonName({name})));
  const sourceFloor=source?Math.min(20,built.cards.filter(c=>source.has(oracleId(c))&&!isLandSlot(c)).length):0;
  const maxGC=Number(bracket)===2?0:Number(bracket)===3?3:99;
  const report={method:'Atomic two/three-card investments plus single-card probes; Pareto functional improvements, price is only a ceiling',
-  startingPrice:round(baseCost),finalPrice:round(baseCost),before:original,after:original,strategyFloors,accepted:[],evaluated:0,rejected:{},
-  discovery:[],limits:{maxRounds:Math.min(4,maxRounds),beamWidth:Math.min(3,beamWidth),maxEvaluations:Math.min(64,maxEvaluations)},watch:[]};
+  startingPrice:round(baseCost),finalPrice:round(baseCost),before:original,after:original,strategyFloors,functionalFloors,restoration:[],accepted:[],evaluated:0,rejected:{},
+  discovery:[],restoredPaths:[],limits:{maxRounds:Math.min(4,maxRounds),beamWidth:Math.min(3,beamWidth),maxEvaluations:Math.min(64,maxEvaluations)},watch:[]};
  const reject=reason=>{report.rejected[reason]=(report.rejected[reason]||0)+1;return reason;};
  // Canonical singleton names define physical deck slots. Alternate records
  // must not consume several frontier places or buy the same function at a
@@ -210,6 +221,39 @@ export function refinePackageInvestments({built,pool,commander,plan=planFor(comm
    const sortedLandCuts=state.cards.filter(isLandSlot).sort((a,b)=>landManaQuality(a).colors.length-landManaQuality(b).colors.length||Number(landManaQuality(b).entersTapped)-Number(landManaQuality(a).entersTapped)||stable(a.name,b.name));
    const landCuts=[...new Set([sortedLandCuts[0],sortedLandCuts.find(c=>!landManaQuality(c).canC)])].filter(Boolean);
    const proposals=[];
+   const deficits=Object.fromEntries(Object.entries(functionalFloors).filter(([k,n])=>current.vector[k]<n));
+   // Restore complete paths atomically, rather than requiring each isolated
+   // repair to dominate a deck that already has a different native package.
+   // Reserve functions with real deficits; no monetary merit is used.
+   const contribution=(p,k)=>({fastMana:p.mana.fast,repeatableMana:p.mana.units,fixing:p.mana.fixing,
+    trueColorless:p.mana.colorless,flow:p.flow,answers:p.removal,shields:p.shield,wideShields:p.wideShield,
+    threats:p.threat,castAnswers:p.castAnswer}[k]||0);
+   const repairFields=Object.keys(deficits);
+   const repairs=[...new Set([...repairFields.flatMap(k=>available.filter(x=>contribution(x.p,k)>0)
+    .sort((a,b)=>repairFields.filter(f=>contribution(b.p,f)>0).length-repairFields.filter(f=>contribution(a.p,f)>0).length||
+     contribution(b.p,k)-contribution(a.p,k)||engineManaValue(a.card)-engineManaValue(b.card)||stable(a.card.name,b.card.name)).slice(0,3).map(x=>x.card)),
+    ...(requireColorless?available.filter(x=>x.p.mana.colorless>0).sort((a,b)=>b.p.mana.colorless-a.p.mana.colorless||manaOrder(a,b)).slice(0,2).map(x=>x.card):[])])].slice(0,10);
+   if(repairFields.length){
+    const native=new Set([...current.infrastructure.map(x=>x.card),...current.drawEngines.map(x=>x.card)]);
+    const safeCuts=rankedCuts.filter(c=>!native.has(c.name));
+    const repairCuts=[...new Set([...safeCuts.slice(0,9),...safeCuts.filter(c=>manaFor(c).units).slice(0,3)])].slice(0,12);
+    const cutProfiles=new Map(repairCuts.map(c=>[c,profile(c,state.cards,plan,context)]));
+    let covered=0;
+    // At most ten repair cards, twelve outgoing slots, and three simultaneous
+    // changes. Only deficit-covering permutations reach full validation.
+    for(let size=1;size<=3;size++)for(const add of combinations(repairs,size)){
+     if(!repairFields.every(k=>current.vector[k]+add.reduce((n,c)=>n+contribution(profiles.get(c),k),0)>=deficits[k]))continue;
+     let alternatives=0;
+     for(const remove of combinations(repairCuts,size)){
+      if(!repairFields.every(k=>current.vector[k]+add.reduce((n,c)=>n+contribution(profiles.get(c),k),0)-remove.reduce((n,c)=>n+contribution(cutProfiles.get(c),k),0)>=deficits[k]))continue;
+      const before=proposals.length;propose(add,remove,'functional restoration');
+      if(proposals.length>before){covered++;if(++alternatives>=6)break;}
+     }
+    }
+    report.restoration.push({round:roundIndex+1,origin:state.budgetInvestment?.searchMode||state.strategy,price:state.price,
+     deficits:Object.entries(deficits).map(([field,required])=>({field,required,actual:current.vector[field]})),
+     frontier:repairs.map(c=>c.name),proposed:covered});
+   }
    function propose(add,remove,label='functional complement'){
     if(add.length!==remove.length||new Set(add.map(singletonName)).size!==add.length)return;
     const price=sumCost(state.cards,commander)+add.reduce((n,c)=>n+cost(c),0)-remove.reduce((n,c)=>n+cost(c),0);
@@ -240,8 +284,12 @@ export function refinePackageInvestments({built,pool,commander,plan=planFor(comm
    proposals.sort((a,b)=>b.rough-a.rough||stable(a.add.map(c=>c.name).join('|'),b.add.map(c=>c.name).join('|')));
    // Keep different incoming packages instead of spending every evaluation on
    // many outgoing permutations of one high-ranked bundle.
-   const scheduled=[],perBundle=new Map(),buckets=new Map();
+   const restorationBundles=new Map();
+   for(const p of proposals.filter(p=>p.label==='functional restoration')){const k=p.add.map(singletonName).sort(stable).join('|');if(!restorationBundles.has(k))restorationBundles.set(k,[]);restorationBundles.get(k).push(p);}
+   const scheduled=[];for(let i=0;i<6&&scheduled.length<Math.ceil(report.limits.maxEvaluations/2);i++)for(const bundle of restorationBundles.values()){if(bundle[i])scheduled.push(bundle[i]);if(scheduled.length>=Math.ceil(report.limits.maxEvaluations/2))break;}
+   const perBundle=new Map(),buckets=new Map();
    for(const p of proposals){
+    if(p.label==='functional restoration')continue;
     const key=p.add.map(singletonName).sort(stable).join('|'),n=perBundle.get(key)||0;if(n>=2)continue;
     perBundle.set(key,n+1);const kind=p.label+':'+p.add.length;
     if(!buckets.has(kind))buckets.set(kind,[]);buckets.get(kind).push(p);
@@ -269,11 +317,15 @@ export function refinePackageInvestments({built,pool,commander,plan=planFor(comm
     if(p.cards.some(c=>{const issues=dependencyEvidence(c,p.cards),old=prior.get(c)||[];return issues.length>old.length||issues.some((s,i)=>{const n=s.match(/\d+/),b=old[i]?.match(/\d+/);return n&&b&&Number(n[0])<Number(b[0]);});})){fail('support dependency');continue;}
     const evidence=evidenceFor(p.cards);
     if(!preservesStrategy(evidence)){fail('commander strategy role floor');continue;}
-    const progress=e=>({vector:{...e.vector,fastMana:Math.min(e.vector.fastMana,original.vector.fastMana)}});
+    const progress=e=>({vector:Object.fromEntries(Object.entries(e.vector).map(([k,n])=>[k,Math.min(n,coverageTargets[k]??Infinity)]))});
     if(requireColorless&&(evidence.land.realColorless<original.land.realColorless||evidence.raw.trueColorless<original.raw.trueColorless)||evidence.land.score<current.land.score-1e-7){fail('mana base/demand');continue;}
     if(evidence.raw.highSpellMana>current.raw.highSpellMana&&evidence.raw.repeatableMana<=current.raw.repeatableMana&&evidence.raw.reducers<=current.raw.reducers){fail('high-curve investment needs mana partner');continue;}
-    if(!dominatesEvidence(progress(evidence),progress(current))){fail('no complete functional dominance');continue;}
+    if(p.label==='functional restoration'){
+     if(!preservesInput(p.cards)){fail('incomplete functional restoration');continue;}
+     if(current.infrastructure.some(x=>!evidence.infrastructure.some(y=>y.card===x.card&&y.kind===x.kind&&y.units>=x.units))){fail('native infrastructure restoration');continue;}
+    }else if(!dominatesEvidence(progress(evidence),progress(current))){fail('no complete functional dominance');continue;}
     const entry={label:p.label,cuts:p.remove.map(c=>c.name),adds:p.add.map(c=>c.name),extraCost:round(p.price-sumCost(state.cards,commander)),changes:gained(evidence,current)};
+    if(p.label==='functional restoration')report.restoredPaths.push({origin:state.budgetInvestment?.searchMode||state.strategy,price:round(p.price),...entry});
     expanded.push({...state,cards:p.cards,price:round(p.price),atomic:[...state.atomic,entry]});
     for(const c of p.add){const w=watch.get(c.name);if(w){w.reasons.accepted=(w.reasons.accepted||0)+1;}}
    }

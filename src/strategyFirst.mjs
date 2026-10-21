@@ -14,6 +14,7 @@ import {landScore} from './manaBaseOptimizer.mjs';
 import {templatePredicate} from './comboTemplates.mjs';
 import {normalizedName} from './combos.mjs';
 import {sourceStructureEvidence} from './sourceQuality.mjs';
+import {strategyExecution,executionDominates} from './strategyExecution.mjs';
 import {refinePackageInvestments,selectInvestmentDeck,investmentEvidence,dominatesCandidateEvidence} from './packageInvestment.mjs';
 import {tempoEvidence,drawAccess,sustainedEarlyMana} from './playabilityEvidence.mjs';
 
@@ -488,7 +489,9 @@ export function constructStrategyDeck({cards,commander,bracket,budget,powerTarge
  const successful=results.filter(x=>x.status==='ok');
  for(const r of successful)r.score=strategyScore(r.cards,commander,plan);
  // Compare complete-deck evidence first; spending more is not evidence.
- const functionalChoice=selectInvestmentDeck(successful,{commander,plan,score:cards=>strategyScore(cards,commander,plan).value});
+ const executionMemo=new Map();
+ const executionFor=cards=>{if(!executionMemo.has(cards))executionMemo.set(cards,strategyExecution(cards,commander,plan));return executionMemo.get(cards);};
+ const functionalChoice=selectInvestmentDeck(successful,{commander,plan,score:cards=>strategyScore(cards,commander,plan).value,executionFor,executionDominates});
  successful.sort((a,b)=>b.score.value-a.score.value||stable(a.strategy,b.strategy));
  if(functionalChoice){successful.splice(successful.indexOf(functionalChoice),1);successful.unshift(functionalChoice);}
  // A user-picked community archetype is an explicit choice, not a loose bonus.
@@ -501,13 +504,22 @@ export function constructStrategyDeck({cards,commander,bracket,budget,powerTarge
  }
  const distinct=new Set(successful.map(x=>x.cards.map(c=>oracleId(c)).sort(stable).join('|'))).size;
  const compared=successful.map(deck=>({deck,evidence:investmentEvidence(deck.cards,commander,plan)}));
- const comparison=compared.map(({deck,evidence})=>({id:deck.strategy,price:deck.price,score:deck.score.value,vector:evidence.vector,
-  infrastructure:evidence.infrastructure.map(({card,kind,units,support})=>({card,kind,units,support})),
-  drawEngines:evidence.drawEngines.map(({card,trigger,topAccess,independent,support})=>({card,trigger,topAccess,independent,support})),
-  dominatedBy:compared.filter(other=>other.deck!==deck&&dominatesCandidateEvidence(other.evidence,evidence)).map(other=>other.deck.strategy)}));
+ const functionalFrontier=compared.filter(x=>!compared.some(y=>x!==y&&dominatesCandidateEvidence(y.evidence,x.evidence)));
+ const selectedEvidence=compared.find(x=>x.deck===successful[0]);
+ const comparison=compared.map(({deck,evidence})=>{
+  const dominatedBy=compared.filter(other=>other.deck!==deck&&dominatesCandidateEvidence(other.evidence,evidence)).map(other=>other.deck.strategy);
+  const executionDominatedBy=functionalFrontier.filter(x=>x.deck!==deck&&executionDominates(executionFor(x.deck.cards),executionFor(deck.cards))).map(x=>x.deck.strategy);
+  return {id:deck.strategy,price:deck.price,score:deck.score.value,vector:evidence.vector,execution:executionFor(deck.cards),
+   selection:{reason:deck===successful[0]?'selected':dominatedBy.length?'functional frontier elimination':executionDominatedBy.length?'paired deployment frontier elimination':'incomparable surviving strategies; legacy scalar tie-break',
+    selectedGains:Object.keys(evidence.vector).filter(k=>selectedEvidence.evidence.vector[k]>evidence.vector[k]),
+    selectedLosses:Object.keys(evidence.vector).filter(k=>selectedEvidence.evidence.vector[k]<evidence.vector[k]),
+    selectedScore:successful[0].score.value,executionDominatedBy},
+   infrastructure:evidence.infrastructure.map(({card,kind,units,support})=>({card,kind,units,support})),
+   drawEngines:evidence.drawEngines.map(({card,trigger,topAccess,independent,support})=>({card,trigger,topAccess,independent,support})),dominatedBy};
+ });
  return {selected:successful[0]||null,successful,report:{mode:'strategy-first',comparison,packageExpansion:{limit:3,expanded:expanded.map(x=>x.strategy),reason:'Coverage leader plus flow/mana alternatives; remaining complete candidates retain single-card path results'},generated:results.length,complete:successful.length,distinct,
   candidates:results.map(x=>({id:x.strategy,label:x.label||x.strategy,status:x.status,score:x.score?.value??null,
    sourceSpells:x.sourceSpellCount||0,sourceLands:x.sourceLandCount||0,price:x.price??null,
    budgetSwaps:x.budgetInvestment?.swaps.length||0,investment:x.budgetInvestment,packageInvestment:x.packageInvestment})),
-  selected:successful[0]?.strategy||null,method:'Independent source-template + local-strategy 99-card construction, plus guarded improvement-only budget reinvestment. High budget use is a goal, not proof of strength; no gameplay simulation.'}};
+  selected:successful[0]?.strategy||null,method:'Independent source-template + local-strategy 99-card construction, plus guarded improvement-only budget reinvestment. Functional frontier, paired deployment probes, then existing scalar for incomparable strategies. No spending merit or certified gameplay performance.'}};
 }

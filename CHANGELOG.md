@@ -1,3 +1,10 @@
+## Unreleased — PR #2 functional restoration and deployment evidence
+
+- Restore deficient complete investment paths with bounded coordinated fixing, sustained mana, protection and answer packages; reserve evaluations for repairs and retain native supported infrastructure, combo locks, source spines and exact-printing/budget gates.
+- Record explicit coverage floors instead of protecting every surplus count. Preserve all raw true-colorless output; reject paid level mana and false board-wide protection assembled from unrelated Oracle clauses.
+- Compare surviving complete strategies using separate deterministic deployment probes, including exact colored/hybrid/true-colorless payment after setup and commander optional payment. Preserve distinct engine channels; only paired significant nondecreasing endpoint improvements prune alternatives. Incomparable strategies still use the legacy scalar; no price or spending merit.
+- Add restoration/payment/deployment regressions and trace accepted repairs and complete candidate selection reasons. Validation and remaining risks: `benchmarks/restoration-followup-VALIDATION.md`. PR #2 stays draft; no release or external gameplay improvement is claimed.
+
 ## Unreleased — PR #2 strategy support and card-access follow-up
 
 - Keep tutors, cascade streams, cast copying, passive/activated trigger copying and cost reduction distinct in complete-deck dominance. Generic role surplus can no longer hide the loss of these supported capabilities; surplus-only advantages cannot prune an independent strategy after coverage targets are met. No price bonus is added.

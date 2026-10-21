@@ -144,3 +144,37 @@ test('an unrelated upgrade cannot strip the unblockable opener package of a ninj
  const r=refinePackageInvestments({...opts,commander:ninjaCommander,built:input,pool:[ramp,draw]});
  assert.ok(openers.every(c=>r.cards.includes(c)));assert.equal(r.packageInvestment.strategyFloors.opener,10);
 });
+
+test('restore fixing and wide protection together around a valuable native package, with all final gates',()=>{
+ const zombies=Array.from({length:8},(_,i)=>card('Large Zombie '+i,'Creature — Zombie','Trample',7,1,{power:'6'}));
+ const fixing=card('Necessary fixer','Artifact','{T}: Add one mana of any color.',2,3);
+ const shield=card('Wide shield','Instant','Creatures you control gain indestructible until end of turn.',2,6);
+ const base=built([...zombies,fixing,shield,...filler.slice(10)]);
+ const cascade=card('Native cascade','Artifact','Spells you cast with mana value 5 or greater have cascade, cascade.',5,80);
+ const tutor=card('Native tutor','Artifact','When this artifact enters, search your library for a creature card with mana value 7 or greater, reveal it, then put it into your hand.',3,80);
+ const native={...base,cards:base.cards.map(c=>c===fixing?cascade:c===shield?tutor:c),strategy:'native'};
+ const options={...opts,built:native,startingDecks:[base],protectionBaseline:base.cards,pool:[fixing,shield],score:cards=>cards.includes(cascade)?100:0};
+ const result=refinePackageInvestments(options);
+ assert.ok(result.cards.includes(cascade)&&result.cards.includes(tutor));
+ assert.ok(result.cards.includes(fixing)&&result.cards.includes(shield));
+ assert.ok(result.packageInvestment.accepted.some(p=>p.label==='functional restoration'&&p.adds.length===2));
+ assert.ok(result.price>170&&result.price<191);assert.equal(result.cards.length,99);
+ assert.ok(result.packageInvestment.after.vector.fixing>=result.packageInvestment.functionalFloors.fixing);
+ assert.ok(result.packageInvestment.after.vector.wideShields>=1);
+ const over=refinePackageInvestments({...options,budget:170});assert.ok(over.price<=170);assert.ok(!over.cards.includes(cascade));
+ const forbidden=refinePackageInvestments({...options,comboViolation:cards=>cards.includes(cascade)&&cards.includes(fixing)?'forbidden':null});
+ assert.ok(!forbidden.cards.includes(cascade));
+});
+
+test('separate general pumps from conditional token protection and paid mana levels',()=>{
+ const misleading=card('Token champion','Legendary Creature — Zombie','{W}{U}{B}{R}{G}: Creatures you control get +X/+X until end of turn. Tokens you control gain indestructible until end of turn.',3);
+ const limited=card('Limited shield','Artifact','{3}, {T}: Up to X target creatures you control gain indestructible until end of turn.',3);
+ const kicked=card('Kicked shield','Instant','Target creature gains indestructible. If this spell was kicked, instead creatures you control gain indestructible.',1);
+ for(const shield of [misleading,limited,kicked])assert.equal(investmentEvidence([shield,...filler,...lands],commander).vector.wideShields,0);
+ const real=card('True wide shield','Instant','Creatures you control gain indestructible until end of turn.',2);
+ assert.equal(investmentEvidence([real,...filler,...lands],commander).vector.wideShields,1);
+ const phased=card('Wide phasing','Instant','All permanents you control phase out.',3);
+ assert.equal(investmentEvidence([phased,...filler,...lands],commander).vector.wideShields,1);
+ const level=card('Level mana','Creature — Elf','Level up {1}{G}\nLEVEL 1-4\n{T}: Add {G}{G}.',1);
+ assert.equal(manaCapacity(level).units,0);
+});

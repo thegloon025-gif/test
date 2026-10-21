@@ -13,9 +13,12 @@ Last revised: 2026-10-22. Local, deterministic Commander generator: **no paid AI
 - [x] Correct combined enter/cast and enter/attack recognition, singleton entry support and top-library eligibility; reserve bounded discovery slots by engine family.
 - [x] Separate supported tutor, cascade, copying and cost-reduction capabilities in complete-deck dominance; record exact candidate elimination edges.
 - [ ] Find safe outgoing choices and funding/land-repair packages beyond the bounded search, and validate actual draw access and retained strategic engines through gameplay.
-- [ ] Model life costs, deployment/land sequencing and true-colorless availability after casting expensive spells.
+- [x] Add bounded coordinated restoration of deficient paths with explicit surplus coverage limits and retained native infrastructure, raw true-colorless output and existing gates.
+- [x] Add deterministic separate deployment probes, source/card hashes and per-candidate selection explanations; preserve distinct engine execution channels and separate fixed-candidate replays from fresh generation.
+- [ ] Validate deployment probes against gameplay; model life costs, conditional lands, burst/Spawn mana, combat/ninjutsu, sacrifice/death draw and richer sequencing. Current probes do not certify power.
+- [ ] Replace the remaining legacy scalar decisions between incomparable surviving strategies only when stronger validated evidence justifies it.
 
-See `benchmarks/engine-followup-VALIDATION.md` for the latest PR #2 follow-up and `benchmarks/coherent-investment-VALIDATION.md` for its initial results. Prior reports below remain historical.
+See `benchmarks/restoration-followup-VALIDATION.md` for the latest PR #2 follow-up and `benchmarks/engine-followup-VALIDATION.md` for its prior stage and `benchmarks/coherent-investment-VALIDATION.md` for its initial results. Prior reports below remain historical.
 
 ## Current development after v1.1.5
 
