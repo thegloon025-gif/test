@@ -14,7 +14,7 @@ import {landScore} from './manaBaseOptimizer.mjs';
 import {templatePredicate} from './comboTemplates.mjs';
 import {normalizedName} from './combos.mjs';
 import {sourceStructureEvidence} from './sourceQuality.mjs';
-import {refinePackageInvestments,selectInvestmentDeck,investmentEvidence} from './packageInvestment.mjs';
+import {refinePackageInvestments,selectInvestmentDeck,investmentEvidence,dominatesCandidateEvidence} from './packageInvestment.mjs';
 import {tempoEvidence,drawAccess,sustainedEarlyMana} from './playabilityEvidence.mjs';
 
 const INVESTMENT_STARTS=Symbol('investment starting decks');
@@ -500,7 +500,12 @@ export function constructStrategyDeck({cards,commander,bracket,budget,powerTarge
   if(selected){successful.splice(successful.indexOf(selected),1);successful.unshift(selected);}
  }
  const distinct=new Set(successful.map(x=>x.cards.map(c=>oracleId(c)).sort(stable).join('|'))).size;
- return {selected:successful[0]||null,successful,report:{mode:'strategy-first',packageExpansion:{limit:3,expanded:expanded.map(x=>x.strategy),reason:'Coverage leader plus flow/mana alternatives; remaining complete candidates retain single-card path results'},generated:results.length,complete:successful.length,distinct,
+ const compared=successful.map(deck=>({deck,evidence:investmentEvidence(deck.cards,commander,plan)}));
+ const comparison=compared.map(({deck,evidence})=>({id:deck.strategy,price:deck.price,score:deck.score.value,vector:evidence.vector,
+  infrastructure:evidence.infrastructure.map(({card,kind,units,support})=>({card,kind,units,support})),
+  drawEngines:evidence.drawEngines.map(({card,trigger,topAccess,independent,support})=>({card,trigger,topAccess,independent,support})),
+  dominatedBy:compared.filter(other=>other.deck!==deck&&dominatesCandidateEvidence(other.evidence,evidence)).map(other=>other.deck.strategy)}));
+ return {selected:successful[0]||null,successful,report:{mode:'strategy-first',comparison,packageExpansion:{limit:3,expanded:expanded.map(x=>x.strategy),reason:'Coverage leader plus flow/mana alternatives; remaining complete candidates retain single-card path results'},generated:results.length,complete:successful.length,distinct,
   candidates:results.map(x=>({id:x.strategy,label:x.label||x.strategy,status:x.status,score:x.score?.value??null,
    sourceSpells:x.sourceSpellCount||0,sourceLands:x.sourceLandCount||0,price:x.price??null,
    budgetSwaps:x.budgetInvestment?.swaps.length||0,investment:x.budgetInvestment,packageInvestment:x.packageInvestment})),

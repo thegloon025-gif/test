@@ -2,19 +2,19 @@
  * The evidence vector describes supported functions, never a power rating.
  * A more expensive deck cannot win because of price, nor can the legacy
  * scalar score veto a strict functional improvement. No network or caches. */
-import {castFaces,castHasType,castHasSubtype,isLandSlot,isBasic,legalFor,oracleId,priceOf,landManaQuality} from './cards.mjs';
+import {castFaces,castHasType,castHasSubtype,isLandSlot,legalFor,oracleId,priceOf,landManaQuality} from './cards.mjs';
 import {oracleText,roleEvidence,dependencyEvidence} from './roleEvidence.mjs';
 import {planFor,analysis,synergy} from './mechanics.mjs';
 import {landScore} from './manaBaseOptimizer.mjs';
 import {singletonName,validateCommanderSingleton} from './deckValidation.mjs';
 import {castabilityIssues,selectionLimits,selectionTotals} from './selectionPolicy.mjs';
+import {engineContext,supportedCardAccess,strategyInfrastructure,engineManaValue} from './engineSupport.mjs';
 
 const cost=c=>priceOf(c)??Infinity;
 const sumCost=(cards,commander)=>cost(commander)+cards.reduce((n,c)=>n+cost(c),0);
 const stable=(a,b)=>String(a).localeCompare(String(b));
 const round=n=>Math.round(n*100)/100;
 const signature=cards=>cards.map(c=>oracleId(c)).sort(stable).join('|');
-const typesFor=plan=>[...new Set((plan.needs||[]).flatMap(n=>n.types||(n.kind==='ninjutsu'?['Ninja']:[n.type])).filter(Boolean))];
 
 /** Parse the object's own simple mana abilities, not quoted token abilities.
  * Counter/energy costs, conditional production, restricted spending and untap
@@ -42,51 +42,13 @@ export function manaCapacity(c){
  return {units:Math.max(0,units),fast:Number(units>0&&Number(c.cmc)<=2),colorless:Math.max(0,colorless),fixing:Math.max(0,fixing),burst:0};
 }
 
-function contextFor(cards,plan){
- const spells=cards.filter(c=>!isLandSlot(c)),creatures=spells.filter(c=>castHasType(c,'Creature')),relevant=typesFor(plan);
- return {spells,creatures,relevant,tribal:creatures.filter(c=>relevant.some(type=>castHasSubtype(c,type)))};
-}
+function contextFor(cards,plan,commander){return {...engineContext(cards,plan),commander};}
 function profile(c,cards,plan,context=contextFor(cards,plan)){
  const t=oracleText(c),role=roleEvidence(c),mana=manaCapacity(c);
  const {spells,creatures,relevant,tribal}=context;
- let support=0,engine=false;
- // Bind the draw instruction to its own trigger clause. A different ability
- // that puts counters on this card cannot make a remove-counters draw free.
- const drawAction=/\bdraw (?:a|one|two|three|four|[1-9]) cards?\b/i;
- for(const line of t.split('\n')){
-  if(!drawAction.test(line)||!/whenever/i.test(line))continue;
-  const trigger=line.slice(0,line.toLowerCase().indexOf('draw'));
-  if(/remove [^.]*counter|sacrifice|discard|unless|only if|spent|spend|treasure|second spell|pay|attacks|dies/i.test(trigger))continue;
-  if(/\bif\b/i.test(trigger)&&!/doesn't have the same name/i.test(trigger))continue;
-  const mv=trigger.match(/mana value (\d+) or (?:greater|more)/i);
-  let matches=null;
-  if(/you cast/i.test(trigger)){
-   matches=spells;
-   const kinds=['Artifact','Enchantment','Creature','Instant','Sorcery'].filter(type=>new RegExp('\\b'+type+'s?\\b','i').test(trigger));
-   if(kinds.length)matches=matches.filter(x=>kinds.some(type=>castHasType(x,type)));
-   if(/noncreature/i.test(trigger))matches=matches.filter(x=>!castHasType(x,'Creature'));
-   const castClause=trigger.match(/you cast (?:(?:an?|your (?:first|second)) )?([^\n]*?)spells?\b/i);
-   const descriptor=castClause?.[1]?.trim()||'';
-   const subtype=descriptor.replace(/\b(?:artifact|enchantment|creature|instant|sorcery|noncreature|colorless|or)\b/gi,'').trim();
-   if(subtype){const subtypes=subtype.split(/\s*,\s*|\s+or\s+/).map(x=>x.trim().toLowerCase()).filter(Boolean);matches=matches.filter(x=>castFaces(x).some(f=>subtypes.some(s=>String((f.type_line||x.type_line||'').split('—')[1]||'').toLowerCase().split(/\s+/).includes(s))));}
-   if(!castClause)matches=null;
-   if(matches&&/colorless/i.test(trigger))matches=matches.filter(x=>(x.colors||x.color_identity||[]).length===0);
-   if(matches&&(/chosen type/i.test(trigger)||relevant.some(type=>new RegExp('\\b'+type+'\\b','i').test(trigger))))matches=matches.filter(x=>relevant.some(type=>castHasSubtype(x,type)));
-   if(mv&&matches)matches=matches.filter(x=>Number(x.cmc)>=Number(mv[1]));
-   // Unmodeled resource/zone qualifiers do not establish a repeatable engine.
-   if(/from |targets? |historic|during/i.test(trigger))matches=null;
-   if(/that has an Adventure/i.test(trigger))matches=spells.filter(x=>castFaces(x).some(f=>/Adventure/.test(f.type_line||'')));
-   else if(/\bthat\b/i.test(trigger))matches=null;
-   if(/\bwith\b/i.test(trigger)&&!mv)matches=null;
-  }else if(/creature.*you control|creature you control/i.test(trigger)){
-   matches=/chosen type/i.test(trigger)?tribal:creatures;
-   if(/attacks|deals .*damage|dies/i.test(trigger)&&!/enters/i.test(trigger)&&!(/dies/i.test(trigger)&&plan.needs.some(n=>['death-tribal','recursion'].includes(n.kind))))matches=null;
-   const power=trigger.match(/power (\d+) or (?:greater|more)/i);
-   if(power&&matches)matches=matches.filter(c=>Number(c.power)>=Number(power[1]));
-   else if(/\bwith\b/i.test(trigger)&&!mv)matches=null;
-  }
-  if(matches){support=Math.max(support,matches.length);if(matches.length>=8)engine=true;}
- }
+ const access=supportedCardAccess(c,context);
+ const support=Math.max(access.topSupport,...access.triggers.map(t=>t.support),0);
+ let engine=access.supported;
  const noExtraResources=!/sacrifice|remove [^.\n]*counter|discard|only if|for each [^.\n]*you control/i.test(t);
  const drawAbilities=[];
  for(const line of t.split('\n')){
@@ -112,9 +74,8 @@ function profile(c,cards,plan,context=contextFor(cards,plan)){
  const independent=Number(engine&&activated&&noExtraResources);
  const freeDraw=Number(independent&&drawAbilities.some(a=>a.manaPaid===0));
  const scalable=Number(independent&&drawAbilities.some(a=>a.scalable));
- const positive=role.draw==='positive'&&!/whenever|as an additional cost[^\n]*sacrifice|draw X|draw that many|you and target opponent/i.test(t)&&!issue;
- const topAccess=persistent&&!restrictive&&/you may cast (?:artifact spells and colorless spells|[^.\n]*spells) from the top of your library/i.test(t)&&
-  spells.filter(x=>castHasType(x,'Artifact')||(x.color_identity||[]).length===0).length>=16;
+ const positive=role.draw==='positive'&&noExtraResources&&(castHasType(c,'Instant')||castHasType(c,'Sorcery')||activated)&&!/\bif\b|\bunless\b|discard|when(?:ever)?|at the beginning|as an additional cost|draw X|draw that many|you and target opponent/i.test(t)&&!issue;
+ const topAccess=access.topAccess;
  const reducer=persistent&&!restrictive&&/spells you cast cost[^.\n]*less|spells of the chosen type cost[^.\n]*less|creature spell you cast each turn costs[^.\n]*less/i.test(t)&&
   (relevant.some(type=>new RegExp('\\b'+type+'\\b','i').test(t))||/colorless spells|creature spell you cast each turn/i.test(t))&&tribal.length>=12;
  const copy=Number(persistent&&!restrictive&&plan.needs.some(n=>['typed-cast','target-copy'].includes(n.kind))&&/copy target triggered ability|triggered abilit[^\n]*triggers? (?:an|one) additional time|whenever you cast a colorless spell[^\n]*copy/i.test(t));
@@ -129,32 +90,43 @@ function profile(c,cards,plan,context=contextFor(cards,plan)){
  const power=threat&&Number.isFinite(Number(c.power))?Math.max(0,Number(c.power)):0;
  const protectedThreat=Number(threat&&t.split('\n').some(line=>/^\s*(?:indestructible|hexproof|ward \{[0-9]+\})(?:$|[,.])/i.test(line)));
  const castAnswer=threat&&/when you cast[^\n]*?(?:exile|destroy) (?:target|up to)/i.test(t);
- return {power,protectedThreat,independent,freeDraw,scalable,copy,reducer:Number(reducer),annihilator,castAnswer:Number(castAnswer),mana,flow:Number(positive||engine),engine:Number(engine||topAccess||reducer||cascade||copy),support,removal:Number(removal),shield:Number(shield),wideShield:Number(wideShield),threat:Number(threat),issue};
+ return {power,protectedThreat,independent,freeDraw,scalable,topAccess,triggerDraw:access.supported,access,copy,reducer:Number(reducer),annihilator,castAnswer:Number(castAnswer),mana,flow:Number(positive||engine||topAccess),engine:Number(engine||topAccess||reducer||cascade||copy),support,removal:Number(removal),shield:Number(shield),wideShield:Number(wideShield),threat:Number(threat),issue};
 }
 
 export function investmentEvidence(cards,commander,plan=planFor(commander),strategyFor=c=>synergy(c,plan,analysis(c))){
- const context=contextFor(cards,plan),spells=context.spells,rows=spells.map(c=>profile(c,cards,plan,context));
+ const context=contextFor(cards,plan,commander),spells=context.spells,rows=spells.map(c=>profile(c,cards,plan,context));
  const total=fn=>rows.reduce((n,r)=>n+fn(r),0);
  const strategyRoles={};for(const c of spells)for(const role of strategyFor(c).roles)strategyRoles[role]=(strategyRoles[role]||0)+1;
+ const infrastructure=cards.flatMap(c=>strategyInfrastructure(c,context).map(entry=>({card:c.name,...entry})));
+ const strategyChannels=Object.fromEntries(['cascade','castCopy','passiveTriggerCopy','activatedTriggerCopy','costReduction','tutor'].map(kind=>['strategy_'+kind,infrastructure.filter(e=>e.kind===kind).reduce((n,e)=>n+e.units,0)]));
  const land=landScore(cards,{commander,plan});
- const vector={threatPower:rows.map(r=>r.power).sort((a,b)=>b-a).slice(0,8).reduce((n,p)=>n+p,0),threatProtection:Math.min(4,total(r=>r.protectedThreat)),independentDraw:Math.min(4,total(r=>r.independent)),freeDraw:Math.min(3,total(r=>r.freeDraw)),scalableDraw:Math.min(2,total(r=>r.scalable)),fastMana:Math.min(10,total(r=>r.mana.fast)),repeatableMana:Math.min(22,total(r=>r.mana.units)),
+ const vector={...strategyChannels,topAccessEngines:total(r=>Number(r.topAccess)),threatPower:rows.map(r=>r.power).sort((a,b)=>b-a).slice(0,8).reduce((n,p)=>n+p,0),threatProtection:Math.min(4,total(r=>r.protectedThreat)),independentDraw:Math.min(4,total(r=>r.independent)),freeDraw:Math.min(3,total(r=>r.freeDraw)),scalableDraw:Math.min(2,total(r=>r.scalable)),fastMana:Math.min(10,total(r=>r.mana.fast)),repeatableMana:Math.min(22,total(r=>r.mana.units)),
   fixing:Math.min(Math.max(1,(commander.color_identity||[]).length)*2,total(r=>r.mana.fixing)),
   trueColorless:plan.needsColorless?Math.min(10,total(r=>r.mana.colorless)):0,
   burstMana:Math.min(4,total(r=>r.mana.burst)),flow:Math.min(10,total(r=>r.flow)),
   supportedEngines:Math.min(6,total(r=>r.engine)),copySupport:Math.min(2,total(r=>r.copy)),answers:Math.min(8,total(r=>r.removal)),
   shields:Math.min(3,total(r=>r.shield)),wideShields:Math.min(2,total(r=>r.wideShield)),threats:Math.min(8,total(r=>r.threat)),annihilator:Math.min(16,total(r=>r.annihilator)),castAnswers:Math.min(4,total(r=>r.castAnswer))};
- return {vector,land,raw:{strategyRoles,repeatableMana:total(r=>r.mana.units),trueColorless:total(r=>r.mana.colorless),reducers:total(r=>r.reducer),highSpellMana:spells.filter(c=>Number(c.cmc)>=7).reduce((n,c)=>n+Number(c.cmc),0)},unsupported:rows.filter(r=>r.issue).length,
+ return {vector,land,drawEngines:rows.map((r,i)=>({card:spells[i].name,trigger:r.triggerDraw,topAccess:r.topAccess,independent:r.independent,support:r.support,...r.access})).filter(r=>r.trigger||r.topAccess||r.independent),infrastructure,raw:{strategyRoles,repeatableMana:total(r=>r.mana.units),trueColorless:total(r=>r.mana.colorless),reducers:total(r=>r.reducer),highSpellMana:spells.filter(c=>Number(c.cmc)>=7).reduce((n,c)=>n+Number(c.cmc),0)},unsupported:rows.filter(r=>r.issue).length,
   method:'Supported function and explicit mana capacity; capped coverage, no price term, no gameplay rating or sequencing simulation'};
 }
 export const dominatesEvidence=(a,b)=>Object.keys(b.vector).every(k=>a.vector[k]>=b.vector[k])&&Object.keys(b.vector).some(k=>a.vector[k]>b.vector[k]);
-export const functionallyBetter=(a,b)=>dominatesEvidence(a,b);
+// Across independent strategies, surplus generic coverage alone is not a
+// sufficient certificate to discard a whole deck. Preserve the alternative
+// for the existing scorer. This is a pruning guard, not a new merit score.
+export function dominatesCandidateEvidence(a,b){
+ if(!dominatesEvidence(a,b))return false;
+ const capabilities=['topAccessEngines','threatPower','threatProtection','independentDraw','freeDraw','scalableDraw','annihilator','castAnswers',...Object.keys(b.vector).filter(k=>k.startsWith('strategy_'))];
+ if(capabilities.some(k=>a.vector[k]>b.vector[k]))return true;
+ return Object.entries({fastMana:8,flow:8,answers:7,shields:3,threats:4}).some(([key,target])=>Math.min(a.vector[key],target)>Math.min(b.vector[key],target));
+}
+export const functionallyBetter=dominatesCandidateEvidence;
 
 /** Only full functional dominance overrides the existing scorer. A core-role
  * surplus alone cannot erase threats, support or another essential function.
  * Incomparable tradeoffs retain the existing scorer; cost never earns merit. */
 export function selectInvestmentDeck(decks,{commander,plan=planFor(commander),score=()=>0,evidenceFor=cards=>investmentEvidence(cards,commander,plan)}={}){
  const rows=decks.map(deck=>({deck,evidence:evidenceFor(deck.cards)}));
- const frontier=rows.filter(a=>!rows.some(b=>b!==a&&dominatesEvidence(b.evidence,a.evidence)));
+ const frontier=rows.filter(a=>!rows.some(b=>b!==a&&(b.deck.strategy===a.deck.strategy?dominatesEvidence(b.evidence,a.evidence):dominatesCandidateEvidence(b.evidence,a.evidence))));
  frontier.sort((a,b)=>score(b.deck.cards)-score(a.deck.cards)||stable(a.deck.strategy,b.deck.strategy));
  return frontier[0]?.deck||null;
 }
@@ -181,7 +153,7 @@ export function refinePackageInvestments({built,pool,commander,plan=planFor(comm
  const maxGC=Number(bracket)===2?0:Number(bracket)===3?3:99;
  const report={method:'Atomic two/three-card investments plus single-card probes; Pareto functional improvements, price is only a ceiling',
   startingPrice:round(baseCost),finalPrice:round(baseCost),before:original,after:original,strategyFloors,accepted:[],evaluated:0,rejected:{},
-  limits:{maxRounds:Math.min(4,maxRounds),beamWidth:Math.min(3,beamWidth),maxEvaluations:Math.min(64,maxEvaluations)},watch:[]};
+  discovery:[],limits:{maxRounds:Math.min(4,maxRounds),beamWidth:Math.min(3,beamWidth),maxEvaluations:Math.min(64,maxEvaluations)},watch:[]};
  const reject=reason=>{report.rejected[reason]=(report.rejected[reason]||0)+1;return reason;};
  // Canonical singleton names define physical deck slots. Alternate records
  // must not consume several frontier places or buy the same function at a
@@ -211,7 +183,21 @@ export function refinePackageInvestments({built,pool,commander,plan=planFor(comm
     ...manaOptions.filter(x=>x.p.mana.fixing).sort((a,b)=>b.p.mana.fixing-a.p.mana.fixing||manaOrder(a,b)).slice(0,2),
     ...manaOptions.filter(x=>x.p.mana.burst).sort((a,b)=>b.p.mana.burst-a.p.mana.burst||Number(a.card.cmc)-Number(b.card.cmc)||stable(a.card.name,b.card.name)).slice(0,1)
    ].map(x=>[x.card,x])).values()];
-   const draw=available.filter(x=>x.p.flow||x.p.engine).sort(order).slice(0,6);
+   // Reserve places for supported triggers and top-library access; free tap
+   // abilities must not consume every draw slot. Feasible colored engines
+   // receive a probe as well as alternatives needing a land-repair package.
+   const drawOrder=(a,b)=>engineManaValue(a.card)-engineManaValue(b.card)||b.p.support-a.p.support||stable(a.card.name,b.card.name);
+   const draw=[...new Map([
+    ...available.filter(x=>x.p.independent).sort(order).slice(0,2),
+    ...available.filter(x=>x.p.triggerDraw&&x.p.access.triggers.some(t=>t.kind==='cast')).sort((a,b)=>b.p.support-a.p.support||drawOrder(a,b)).slice(0,1),
+    ...available.filter(x=>x.p.triggerDraw&&x.p.access.triggers.some(t=>t.kind==='cast')).sort(drawOrder).slice(0,1),
+    ...available.filter(x=>x.p.triggerDraw&&x.p.access.triggers.some(t=>t.kind==='entry'&&t.tribal)).sort((a,b)=>b.p.support-a.p.support||drawOrder(a,b)).slice(0,1),
+    ...available.filter(x=>x.p.triggerDraw&&x.p.access.triggers.some(t=>t.kind==='entry'&&!t.tribal)).sort((a,b)=>b.p.support-a.p.support||drawOrder(a,b)).slice(0,1),
+    ...available.filter(x=>x.p.topAccess).sort(drawOrder).slice(0,2),
+    ...available.filter(x=>x.p.flow&&!castabilityIssues(x.card,state.cards.filter(isLandSlot)).length).sort(drawOrder).slice(0,2)
+   ].map(x=>[singletonName(x.card),x])).values()];
+   report.discovery.push({round:roundIndex+1,origin:state.budgetInvestment?.searchMode||state.strategy,price:state.price,
+    draw:draw.map(x=>({card:x.card.name,price:cost(x.card),support:x.p.support,trigger:x.p.triggerDraw,topAccess:x.p.topAccess,independent:x.p.independent,castability:castabilityIssues(x.card,state.cards.filter(isLandSlot))}))});
    const support=available.filter(x=>x.p.engine||x.p.threat).sort((a,b)=>b.p.annihilator-a.p.annihilator||b.p.castAnswer-a.p.castAnswer||order(a,b)).slice(0,4);
    const additions=[...new Map([...mana,...draw,...support].map(x=>[singletonName(x.card),x.card])).values()];
    for(const w of watch.values())if(!owned.has(singletonName({name:w.card}))&&!additions.some(c=>c.name===w.card))w.reasons['outside functional frontier']=(w.reasons['outside functional frontier']||0)+1;

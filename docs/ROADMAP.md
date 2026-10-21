@@ -1,6 +1,6 @@
 # CommanderOracle Independent — development roadmap
 
-Last revised: 2026-10-21. Local, deterministic Commander generator: **no paid AI API** is needed to build a deck.
+Last revised: 2026-10-22. Local, deterministic Commander generator: **no paid AI API** is needed to build a deck.
 
 ## Coherent investment follow-up after merged PR #1
 
@@ -10,10 +10,12 @@ Last revised: 2026-10-21. Local, deterministic Commander generator: **no paid AI
 - [x] Compare full supported-function dominance before the legacy scalar; preserve input functions, exact colorless capacity, commitments and final budget.
 - [x] Add guards against unsupported mana/draw, excessive ramp and unsupported high-curve investments; record candidate expansion limits and accepted/rejected outcomes.
 - [ ] Calibrate independent/scalable draw, native support and threat capability against actual gameplay and permitted external evaluation. Static dominance is not certified strength.
-- [ ] Fix combined enter/cast and enter/attack draw-trigger recognition, expand bounded engine frontiers, and find safe outgoing choices for fixing upgrades. The real-list replay still leaves draw improvements unexplored.
+- [x] Correct combined enter/cast and enter/attack recognition, singleton entry support and top-library eligibility; reserve bounded discovery slots by engine family.
+- [x] Separate supported tutor, cascade, copying and cost-reduction capabilities in complete-deck dominance; record exact candidate elimination edges.
+- [ ] Find safe outgoing choices and funding/land-repair packages beyond the bounded search, and validate actual draw access and retained strategic engines through gameplay.
 - [ ] Model life costs, deployment/land sequencing and true-colorless availability after casting expensive spells.
 
-See `benchmarks/coherent-investment-VALIDATION.md` for current results. Prior reports below remain historical.
+See `benchmarks/engine-followup-VALIDATION.md` for the latest PR #2 follow-up and `benchmarks/coherent-investment-VALIDATION.md` for its initial results. Prior reports below remain historical.
 
 ## Current development after v1.1.5
 

@@ -1,3 +1,11 @@
+## Unreleased — PR #2 strategy support and card-access follow-up
+
+- Keep tutors, cascade streams, cast copying, passive/activated trigger copying and cost reduction distinct in complete-deck dominance. Generic role surplus can no longer hide the loss of these supported capabilities; surplus-only advantages cannot prune an independent strategy after coverage targets are met. No price bonus is added.
+- Recognize chosen-type enter-or-attack draw, singleton creature-entry draw, combined entry/cast triggers and eligible top-library spell access. Preserve conditional classifications and reject unsupported coven, Class-level, emblem, same-name, payment, combat-only and temporary effects.
+- Apply post-draw power conditions and account for zero-MV reversible casting faces in engine discovery without altering pricing records.
+- Reserve bounded discovery slots by engine family and expose named support, frontiers and complete-candidate dominance edges. Add an exact-candidate replay tool and regression coverage.
+- Continue draft PR #2; fixed-cache comparisons and remaining quality risks are recorded in `benchmarks/engine-followup-VALIDATION.md`. No improved external power is claimed.
+
 ## Unreleased — coherent multi-card investment and regression tracing
 
 - Preserve the user's actual €108.02 Ulalek list and real-world evaluator regression as historical evidence, without claiming price equivalence to v1.1.1.

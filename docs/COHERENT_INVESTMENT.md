@@ -1,5 +1,7 @@
 # Coherent investment after merged PR #1
 
+Latest follow-up: [strategy infrastructure and supported card access](../benchmarks/engine-followup-VALIDATION.md). The initial report remains historical.
+
 Base: merged PR #1, `b7070d2`. Development remains an unreleased extension of v1.1.5. The Windows launcher, price-source semantics, automatic Archidekt/Spellbook research, source caches and strategy-first constructors are retained.
 
 ## What the regression exposed
@@ -16,6 +18,10 @@ Raw text roles can also be misleading: a quoted token mana ability is not the ar
 
 Complete-deck comparison removes candidates dominated on the complete supported-function vector. Only incomparable tradeoffs consult the existing scalar scorer. A core-role surplus alone cannot erase losses in threats or native support. Evidence records explicit net mana output, fixing, true-colorless output, independent/scalable draw, supported native engines/copy support, meaningful threat slots, printed power among the top eight threats, unconditional threat protection, annihilator and cast-time answers. These are conservative static features, **not calibrated gameplay strength, probabilities or external power ratings**.
 
+The PR #2 follow-up also keeps supported cascade streams, cast copying, passive/activated trigger copying, cost reduction and eligible tutors in distinct uncapped channels. Generic role surplus cannot erase losses in those channels. Between independent strategies, surplus generic quantities alone also cannot prune an alternative: the certificate needs a strategic/card-quality improvement or an unmet coverage target improved. Within one seed, safe full-vector mana improvements remain available. This conserves observable infrastructure rather than assigning a new weighted power score.
+
+`src/engineSupport.mjs` matches each draw/cast-access trigger to eligible cards in the complete deck. Triggered access remains conditional, distinct from independent activations. Bounded discovery reserves places by trigger/access family so tap-to-draw creatures cannot hide every tribal entry or top-library engine. Same-name, emblem, Class-level and coven conditions need separate support and are conservatively excluded.
+
 A proposed package must improve the complete evidence vector without worsening its protected functions. The final result also covers the original input's functions, preserving original true-colorless land and nonland capacity when relevant. Existing commander strategy roles (including ninjutsu openers), high-output cheap acceleration, combo commitments, source-spine floors, response limits, known bracket-combo restrictions, Game Changer limits, Commander legality, singleton and exact selected-record prices remain gates. Additional high-mana spell burden needs a mana/cost-reduction partner. Ramp-source ceilings prevent solving every deficit by adding more small mana rocks.
 
 The search is bounded: up to three rounds, two continuation beams and forty complete evaluations per state by default; Incoming alternatives are deduplicated by playable name before limiting frontiers, so alternate printing records cannot crowd out a different card. Incoming functional frontiers, cut combinations and three-card support packages are bounded too. All complete constructors retain their three original single-card paths and unchanged baseline. The coverage leader and mana/card-flow alternatives seed **at most three** atomic expansions, and the complete legacy reference can compete as a re-invested candidate. The legacy scalar fallback cannot veto a documented functional improvement. Explicit legacy A/B mode remains unchanged.
@@ -25,7 +31,8 @@ The source selection sort now preserves structural ordering within preference gr
 ## Diagnostics and reproduction
 
 - `budgetInvestment.candidates`: original quality/balanced/value/unchanged path prices, scores and bounded diagnostics, including watched-card rejection reasons and (when requested) complete path lists.
-- `packageInvestment`: accepted atomic cuts/additions, estimated price differences, before/after/protected-input capabilities, rejection counts, search bounds and watched-card outcomes.
+- `packageInvestment`: accepted atomic cuts/additions, estimated price differences, before/after/protected-input capabilities, rejection counts, bounded per-state engine discovery and watched-card outcomes.
+- `constructionEngine.comparison`: named infrastructure, supported access, full vectors and candidate dominance edges.
 - `constructionEngine`: all complete candidate outcomes and which three received atomic expansion. A nonexpanded candidate is a search-limit decision, not proof it has no upgrade.
 - The browser adds coordinated-upgrade summaries. Pricing ledgers, actual-cart notes and original-budget-plus-extra regeneration retain their existing behavior.
 

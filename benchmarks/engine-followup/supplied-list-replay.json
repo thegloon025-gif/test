@@ -1,0 +1,5365 @@
+{
+  "commander": "Ulalek, Fused Atrocity",
+  "budget": 191,
+  "research": "empty",
+  "knownVariants": 0,
+  "priceMode": "Cached Scryfall eligible-printing EUR estimate, basics owned, shipping excluded; not verified EN NM",
+  "catalogSHA256": "6add2c5dd20809fd787438d3c8825f8dd21a74e7d3fc429f83c7a9a091045f6c",
+  "metadata": {
+    "savedAt": "2026-10-21T12:19:02.264Z",
+    "updatedAt": "2026-10-21T09:05:44.591+00:00",
+    "source": "default_cards",
+    "count": 32197,
+    "bulkUri": "https://data.scryfall.io/default-cards/default-cards-20261021090544.jsonl.gz",
+    "printingEligibilityVersion": 2,
+    "pricingPolicy": "Cheapest observed English paper printing with black, white, or borderless border; excludes gold/silver/acorn, oversized and digital"
+  },
+  "elapsedMs": 33120,
+  "before": {
+    "price": 108.02,
+    "unused": 82.98,
+    "score": {
+      "value": 174.12,
+      "onPlan": 60,
+      "mana": 14,
+      "positiveOrConditionalDraw": 13,
+      "broadAnswers": 5,
+      "shields": 3,
+      "threeManaRocks": 1,
+      "late": 7,
+      "unsupported": 1,
+      "landScore": 105.13,
+      "tempo": {
+        "efficientRamp": 13,
+        "threeManaRamp": 1,
+        "burstSources": 20,
+        "sevenPlusSpells": 7,
+        "weightedCardFlow": 6.1,
+        "heavyCurveAccelerationGap": 0,
+        "note": "Non-simulated tempo and draw-access evidence: mana timing, actual castability and triggers are not guaranteed."
+      }
+    },
+    "evidence": {
+      "vector": {
+        "strategy_cascade": 2,
+        "strategy_castCopy": 1,
+        "strategy_passiveTriggerCopy": 2,
+        "strategy_activatedTriggerCopy": 1,
+        "strategy_costReduction": 1,
+        "strategy_tutor": 1,
+        "topAccessEngines": 0,
+        "threatPower": 54,
+        "threatProtection": 0,
+        "independentDraw": 1,
+        "freeDraw": 0,
+        "scalableDraw": 0,
+        "fastMana": 10,
+        "repeatableMana": 15,
+        "fixing": 0,
+        "trueColorless": 10,
+        "burstMana": 0,
+        "flow": 1,
+        "supportedEngines": 5,
+        "copySupport": 2,
+        "answers": 5,
+        "shields": 1,
+        "wideShields": 1,
+        "threats": 8,
+        "annihilator": 1,
+        "castAnswers": 2
+      },
+      "land": {
+        "score": 105.13,
+        "sources": {
+          "W": 10,
+          "U": 10,
+          "B": 11,
+          "R": 10,
+          "G": 11
+        },
+        "demand": {
+          "W": 3,
+          "U": 8,
+          "B": 4,
+          "R": 6,
+          "G": 15
+        },
+        "realColorless": 23,
+        "penalty": 8
+      },
+      "drawEngines": [
+        {
+          "card": "Endbringer",
+          "trigger": false,
+          "topAccess": false,
+          "independent": 1,
+          "support": 0,
+          "supported": false,
+          "triggers": [],
+          "topSupport": 0,
+          "topCards": []
+        }
+      ],
+      "infrastructure": [
+        {
+          "card": "Annie Joins Up",
+          "kind": "passiveTriggerCopy",
+          "units": 1,
+          "support": 4,
+          "cards": [
+            "Azlask, the Swelling Scourge",
+            "Kozilek, the Great Distortion",
+            "Zhulodok, Void Gorger",
+            "Ulalek, Fused Atrocity"
+          ]
+        },
+        {
+          "card": "Conduit of Ruin",
+          "kind": "costReduction",
+          "units": 1,
+          "support": 32,
+          "cards": [
+            "Azlask, the Swelling Scourge",
+            "Bismuth Mindrender",
+            "Chittering Dispatcher",
+            "Conduit of Ruin",
+            "Deathless Behemoth",
+            "Devourer of Destiny",
+            "Drowner of Hope",
+            "Drownyard Lurker",
+            "Eldrazi Displacer",
+            "Eldrazi Ravager",
+            "Eldrazi Repurposer",
+            "Endbringer",
+            "Glaring Fleshraker",
+            "Inversion Behemoth",
+            "Kozilek, the Great Distortion",
+            "Kozilek's Pathfinder",
+            "Oblivion Sower",
+            "Rapacious One",
+            "Sifter of Skulls",
+            "Sire of Stagnation",
+            "Snapping Voidcraw",
+            "Spawn-Gang Commander",
+            "Spawnbed Protector",
+            "Twins of Discord",
+            "Ulamog's Despoiler",
+            "Ulamog's Nullifier",
+            "Vile Redeemer",
+            "Void Grafter",
+            "Warped Tusker",
+            "World Breaker",
+            "Writhing Chrysalis",
+            "Zhulodok, Void Gorger"
+          ]
+        },
+        {
+          "card": "Conduit of Ruin",
+          "kind": "tutor",
+          "units": 1,
+          "support": 7,
+          "cards": [
+            "Devourer of Destiny",
+            "Drownyard Lurker",
+            "Kozilek, the Great Distortion",
+            "Spawnbed Protector",
+            "Twins of Discord",
+            "Warped Tusker",
+            "World Breaker"
+          ]
+        },
+        {
+          "card": "Echoes of Eternity",
+          "kind": "castCopy",
+          "units": 1,
+          "support": 54,
+          "cards": [
+            "Azlask, the Swelling Scourge",
+            "Basking Broodscale",
+            "Bismuth Mindrender",
+            "Chittering Dispatcher",
+            "Conduit of Ruin",
+            "Deathless Behemoth",
+            "Devourer of Destiny",
+            "Drowner of Hope",
+            "Drownyard Lurker",
+            "Eldrazi Confluence",
+            "Eldrazi Displacer",
+            "Eldrazi Ravager",
+            "Eldrazi Repurposer",
+            "Eldritch Immunity",
+            "Emrakul's Messenger",
+            "Endbringer",
+            "Giant's Boulder",
+            "Glaring Fleshraker",
+            "Guardian Idol",
+            "Hedron Archive",
+            "Inversion Behemoth",
+            "Kozilek, the Great Distortion",
+            "Kozilek's Command",
+            "Kozilek's Pathfinder",
+            "Kozilek's Return",
+            "Kozilek's Unsealing",
+            "Mind Stone",
+            "Oblivion Sower",
+            "Propagator Drone",
+            "Sifter of Skulls",
+            "Sire of Stagnation",
+            "Snapping Voidcraw",
+            "Sol Ring",
+            "Solar Transformer",
+            "Spawn-Gang Commander",
+            "Spawnbed Protector",
+            "Spell Satchel",
+            "Strionic Resonator",
+            "Tablet of Compleation",
+            "Talisman of Curiosity",
+            "Talisman of Dominance",
+            "Talisman of Impulse",
+            "Talisman of Resilience",
+            "Twins of Discord",
+            "Ulamog's Despoiler",
+            "Ulamog's Nullifier",
+            "Vile Redeemer",
+            "Void Grafter",
+            "Warped Tusker",
+            "Warping Wail",
+            "Wastescape Battlemage",
+            "World Breaker",
+            "Writhing Chrysalis",
+            "Zhulodok, Void Gorger"
+          ]
+        },
+        {
+          "card": "Echoes of Eternity",
+          "kind": "passiveTriggerCopy",
+          "units": 1,
+          "support": 36,
+          "cards": [
+            "Azlask, the Swelling Scourge",
+            "Basking Broodscale",
+            "Bismuth Mindrender",
+            "Chittering Dispatcher",
+            "Conduit of Ruin",
+            "Devourer of Destiny",
+            "Drowner of Hope",
+            "Drownyard Lurker",
+            "Eldrazi Ravager",
+            "Eldrazi Repurposer",
+            "Emrakul's Messenger",
+            "Giant's Boulder",
+            "Glaring Fleshraker",
+            "Inversion Behemoth",
+            "Kozilek, the Great Distortion",
+            "Kozilek's Return",
+            "Kozilek's Unsealing",
+            "Oblivion Sower",
+            "Propagator Drone",
+            "Sifter of Skulls",
+            "Sire of Stagnation",
+            "Solar Transformer",
+            "Spawn-Gang Commander",
+            "Spawnbed Protector",
+            "Spell Satchel",
+            "Strionic Resonator",
+            "Twins of Discord",
+            "Ulamog's Nullifier",
+            "Vile Redeemer",
+            "Void Grafter",
+            "Warped Tusker",
+            "Wastescape Battlemage",
+            "World Breaker",
+            "Writhing Chrysalis",
+            "Zhulodok, Void Gorger",
+            "Ulalek, Fused Atrocity"
+          ]
+        },
+        {
+          "card": "Strionic Resonator",
+          "kind": "activatedTriggerCopy",
+          "units": 1,
+          "support": 32,
+          "cards": [
+            "Azlask, the Swelling Scourge",
+            "Basking Broodscale",
+            "Bismuth Mindrender",
+            "Chittering Dispatcher",
+            "Conduit of Ruin",
+            "Devourer of Destiny",
+            "Drowner of Hope",
+            "Drownyard Lurker",
+            "Echoes of Eternity",
+            "Eldrazi Ravager",
+            "Eldrazi Repurposer",
+            "Emrakul's Messenger",
+            "Glaring Fleshraker",
+            "Inversion Behemoth",
+            "Kozilek, the Great Distortion",
+            "Nest Invader",
+            "Oblivion Sower",
+            "Propagator Drone",
+            "Rapacious One",
+            "Sifter of Skulls",
+            "Sire of Stagnation",
+            "Spawn-Gang Commander",
+            "Spawnbed Protector",
+            "Twins of Discord",
+            "Ulamog's Nullifier",
+            "Vile Redeemer",
+            "Void Grafter",
+            "Warped Tusker",
+            "Wastescape Battlemage",
+            "World Breaker",
+            "Writhing Chrysalis",
+            "Zhulodok, Void Gorger"
+          ]
+        },
+        {
+          "card": "Zhulodok, Void Gorger",
+          "kind": "cascade",
+          "units": 2,
+          "support": 7,
+          "cards": [
+            "Devourer of Destiny",
+            "Drownyard Lurker",
+            "Kozilek, the Great Distortion",
+            "Spawnbed Protector",
+            "Twins of Discord",
+            "Warped Tusker",
+            "World Breaker"
+          ]
+        }
+      ],
+      "raw": {
+        "strategyRoles": {
+          "payoff": 12,
+          "engine": 40,
+          "enabler": 35,
+          "finisher": 18
+        },
+        "repeatableMana": 15,
+        "trueColorless": 15,
+        "reducers": 1,
+        "highSpellMana": 52
+      },
+      "unsupported": 1,
+      "method": "Supported function and explicit mana capacity; capped coverage, no price term, no gameplay rating or sequencing simulation"
+    }
+  },
+  "after": {
+    "price": 114.66,
+    "unused": 76.34,
+    "score": {
+      "value": 188,
+      "onPlan": 59,
+      "mana": 13,
+      "positiveOrConditionalDraw": 12,
+      "broadAnswers": 5,
+      "shields": 3,
+      "threeManaRocks": 1,
+      "late": 7,
+      "unsupported": 0,
+      "landScore": 105.13,
+      "tempo": {
+        "efficientRamp": 12,
+        "threeManaRamp": 1,
+        "burstSources": 20,
+        "sevenPlusSpells": 7,
+        "weightedCardFlow": 6,
+        "heavyCurveAccelerationGap": 0,
+        "note": "Non-simulated tempo and draw-access evidence: mana timing, actual castability and triggers are not guaranteed."
+      }
+    },
+    "evidence": {
+      "vector": {
+        "strategy_cascade": 2,
+        "strategy_castCopy": 1,
+        "strategy_passiveTriggerCopy": 2,
+        "strategy_activatedTriggerCopy": 1,
+        "strategy_costReduction": 1,
+        "strategy_tutor": 1,
+        "topAccessEngines": 1,
+        "threatPower": 54,
+        "threatProtection": 0,
+        "independentDraw": 1,
+        "freeDraw": 0,
+        "scalableDraw": 0,
+        "fastMana": 10,
+        "repeatableMana": 15,
+        "fixing": 0,
+        "trueColorless": 10,
+        "burstMana": 0,
+        "flow": 2,
+        "supportedEngines": 6,
+        "copySupport": 2,
+        "answers": 5,
+        "shields": 1,
+        "wideShields": 1,
+        "threats": 8,
+        "annihilator": 1,
+        "castAnswers": 2
+      },
+      "land": {
+        "score": 105.13,
+        "sources": {
+          "W": 10,
+          "U": 10,
+          "B": 11,
+          "R": 10,
+          "G": 11
+        },
+        "demand": {
+          "W": 3,
+          "U": 8,
+          "B": 4,
+          "R": 6,
+          "G": 17
+        },
+        "realColorless": 23,
+        "penalty": 8
+      },
+      "drawEngines": [
+        {
+          "card": "Endbringer",
+          "trigger": false,
+          "topAccess": false,
+          "independent": 1,
+          "support": 0,
+          "supported": false,
+          "triggers": [],
+          "topSupport": 0,
+          "topCards": []
+        },
+        {
+          "card": "Eladamri, Korvecdal",
+          "trigger": false,
+          "topAccess": true,
+          "independent": 0,
+          "support": 39,
+          "supported": false,
+          "triggers": [],
+          "topSupport": 39,
+          "topCards": [
+            "Azlask, the Swelling Scourge",
+            "Basking Broodscale",
+            "Bismuth Mindrender",
+            "Chittering Dispatcher",
+            "Conduit of Ruin",
+            "Deathless Behemoth",
+            "Deranged Assistant",
+            "Devourer of Destiny",
+            "Drowner of Hope",
+            "Drownyard Lurker",
+            "Eldrazi Displacer",
+            "Eldrazi Ravager",
+            "Eldrazi Repurposer",
+            "Emrakul's Messenger",
+            "Endbringer",
+            "Glaring Fleshraker",
+            "Inversion Behemoth",
+            "Kozilek, the Great Distortion",
+            "Kozilek's Pathfinder",
+            "Magus of the Library",
+            "Nest Invader",
+            "Oblivion Sower",
+            "Propagator Drone",
+            "Rapacious One",
+            "Sifter of Skulls",
+            "Sire of Stagnation",
+            "Snapping Voidcraw",
+            "Spawn-Gang Commander",
+            "Spawnbed Protector",
+            "Twins of Discord",
+            "Ulamog's Despoiler",
+            "Ulamog's Nullifier",
+            "Vile Redeemer",
+            "Void Grafter",
+            "Warped Tusker",
+            "Wastescape Battlemage",
+            "World Breaker",
+            "Writhing Chrysalis",
+            "Zhulodok, Void Gorger"
+          ]
+        }
+      ],
+      "infrastructure": [
+        {
+          "card": "Annie Joins Up",
+          "kind": "passiveTriggerCopy",
+          "units": 1,
+          "support": 4,
+          "cards": [
+            "Azlask, the Swelling Scourge",
+            "Kozilek, the Great Distortion",
+            "Zhulodok, Void Gorger",
+            "Ulalek, Fused Atrocity"
+          ]
+        },
+        {
+          "card": "Conduit of Ruin",
+          "kind": "costReduction",
+          "units": 1,
+          "support": 33,
+          "cards": [
+            "Azlask, the Swelling Scourge",
+            "Bismuth Mindrender",
+            "Chittering Dispatcher",
+            "Conduit of Ruin",
+            "Deathless Behemoth",
+            "Devourer of Destiny",
+            "Drowner of Hope",
+            "Drownyard Lurker",
+            "Eldrazi Displacer",
+            "Eldrazi Ravager",
+            "Eldrazi Repurposer",
+            "Endbringer",
+            "Glaring Fleshraker",
+            "Inversion Behemoth",
+            "Kozilek, the Great Distortion",
+            "Kozilek's Pathfinder",
+            "Oblivion Sower",
+            "Rapacious One",
+            "Sifter of Skulls",
+            "Sire of Stagnation",
+            "Snapping Voidcraw",
+            "Spawn-Gang Commander",
+            "Spawnbed Protector",
+            "Twins of Discord",
+            "Ulamog's Despoiler",
+            "Ulamog's Nullifier",
+            "Vile Redeemer",
+            "Void Grafter",
+            "Warped Tusker",
+            "World Breaker",
+            "Writhing Chrysalis",
+            "Zhulodok, Void Gorger",
+            "Eladamri, Korvecdal"
+          ]
+        },
+        {
+          "card": "Conduit of Ruin",
+          "kind": "tutor",
+          "units": 1,
+          "support": 7,
+          "cards": [
+            "Devourer of Destiny",
+            "Drownyard Lurker",
+            "Kozilek, the Great Distortion",
+            "Spawnbed Protector",
+            "Twins of Discord",
+            "Warped Tusker",
+            "World Breaker"
+          ]
+        },
+        {
+          "card": "Echoes of Eternity",
+          "kind": "castCopy",
+          "units": 1,
+          "support": 53,
+          "cards": [
+            "Azlask, the Swelling Scourge",
+            "Basking Broodscale",
+            "Bismuth Mindrender",
+            "Chittering Dispatcher",
+            "Conduit of Ruin",
+            "Deathless Behemoth",
+            "Devourer of Destiny",
+            "Drowner of Hope",
+            "Drownyard Lurker",
+            "Eldrazi Confluence",
+            "Eldrazi Displacer",
+            "Eldrazi Ravager",
+            "Eldrazi Repurposer",
+            "Eldritch Immunity",
+            "Emrakul's Messenger",
+            "Endbringer",
+            "Giant's Boulder",
+            "Glaring Fleshraker",
+            "Guardian Idol",
+            "Hedron Archive",
+            "Inversion Behemoth",
+            "Kozilek, the Great Distortion",
+            "Kozilek's Command",
+            "Kozilek's Pathfinder",
+            "Kozilek's Return",
+            "Kozilek's Unsealing",
+            "Mind Stone",
+            "Oblivion Sower",
+            "Propagator Drone",
+            "Sifter of Skulls",
+            "Sire of Stagnation",
+            "Snapping Voidcraw",
+            "Sol Ring",
+            "Solar Transformer",
+            "Spawn-Gang Commander",
+            "Spawnbed Protector",
+            "Strionic Resonator",
+            "Tablet of Compleation",
+            "Talisman of Curiosity",
+            "Talisman of Dominance",
+            "Talisman of Impulse",
+            "Talisman of Resilience",
+            "Twins of Discord",
+            "Ulamog's Despoiler",
+            "Ulamog's Nullifier",
+            "Vile Redeemer",
+            "Void Grafter",
+            "Warped Tusker",
+            "Warping Wail",
+            "Wastescape Battlemage",
+            "World Breaker",
+            "Writhing Chrysalis",
+            "Zhulodok, Void Gorger"
+          ]
+        },
+        {
+          "card": "Echoes of Eternity",
+          "kind": "passiveTriggerCopy",
+          "units": 1,
+          "support": 35,
+          "cards": [
+            "Azlask, the Swelling Scourge",
+            "Basking Broodscale",
+            "Bismuth Mindrender",
+            "Chittering Dispatcher",
+            "Conduit of Ruin",
+            "Devourer of Destiny",
+            "Drowner of Hope",
+            "Drownyard Lurker",
+            "Eldrazi Ravager",
+            "Eldrazi Repurposer",
+            "Emrakul's Messenger",
+            "Giant's Boulder",
+            "Glaring Fleshraker",
+            "Inversion Behemoth",
+            "Kozilek, the Great Distortion",
+            "Kozilek's Return",
+            "Kozilek's Unsealing",
+            "Oblivion Sower",
+            "Propagator Drone",
+            "Sifter of Skulls",
+            "Sire of Stagnation",
+            "Solar Transformer",
+            "Spawn-Gang Commander",
+            "Spawnbed Protector",
+            "Strionic Resonator",
+            "Twins of Discord",
+            "Ulamog's Nullifier",
+            "Vile Redeemer",
+            "Void Grafter",
+            "Warped Tusker",
+            "Wastescape Battlemage",
+            "World Breaker",
+            "Writhing Chrysalis",
+            "Zhulodok, Void Gorger",
+            "Ulalek, Fused Atrocity"
+          ]
+        },
+        {
+          "card": "Strionic Resonator",
+          "kind": "activatedTriggerCopy",
+          "units": 1,
+          "support": 32,
+          "cards": [
+            "Azlask, the Swelling Scourge",
+            "Basking Broodscale",
+            "Bismuth Mindrender",
+            "Chittering Dispatcher",
+            "Conduit of Ruin",
+            "Devourer of Destiny",
+            "Drowner of Hope",
+            "Drownyard Lurker",
+            "Echoes of Eternity",
+            "Eldrazi Ravager",
+            "Eldrazi Repurposer",
+            "Emrakul's Messenger",
+            "Glaring Fleshraker",
+            "Inversion Behemoth",
+            "Kozilek, the Great Distortion",
+            "Nest Invader",
+            "Oblivion Sower",
+            "Propagator Drone",
+            "Rapacious One",
+            "Sifter of Skulls",
+            "Sire of Stagnation",
+            "Spawn-Gang Commander",
+            "Spawnbed Protector",
+            "Twins of Discord",
+            "Ulamog's Nullifier",
+            "Vile Redeemer",
+            "Void Grafter",
+            "Warped Tusker",
+            "Wastescape Battlemage",
+            "World Breaker",
+            "Writhing Chrysalis",
+            "Zhulodok, Void Gorger"
+          ]
+        },
+        {
+          "card": "Zhulodok, Void Gorger",
+          "kind": "cascade",
+          "units": 2,
+          "support": 7,
+          "cards": [
+            "Devourer of Destiny",
+            "Drownyard Lurker",
+            "Kozilek, the Great Distortion",
+            "Spawnbed Protector",
+            "Twins of Discord",
+            "Warped Tusker",
+            "World Breaker"
+          ]
+        }
+      ],
+      "raw": {
+        "strategyRoles": {
+          "payoff": 12,
+          "engine": 40,
+          "enabler": 34,
+          "finisher": 18
+        },
+        "repeatableMana": 15,
+        "trueColorless": 15,
+        "reducers": 1,
+        "highSpellMana": 52
+      },
+      "unsupported": 0,
+      "method": "Supported function and explicit mana capacity; capped coverage, no price term, no gameplay rating or sequencing simulation"
+    }
+  },
+  "singleCardPaths": [
+    {
+      "mode": "quality",
+      "price": 134.07,
+      "score": 184.22,
+      "qualityGain": 157.95,
+      "swaps": 6,
+      "diagnostics": {
+        "pool": 32197,
+        "shortlist": 850,
+        "shortlistLimit": 850,
+        "feasibleFinalistsPerRound": 3,
+        "rejections": {
+          "seven-plus spell cap": 2993,
+          "role floor": 1753,
+          "positive draw floor": 267,
+          "high-output early mana": 20,
+          "fixed-land mana demand": 48,
+          "scalar deck score": 92
+        },
+        "qualityShortlistTop": [
+          {
+            "card": "Warped Tusker",
+            "price": 0.06,
+            "merit": 125.95
+          },
+          {
+            "card": "Drownyard Lurker",
+            "price": 0.11,
+            "merit": 125.94999999999999
+          },
+          {
+            "card": "Eldrazi Repurposer",
+            "price": 0.13,
+            "merit": 107.15
+          },
+          {
+            "card": "Glaring Fleshraker",
+            "price": 0.78,
+            "merit": 107.15
+          },
+          {
+            "card": "Writhing Chrysalis",
+            "price": 0.45,
+            "merit": 103.3
+          },
+          {
+            "card": "Kozilek's Unsealing",
+            "price": 0.36,
+            "merit": 102.15
+          },
+          {
+            "card": "Spawn-Gang Commander",
+            "price": 0.14,
+            "merit": 99.45
+          },
+          {
+            "card": "Desolation Twin",
+            "price": 0.3,
+            "merit": 94.39999999999999
+          },
+          {
+            "card": "Devourer of Destiny",
+            "price": 1.28,
+            "merit": 92.95
+          },
+          {
+            "card": "Deathless Behemoth",
+            "price": 0.09,
+            "merit": 89.8
+          },
+          {
+            "card": "Drowner of Hope",
+            "price": 0.19,
+            "merit": 89.8
+          },
+          {
+            "card": "Rapacious One",
+            "price": 0.09,
+            "merit": 89.8
+          }
+        ],
+        "deck": [
+          "Idol of False Gods",
+          "Azlask, the Swelling Scourge",
+          "Basking Broodscale",
+          "Blisterpod",
+          "Chittering Dispatcher",
+          "Conduit of Ruin",
+          "Deathless Behemoth",
+          "Deranged Assistant",
+          "Devourer of Destiny",
+          "Drowner of Hope",
+          "Drownyard Lurker",
+          "Echoes of Eternity",
+          "Eldrazi Confluence",
+          "Eldrazi Displacer",
+          "Eldrazi Ravager",
+          "Eldrazi Repurposer",
+          "Eldritch Immunity",
+          "Emrakul's Influence",
+          "Emrakul's Messenger",
+          "Endbringer",
+          "Giant's Boulder",
+          "Glaring Fleshraker",
+          "Guardian Idol",
+          "Parting Thoughts",
+          "Inversion Behemoth",
+          "Kozilek, the Great Distortion",
+          "Kozilek's Command",
+          "Kozilek's Pathfinder",
+          "Kozilek's Return",
+          "Kozilek's Unsealing",
+          "Magus of the Library",
+          "Mind Stone",
+          "Nest Invader",
+          "Oblivion Sower",
+          "Propagator Drone",
+          "Rapacious One",
+          "Sifter of Skulls",
+          "Sire of Stagnation",
+          "Snapping Voidcraw",
+          "Sol Ring",
+          "Solar Transformer",
+          "Spawn-Gang Commander",
+          "Spawnbed Protector",
+          "Spell Satchel",
+          "Strionic Resonator",
+          "Tablet of Compleation",
+          "Talisman of Curiosity",
+          "Talisman of Dominance",
+          "Talisman of Impulse",
+          "Talisman of Resilience",
+          "Ulamog, the Infinite Gyre",
+          "Ulamog's Despoiler",
+          "Ulamog's Nullifier",
+          "Gideon Blackblade",
+          "Vile Redeemer",
+          "Void Grafter",
+          "Warped Tusker",
+          "Warping Wail",
+          "Wastescape Battlemage",
+          "Desolation Twin",
+          "Writhing Chrysalis",
+          "Zhulodok, Void Gorger",
+          "Adarkar Wastes",
+          "Battlefield Forge",
+          "Bonders' Enclave",
+          "Brushland",
+          "Caves of Koilos",
+          "Command Tower",
+          "Exotic Orchard",
+          "Forest",
+          "Forest",
+          "Island",
+          "Island",
+          "Karplusan Forest",
+          "Llanowar Wastes",
+          "Mountain",
+          "Mountain",
+          "Path of Ancestry",
+          "Plains",
+          "Reliquary Tower",
+          "Ruins of Oran-Rief",
+          "Shivan Reef",
+          "Sulfurous Springs",
+          "Swamp",
+          "Tectonic Edge",
+          "Temple of Malady",
+          "Temple of Silence",
+          "Temple of the False God",
+          "Tendo Ice Bridge",
+          "Tomb of the Spirit Dragon",
+          "Tranquil Landscape",
+          "Twisted Landscape",
+          "Underground River",
+          "Wastes",
+          "Wastes",
+          "Wastes",
+          "Wastes",
+          "Wastes",
+          "Yavimaya Coast"
+        ],
+        "watched": [
+          {
+            "card": "Arcane Signet",
+            "reasons": {
+              "individual merit threshold": 431,
+              "role floor": 2
+            },
+            "inShortlist": true,
+            "selected": false
+          },
+          {
+            "card": "Sol Ring",
+            "reasons": {},
+            "inShortlist": true,
+            "selected": true
+          },
+          {
+            "card": "Thran Dynamo",
+            "reasons": {},
+            "inShortlist": false,
+            "selected": false
+          },
+          {
+            "card": "Worn Powerstone",
+            "reasons": {},
+            "inShortlist": false,
+            "selected": false
+          },
+          {
+            "card": "Hedron Archive",
+            "reasons": {
+              "individual merit threshold": 57
+            },
+            "inShortlist": true,
+            "selected": false
+          },
+          {
+            "card": "The One Ring",
+            "reasons": {},
+            "inShortlist": false,
+            "selected": false
+          },
+          {
+            "card": "Rhystic Study",
+            "reasons": {},
+            "inShortlist": false,
+            "selected": false
+          },
+          {
+            "card": "Kindred Discovery",
+            "reasons": {},
+            "inShortlist": false,
+            "selected": false
+          },
+          {
+            "card": "Guardian Project",
+            "reasons": {},
+            "inShortlist": false,
+            "selected": false
+          },
+          {
+            "card": "Mystic Forge",
+            "reasons": {},
+            "inShortlist": false,
+            "selected": false
+          },
+          {
+            "card": "Up the Beanstalk",
+            "reasons": {},
+            "inShortlist": false,
+            "selected": false
+          },
+          {
+            "card": "Ulamog, the Infinite Gyre",
+            "reasons": {
+              "seven-plus spell cap": 129,
+              "individual merit threshold": 48,
+              "high-output early mana": 3
+            },
+            "inShortlist": true,
+            "selected": true
+          }
+        ]
+      }
+    },
+    {
+      "mode": "balanced",
+      "price": 107.63,
+      "score": 181.22,
+      "qualityGain": 137.5,
+      "swaps": 6,
+      "diagnostics": {
+        "pool": 32197,
+        "shortlist": 850,
+        "shortlistLimit": 850,
+        "feasibleFinalistsPerRound": 3,
+        "rejections": {
+          "seven-plus spell cap": 3091,
+          "role floor": 1753,
+          "positive draw floor": 262,
+          "high-output early mana": 21,
+          "fixed-land mana demand": 62,
+          "scalar deck score": 121
+        },
+        "qualityShortlistTop": [
+          {
+            "card": "Warped Tusker",
+            "price": 0.06,
+            "merit": 125.95
+          },
+          {
+            "card": "Drownyard Lurker",
+            "price": 0.11,
+            "merit": 125.94999999999999
+          },
+          {
+            "card": "Eldrazi Repurposer",
+            "price": 0.13,
+            "merit": 107.15
+          },
+          {
+            "card": "Glaring Fleshraker",
+            "price": 0.78,
+            "merit": 107.15
+          },
+          {
+            "card": "Writhing Chrysalis",
+            "price": 0.45,
+            "merit": 103.3
+          },
+          {
+            "card": "Kozilek's Unsealing",
+            "price": 0.36,
+            "merit": 102.15
+          },
+          {
+            "card": "Spawn-Gang Commander",
+            "price": 0.14,
+            "merit": 99.45
+          },
+          {
+            "card": "Desolation Twin",
+            "price": 0.3,
+            "merit": 94.39999999999999
+          },
+          {
+            "card": "Devourer of Destiny",
+            "price": 1.28,
+            "merit": 92.95
+          },
+          {
+            "card": "Deathless Behemoth",
+            "price": 0.09,
+            "merit": 89.8
+          },
+          {
+            "card": "Drowner of Hope",
+            "price": 0.19,
+            "merit": 89.8
+          },
+          {
+            "card": "Rapacious One",
+            "price": 0.09,
+            "merit": 89.8
+          }
+        ],
+        "deck": [
+          "Idol of False Gods",
+          "Azlask, the Swelling Scourge",
+          "Basking Broodscale",
+          "Bismuth Mindrender",
+          "Blisterpod",
+          "Conduit of Ruin",
+          "Deathless Behemoth",
+          "Deranged Assistant",
+          "Devourer of Destiny",
+          "Drowner of Hope",
+          "Drownyard Lurker",
+          "Echoes of Eternity",
+          "Eldrazi Confluence",
+          "Eldrazi Displacer",
+          "Eldrazi Ravager",
+          "Eldrazi Repurposer",
+          "Eldritch Immunity",
+          "Emrakul's Influence",
+          "Emrakul's Messenger",
+          "Endbringer",
+          "Giant's Boulder",
+          "Glaring Fleshraker",
+          "Guardian Idol",
+          "Parting Thoughts",
+          "Inversion Behemoth",
+          "Kozilek, the Great Distortion",
+          "Kozilek's Command",
+          "Kozilek's Pathfinder",
+          "Kozilek's Return",
+          "Kozilek's Unsealing",
+          "Magus of the Library",
+          "Mind Stone",
+          "Nest Invader",
+          "Oblivion Sower",
+          "Propagator Drone",
+          "Rapacious One",
+          "Sifter of Skulls",
+          "Sire of Stagnation",
+          "Snapping Voidcraw",
+          "Sol Ring",
+          "Solar Transformer",
+          "Spawn-Gang Commander",
+          "Spawnbed Protector",
+          "Spell Satchel",
+          "Strionic Resonator",
+          "Tablet of Compleation",
+          "Talisman of Curiosity",
+          "Talisman of Dominance",
+          "Talisman of Impulse",
+          "Talisman of Resilience",
+          "Desolation Twin",
+          "Ulamog's Despoiler",
+          "Ulamog's Nullifier",
+          "Gideon Blackblade",
+          "Vile Redeemer",
+          "Void Grafter",
+          "Warped Tusker",
+          "Warping Wail",
+          "Wastescape Battlemage",
+          "Birthing Hulk",
+          "Writhing Chrysalis",
+          "Zhulodok, Void Gorger",
+          "Adarkar Wastes",
+          "Battlefield Forge",
+          "Bonders' Enclave",
+          "Brushland",
+          "Caves of Koilos",
+          "Command Tower",
+          "Exotic Orchard",
+          "Forest",
+          "Forest",
+          "Island",
+          "Island",
+          "Karplusan Forest",
+          "Llanowar Wastes",
+          "Mountain",
+          "Mountain",
+          "Path of Ancestry",
+          "Plains",
+          "Reliquary Tower",
+          "Ruins of Oran-Rief",
+          "Shivan Reef",
+          "Sulfurous Springs",
+          "Swamp",
+          "Tectonic Edge",
+          "Temple of Malady",
+          "Temple of Silence",
+          "Temple of the False God",
+          "Tendo Ice Bridge",
+          "Tomb of the Spirit Dragon",
+          "Tranquil Landscape",
+          "Twisted Landscape",
+          "Underground River",
+          "Wastes",
+          "Wastes",
+          "Wastes",
+          "Wastes",
+          "Wastes",
+          "Yavimaya Coast"
+        ],
+        "watched": [
+          {
+            "card": "Arcane Signet",
+            "reasons": {
+              "individual merit threshold": 431,
+              "role floor": 2
+            },
+            "inShortlist": true,
+            "selected": false
+          },
+          {
+            "card": "Sol Ring",
+            "reasons": {},
+            "inShortlist": true,
+            "selected": true
+          },
+          {
+            "card": "Thran Dynamo",
+            "reasons": {},
+            "inShortlist": false,
+            "selected": false
+          },
+          {
+            "card": "Worn Powerstone",
+            "reasons": {},
+            "inShortlist": false,
+            "selected": false
+          },
+          {
+            "card": "Hedron Archive",
+            "reasons": {
+              "individual merit threshold": 112
+            },
+            "inShortlist": true,
+            "selected": false
+          },
+          {
+            "card": "The One Ring",
+            "reasons": {},
+            "inShortlist": false,
+            "selected": false
+          },
+          {
+            "card": "Rhystic Study",
+            "reasons": {},
+            "inShortlist": false,
+            "selected": false
+          },
+          {
+            "card": "Kindred Discovery",
+            "reasons": {},
+            "inShortlist": false,
+            "selected": false
+          },
+          {
+            "card": "Guardian Project",
+            "reasons": {},
+            "inShortlist": false,
+            "selected": false
+          },
+          {
+            "card": "Mystic Forge",
+            "reasons": {},
+            "inShortlist": false,
+            "selected": false
+          },
+          {
+            "card": "Up the Beanstalk",
+            "reasons": {},
+            "inShortlist": false,
+            "selected": false
+          },
+          {
+            "card": "Ulamog, the Infinite Gyre",
+            "reasons": {
+              "seven-plus spell cap": 301,
+              "individual merit threshold": 117,
+              "high-output early mana": 7
+            },
+            "inShortlist": true,
+            "selected": false
+          }
+        ]
+      }
+    },
+    {
+      "mode": "value",
+      "price": 107.63,
+      "score": 181.22,
+      "qualityGain": 137.5,
+      "swaps": 6,
+      "diagnostics": {
+        "pool": 32197,
+        "shortlist": 850,
+        "shortlistLimit": 850,
+        "feasibleFinalistsPerRound": 3,
+        "rejections": {
+          "seven-plus spell cap": 3091,
+          "role floor": 1753,
+          "positive draw floor": 262,
+          "high-output early mana": 21,
+          "fixed-land mana demand": 61,
+          "scalar deck score": 121
+        },
+        "qualityShortlistTop": [
+          {
+            "card": "Warped Tusker",
+            "price": 0.06,
+            "merit": 125.95
+          },
+          {
+            "card": "Drownyard Lurker",
+            "price": 0.11,
+            "merit": 125.94999999999999
+          },
+          {
+            "card": "Eldrazi Repurposer",
+            "price": 0.13,
+            "merit": 107.15
+          },
+          {
+            "card": "Glaring Fleshraker",
+            "price": 0.78,
+            "merit": 107.15
+          },
+          {
+            "card": "Writhing Chrysalis",
+            "price": 0.45,
+            "merit": 103.3
+          },
+          {
+            "card": "Kozilek's Unsealing",
+            "price": 0.36,
+            "merit": 102.15
+          },
+          {
+            "card": "Spawn-Gang Commander",
+            "price": 0.14,
+            "merit": 99.45
+          },
+          {
+            "card": "Desolation Twin",
+            "price": 0.3,
+            "merit": 94.39999999999999
+          },
+          {
+            "card": "Devourer of Destiny",
+            "price": 1.28,
+            "merit": 92.95
+          },
+          {
+            "card": "Deathless Behemoth",
+            "price": 0.09,
+            "merit": 89.8
+          },
+          {
+            "card": "Drowner of Hope",
+            "price": 0.19,
+            "merit": 89.8
+          },
+          {
+            "card": "Rapacious One",
+            "price": 0.09,
+            "merit": 89.8
+          }
+        ],
+        "deck": [
+          "Idol of False Gods",
+          "Azlask, the Swelling Scourge",
+          "Basking Broodscale",
+          "Bismuth Mindrender",
+          "Blisterpod",
+          "Conduit of Ruin",
+          "Deathless Behemoth",
+          "Deranged Assistant",
+          "Devourer of Destiny",
+          "Drowner of Hope",
+          "Drownyard Lurker",
+          "Echoes of Eternity",
+          "Eldrazi Confluence",
+          "Eldrazi Displacer",
+          "Eldrazi Ravager",
+          "Eldrazi Repurposer",
+          "Eldritch Immunity",
+          "Emrakul's Influence",
+          "Emrakul's Messenger",
+          "Endbringer",
+          "Giant's Boulder",
+          "Glaring Fleshraker",
+          "Guardian Idol",
+          "Parting Thoughts",
+          "Inversion Behemoth",
+          "Kozilek, the Great Distortion",
+          "Kozilek's Command",
+          "Kozilek's Pathfinder",
+          "Kozilek's Return",
+          "Kozilek's Unsealing",
+          "Magus of the Library",
+          "Mind Stone",
+          "Nest Invader",
+          "Oblivion Sower",
+          "Propagator Drone",
+          "Rapacious One",
+          "Sifter of Skulls",
+          "Sire of Stagnation",
+          "Snapping Voidcraw",
+          "Sol Ring",
+          "Solar Transformer",
+          "Spawn-Gang Commander",
+          "Spawnbed Protector",
+          "Spell Satchel",
+          "Strionic Resonator",
+          "Tablet of Compleation",
+          "Talisman of Curiosity",
+          "Talisman of Dominance",
+          "Talisman of Impulse",
+          "Talisman of Resilience",
+          "Desolation Twin",
+          "Ulamog's Despoiler",
+          "Ulamog's Nullifier",
+          "Gideon Blackblade",
+          "Vile Redeemer",
+          "Void Grafter",
+          "Warped Tusker",
+          "Warping Wail",
+          "Wastescape Battlemage",
+          "Birthing Hulk",
+          "Writhing Chrysalis",
+          "Zhulodok, Void Gorger",
+          "Adarkar Wastes",
+          "Battlefield Forge",
+          "Bonders' Enclave",
+          "Brushland",
+          "Caves of Koilos",
+          "Command Tower",
+          "Exotic Orchard",
+          "Forest",
+          "Forest",
+          "Island",
+          "Island",
+          "Karplusan Forest",
+          "Llanowar Wastes",
+          "Mountain",
+          "Mountain",
+          "Path of Ancestry",
+          "Plains",
+          "Reliquary Tower",
+          "Ruins of Oran-Rief",
+          "Shivan Reef",
+          "Sulfurous Springs",
+          "Swamp",
+          "Tectonic Edge",
+          "Temple of Malady",
+          "Temple of Silence",
+          "Temple of the False God",
+          "Tendo Ice Bridge",
+          "Tomb of the Spirit Dragon",
+          "Tranquil Landscape",
+          "Twisted Landscape",
+          "Underground River",
+          "Wastes",
+          "Wastes",
+          "Wastes",
+          "Wastes",
+          "Wastes",
+          "Yavimaya Coast"
+        ],
+        "watched": [
+          {
+            "card": "Arcane Signet",
+            "reasons": {
+              "individual merit threshold": 431,
+              "role floor": 2
+            },
+            "inShortlist": true,
+            "selected": false
+          },
+          {
+            "card": "Sol Ring",
+            "reasons": {},
+            "inShortlist": true,
+            "selected": true
+          },
+          {
+            "card": "Thran Dynamo",
+            "reasons": {},
+            "inShortlist": false,
+            "selected": false
+          },
+          {
+            "card": "Worn Powerstone",
+            "reasons": {},
+            "inShortlist": false,
+            "selected": false
+          },
+          {
+            "card": "Hedron Archive",
+            "reasons": {
+              "individual merit threshold": 112
+            },
+            "inShortlist": true,
+            "selected": false
+          },
+          {
+            "card": "The One Ring",
+            "reasons": {},
+            "inShortlist": false,
+            "selected": false
+          },
+          {
+            "card": "Rhystic Study",
+            "reasons": {},
+            "inShortlist": false,
+            "selected": false
+          },
+          {
+            "card": "Kindred Discovery",
+            "reasons": {},
+            "inShortlist": false,
+            "selected": false
+          },
+          {
+            "card": "Guardian Project",
+            "reasons": {},
+            "inShortlist": false,
+            "selected": false
+          },
+          {
+            "card": "Mystic Forge",
+            "reasons": {},
+            "inShortlist": false,
+            "selected": false
+          },
+          {
+            "card": "Up the Beanstalk",
+            "reasons": {},
+            "inShortlist": false,
+            "selected": false
+          },
+          {
+            "card": "Ulamog, the Infinite Gyre",
+            "reasons": {
+              "seven-plus spell cap": 301,
+              "individual merit threshold": 117,
+              "high-output early mana": 7
+            },
+            "inShortlist": true,
+            "selected": false
+          }
+        ]
+      }
+    },
+    {
+      "mode": "unchanged",
+      "price": 108.02,
+      "score": 174.12,
+      "qualityGain": 0,
+      "swaps": 0,
+      "diagnostics": {
+        "pool": 32197,
+        "shortlist": 850,
+        "shortlistLimit": 850,
+        "feasibleFinalistsPerRound": 3,
+        "rejections": {},
+        "qualityShortlistTop": [
+          {
+            "card": "Warped Tusker",
+            "price": 0.06,
+            "merit": 125.95
+          },
+          {
+            "card": "Drownyard Lurker",
+            "price": 0.11,
+            "merit": 125.94999999999999
+          },
+          {
+            "card": "Eldrazi Repurposer",
+            "price": 0.13,
+            "merit": 107.15
+          },
+          {
+            "card": "Glaring Fleshraker",
+            "price": 0.78,
+            "merit": 107.15
+          },
+          {
+            "card": "Writhing Chrysalis",
+            "price": 0.45,
+            "merit": 103.3
+          },
+          {
+            "card": "Kozilek's Unsealing",
+            "price": 0.36,
+            "merit": 102.15
+          },
+          {
+            "card": "Spawn-Gang Commander",
+            "price": 0.14,
+            "merit": 99.45
+          },
+          {
+            "card": "Desolation Twin",
+            "price": 0.3,
+            "merit": 94.39999999999999
+          },
+          {
+            "card": "Devourer of Destiny",
+            "price": 1.28,
+            "merit": 92.95
+          },
+          {
+            "card": "Deathless Behemoth",
+            "price": 0.09,
+            "merit": 89.8
+          },
+          {
+            "card": "Drowner of Hope",
+            "price": 0.19,
+            "merit": 89.8
+          },
+          {
+            "card": "Rapacious One",
+            "price": 0.09,
+            "merit": 89.8
+          }
+        ],
+        "deck": [
+          "Annie Joins Up",
+          "Azlask, the Swelling Scourge",
+          "Basking Broodscale",
+          "Bismuth Mindrender",
+          "Chittering Dispatcher",
+          "Conduit of Ruin",
+          "Deathless Behemoth",
+          "Deranged Assistant",
+          "Devourer of Destiny",
+          "Drowner of Hope",
+          "Drownyard Lurker",
+          "Echoes of Eternity",
+          "Eldrazi Confluence",
+          "Eldrazi Displacer",
+          "Eldrazi Ravager",
+          "Eldrazi Repurposer",
+          "Eldritch Immunity",
+          "Emrakul's Influence",
+          "Emrakul's Messenger",
+          "Endbringer",
+          "Giant's Boulder",
+          "Glaring Fleshraker",
+          "Guardian Idol",
+          "Hedron Archive",
+          "Inversion Behemoth",
+          "Kozilek, the Great Distortion",
+          "Kozilek's Command",
+          "Kozilek's Pathfinder",
+          "Kozilek's Return",
+          "Kozilek's Unsealing",
+          "Magus of the Library",
+          "Mind Stone",
+          "Nest Invader",
+          "Oblivion Sower",
+          "Propagator Drone",
+          "Rapacious One",
+          "Sifter of Skulls",
+          "Sire of Stagnation",
+          "Snapping Voidcraw",
+          "Sol Ring",
+          "Solar Transformer",
+          "Spawn-Gang Commander",
+          "Spawnbed Protector",
+          "Spell Satchel",
+          "Strionic Resonator",
+          "Tablet of Compleation",
+          "Talisman of Curiosity",
+          "Talisman of Dominance",
+          "Talisman of Impulse",
+          "Talisman of Resilience",
+          "Twins of Discord",
+          "Ulamog's Despoiler",
+          "Ulamog's Nullifier",
+          "Valorous Stance",
+          "Vile Redeemer",
+          "Void Grafter",
+          "Warped Tusker",
+          "Warping Wail",
+          "Wastescape Battlemage",
+          "World Breaker",
+          "Writhing Chrysalis",
+          "Zhulodok, Void Gorger",
+          "Adarkar Wastes",
+          "Battlefield Forge",
+          "Bonders' Enclave",
+          "Brushland",
+          "Caves of Koilos",
+          "Command Tower",
+          "Exotic Orchard",
+          "Forest",
+          "Forest",
+          "Island",
+          "Island",
+          "Karplusan Forest",
+          "Llanowar Wastes",
+          "Mountain",
+          "Mountain",
+          "Path of Ancestry",
+          "Plains",
+          "Reliquary Tower",
+          "Ruins of Oran-Rief",
+          "Shivan Reef",
+          "Sulfurous Springs",
+          "Swamp",
+          "Tectonic Edge",
+          "Temple of Malady",
+          "Temple of Silence",
+          "Temple of the False God",
+          "Tendo Ice Bridge",
+          "Tomb of the Spirit Dragon",
+          "Tranquil Landscape",
+          "Twisted Landscape",
+          "Underground River",
+          "Wastes",
+          "Wastes",
+          "Wastes",
+          "Wastes",
+          "Wastes",
+          "Yavimaya Coast"
+        ],
+        "watched": [
+          {
+            "card": "Arcane Signet",
+            "reasons": {},
+            "inShortlist": true,
+            "selected": false
+          },
+          {
+            "card": "Sol Ring",
+            "reasons": {},
+            "inShortlist": true,
+            "selected": true
+          },
+          {
+            "card": "Thran Dynamo",
+            "reasons": {},
+            "inShortlist": false,
+            "selected": false
+          },
+          {
+            "card": "Worn Powerstone",
+            "reasons": {},
+            "inShortlist": false,
+            "selected": false
+          },
+          {
+            "card": "Hedron Archive",
+            "reasons": {},
+            "inShortlist": true,
+            "selected": true
+          },
+          {
+            "card": "The One Ring",
+            "reasons": {},
+            "inShortlist": false,
+            "selected": false
+          },
+          {
+            "card": "Rhystic Study",
+            "reasons": {},
+            "inShortlist": false,
+            "selected": false
+          },
+          {
+            "card": "Kindred Discovery",
+            "reasons": {},
+            "inShortlist": false,
+            "selected": false
+          },
+          {
+            "card": "Guardian Project",
+            "reasons": {},
+            "inShortlist": false,
+            "selected": false
+          },
+          {
+            "card": "Mystic Forge",
+            "reasons": {},
+            "inShortlist": false,
+            "selected": false
+          },
+          {
+            "card": "Up the Beanstalk",
+            "reasons": {},
+            "inShortlist": false,
+            "selected": false
+          },
+          {
+            "card": "Ulamog, the Infinite Gyre",
+            "reasons": {},
+            "inShortlist": true,
+            "selected": false
+          }
+        ]
+      }
+    }
+  ],
+  "selectedOrigin": "unchanged",
+  "packages": {
+    "method": "Atomic two/three-card investments plus single-card probes; Pareto functional improvements, price is only a ceiling",
+    "startingPrice": 108.02,
+    "finalPrice": 114.66,
+    "before": {
+      "vector": {
+        "strategy_cascade": 2,
+        "strategy_castCopy": 1,
+        "strategy_passiveTriggerCopy": 2,
+        "strategy_activatedTriggerCopy": 1,
+        "strategy_costReduction": 1,
+        "strategy_tutor": 1,
+        "topAccessEngines": 0,
+        "threatPower": 54,
+        "threatProtection": 0,
+        "independentDraw": 1,
+        "freeDraw": 0,
+        "scalableDraw": 0,
+        "fastMana": 10,
+        "repeatableMana": 15,
+        "fixing": 0,
+        "trueColorless": 10,
+        "burstMana": 0,
+        "flow": 1,
+        "supportedEngines": 5,
+        "copySupport": 2,
+        "answers": 5,
+        "shields": 1,
+        "wideShields": 1,
+        "threats": 8,
+        "annihilator": 1,
+        "castAnswers": 2
+      },
+      "land": {
+        "score": 105.13,
+        "sources": {
+          "W": 10,
+          "U": 10,
+          "B": 11,
+          "R": 10,
+          "G": 11
+        },
+        "demand": {
+          "W": 3,
+          "U": 8,
+          "B": 4,
+          "R": 6,
+          "G": 15
+        },
+        "realColorless": 23,
+        "penalty": 8
+      },
+      "drawEngines": [
+        {
+          "card": "Endbringer",
+          "trigger": false,
+          "topAccess": false,
+          "independent": 1,
+          "support": 0,
+          "supported": false,
+          "triggers": [],
+          "topSupport": 0,
+          "topCards": []
+        }
+      ],
+      "infrastructure": [
+        {
+          "card": "Annie Joins Up",
+          "kind": "passiveTriggerCopy",
+          "units": 1,
+          "support": 4,
+          "cards": [
+            "Azlask, the Swelling Scourge",
+            "Kozilek, the Great Distortion",
+            "Zhulodok, Void Gorger",
+            "Ulalek, Fused Atrocity"
+          ]
+        },
+        {
+          "card": "Conduit of Ruin",
+          "kind": "costReduction",
+          "units": 1,
+          "support": 32,
+          "cards": [
+            "Azlask, the Swelling Scourge",
+            "Bismuth Mindrender",
+            "Chittering Dispatcher",
+            "Conduit of Ruin",
+            "Deathless Behemoth",
+            "Devourer of Destiny",
+            "Drowner of Hope",
+            "Drownyard Lurker",
+            "Eldrazi Displacer",
+            "Eldrazi Ravager",
+            "Eldrazi Repurposer",
+            "Endbringer",
+            "Glaring Fleshraker",
+            "Inversion Behemoth",
+            "Kozilek, the Great Distortion",
+            "Kozilek's Pathfinder",
+            "Oblivion Sower",
+            "Rapacious One",
+            "Sifter of Skulls",
+            "Sire of Stagnation",
+            "Snapping Voidcraw",
+            "Spawn-Gang Commander",
+            "Spawnbed Protector",
+            "Twins of Discord",
+            "Ulamog's Despoiler",
+            "Ulamog's Nullifier",
+            "Vile Redeemer",
+            "Void Grafter",
+            "Warped Tusker",
+            "World Breaker",
+            "Writhing Chrysalis",
+            "Zhulodok, Void Gorger"
+          ]
+        },
+        {
+          "card": "Conduit of Ruin",
+          "kind": "tutor",
+          "units": 1,
+          "support": 7,
+          "cards": [
+            "Devourer of Destiny",
+            "Drownyard Lurker",
+            "Kozilek, the Great Distortion",
+            "Spawnbed Protector",
+            "Twins of Discord",
+            "Warped Tusker",
+            "World Breaker"
+          ]
+        },
+        {
+          "card": "Echoes of Eternity",
+          "kind": "castCopy",
+          "units": 1,
+          "support": 54,
+          "cards": [
+            "Azlask, the Swelling Scourge",
+            "Basking Broodscale",
+            "Bismuth Mindrender",
+            "Chittering Dispatcher",
+            "Conduit of Ruin",
+            "Deathless Behemoth",
+            "Devourer of Destiny",
+            "Drowner of Hope",
+            "Drownyard Lurker",
+            "Eldrazi Confluence",
+            "Eldrazi Displacer",
+            "Eldrazi Ravager",
+            "Eldrazi Repurposer",
+            "Eldritch Immunity",
+            "Emrakul's Messenger",
+            "Endbringer",
+            "Giant's Boulder",
+            "Glaring Fleshraker",
+            "Guardian Idol",
+            "Hedron Archive",
+            "Inversion Behemoth",
+            "Kozilek, the Great Distortion",
+            "Kozilek's Command",
+            "Kozilek's Pathfinder",
+            "Kozilek's Return",
+            "Kozilek's Unsealing",
+            "Mind Stone",
+            "Oblivion Sower",
+            "Propagator Drone",
+            "Sifter of Skulls",
+            "Sire of Stagnation",
+            "Snapping Voidcraw",
+            "Sol Ring",
+            "Solar Transformer",
+            "Spawn-Gang Commander",
+            "Spawnbed Protector",
+            "Spell Satchel",
+            "Strionic Resonator",
+            "Tablet of Compleation",
+            "Talisman of Curiosity",
+            "Talisman of Dominance",
+            "Talisman of Impulse",
+            "Talisman of Resilience",
+            "Twins of Discord",
+            "Ulamog's Despoiler",
+            "Ulamog's Nullifier",
+            "Vile Redeemer",
+            "Void Grafter",
+            "Warped Tusker",
+            "Warping Wail",
+            "Wastescape Battlemage",
+            "World Breaker",
+            "Writhing Chrysalis",
+            "Zhulodok, Void Gorger"
+          ]
+        },
+        {
+          "card": "Echoes of Eternity",
+          "kind": "passiveTriggerCopy",
+          "units": 1,
+          "support": 36,
+          "cards": [
+            "Azlask, the Swelling Scourge",
+            "Basking Broodscale",
+            "Bismuth Mindrender",
+            "Chittering Dispatcher",
+            "Conduit of Ruin",
+            "Devourer of Destiny",
+            "Drowner of Hope",
+            "Drownyard Lurker",
+            "Eldrazi Ravager",
+            "Eldrazi Repurposer",
+            "Emrakul's Messenger",
+            "Giant's Boulder",
+            "Glaring Fleshraker",
+            "Inversion Behemoth",
+            "Kozilek, the Great Distortion",
+            "Kozilek's Return",
+            "Kozilek's Unsealing",
+            "Oblivion Sower",
+            "Propagator Drone",
+            "Sifter of Skulls",
+            "Sire of Stagnation",
+            "Solar Transformer",
+            "Spawn-Gang Commander",
+            "Spawnbed Protector",
+            "Spell Satchel",
+            "Strionic Resonator",
+            "Twins of Discord",
+            "Ulamog's Nullifier",
+            "Vile Redeemer",
+            "Void Grafter",
+            "Warped Tusker",
+            "Wastescape Battlemage",
+            "World Breaker",
+            "Writhing Chrysalis",
+            "Zhulodok, Void Gorger",
+            "Ulalek, Fused Atrocity"
+          ]
+        },
+        {
+          "card": "Strionic Resonator",
+          "kind": "activatedTriggerCopy",
+          "units": 1,
+          "support": 32,
+          "cards": [
+            "Azlask, the Swelling Scourge",
+            "Basking Broodscale",
+            "Bismuth Mindrender",
+            "Chittering Dispatcher",
+            "Conduit of Ruin",
+            "Devourer of Destiny",
+            "Drowner of Hope",
+            "Drownyard Lurker",
+            "Echoes of Eternity",
+            "Eldrazi Ravager",
+            "Eldrazi Repurposer",
+            "Emrakul's Messenger",
+            "Glaring Fleshraker",
+            "Inversion Behemoth",
+            "Kozilek, the Great Distortion",
+            "Nest Invader",
+            "Oblivion Sower",
+            "Propagator Drone",
+            "Rapacious One",
+            "Sifter of Skulls",
+            "Sire of Stagnation",
+            "Spawn-Gang Commander",
+            "Spawnbed Protector",
+            "Twins of Discord",
+            "Ulamog's Nullifier",
+            "Vile Redeemer",
+            "Void Grafter",
+            "Warped Tusker",
+            "Wastescape Battlemage",
+            "World Breaker",
+            "Writhing Chrysalis",
+            "Zhulodok, Void Gorger"
+          ]
+        },
+        {
+          "card": "Zhulodok, Void Gorger",
+          "kind": "cascade",
+          "units": 2,
+          "support": 7,
+          "cards": [
+            "Devourer of Destiny",
+            "Drownyard Lurker",
+            "Kozilek, the Great Distortion",
+            "Spawnbed Protector",
+            "Twins of Discord",
+            "Warped Tusker",
+            "World Breaker"
+          ]
+        }
+      ],
+      "raw": {
+        "strategyRoles": {
+          "payoff": 12,
+          "engine": 40,
+          "enabler": 35,
+          "finisher": 18
+        },
+        "repeatableMana": 15,
+        "trueColorless": 15,
+        "reducers": 1,
+        "highSpellMana": 52
+      },
+      "unsupported": 1,
+      "method": "Supported function and explicit mana capacity; capped coverage, no price term, no gameplay rating or sequencing simulation"
+    },
+    "after": {
+      "vector": {
+        "strategy_cascade": 2,
+        "strategy_castCopy": 1,
+        "strategy_passiveTriggerCopy": 2,
+        "strategy_activatedTriggerCopy": 1,
+        "strategy_costReduction": 1,
+        "strategy_tutor": 1,
+        "topAccessEngines": 1,
+        "threatPower": 54,
+        "threatProtection": 0,
+        "independentDraw": 1,
+        "freeDraw": 0,
+        "scalableDraw": 0,
+        "fastMana": 10,
+        "repeatableMana": 15,
+        "fixing": 0,
+        "trueColorless": 10,
+        "burstMana": 0,
+        "flow": 2,
+        "supportedEngines": 6,
+        "copySupport": 2,
+        "answers": 5,
+        "shields": 1,
+        "wideShields": 1,
+        "threats": 8,
+        "annihilator": 1,
+        "castAnswers": 2
+      },
+      "land": {
+        "score": 105.13,
+        "sources": {
+          "W": 10,
+          "U": 10,
+          "B": 11,
+          "R": 10,
+          "G": 11
+        },
+        "demand": {
+          "W": 3,
+          "U": 8,
+          "B": 4,
+          "R": 6,
+          "G": 17
+        },
+        "realColorless": 23,
+        "penalty": 8
+      },
+      "drawEngines": [
+        {
+          "card": "Endbringer",
+          "trigger": false,
+          "topAccess": false,
+          "independent": 1,
+          "support": 0,
+          "supported": false,
+          "triggers": [],
+          "topSupport": 0,
+          "topCards": []
+        },
+        {
+          "card": "Eladamri, Korvecdal",
+          "trigger": false,
+          "topAccess": true,
+          "independent": 0,
+          "support": 39,
+          "supported": false,
+          "triggers": [],
+          "topSupport": 39,
+          "topCards": [
+            "Azlask, the Swelling Scourge",
+            "Basking Broodscale",
+            "Bismuth Mindrender",
+            "Chittering Dispatcher",
+            "Conduit of Ruin",
+            "Deathless Behemoth",
+            "Deranged Assistant",
+            "Devourer of Destiny",
+            "Drowner of Hope",
+            "Drownyard Lurker",
+            "Eldrazi Displacer",
+            "Eldrazi Ravager",
+            "Eldrazi Repurposer",
+            "Emrakul's Messenger",
+            "Endbringer",
+            "Glaring Fleshraker",
+            "Inversion Behemoth",
+            "Kozilek, the Great Distortion",
+            "Kozilek's Pathfinder",
+            "Magus of the Library",
+            "Nest Invader",
+            "Oblivion Sower",
+            "Propagator Drone",
+            "Rapacious One",
+            "Sifter of Skulls",
+            "Sire of Stagnation",
+            "Snapping Voidcraw",
+            "Spawn-Gang Commander",
+            "Spawnbed Protector",
+            "Twins of Discord",
+            "Ulamog's Despoiler",
+            "Ulamog's Nullifier",
+            "Vile Redeemer",
+            "Void Grafter",
+            "Warped Tusker",
+            "Wastescape Battlemage",
+            "World Breaker",
+            "Writhing Chrysalis",
+            "Zhulodok, Void Gorger"
+          ]
+        }
+      ],
+      "infrastructure": [
+        {
+          "card": "Annie Joins Up",
+          "kind": "passiveTriggerCopy",
+          "units": 1,
+          "support": 4,
+          "cards": [
+            "Azlask, the Swelling Scourge",
+            "Kozilek, the Great Distortion",
+            "Zhulodok, Void Gorger",
+            "Ulalek, Fused Atrocity"
+          ]
+        },
+        {
+          "card": "Conduit of Ruin",
+          "kind": "costReduction",
+          "units": 1,
+          "support": 33,
+          "cards": [
+            "Azlask, the Swelling Scourge",
+            "Bismuth Mindrender",
+            "Chittering Dispatcher",
+            "Conduit of Ruin",
+            "Deathless Behemoth",
+            "Devourer of Destiny",
+            "Drowner of Hope",
+            "Drownyard Lurker",
+            "Eldrazi Displacer",
+            "Eldrazi Ravager",
+            "Eldrazi Repurposer",
+            "Endbringer",
+            "Glaring Fleshraker",
+            "Inversion Behemoth",
+            "Kozilek, the Great Distortion",
+            "Kozilek's Pathfinder",
+            "Oblivion Sower",
+            "Rapacious One",
+            "Sifter of Skulls",
+            "Sire of Stagnation",
+            "Snapping Voidcraw",
+            "Spawn-Gang Commander",
+            "Spawnbed Protector",
+            "Twins of Discord",
+            "Ulamog's Despoiler",
+            "Ulamog's Nullifier",
+            "Vile Redeemer",
+            "Void Grafter",
+            "Warped Tusker",
+            "World Breaker",
+            "Writhing Chrysalis",
+            "Zhulodok, Void Gorger",
+            "Eladamri, Korvecdal"
+          ]
+        },
+        {
+          "card": "Conduit of Ruin",
+          "kind": "tutor",
+          "units": 1,
+          "support": 7,
+          "cards": [
+            "Devourer of Destiny",
+            "Drownyard Lurker",
+            "Kozilek, the Great Distortion",
+            "Spawnbed Protector",
+            "Twins of Discord",
+            "Warped Tusker",
+            "World Breaker"
+          ]
+        },
+        {
+          "card": "Echoes of Eternity",
+          "kind": "castCopy",
+          "units": 1,
+          "support": 53,
+          "cards": [
+            "Azlask, the Swelling Scourge",
+            "Basking Broodscale",
+            "Bismuth Mindrender",
+            "Chittering Dispatcher",
+            "Conduit of Ruin",
+            "Deathless Behemoth",
+            "Devourer of Destiny",
+            "Drowner of Hope",
+            "Drownyard Lurker",
+            "Eldrazi Confluence",
+            "Eldrazi Displacer",
+            "Eldrazi Ravager",
+            "Eldrazi Repurposer",
+            "Eldritch Immunity",
+            "Emrakul's Messenger",
+            "Endbringer",
+            "Giant's Boulder",
+            "Glaring Fleshraker",
+            "Guardian Idol",
+            "Hedron Archive",
+            "Inversion Behemoth",
+            "Kozilek, the Great Distortion",
+            "Kozilek's Command",
+            "Kozilek's Pathfinder",
+            "Kozilek's Return",
+            "Kozilek's Unsealing",
+            "Mind Stone",
+            "Oblivion Sower",
+            "Propagator Drone",
+            "Sifter of Skulls",
+            "Sire of Stagnation",
+            "Snapping Voidcraw",
+            "Sol Ring",
+            "Solar Transformer",
+            "Spawn-Gang Commander",
+            "Spawnbed Protector",
+            "Strionic Resonator",
+            "Tablet of Compleation",
+            "Talisman of Curiosity",
+            "Talisman of Dominance",
+            "Talisman of Impulse",
+            "Talisman of Resilience",
+            "Twins of Discord",
+            "Ulamog's Despoiler",
+            "Ulamog's Nullifier",
+            "Vile Redeemer",
+            "Void Grafter",
+            "Warped Tusker",
+            "Warping Wail",
+            "Wastescape Battlemage",
+            "World Breaker",
+            "Writhing Chrysalis",
+            "Zhulodok, Void Gorger"
+          ]
+        },
+        {
+          "card": "Echoes of Eternity",
+          "kind": "passiveTriggerCopy",
+          "units": 1,
+          "support": 35,
+          "cards": [
+            "Azlask, the Swelling Scourge",
+            "Basking Broodscale",
+            "Bismuth Mindrender",
+            "Chittering Dispatcher",
+            "Conduit of Ruin",
+            "Devourer of Destiny",
+            "Drowner of Hope",
+            "Drownyard Lurker",
+            "Eldrazi Ravager",
+            "Eldrazi Repurposer",
+            "Emrakul's Messenger",
+            "Giant's Boulder",
+            "Glaring Fleshraker",
+            "Inversion Behemoth",
+            "Kozilek, the Great Distortion",
+            "Kozilek's Return",
+            "Kozilek's Unsealing",
+            "Oblivion Sower",
+            "Propagator Drone",
+            "Sifter of Skulls",
+            "Sire of Stagnation",
+            "Solar Transformer",
+            "Spawn-Gang Commander",
+            "Spawnbed Protector",
+            "Strionic Resonator",
+            "Twins of Discord",
+            "Ulamog's Nullifier",
+            "Vile Redeemer",
+            "Void Grafter",
+            "Warped Tusker",
+            "Wastescape Battlemage",
+            "World Breaker",
+            "Writhing Chrysalis",
+            "Zhulodok, Void Gorger",
+            "Ulalek, Fused Atrocity"
+          ]
+        },
+        {
+          "card": "Strionic Resonator",
+          "kind": "activatedTriggerCopy",
+          "units": 1,
+          "support": 32,
+          "cards": [
+            "Azlask, the Swelling Scourge",
+            "Basking Broodscale",
+            "Bismuth Mindrender",
+            "Chittering Dispatcher",
+            "Conduit of Ruin",
+            "Devourer of Destiny",
+            "Drowner of Hope",
+            "Drownyard Lurker",
+            "Echoes of Eternity",
+            "Eldrazi Ravager",
+            "Eldrazi Repurposer",
+            "Emrakul's Messenger",
+            "Glaring Fleshraker",
+            "Inversion Behemoth",
+            "Kozilek, the Great Distortion",
+            "Nest Invader",
+            "Oblivion Sower",
+            "Propagator Drone",
+            "Rapacious One",
+            "Sifter of Skulls",
+            "Sire of Stagnation",
+            "Spawn-Gang Commander",
+            "Spawnbed Protector",
+            "Twins of Discord",
+            "Ulamog's Nullifier",
+            "Vile Redeemer",
+            "Void Grafter",
+            "Warped Tusker",
+            "Wastescape Battlemage",
+            "World Breaker",
+            "Writhing Chrysalis",
+            "Zhulodok, Void Gorger"
+          ]
+        },
+        {
+          "card": "Zhulodok, Void Gorger",
+          "kind": "cascade",
+          "units": 2,
+          "support": 7,
+          "cards": [
+            "Devourer of Destiny",
+            "Drownyard Lurker",
+            "Kozilek, the Great Distortion",
+            "Spawnbed Protector",
+            "Twins of Discord",
+            "Warped Tusker",
+            "World Breaker"
+          ]
+        }
+      ],
+      "raw": {
+        "strategyRoles": {
+          "payoff": 12,
+          "engine": 40,
+          "enabler": 34,
+          "finisher": 18
+        },
+        "repeatableMana": 15,
+        "trueColorless": 15,
+        "reducers": 1,
+        "highSpellMana": 52
+      },
+      "unsupported": 0,
+      "method": "Supported function and explicit mana capacity; capped coverage, no price term, no gameplay rating or sequencing simulation"
+    },
+    "strategyFloors": {
+      "payoff": 8,
+      "engine": 21,
+      "enabler": 8,
+      "finisher": 4
+    },
+    "accepted": [
+      {
+        "label": "functional complement",
+        "cuts": [
+          "Spell Satchel"
+        ],
+        "adds": [
+          "Eladamri, Korvecdal"
+        ],
+        "extraCost": 6.64,
+        "changes": {
+          "topAccessEngines": 1,
+          "flow": 1,
+          "supportedEngines": 1
+        }
+      }
+    ],
+    "evaluated": 280,
+    "rejected": {
+      "mana base/demand": 5828,
+      "budget": 5579,
+      "ramp overprovision": 9202,
+      "no complete functional dominance": 15,
+      "high-curve investment needs mana partner": 96,
+      "support dependency": 1
+    },
+    "discovery": [
+      {
+        "round": 1,
+        "origin": "quality",
+        "price": 134.07,
+        "draw": [
+          {
+            "card": "The One Ring",
+            "price": 98.06,
+            "support": 0,
+            "trigger": false,
+            "topAccess": false,
+            "independent": 1,
+            "castability": []
+          },
+          {
+            "card": "Archivist",
+            "price": 0.26,
+            "support": 0,
+            "trigger": false,
+            "topAccess": false,
+            "independent": 1,
+            "castability": []
+          },
+          {
+            "card": "Chronicle of Victory",
+            "price": 20.79,
+            "support": 41,
+            "trigger": true,
+            "topAccess": false,
+            "independent": 0,
+            "castability": []
+          },
+          {
+            "card": "Up the Beanstalk",
+            "price": 2.47,
+            "support": 20,
+            "trigger": true,
+            "topAccess": false,
+            "independent": 0,
+            "castability": []
+          },
+          {
+            "card": "Kindred Discovery",
+            "price": 5.51,
+            "support": 37,
+            "trigger": true,
+            "topAccess": false,
+            "independent": 0,
+            "castability": []
+          },
+          {
+            "card": "Guardian Project",
+            "price": 12.61,
+            "support": 39,
+            "trigger": true,
+            "topAccess": false,
+            "independent": 0,
+            "castability": []
+          },
+          {
+            "card": "Eladamri, Korvecdal",
+            "price": 6.74,
+            "support": 39,
+            "trigger": false,
+            "topAccess": true,
+            "independent": 0,
+            "castability": []
+          },
+          {
+            "card": "Mystic Forge",
+            "price": 1.9,
+            "support": 55,
+            "trigger": false,
+            "topAccess": true,
+            "independent": 0,
+            "castability": []
+          },
+          {
+            "card": "Landscape Painter // Vibrant Idea",
+            "price": 0.07,
+            "support": 0,
+            "trigger": false,
+            "topAccess": false,
+            "independent": 0,
+            "castability": []
+          }
+        ]
+      },
+      {
+        "round": 1,
+        "origin": "value",
+        "price": 107.63,
+        "draw": [
+          {
+            "card": "The One Ring",
+            "price": 98.06,
+            "support": 0,
+            "trigger": false,
+            "topAccess": false,
+            "independent": 1,
+            "castability": []
+          },
+          {
+            "card": "Archivist",
+            "price": 0.26,
+            "support": 0,
+            "trigger": false,
+            "topAccess": false,
+            "independent": 1,
+            "castability": []
+          },
+          {
+            "card": "Chronicle of Victory",
+            "price": 20.79,
+            "support": 41,
+            "trigger": true,
+            "topAccess": false,
+            "independent": 0,
+            "castability": []
+          },
+          {
+            "card": "Up the Beanstalk",
+            "price": 2.47,
+            "support": 20,
+            "trigger": true,
+            "topAccess": false,
+            "independent": 0,
+            "castability": []
+          },
+          {
+            "card": "Kindred Discovery",
+            "price": 5.51,
+            "support": 37,
+            "trigger": true,
+            "topAccess": false,
+            "independent": 0,
+            "castability": []
+          },
+          {
+            "card": "Guardian Project",
+            "price": 12.61,
+            "support": 39,
+            "trigger": true,
+            "topAccess": false,
+            "independent": 0,
+            "castability": []
+          },
+          {
+            "card": "Eladamri, Korvecdal",
+            "price": 6.74,
+            "support": 39,
+            "trigger": false,
+            "topAccess": true,
+            "independent": 0,
+            "castability": []
+          },
+          {
+            "card": "Mystic Forge",
+            "price": 1.9,
+            "support": 55,
+            "trigger": false,
+            "topAccess": true,
+            "independent": 0,
+            "castability": []
+          },
+          {
+            "card": "Landscape Painter // Vibrant Idea",
+            "price": 0.07,
+            "support": 0,
+            "trigger": false,
+            "topAccess": false,
+            "independent": 0,
+            "castability": []
+          }
+        ]
+      },
+      {
+        "round": 1,
+        "origin": "unchanged",
+        "price": 108.02,
+        "draw": [
+          {
+            "card": "The One Ring",
+            "price": 98.06,
+            "support": 0,
+            "trigger": false,
+            "topAccess": false,
+            "independent": 1,
+            "castability": []
+          },
+          {
+            "card": "Archivist",
+            "price": 0.26,
+            "support": 0,
+            "trigger": false,
+            "topAccess": false,
+            "independent": 1,
+            "castability": []
+          },
+          {
+            "card": "Chronicle of Victory",
+            "price": 20.79,
+            "support": 40,
+            "trigger": true,
+            "topAccess": false,
+            "independent": 0,
+            "castability": []
+          },
+          {
+            "card": "Up the Beanstalk",
+            "price": 2.47,
+            "support": 20,
+            "trigger": true,
+            "topAccess": false,
+            "independent": 0,
+            "castability": []
+          },
+          {
+            "card": "Kindred Discovery",
+            "price": 5.51,
+            "support": 37,
+            "trigger": true,
+            "topAccess": false,
+            "independent": 0,
+            "castability": []
+          },
+          {
+            "card": "Guardian Project",
+            "price": 12.61,
+            "support": 39,
+            "trigger": true,
+            "topAccess": false,
+            "independent": 0,
+            "castability": []
+          },
+          {
+            "card": "Eladamri, Korvecdal",
+            "price": 6.74,
+            "support": 39,
+            "trigger": false,
+            "topAccess": true,
+            "independent": 0,
+            "castability": []
+          },
+          {
+            "card": "Mystic Forge",
+            "price": 1.9,
+            "support": 55,
+            "trigger": false,
+            "topAccess": true,
+            "independent": 0,
+            "castability": []
+          },
+          {
+            "card": "Landscape Painter // Vibrant Idea",
+            "price": 0.07,
+            "support": 0,
+            "trigger": false,
+            "topAccess": false,
+            "independent": 0,
+            "castability": []
+          }
+        ]
+      },
+      {
+        "round": 2,
+        "origin": "quality",
+        "price": 167.16,
+        "draw": [
+          {
+            "card": "The One Ring",
+            "price": 98.06,
+            "support": 0,
+            "trigger": false,
+            "topAccess": false,
+            "independent": 1,
+            "castability": []
+          },
+          {
+            "card": "Archivist",
+            "price": 0.26,
+            "support": 0,
+            "trigger": false,
+            "topAccess": false,
+            "independent": 1,
+            "castability": []
+          },
+          {
+            "card": "Chronicle of Victory",
+            "price": 20.79,
+            "support": 42,
+            "trigger": true,
+            "topAccess": false,
+            "independent": 0,
+            "castability": []
+          },
+          {
+            "card": "Up the Beanstalk",
+            "price": 2.47,
+            "support": 21,
+            "trigger": true,
+            "topAccess": false,
+            "independent": 0,
+            "castability": []
+          },
+          {
+            "card": "Kindred Discovery",
+            "price": 5.51,
+            "support": 38,
+            "trigger": true,
+            "topAccess": false,
+            "independent": 0,
+            "castability": []
+          },
+          {
+            "card": "Guardian Project",
+            "price": 12.61,
+            "support": 40,
+            "trigger": true,
+            "topAccess": false,
+            "independent": 0,
+            "castability": []
+          },
+          {
+            "card": "Eladamri, Korvecdal",
+            "price": 6.74,
+            "support": 40,
+            "trigger": false,
+            "topAccess": true,
+            "independent": 0,
+            "castability": []
+          },
+          {
+            "card": "Mystic Forge",
+            "price": 1.9,
+            "support": 55,
+            "trigger": false,
+            "topAccess": true,
+            "independent": 0,
+            "castability": []
+          },
+          {
+            "card": "Landscape Painter // Vibrant Idea",
+            "price": 0.07,
+            "support": 0,
+            "trigger": false,
+            "topAccess": false,
+            "independent": 0,
+            "castability": []
+          }
+        ]
+      },
+      {
+        "round": 2,
+        "origin": "quality",
+        "price": 137.83,
+        "draw": [
+          {
+            "card": "The One Ring",
+            "price": 98.06,
+            "support": 0,
+            "trigger": false,
+            "topAccess": false,
+            "independent": 1,
+            "castability": []
+          },
+          {
+            "card": "Archivist",
+            "price": 0.26,
+            "support": 0,
+            "trigger": false,
+            "topAccess": false,
+            "independent": 1,
+            "castability": []
+          },
+          {
+            "card": "Chronicle of Victory",
+            "price": 20.79,
+            "support": 41,
+            "trigger": true,
+            "topAccess": false,
+            "independent": 0,
+            "castability": []
+          },
+          {
+            "card": "Up the Beanstalk",
+            "price": 2.47,
+            "support": 20,
+            "trigger": true,
+            "topAccess": false,
+            "independent": 0,
+            "castability": []
+          },
+          {
+            "card": "Kindred Discovery",
+            "price": 5.51,
+            "support": 37,
+            "trigger": true,
+            "topAccess": false,
+            "independent": 0,
+            "castability": []
+          },
+          {
+            "card": "Guardian Project",
+            "price": 12.61,
+            "support": 39,
+            "trigger": true,
+            "topAccess": false,
+            "independent": 0,
+            "castability": []
+          },
+          {
+            "card": "Eladamri, Korvecdal",
+            "price": 6.74,
+            "support": 39,
+            "trigger": false,
+            "topAccess": true,
+            "independent": 0,
+            "castability": []
+          },
+          {
+            "card": "Elven Chorus",
+            "price": 2.76,
+            "support": 39,
+            "trigger": false,
+            "topAccess": true,
+            "independent": 0,
+            "castability": []
+          },
+          {
+            "card": "Landscape Painter // Vibrant Idea",
+            "price": 0.07,
+            "support": 0,
+            "trigger": false,
+            "topAccess": false,
+            "independent": 0,
+            "castability": []
+          }
+        ]
+      },
+      {
+        "round": 3,
+        "origin": "quality",
+        "price": 168.74,
+        "draw": [
+          {
+            "card": "The One Ring",
+            "price": 98.06,
+            "support": 0,
+            "trigger": false,
+            "topAccess": false,
+            "independent": 1,
+            "castability": []
+          },
+          {
+            "card": "Archivist",
+            "price": 0.26,
+            "support": 0,
+            "trigger": false,
+            "topAccess": false,
+            "independent": 1,
+            "castability": []
+          },
+          {
+            "card": "Chronicle of Victory",
+            "price": 20.79,
+            "support": 42,
+            "trigger": true,
+            "topAccess": false,
+            "independent": 0,
+            "castability": []
+          },
+          {
+            "card": "Up the Beanstalk",
+            "price": 2.47,
+            "support": 21,
+            "trigger": true,
+            "topAccess": false,
+            "independent": 0,
+            "castability": []
+          },
+          {
+            "card": "Kindred Discovery",
+            "price": 5.51,
+            "support": 38,
+            "trigger": true,
+            "topAccess": false,
+            "independent": 0,
+            "castability": []
+          },
+          {
+            "card": "Guardian Project",
+            "price": 12.61,
+            "support": 40,
+            "trigger": true,
+            "topAccess": false,
+            "independent": 0,
+            "castability": []
+          },
+          {
+            "card": "Eladamri, Korvecdal",
+            "price": 6.74,
+            "support": 40,
+            "trigger": false,
+            "topAccess": true,
+            "independent": 0,
+            "castability": []
+          },
+          {
+            "card": "Elven Chorus",
+            "price": 2.76,
+            "support": 40,
+            "trigger": false,
+            "topAccess": true,
+            "independent": 0,
+            "castability": []
+          },
+          {
+            "card": "Landscape Painter // Vibrant Idea",
+            "price": 0.07,
+            "support": 0,
+            "trigger": false,
+            "topAccess": false,
+            "independent": 0,
+            "castability": []
+          }
+        ]
+      },
+      {
+        "round": 3,
+        "origin": "quality",
+        "price": 187.3,
+        "draw": [
+          {
+            "card": "The One Ring",
+            "price": 98.06,
+            "support": 0,
+            "trigger": false,
+            "topAccess": false,
+            "independent": 1,
+            "castability": []
+          },
+          {
+            "card": "Archivist",
+            "price": 0.26,
+            "support": 0,
+            "trigger": false,
+            "topAccess": false,
+            "independent": 1,
+            "castability": []
+          },
+          {
+            "card": "Chronicle of Victory",
+            "price": 20.79,
+            "support": 41,
+            "trigger": true,
+            "topAccess": false,
+            "independent": 0,
+            "castability": []
+          },
+          {
+            "card": "Up the Beanstalk",
+            "price": 2.47,
+            "support": 20,
+            "trigger": true,
+            "topAccess": false,
+            "independent": 0,
+            "castability": []
+          },
+          {
+            "card": "Kindred Discovery",
+            "price": 5.51,
+            "support": 37,
+            "trigger": true,
+            "topAccess": false,
+            "independent": 0,
+            "castability": []
+          },
+          {
+            "card": "Guardian Project",
+            "price": 12.61,
+            "support": 39,
+            "trigger": true,
+            "topAccess": false,
+            "independent": 0,
+            "castability": []
+          },
+          {
+            "card": "Eladamri, Korvecdal",
+            "price": 6.74,
+            "support": 39,
+            "trigger": false,
+            "topAccess": true,
+            "independent": 0,
+            "castability": []
+          },
+          {
+            "card": "Elven Chorus",
+            "price": 2.76,
+            "support": 39,
+            "trigger": false,
+            "topAccess": true,
+            "independent": 0,
+            "castability": []
+          },
+          {
+            "card": "Landscape Painter // Vibrant Idea",
+            "price": 0.07,
+            "support": 0,
+            "trigger": false,
+            "topAccess": false,
+            "independent": 0,
+            "castability": []
+          }
+        ]
+      }
+    ],
+    "limits": {
+      "maxRounds": 3,
+      "beamWidth": 2,
+      "maxEvaluations": 40
+    },
+    "watch": [
+      {
+        "card": "Arcane Signet",
+        "price": 0.38,
+        "reasons": {
+          "mana base/demand": 740,
+          "ramp overprovision": 1432,
+          "budget": 223
+        },
+        "considered": 0,
+        "selected": false
+      },
+      {
+        "card": "Sol Ring",
+        "price": 0.68,
+        "reasons": {},
+        "considered": 0,
+        "selected": true
+      },
+      {
+        "card": "Thran Dynamo",
+        "price": 2.11,
+        "reasons": {
+          "ramp overprovision": 598,
+          "budget": 238,
+          "accepted": 40,
+          "mana base/demand": 32,
+          "no complete functional dominance": 8
+        },
+        "considered": 80,
+        "selected": false
+      },
+      {
+        "card": "Worn Powerstone",
+        "price": 0.23,
+        "reasons": {
+          "outside functional frontier": 7
+        },
+        "considered": 0,
+        "selected": false
+      },
+      {
+        "card": "Hedron Archive",
+        "price": 0.13,
+        "reasons": {
+          "outside functional frontier": 6
+        },
+        "considered": 0,
+        "selected": true
+      },
+      {
+        "card": "The One Ring",
+        "price": 98.06,
+        "reasons": {
+          "budget": 4309,
+          "mana base/demand": 273,
+          "no complete functional dominance": 9,
+          "ramp overprovision": 198,
+          "support dependency": 1
+        },
+        "considered": 14,
+        "selected": false
+      },
+      {
+        "card": "Rhystic Study",
+        "price": 36.73,
+        "reasons": {
+          "outside functional frontier": 7
+        },
+        "considered": 0,
+        "selected": false
+      },
+      {
+        "card": "Kindred Discovery",
+        "price": 5.51,
+        "reasons": {
+          "mana base/demand": 517,
+          "budget": 234,
+          "ramp overprovision": 345
+        },
+        "considered": 15,
+        "selected": false
+      },
+      {
+        "card": "Guardian Project",
+        "price": 12.61,
+        "reasons": {
+          "mana base/demand": 508,
+          "budget": 244,
+          "ramp overprovision": 345,
+          "accepted": 2,
+          "high-curve investment needs mana partner": 1
+        },
+        "considered": 15,
+        "selected": false
+      },
+      {
+        "card": "Mystic Forge",
+        "price": 1.9,
+        "reasons": {
+          "mana base/demand": 502,
+          "budget": 55,
+          "accepted": 8,
+          "ramp overprovision": 150
+        },
+        "considered": 8,
+        "selected": false
+      },
+      {
+        "card": "Up the Beanstalk",
+        "price": 2.47,
+        "reasons": {
+          "mana base/demand": 509,
+          "budget": 161,
+          "ramp overprovision": 363,
+          "accepted": 3
+        },
+        "considered": 10,
+        "selected": false
+      },
+      {
+        "card": "Ulamog, the Infinite Gyre",
+        "price": 26.44,
+        "reasons": {
+          "mana base/demand": 372,
+          "budget": 104,
+          "accepted": 2,
+          "ramp overprovision": 175,
+          "high-curve investment needs mana partner": 11,
+          "support dependency": 1
+        },
+        "considered": 16,
+        "selected": false
+      }
+    ],
+    "originPrice": 108.02,
+    "protectedInput": {
+      "vector": {
+        "strategy_cascade": 2,
+        "strategy_castCopy": 1,
+        "strategy_passiveTriggerCopy": 2,
+        "strategy_activatedTriggerCopy": 1,
+        "strategy_costReduction": 1,
+        "strategy_tutor": 1,
+        "topAccessEngines": 0,
+        "threatPower": 54,
+        "threatProtection": 0,
+        "independentDraw": 1,
+        "freeDraw": 0,
+        "scalableDraw": 0,
+        "fastMana": 10,
+        "repeatableMana": 15,
+        "fixing": 0,
+        "trueColorless": 10,
+        "burstMana": 0,
+        "flow": 1,
+        "supportedEngines": 5,
+        "copySupport": 2,
+        "answers": 5,
+        "shields": 1,
+        "wideShields": 1,
+        "threats": 8,
+        "annihilator": 1,
+        "castAnswers": 2
+      },
+      "land": {
+        "score": 105.13,
+        "sources": {
+          "W": 10,
+          "U": 10,
+          "B": 11,
+          "R": 10,
+          "G": 11
+        },
+        "demand": {
+          "W": 3,
+          "U": 8,
+          "B": 4,
+          "R": 6,
+          "G": 15
+        },
+        "realColorless": 23,
+        "penalty": 8
+      },
+      "drawEngines": [
+        {
+          "card": "Endbringer",
+          "trigger": false,
+          "topAccess": false,
+          "independent": 1,
+          "support": 0,
+          "supported": false,
+          "triggers": [],
+          "topSupport": 0,
+          "topCards": []
+        }
+      ],
+      "infrastructure": [
+        {
+          "card": "Annie Joins Up",
+          "kind": "passiveTriggerCopy",
+          "units": 1,
+          "support": 4,
+          "cards": [
+            "Azlask, the Swelling Scourge",
+            "Kozilek, the Great Distortion",
+            "Zhulodok, Void Gorger",
+            "Ulalek, Fused Atrocity"
+          ]
+        },
+        {
+          "card": "Conduit of Ruin",
+          "kind": "costReduction",
+          "units": 1,
+          "support": 32,
+          "cards": [
+            "Azlask, the Swelling Scourge",
+            "Bismuth Mindrender",
+            "Chittering Dispatcher",
+            "Conduit of Ruin",
+            "Deathless Behemoth",
+            "Devourer of Destiny",
+            "Drowner of Hope",
+            "Drownyard Lurker",
+            "Eldrazi Displacer",
+            "Eldrazi Ravager",
+            "Eldrazi Repurposer",
+            "Endbringer",
+            "Glaring Fleshraker",
+            "Inversion Behemoth",
+            "Kozilek, the Great Distortion",
+            "Kozilek's Pathfinder",
+            "Oblivion Sower",
+            "Rapacious One",
+            "Sifter of Skulls",
+            "Sire of Stagnation",
+            "Snapping Voidcraw",
+            "Spawn-Gang Commander",
+            "Spawnbed Protector",
+            "Twins of Discord",
+            "Ulamog's Despoiler",
+            "Ulamog's Nullifier",
+            "Vile Redeemer",
+            "Void Grafter",
+            "Warped Tusker",
+            "World Breaker",
+            "Writhing Chrysalis",
+            "Zhulodok, Void Gorger"
+          ]
+        },
+        {
+          "card": "Conduit of Ruin",
+          "kind": "tutor",
+          "units": 1,
+          "support": 7,
+          "cards": [
+            "Devourer of Destiny",
+            "Drownyard Lurker",
+            "Kozilek, the Great Distortion",
+            "Spawnbed Protector",
+            "Twins of Discord",
+            "Warped Tusker",
+            "World Breaker"
+          ]
+        },
+        {
+          "card": "Echoes of Eternity",
+          "kind": "castCopy",
+          "units": 1,
+          "support": 54,
+          "cards": [
+            "Azlask, the Swelling Scourge",
+            "Basking Broodscale",
+            "Bismuth Mindrender",
+            "Chittering Dispatcher",
+            "Conduit of Ruin",
+            "Deathless Behemoth",
+            "Devourer of Destiny",
+            "Drowner of Hope",
+            "Drownyard Lurker",
+            "Eldrazi Confluence",
+            "Eldrazi Displacer",
+            "Eldrazi Ravager",
+            "Eldrazi Repurposer",
+            "Eldritch Immunity",
+            "Emrakul's Messenger",
+            "Endbringer",
+            "Giant's Boulder",
+            "Glaring Fleshraker",
+            "Guardian Idol",
+            "Hedron Archive",
+            "Inversion Behemoth",
+            "Kozilek, the Great Distortion",
+            "Kozilek's Command",
+            "Kozilek's Pathfinder",
+            "Kozilek's Return",
+            "Kozilek's Unsealing",
+            "Mind Stone",
+            "Oblivion Sower",
+            "Propagator Drone",
+            "Sifter of Skulls",
+            "Sire of Stagnation",
+            "Snapping Voidcraw",
+            "Sol Ring",
+            "Solar Transformer",
+            "Spawn-Gang Commander",
+            "Spawnbed Protector",
+            "Spell Satchel",
+            "Strionic Resonator",
+            "Tablet of Compleation",
+            "Talisman of Curiosity",
+            "Talisman of Dominance",
+            "Talisman of Impulse",
+            "Talisman of Resilience",
+            "Twins of Discord",
+            "Ulamog's Despoiler",
+            "Ulamog's Nullifier",
+            "Vile Redeemer",
+            "Void Grafter",
+            "Warped Tusker",
+            "Warping Wail",
+            "Wastescape Battlemage",
+            "World Breaker",
+            "Writhing Chrysalis",
+            "Zhulodok, Void Gorger"
+          ]
+        },
+        {
+          "card": "Echoes of Eternity",
+          "kind": "passiveTriggerCopy",
+          "units": 1,
+          "support": 36,
+          "cards": [
+            "Azlask, the Swelling Scourge",
+            "Basking Broodscale",
+            "Bismuth Mindrender",
+            "Chittering Dispatcher",
+            "Conduit of Ruin",
+            "Devourer of Destiny",
+            "Drowner of Hope",
+            "Drownyard Lurker",
+            "Eldrazi Ravager",
+            "Eldrazi Repurposer",
+            "Emrakul's Messenger",
+            "Giant's Boulder",
+            "Glaring Fleshraker",
+            "Inversion Behemoth",
+            "Kozilek, the Great Distortion",
+            "Kozilek's Return",
+            "Kozilek's Unsealing",
+            "Oblivion Sower",
+            "Propagator Drone",
+            "Sifter of Skulls",
+            "Sire of Stagnation",
+            "Solar Transformer",
+            "Spawn-Gang Commander",
+            "Spawnbed Protector",
+            "Spell Satchel",
+            "Strionic Resonator",
+            "Twins of Discord",
+            "Ulamog's Nullifier",
+            "Vile Redeemer",
+            "Void Grafter",
+            "Warped Tusker",
+            "Wastescape Battlemage",
+            "World Breaker",
+            "Writhing Chrysalis",
+            "Zhulodok, Void Gorger",
+            "Ulalek, Fused Atrocity"
+          ]
+        },
+        {
+          "card": "Strionic Resonator",
+          "kind": "activatedTriggerCopy",
+          "units": 1,
+          "support": 32,
+          "cards": [
+            "Azlask, the Swelling Scourge",
+            "Basking Broodscale",
+            "Bismuth Mindrender",
+            "Chittering Dispatcher",
+            "Conduit of Ruin",
+            "Devourer of Destiny",
+            "Drowner of Hope",
+            "Drownyard Lurker",
+            "Echoes of Eternity",
+            "Eldrazi Ravager",
+            "Eldrazi Repurposer",
+            "Emrakul's Messenger",
+            "Glaring Fleshraker",
+            "Inversion Behemoth",
+            "Kozilek, the Great Distortion",
+            "Nest Invader",
+            "Oblivion Sower",
+            "Propagator Drone",
+            "Rapacious One",
+            "Sifter of Skulls",
+            "Sire of Stagnation",
+            "Spawn-Gang Commander",
+            "Spawnbed Protector",
+            "Twins of Discord",
+            "Ulamog's Nullifier",
+            "Vile Redeemer",
+            "Void Grafter",
+            "Warped Tusker",
+            "Wastescape Battlemage",
+            "World Breaker",
+            "Writhing Chrysalis",
+            "Zhulodok, Void Gorger"
+          ]
+        },
+        {
+          "card": "Zhulodok, Void Gorger",
+          "kind": "cascade",
+          "units": 2,
+          "support": 7,
+          "cards": [
+            "Devourer of Destiny",
+            "Drownyard Lurker",
+            "Kozilek, the Great Distortion",
+            "Spawnbed Protector",
+            "Twins of Discord",
+            "Warped Tusker",
+            "World Breaker"
+          ]
+        }
+      ],
+      "raw": {
+        "strategyRoles": {
+          "payoff": 12,
+          "engine": 40,
+          "enabler": 35,
+          "finisher": 18
+        },
+        "repeatableMana": 15,
+        "trueColorless": 15,
+        "reducers": 1,
+        "highSpellMana": 52
+      },
+      "unsupported": 1,
+      "method": "Supported function and explicit mana capacity; capped coverage, no price term, no gameplay rating or sequencing simulation"
+    },
+    "originPath": "unchanged"
+  },
+  "audit": {
+    "cards": [
+      {
+        "card": "Ulalek, Fused Atrocity",
+        "price": 0.46,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "m3c",
+          "setName": "Modern Horizons 3 Commander",
+          "collectorNumber": "4",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Ulalek%2C+Fused+Atrocity&language=1&minCondition=2"
+      },
+      {
+        "card": "Annie Joins Up",
+        "price": 0.89,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "msc",
+          "setName": "Marvel Super Heroes Commander",
+          "collectorNumber": "281",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Annie+Joins+Up&language=1&minCondition=2"
+      },
+      {
+        "card": "Azlask, the Swelling Scourge",
+        "price": 0.43,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "m3c",
+          "setName": "Modern Horizons 3 Commander",
+          "collectorNumber": "5",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Azlask%2C+the+Swelling+Scourge&language=1&minCondition=2"
+      },
+      {
+        "card": "Basking Broodscale",
+        "price": 0.21,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "mh3",
+          "setName": "Modern Horizons 3",
+          "collectorNumber": "145",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Basking+Broodscale&language=1&minCondition=2"
+      },
+      {
+        "card": "Bismuth Mindrender",
+        "price": 0.27,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "m3c",
+          "setName": "Modern Horizons 3 Commander",
+          "collectorNumber": "51",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Bismuth+Mindrender&language=1&minCondition=2"
+      },
+      {
+        "card": "Chittering Dispatcher",
+        "price": 0.43,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "m3c",
+          "setName": "Modern Horizons 3 Commander",
+          "collectorNumber": "63",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Chittering+Dispatcher&language=1&minCondition=2"
+      },
+      {
+        "card": "Conduit of Ruin",
+        "price": 3.47,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "bfz",
+          "setName": "Battle for Zendikar",
+          "collectorNumber": "4",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Conduit+of+Ruin&language=1&minCondition=2"
+      },
+      {
+        "card": "Deathless Behemoth",
+        "price": 0.09,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "bfz",
+          "setName": "Battle for Zendikar",
+          "collectorNumber": "5",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Deathless+Behemoth&language=1&minCondition=2"
+      },
+      {
+        "card": "Deranged Assistant",
+        "price": 0.09,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "uma",
+          "setName": "Ultimate Masters",
+          "collectorNumber": "49",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Deranged+Assistant&language=1&minCondition=2"
+      },
+      {
+        "card": "Devourer of Destiny",
+        "price": 1.28,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "mh3",
+          "setName": "Modern Horizons 3",
+          "collectorNumber": "2",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Devourer+of+Destiny&language=1&minCondition=2"
+      },
+      {
+        "card": "Drowner of Hope",
+        "price": 0.19,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "bfz",
+          "setName": "Battle for Zendikar",
+          "collectorNumber": "57",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Drowner+of+Hope&language=1&minCondition=2"
+      },
+      {
+        "card": "Drownyard Lurker",
+        "price": 0.11,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "mh3",
+          "setName": "Modern Horizons 3",
+          "collectorNumber": "3",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Drownyard+Lurker&language=1&minCondition=2"
+      },
+      {
+        "card": "Echoes of Eternity",
+        "price": 0.74,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "pmh3",
+          "setName": "Modern Horizons 3 Promos",
+          "collectorNumber": "4p",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Echoes+of+Eternity&language=1&minCondition=2"
+      },
+      {
+        "card": "Eldrazi Confluence",
+        "price": 11.95,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "m3c",
+          "setName": "Modern Horizons 3 Commander",
+          "collectorNumber": "32",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Eldrazi+Confluence&language=1&minCondition=2"
+      },
+      {
+        "card": "Eldrazi Displacer",
+        "price": 0.6,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "ogw",
+          "setName": "Oath of the Gatewatch",
+          "collectorNumber": "13",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Eldrazi+Displacer&language=1&minCondition=2"
+      },
+      {
+        "card": "Eldrazi Ravager",
+        "price": 0.12,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "mh3",
+          "setName": "Modern Horizons 3",
+          "collectorNumber": "5",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Eldrazi+Ravager&language=1&minCondition=2"
+      },
+      {
+        "card": "Eldrazi Repurposer",
+        "price": 0.13,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "mh3",
+          "setName": "Modern Horizons 3",
+          "collectorNumber": "150",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Eldrazi+Repurposer&language=1&minCondition=2"
+      },
+      {
+        "card": "Eldritch Immunity",
+        "price": 4.74,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "m3c",
+          "setName": "Modern Horizons 3 Commander",
+          "collectorNumber": "33",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Eldritch+Immunity&language=1&minCondition=2"
+      },
+      {
+        "card": "Emrakul's Influence",
+        "price": 0.13,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "emn",
+          "setName": "Eldritch Moon",
+          "collectorNumber": "157",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Emrakul%27s+Influence&language=1&minCondition=2"
+      },
+      {
+        "card": "Emrakul's Messenger",
+        "price": 0.2,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "mh3",
+          "setName": "Modern Horizons 3",
+          "collectorNumber": "61",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Emrakul%27s+Messenger&language=1&minCondition=2"
+      },
+      {
+        "card": "Endbringer",
+        "price": 0.25,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "pogw",
+          "setName": "Oath of the Gatewatch Promos",
+          "collectorNumber": "3",
+          "language": "en",
+          "border": "black",
+          "finish": "foil",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Endbringer&language=1&minCondition=2"
+      },
+      {
+        "card": "Giant's Boulder",
+        "price": 0.42,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "hob",
+          "setName": "The Hobbit",
+          "collectorNumber": "173",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Giant%27s+Boulder&language=1&minCondition=2"
+      },
+      {
+        "card": "Glaring Fleshraker",
+        "price": 0.78,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "mh3",
+          "setName": "Modern Horizons 3",
+          "collectorNumber": "7",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Glaring+Fleshraker&language=1&minCondition=2"
+      },
+      {
+        "card": "Guardian Idol",
+        "price": 0.09,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "ima",
+          "setName": "Iconic Masters",
+          "collectorNumber": "216",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Guardian+Idol&language=1&minCondition=2"
+      },
+      {
+        "card": "Hedron Archive",
+        "price": 0.13,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "fdc",
+          "setName": "Foundations Commander",
+          "collectorNumber": "262",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Hedron+Archive&language=1&minCondition=2"
+      },
+      {
+        "card": "Inversion Behemoth",
+        "price": 0.27,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "m3c",
+          "setName": "Modern Horizons 3 Commander",
+          "collectorNumber": "34",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Inversion+Behemoth&language=1&minCondition=2"
+      },
+      {
+        "card": "Kozilek, the Great Distortion",
+        "price": 4.51,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "ogw",
+          "setName": "Oath of the Gatewatch",
+          "collectorNumber": "4",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Kozilek%2C+the+Great+Distortion&language=1&minCondition=2"
+      },
+      {
+        "card": "Kozilek's Command",
+        "price": 6.97,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "mh3",
+          "setName": "Modern Horizons 3",
+          "collectorNumber": "11",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Kozilek%27s+Command&language=1&minCondition=2"
+      },
+      {
+        "card": "Kozilek's Pathfinder",
+        "price": 0.11,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "ogw",
+          "setName": "Oath of the Gatewatch",
+          "collectorNumber": "5",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Kozilek%27s+Pathfinder&language=1&minCondition=2"
+      },
+      {
+        "card": "Kozilek's Return",
+        "price": 0.59,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "m3c",
+          "setName": "Modern Horizons 3 Commander",
+          "collectorNumber": "214",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Kozilek%27s+Return&language=1&minCondition=2"
+      },
+      {
+        "card": "Kozilek's Unsealing",
+        "price": 0.36,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "mh3",
+          "setName": "Modern Horizons 3",
+          "collectorNumber": "65",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Kozilek%27s+Unsealing&language=1&minCondition=2"
+      },
+      {
+        "card": "Magus of the Library",
+        "price": 0.54,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "plc",
+          "setName": "Planar Chaos",
+          "collectorNumber": "134",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Magus+of+the+Library&language=1&minCondition=2"
+      },
+      {
+        "card": "Mind Stone",
+        "price": 0.17,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "c18",
+          "setName": "Commander 2018",
+          "collectorNumber": "210",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Mind+Stone&language=1&minCondition=2"
+      },
+      {
+        "card": "Nest Invader",
+        "price": 0.25,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "pc2",
+          "setName": "Planechase 2012",
+          "collectorNumber": "69",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Nest+Invader&language=1&minCondition=2"
+      },
+      {
+        "card": "Oblivion Sower",
+        "price": 0.35,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "m3c",
+          "setName": "Modern Horizons 3 Commander",
+          "collectorNumber": "158",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Oblivion+Sower&language=1&minCondition=2"
+      },
+      {
+        "card": "Propagator Drone",
+        "price": 0.1,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "mh3",
+          "setName": "Modern Horizons 3",
+          "collectorNumber": "167",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Propagator+Drone&language=1&minCondition=2"
+      },
+      {
+        "card": "Rapacious One",
+        "price": 0.09,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "cmm",
+          "setName": "Commander Masters",
+          "collectorNumber": "249",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Rapacious+One&language=1&minCondition=2"
+      },
+      {
+        "card": "Sifter of Skulls",
+        "price": 0.47,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "ogw",
+          "setName": "Oath of the Gatewatch",
+          "collectorNumber": "77",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Sifter+of+Skulls&language=1&minCondition=2"
+      },
+      {
+        "card": "Sire of Stagnation",
+        "price": 1.07,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "m3c",
+          "setName": "Modern Horizons 3 Commander",
+          "collectorNumber": "272",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Sire+of+Stagnation&language=1&minCondition=2"
+      },
+      {
+        "card": "Snapping Voidcraw",
+        "price": 0.09,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "mh3",
+          "setName": "Modern Horizons 3",
+          "collectorNumber": "204",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Snapping+Voidcraw&language=1&minCondition=2"
+      },
+      {
+        "card": "Sol Ring",
+        "price": 0.68,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "c16",
+          "setName": "Commander 2016",
+          "collectorNumber": "272",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Sol+Ring&language=1&minCondition=2"
+      },
+      {
+        "card": "Solar Transformer",
+        "price": 0.08,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "mh3",
+          "setName": "Modern Horizons 3",
+          "collectorNumber": "211",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Solar+Transformer&language=1&minCondition=2"
+      },
+      {
+        "card": "Spawn-Gang Commander",
+        "price": 0.14,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "mh3",
+          "setName": "Modern Horizons 3",
+          "collectorNumber": "140",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Spawn-Gang+Commander&language=1&minCondition=2"
+      },
+      {
+        "card": "Spawnbed Protector",
+        "price": 1.5,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "m3c",
+          "setName": "Modern Horizons 3 Commander",
+          "collectorNumber": "36",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Spawnbed+Protector&language=1&minCondition=2"
+      },
+      {
+        "card": "Strionic Resonator",
+        "price": 6.37,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "a25",
+          "setName": "Masters 25",
+          "collectorNumber": "232",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Strionic+Resonator&language=1&minCondition=2"
+      },
+      {
+        "card": "Tablet of Compleation",
+        "price": 0.15,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "one",
+          "setName": "Phyrexia: All Will Be One",
+          "collectorNumber": "245",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Tablet+of+Compleation&language=1&minCondition=2"
+      },
+      {
+        "card": "Talisman of Curiosity",
+        "price": 0.33,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "pip",
+          "setName": "Fallout",
+          "collectorNumber": "245",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Talisman+of+Curiosity&language=1&minCondition=2"
+      },
+      {
+        "card": "Talisman of Dominance",
+        "price": 0.53,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "frc",
+          "setName": "Reality Fracture Commander",
+          "collectorNumber": "62",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Talisman+of+Dominance&language=1&minCondition=2"
+      },
+      {
+        "card": "Talisman of Impulse",
+        "price": 0.33,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "m3c",
+          "setName": "Modern Horizons 3 Commander",
+          "collectorNumber": "311",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Talisman+of+Impulse&language=1&minCondition=2"
+      },
+      {
+        "card": "Talisman of Resilience",
+        "price": 0.31,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "m3c",
+          "setName": "Modern Horizons 3 Commander",
+          "collectorNumber": "314",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Talisman+of+Resilience&language=1&minCondition=2"
+      },
+      {
+        "card": "Twins of Discord",
+        "price": 0.39,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "m3c",
+          "setName": "Modern Horizons 3 Commander",
+          "collectorNumber": "37",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Twins+of+Discord&language=1&minCondition=2"
+      },
+      {
+        "card": "Ulamog's Despoiler",
+        "price": 0.12,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "bfz",
+          "setName": "Battle for Zendikar",
+          "collectorNumber": "16",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Ulamog%27s+Despoiler&language=1&minCondition=2"
+      },
+      {
+        "card": "Ulamog's Nullifier",
+        "price": 0.1,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "m3c",
+          "setName": "Modern Horizons 3 Commander",
+          "collectorNumber": "275",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Ulamog%27s+Nullifier&language=1&minCondition=2"
+      },
+      {
+        "card": "Valorous Stance",
+        "price": 0.06,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "gn3",
+          "setName": "Game Night: Free-for-All",
+          "collectorNumber": "20",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Valorous+Stance&language=1&minCondition=2"
+      },
+      {
+        "card": "Vile Redeemer",
+        "price": 0.11,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "ogw",
+          "setName": "Oath of the Gatewatch",
+          "collectorNumber": "125",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Vile+Redeemer&language=1&minCondition=2"
+      },
+      {
+        "card": "Void Grafter",
+        "price": 0.17,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "ogw",
+          "setName": "Oath of the Gatewatch",
+          "collectorNumber": "150",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Void+Grafter&language=1&minCondition=2"
+      },
+      {
+        "card": "Warped Tusker",
+        "price": 0.06,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "mh3",
+          "setName": "Modern Horizons 3",
+          "collectorNumber": "16",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Warped+Tusker&language=1&minCondition=2"
+      },
+      {
+        "card": "Warping Wail",
+        "price": 0.32,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "ogw",
+          "setName": "Oath of the Gatewatch",
+          "collectorNumber": "12",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Warping+Wail&language=1&minCondition=2"
+      },
+      {
+        "card": "Wastescape Battlemage",
+        "price": 0.14,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "mh3",
+          "setName": "Modern Horizons 3",
+          "collectorNumber": "17",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Wastescape+Battlemage&language=1&minCondition=2"
+      },
+      {
+        "card": "World Breaker",
+        "price": 0.3,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "eoc",
+          "setName": "Edge of Eternities Commander",
+          "collectorNumber": "112",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=World+Breaker&language=1&minCondition=2"
+      },
+      {
+        "card": "Writhing Chrysalis",
+        "price": 0.45,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "mh3",
+          "setName": "Modern Horizons 3",
+          "collectorNumber": "208",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Writhing+Chrysalis&language=1&minCondition=2"
+      },
+      {
+        "card": "Zhulodok, Void Gorger",
+        "price": 41.27,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "cmm",
+          "setName": "Commander Masters",
+          "collectorNumber": "704",
+          "language": "en",
+          "border": "black",
+          "finish": "foil",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Zhulodok%2C+Void+Gorger&language=1&minCondition=2"
+      },
+      {
+        "card": "Adarkar Wastes",
+        "price": 0.52,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "blc",
+          "setName": "Bloomburrow Commander",
+          "collectorNumber": "291",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Adarkar+Wastes&language=1&minCondition=2"
+      },
+      {
+        "card": "Battlefield Forge",
+        "price": 0.23,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "frc",
+          "setName": "Reality Fracture Commander",
+          "collectorNumber": "65",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Battlefield+Forge&language=1&minCondition=2"
+      },
+      {
+        "card": "Bonders' Enclave",
+        "price": 0.25,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "fdc",
+          "setName": "Foundations Commander",
+          "collectorNumber": "297",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Bonders%27+Enclave&language=1&minCondition=2"
+      },
+      {
+        "card": "Brushland",
+        "price": 0.82,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "fic",
+          "setName": "Final Fantasy Commander",
+          "collectorNumber": "377",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Brushland&language=1&minCondition=2"
+      },
+      {
+        "card": "Caves of Koilos",
+        "price": 0.42,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "frc",
+          "setName": "Reality Fracture Commander",
+          "collectorNumber": "66",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Caves+of+Koilos&language=1&minCondition=2"
+      },
+      {
+        "card": "Command Tower",
+        "price": 0.18,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "cmm",
+          "setName": "Commander Masters",
+          "collectorNumber": "420",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Command+Tower&language=1&minCondition=2"
+      },
+      {
+        "card": "Exotic Orchard",
+        "price": 0.16,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "ncc",
+          "setName": "New Capenna Commander",
+          "collectorNumber": "400",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Exotic+Orchard&language=1&minCondition=2"
+      },
+      {
+        "card": "Forest",
+        "price": 0,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "blb",
+          "setName": "Bloomburrow",
+          "collectorNumber": "280",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Forest&language=1&minCondition=2"
+      },
+      {
+        "card": "Forest",
+        "price": 0,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "blb",
+          "setName": "Bloomburrow",
+          "collectorNumber": "280",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Forest&language=1&minCondition=2"
+      },
+      {
+        "card": "Island",
+        "price": 0,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "eld",
+          "setName": "Throne of Eldraine",
+          "collectorNumber": "255",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Island&language=1&minCondition=2"
+      },
+      {
+        "card": "Island",
+        "price": 0,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "eld",
+          "setName": "Throne of Eldraine",
+          "collectorNumber": "255",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Island&language=1&minCondition=2"
+      },
+      {
+        "card": "Karplusan Forest",
+        "price": 0.8,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "drc",
+          "setName": "Aetherdrift Commander",
+          "collectorNumber": "163",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Karplusan+Forest&language=1&minCondition=2"
+      },
+      {
+        "card": "Llanowar Wastes",
+        "price": 1.03,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "c20",
+          "setName": "Commander 2020",
+          "collectorNumber": "286",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Llanowar+Wastes&language=1&minCondition=2"
+      },
+      {
+        "card": "Mountain",
+        "price": 0,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "2ed",
+          "setName": "Unlimited Edition",
+          "collectorNumber": "298",
+          "language": "en",
+          "border": "white",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Mountain&language=1&minCondition=2"
+      },
+      {
+        "card": "Mountain",
+        "price": 0,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "2ed",
+          "setName": "Unlimited Edition",
+          "collectorNumber": "298",
+          "language": "en",
+          "border": "white",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Mountain&language=1&minCondition=2"
+      },
+      {
+        "card": "Path of Ancestry",
+        "price": 0.1,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "frc",
+          "setName": "Reality Fracture Commander",
+          "collectorNumber": "77",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Path+of+Ancestry&language=1&minCondition=2"
+      },
+      {
+        "card": "Plains",
+        "price": 0,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "cma",
+          "setName": "Commander Anthology",
+          "collectorNumber": "292",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Plains&language=1&minCondition=2"
+      },
+      {
+        "card": "Reliquary Tower",
+        "price": 1.49,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "cmr",
+          "setName": "Commander Legends",
+          "collectorNumber": "488",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Reliquary+Tower&language=1&minCondition=2"
+      },
+      {
+        "card": "Ruins of Oran-Rief",
+        "price": 0.17,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "ogw",
+          "setName": "Oath of the Gatewatch",
+          "collectorNumber": "176",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Ruins+of+Oran-Rief&language=1&minCondition=2"
+      },
+      {
+        "card": "Shivan Reef",
+        "price": 0.26,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "frc",
+          "setName": "Reality Fracture Commander",
+          "collectorNumber": "83",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Shivan+Reef&language=1&minCondition=2"
+      },
+      {
+        "card": "Sulfurous Springs",
+        "price": 0.79,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "frc",
+          "setName": "Reality Fracture Commander",
+          "collectorNumber": "85",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Sulfurous+Springs&language=1&minCondition=2"
+      },
+      {
+        "card": "Swamp",
+        "price": 0,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "jmp",
+          "setName": "Jumpstart",
+          "collectorNumber": "59",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Swamp&language=1&minCondition=2"
+      },
+      {
+        "card": "Tectonic Edge",
+        "price": 0.29,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "c14",
+          "setName": "Commander 2014",
+          "collectorNumber": "313",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Tectonic+Edge&language=1&minCondition=2"
+      },
+      {
+        "card": "Temple of Malady",
+        "price": 0.15,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "fdn",
+          "setName": "Foundations",
+          "collectorNumber": "700",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Temple+of+Malady&language=1&minCondition=2"
+      },
+      {
+        "card": "Temple of Silence",
+        "price": 0.1,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "m21",
+          "setName": "Core Set 2021",
+          "collectorNumber": "255",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Temple+of+Silence&language=1&minCondition=2"
+      },
+      {
+        "card": "Temple of the False God",
+        "price": 0.11,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "onc",
+          "setName": "Phyrexia: All Will Be One Commander",
+          "collectorNumber": "172",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Temple+of+the+False+God&language=1&minCondition=2"
+      },
+      {
+        "card": "Tendo Ice Bridge",
+        "price": 0.22,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "m3c",
+          "setName": "Modern Horizons 3 Commander",
+          "collectorNumber": "393",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Tendo+Ice+Bridge&language=1&minCondition=2"
+      },
+      {
+        "card": "Tomb of the Spirit Dragon",
+        "price": 0.27,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "m3c",
+          "setName": "Modern Horizons 3 Commander",
+          "collectorNumber": "397",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Tomb+of+the+Spirit+Dragon&language=1&minCondition=2"
+      },
+      {
+        "card": "Tranquil Landscape",
+        "price": 0.14,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "mh3",
+          "setName": "Modern Horizons 3",
+          "collectorNumber": "231",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Tranquil+Landscape&language=1&minCondition=2"
+      },
+      {
+        "card": "Twisted Landscape",
+        "price": 0.16,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "mh3",
+          "setName": "Modern Horizons 3",
+          "collectorNumber": "232",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Twisted+Landscape&language=1&minCondition=2"
+      },
+      {
+        "card": "Underground River",
+        "price": 0.77,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "frc",
+          "setName": "Reality Fracture Commander",
+          "collectorNumber": "87",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Underground+River&language=1&minCondition=2"
+      },
+      {
+        "card": "Wastes",
+        "price": 0,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "plst",
+          "setName": "The List",
+          "collectorNumber": "OGW-183",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Wastes&language=1&minCondition=2"
+      },
+      {
+        "card": "Wastes",
+        "price": 0,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "plst",
+          "setName": "The List",
+          "collectorNumber": "OGW-183",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Wastes&language=1&minCondition=2"
+      },
+      {
+        "card": "Wastes",
+        "price": 0,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "plst",
+          "setName": "The List",
+          "collectorNumber": "OGW-183",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Wastes&language=1&minCondition=2"
+      },
+      {
+        "card": "Wastes",
+        "price": 0,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "plst",
+          "setName": "The List",
+          "collectorNumber": "OGW-183",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Wastes&language=1&minCondition=2"
+      },
+      {
+        "card": "Wastes",
+        "price": 0,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "plst",
+          "setName": "The List",
+          "collectorNumber": "OGW-183",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Wastes&language=1&minCondition=2"
+      },
+      {
+        "card": "Yavimaya Coast",
+        "price": 0.44,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "drc",
+          "setName": "Aetherdrift Commander",
+          "collectorNumber": "184",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Yavimaya+Coast&language=1&minCondition=2"
+      },
+      {
+        "card": "Eladamri, Korvecdal",
+        "price": 6.74,
+        "unpriced": false,
+        "issue": null,
+        "baseEur": null,
+        "printing": {
+          "set": "mh3",
+          "setName": "Modern Horizons 3",
+          "collectorNumber": "149",
+          "language": "en",
+          "border": "black",
+          "finish": "normal",
+          "source": "Scryfall bulk printing",
+          "eligibleVersion": 2
+        },
+        "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Eladamri%2C+Korvecdal&language=1&minCondition=2"
+      }
+    ],
+    "total": 114.66,
+    "count": 100,
+    "missing": [],
+    "agreesWithGenerator": true,
+    "withinBudget": true,
+    "provenance": "exact-selected-cards",
+    "anomalies": []
+  },
+  "limitations": [
+    "Imported text has no recorded generator combo commitments; recorded compact-combo policy is applied only in cached mode. Standard generation preserves its actual recorded commitments.",
+    "Capacity and support evidence are conservative static approximations, not gameplay or official bracket certification."
+  ]
+}

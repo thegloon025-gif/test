@@ -1,0 +1,130 @@
+[
+  {
+    "commander": "Ulalek, Fused Atrocity",
+    "before": 131.88,
+    "after": 134.21,
+    "unused": 56.79,
+    "beforeCandidate": "source:archidekt:14494014",
+    "afterCandidate": "source:archidekt:14494014",
+    "cuts": [
+      "1 Deepfathom Skulker",
+      "1 Insight Engine",
+      "1 Tablet of Compleation"
+    ],
+    "adds": [
+      "1 Archivist",
+      "1 Elven Chorus",
+      "1 Mystic Forge"
+    ],
+    "beforeColorlessSources": 46,
+    "afterColorlessSources": 46
+  },
+  {
+    "commander": "Yuriko, the Tiger's Shadow",
+    "before": 113.61,
+    "after": 126.04,
+    "unused": 64.96,
+    "beforeCandidate": "local:engine",
+    "afterCandidate": "local:resilience",
+    "cuts": [
+      "1 Archivist",
+      "1 Blight Keeper",
+      "1 Consuming Ashes",
+      "1 Elektra, Daughter of the Hand",
+      "1 Pit Imp",
+      "1 Ravine Raider",
+      "1 Skywatcher Adept",
+      "1 Tablet of Compleation"
+    ],
+    "adds": [
+      "1 Conch Horn",
+      "1 Diresight",
+      "1 Notion Rain",
+      "1 Risky Research",
+      "1 Rowan's Grim Search",
+      "1 Staff of Compleation",
+      "1 Thran Dynamo",
+      "1 Three Steps Ahead"
+    ],
+    "beforeColorlessSources": 10,
+    "afterColorlessSources": 11
+  },
+  {
+    "commander": "Wilhelt, the Rotcleaver",
+    "before": 171.33,
+    "after": 102.06,
+    "unused": 88.94,
+    "beforeCandidate": "local:resilience",
+    "afterCandidate": "local:engine",
+    "cuts": [
+      "1 Altar's Reap",
+      "1 Bag of Devouring",
+      "1 Bankrupt in Blood",
+      "1 Corrupted Conviction",
+      "1 Cut of the Profits",
+      "1 Desperate Plea",
+      "1 God-Eternal Bontu",
+      "1 Graveborn Muse",
+      "1 Merciless Resolve",
+      "1 Nasty End",
+      "1 Perilous Research",
+      "1 Relic Vial",
+      "1 Rhet-Tomb Mystic",
+      "1 Selhoff Entomber",
+      "1 Silversmote Ghoul",
+      "1 Skulltap",
+      "1 Soul Diviner",
+      "1 Staff of Compleation",
+      "1 Teferi's Response",
+      "1 The One Ring",
+      "1 Three Steps Ahead",
+      "1 Undead Gladiator",
+      "1 Unshakable Tail",
+      "1 Village Rites"
+    ],
+    "adds": [
+      "1 Abattoir Ghoul",
+      "1 Archghoul of Thraben",
+      "1 Boneyard Desecrator",
+      "1 Brain Gorgers",
+      "1 Carrion Feeder",
+      "1 Corpse Blockade",
+      "1 Diregraf Captain",
+      "1 Fell Stinger",
+      "1 Feral Ghoul",
+      "1 Gavony Unhallowed",
+      "1 Gutless Ghoul",
+      "1 Headless Rider",
+      "1 Hithlain Rope",
+      "1 Jarl of the Forsaken",
+      "1 Nantuko Husk",
+      "1 Necrosavant",
+      "1 Phyrexian Ghoul",
+      "1 Plague Belcher",
+      "1 Stronghold Assassin",
+      "1 Tablet of Compleation",
+      "1 The Soul Stone",
+      "1 Undercity Necrolisk",
+      "1 Vengeful Dead",
+      "1 Voracious Null"
+    ],
+    "beforeColorlessSources": 9,
+    "afterColorlessSources": 9
+  },
+  {
+    "commander": "Zada, Hedron Grinder",
+    "before": 166.39,
+    "after": 158.68,
+    "unused": 32.32,
+    "beforeCandidate": "local:tempo",
+    "afterCandidate": "local:tempo",
+    "cuts": [
+      "1 Canoptek Spyder"
+    ],
+    "adds": [
+      "1 Mystic Forge"
+    ],
+    "beforeColorlessSources": 11,
+    "afterColorlessSources": 11
+  }
+]

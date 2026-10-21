@@ -1,5 +1,7 @@
 # Coherent investment validation after PR #1
 
+Subsequent PR #2 work: [strategy infrastructure and card-access follow-up](engine-followup-VALIDATION.md). Results below describe `b55cc01` and remain historical.
+
 Base commit: `b7070d2` (merged PR #1). Development remains an unreleased v1.1.5 extension. Commands and Windows reproduction steps: [implementation and limitations](../docs/COHERENT_INVESTMENT.md).
 
 ## Historical evidence supplied by the user
