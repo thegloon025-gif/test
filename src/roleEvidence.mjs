@@ -14,7 +14,8 @@ export function roleEvidence(c){
  const positive=/\bdraw (?:two|three|four|five|six|[2-9]|x|that many) cards?\b/i.test(t);
  const discard=/\b(?:then )?(?:discard|put) (?:two|three|four|[2-9]) cards?\b/i.test(t);
  const replaces=/\bdraw (?:a|one|1) card\b/i.test(t);
- const reusable=/\b(?:whenever|at the beginning of|each time)\b[^.\n]{0,180}\bdraw\b/i.test(t)||/:\s*draw (?:a|one|two) card/i.test(t);
+ // A draw-step trigger is not itself an instruction to draw cards.
+ const reusable=/\b(?:whenever|at the beginning of|each time)\b[^.\n]{0,180}\bdraw (?:a|one|two|three|four|five|six|[1-9]|x|that many) cards?\b/i.test(t)||/:\s*draw (?:a|one|two) card/i.test(t);
  const restricted=/\b(?:only if|if you|unless|whenever an opponent|whenever a player|whenever you cycle|whenever you cast or copy an instant or sorcery|whenever you cast an instant or sorcery)\b/i.test(t);
  const costly=/\{[4-9]\}[^\n.]*:\s*draw/i.test(t)||cmc>=6;
  let draw='none';
@@ -25,7 +26,7 @@ export function roleEvidence(c){
  if(draw==='cantrip-or-conditional')reason.push('card text does not establish positive card advantage');
  // Removal distinguishes broad unconditional targets from narrow board states.
  const counter=/\bcounter (?:target|all|each)\b/i.test(t);
- const broad=/\b(?:exile|destroy) target (?:nonland )?(?:permanent|creature|planeswalker)\b|return target (?:nonland )?permanent to its owner's hand/i.test(t);
+ const broad=/\b(?:exile|destroy) target (?:nonland )?(?:permanent|creature(?! with\b| that\b)|planeswalker)\b|return target (?:nonland )?permanent to its owner's hand/i.test(t);
  const narrower=/\b(?:exile|destroy) target (?:artifact|enchantment|attacking creature|tapped creature|creature with|noncreature)\b/i.test(t);
  const mass=/\b(?:destroy|exile) (?:all|each) creatures\b/i.test(t);
  const counterBroad=/\bcounter target spell\b/i.test(t)&&!/\bunless\b/i.test(t);

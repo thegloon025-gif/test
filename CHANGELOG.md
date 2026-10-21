@@ -1,3 +1,13 @@
+## Unreleased — bounded budget-search portfolio
+
+- Compare completed quality, intermediate-investment and value paths with the unchanged deck, using existing strategy/deck evidence. Permit cheaper improvements and continued upgrades at the cap; remove spending bonuses.
+- Reject swaps against the proposed whole deck, preserving support and fixed-land mana evidence; retain pair-specific alternatives and count land Game Changers. Sum exact selected-record costs throughout.
+- Correct draw-step-only triggers counted as card advantage and restricted creature exile counted as broad removal, with Oracle-shaped regression cases.
+- Preserve existing efficient ramp through a ten-source floor and protect explicit high-output cheap sustained mana after a real-cache card review exposed an unsafe acceleration cut.
+- Cache unchanged selection-limit counts within each generation request without changing gate semantics. Preserve the Windows launcher, v1.1.5 baseline, pricing provenance, integrations and legacy fallback.
+- Add adversarial portfolio, budget, combo, support, legality, mana and pricing regressions plus a cached four-commander comparison tool. These are not certified gameplay improvements or new external scores.
+- Audit and local validation instructions: `docs/BUDGET_SEARCH_AUDIT.md` and `benchmarks/budget-search-VALIDATION.md`.
+
 ## v1.1.5 — Full-budget opportunity optimization (2026-10-21)
 
 - Strategy-first decks now run a guarded, bounded, quality-increasing budget investment stage **after** jointly choosing spells and lands. This fixes the v1.1.4 behavioral gap where the constructor remained biased toward cheaper cards even with €80–€120 spare. It seeks improvements, not arbitrary spending.

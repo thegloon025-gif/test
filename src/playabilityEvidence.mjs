@@ -31,3 +31,24 @@ export function tempoEvidence(cards){
   heavyCurveAccelerationGap:Math.max(0,Math.min(10,expensive-3)-efficient),
   note:'Non-simulated tempo and draw-access evidence: mana timing, actual castability and triggers are not guaranteed.'};
 }
+
+/** Conservative sustained output of a cheap, explicit tap-for-mana ability.
+ * Used as a preservation gate, not a quality score or mana simulation. Unknown,
+ * restricted, sacrificed and untap-limited sources deliberately return zero. */
+export function sustainedEarlyMana(card){
+ if(isLandSlot(card)||Number(card.cmc)>2||!manaRole(card).effective)return 0;
+ const t=oracleText(card);
+ if(/doesn't untap|does not untap|spend this mana only|only to cast|sacrifice[^\n]*:|activate only/i.test(t))return 0;
+ let output=0;
+ for(const line of t.split('\n')){
+  const match=line.match(/^\s*((?:\{[^}]+\},?\s*)*\{T\})\s*:\s*Add\s+((?:\{[WUBRGC]\})+|one mana|two mana|three mana)/i);
+  if(!match)continue;
+  // Non-generic activation costs need a richer mana model; fail closed.
+  const payments=[...match[1].matchAll(/\{([^}]+)\}/g)].map(x=>x[1]).filter(x=>x!=='T');
+  if(payments.some(x=>!/^\d+$/.test(x)))continue;
+  const produced=match[2].startsWith('{')?(match[2].match(/\{/g)||[]).length:
+   match[2].toLowerCase()==='three mana'?3:match[2].toLowerCase()==='two mana'?2:1;
+  output=Math.max(output,produced-payments.reduce((n,x)=>n+Number(x),0));
+ }
+ return Math.max(0,output);
+}
