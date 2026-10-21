@@ -1,0 +1,1478 @@
+{
+  "sourceCommit": "7c2ca33280370fd6f598c82b481bbe9d38b01b57",
+  "commander": "Ulalek, Fused Atrocity",
+  "bracket": 4,
+  "budget": 191,
+  "price": 173.88,
+  "unused": 17.12,
+  "totalCards": 100,
+  "pricing": "Eligible-printing Scryfall EUR estimate; owned basics; no shipping; not verified Cardmarket English NM offers",
+  "inputSHA256": {
+    "cards.json": "6add2c5dd20809fd787438d3c8825f8dd21a74e7d3fc429f83c7a9a091045f6c",
+    "community-decks.json": "630dd24c667d308ddbca4e43f35a486f5d3f6cab4df9d3d2af8579e5226478eb",
+    "combo-library.json": "cbe8505b795ba34137f9b8d42dee1911e80213c55db0ed108a39c7a78fdfc2d1"
+  },
+  "runtimeMs": 144572,
+  "selectedCandidate": "source:archidekt:24772686",
+  "audit": {
+    "count": 100,
+    "agrees": true,
+    "withinBudget": true,
+    "anomalies": []
+  },
+  "singletonValid": true,
+  "colorIdentityLegal": true,
+  "combo": {
+    "knownVariants": 177,
+    "inventoryComplete": 12,
+    "executionVerified": false
+  },
+  "acceptedPackages": [
+    {
+      "label": "functional complement",
+      "cuts": [
+        "Spell Satchel"
+      ],
+      "adds": [
+        "Mystic Forge"
+      ],
+      "extraCost": 1.8,
+      "changes": {
+        "topAccessEngines": 1,
+        "flow": 1,
+        "supportedEngines": 1
+      }
+    },
+    {
+      "label": "functional complement",
+      "cuts": [
+        "Planar Genesis"
+      ],
+      "adds": [
+        "Archivist"
+      ],
+      "extraCost": -0.12,
+      "changes": {
+        "independentDraw": 1,
+        "freeDraw": 1,
+        "flow": 1
+      }
+    },
+    {
+      "label": "functional complement",
+      "cuts": [
+        "Rampant Growth"
+      ],
+      "adds": [
+        "Eladamri, Korvecdal"
+      ],
+      "extraCost": 6.56,
+      "changes": {
+        "topAccessEngines": 1,
+        "flow": 1
+      }
+    }
+  ],
+  "selectedPrintings": [
+    {
+      "name": "Ulalek, Fused Atrocity",
+      "price": 0.46,
+      "printing": {
+        "set": "m3c",
+        "setName": "Modern Horizons 3 Commander",
+        "collectorNumber": "4",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Annie Joins Up",
+      "price": 0.89,
+      "printing": {
+        "set": "msc",
+        "setName": "Marvel Super Heroes Commander",
+        "collectorNumber": "281",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Arcane Signet",
+      "price": 0.38,
+      "printing": {
+        "set": "c20",
+        "setName": "Commander 2020",
+        "collectorNumber": "237",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Archivist",
+      "price": 0.26,
+      "printing": {
+        "set": "9ed",
+        "setName": "Ninth Edition",
+        "collectorNumber": "60",
+        "language": "en",
+        "border": "white",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Basalt Monolith",
+      "price": 2.94,
+      "printing": {
+        "set": "cm2",
+        "setName": "Commander Anthology Volume II",
+        "collectorNumber": "173",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Chittering Dispatcher",
+      "price": 0.43,
+      "printing": {
+        "set": "m3c",
+        "setName": "Modern Horizons 3 Commander",
+        "collectorNumber": "63",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Curator's Ward",
+      "price": 0.3,
+      "printing": {
+        "set": "dom",
+        "setName": "Dominaria",
+        "collectorNumber": "49",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Deathless Behemoth",
+      "price": 0.09,
+      "printing": {
+        "set": "bfz",
+        "setName": "Battle for Zendikar",
+        "collectorNumber": "5",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Deranged Assistant",
+      "price": 0.09,
+      "printing": {
+        "set": "uma",
+        "setName": "Ultimate Masters",
+        "collectorNumber": "49",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Devourer of Destiny",
+      "price": 1.28,
+      "printing": {
+        "set": "mh3",
+        "setName": "Modern Horizons 3",
+        "collectorNumber": "2",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Drowner of Hope",
+      "price": 0.19,
+      "printing": {
+        "set": "bfz",
+        "setName": "Battle for Zendikar",
+        "collectorNumber": "57",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Drownyard Lurker",
+      "price": 0.11,
+      "printing": {
+        "set": "mh3",
+        "setName": "Modern Horizons 3",
+        "collectorNumber": "3",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Echoes of Eternity",
+      "price": 0.74,
+      "printing": {
+        "set": "pmh3",
+        "setName": "Modern Horizons 3 Promos",
+        "collectorNumber": "4p",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Eladamri, Korvecdal",
+      "price": 6.74,
+      "printing": {
+        "set": "mh3",
+        "setName": "Modern Horizons 3",
+        "collectorNumber": "149",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Eldrazi Linebreaker",
+      "price": 0.32,
+      "printing": {
+        "set": "mh3",
+        "setName": "Modern Horizons 3",
+        "collectorNumber": "117",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Eldrazi Ravager",
+      "price": 0.12,
+      "printing": {
+        "set": "mh3",
+        "setName": "Modern Horizons 3",
+        "collectorNumber": "5",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Eldrazi Repurposer",
+      "price": 0.13,
+      "printing": {
+        "set": "mh3",
+        "setName": "Modern Horizons 3",
+        "collectorNumber": "150",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Eldritch Immunity",
+      "price": 4.74,
+      "printing": {
+        "set": "m3c",
+        "setName": "Modern Horizons 3 Commander",
+        "collectorNumber": "33",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Emrakul's Influence",
+      "price": 0.13,
+      "printing": {
+        "set": "emn",
+        "setName": "Eldritch Moon",
+        "collectorNumber": "157",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Endbringer",
+      "price": 0.25,
+      "printing": {
+        "set": "pogw",
+        "setName": "Oath of the Gatewatch Promos",
+        "collectorNumber": "3",
+        "language": "en",
+        "border": "black",
+        "finish": "foil",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Fanatic of Rhonas",
+      "price": 15.32,
+      "printing": {
+        "set": "mh3",
+        "setName": "Modern Horizons 3",
+        "collectorNumber": "152",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Giant's Boulder",
+      "price": 0.42,
+      "printing": {
+        "set": "hob",
+        "setName": "The Hobbit",
+        "collectorNumber": "173",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Gideon Blackblade",
+      "price": 0.77,
+      "printing": {
+        "set": "war",
+        "setName": "War of the Spark",
+        "collectorNumber": "13",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Glaring Fleshraker",
+      "price": 0.78,
+      "printing": {
+        "set": "mh3",
+        "setName": "Modern Horizons 3",
+        "collectorNumber": "7",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Great Forest Druid",
+      "price": 0.12,
+      "printing": {
+        "set": "ecl",
+        "setName": "Lorwyn Eclipsed",
+        "collectorNumber": "178",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Guardian Idol",
+      "price": 0.09,
+      "printing": {
+        "set": "ima",
+        "setName": "Iconic Masters",
+        "collectorNumber": "216",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Hedron Crawler",
+      "price": 0.13,
+      "printing": {
+        "set": "ogw",
+        "setName": "Oath of the Gatewatch",
+        "collectorNumber": "164",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Kozilek, the Great Distortion",
+      "price": 4.51,
+      "printing": {
+        "set": "ogw",
+        "setName": "Oath of the Gatewatch",
+        "collectorNumber": "4",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Kozilek's Pathfinder",
+      "price": 0.11,
+      "printing": {
+        "set": "ogw",
+        "setName": "Oath of the Gatewatch",
+        "collectorNumber": "5",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Kozilek's Unsealing",
+      "price": 0.36,
+      "printing": {
+        "set": "mh3",
+        "setName": "Modern Horizons 3",
+        "collectorNumber": "65",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Magus of the Library",
+      "price": 0.54,
+      "printing": {
+        "set": "plc",
+        "setName": "Planar Chaos",
+        "collectorNumber": "134",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Millikin",
+      "price": 0.12,
+      "printing": {
+        "set": "dmr",
+        "setName": "Dominaria Remastered",
+        "collectorNumber": "231",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Mind Stone",
+      "price": 0.17,
+      "printing": {
+        "set": "c18",
+        "setName": "Commander 2018",
+        "collectorNumber": "210",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Mutated Cultist",
+      "price": 0.75,
+      "printing": {
+        "set": "m3c",
+        "setName": "Modern Horizons 3 Commander",
+        "collectorNumber": "53",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Mystic Forge",
+      "price": 1.9,
+      "printing": {
+        "set": "pm20",
+        "setName": "Core Set 2020 Promos",
+        "collectorNumber": "233p",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Nightshade Dryad",
+      "price": 0.13,
+      "printing": {
+        "set": "mh3",
+        "setName": "Modern Horizons 3",
+        "collectorNumber": "163",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Oblivion Sower",
+      "price": 0.35,
+      "printing": {
+        "set": "m3c",
+        "setName": "Modern Horizons 3 Commander",
+        "collectorNumber": "158",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Ornithopter of Paradise",
+      "price": 0.31,
+      "printing": {
+        "set": "mh2",
+        "setName": "Modern Horizons 2",
+        "collectorNumber": "430",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Parting Thoughts",
+      "price": 0.31,
+      "printing": {
+        "set": "c16",
+        "setName": "Commander 2016",
+        "collectorNumber": "15",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Rapacious One",
+      "price": 0.09,
+      "printing": {
+        "set": "cmm",
+        "setName": "Commander Masters",
+        "collectorNumber": "249",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Sea Scryer",
+      "price": 0.14,
+      "printing": {
+        "set": "mir",
+        "setName": "Mirage",
+        "collectorNumber": "90",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Shared Roots",
+      "price": 0.25,
+      "printing": {
+        "set": "soa",
+        "setName": "Secrets of Strixhaven Mystical Archive",
+        "collectorNumber": "58",
+        "language": "en",
+        "border": "borderless",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Sire of Stagnation",
+      "price": 1.07,
+      "printing": {
+        "set": "m3c",
+        "setName": "Modern Horizons 3 Commander",
+        "collectorNumber": "272",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Sol Ring",
+      "price": 0.68,
+      "printing": {
+        "set": "c16",
+        "setName": "Commander 2016",
+        "collectorNumber": "272",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Solar Transformer",
+      "price": 0.08,
+      "printing": {
+        "set": "mh3",
+        "setName": "Modern Horizons 3",
+        "collectorNumber": "211",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Sowing Mycospawn",
+      "price": 1.54,
+      "printing": {
+        "set": "mh3",
+        "setName": "Modern Horizons 3",
+        "collectorNumber": "170",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Spawn-Gang Commander",
+      "price": 0.14,
+      "printing": {
+        "set": "mh3",
+        "setName": "Modern Horizons 3",
+        "collectorNumber": "140",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Spawnbed Protector",
+      "price": 1.5,
+      "printing": {
+        "set": "m3c",
+        "setName": "Modern Horizons 3 Commander",
+        "collectorNumber": "36",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Strionic Resonator",
+      "price": 6.37,
+      "printing": {
+        "set": "a25",
+        "setName": "Masters 25",
+        "collectorNumber": "232",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Tablet of Compleation",
+      "price": 0.15,
+      "printing": {
+        "set": "one",
+        "setName": "Phyrexia: All Will Be One",
+        "collectorNumber": "245",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Talisman of Curiosity",
+      "price": 0.33,
+      "printing": {
+        "set": "pip",
+        "setName": "Fallout",
+        "collectorNumber": "245",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Talisman of Impulse",
+      "price": 0.33,
+      "printing": {
+        "set": "m3c",
+        "setName": "Modern Horizons 3 Commander",
+        "collectorNumber": "311",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Talisman of Resilience",
+      "price": 0.31,
+      "printing": {
+        "set": "m3c",
+        "setName": "Modern Horizons 3 Commander",
+        "collectorNumber": "314",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "The Enigma Jewel // Locus of Enlightenment",
+      "price": 1.72,
+      "printing": {
+        "set": "lci",
+        "setName": "The Lost Caverns of Ixalan",
+        "collectorNumber": "55",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Three Steps Ahead",
+      "price": 3.6,
+      "printing": {
+        "set": "mar",
+        "setName": "Marvel Universe",
+        "collectorNumber": "62",
+        "language": "en",
+        "border": "borderless",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Ugin, the Ineffable",
+      "price": 0.95,
+      "printing": {
+        "set": "m3c",
+        "setName": "Modern Horizons 3 Commander",
+        "collectorNumber": "160",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Ulamog, the Infinite Gyre",
+      "price": 26.44,
+      "printing": {
+        "set": "roe",
+        "setName": "Rise of the Eldrazi",
+        "collectorNumber": "12",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Ulamog's Despoiler",
+      "price": 0.12,
+      "printing": {
+        "set": "bfz",
+        "setName": "Battle for Zendikar",
+        "collectorNumber": "16",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Ulamog's Nullifier",
+      "price": 0.1,
+      "printing": {
+        "set": "m3c",
+        "setName": "Modern Horizons 3 Commander",
+        "collectorNumber": "275",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Void Grafter",
+      "price": 0.17,
+      "printing": {
+        "set": "ogw",
+        "setName": "Oath of the Gatewatch",
+        "collectorNumber": "150",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Warped Tusker",
+      "price": 0.06,
+      "printing": {
+        "set": "mh3",
+        "setName": "Modern Horizons 3",
+        "collectorNumber": "16",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "World Breaker",
+      "price": 0.3,
+      "printing": {
+        "set": "eoc",
+        "setName": "Edge of Eternities Commander",
+        "collectorNumber": "112",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Writhing Chrysalis",
+      "price": 0.45,
+      "printing": {
+        "set": "mh3",
+        "setName": "Modern Horizons 3",
+        "collectorNumber": "208",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Zhulodok, Void Gorger",
+      "price": 41.27,
+      "printing": {
+        "set": "cmm",
+        "setName": "Commander Masters",
+        "collectorNumber": "704",
+        "language": "en",
+        "border": "black",
+        "finish": "foil",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Adarkar Wastes",
+      "price": 0.52,
+      "printing": {
+        "set": "blc",
+        "setName": "Bloomburrow Commander",
+        "collectorNumber": "291",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Battlefield Forge",
+      "price": 0.23,
+      "printing": {
+        "set": "frc",
+        "setName": "Reality Fracture Commander",
+        "collectorNumber": "65",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Brushland",
+      "price": 0.82,
+      "printing": {
+        "set": "fic",
+        "setName": "Final Fantasy Commander",
+        "collectorNumber": "377",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Caves of Koilos",
+      "price": 0.42,
+      "printing": {
+        "set": "frc",
+        "setName": "Reality Fracture Commander",
+        "collectorNumber": "66",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Command Tower",
+      "price": 0.18,
+      "printing": {
+        "set": "cmm",
+        "setName": "Commander Masters",
+        "collectorNumber": "420",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Dark Fortress",
+      "price": 2.82,
+      "printing": {
+        "set": "msh",
+        "setName": "Marvel Super Heroes",
+        "collectorNumber": "264",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Exotic Orchard",
+      "price": 0.16,
+      "printing": {
+        "set": "ncc",
+        "setName": "New Capenna Commander",
+        "collectorNumber": "400",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Fire-Lit Thicket",
+      "price": 1.44,
+      "printing": {
+        "set": "fic",
+        "setName": "Final Fantasy Commander",
+        "collectorNumber": "392",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Flooded Grove",
+      "price": 0.31,
+      "printing": {
+        "set": "otc",
+        "setName": "Outlaws of Thunder Junction Commander",
+        "collectorNumber": "297",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Forest",
+      "price": 0,
+      "printing": {
+        "set": "blb",
+        "setName": "Bloomburrow",
+        "collectorNumber": "280",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Gathering Place",
+      "price": 2.08,
+      "printing": {
+        "set": "msh",
+        "setName": "Marvel Super Heroes",
+        "collectorNumber": "381",
+        "language": "en",
+        "border": "borderless",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Gleaming Bastion",
+      "price": 2.33,
+      "printing": {
+        "set": "msh",
+        "setName": "Marvel Super Heroes",
+        "collectorNumber": "267",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Hidden Lair",
+      "price": 3.34,
+      "printing": {
+        "set": "msh",
+        "setName": "Marvel Super Heroes",
+        "collectorNumber": "383",
+        "language": "en",
+        "border": "borderless",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Island",
+      "price": 0,
+      "printing": {
+        "set": "eld",
+        "setName": "Throne of Eldraine",
+        "collectorNumber": "255",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Island",
+      "price": 0,
+      "printing": {
+        "set": "eld",
+        "setName": "Throne of Eldraine",
+        "collectorNumber": "255",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Karplusan Forest",
+      "price": 0.8,
+      "printing": {
+        "set": "drc",
+        "setName": "Aetherdrift Commander",
+        "collectorNumber": "163",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Llanowar Wastes",
+      "price": 1.03,
+      "printing": {
+        "set": "c20",
+        "setName": "Commander 2020",
+        "collectorNumber": "286",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Mountain",
+      "price": 0,
+      "printing": {
+        "set": "2ed",
+        "setName": "Unlimited Edition",
+        "collectorNumber": "298",
+        "language": "en",
+        "border": "white",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Mountain",
+      "price": 0,
+      "printing": {
+        "set": "2ed",
+        "setName": "Unlimited Edition",
+        "collectorNumber": "298",
+        "language": "en",
+        "border": "white",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Path of Ancestry",
+      "price": 0.1,
+      "printing": {
+        "set": "frc",
+        "setName": "Reality Fracture Commander",
+        "collectorNumber": "77",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Plains",
+      "price": 0,
+      "printing": {
+        "set": "cma",
+        "setName": "Commander Anthology",
+        "collectorNumber": "292",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Reflecting Pool",
+      "price": 5.22,
+      "printing": {
+        "set": "frc",
+        "setName": "Reality Fracture Commander",
+        "collectorNumber": "23",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Shivan Reef",
+      "price": 0.26,
+      "printing": {
+        "set": "frc",
+        "setName": "Reality Fracture Commander",
+        "collectorNumber": "83",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Sulfurous Springs",
+      "price": 0.79,
+      "printing": {
+        "set": "frc",
+        "setName": "Reality Fracture Commander",
+        "collectorNumber": "85",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Swamp",
+      "price": 0,
+      "printing": {
+        "set": "jmp",
+        "setName": "Jumpstart",
+        "collectorNumber": "59",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Training Compound",
+      "price": 1.79,
+      "printing": {
+        "set": "msh",
+        "setName": "Marvel Super Heroes",
+        "collectorNumber": "275",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Twilight Mire",
+      "price": 0.72,
+      "printing": {
+        "set": "soc",
+        "setName": "Secrets of Strixhaven Commander",
+        "collectorNumber": "418",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Underground River",
+      "price": 0.77,
+      "printing": {
+        "set": "frc",
+        "setName": "Reality Fracture Commander",
+        "collectorNumber": "87",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Urza's Cave",
+      "price": 1.46,
+      "printing": {
+        "set": "mh3",
+        "setName": "Modern Horizons 3",
+        "collectorNumber": "234",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Wastes",
+      "price": 0,
+      "printing": {
+        "set": "plst",
+        "setName": "The List",
+        "collectorNumber": "OGW-183",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Wastes",
+      "price": 0,
+      "printing": {
+        "set": "plst",
+        "setName": "The List",
+        "collectorNumber": "OGW-183",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Wastes",
+      "price": 0,
+      "printing": {
+        "set": "plst",
+        "setName": "The List",
+        "collectorNumber": "OGW-183",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Wastes",
+      "price": 0,
+      "printing": {
+        "set": "plst",
+        "setName": "The List",
+        "collectorNumber": "OGW-183",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Wastes",
+      "price": 0,
+      "printing": {
+        "set": "plst",
+        "setName": "The List",
+        "collectorNumber": "OGW-183",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Wooded Bastion",
+      "price": 9.91,
+      "printing": {
+        "set": "shm",
+        "setName": "Shadowmoor",
+        "collectorNumber": "281",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Yavimaya Coast",
+      "price": 0.44,
+      "printing": {
+        "set": "drc",
+        "setName": "Aetherdrift Commander",
+        "collectorNumber": "184",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    }
+  ]
+}
