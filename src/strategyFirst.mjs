@@ -14,7 +14,7 @@ import {landScore} from './manaBaseOptimizer.mjs';
 import {templatePredicate} from './comboTemplates.mjs';
 import {normalizedName} from './combos.mjs';
 import {sourceStructureEvidence} from './sourceQuality.mjs';
-import {tempoEvidence,drawAccess} from './playabilityEvidence.mjs';
+import {tempoEvidence,drawAccess,sustainedEarlyMana} from './playabilityEvidence.mjs';
 
 const basics={W:'Plains',U:'Island',B:'Swamp',R:'Mountain',G:'Forest',C:'Wastes'};
 const round=n=>Math.round(n*100)/100;
@@ -68,7 +68,7 @@ function dedupeCatalog(cards,commander){
 function cardFacts(card,plan){
  const a=analysis(card),s=synergy(card,plan,a),role=roleEvidence(card),mana=manaRole(card),cmc=Number(card.cmc)||0;
  return {card,a,s,role,mana,cmc,primary:s.impact>=4,
-  ramp:mana.effective&&cmc<=3,efficientRamp:mana.effective&&cmc<=2,
+  earlyOutput:sustainedEarlyMana(card),ramp:mana.effective&&cmc<=3,efficientRamp:mana.effective&&cmc<=2,
   draw:role.draw==='positive'||role.draw==='engine-conditional',
   answer:role.removal==='broad'||role.removal==='conditional',
   broad:role.removal==='broad',shield:role.shield==='dedicated',
@@ -335,7 +335,7 @@ function investBudgetPath({built,pool,commander,plan=planFor(commander),bracket=
  const sourceCount=()=>spells.filter(c=>source?.has(oracleId(c))).length;
  const sourceFloor=source?Math.min(20,sourceCount()):0;
  const floorKeys=['ramp','efficientRamp','draw','broad','shield','primary'];
- const targets={ramp:bracket===4?11:bracket===3?10:8,efficientRamp:7,draw:bracket===4?9:8,
+ const targets={ramp:bracket===4?11:bracket===3?10:8,efficientRamp:10,draw:bracket===4?9:8,
   broad:bracket===4?8:7,shield:bracket===4?4:3,primary:21};
  const count=key=>spells.filter(c=>fact(c)[key]).length;
  // Don't make an unmet floor worse, or strip out stronger existing evidence.
@@ -366,6 +366,8 @@ function investBudgetPath({built,pool,commander,plan=planFor(commander),bracket=
     if(sourceRemoval&&!source?.has(oracleId(next))&&sourceCount()<=sourceFloor)continue;
     const gain=entry.quality-oldQuality;
     if(gain<=1.5)break;
+    // Protect exceptional cheap sustained acceleration even above role floors.
+    if(oldFact.earlyOutput>=2&&newFact.earlyOutput<oldFact.earlyOutput)continue;
     if(cost(next)>priceRoom+1e-7)continue;
     if(next.game_changer&&!old.game_changer&&currentGC>=(bracket===2?0:bracket===3?3:99))continue;
     if(newFact.late&&!oldFact.late&&lateCount>=7)continue;

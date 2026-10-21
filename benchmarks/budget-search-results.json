@@ -1,0 +1,869 @@
+{
+  "source": "user-supplied cached Scryfall + recorded research; no fresh external scores",
+  "budget": 191,
+  "results": [
+    {
+      "commander": "Ulalek, Fused Atrocity",
+      "bracket": 3,
+      "budget": 191,
+      "beforePrice": 190.46,
+      "afterPrice": 171.21,
+      "beforeRoles": {
+        "positiveDraw": 3,
+        "conditionalDraw": 10,
+        "cantrips": 0,
+        "broadAnswers": 10,
+        "conditionalAnswers": 0,
+        "dedicatedShields": 3
+      },
+      "afterRoles": {
+        "positiveDraw": 2,
+        "conditionalDraw": 10,
+        "cantrips": 0,
+        "broadAnswers": 8,
+        "conditionalAnswers": 2,
+        "dedicatedShields": 3
+      },
+      "beforeEarlyRamp": 16,
+      "afterEarlyRamp": 13,
+      "beforeRuntimeMs": 123587,
+      "afterRuntimeMs": 93403,
+      "beforeSelected": "source:archidekt:16562184",
+      "afterSelected": "source:archidekt:14494014",
+      "beforeDistinct": 7,
+      "afterDistinct": 7,
+      "added": [
+        "Basking Broodscale",
+        "Blisterpod",
+        "Bountiful Landscape",
+        "Crib Swap",
+        "Deepfathom Skulker",
+        "Eldrazi Linebreaker",
+        "Exotic Orchard",
+        "Gideon Blackblade",
+        "It That Heralds the End",
+        "Nest Invader",
+        "Nightshade Dryad",
+        "Path of Ancestry",
+        "Plains",
+        "Propagator Drone",
+        "Spawning Bed",
+        "Swamp",
+        "Tranquil Landscape",
+        "Twisted Landscape",
+        "Wastescape Battlemage"
+      ],
+      "cut": [
+        "Arcane Signet",
+        "Eldrazi Displacer",
+        "Opal Palace",
+        "Rogue's Passage",
+        "Sifter of Skulls",
+        "Sowing Mycospawn",
+        "Talisman of Curiosity",
+        "Talisman of Dominance",
+        "Talisman of Resilience",
+        "The Grey Havens",
+        "Thespian's Stage",
+        "Three Steps Ahead",
+        "Ugin's Labyrinth",
+        "Urza's Mine",
+        "Urza's Power Plant",
+        "Urza's Tower",
+        "Valorous Stance",
+        "Vile Redeemer",
+        "Warping Wail"
+      ],
+      "finalInvestment": {
+        "startingPrice": 129.78,
+        "finalPrice": 171.21,
+        "ceiling": 191,
+        "remaining": 19.79,
+        "swaps": [
+          {
+            "out": "Titans' Vanguard",
+            "in": "Idol of False Gods",
+            "extraCost": 0.08,
+            "qualityGain": 38.55
+          },
+          {
+            "out": "Arcane Signet",
+            "in": "Emrakul's Messenger",
+            "extraCost": -0.18,
+            "qualityGain": 35
+          },
+          {
+            "out": "Sowing Mycospawn",
+            "in": "Propagator Drone",
+            "extraCost": -1.44,
+            "qualityGain": 34.7
+          },
+          {
+            "out": "Eldrazi Displacer",
+            "in": "Blisterpod",
+            "extraCost": -0.49,
+            "qualityGain": 30.85
+          },
+          {
+            "out": "Bismuth Mindrender",
+            "in": "Basking Broodscale",
+            "extraCost": -0.06,
+            "qualityGain": 34.7
+          },
+          {
+            "out": "World Breaker",
+            "in": "Desolation Twin",
+            "extraCost": 0,
+            "qualityGain": 27.45
+          },
+          {
+            "out": "Herald of Kozilek",
+            "in": "Nest Invader",
+            "extraCost": -0.14,
+            "qualityGain": 30.85
+          },
+          {
+            "out": "Talisman of Creativity",
+            "in": "Conduit of Ruin",
+            "extraCost": 2.68,
+            "qualityGain": 1.8
+          },
+          {
+            "out": "Talisman of Curiosity",
+            "in": "Zhulodok, Void Gorger",
+            "extraCost": 40.94,
+            "qualityGain": 1.8
+          },
+          {
+            "out": "Snapping Voidcraw",
+            "in": "Nightshade Dryad",
+            "extraCost": 0.04,
+            "qualityGain": 4.85
+          }
+        ],
+        "searchMode": "balanced",
+        "qualityGain": 240.55,
+        "note": "Bounded positive-utility search; unused budget is allowed. Costs are estimates, not verified EN NM carts.",
+        "candidates": [
+          {
+            "mode": "balanced",
+            "price": 171.21,
+            "score": 179.19,
+            "qualityGain": 240.55,
+            "swaps": 10
+          },
+          {
+            "mode": "value",
+            "price": 171.21,
+            "score": 179.19,
+            "qualityGain": 240.55,
+            "swaps": 10
+          },
+          {
+            "mode": "quality",
+            "price": 171.73,
+            "score": 176.7,
+            "qualityGain": 294.95,
+            "swaps": 9
+          },
+          {
+            "mode": "unchanged",
+            "price": 129.78,
+            "score": 169.81,
+            "qualityGain": 0,
+            "swaps": 0
+          }
+        ]
+      },
+      "finalAudit": {
+        "count": 100,
+        "agrees": true,
+        "withinBudget": true,
+        "anomalies": []
+      }
+    },
+    {
+      "commander": "Ulalek, Fused Atrocity",
+      "bracket": 4,
+      "budget": 191,
+      "beforePrice": 113.71,
+      "afterPrice": 139.28,
+      "beforeRoles": {
+        "positiveDraw": 3,
+        "conditionalDraw": 11,
+        "cantrips": 0,
+        "broadAnswers": 9,
+        "conditionalAnswers": 1,
+        "dedicatedShields": 4
+      },
+      "afterRoles": {
+        "positiveDraw": 6,
+        "conditionalDraw": 10,
+        "cantrips": 0,
+        "broadAnswers": 8,
+        "conditionalAnswers": 2,
+        "dedicatedShields": 5
+      },
+      "beforeEarlyRamp": 18,
+      "afterEarlyRamp": 16,
+      "beforeRuntimeMs": 112475,
+      "afterRuntimeMs": 89966,
+      "beforeSelected": "source:archidekt:11395308",
+      "afterSelected": "source:archidekt:11395308",
+      "beforeDistinct": 7,
+      "afterDistinct": 7,
+      "added": [
+        "Basking Broodscale",
+        "Blisterpod",
+        "Deepfathom Skulker",
+        "Gideon Blackblade",
+        "My Precious // Allure of Power",
+        "Nest Invader",
+        "Parting Thoughts",
+        "Propagator Drone",
+        "Sea Scryer",
+        "Ulamog, the Infinite Gyre",
+        "Your Temple Is Under Attack"
+      ],
+      "cut": [
+        "Ebony Fly",
+        "Eldrazi Linebreaker",
+        "It That Heralds the End",
+        "Snapping Voidcraw",
+        "Solar Transformer",
+        "Sowing Mycospawn",
+        "Stone by Sunlight",
+        "Thief of Existence",
+        "Twins of Discord",
+        "Valorous Stance",
+        "Warping Wail"
+      ],
+      "finalInvestment": {
+        "startingPrice": 134.69,
+        "finalPrice": 139.28,
+        "ceiling": 191,
+        "remaining": 51.72,
+        "swaps": [
+          {
+            "out": "Arcane Signet",
+            "in": "Kozilek's Command",
+            "extraCost": 6.59,
+            "qualityGain": 41
+          },
+          {
+            "out": "Akroma's Will",
+            "in": "Your Temple Is Under Attack",
+            "extraCost": -14.75,
+            "qualityGain": 34.85
+          },
+          {
+            "out": "Sowing Mycospawn",
+            "in": "Idol of False Gods",
+            "extraCost": -1.38,
+            "qualityGain": 34.7
+          },
+          {
+            "out": "Teferi's Protection",
+            "in": "My Precious // Allure of Power",
+            "extraCost": -27.14,
+            "qualityGain": 31
+          },
+          {
+            "out": "Crib Swap",
+            "in": "Parting Thoughts",
+            "extraCost": 0.25,
+            "qualityGain": 31
+          },
+          {
+            "out": "Eldrazi Linebreaker",
+            "in": "Propagator Drone",
+            "extraCost": -0.22,
+            "qualityGain": 30.85
+          },
+          {
+            "out": "World Breaker",
+            "in": "Desolation Twin",
+            "extraCost": 0,
+            "qualityGain": 27.45
+          },
+          {
+            "out": "Thief of Existence",
+            "in": "Blisterpod",
+            "extraCost": -0.09,
+            "qualityGain": 30.85
+          },
+          {
+            "out": "Snapping Voidcraw",
+            "in": "Emrakul's Messenger",
+            "extraCost": 0.11,
+            "qualityGain": 9.85
+          },
+          {
+            "out": "It That Heralds the End",
+            "in": "Basking Broodscale",
+            "extraCost": -0.03,
+            "qualityGain": 27
+          },
+          {
+            "out": "Path to Exile",
+            "in": "Gideon Blackblade",
+            "extraCost": -0.06,
+            "qualityGain": 24.15
+          },
+          {
+            "out": "Nightshade Dryad",
+            "in": "Nest Invader",
+            "extraCost": 0.12,
+            "qualityGain": 5
+          },
+          {
+            "out": "Solar Transformer",
+            "in": "Zhulodok, Void Gorger",
+            "extraCost": 41.19,
+            "qualityGain": 1.8
+          }
+        ],
+        "searchMode": "quality",
+        "qualityGain": 329.5,
+        "note": "Bounded positive-utility search; unused budget is allowed. Costs are estimates, not verified EN NM carts.",
+        "candidates": [
+          {
+            "mode": "quality",
+            "price": 139.28,
+            "score": 172.51,
+            "qualityGain": 329.5,
+            "swaps": 13
+          },
+          {
+            "mode": "balanced",
+            "price": 138.89,
+            "score": 172.51,
+            "qualityGain": 305.35,
+            "swaps": 12
+          },
+          {
+            "mode": "value",
+            "price": 138.78,
+            "score": 171.89,
+            "qualityGain": 324.65,
+            "swaps": 13
+          },
+          {
+            "mode": "unchanged",
+            "price": 134.69,
+            "score": 158.89,
+            "qualityGain": 0,
+            "swaps": 0
+          }
+        ]
+      },
+      "finalAudit": {
+        "count": 100,
+        "agrees": true,
+        "withinBudget": true,
+        "anomalies": []
+      }
+    },
+    {
+      "commander": "Yuriko, the Tiger's Shadow",
+      "bracket": 3,
+      "budget": 191,
+      "beforePrice": 81.31,
+      "afterPrice": 25.62,
+      "beforeRoles": {
+        "positiveDraw": 8,
+        "conditionalDraw": 13,
+        "cantrips": 0,
+        "broadAnswers": 7,
+        "conditionalAnswers": 1,
+        "dedicatedShields": 3
+      },
+      "afterRoles": {
+        "positiveDraw": 7,
+        "conditionalDraw": 13,
+        "cantrips": 0,
+        "broadAnswers": 7,
+        "conditionalAnswers": 1,
+        "dedicatedShields": 3
+      },
+      "beforeEarlyRamp": 10,
+      "afterEarlyRamp": 10,
+      "beforeRuntimeMs": 34543,
+      "afterRuntimeMs": 19273,
+      "beforeSelected": "local:resilience",
+      "afterSelected": "local:resilience",
+      "beforeDistinct": 3,
+      "afterDistinct": 3,
+      "added": [
+        "Staff of Compleation",
+        "Symmetry Sage"
+      ],
+      "cut": [
+        "Mana Vault",
+        "Teferi's Response"
+      ],
+      "finalInvestment": {
+        "startingPrice": 25.62,
+        "finalPrice": 25.62,
+        "ceiling": 191,
+        "remaining": 165.38,
+        "swaps": [],
+        "searchMode": "unchanged",
+        "qualityGain": 0,
+        "note": "Bounded positive-utility search; unused budget is allowed. Costs are estimates, not verified EN NM carts.",
+        "candidates": [
+          {
+            "mode": "unchanged",
+            "price": 25.62,
+            "score": 152.2,
+            "qualityGain": 0,
+            "swaps": 0
+          },
+          {
+            "mode": "quality",
+            "price": 25.62,
+            "score": 152.2,
+            "qualityGain": 0,
+            "swaps": 0
+          },
+          {
+            "mode": "balanced",
+            "price": 25.62,
+            "score": 152.2,
+            "qualityGain": 0,
+            "swaps": 0
+          },
+          {
+            "mode": "value",
+            "price": 25.62,
+            "score": 152.2,
+            "qualityGain": 0,
+            "swaps": 0
+          }
+        ]
+      },
+      "finalAudit": {
+        "count": 100,
+        "agrees": true,
+        "withinBudget": true,
+        "anomalies": []
+      }
+    },
+    {
+      "commander": "Yuriko, the Tiger's Shadow",
+      "bracket": 4,
+      "budget": 191,
+      "beforePrice": 86.15,
+      "afterPrice": 36.4,
+      "beforeRoles": {
+        "positiveDraw": 8,
+        "conditionalDraw": 14,
+        "cantrips": 0,
+        "broadAnswers": 8,
+        "conditionalAnswers": 1,
+        "dedicatedShields": 4
+      },
+      "afterRoles": {
+        "positiveDraw": 8,
+        "conditionalDraw": 13,
+        "cantrips": 0,
+        "broadAnswers": 8,
+        "conditionalAnswers": 1,
+        "dedicatedShields": 4
+      },
+      "beforeEarlyRamp": 11,
+      "afterEarlyRamp": 11,
+      "beforeRuntimeMs": 15849,
+      "afterRuntimeMs": 12595,
+      "beforeSelected": "local:resilience",
+      "afterSelected": "local:resilience",
+      "beforeDistinct": 3,
+      "afterDistinct": 3,
+      "added": [
+        "Beamsaw Prospector"
+      ],
+      "cut": [
+        "Mana Vault"
+      ],
+      "finalInvestment": {
+        "startingPrice": 26.03,
+        "finalPrice": 36.4,
+        "ceiling": 191,
+        "remaining": 154.6,
+        "swaps": [
+          {
+            "out": "Parting Thoughts",
+            "in": "Teferi's Response",
+            "extraCost": 10.37,
+            "qualityGain": 4.55
+          }
+        ],
+        "searchMode": "quality",
+        "qualityGain": 4.55,
+        "note": "Bounded positive-utility search; unused budget is allowed. Costs are estimates, not verified EN NM carts.",
+        "candidates": [
+          {
+            "mode": "quality",
+            "price": 36.4,
+            "score": 168.4,
+            "qualityGain": 4.55,
+            "swaps": 1
+          },
+          {
+            "mode": "balanced",
+            "price": 36.4,
+            "score": 168.4,
+            "qualityGain": 4.55,
+            "swaps": 1
+          },
+          {
+            "mode": "value",
+            "price": 36.4,
+            "score": 168.4,
+            "qualityGain": 4.55,
+            "swaps": 1
+          },
+          {
+            "mode": "unchanged",
+            "price": 26.03,
+            "score": 168.4,
+            "qualityGain": 0,
+            "swaps": 0
+          }
+        ]
+      },
+      "finalAudit": {
+        "count": 100,
+        "agrees": true,
+        "withinBudget": true,
+        "anomalies": []
+      }
+    },
+    {
+      "commander": "Wilhelt, the Rotcleaver",
+      "bracket": 3,
+      "budget": 191,
+      "beforePrice": 187.65,
+      "afterPrice": 143.17,
+      "beforeRoles": {
+        "positiveDraw": 3,
+        "conditionalDraw": 9,
+        "cantrips": 0,
+        "broadAnswers": 11,
+        "conditionalAnswers": 0,
+        "dedicatedShields": 3
+      },
+      "afterRoles": {
+        "positiveDraw": 5,
+        "conditionalDraw": 8,
+        "cantrips": 0,
+        "broadAnswers": 10,
+        "conditionalAnswers": 0,
+        "dedicatedShields": 3
+      },
+      "beforeEarlyRamp": 10,
+      "afterEarlyRamp": 10,
+      "beforeRuntimeMs": 23135,
+      "afterRuntimeMs": 17999,
+      "beforeSelected": "local:engine",
+      "afterSelected": "local:threats",
+      "beforeDistinct": 4,
+      "afterDistinct": 4,
+      "added": [
+        "Corpse Augur",
+        "Graveborn Muse",
+        "Mana Cylix",
+        "Tsabo's Assassin",
+        "Vengeful Dead"
+      ],
+      "cut": [
+        "Boneyard Desecrator",
+        "Brain Gorgers",
+        "Mana Vault",
+        "Qutrub Forayer",
+        "Unliving Psychopath"
+      ],
+      "finalInvestment": {
+        "startingPrice": 47.28,
+        "finalPrice": 143.17,
+        "ceiling": 191,
+        "remaining": 47.83,
+        "swaps": [
+          {
+            "out": "Beamsaw Prospector",
+            "in": "The Soul Stone",
+            "extraCost": 49.96,
+            "qualityGain": 12.15
+          },
+          {
+            "out": "Undercity Necrolisk",
+            "in": "The Ghoul, Gunslinger",
+            "extraCost": 9.84,
+            "qualityGain": 3.88
+          },
+          {
+            "out": "Nim Shambler",
+            "in": "Rotlung Reanimator",
+            "extraCost": 16.5,
+            "qualityGain": 3.88
+          },
+          {
+            "out": "Boneyard Desecrator",
+            "in": "Graveborn Muse",
+            "extraCost": 4.81,
+            "qualityGain": 2.65
+          },
+          {
+            "out": "Gavony Unhallowed",
+            "in": "Warren Soultrader",
+            "extraCost": 14.78,
+            "qualityGain": 2.08
+          }
+        ],
+        "searchMode": "quality",
+        "qualityGain": 24.64,
+        "note": "Bounded positive-utility search; unused budget is allowed. Costs are estimates, not verified EN NM carts.",
+        "candidates": [
+          {
+            "mode": "quality",
+            "price": 143.17,
+            "score": 165.82,
+            "qualityGain": 24.64,
+            "swaps": 5
+          },
+          {
+            "mode": "balanced",
+            "price": 142.98,
+            "score": 153.82,
+            "qualityGain": 24.64,
+            "swaps": 5
+          },
+          {
+            "mode": "value",
+            "price": 142.98,
+            "score": 153.82,
+            "qualityGain": 24.64,
+            "swaps": 5
+          },
+          {
+            "mode": "unchanged",
+            "price": 47.28,
+            "score": 140.62,
+            "qualityGain": 0,
+            "swaps": 0
+          }
+        ]
+      },
+      "finalAudit": {
+        "count": 100,
+        "agrees": true,
+        "withinBudget": true,
+        "anomalies": []
+      }
+    },
+    {
+      "commander": "Wilhelt, the Rotcleaver",
+      "bracket": 4,
+      "budget": 191,
+      "beforePrice": 187.83,
+      "afterPrice": 143.18,
+      "beforeRoles": {
+        "positiveDraw": 3,
+        "conditionalDraw": 9,
+        "cantrips": 0,
+        "broadAnswers": 12,
+        "conditionalAnswers": 0,
+        "dedicatedShields": 4
+      },
+      "afterRoles": {
+        "positiveDraw": 5,
+        "conditionalDraw": 8,
+        "cantrips": 0,
+        "broadAnswers": 11,
+        "conditionalAnswers": 0,
+        "dedicatedShields": 4
+      },
+      "beforeEarlyRamp": 11,
+      "afterEarlyRamp": 11,
+      "beforeRuntimeMs": 20615,
+      "afterRuntimeMs": 16083,
+      "beforeSelected": "local:engine",
+      "afterSelected": "local:threats",
+      "beforeDistinct": 4,
+      "afterDistinct": 4,
+      "added": [
+        "Beamsaw Prospector",
+        "Corpse Augur",
+        "Gavony Unhallowed",
+        "Graveborn Muse",
+        "Solar Transformer",
+        "Tsabo's Assassin"
+      ],
+      "cut": [
+        "Abattoir Ghoul",
+        "Boneyard Desecrator",
+        "Mana Cylix",
+        "Mana Vault",
+        "Qutrub Forayer",
+        "Unliving Psychopath"
+      ],
+      "finalInvestment": {
+        "startingPrice": 47.49,
+        "finalPrice": 143.18,
+        "ceiling": 191,
+        "remaining": 47.82,
+        "swaps": [
+          {
+            "out": "Mana Cylix",
+            "in": "The Soul Stone",
+            "extraCost": 49.92,
+            "qualityGain": 12.15
+          },
+          {
+            "out": "Nim Shambler",
+            "in": "Graveborn Muse",
+            "extraCost": 4.84,
+            "qualityGain": 2.65
+          },
+          {
+            "out": "Undercity Necrolisk",
+            "in": "The Ghoul, Gunslinger",
+            "extraCost": 9.84,
+            "qualityGain": 3.88
+          },
+          {
+            "out": "Vengeful Dead",
+            "in": "Rotlung Reanimator",
+            "extraCost": 16.39,
+            "qualityGain": 2.98
+          },
+          {
+            "out": "Abattoir Ghoul",
+            "in": "Warren Soultrader",
+            "extraCost": 14.7,
+            "qualityGain": 2.08
+          }
+        ],
+        "searchMode": "balanced",
+        "qualityGain": 23.74,
+        "note": "Bounded positive-utility search; unused budget is allowed. Costs are estimates, not verified EN NM carts.",
+        "candidates": [
+          {
+            "mode": "balanced",
+            "price": 143.18,
+            "score": 167.02,
+            "qualityGain": 23.74,
+            "swaps": 5
+          },
+          {
+            "mode": "value",
+            "price": 143.18,
+            "score": 167.02,
+            "qualityGain": 23.74,
+            "swaps": 5
+          },
+          {
+            "mode": "quality",
+            "price": 143.37,
+            "score": 167.02,
+            "qualityGain": 23.74,
+            "swaps": 5
+          },
+          {
+            "mode": "unchanged",
+            "price": 47.49,
+            "score": 165.82,
+            "qualityGain": 0,
+            "swaps": 0
+          }
+        ]
+      },
+      "finalAudit": {
+        "count": 100,
+        "agrees": true,
+        "withinBudget": true,
+        "anomalies": []
+      }
+    },
+    {
+      "commander": "Zada, Hedron Grinder",
+      "bracket": 3,
+      "budget": 191,
+      "beforePrice": 57.7,
+      "afterPrice": 57.7,
+      "beforeRoles": {
+        "positiveDraw": 8,
+        "conditionalDraw": 16,
+        "cantrips": 1,
+        "broadAnswers": 5,
+        "conditionalAnswers": 4,
+        "dedicatedShields": 1
+      },
+      "afterRoles": {
+        "positiveDraw": 8,
+        "conditionalDraw": 16,
+        "cantrips": 1,
+        "broadAnswers": 5,
+        "conditionalAnswers": 4,
+        "dedicatedShields": 1
+      },
+      "beforeEarlyRamp": 23,
+      "afterEarlyRamp": 23,
+      "beforeRuntimeMs": 25009,
+      "afterRuntimeMs": 15285,
+      "beforeSelected": "legacy-fallback",
+      "afterSelected": "legacy-fallback",
+      "beforeDistinct": 4,
+      "afterDistinct": 4,
+      "added": [],
+      "cut": [],
+      "finalInvestment": null,
+      "finalAudit": {
+        "count": 100,
+        "agrees": true,
+        "withinBudget": true,
+        "anomalies": []
+      }
+    },
+    {
+      "commander": "Zada, Hedron Grinder",
+      "bracket": 4,
+      "budget": 191,
+      "beforePrice": 58.41,
+      "afterPrice": 58.41,
+      "beforeRoles": {
+        "positiveDraw": 8,
+        "conditionalDraw": 16,
+        "cantrips": 1,
+        "broadAnswers": 5,
+        "conditionalAnswers": 4,
+        "dedicatedShields": 1
+      },
+      "afterRoles": {
+        "positiveDraw": 8,
+        "conditionalDraw": 16,
+        "cantrips": 1,
+        "broadAnswers": 5,
+        "conditionalAnswers": 4,
+        "dedicatedShields": 1
+      },
+      "beforeEarlyRamp": 24,
+      "afterEarlyRamp": 24,
+      "beforeRuntimeMs": 22027,
+      "afterRuntimeMs": 13824,
+      "beforeSelected": "legacy-fallback",
+      "afterSelected": "legacy-fallback",
+      "beforeDistinct": 4,
+      "afterDistinct": 4,
+      "added": [],
+      "cut": [],
+      "finalInvestment": null,
+      "finalAudit": {
+        "count": 100,
+        "agrees": true,
+        "withinBudget": true,
+        "anomalies": []
+      }
+    }
+  ]
+}

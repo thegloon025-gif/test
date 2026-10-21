@@ -5,6 +5,7 @@ import {validateCommanderSingleton} from '../src/deckValidation.mjs';
 import {withSelectedCards} from '../src/deckSelection.mjs';
 import {auditExportPricing} from '../src/pricing.mjs';
 import {priceOf} from '../src/cards.mjs';
+import {sustainedEarlyMana} from '../src/playabilityEvidence.mjs';
 import {roleEvidence} from '../src/roleEvidence.mjs';
 
 // Controlled fixtures: invented prices/text, never marketplace or gameplay evidence.
@@ -95,4 +96,16 @@ test('a draw-step damage trigger is not card advantage; restricted creature exil
  assert.equal(roleEvidence(broad).removal,'broad');
  const engine=card('Upkeep advantage','Enchantment','At the beginning of your upkeep, draw a card.');
  assert.equal(roleEvidence(engine).draw,'engine-conditional');
+});
+
+test('preserve high-output early mana even when the deck exceeds its efficient ramp floor',()=>{
+ const strong=card('Double mana rock','Artifact','{T}: Add {C}{C}.',1,.5);
+ const rocks=Array.from({length:12},(_,i)=>card(`Ordinary rock ${i}`,'Artifact','{T}: Add {C}.',2,.1));
+ const spells=[strong,...rocks,...filler.slice(13)];
+ const result=run(makeBuilt(spells),[draw('Expensive tribal engine',3,50)]);
+ assert.ok(result.cards.includes(strong));
+ assert.equal(sustainedEarlyMana(strong),2);
+ assert.equal(sustainedEarlyMana({...strong,oracle_text:"This artifact doesn't untap during your untap step.\n{T}: Add {C}{C}{C}."}),0);
+ assert.equal(sustainedEarlyMana({...strong,oracle_text:'{1}, {T}: Add {U}{B}.'}),1);
+ assert.equal(sustainedEarlyMana({...strong,oracle_text:'{T}: Add one mana of any color.'}),1);
 });

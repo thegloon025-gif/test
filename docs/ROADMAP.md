@@ -7,8 +7,10 @@ Last revised: 2026-10-21. Local, deterministic Commander generator: **no paid AI
 - [x] Preserve uploaded source as a tagged Git baseline and retain Windows launcher unchanged.
 - [x] Replace the single investment trajectory with bounded complete-path comparison, including cheaper improvements and unchanged fallback; preserve existing evidence/policy gates.
 - [x] Test pair-specific combo rejection, whole-deck support and fixed-land mana preservation, exact-record pricing and non-Ulalek investment scenarios.
+- [x] Preserve high-output cheap sustained acceleration and strengthen the existing efficient-ramp floor after reviewing actual card swaps.
 - [x] Correct observed draw-step and restricted-removal role false positives with explicit regressions.
 - [x] Add request-scoped caching for unchanged selection-limit counts, with equivalent-gate regression coverage.
+- [ ] Prioritize activation/loyalty timing, modal/adventure additional costs and whole-board versus single-target protection before treating further internal-score gains as card-quality improvements.
 - [ ] Calibrate against measured gameplay and fresh external evaluation. Historical scores remain unchanged; cached-catalog results are not live quotes.
 - [ ] Expand the investment search beyond fixed lands and one-card improvements, with realistic mana sequencing and atomic package alternatives.
 - [ ] Support and verify the complete current official bracket 1–5 policy; current implementation retains approximate 2–4 profiles.
