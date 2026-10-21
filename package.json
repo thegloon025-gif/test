@@ -1,0 +1,14 @@
+{
+  "name": "commander-oracle-independent",
+  "version": "1.1.5",
+  "private": true,
+  "type": "module",
+  "description": "Scryfall-backed, local-first experimental Commander deckbuilder",
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --test --test-concurrency=2 tests/*.test.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

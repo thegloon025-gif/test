@@ -1,0 +1,65 @@
+{
+  "disclaimer": "Synthetic fixture only; not live Scryfall prices, real-game strength, EDHCheck or EDHPowerLevel scores.",
+  "results": [
+    {
+      "version": "v0.8.7",
+      "bracket": 3,
+      "syntheticEUR": 13.86,
+      "cards": 100,
+      "lands": 37,
+      "complete": 1,
+      "planned": 1,
+      "newComboCards": 1,
+      "earlyMana": 12,
+      "interaction": 16,
+      "draw": 10,
+      "protection": 16,
+      "retainsCommanderPlan": true
+    },
+    {
+      "version": "v0.8.8",
+      "bracket": 3,
+      "syntheticEUR": 13.86,
+      "cards": 100,
+      "lands": 37,
+      "complete": 3,
+      "planned": 3,
+      "newComboCards": 4,
+      "earlyMana": 12,
+      "interaction": 16,
+      "draw": 10,
+      "protection": 16,
+      "retainsCommanderPlan": true
+    },
+    {
+      "version": "v0.8.7",
+      "bracket": 4,
+      "syntheticEUR": 14.08,
+      "cards": 100,
+      "lands": 36,
+      "complete": 1,
+      "planned": 1,
+      "newComboCards": 2,
+      "earlyMana": 15,
+      "interaction": 13,
+      "draw": 10,
+      "protection": 13,
+      "retainsCommanderPlan": true
+    },
+    {
+      "version": "v0.8.8",
+      "bracket": 4,
+      "syntheticEUR": 14.08,
+      "cards": 100,
+      "lands": 36,
+      "complete": 4,
+      "planned": 4,
+      "newComboCards": 5,
+      "earlyMana": 12,
+      "interaction": 16,
+      "draw": 10,
+      "protection": 16,
+      "retainsCommanderPlan": true
+    }
+  ]
+}

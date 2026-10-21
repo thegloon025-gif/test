@@ -1,0 +1,26 @@
+COMMANDERORACLE NEXT — COMMUNITY DECK INTELLIGENCE, STAGE 1
+
+Continue the EXISTING Google AI Studio CommanderOracle Next project. DO NOT create a new application, replace the generator, or redesign the UI.
+
+GOAL: Use real player-created deck context to improve card recommendations, especially where a commander has divergent builds (Atraxa Poison vs. Atraxa counters). Preserve the already discussed long-term requirements: true Scryfall card data and card-face rules; commander gameplay loops; real mana and {C}; budget in EUR; meaningful Bracket 2/3/4 differences; honest Scryfall vs. verified Cardmarket English NM pricing; conditional synergy, win conditions, full-deck optimization and future Deck Upgrade Advisor. Keep all current working code.
+
+MILESTONE — IMPLEMENT ONLY THE FOLLOWING:
+
+1. Create a read-only importer for ONE user-supplied public Archidekt deck URL. Archidekt has publicly permitted limited API access but its API is undocumented and rate-limited. Validate deck IDs; use a fixed remote host (no arbitrary proxy requests); respect 429 responses; cache imports locally and show links/author attribution. Don't crawl/scrape hundreds of decks; no private decks or authentication bypass.
+2. Parse the actual Archidekt response (GET https://archidekt.com/api/decks/{id}/ where available). Normalize commander(s), exact mainboard, quantities, category labels, deck metadata and Scryfall Oracle identities. Exclude maybeboard, sideboard, tokens, unowned extras and malformed entries. Mark decks with unidentified cards, uncertain commanders or incorrect counts as unverified; exclude unverified decks from statistics.
+3. Add locally stored per-commander frequency and PAIRWISE card co-occurrence. Each imported deck counts as ONE observation regardless of card quantity. Compute conditional inclusion with sample counts; don't claim robust consensus from 1–2 decks. Build a modest archetype-clustering proof of concept that does NOT merge Atraxa Poison cards with Atraxa counter cards because both builds share Command Tower/Sol Ring.
+4. UI: URL input, import action, saved imported decks with attribution, selected-commander community statistics (sample size, recurring pairs, tentative clusters). Keep these diagnostics separate from the existing generator. Do not yet alter deck selection.
+5. Test with mocked/saved JSON fixtures and independently specified expected card IDs; test URL rejection, API error/429, commander identification, zone filtering, duplicate handling, cache, co-occurrence and separation of archetypes. Run actual tests where available; state clearly if live API calls cannot be made.
+6. Provide concise changed-file list, actual test results, limitations and next-stage plan. STOP after Stage 1.
+
+FUTURE ROADMAP — PRESERVE, DO NOT IMPLEMENT IN THIS TASK:
+- Commander Spellbook public REST combo validation; complete or missing-piece combos only if legal, executable, affordable, bracket-appropriate. Never force an arbitrary combo piece.
+- Scryfall Oracle functional tags (otag:ramp, not art:ramp), independently verified mechanical predicates.
+- Dynamic role constraints (draw/ramp/interaction), not blindly exact 10/10/8 for every commander.
+- Hypergeometric opening hands and turn sequencing, true {C} vs generic/conditional mana.
+- Item-based collaborative filtering and budget-friendly hidden gems with statistical confidence.
+- Better use of spare euros, bracket objectives, optional salt/stax tolerance, honest price provenance.
+- Existing-deck Upgrade Advisor with additional purchase budget and locked cards, after full deck-generation quality is proven.
+- Optional authorized Moxfield/Archidekt account exports only with supported authentication/write permissions.
+
+Do not claim a mock dataset is a production community corpus. No paid AI runtime dependency; preserve current project and stop after first milestone.

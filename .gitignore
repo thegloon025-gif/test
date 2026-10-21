@@ -1,0 +1,8 @@
+# Local databases, imported research and user pricing snapshots
+data/
+node_modules/
+coverage/
+.env
+.env.*
+*.log
+.DS_Store

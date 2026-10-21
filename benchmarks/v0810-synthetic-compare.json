@@ -1,0 +1,61 @@
+{
+  "source": "Artificial test fixture. Values are INTERNAL heuristic only (not EDHCheck, EDHPowerLevel, actual Scryfall prices, or verified gameplay).",
+  "comparison": [
+    {
+      "version": "0.8.9",
+      "bracket": 3,
+      "powerTarget": "high",
+      "score": 3178.67,
+      "total": 100,
+      "lands": 37,
+      "estimatedSyntheticPrice": 23.52,
+      "onPlan": 30,
+      "instants": 11,
+      "portfolios": 1,
+      "refinementSwaps": 0,
+      "scoreGain": 0
+    },
+    {
+      "version": "0.8.10",
+      "bracket": 3,
+      "powerTarget": "high",
+      "score": 3178.67,
+      "total": 100,
+      "lands": 37,
+      "estimatedSyntheticPrice": 23.52,
+      "onPlan": 30,
+      "instants": 11,
+      "portfolios": 4,
+      "refinementSwaps": 0,
+      "scoreGain": 0
+    },
+    {
+      "version": "0.8.9",
+      "bracket": 4,
+      "powerTarget": "balanced",
+      "score": 2932.6,
+      "total": 100,
+      "lands": 36,
+      "estimatedSyntheticPrice": 23.84,
+      "onPlan": 31,
+      "instants": 11,
+      "portfolios": 1,
+      "refinementSwaps": 0,
+      "scoreGain": 0
+    },
+    {
+      "version": "0.8.10",
+      "bracket": 4,
+      "powerTarget": "balanced",
+      "score": 2932.6,
+      "total": 100,
+      "lands": 36,
+      "estimatedSyntheticPrice": 23.84,
+      "onPlan": 31,
+      "instants": 11,
+      "portfolios": 4,
+      "refinementSwaps": 0,
+      "scoreGain": 0
+    }
+  ]
+}

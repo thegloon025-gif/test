@@ -1,0 +1,77 @@
+{
+  "disclaimer": "Artificial priced fixtures only: NOT real Scryfall EUR, external rating, gameplay simulation, or bracket certification.",
+  "results": [
+    {
+      "version": "v0.8.8",
+      "bracket": 3,
+      "total": 100,
+      "lands": 37,
+      "syntheticPriceEUR": 13.86,
+      "typedSpellCount": 25,
+      "instants": 25,
+      "counters": 9,
+      "narrow": 9,
+      "snowDependent": 1,
+      "cardAdvantage": 10,
+      "unsupportedSnow": [
+        "AAA Snow-burdened Eldrazi"
+      ],
+      "effectiveInteraction": 12,
+      "commanderProtection": 12,
+      "draw": 10
+    },
+    {
+      "version": "v0.8.9",
+      "bracket": 3,
+      "total": 100,
+      "lands": 37,
+      "syntheticPriceEUR": 13.86,
+      "typedSpellCount": 27,
+      "instants": 19,
+      "counters": 3,
+      "narrow": 0,
+      "snowDependent": 0,
+      "cardAdvantage": 8,
+      "unsupportedSnow": [],
+      "effectiveInteraction": 8,
+      "commanderProtection": 6,
+      "draw": 8
+    },
+    {
+      "version": "v0.8.8",
+      "bracket": 4,
+      "total": 100,
+      "lands": 36,
+      "syntheticPriceEUR": 14.08,
+      "typedSpellCount": 25,
+      "instants": 26,
+      "counters": 10,
+      "narrow": 10,
+      "snowDependent": 1,
+      "cardAdvantage": 10,
+      "unsupportedSnow": [
+        "AAA Snow-burdened Eldrazi"
+      ],
+      "effectiveInteraction": 13,
+      "commanderProtection": 13,
+      "draw": 10
+    },
+    {
+      "version": "v0.8.9",
+      "bracket": 4,
+      "total": 100,
+      "lands": 36,
+      "syntheticPriceEUR": 14.08,
+      "typedSpellCount": 26,
+      "instants": 19,
+      "counters": 5,
+      "narrow": 0,
+      "snowDependent": 0,
+      "cardAdvantage": 8,
+      "unsupportedSnow": [],
+      "effectiveInteraction": 8,
+      "commanderProtection": 8,
+      "draw": 8
+    }
+  ]
+}

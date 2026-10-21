@@ -1,0 +1,27 @@
+COMMANDERORACLE V55 — ARCHIDEKT COMMUNITY DECK INTELLIGENCE, STAGE 1
+
+Continue the EXISTING React/TypeScript/Electron V55 project. Preserve V54 as default, V55 opt-in, offline Scryfall database, legality, budgets, Commander brackets, Windows packaging, current tests, and all existing Phase 8 / GLM mechanical findings. DO NOT redo previous development phases or rewrite the optimizer.
+
+WHY: Flat commander-specific inclusion rankings can mix unrelated strategies. Community DECK vectors reveal which cards are actually chosen together. We aim to learn from MTGOracle.gg's usefulness but outperform it through mechanical correctness and coherent whole-deck optimization.
+
+IMPLEMENT ONLY THE FIRST MILESTONE:
+
+1. Review existing local Scryfall card identity mapping, cache/database API and V55 UI entry points. Choose a small isolated community module; do not change deck selection behavior yet.
+2. Read-only import of one explicitly supplied PUBLIC Archidekt deck URL through its undocumented GET /api/decks/{id}/ interface, subject to current permission and safe rate limits. Only exact whitelisted host, numeric IDs, HTTPS, timeout, local cache and attribution. Never crawl deck searches, access private decks, bypass throttling, or fetch arbitrary URLs.
+3. Normalize actual deck response to stored provenance, commander Oracle IDs, mainboard card IDs and quantities, format/metadata and import timestamp. Exclude sideboards, maybeboards, tokens and out-of-deck cards. Validate exact 100-card deck where applicable, basic Commander legality and correct commander assignment. Incomplete/unmatched decks must be clearly marked and excluded from stats.
+4. Implement exploratory per-commander inclusion, co-occurrence pair counts, and an archetype-clustering demonstration distinguishing Atraxa Poison vs. counters. Weight each deck once, track samples; report uncertainties and avoid treating 1–2 decks as consensus. No hardcoded commander decklists.
+5. Minimal V55 opt-in UI section or isolated diagnostic panel for entering URL, seeing cached imports, source links, co-occurrence, sample counts and clusters. Do not affect the legacy generator.
+6. Tests against documented, explicitly fabricated fixtures covering safety, API errors, category structure, commander normalization, deduplication, pairing and two-theme separation. Use independent expected values, not self-consistency.
+7. Run existing tests, TypeScript and Vite build. If external API inaccessible, say live fetching not verified and use recorded/fixture responses. Do NOT rebuild Windows executable unless needed for user-approved app testing.
+8. Deliver COMMUNITY_DECK_INTELLIGENCE_STAGE1_REPORT.md, changed files, actual passing/failing checks and limitation list. STOP for review.
+
+LONG-TERM BACKLOG — DO NOT FORGET, AND DO NOT IMPLEMENT NOW:
+- Commander Spellbook public API combo detection (no automatic forced inclusions).
+- Scryfall Oracle tags plus verified text/face semantics, support-gated interactions.
+- Commander-specific gameplay loops and functional packages; full deck card-to-card support.
+- Dynamic role constraints, mana-color pips, actual true {C}, restricted mana, hypergeometric early consistency.
+- Context-aware hidden-gem co-occurrence/collaborative filtering with confidence.
+- Actual bracket-dependent speed/interaction/consistency, budget reinvestment, real English NM Cardmarket offers only with permitted offer data.
+- Power/salt preference, optional account-authenticated exports, later Upgrade Advisor with cut/add purchase budget and locks.
+
+Keep model token usage low: inspect only relevant source and tests, do not print huge files or lists. No paid AI dependency. Preserve working application. Never describe tests as passing unless executed.
