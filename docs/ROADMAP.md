@@ -2,6 +2,19 @@
 
 Last revised: 2026-10-21. Local, deterministic Commander generator: **no paid AI API** is needed to build a deck.
 
+## Current development after v1.1.5
+
+- [x] Preserve uploaded source as a tagged Git baseline and retain Windows launcher unchanged.
+- [x] Replace the single investment trajectory with bounded complete-path comparison, including cheaper improvements and unchanged fallback; preserve existing evidence/policy gates.
+- [x] Test pair-specific combo rejection, whole-deck support and fixed-land mana preservation, exact-record pricing and non-Ulalek investment scenarios.
+- [x] Correct observed draw-step and restricted-removal role false positives with explicit regressions.
+- [x] Add request-scoped caching for unchanged selection-limit counts, with equivalent-gate regression coverage.
+- [ ] Calibrate against measured gameplay and fresh external evaluation. Historical scores remain unchanged; cached-catalog results are not live quotes.
+- [ ] Expand the investment search beyond fixed lands and one-card improvements, with realistic mana sequencing and atomic package alternatives.
+- [ ] Support and verify the complete current official bracket 1–5 policy; current implementation retains approximate 2–4 profiles.
+
+The user has now supplied a 32,197-record Scryfall catalog and cached community/Spellbook data. Current offline comparisons and limitations are recorded in `benchmarks/budget-search-VALIDATION.md`; prior absence-of-data statements below describe historical releases.
+
 ## Status (v1.1.5)
 
 - [x] v0.8.1: repair `find-my-combos` quantity-object POST format and camelCase response decoding (fixtures tested; live backend still unverified in offline sandbox).

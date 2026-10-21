@@ -7,7 +7,7 @@ import {COLORS,castFaces,isLandSlot,isBasic,legalFor,priceOf,oracleId,landManaQu
 import {planFor,analysis,synergy} from './mechanics.mjs';
 import {manaRole,landAccess} from './deckQuality.mjs';
 import {roleEvidence,dependencyEvidence} from './roleEvidence.mjs';
-import {castabilityIssues,selectionLimits,fitsSelectionLimits} from './selectionPolicy.mjs';
+import {castabilityIssues,selectionLimits,createSelectionLimitChecker} from './selectionPolicy.mjs';
 import {singletonName,validateCommanderSingleton} from './deckValidation.mjs';
 import {independentCommunityDecks} from './communityKnowledge.mjs';
 import {landScore} from './manaBaseOptimizer.mjs';
@@ -137,6 +137,7 @@ function candidatePlans(communityDecks,commander,bracket,enabled,requested,catal
 }
 
 function buildOne({pool,commander,plan,bracket,budget,profile,entry,limits,commanderPrice,preferredCombos=[]}){
+ const fitsSelectionLimits=createSelectionLimitChecker();
  const facts=pool.filter(c=>!isLandSlot(c)).map(c=>cardFacts(c,plan));
  const sorted=facts.map(f=>({...f,merit:merit(f,entry.style,{source:entry.source,style:entry.style.id})}))
    .sort((a,b)=>b.merit-a.merit||byName(a.card,b.card));
@@ -311,21 +312,23 @@ export function strategyScore(cards,commander,plan=planFor(commander)){
  * Package commitments, Bracket 3 compact-combo policy, role floors, and the
  * actual printing-level final budget are independently checked on every swap.
  */
-export function investRemainingBudget({built,pool,commander,plan=planFor(commander),bracket=3,budget,
+function investBudgetPath({built,pool,commander,plan=planFor(commander),bracket=3,budget,searchMode='quality',
   limits=selectionLimits(plan,Number(bracket)),comboVariants=[],source=null,style=styles[0],maxSwaps=16}={}){
  if(!built||built.status!=='ok')return built;
- const before=built.price,lands=built.cards.filter(isLandSlot);
+ const fitsSelectionLimits=createSelectionLimitChecker();
+ const before=cost(commander)+sum(built.cards,cost),lands=built.cards.filter(isLandSlot);
+ bracket=Number(bracket);
  const spells=built.cards.filter(c=>!isLandSlot(c));
  const committed=new Set((built.committedCombos||[]).flatMap(p=>p.cards||[]).map(x=>singletonName({name:x})));
  const cache=new Map();
- const fact=c=>{const id=oracleId(c);if(!cache.has(id))cache.set(id,cardFacts(c,plan));return cache.get(id);};
+ const fact=c=>{if(!cache.has(c))cache.set(c,cardFacts(c,plan));return cache.get(c);};
  // Price is deliberately NOT a card-quality bonus or penalty in this stage.
  // The source template is already represented in the chosen strategy; retaining
  // a minimum source spine is safer than making its 48-point prior immutable.
  const intrinsic=c=>merit(fact(c),style,{style:style.id})+3.2*Math.log1p(cost(c))+
   (fact(c).mana.kind==='burst'&&Number(c.cmc)<=2?9:0);
  const candidates=pool.filter(c=>!isLandSlot(c)&&oracleId(c)!==oracleId(commander)&&Number.isFinite(cost(c))&&
-  cost(c)<=budget-before+Math.max(0,...spells.map(cost))+0.005)
+  cost(c)<=budget-cost(commander)&&legalFor(c,commander))
   .map(c=>({card:c,quality:intrinsic(c)}))
   .filter(x=>x.quality>0)
   .sort((a,b)=>b.quality-a.quality||stable(a.card.name,b.card.name)).slice(0,850);
@@ -341,67 +344,98 @@ export function investRemainingBudget({built,pool,commander,plan=planFor(command
  const completed=[];
  let spent=before;
  let deckScore=strategyScore([...spells,...lands],commander,plan).value;
+ let manaScore=landScore([...spells,...lands],{commander,plan}).score;
  for(let iteration=0;iteration<Math.max(0,Math.min(24,maxSwaps));iteration++){
   const owned=new Set([singletonName(commander),...spells.map(cardSignature),...lands.map(cardSignature)]);
   const current=Object.fromEntries(floorKeys.map(key=>[key,count(key)]));
   const currentPositive=spells.filter(c=>fact(c).role.draw==='positive').length;
-  const currentGC=spells.filter(c=>c.game_changer).length+(commander.game_changer?1:0);
+  const currentGC=[...spells,...lands].filter(c=>c.game_changer).length+(commander.game_changer?1:0);
   const threeRock=spells.filter(c=>fact(c).ramp&&fact(c).cmc>=3).length;
   const lateCount=spells.filter(c=>fact(c).late).length;
   const shortlist=candidates.filter(x=>!owned.has(cardSignature(x.card))&&cost(x.card)<=budget-spent+Math.max(0,...spells.map(cost))+0.005);
-  let best=null;
+  const proposals=[];
   for(let i=0;i<spells.length;i++){
    const old=spells[i],oldFact=fact(old),oldQuality=intrinsic(old);
    if(committed.has(cardSignature(old)))continue;
    const sourceRemoval=source?.has(oracleId(old))?1:0;
-   if(sourceRemoval&&sourceCount()<=sourceFloor)continue;
+
    const priceRoom=budget-spent+cost(old);
+   const alternatives=[];
    for(const entry of shortlist){
     const next=entry.card,newFact=fact(next);
+    if(sourceRemoval&&!source?.has(oracleId(next))&&sourceCount()<=sourceFloor)continue;
     const gain=entry.quality-oldQuality;
     if(gain<=1.5)break;
-    if(cost(next)>priceRoom+1e-7||cost(next)<cost(old)-0.005)continue;
+    if(cost(next)>priceRoom+1e-7)continue;
     if(next.game_changer&&!old.game_changer&&currentGC>=(bracket===2?0:bracket===3?3:99))continue;
     if(newFact.late&&!oldFact.late&&lateCount>=7)continue;
     if(newFact.ramp&&newFact.cmc>=3&&!(oldFact.ramp&&oldFact.cmc>=3)&&threeRock>=2)continue;
     if(floorKeys.some(key=>oldFact[key]&&!newFact[key]&&current[key]<=preserved[key]))continue;
     if(oldFact.role.draw==='positive'&&newFact.role.draw!=='positive'&&currentPositive<=existingPositive)continue;
-    if(castabilityIssues(next,lands).length||!fitsSelectionLimits(next,spells,limits,old))continue;
-    if(dependencyEvidence(next,[...spells,...lands]).length>dependencyEvidence(old,[...spells,...lands]).length)continue;
-    // Don't pull the source spine apart, or reward unrelated expensive cards.
+    // Rank several options before the expensive complete-deck checks. Three
+    // independent paths explore absolute utility and two investment levels.
     if(!newFact.primary&&!newFact.ramp&&!newFact.draw&&!newFact.broad&&!newFact.shield)continue;
-    const utility=gain+Math.min(3,(cost(next)-cost(old))/Math.max(1,budget)*18);
-    if(!best||utility>best.utility+1e-8||Math.abs(utility-best.utility)<1e-8&&cost(next)<cost(best.next))
-     best={index:i,old,next,gain,utility};
-    // The shortlist is quality-ordered. Retain a small number of alternatives
-    // for different budget utilization without scanning the entire catalog.
-    break;
+    const extra=Math.max(0,cost(next)-cost(old));
+    const utility=searchMode==='value'?gain/Math.max(1,extra):
+      searchMode==='balanced'?gain/Math.sqrt(Math.max(1,extra)):gain;
+    alternatives.push({index:i,old,next,gain,utility});
    }
+   alternatives.sort((a,b)=>b.utility-a.utility||b.gain-a.gain||cost(a.next)-cost(b.next)||byName(a.next,b.next));
+   proposals.push(...alternatives.slice(0,3));
+  }
+  proposals.sort((a,b)=>b.utility-a.utility||b.gain-a.gain||cost(a.next)-cost(b.next)||byName(a.next,b.next)||a.index-b.index);
+  let best=null,valid=0;
+  const oldCards=[...spells,...lands];
+  const priorIssues=new Map(oldCards.map(c=>[c,dependencyEvidence(c,oldCards).length]));
+  // Rejection belongs to a pair in this deck state, never to a card globally.
+  for(const proposal of proposals){
+   const {index,old,next}=proposal;
+   if(castabilityIssues(next,lands).length||!fitsSelectionLimits(next,spells,limits,old))continue;
+   const nextSpells=spells.slice();nextSpells[index]=next;
+   const nextCards=[...nextSpells,...lands];
+   if(conservativeComboViolation(nextCards,commander,comboVariants,bracket)||!validateCommanderSingleton(commander,nextCards).valid)continue;
+   if(nextCards.some(c=>dependencyEvidence(c,nextCards).length>(priorIssues.get(c)??priorIssues.get(old))))continue;
+   const nextPrice=cost(commander)+sum(nextCards,cost);
+   if(nextPrice>budget+1e-7)continue;
+   const nextMana=landScore(nextCards,{commander,plan}).score;
+   if(nextMana<manaScore-1e-7)continue;
+   const nextScore=strategyScore(nextCards,commander,plan).value;
+   if(nextScore<deckScore-1e-7)continue;
+   const option={...proposal,nextScore,nextMana,nextPrice};
+   if(!best||nextScore>best.nextScore||nextScore===best.nextScore&&proposal.utility>best.utility)best=option;
+   if(++valid>=3)break;
   }
   if(!best)break;
-  // Check the complete proposed deck (especially bracket combo inventory).
-  // Rejected pairs are removed from the local candidate list, allowing a
-  // different safe upgrade instead of repeatedly retrying the same pair.
-  const previous=spells[best.index];spells[best.index]=best.next;
-  const nextCards=[...spells,...lands];
-  const violation=conservativeComboViolation(nextCards,commander,comboVariants,bracket);
-  const nextScore=strategyScore(nextCards,commander,plan).value;
-  if(violation||nextScore<deckScore-0.5||!validateCommanderSingleton(commander,nextCards).valid){
-   spells[best.index]=previous;
-   // The rejection is specific to this proposed swap, not all uses of the card.
-   const at=candidates.findIndex(e=>e.card===best.next);if(at>=0)candidates.splice(at,1);
-   continue;
-  }
-  spent=round(spent+cost(best.next)-cost(best.old));deckScore=nextScore;
+  spells[best.index]=best.next;
+  spent=best.nextPrice;deckScore=best.nextScore;manaScore=best.nextMana;
   completed.push({out:best.old.name,in:best.next.name,extraCost:round(cost(best.next)-cost(best.old)),qualityGain:round(best.gain)});
-  if(spent>=budget-0.01)break;
+  // At the cap, cheaper or equal-cost improvements can still be useful.
  }
  const outcome={...built,cards:[...spells,...lands],price:round(spent),
   sourceSpellCount:source?spells.filter(c=>source.has(oracleId(c))).length:0,
   budgetInvestment:{startingPrice:round(before),finalPrice:round(spent),ceiling:round(budget),
    remaining:round(Math.max(0,budget-spent)),swaps:completed,
-   note:'Budget ceiling is maximized through positive-quality upgrades only; unused budget means no eligible gain was proven. Costs are estimates, not verified EN NM carts.'}};
+   searchMode,qualityGain:round(sum(completed,x=>x.qualityGain)),
+   note:'Bounded positive-utility search; unused budget is allowed. Costs are estimates, not verified EN NM carts.'}};
  return outcome;
+}
+
+/** Compare completed investment paths using the existing deck evidence, then
+ * accumulated price-neutral card merit. Cost never earns a quality bonus.
+ * Keep the unchanged deck as an explicit fallback; this is bounded search,
+ * not a proof of global optimality or measured gameplay strength. */
+export function investRemainingBudget(options={}){
+ const {built,commander}=options;
+ if(!built||built.status!=='ok')return built;
+ const plan=options.plan||planFor(commander);
+ const paths=['quality','balanced','value'].map(searchMode=>investBudgetPath({...options,plan,searchMode}));
+ const baseline=investBudgetPath({...options,plan,searchMode:'unchanged',maxSwaps:0});
+ const outcomes=[baseline,...paths].map(deck=>({deck,score:strategyScore(deck.cards,commander,plan).value}));
+ outcomes.sort((a,b)=>b.score-a.score||b.deck.budgetInvestment.qualityGain-a.deck.budgetInvestment.qualityGain||a.deck.price-b.deck.price);
+ const selected=outcomes[0].deck;
+ selected.budgetInvestment.candidates=outcomes.map(({deck,score})=>({mode:deck.budgetInvestment.searchMode,
+  price:deck.price,score,qualityGain:deck.budgetInvestment.qualityGain,swaps:deck.budgetInvestment.swaps.length}));
+ return selected;
 }
 
 export function constructStrategyDeck({cards,commander,bracket,budget,powerTarget='balanced',communityBuild=null,communityDecks=[],preferredCombos=[],comboVariants=[]}={}){
@@ -420,10 +454,8 @@ export function constructStrategyDeck({cards,commander,bracket,budget,powerTarge
  });
  const successful=results.filter(x=>x.status==='ok');
  for(const r of successful)r.score=strategyScore(r.cards,commander,plan);
- // Optimize quality first; for comparable candidates prefer better use of the
- // available investment ceiling. This never rewards an illegal or weak list.
- successful.sort((a,b)=>(b.score.value+1.5*b.price/Number(budget))-
-  (a.score.value+1.5*a.price/Number(budget))||stable(a.strategy,b.strategy));
+ // Compare complete-deck evidence first; spending more is not evidence.
+ successful.sort((a,b)=>b.score.value-a.score.value||stable(a.strategy,b.strategy));
  // A user-picked community archetype is an explicit choice, not a loose bonus.
  // Prefer its valid source representatives; fall back only when no such source
  // constructs a complete and legal candidate. Automatic mode remains scored.

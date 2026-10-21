@@ -81,3 +81,25 @@ export function fitsSelectionLimits(card,chosen,limits,replaces=null){
   counts.counters+(next.counter?1:0)<=limits.maxCounters&&
   counts.narrow+(next.narrow?1:0)<=limits.maxNarrow;
 }
+
+/** Request-scoped checker for immutable catalog records. Catalog scans test
+ * thousands of candidates against the same chosen list. Recompute only when
+ * its member references change (including same-length replacement), and count
+ * only the response fields used by this gate. Never share across requests. */
+export function createSelectionLimitChecker(){
+ const snapshots=new WeakMap();
+ return function check(card,chosen,limits,replaces=null){
+  if(isLandSlot(card))return true;
+  let cached=snapshots.get(chosen);
+  if(!cached||cached.members.length!==chosen.length||chosen.some((c,i)=>c!==cached.members[i])){
+   const counts={instants:0,counters:0,narrow:0};
+   for(const c of chosen){const r=responseProfile(c);counts.instants+=Number(r.instant);counts.counters+=Number(r.counter);counts.narrow+=Number(r.narrow);}
+   cached={members:chosen.slice(),counts};snapshots.set(chosen,cached);
+  }
+  const next=responseProfile(card),old=replaces?responseProfile(replaces):{};
+  const removed=replaces?chosen.filter(c=>c===replaces).length:0;
+  return cached.counts.instants-removed*Number(old.instant||false)+Number(next.instant)<=limits.maxInstants&&
+   cached.counts.counters-removed*Number(old.counter||false)+Number(next.counter)<=limits.maxCounters&&
+   cached.counts.narrow-removed*Number(old.narrow||false)+Number(next.narrow)<=limits.maxNarrow;
+ };
+}

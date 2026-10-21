@@ -9,7 +9,7 @@ import {exportCardName,singletonName,validateCommanderSingleton} from './deckVal
 import {landAccess,manaRole,functionalRoles,deckQuality} from './deckQuality.mjs';
 import {sampleOpeningHands} from './handSampling.mjs';
 import {spellEfficiency,highPowerAudit,validPowerTarget} from './highPower.mjs';
-import {castabilityIssues,responseProfile,cardAdvantage,selectionLimits,selectionTotals,fitsSelectionLimits} from './selectionPolicy.mjs';
+import {castabilityIssues,responseProfile,cardAdvantage,selectionLimits,selectionTotals,createSelectionLimitChecker} from './selectionPolicy.mjs';
 import {optimizeWholeDeck} from './wholeDeckOptimizer.mjs';
 import {optimizeManaBase} from './manaBaseOptimizer.mjs';
 import {roleEvidence,evidenceAudit,dependencyEvidence} from './roleEvidence.mjs';
@@ -118,6 +118,7 @@ function targetsFor(plan,commander,profile,all){
  return out;
 }
 export function generateLegacyDeck({cards,commander,budget=191,bracket=3,comboVariants=[],powerTarget='balanced',communityBuild=null}){
+ const fitsSelectionLimits=createSelectionLimitChecker();
  const b=Number(bracket),profile=BRACKETS[b],cap=Number(budget);
  if(!profile)throw Error('Choose bracket 2, 3 or 4.');
  if(!validPowerTarget(powerTarget))throw Error('Choose balanced or high as power target.');
@@ -141,7 +142,13 @@ export function generateLegacyDeck({cards,commander,budget=191,bracket=3,comboVa
  const analyzed=nonlands.map(c=>{const a=analysis(c),s=synergy(c,plan,a);return {c,a,s,rank:quality(c,plan,tuning,s,a,(high||optimized)?'high':'balanced')};});
  const analyzedById=new Map(analyzed.map(e=>[oracleId(e.c),e]));
  function allowed(c){return !remaining.has(oracleId(c))&&(isBasic(c)||!(chosenNames.get(singletonName(c))>0))&&singletonName(c)!==singletonName(commander)&&(!c.game_changer||gcs<profile.maxGameChangers);}
- function spellFits(c,replaces=null){return !castabilityIssues(c,chosen.filter(isLandSlot)).length&&fitsSelectionLimits(c,chosen,limits,replaces);}
+ let landMembers=[],selectedLands=[];
+ function spellFits(c,replaces=null){
+  if(chosen.length!==landMembers.length||chosen.some((card,i)=>card!==landMembers[i])){
+   landMembers=chosen.slice();selectedLands=chosen.filter(isLandSlot);
+  }
+  return !castabilityIssues(c,selectedLands).length&&fitsSelectionLimits(c,chosen,limits,replaces);
+ }
  function append(obj,why){const c=obj.c||obj;if(!allowed(c)||!spellFits(c)||spent+(priceOf(c)||0)>cap+.00001)return false;remaining.set(oracleId(c),c);chosen.push(c);if(!isBasic(c))chosenNames.set(singletonName(c),(chosenNames.get(singletonName(c))||0)+1);spent+=priceOf(c)||0;gcs+=c.game_changer?1:0;reasons.set(oracleId(c),why);return true;}
  const basicMap=new Map(lands.filter(isBasic).map(c=>[c.name,c]));
  const legalColors=(commander.color_identity||[]).filter(c=>COLORS.includes(c));
