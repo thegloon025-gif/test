@@ -1,0 +1,741 @@
+{
+  "status": "conditional exact-payment and declared setup ledger checked",
+  "conditionalTurn": 6,
+  "earlierConditionalExample": {
+    "turn": 4,
+    "ledger": [
+      {
+        "turn": 1,
+        "card": "The Enigma Jewel // Locus of Enlightenment",
+        "kind": "spell",
+        "cost": "{U}",
+        "sources": [
+          {
+            "name": "Island",
+            "units": 1,
+            "options": [
+              "U"
+            ]
+          }
+        ],
+        "remaining": []
+      },
+      {
+        "turn": 2,
+        "card": "Sol Ring",
+        "kind": "spell",
+        "cost": "{1}",
+        "sources": [
+          {
+            "name": "Island",
+            "units": 1,
+            "options": [
+              "U"
+            ]
+          },
+          {
+            "name": "Wastes #1",
+            "units": 1,
+            "options": [
+              "C"
+            ]
+          }
+        ],
+        "remaining": [
+          {
+            "units": 1,
+            "options": [
+              "C"
+            ]
+          },
+          {
+            "name": "Sol Ring",
+            "units": 2,
+            "options": [
+              "C"
+            ]
+          }
+        ]
+      },
+      {
+        "turn": 2,
+        "card": "Mind Stone",
+        "kind": "spell",
+        "cost": "{2}",
+        "sources": [
+          {
+            "units": 1,
+            "options": [
+              "C"
+            ]
+          },
+          {
+            "name": "Sol Ring",
+            "units": 2,
+            "options": [
+              "C"
+            ]
+          }
+        ],
+        "remaining": [
+          {
+            "units": 1,
+            "options": [
+              "C"
+            ]
+          },
+          {
+            "name": "Mind Stone",
+            "units": 1,
+            "options": [
+              "C"
+            ]
+          }
+        ]
+      },
+      {
+        "turn": 2,
+        "card": "Arcane Signet",
+        "kind": "spell",
+        "cost": "{2}",
+        "sources": [
+          {
+            "units": 1,
+            "options": [
+              "C"
+            ]
+          },
+          {
+            "name": "Mind Stone",
+            "units": 1,
+            "options": [
+              "C"
+            ]
+          }
+        ],
+        "remaining": []
+      },
+      {
+        "turn": 3,
+        "card": "Talisman of Curiosity",
+        "kind": "spell",
+        "cost": "{2}",
+        "sources": [
+          {
+            "name": "Island",
+            "units": 1,
+            "options": [
+              "U"
+            ]
+          },
+          {
+            "name": "Wastes #1",
+            "units": 1,
+            "options": [
+              "C"
+            ]
+          },
+          {
+            "name": "Mountain",
+            "units": 1,
+            "options": [
+              "R"
+            ]
+          },
+          {
+            "name": "Sol Ring",
+            "units": 2,
+            "options": [
+              "C"
+            ]
+          },
+          {
+            "name": "Mind Stone",
+            "units": 1,
+            "options": [
+              "C"
+            ]
+          },
+          {
+            "name": "Arcane Signet",
+            "units": 1,
+            "options": [
+              "W",
+              "U",
+              "B",
+              "R",
+              "G"
+            ]
+          }
+        ],
+        "remaining": [
+          {
+            "units": 1,
+            "options": [
+              "R"
+            ]
+          },
+          {
+            "units": 1,
+            "options": [
+              "C"
+            ]
+          },
+          {
+            "units": 1,
+            "options": [
+              "C"
+            ]
+          },
+          {
+            "units": 1,
+            "options": [
+              "C"
+            ]
+          },
+          {
+            "units": 1,
+            "options": [
+              "W",
+              "U",
+              "B",
+              "R",
+              "G"
+            ]
+          }
+        ]
+      },
+      {
+        "turn": 3,
+        "card": "Basalt Monolith",
+        "kind": "spell",
+        "cost": "{3}",
+        "sources": [
+          {
+            "units": 1,
+            "options": [
+              "R"
+            ]
+          },
+          {
+            "units": 1,
+            "options": [
+              "C"
+            ]
+          },
+          {
+            "units": 1,
+            "options": [
+              "C"
+            ]
+          },
+          {
+            "units": 1,
+            "options": [
+              "C"
+            ]
+          },
+          {
+            "units": 1,
+            "options": [
+              "W",
+              "U",
+              "B",
+              "R",
+              "G"
+            ]
+          }
+        ],
+        "remaining": [
+          {
+            "units": 1,
+            "options": [
+              "C"
+            ]
+          },
+          {
+            "units": 1,
+            "options": [
+              "W",
+              "U",
+              "B",
+              "R",
+              "G"
+            ]
+          }
+        ]
+      },
+      {
+        "turn": 4,
+        "card": "Craft into Locus of Enlightenment",
+        "kind": "activated ability",
+        "cost": "{8}{U}",
+        "sources": [
+          {
+            "name": "Island",
+            "units": 1,
+            "options": [
+              "U"
+            ]
+          },
+          {
+            "name": "Wastes #1",
+            "units": 1,
+            "options": [
+              "C"
+            ]
+          },
+          {
+            "name": "Sol Ring",
+            "units": 2,
+            "options": [
+              "C"
+            ]
+          },
+          {
+            "name": "Mind Stone",
+            "units": 1,
+            "options": [
+              "C"
+            ]
+          },
+          {
+            "name": "Arcane Signet",
+            "units": 1,
+            "options": [
+              "W",
+              "U",
+              "B",
+              "R",
+              "G"
+            ]
+          },
+          {
+            "name": "Talisman of Curiosity",
+            "units": 1,
+            "options": [
+              "C"
+            ]
+          },
+          {
+            "name": "Enigma Jewel (activated abilities only)",
+            "units": 2,
+            "options": [
+              "C"
+            ]
+          }
+        ],
+        "remaining": []
+      }
+    ],
+    "note": "Same stipulated favorable draws, more aggressive use of immediate artifact mana. This is not an earliest or reliable turn."
+  },
+  "earliestTurn": null,
+  "reliableTurn": null,
+  "executionVerified": false,
+  "podClassification": null,
+  "verifierSHA256": "65b041be9676b24ee68a6ab8dc837420e34e20f8a15bae73d568b1e3a504bf8e",
+  "combo": "https://commanderspellbook.com/combo/74-4131/",
+  "assumptions": [
+    "No interaction, taxes, replacement effects or disrupted sources; the stipulated cards are drawn in the stated order.",
+    "Opening seven: Island, Wastes, Mountain, The Enigma Jewel, Sol Ring, Mind Stone, Arcane Signet.",
+    "Draw T1 Talisman of Curiosity, T2 Forest, T3 Basalt Monolith, T4 Plains, T5 a second Wastes; T6 draw unused.",
+    "Play lands T1 Island, T2 Wastes, T3 Mountain, T4 Forest, T5 Plains, T6 Wastes. Untap normally; do not carry mana between turns.",
+    "Enigma Jewel enters tapped on T1. Its restricted mana is used ONLY for the T6 craft activated ability, never for a spell.",
+    "Basalt Monolith is cast T4 and kept untapped; it is NOT used as craft fuel or to pay the craft activation."
+  ],
+  "ledger": [
+    {
+      "turn": 1,
+      "card": "The Enigma Jewel // Locus of Enlightenment",
+      "kind": "spell",
+      "cost": "{U}",
+      "sources": [
+        {
+          "name": "Island",
+          "units": 1,
+          "options": [
+            "U"
+          ]
+        }
+      ],
+      "remaining": []
+    },
+    {
+      "turn": 2,
+      "card": "Sol Ring",
+      "kind": "spell",
+      "cost": "{1}",
+      "sources": [
+        {
+          "name": "Island",
+          "units": 1,
+          "options": [
+            "U"
+          ]
+        },
+        {
+          "name": "Wastes #1",
+          "units": 1,
+          "options": [
+            "C"
+          ]
+        }
+      ],
+      "remaining": [
+        {
+          "units": 1,
+          "options": [
+            "C"
+          ]
+        },
+        {
+          "name": "Sol Ring",
+          "units": 2,
+          "options": [
+            "C"
+          ]
+        }
+      ]
+    },
+    {
+      "turn": 2,
+      "card": "Mind Stone",
+      "kind": "spell",
+      "cost": "{2}",
+      "sources": [
+        {
+          "units": 1,
+          "options": [
+            "C"
+          ]
+        },
+        {
+          "name": "Sol Ring",
+          "units": 2,
+          "options": [
+            "C"
+          ]
+        }
+      ],
+      "remaining": [
+        {
+          "units": 1,
+          "options": [
+            "C"
+          ]
+        }
+      ]
+    },
+    {
+      "turn": 3,
+      "card": "Arcane Signet",
+      "kind": "spell",
+      "cost": "{2}",
+      "sources": [
+        {
+          "name": "Island",
+          "units": 1,
+          "options": [
+            "U"
+          ]
+        },
+        {
+          "name": "Wastes #1",
+          "units": 1,
+          "options": [
+            "C"
+          ]
+        },
+        {
+          "name": "Mountain",
+          "units": 1,
+          "options": [
+            "R"
+          ]
+        },
+        {
+          "name": "Sol Ring",
+          "units": 2,
+          "options": [
+            "C"
+          ]
+        },
+        {
+          "name": "Mind Stone",
+          "units": 1,
+          "options": [
+            "C"
+          ]
+        }
+      ],
+      "remaining": [
+        {
+          "units": 1,
+          "options": [
+            "R"
+          ]
+        },
+        {
+          "units": 1,
+          "options": [
+            "C"
+          ]
+        },
+        {
+          "units": 1,
+          "options": [
+            "C"
+          ]
+        },
+        {
+          "units": 1,
+          "options": [
+            "C"
+          ]
+        }
+      ]
+    },
+    {
+      "turn": 3,
+      "card": "Talisman of Curiosity",
+      "kind": "spell",
+      "cost": "{2}",
+      "sources": [
+        {
+          "units": 1,
+          "options": [
+            "R"
+          ]
+        },
+        {
+          "units": 1,
+          "options": [
+            "C"
+          ]
+        },
+        {
+          "units": 1,
+          "options": [
+            "C"
+          ]
+        },
+        {
+          "units": 1,
+          "options": [
+            "C"
+          ]
+        }
+      ],
+      "remaining": [
+        {
+          "units": 1,
+          "options": [
+            "C"
+          ]
+        },
+        {
+          "units": 1,
+          "options": [
+            "C"
+          ]
+        }
+      ]
+    },
+    {
+      "turn": 4,
+      "card": "Basalt Monolith",
+      "kind": "spell",
+      "cost": "{3}",
+      "sources": [
+        {
+          "name": "Island",
+          "units": 1,
+          "options": [
+            "U"
+          ]
+        },
+        {
+          "name": "Wastes #1",
+          "units": 1,
+          "options": [
+            "C"
+          ]
+        },
+        {
+          "name": "Mountain",
+          "units": 1,
+          "options": [
+            "R"
+          ]
+        },
+        {
+          "name": "Forest",
+          "units": 1,
+          "options": [
+            "G"
+          ]
+        },
+        {
+          "name": "Sol Ring",
+          "units": 2,
+          "options": [
+            "C"
+          ]
+        },
+        {
+          "name": "Mind Stone",
+          "units": 1,
+          "options": [
+            "C"
+          ]
+        },
+        {
+          "name": "Arcane Signet",
+          "units": 1,
+          "options": [
+            "W",
+            "U",
+            "B",
+            "R",
+            "G"
+          ]
+        },
+        {
+          "name": "Talisman of Curiosity",
+          "units": 1,
+          "options": [
+            "C"
+          ]
+        }
+      ],
+      "remaining": [
+        {
+          "units": 1,
+          "options": [
+            "G"
+          ]
+        },
+        {
+          "units": 1,
+          "options": [
+            "C"
+          ]
+        },
+        {
+          "units": 1,
+          "options": [
+            "C"
+          ]
+        },
+        {
+          "units": 1,
+          "options": [
+            "C"
+          ]
+        },
+        {
+          "units": 1,
+          "options": [
+            "W",
+            "U",
+            "B",
+            "R",
+            "G"
+          ]
+        },
+        {
+          "units": 1,
+          "options": [
+            "C"
+          ]
+        }
+      ]
+    },
+    {
+      "turn": 6,
+      "card": "Craft into Locus of Enlightenment",
+      "kind": "activated ability (restricted Jewel mana permitted)",
+      "cost": "{8}{U}",
+      "sources": [
+        {
+          "name": "Island",
+          "units": 1,
+          "options": [
+            "U"
+          ]
+        },
+        {
+          "name": "Wastes #1",
+          "units": 1,
+          "options": [
+            "C"
+          ]
+        },
+        {
+          "name": "Sol Ring",
+          "units": 2,
+          "options": [
+            "C"
+          ]
+        },
+        {
+          "name": "Mind Stone",
+          "units": 1,
+          "options": [
+            "C"
+          ]
+        },
+        {
+          "name": "Arcane Signet",
+          "units": 1,
+          "options": [
+            "W",
+            "U",
+            "B",
+            "R",
+            "G"
+          ]
+        },
+        {
+          "name": "Talisman of Curiosity",
+          "units": 1,
+          "options": [
+            "C"
+          ]
+        },
+        {
+          "name": "Enigma Jewel (activated abilities only)",
+          "units": 2,
+          "options": [
+            "C"
+          ]
+        }
+      ],
+      "remaining": []
+    }
+  ],
+  "craftResources": {
+    "cost": "{8}{U}",
+    "exileSelf": "The Enigma Jewel",
+    "additionalNonlandsWithActivatedAbilities": [
+      "Sol Ring",
+      "Mind Stone",
+      "Arcane Signet",
+      "Talisman of Curiosity"
+    ],
+    "note": "Tap these four resources for mana before paying craft, then exile them as part of its cost. They are consumed, not retained mana sources. Return the Jewel transformed; craft only as a sorcery."
+  },
+  "loop": [
+    "With Locus on the battlefield and the separate Basalt untapped, tap Basalt for {C}{C}{C}.",
+    "Pay {3} for Basalt’s own untap ability. Locus triggers to copy this nonmana ability.",
+    "Resolve the copy to untap Basalt. Tap it for {C}{C}{C} before resolving the original untap ability, then resolve that original to untap Basalt again.",
+    "Repeat: the external Basalt ability is not a Locus-inherited once-per-turn ability. Mana abilities are not copied. Net output is three {C} per repetition."
+  ],
+  "conversion": {
+    "status": "not verified",
+    "directWin": false,
+    "note": "The two-card loop produces mana only. Craft consumed four support cards. Extra creatures/tokens, colored mana and an available outlet are not supplied for free; this example proves no winning line."
+  },
+  "scope": "A deliberately stipulated T6 example, including four additional consumed nonlands. It may have earlier possible setups; no earliest or reliable turn and no pod-policy eligibility are inferred."
+}

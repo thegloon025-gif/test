@@ -1,3 +1,10 @@
+## Unreleased — combo execution requirements and fixed-cache B3/B4 benchmark
+
+- Preserve standard combo gates and record the requested Pod High-Power rules separately as v1.2 requirements. Cached loop data does not establish reliable timing; no pod profile or pod-approved export is silently enabled.
+- Add structured execution-requirement audits for complete and proposed infinites in both constructors. Preserve quantities, commander participation, zones/states, full steps, true-colorless payments, template requirements and resource/outlet review. Expose the requirements in browser disclosures.
+- Flag alternate-face setup, including transformed Enigma Jewel / Locus prerequisites; do not mistake a cheap front face for a deployed back-face engine. Timing and win conversion remain unknown/unverified.
+- Add a read-only fixed-cache Ulalek B3 High / B4 Optimized benchmark and exact-printing exports, plus an explicit turn-six mana-ledger example whose draw order is assumed and whose reliability is unknown. No power gain, combo execution certification, version bump or release is claimed.
+
 ## Unreleased — PR #2 functional restoration and deployment evidence
 
 - Restore deficient complete investment paths with bounded coordinated fixing, sustained mana, protection and answer packages; reserve evaluations for repairs and retain native supported infrastructure, combo locks, source spines and exact-printing/budget gates.

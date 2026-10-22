@@ -2,6 +2,17 @@
 
 Last revised: 2026-10-22. Local, deterministic Commander generator: **no paid AI API** is needed to build a deck.
 
+## Pod combo rules and v1.2 execution groundwork
+
+- [x] Preserve the existing standard combo-policy option and all pricing/source/commitment constraints.
+- [x] Audit complete/proposed infinite requirements: quantities, commander, zones/states, alternate-face setup, exact mana symbols, actions, resource and outlet review.
+- [x] Expose requirements without claiming inventory is executable; record a conditional paid turn-six example separately from unknown earliest/reliable timing.
+- [ ] Implement an explicit Pod High-Power opt-in **after** validated complete-deck timing/reliability evidence exists. Two-card turn-six and later infinites must be allowed; reliably fast turn-three-to-five lines belong to B4; unknown stays unknown.
+- [ ] Model alternate faces, craft/additional resources, actual stack order, sickness, source expenditure, net loop resources and win conversion without count-based timing guesses.
+- [ ] Agree a definition of reliable execution and measure it against the selected deck. Invalidate evidence after relevant swaps or catalog changes.
+
+See `docs/POD_COMBO_POLICY.md` and `benchmarks/pod-combo-VALIDATION.md`. The pod profile is documented, not enabled, and no pod-approved deck is exported yet.
+
 ## Coherent investment follow-up after merged PR #1
 
 - [x] Preserve and reprice the reported €108.02 Ulalek deck under one eligible-printing catalog.

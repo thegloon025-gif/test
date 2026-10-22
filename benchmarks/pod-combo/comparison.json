@@ -1,0 +1,1767 @@
+{
+  "inputs": {
+    "cards.json": "6add2c5dd20809fd787438d3c8825f8dd21a74e7d3fc429f83c7a9a091045f6c",
+    "community-decks.json": "630dd24c667d308ddbca4e43f35a486f5d3f6cab4df9d3d2af8579e5226478eb",
+    "combo-library.json": "cbe8505b795ba34137f9b8d42dee1911e80213c55db0ed108a39c7a78fdfc2d1"
+  },
+  "podProfile": {
+    "implemented": false,
+    "target": "v1.2",
+    "reason": "No validated combo timing/reliability engine; do not replace that evidence with card count."
+  },
+  "decks": [
+    {
+      "name": "Ulalek, Fused Atrocity",
+      "bracket": 3,
+      "powerTarget": "High",
+      "comboPolicy": "existing conservative",
+      "budget": 191,
+      "price": 174.24,
+      "unused": 16.76,
+      "runtimeMs": 174281,
+      "sourceFilesSHA256": {
+        "src/generator.mjs": "efdaf047835a9cc1f5195522543e208eb17649d917dd11e5c63542dc5a5ceda4",
+        "src/comboExecutionEvidence.mjs": "4d20c1cf7a3981bde8a02f4849799be68d06d0dfa78bf1e94feb593d67414df2",
+        "tools/benchmark-ulalek-combos.mjs": "a0e2a9f061e6fff31d50290ca8a058dbbd8306a41f871030598803901e94877f",
+        "tools/lib/ulalek-turn-six-example.mjs": "4985919d43151106eaf33bbaa5686cdf153ef4006e57a81ef18ca7e00aa3e7b6"
+      },
+      "sourceBaseCommit": "0688887aff633c9e695bee1bcfff0b2438f1853c",
+      "inputSHA256": {
+        "cards.json": "6add2c5dd20809fd787438d3c8825f8dd21a74e7d3fc429f83c7a9a091045f6c",
+        "community-decks.json": "630dd24c667d308ddbca4e43f35a486f5d3f6cab4df9d3d2af8579e5226478eb",
+        "combo-library.json": "cbe8505b795ba34137f9b8d42dee1911e80213c55db0ed108a39c7a78fdfc2d1"
+      },
+      "audit": {
+        "count": 100,
+        "total": 174.24,
+        "agrees": true,
+        "withinBudget": true,
+        "anomalies": [],
+        "singleton": true,
+        "colorIdentityLegal": true
+      },
+      "averageManaValue": {
+        "all99": 2.5353535353535355,
+        "nonlands": 4.048387096774194
+      },
+      "lands": 37,
+      "gameChangers": 0,
+      "roles": {
+        "counts": {
+          "positiveDraw": 4,
+          "conditionalDraw": 9,
+          "cantrips": 0,
+          "broadAnswers": 8,
+          "conditionalAnswers": 2,
+          "dedicatedShields": 3
+        },
+        "unsupported": [],
+        "method": "Conservative evidence classes; conditional triggers do not count as guaranteed value; no game simulation"
+      },
+      "tempo": {
+        "efficientRamp": 10,
+        "threeManaRamp": 2,
+        "burstSources": 20,
+        "sevenPlusSpells": 7,
+        "weightedCardFlow": 6.85,
+        "heavyCurveAccelerationGap": 0,
+        "note": "Non-simulated tempo and draw-access evidence: mana timing, actual castability and triggers are not guaranteed."
+      },
+      "functionalEvidence": {
+        "vector": {
+          "strategy_cascade": 2,
+          "strategy_castCopy": 1,
+          "strategy_passiveTriggerCopy": 3,
+          "strategy_activatedTriggerCopy": 1,
+          "strategy_costReduction": 1,
+          "strategy_tutor": 1,
+          "topAccessEngines": 1,
+          "threatPower": 64,
+          "threatProtection": 1,
+          "independentDraw": 1,
+          "freeDraw": 0,
+          "scalableDraw": 0,
+          "fastMana": 8,
+          "repeatableMana": 18,
+          "fixing": 1,
+          "trueColorless": 10,
+          "burstMana": 0,
+          "flow": 2,
+          "supportedEngines": 6,
+          "copySupport": 2,
+          "answers": 7,
+          "shields": 0,
+          "wideShields": 0,
+          "threats": 8,
+          "annihilator": 5,
+          "castAnswers": 2
+        },
+        "land": {
+          "score": 111.62,
+          "sources": {
+            "W": 10,
+            "U": 10,
+            "B": 11,
+            "R": 10,
+            "G": 11
+          },
+          "demand": {
+            "W": 4,
+            "U": 8,
+            "B": 4,
+            "R": 6,
+            "G": 12
+          },
+          "realColorless": 23,
+          "penalty": 8
+        },
+        "drawEngines": [
+          {
+            "card": "Endbringer",
+            "trigger": false,
+            "topAccess": false,
+            "independent": 1,
+            "support": 0,
+            "supported": false,
+            "triggers": [],
+            "topSupport": 0,
+            "topCards": []
+          },
+          {
+            "card": "Mystic Forge",
+            "trigger": false,
+            "topAccess": true,
+            "independent": 0,
+            "support": 55,
+            "supported": false,
+            "triggers": [],
+            "topSupport": 55,
+            "topCards": [
+              "Arcane Signet",
+              "Basking Broodscale",
+              "Blisterpod",
+              "Chittering Dispatcher",
+              "Conduit of Ruin",
+              "Deathless Behemoth",
+              "Deepfathom Skulker",
+              "Desolation Twin",
+              "Devourer of Destiny",
+              "Drowner of Hope",
+              "Drownyard Lurker",
+              "Echoes of Eternity",
+              "Eldrazi Confluence",
+              "Eldrazi Displacer",
+              "Eldrazi Ravager",
+              "Eldrazi Repurposer",
+              "Eldritch Immunity",
+              "Emrakul's Messenger",
+              "Endbringer",
+              "Giant's Boulder",
+              "Glaring Fleshraker",
+              "Hedron Archive",
+              "Hedron Crawler",
+              "Idol of False Gods",
+              "Kozilek, the Great Distortion",
+              "Kozilek's Command",
+              "Kozilek's Pathfinder",
+              "Kozilek's Return",
+              "Kozilek's Unsealing",
+              "Millikin",
+              "Mind Stone",
+              "Oblivion Sower",
+              "Palladium Myr",
+              "Propagator Drone",
+              "Roaming Throne",
+              "Sifter of Skulls",
+              "Sire of Stagnation",
+              "Snapping Voidcraw",
+              "Sol Ring",
+              "Solar Transformer",
+              "Spawn-Gang Commander",
+              "Spawnbed Protector",
+              "Strionic Resonator",
+              "Tablet of Compleation",
+              "Talisman of Impulse",
+              "Talisman of Resilience",
+              "Thran Dynamo",
+              "Ulamog, the Infinite Gyre",
+              "Ulamog's Despoiler",
+              "Ulamog's Nullifier",
+              "Void Grafter",
+              "Warped Tusker",
+              "Wastescape Battlemage",
+              "Writhing Chrysalis",
+              "Zhulodok, Void Gorger"
+            ]
+          }
+        ],
+        "infrastructure": [
+          {
+            "card": "Annie Joins Up",
+            "kind": "passiveTriggerCopy",
+            "units": 1,
+            "support": 4,
+            "cards": [
+              "Kozilek, the Great Distortion",
+              "Ulamog, the Infinite Gyre",
+              "Zhulodok, Void Gorger",
+              "Ulalek, Fused Atrocity"
+            ]
+          },
+          {
+            "card": "Conduit of Ruin",
+            "kind": "costReduction",
+            "units": 1,
+            "support": 31,
+            "cards": [
+              "Chittering Dispatcher",
+              "Conduit of Ruin",
+              "Deathless Behemoth",
+              "Deepfathom Skulker",
+              "Desolation Twin",
+              "Devourer of Destiny",
+              "Drowner of Hope",
+              "Drownyard Lurker",
+              "Eldrazi Displacer",
+              "Eldrazi Ravager",
+              "Eldrazi Repurposer",
+              "Endbringer",
+              "Glaring Fleshraker",
+              "Kozilek, the Great Distortion",
+              "Kozilek's Pathfinder",
+              "Oblivion Sower",
+              "Palladium Myr",
+              "Rapacious One",
+              "Roaming Throne",
+              "Sifter of Skulls",
+              "Sire of Stagnation",
+              "Snapping Voidcraw",
+              "Spawn-Gang Commander",
+              "Spawnbed Protector",
+              "Ulamog, the Infinite Gyre",
+              "Ulamog's Despoiler",
+              "Ulamog's Nullifier",
+              "Void Grafter",
+              "Warped Tusker",
+              "Writhing Chrysalis",
+              "Zhulodok, Void Gorger"
+            ]
+          },
+          {
+            "card": "Conduit of Ruin",
+            "kind": "tutor",
+            "units": 1,
+            "support": 7,
+            "cards": [
+              "Desolation Twin",
+              "Devourer of Destiny",
+              "Drownyard Lurker",
+              "Kozilek, the Great Distortion",
+              "Spawnbed Protector",
+              "Ulamog, the Infinite Gyre",
+              "Warped Tusker"
+            ]
+          },
+          {
+            "card": "Echoes of Eternity",
+            "kind": "castCopy",
+            "units": 1,
+            "support": 55,
+            "cards": [
+              "Arcane Signet",
+              "Basking Broodscale",
+              "Blisterpod",
+              "Chittering Dispatcher",
+              "Conduit of Ruin",
+              "Deathless Behemoth",
+              "Deepfathom Skulker",
+              "Desolation Twin",
+              "Devourer of Destiny",
+              "Drowner of Hope",
+              "Drownyard Lurker",
+              "Eldrazi Confluence",
+              "Eldrazi Displacer",
+              "Eldrazi Ravager",
+              "Eldrazi Repurposer",
+              "Eldritch Immunity",
+              "Emrakul's Messenger",
+              "Endbringer",
+              "Giant's Boulder",
+              "Glaring Fleshraker",
+              "Hedron Archive",
+              "Hedron Crawler",
+              "Idol of False Gods",
+              "Kozilek, the Great Distortion",
+              "Kozilek's Command",
+              "Kozilek's Pathfinder",
+              "Kozilek's Return",
+              "Kozilek's Unsealing",
+              "Millikin",
+              "Mind Stone",
+              "Mystic Forge",
+              "Oblivion Sower",
+              "Palladium Myr",
+              "Propagator Drone",
+              "Roaming Throne",
+              "Sifter of Skulls",
+              "Sire of Stagnation",
+              "Snapping Voidcraw",
+              "Sol Ring",
+              "Solar Transformer",
+              "Spawn-Gang Commander",
+              "Spawnbed Protector",
+              "Strionic Resonator",
+              "Tablet of Compleation",
+              "Talisman of Impulse",
+              "Talisman of Resilience",
+              "Thran Dynamo",
+              "Ulamog, the Infinite Gyre",
+              "Ulamog's Despoiler",
+              "Ulamog's Nullifier",
+              "Void Grafter",
+              "Warped Tusker",
+              "Wastescape Battlemage",
+              "Writhing Chrysalis",
+              "Zhulodok, Void Gorger"
+            ]
+          },
+          {
+            "card": "Echoes of Eternity",
+            "kind": "passiveTriggerCopy",
+            "units": 1,
+            "support": 34,
+            "cards": [
+              "Basking Broodscale",
+              "Blisterpod",
+              "Chittering Dispatcher",
+              "Conduit of Ruin",
+              "Deepfathom Skulker",
+              "Desolation Twin",
+              "Devourer of Destiny",
+              "Drowner of Hope",
+              "Drownyard Lurker",
+              "Eldrazi Ravager",
+              "Eldrazi Repurposer",
+              "Emrakul's Messenger",
+              "Giant's Boulder",
+              "Glaring Fleshraker",
+              "Idol of False Gods",
+              "Kozilek, the Great Distortion",
+              "Kozilek's Return",
+              "Kozilek's Unsealing",
+              "Oblivion Sower",
+              "Propagator Drone",
+              "Sifter of Skulls",
+              "Sire of Stagnation",
+              "Solar Transformer",
+              "Spawn-Gang Commander",
+              "Spawnbed Protector",
+              "Strionic Resonator",
+              "Ulamog, the Infinite Gyre",
+              "Ulamog's Nullifier",
+              "Void Grafter",
+              "Warped Tusker",
+              "Wastescape Battlemage",
+              "Writhing Chrysalis",
+              "Zhulodok, Void Gorger",
+              "Ulalek, Fused Atrocity"
+            ]
+          },
+          {
+            "card": "Roaming Throne",
+            "kind": "passiveTriggerCopy",
+            "units": 1,
+            "support": 30,
+            "cards": [
+              "Basking Broodscale",
+              "Blisterpod",
+              "Chittering Dispatcher",
+              "Conduit of Ruin",
+              "Deepfathom Skulker",
+              "Desolation Twin",
+              "Devourer of Destiny",
+              "Drowner of Hope",
+              "Drownyard Lurker",
+              "Eldrazi Ravager",
+              "Eldrazi Repurposer",
+              "Emrakul's Messenger",
+              "Glaring Fleshraker",
+              "Kozilek, the Great Distortion",
+              "Nest Invader",
+              "Oblivion Sower",
+              "Propagator Drone",
+              "Rapacious One",
+              "Sifter of Skulls",
+              "Sire of Stagnation",
+              "Spawn-Gang Commander",
+              "Spawnbed Protector",
+              "Ulamog, the Infinite Gyre",
+              "Ulamog's Nullifier",
+              "Void Grafter",
+              "Warped Tusker",
+              "Wastescape Battlemage",
+              "Writhing Chrysalis",
+              "Zhulodok, Void Gorger",
+              "Ulalek, Fused Atrocity"
+            ]
+          },
+          {
+            "card": "Strionic Resonator",
+            "kind": "activatedTriggerCopy",
+            "units": 1,
+            "support": 31,
+            "cards": [
+              "Basking Broodscale",
+              "Blisterpod",
+              "Chittering Dispatcher",
+              "Conduit of Ruin",
+              "Deepfathom Skulker",
+              "Desolation Twin",
+              "Devourer of Destiny",
+              "Drowner of Hope",
+              "Drownyard Lurker",
+              "Echoes of Eternity",
+              "Eldrazi Ravager",
+              "Eldrazi Repurposer",
+              "Emrakul's Messenger",
+              "Glaring Fleshraker",
+              "Idol of False Gods",
+              "Kozilek, the Great Distortion",
+              "Nest Invader",
+              "Oblivion Sower",
+              "Propagator Drone",
+              "Rapacious One",
+              "Sifter of Skulls",
+              "Sire of Stagnation",
+              "Spawn-Gang Commander",
+              "Spawnbed Protector",
+              "Ulamog, the Infinite Gyre",
+              "Ulamog's Nullifier",
+              "Void Grafter",
+              "Warped Tusker",
+              "Wastescape Battlemage",
+              "Writhing Chrysalis",
+              "Zhulodok, Void Gorger"
+            ]
+          },
+          {
+            "card": "Zhulodok, Void Gorger",
+            "kind": "cascade",
+            "units": 2,
+            "support": 7,
+            "cards": [
+              "Desolation Twin",
+              "Devourer of Destiny",
+              "Drownyard Lurker",
+              "Kozilek, the Great Distortion",
+              "Spawnbed Protector",
+              "Ulamog, the Infinite Gyre",
+              "Warped Tusker"
+            ]
+          }
+        ],
+        "raw": {
+          "strategyRoles": {
+            "payoff": 14,
+            "engine": 39,
+            "enabler": 33,
+            "finisher": 18
+          },
+          "repeatableMana": 18,
+          "trueColorless": 17,
+          "reducers": 1,
+          "highSpellMana": 59
+        },
+        "unsupported": 0,
+        "method": "Supported function and explicit mana capacity; capped coverage, no price term, no gameplay rating or sequencing simulation"
+      },
+      "selectedCandidate": "source:archidekt:23460147",
+      "turnSixExample": {
+        "status": "conditional mana ledger checked",
+        "sourceCombo": "https://commanderspellbook.com/combo/5473-5657-5665/",
+        "conditionalTurn": 6,
+        "earliestTurn": null,
+        "reliableTurn": null,
+        "executionVerified": false,
+        "policyClassification": null,
+        "assumptions": [
+          "No mulligan, no opponents interfering, no taxes or replacement effects.",
+          "Opening seven: Forest, Plains, Mountain, Arcane Signet, Mind Stone, Annie Joins Up, Spawn-Gang Commander.",
+          "Natural draws: Island on T1, Wastes on T2, a second Wastes on T3; subsequent draws unused. Commander starts in command zone.",
+          "One land each turn: Forest, Plains, Mountain, Island, Wastes, Wastes. All enter untapped.",
+          "Each turn sources untap normally; unused mana is not carried between steps/phases/turns.",
+          "Annie and the commander remain on the battlefield. Reserve two actual {C} after paying for Spawn-Gang Commander."
+        ],
+        "payments": [
+          {
+            "turn": 2,
+            "card": "Arcane Signet",
+            "cost": "{2}",
+            "additionalUlalekPayment": null,
+            "sources": [
+              {
+                "name": "Forest",
+                "units": 1,
+                "options": [
+                  "G"
+                ]
+              },
+              {
+                "name": "Plains",
+                "units": 1,
+                "options": [
+                  "W"
+                ]
+              }
+            ],
+            "remainingUnits": 0
+          },
+          {
+            "turn": 3,
+            "card": "Mind Stone",
+            "cost": "{2}",
+            "additionalUlalekPayment": null,
+            "sources": [
+              {
+                "name": "Forest",
+                "units": 1,
+                "options": [
+                  "G"
+                ]
+              },
+              {
+                "name": "Plains",
+                "units": 1,
+                "options": [
+                  "W"
+                ]
+              }
+            ],
+            "remainingUnits": 0
+          },
+          {
+            "turn": 4,
+            "card": "Annie Joins Up",
+            "cost": "{1}{R}{G}{W}",
+            "additionalUlalekPayment": null,
+            "sources": [
+              {
+                "name": "Forest",
+                "units": 1,
+                "options": [
+                  "G"
+                ]
+              },
+              {
+                "name": "Plains",
+                "units": 1,
+                "options": [
+                  "W"
+                ]
+              },
+              {
+                "name": "Mountain",
+                "units": 1,
+                "options": [
+                  "R"
+                ]
+              },
+              {
+                "name": "Island",
+                "units": 1,
+                "options": [
+                  "U"
+                ]
+              }
+            ],
+            "remainingUnits": 0
+          },
+          {
+            "turn": 5,
+            "card": "Ulalek, Fused Atrocity",
+            "cost": "{C/W}{C/U}{C/B}{C/R}{C/G}",
+            "additionalUlalekPayment": null,
+            "sources": [
+              {
+                "name": "Forest",
+                "units": 1,
+                "options": [
+                  "G"
+                ]
+              },
+              {
+                "name": "Mountain",
+                "units": 1,
+                "options": [
+                  "R"
+                ]
+              },
+              {
+                "name": "Island",
+                "units": 1,
+                "options": [
+                  "U"
+                ]
+              },
+              {
+                "name": "Wastes #1",
+                "units": 1,
+                "options": [
+                  "C"
+                ]
+              },
+              {
+                "name": "Mind Stone",
+                "units": 1,
+                "options": [
+                  "C"
+                ]
+              }
+            ],
+            "remainingUnits": 0
+          },
+          {
+            "turn": 6,
+            "card": "Spawn-Gang Commander",
+            "cost": "{3}{R}{R}",
+            "additionalUlalekPayment": "{C}{C}",
+            "sources": [
+              {
+                "name": "Forest",
+                "units": 1,
+                "options": [
+                  "G"
+                ]
+              },
+              {
+                "name": "Plains",
+                "units": 1,
+                "options": [
+                  "W"
+                ]
+              },
+              {
+                "name": "Mountain",
+                "units": 1,
+                "options": [
+                  "R"
+                ]
+              },
+              {
+                "name": "Island",
+                "units": 1,
+                "options": [
+                  "U"
+                ]
+              },
+              {
+                "name": "Wastes #1",
+                "units": 1,
+                "options": [
+                  "C"
+                ]
+              },
+              {
+                "name": "Wastes #2",
+                "units": 1,
+                "options": [
+                  "C"
+                ]
+              },
+              {
+                "name": "Arcane Signet",
+                "units": 1,
+                "options": [
+                  "B",
+                  "G",
+                  "R",
+                  "U",
+                  "W"
+                ]
+              },
+              {
+                "name": "Mind Stone",
+                "units": 1,
+                "options": [
+                  "C"
+                ]
+              }
+            ],
+            "remainingUnits": 1
+          }
+        ],
+        "loopReview": [
+          "Annie doubles Ulalek’s cast trigger. Keep the other Ulalek trigger and the Spawn-Gang cast trigger on the stack.",
+          "Pay the reserved {C}{C} for one Ulalek trigger; copy the spell and other relevant triggers.",
+          "Resolve a copied Spawn-Gang cast trigger: create three Spawn. Sacrifice two for {C}{C} to pay a copied Ulalek trigger; retain the third Spawn.",
+          "Repeat for an arbitrarily large finite number of iterations, retaining at least one Spawn per iteration. Sacrificing retained Spawn for mana consumes those tokens; do not count a token as both mana and outlet fuel.",
+          "To finish, decline further optional payments and resolve the spell copies so Spawn-Gang exists on the battlefield. Partition retained Spawn between mana and outlet fuel.",
+          "Each damage activation needs {1}{C} and a sacrificed Eldrazi. Two Spawn can supply the two mana, a third fuels the sacrifice; deal 2 to a legal target. No tap or attack cost: new creatures do not need haste for these abilities."
+        ],
+        "scope": "A specified draw/board and exact-payment example consistent with cached instructions. Not a measured probability, fastest line, pod-policy approval or full rules simulation."
+      },
+      "inventoryInfinite": 12,
+      "committedPackages": [
+        {
+          "id": "5473-5657-5664",
+          "added": [
+            "Annie Joins Up",
+            "Writhing Chrysalis"
+          ],
+          "namedCards": [
+            "Annie Joins Up",
+            "Writhing Chrysalis"
+          ],
+          "results": [],
+          "prerequisites": [],
+          "templateMatches": []
+        },
+        {
+          "id": "2751-5657-5665",
+          "added": [
+            "Strionic Resonator",
+            "Spawn-Gang Commander"
+          ],
+          "namedCards": [
+            "Strionic Resonator",
+            "Spawn-Gang Commander"
+          ],
+          "results": [],
+          "prerequisites": [],
+          "templateMatches": []
+        },
+        {
+          "id": "5334-5657-5705",
+          "added": [
+            "Glaring Fleshraker",
+            "Roaming Throne"
+          ],
+          "namedCards": [
+            "Glaring Fleshraker",
+            "Roaming Throne"
+          ],
+          "results": [],
+          "prerequisites": [],
+          "templateMatches": []
+        }
+      ],
+      "comboIds": [
+        "5334-5657-5705",
+        "5473-5657-5664",
+        "5473-5657-5665",
+        "5642-5657-5705",
+        "5642-5657-5664",
+        "5657-5664-7116",
+        "5642-5657-5665",
+        "2751-5657-5664",
+        "2751-5657-5665",
+        "5473-5637-5657--34",
+        "5637-5642-5657--34",
+        "2751-5637-5657--34"
+      ]
+    },
+    {
+      "name": "Ulalek, Fused Atrocity",
+      "bracket": 4,
+      "powerTarget": "Optimized (B4 built-in profile)",
+      "comboPolicy": "existing conservative",
+      "budget": 191,
+      "price": 173.88,
+      "unused": 17.12,
+      "runtimeMs": 150024,
+      "sourceFilesSHA256": {
+        "src/generator.mjs": "efdaf047835a9cc1f5195522543e208eb17649d917dd11e5c63542dc5a5ceda4",
+        "src/comboExecutionEvidence.mjs": "4d20c1cf7a3981bde8a02f4849799be68d06d0dfa78bf1e94feb593d67414df2",
+        "tools/benchmark-ulalek-combos.mjs": "a0e2a9f061e6fff31d50290ca8a058dbbd8306a41f871030598803901e94877f",
+        "tools/lib/ulalek-turn-six-example.mjs": "4985919d43151106eaf33bbaa5686cdf153ef4006e57a81ef18ca7e00aa3e7b6"
+      },
+      "sourceBaseCommit": "0688887aff633c9e695bee1bcfff0b2438f1853c",
+      "inputSHA256": {
+        "cards.json": "6add2c5dd20809fd787438d3c8825f8dd21a74e7d3fc429f83c7a9a091045f6c",
+        "community-decks.json": "630dd24c667d308ddbca4e43f35a486f5d3f6cab4df9d3d2af8579e5226478eb",
+        "combo-library.json": "cbe8505b795ba34137f9b8d42dee1911e80213c55db0ed108a39c7a78fdfc2d1"
+      },
+      "audit": {
+        "count": 100,
+        "total": 173.88,
+        "agrees": true,
+        "withinBudget": true,
+        "anomalies": [],
+        "singleton": true,
+        "colorIdentityLegal": true
+      },
+      "averageManaValue": {
+        "all99": 2.4242424242424243,
+        "nonlands": 3.8095238095238093
+      },
+      "lands": 36,
+      "gameChangers": 0,
+      "roles": {
+        "counts": {
+          "positiveDraw": 5,
+          "conditionalDraw": 9,
+          "cantrips": 0,
+          "broadAnswers": 9,
+          "conditionalAnswers": 1,
+          "dedicatedShields": 4
+        },
+        "unsupported": [
+          {
+            "card": "The Enigma Jewel // Locus of Enlightenment",
+            "reasons": [
+              "mana spending restrictions require a separate casting audit"
+            ]
+          }
+        ],
+        "method": "Conservative evidence classes; conditional triggers do not count as guaranteed value; no game simulation"
+      },
+      "tempo": {
+        "efficientRamp": 20,
+        "threeManaRamp": 1,
+        "burstSources": 11,
+        "sevenPlusSpells": 7,
+        "weightedCardFlow": 8.15,
+        "heavyCurveAccelerationGap": 0,
+        "note": "Non-simulated tempo and draw-access evidence: mana timing, actual castability and triggers are not guaranteed."
+      },
+      "functionalEvidence": {
+        "vector": {
+          "strategy_cascade": 2,
+          "strategy_castCopy": 1,
+          "strategy_passiveTriggerCopy": 2,
+          "strategy_activatedTriggerCopy": 1,
+          "strategy_costReduction": 1,
+          "strategy_tutor": 0,
+          "topAccessEngines": 2,
+          "threatPower": 59,
+          "threatProtection": 1,
+          "independentDraw": 2,
+          "freeDraw": 1,
+          "scalableDraw": 0,
+          "fastMana": 10,
+          "repeatableMana": 18,
+          "fixing": 4,
+          "trueColorless": 10,
+          "burstMana": 3,
+          "flow": 4,
+          "supportedEngines": 6,
+          "copySupport": 2,
+          "answers": 7,
+          "shields": 1,
+          "wideShields": 0,
+          "threats": 8,
+          "annihilator": 5,
+          "castAnswers": 3
+        },
+        "land": {
+          "score": 129,
+          "sources": {
+            "W": 12,
+            "U": 13,
+            "B": 12,
+            "R": 13,
+            "G": 15
+          },
+          "demand": {
+            "W": 3,
+            "U": 12,
+            "B": 4,
+            "R": 6,
+            "G": 17
+          },
+          "realColorless": 25,
+          "penalty": 2
+        },
+        "drawEngines": [
+          {
+            "card": "Archivist",
+            "trigger": false,
+            "topAccess": false,
+            "independent": 1,
+            "support": 0,
+            "supported": false,
+            "triggers": [],
+            "topSupport": 0,
+            "topCards": []
+          },
+          {
+            "card": "Eladamri, Korvecdal",
+            "trigger": false,
+            "topAccess": true,
+            "independent": 0,
+            "support": 37,
+            "supported": false,
+            "triggers": [],
+            "topSupport": 37,
+            "topCards": [
+              "Archivist",
+              "Chittering Dispatcher",
+              "Deathless Behemoth",
+              "Deranged Assistant",
+              "Devourer of Destiny",
+              "Drowner of Hope",
+              "Drownyard Lurker",
+              "Eldrazi Linebreaker",
+              "Eldrazi Ravager",
+              "Eldrazi Repurposer",
+              "Endbringer",
+              "Fanatic of Rhonas",
+              "Glaring Fleshraker",
+              "Great Forest Druid",
+              "Hedron Crawler",
+              "Kozilek, the Great Distortion",
+              "Kozilek's Pathfinder",
+              "Magus of the Library",
+              "Millikin",
+              "Mutated Cultist",
+              "Nightshade Dryad",
+              "Oblivion Sower",
+              "Ornithopter of Paradise",
+              "Rapacious One",
+              "Sea Scryer",
+              "Sire of Stagnation",
+              "Sowing Mycospawn",
+              "Spawn-Gang Commander",
+              "Spawnbed Protector",
+              "Ulamog, the Infinite Gyre",
+              "Ulamog's Despoiler",
+              "Ulamog's Nullifier",
+              "Void Grafter",
+              "Warped Tusker",
+              "World Breaker",
+              "Writhing Chrysalis",
+              "Zhulodok, Void Gorger"
+            ]
+          },
+          {
+            "card": "Endbringer",
+            "trigger": false,
+            "topAccess": false,
+            "independent": 1,
+            "support": 0,
+            "supported": false,
+            "triggers": [],
+            "topSupport": 0,
+            "topCards": []
+          },
+          {
+            "card": "Mystic Forge",
+            "trigger": false,
+            "topAccess": true,
+            "independent": 0,
+            "support": 46,
+            "supported": false,
+            "triggers": [],
+            "topSupport": 46,
+            "topCards": [
+              "Arcane Signet",
+              "Basalt Monolith",
+              "Chittering Dispatcher",
+              "Deathless Behemoth",
+              "Devourer of Destiny",
+              "Drowner of Hope",
+              "Drownyard Lurker",
+              "Echoes of Eternity",
+              "Eldrazi Linebreaker",
+              "Eldrazi Ravager",
+              "Eldrazi Repurposer",
+              "Eldritch Immunity",
+              "Endbringer",
+              "Giant's Boulder",
+              "Glaring Fleshraker",
+              "Guardian Idol",
+              "Hedron Crawler",
+              "Kozilek, the Great Distortion",
+              "Kozilek's Pathfinder",
+              "Kozilek's Unsealing",
+              "Millikin",
+              "Mind Stone",
+              "Mutated Cultist",
+              "Oblivion Sower",
+              "Ornithopter of Paradise",
+              "Sire of Stagnation",
+              "Sol Ring",
+              "Solar Transformer",
+              "Sowing Mycospawn",
+              "Spawn-Gang Commander",
+              "Spawnbed Protector",
+              "Strionic Resonator",
+              "Tablet of Compleation",
+              "Talisman of Curiosity",
+              "Talisman of Impulse",
+              "Talisman of Resilience",
+              "The Enigma Jewel // Locus of Enlightenment",
+              "Ugin, the Ineffable",
+              "Ulamog, the Infinite Gyre",
+              "Ulamog's Despoiler",
+              "Ulamog's Nullifier",
+              "Void Grafter",
+              "Warped Tusker",
+              "World Breaker",
+              "Writhing Chrysalis",
+              "Zhulodok, Void Gorger"
+            ]
+          }
+        ],
+        "infrastructure": [
+          {
+            "card": "Annie Joins Up",
+            "kind": "passiveTriggerCopy",
+            "units": 1,
+            "support": 4,
+            "cards": [
+              "Kozilek, the Great Distortion",
+              "Ulamog, the Infinite Gyre",
+              "Zhulodok, Void Gorger",
+              "Ulalek, Fused Atrocity"
+            ]
+          },
+          {
+            "card": "Echoes of Eternity",
+            "kind": "castCopy",
+            "units": 1,
+            "support": 45,
+            "cards": [
+              "Arcane Signet",
+              "Basalt Monolith",
+              "Chittering Dispatcher",
+              "Deathless Behemoth",
+              "Devourer of Destiny",
+              "Drowner of Hope",
+              "Drownyard Lurker",
+              "Eldrazi Linebreaker",
+              "Eldrazi Ravager",
+              "Eldrazi Repurposer",
+              "Eldritch Immunity",
+              "Endbringer",
+              "Giant's Boulder",
+              "Glaring Fleshraker",
+              "Guardian Idol",
+              "Hedron Crawler",
+              "Kozilek, the Great Distortion",
+              "Kozilek's Pathfinder",
+              "Kozilek's Unsealing",
+              "Millikin",
+              "Mind Stone",
+              "Mutated Cultist",
+              "Mystic Forge",
+              "Oblivion Sower",
+              "Ornithopter of Paradise",
+              "Sire of Stagnation",
+              "Sol Ring",
+              "Solar Transformer",
+              "Sowing Mycospawn",
+              "Spawn-Gang Commander",
+              "Spawnbed Protector",
+              "Strionic Resonator",
+              "Tablet of Compleation",
+              "Talisman of Curiosity",
+              "Talisman of Impulse",
+              "Talisman of Resilience",
+              "Ugin, the Ineffable",
+              "Ulamog, the Infinite Gyre",
+              "Ulamog's Despoiler",
+              "Ulamog's Nullifier",
+              "Void Grafter",
+              "Warped Tusker",
+              "World Breaker",
+              "Writhing Chrysalis",
+              "Zhulodok, Void Gorger"
+            ]
+          },
+          {
+            "card": "Echoes of Eternity",
+            "kind": "passiveTriggerCopy",
+            "units": 1,
+            "support": 28,
+            "cards": [
+              "Chittering Dispatcher",
+              "Devourer of Destiny",
+              "Drowner of Hope",
+              "Drownyard Lurker",
+              "Eldrazi Linebreaker",
+              "Eldrazi Ravager",
+              "Eldrazi Repurposer",
+              "Giant's Boulder",
+              "Glaring Fleshraker",
+              "Kozilek, the Great Distortion",
+              "Kozilek's Unsealing",
+              "Mutated Cultist",
+              "Oblivion Sower",
+              "Sire of Stagnation",
+              "Solar Transformer",
+              "Sowing Mycospawn",
+              "Spawn-Gang Commander",
+              "Spawnbed Protector",
+              "Strionic Resonator",
+              "Ugin, the Ineffable",
+              "Ulamog, the Infinite Gyre",
+              "Ulamog's Nullifier",
+              "Void Grafter",
+              "Warped Tusker",
+              "World Breaker",
+              "Writhing Chrysalis",
+              "Zhulodok, Void Gorger",
+              "Ulalek, Fused Atrocity"
+            ]
+          },
+          {
+            "card": "Strionic Resonator",
+            "kind": "activatedTriggerCopy",
+            "units": 1,
+            "support": 24,
+            "cards": [
+              "Chittering Dispatcher",
+              "Devourer of Destiny",
+              "Drowner of Hope",
+              "Drownyard Lurker",
+              "Echoes of Eternity",
+              "Eldrazi Linebreaker",
+              "Eldrazi Ravager",
+              "Eldrazi Repurposer",
+              "Glaring Fleshraker",
+              "Kozilek, the Great Distortion",
+              "Mutated Cultist",
+              "Oblivion Sower",
+              "Rapacious One",
+              "Sire of Stagnation",
+              "Sowing Mycospawn",
+              "Spawn-Gang Commander",
+              "Spawnbed Protector",
+              "Ulamog, the Infinite Gyre",
+              "Ulamog's Nullifier",
+              "Void Grafter",
+              "Warped Tusker",
+              "World Breaker",
+              "Writhing Chrysalis",
+              "Zhulodok, Void Gorger"
+            ]
+          },
+          {
+            "card": "Ugin, the Ineffable",
+            "kind": "costReduction",
+            "units": 1,
+            "support": 30,
+            "cards": [
+              "Basalt Monolith",
+              "Chittering Dispatcher",
+              "Deathless Behemoth",
+              "Devourer of Destiny",
+              "Drowner of Hope",
+              "Drownyard Lurker",
+              "Echoes of Eternity",
+              "Eldrazi Linebreaker",
+              "Eldrazi Ravager",
+              "Eldrazi Repurposer",
+              "Endbringer",
+              "Glaring Fleshraker",
+              "Kozilek, the Great Distortion",
+              "Kozilek's Pathfinder",
+              "Kozilek's Unsealing",
+              "Mutated Cultist",
+              "Mystic Forge",
+              "Oblivion Sower",
+              "Sire of Stagnation",
+              "Sowing Mycospawn",
+              "Spawn-Gang Commander",
+              "Spawnbed Protector",
+              "Ulamog, the Infinite Gyre",
+              "Ulamog's Despoiler",
+              "Ulamog's Nullifier",
+              "Void Grafter",
+              "Warped Tusker",
+              "World Breaker",
+              "Writhing Chrysalis",
+              "Zhulodok, Void Gorger"
+            ]
+          },
+          {
+            "card": "Zhulodok, Void Gorger",
+            "kind": "cascade",
+            "units": 2,
+            "support": 7,
+            "cards": [
+              "Devourer of Destiny",
+              "Drownyard Lurker",
+              "Kozilek, the Great Distortion",
+              "Spawnbed Protector",
+              "Ulamog, the Infinite Gyre",
+              "Warped Tusker",
+              "World Breaker"
+            ]
+          }
+        ],
+        "raw": {
+          "strategyRoles": {
+            "payoff": 11,
+            "enabler": 28,
+            "engine": 29,
+            "finisher": 17
+          },
+          "repeatableMana": 18,
+          "trueColorless": 14,
+          "reducers": 1,
+          "highSpellMana": 56
+        },
+        "unsupported": 1,
+        "method": "Supported function and explicit mana capacity; capped coverage, no price term, no gameplay rating or sequencing simulation"
+      },
+      "selectedCandidate": "source:archidekt:24772686",
+      "turnSixExample": {
+        "status": "conditional mana ledger checked",
+        "sourceCombo": "https://commanderspellbook.com/combo/5473-5657-5665/",
+        "conditionalTurn": 6,
+        "earliestTurn": null,
+        "reliableTurn": null,
+        "executionVerified": false,
+        "policyClassification": null,
+        "assumptions": [
+          "No mulligan, no opponents interfering, no taxes or replacement effects.",
+          "Opening seven: Forest, Plains, Mountain, Arcane Signet, Mind Stone, Annie Joins Up, Spawn-Gang Commander.",
+          "Natural draws: Island on T1, Wastes on T2, a second Wastes on T3; subsequent draws unused. Commander starts in command zone.",
+          "One land each turn: Forest, Plains, Mountain, Island, Wastes, Wastes. All enter untapped.",
+          "Each turn sources untap normally; unused mana is not carried between steps/phases/turns.",
+          "Annie and the commander remain on the battlefield. Reserve two actual {C} after paying for Spawn-Gang Commander."
+        ],
+        "payments": [
+          {
+            "turn": 2,
+            "card": "Arcane Signet",
+            "cost": "{2}",
+            "additionalUlalekPayment": null,
+            "sources": [
+              {
+                "name": "Forest",
+                "units": 1,
+                "options": [
+                  "G"
+                ]
+              },
+              {
+                "name": "Plains",
+                "units": 1,
+                "options": [
+                  "W"
+                ]
+              }
+            ],
+            "remainingUnits": 0
+          },
+          {
+            "turn": 3,
+            "card": "Mind Stone",
+            "cost": "{2}",
+            "additionalUlalekPayment": null,
+            "sources": [
+              {
+                "name": "Forest",
+                "units": 1,
+                "options": [
+                  "G"
+                ]
+              },
+              {
+                "name": "Plains",
+                "units": 1,
+                "options": [
+                  "W"
+                ]
+              }
+            ],
+            "remainingUnits": 0
+          },
+          {
+            "turn": 4,
+            "card": "Annie Joins Up",
+            "cost": "{1}{R}{G}{W}",
+            "additionalUlalekPayment": null,
+            "sources": [
+              {
+                "name": "Forest",
+                "units": 1,
+                "options": [
+                  "G"
+                ]
+              },
+              {
+                "name": "Plains",
+                "units": 1,
+                "options": [
+                  "W"
+                ]
+              },
+              {
+                "name": "Mountain",
+                "units": 1,
+                "options": [
+                  "R"
+                ]
+              },
+              {
+                "name": "Island",
+                "units": 1,
+                "options": [
+                  "U"
+                ]
+              }
+            ],
+            "remainingUnits": 0
+          },
+          {
+            "turn": 5,
+            "card": "Ulalek, Fused Atrocity",
+            "cost": "{C/W}{C/U}{C/B}{C/R}{C/G}",
+            "additionalUlalekPayment": null,
+            "sources": [
+              {
+                "name": "Forest",
+                "units": 1,
+                "options": [
+                  "G"
+                ]
+              },
+              {
+                "name": "Mountain",
+                "units": 1,
+                "options": [
+                  "R"
+                ]
+              },
+              {
+                "name": "Island",
+                "units": 1,
+                "options": [
+                  "U"
+                ]
+              },
+              {
+                "name": "Wastes #1",
+                "units": 1,
+                "options": [
+                  "C"
+                ]
+              },
+              {
+                "name": "Mind Stone",
+                "units": 1,
+                "options": [
+                  "C"
+                ]
+              }
+            ],
+            "remainingUnits": 0
+          },
+          {
+            "turn": 6,
+            "card": "Spawn-Gang Commander",
+            "cost": "{3}{R}{R}",
+            "additionalUlalekPayment": "{C}{C}",
+            "sources": [
+              {
+                "name": "Forest",
+                "units": 1,
+                "options": [
+                  "G"
+                ]
+              },
+              {
+                "name": "Plains",
+                "units": 1,
+                "options": [
+                  "W"
+                ]
+              },
+              {
+                "name": "Mountain",
+                "units": 1,
+                "options": [
+                  "R"
+                ]
+              },
+              {
+                "name": "Island",
+                "units": 1,
+                "options": [
+                  "U"
+                ]
+              },
+              {
+                "name": "Wastes #1",
+                "units": 1,
+                "options": [
+                  "C"
+                ]
+              },
+              {
+                "name": "Wastes #2",
+                "units": 1,
+                "options": [
+                  "C"
+                ]
+              },
+              {
+                "name": "Arcane Signet",
+                "units": 1,
+                "options": [
+                  "B",
+                  "G",
+                  "R",
+                  "U",
+                  "W"
+                ]
+              },
+              {
+                "name": "Mind Stone",
+                "units": 1,
+                "options": [
+                  "C"
+                ]
+              }
+            ],
+            "remainingUnits": 1
+          }
+        ],
+        "loopReview": [
+          "Annie doubles Ulalek’s cast trigger. Keep the other Ulalek trigger and the Spawn-Gang cast trigger on the stack.",
+          "Pay the reserved {C}{C} for one Ulalek trigger; copy the spell and other relevant triggers.",
+          "Resolve a copied Spawn-Gang cast trigger: create three Spawn. Sacrifice two for {C}{C} to pay a copied Ulalek trigger; retain the third Spawn.",
+          "Repeat for an arbitrarily large finite number of iterations, retaining at least one Spawn per iteration. Sacrificing retained Spawn for mana consumes those tokens; do not count a token as both mana and outlet fuel.",
+          "To finish, decline further optional payments and resolve the spell copies so Spawn-Gang exists on the battlefield. Partition retained Spawn between mana and outlet fuel.",
+          "Each damage activation needs {1}{C} and a sacrificed Eldrazi. Two Spawn can supply the two mana, a third fuels the sacrifice; deal 2 to a legal target. No tap or attack cost: new creatures do not need haste for these abilities."
+        ],
+        "scope": "A specified draw/board and exact-payment example consistent with cached instructions. Not a measured probability, fastest line, pod-policy approval or full rules simulation."
+      },
+      "inventoryInfinite": 12,
+      "committedPackages": [
+        {
+          "id": "5473-5657-5664",
+          "added": [
+            "Annie Joins Up",
+            "Writhing Chrysalis"
+          ],
+          "namedCards": [
+            "Annie Joins Up",
+            "Writhing Chrysalis"
+          ],
+          "results": [],
+          "prerequisites": [],
+          "templateMatches": []
+        },
+        {
+          "id": "5642-5657-5665",
+          "added": [
+            "Echoes of Eternity",
+            "Spawn-Gang Commander"
+          ],
+          "namedCards": [
+            "Echoes of Eternity",
+            "Spawn-Gang Commander"
+          ],
+          "results": [],
+          "prerequisites": [],
+          "templateMatches": []
+        },
+        {
+          "id": "2751-5637-5657--34",
+          "added": [
+            "Strionic Resonator"
+          ],
+          "namedCards": [
+            "Strionic Resonator",
+            "Kozilek's Unsealing",
+            "Sire of Stagnation"
+          ],
+          "results": [],
+          "prerequisites": [],
+          "templateMatches": []
+        },
+        {
+          "id": "74-4131",
+          "added": [
+            "The Enigma Jewel // Locus of Enlightenment",
+            "Basalt Monolith"
+          ],
+          "namedCards": [
+            "The Enigma Jewel // Locus of Enlightenment",
+            "Basalt Monolith"
+          ],
+          "results": [],
+          "prerequisites": [],
+          "templateMatches": []
+        }
+      ],
+      "comboIds": [
+        "74-4131",
+        "5473-5657-5664",
+        "5473-5657-5665",
+        "5642-5657-5705",
+        "5642-5657-5664",
+        "5657-5664-7116",
+        "5642-5657-5665",
+        "2751-5657-5664",
+        "2751-5657-5665",
+        "5473-5637-5657--34",
+        "5637-5642-5657--34",
+        "2751-5637-5657--34"
+      ]
+    }
+  ],
+  "cardDifferences": [
+    {
+      "card": "Basking Broodscale",
+      "b4MinusB3": -1
+    },
+    {
+      "card": "Blisterpod",
+      "b4MinusB3": -1
+    },
+    {
+      "card": "Conduit of Ruin",
+      "b4MinusB3": -1
+    },
+    {
+      "card": "Deepfathom Skulker",
+      "b4MinusB3": -1
+    },
+    {
+      "card": "Desolation Twin",
+      "b4MinusB3": -1
+    },
+    {
+      "card": "Eldrazi Confluence",
+      "b4MinusB3": -1
+    },
+    {
+      "card": "Eldrazi Displacer",
+      "b4MinusB3": -1
+    },
+    {
+      "card": "Emrakul's Messenger",
+      "b4MinusB3": -1
+    },
+    {
+      "card": "Hedron Archive",
+      "b4MinusB3": -1
+    },
+    {
+      "card": "Idol of False Gods",
+      "b4MinusB3": -1
+    },
+    {
+      "card": "Kozilek's Command",
+      "b4MinusB3": -1
+    },
+    {
+      "card": "Kozilek's Return",
+      "b4MinusB3": -1
+    },
+    {
+      "card": "Nest Invader",
+      "b4MinusB3": -1
+    },
+    {
+      "card": "Palladium Myr",
+      "b4MinusB3": -1
+    },
+    {
+      "card": "Propagator Drone",
+      "b4MinusB3": -1
+    },
+    {
+      "card": "Roaming Throne",
+      "b4MinusB3": -1
+    },
+    {
+      "card": "Sifter of Skulls",
+      "b4MinusB3": -1
+    },
+    {
+      "card": "Snapping Voidcraw",
+      "b4MinusB3": -1
+    },
+    {
+      "card": "Thran Dynamo",
+      "b4MinusB3": -1
+    },
+    {
+      "card": "Wastescape Battlemage",
+      "b4MinusB3": -1
+    },
+    {
+      "card": "Bonders' Enclave",
+      "b4MinusB3": -1
+    },
+    {
+      "card": "Forest",
+      "b4MinusB3": -1
+    },
+    {
+      "card": "Reliquary Tower",
+      "b4MinusB3": -1
+    },
+    {
+      "card": "Ruins of Oran-Rief",
+      "b4MinusB3": -1
+    },
+    {
+      "card": "Tectonic Edge",
+      "b4MinusB3": -1
+    },
+    {
+      "card": "Temple of Malady",
+      "b4MinusB3": -1
+    },
+    {
+      "card": "Temple of Silence",
+      "b4MinusB3": -1
+    },
+    {
+      "card": "Temple of the False God",
+      "b4MinusB3": -1
+    },
+    {
+      "card": "Tendo Ice Bridge",
+      "b4MinusB3": -1
+    },
+    {
+      "card": "Tomb of the Spirit Dragon",
+      "b4MinusB3": -1
+    },
+    {
+      "card": "Tranquil Landscape",
+      "b4MinusB3": -1
+    },
+    {
+      "card": "Twisted Landscape",
+      "b4MinusB3": -1
+    },
+    {
+      "card": "Archivist",
+      "b4MinusB3": 1
+    },
+    {
+      "card": "Basalt Monolith",
+      "b4MinusB3": 1
+    },
+    {
+      "card": "Curator's Ward",
+      "b4MinusB3": 1
+    },
+    {
+      "card": "Deranged Assistant",
+      "b4MinusB3": 1
+    },
+    {
+      "card": "Eladamri, Korvecdal",
+      "b4MinusB3": 1
+    },
+    {
+      "card": "Eldrazi Linebreaker",
+      "b4MinusB3": 1
+    },
+    {
+      "card": "Fanatic of Rhonas",
+      "b4MinusB3": 1
+    },
+    {
+      "card": "Great Forest Druid",
+      "b4MinusB3": 1
+    },
+    {
+      "card": "Guardian Idol",
+      "b4MinusB3": 1
+    },
+    {
+      "card": "Magus of the Library",
+      "b4MinusB3": 1
+    },
+    {
+      "card": "Mutated Cultist",
+      "b4MinusB3": 1
+    },
+    {
+      "card": "Nightshade Dryad",
+      "b4MinusB3": 1
+    },
+    {
+      "card": "Ornithopter of Paradise",
+      "b4MinusB3": 1
+    },
+    {
+      "card": "Sea Scryer",
+      "b4MinusB3": 1
+    },
+    {
+      "card": "Shared Roots",
+      "b4MinusB3": 1
+    },
+    {
+      "card": "Sowing Mycospawn",
+      "b4MinusB3": 1
+    },
+    {
+      "card": "Talisman of Curiosity",
+      "b4MinusB3": 1
+    },
+    {
+      "card": "The Enigma Jewel // Locus of Enlightenment",
+      "b4MinusB3": 1
+    },
+    {
+      "card": "Three Steps Ahead",
+      "b4MinusB3": 1
+    },
+    {
+      "card": "Ugin, the Ineffable",
+      "b4MinusB3": 1
+    },
+    {
+      "card": "World Breaker",
+      "b4MinusB3": 1
+    },
+    {
+      "card": "Dark Fortress",
+      "b4MinusB3": 1
+    },
+    {
+      "card": "Fire-Lit Thicket",
+      "b4MinusB3": 1
+    },
+    {
+      "card": "Flooded Grove",
+      "b4MinusB3": 1
+    },
+    {
+      "card": "Gathering Place",
+      "b4MinusB3": 1
+    },
+    {
+      "card": "Gleaming Bastion",
+      "b4MinusB3": 1
+    },
+    {
+      "card": "Hidden Lair",
+      "b4MinusB3": 1
+    },
+    {
+      "card": "Reflecting Pool",
+      "b4MinusB3": 1
+    },
+    {
+      "card": "Training Compound",
+      "b4MinusB3": 1
+    },
+    {
+      "card": "Twilight Mire",
+      "b4MinusB3": 1
+    },
+    {
+      "card": "Urza's Cave",
+      "b4MinusB3": 1
+    },
+    {
+      "card": "Wooded Bastion",
+      "b4MinusB3": 1
+    }
+  ]
+}

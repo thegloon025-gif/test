@@ -1,3 +1,4 @@
+import {auditComboExecutions} from './comboExecutionEvidence.mjs';
 import {investmentEvidence,functionallyBetter} from './packageInvestment.mjs';
 import {constructStrategyDeck,strategyScore} from './strategyFirst.mjs';
 import {withSelectedCards,selectedCards} from './deckSelection.mjs';
@@ -553,6 +554,7 @@ export function generateLegacyDeck({cards,commander,budget=191,bracket=3,comboVa
  const comboInventory=comboVariants.length?annotateCombos({included:comboVariants,near:[],reportedIncluded:comboVariants.length,reportedNear:0},{commanderIds:[oracleId(commander)],mainboard:cards99.map(c=>({id:oracleId(c),quantity:1}))},cards):null;
  const comboNetwork={packagesCommitted:comboSelections.length,newCards:networkNewCards,completeEligibleNetworks:completeNetworkPackages(comboCandidates,[...chosen],commander).length,selections:comboNetworkTrace,method:'Shared-component Spellbook graph; inventory evidence only, not executable wins or externally measured power'};
  const comboPlan={network:comboNetwork,source:'Locally recorded Commander Spellbook variants',knownVariants:comboVariants.length,candidatePackages:comboCandidates.length,rejectedPackages:comboRejected.length,selected:comboSelections,inventoryComplete:comboInventory?.counts.complete??0,inventoryInfinite:comboInventory?.counts.infiniteComplete??0,inventoryCombinations:(comboInventory?.complete||[]).slice(0,20).map(v=>({id:v.id,url:v.url,namedCards:v.cards,templateMatches:v.templateMatches,results:v.results,prerequisites:v.prerequisites,executionVerified:false})),executionVerified:false};
+ comboPlan.executionAudit=auditComboExecutions([...(comboInventory?.complete||[]),...comboVariants.filter(v=>comboCandidates.some(c=>c.id===v.id))],{commander,cards:cards99,catalog:cards,proposedIds:comboCandidates.map(c=>c.id)});
  // Independently check the final *exported* list, not only catalog identities.
  const finalCards=cards99.sort((a,b)=>Number(isLandSlot(a))-Number(isLandSlot(b))||a.name.localeCompare(b.name));
  const exportAudit=validateCommanderSingleton({name:exportCardName(commander),type_line:commander.type_line,oracle_text:commander.oracle_text,card_faces:commander.card_faces,layout:commander.layout},finalCards.map(c=>({...c,name:exportCardName(c)})));
@@ -621,6 +623,8 @@ export function generateDeck(opts){
   inventoryComplete:comboInventory?.counts.complete??0,inventoryInfinite:comboInventory?.counts.infiniteComplete??0,
   inventoryCombinations:(comboInventory?.complete||[]).slice(0,20).map(v=>({id:v.id,url:v.url,namedCards:v.cards,templateMatches:v.templateMatches,
     results:v.results,prerequisites:v.prerequisites,executionVerified:false})),executionVerified:false};
+ const proposedComboIds=[...new Set([...(legacy.comboPlan?.executionAudit?.combinations||[]).filter(v=>v.proposed).map(v=>v.id),...comboCommitted.map(c=>c.id)])];
+ comboPlan.executionAudit=auditComboExecutions([...(comboInventory?.complete||[]),...comboVariants.filter(v=>proposedComboIds.includes(v.id))],{commander,cards:all,catalog:cards,proposedIds:proposedComboIds});
  const sourceNames=candidate.sourceKey?candidate.cards.filter(c=>!isLandSlot(c)).slice(0).filter(c=>{
   const list=communityDecks.find(d=>d.key===candidate.sourceKey);return !!list?.mainboard.some(x=>String(x.id)===String(oracleId(c)));
  }).map(c=>c.name):[];
