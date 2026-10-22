@@ -13,7 +13,7 @@ export function deploymentOrder(cards, seed) {
   return order;
 }
 export function evaluateDeployment({commander, cards, seed = 'deployment-stage1-v1', turns = 8, order,
-  script, maxManaStates = 4000, commanderTax = 0} = {}) {
+  script, maxManaStates = 4000, commanderTax = 0, optimizeMana = false, onManaAttempt} = {}) {
   if (!commander || !Array.isArray(cards) || cards.length > 99 || !Number.isInteger(turns) || turns < 1 || turns > 8 || !Number.isInteger(commanderTax) || commanderTax < 0 || commanderTax > 10) throw Error('Invalid deployment inputs/bounds');
   order ??= deploymentOrder(cards, seed);
   if (order.length !== cards.length || new Set(order).size !== cards.length || order.some(i => !Number.isInteger(i) || i < 0 || i >= cards.length)) throw Error('Order must be an exact permutation of deck slots');
@@ -42,7 +42,8 @@ export function evaluateDeployment({commander, cards, seed = 'deployment-stage1-
     const payments = [{label: 'spell', cost, reduction, context: castContext(c, slot === command)}];
     const triggers = board.filter(s => !s.consumed && s.model.castPayment && cardSubtypes(c).includes(s.model.castPayment.subtype));
     if (reserveOptional) for (const s of triggers) payments.push({label: 'cast-trigger:' + s.id, cost: s.model.castPayment.cost, context: {kind: 'ability', abilityType: 'triggered', types: cardTypes(s.card)}});
-    const result = planManaPayments(sourceState(), payments, {maxStates: maxManaStates});
+    const state = sourceState(), result = planManaPayments(state, payments, {maxStates: maxManaStates, optimized: optimizeMana});
+    onManaAttempt?.({state, payments, result, turn, card: c.name});
     stats.manaSearches++; stats.manaStates += result.states; if (result.status === 'unknown' && result.reason.includes('bound')) stats.boundHits++;
     return {...result, triggers};
   }

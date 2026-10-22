@@ -1,6 +1,7 @@
 /** Independent receipt replay, not a complete rules/legality certification. */
 import {parseManaCost, manaAllowed} from './gameplayMana.mjs';
 import {cardModel, cardTypes, cardSubtypes, castContext, isCreature, isLand} from './gameplayCards.mjs';
+import {accessModel} from './gameplayAccess.mjs';
 export function auditDeploymentTrace(result, commander, cards) {
   const definitions = new Map(cards.map((c, i) => ['deck-' + i, c])); definitions.set('commander', commander);
   const board = new Map(), pool = new Map(), errors = [];
@@ -63,7 +64,21 @@ export function auditDeploymentTrace(result, commander, cards) {
       const trigger=source?.model.castPayment, context={kind:'ability',abilityType:'triggered',types:source?cardTypes(source.card):[]};
       if (!pendingSpell || !trigger || !cardSubtypes(pendingSpell).includes(trigger.subtype) || e.cost!==trigger.cost || e.reduction!==0 || JSON.stringify(context)!==JSON.stringify(e.context)) error(e.event,'optional payment is not a supported pending triggered ability');
       spend(e.spent,e.cost,context,e.reduction);
-    }
+    } else if(e.event==='activated-access-paid') {
+      const s=board.get(e.source),a=s&&accessModel(s.card).abilities[e.abilityIndex],context={kind:'ability',abilityType:'activated',types:s?cardTypes(s.card):[]};
+      if(!a||e.cost!==a.cost||e.reduction!==0||JSON.stringify(context)!==JSON.stringify(e.context))error(e.event,'unsupported access activation/payment context');
+      spend(e.spent,e.cost,context,e.reduction);
+    } else if(e.event==='access-costs') {
+      const s=board.get(e.source),a=s&&accessModel(s.card).abilities[e.abilityIndex];
+      if(!a||a.tap!==e.tap||a.sacrifice!==e.sacrifice||a.life!==e.life)error(e.event,'access costs differ from source');
+      if(s&&a){
+        if(a.tap&&(s.tapped||isCreature(s.card)&&s.since===turn&&!s.model.haste))error(e.event,'access source tapped/sick');
+        life-=a.life;if(life<=0)error(e.event,'lethal activation payment');
+        if(a.tap)s.tapped=true;if(a.sacrifice)board.delete(e.source);
+      }
+    } else if(e.event==='give-away')board.delete(e.id);
+    else if(e.event==='life-loss')life-=e.count;
+    else if(e.event==='spell-resolved')pendingSpell=null;
     else if (e.event === 'ritual-resolved') {
       const card = definitions.get(e.source), output = card && cardModel(card).ritualMana;
       if (JSON.stringify(output) !== JSON.stringify(e.produced.map(u => u.type))) error(e.event, 'ritual output differs');

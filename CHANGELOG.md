@@ -1,3 +1,10 @@
+## Unreleased — draft PR #4 Stateful access and strategy-aware deployment
+
+- Add actual library/hand/stack/battlefield/graveyard/exile/control-transfer state for supported draw, activated draw, entry/cast triggers, selection and paid top casting. Preserve prerequisites, sickness, restrictions, life, effect order and late land drops; unsupported effects remain unknown.
+- Add commander-first, development and native pilots plus an explicit one-free mulligan policy. Report turn-by-turn mana, card-flow accounting, supported native engine deployment/readiness/use, large-body payment availability and missed-play causes.
+- Optimize optional exact payment search through equivalent-order removal and safe optimistic feasibility pruning. Retain Stage 1 defaults and frozen trace hashes; do not replace unknowns with guessed results.
+- Independently audit both resource receipts and card zones/effect budgets. Add controlled regressions and fixed-deck, common-seed comparisons with uncertainty and concrete traces. No generation/ranking change, price reward, release, version bump or fresh external-power claim.
+
 ## Unreleased — draft PR #4 Gameplay Intelligence Stage 1
 
 - Add a separate deterministic turns 1–8 deployment foundation with opening hands, actual draws, land drops, tapped entry, ramp casting, creature sickness and explicit commander tax inputs. Keep construction, ranking, version, standard/pod policy and historical external benchmarks unchanged.

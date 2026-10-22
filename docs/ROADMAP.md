@@ -7,10 +7,14 @@ Last revised: 2026-10-22. Local, deterministic Commander generator: **no paid AI
 - [x] Stage 0: freeze user-observed B3/B4 external measurements without overwriting their historical meaning.
 - [x] Stage 1 foundation: independent bounded turns 1–8 resource ledger, actual seeded hands/draws, land/ramp timing, exact mana/restrictions/fees, sickness, separate optional cast-trigger payments and post-resolution token resources.
 - [x] Reproducible execution traces, independent receipt audit, unknown mechanics and search bounds; fixed-cache Ulalek B3/B4, Yuriko, Wilhelt and Zada validation. No ranking integration or version change.
-- [ ] Expand hand-reviewed stateful draw, tutor, conditional source, alternate-face, combat/ninjutsu, target-copy and sacrifice/death coverage before measuring complete strategy execution.
-- [ ] Stage 2: validate paired gameplay measurements and pilot policies, then feed bottlenecks into coherent package construction. Do not replace the objective with incomplete probes or spending bonuses.
+- [x] Stage 2: execute supported draw/activated/entry/cast access, scry/surveil and top casting in actual card zones; audit movement and exact fees/prerequisites.
+- [x] Compare three deterministic pilots, conservative free mulligans, optimized payment search and common-seed card-flow/deployment observations with unknowns and sampling uncertainty. Keep ranking unchanged.
+- [ ] Expand hand-reviewed tutor, conditional source, alternate-face, combat/ninjutsu, target-copy and sacrifice/death coverage before claiming complete strategy execution or reliable combos.
+- [ ] Stage 3 proposal: shadow-test complete strategy candidates and coordinated repairs with common-input, supported gameplay evidence and holdouts. Preserve distinct engines, unknown coverage and price/legality/source/combo gates; no spending bonuses or replacement static scalar.
 
 See [Stage 1 model](GAMEPLAY_STAGE1.md) and [validation](../benchmarks/v12/stage1-VALIDATION.md). Existing PR #2 deployment probes remain unchanged; this stricter foundation is separate.
+
+Stage 2 model and local commands: [GAMEPLAY_STAGE2.md](GAMEPLAY_STAGE2.md). Fixed-deck evidence, limitations and the Stage 3 proposal: [validation](../benchmarks/v12/stage2-VALIDATION.md).
 
 ## Pod combo rules and v1.2 execution groundwork
 

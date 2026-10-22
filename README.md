@@ -1,3 +1,7 @@
+### Draft PR #4 — Stateful access and deployment policies
+
+Stage 2 now resolves supported draws, selections, entry/cast triggers and paid top-library access into actual card zones. Three deterministic pilots and an opt-in conservative free mulligan expose sequencing tradeoffs. Exact mana and card movements are independently audited; optimized payment search keeps unknowns explicit. Deck construction, selection and version 1.1.5 remain unchanged. See [model and Windows commands](docs/GAMEPLAY_STAGE2.md) and [fixed-deck comparisons](benchmarks/v12/stage2-VALIDATION.md).
+
 ### Draft PR #4 — Gameplay Intelligence Stage 1
 
 An independent deterministic turn-by-turn mana/deployment evaluator now produces auditable turns 1–8 traces. It tracks source activations, fees, restrictions, tapped lands, creature sickness, separate Ulalek payments and resource-trigger resolution. Unsupported mechanics remain unknown. It does not change deck selection or version 1.1.5. See [model and Windows commands](docs/GAMEPLAY_STAGE1.md) and [validation](benchmarks/v12/stage1-VALIDATION.md). Frozen external scores remain historical observations.
