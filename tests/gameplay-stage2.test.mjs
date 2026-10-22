@@ -106,6 +106,7 @@ test('zone/effect auditor rejects invented cards, skipped costs and unsupported 
  assert.ok(auditGameplayTrace(r,cmd,cards).valid);
  const bad=structuredClone(r);bad.trace.find(e=>e.event==='access-draw').id='deck-9';assert.equal(auditGameplayTrace(bad,cmd,cards).valid,false);
  const unsupported=structuredClone(r);unsupported.trace.find(e=>e.event==='access-resolving').effects=[{kind:'draw',count:3}];assert.equal(auditGameplayTrace(unsupported,cmd,cards).valid,false);
+ const fake=structuredClone(r);fake.trace.splice(1,0,{turn:1,event:'token-created',id:'token-900',card:c('Invented Spawn','','Token Creature — Eldrazi Spawn','Sacrifice this token: Add {C}.')});assert.equal(auditGameplayTrace(fake,cmd,cards).valid,false);
 });
 test('optimized payment search agrees with exhaustive small-source legacy searches',()=>{
  const colors=['C','G','U'],restrictions=['none','abilities','eldrazi'];

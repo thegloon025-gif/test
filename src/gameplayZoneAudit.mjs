@@ -8,7 +8,7 @@ const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
 export function auditGameplayTrace(result,commander,cards){
   const resources=auditDeploymentTrace(result,commander,cards),errors=[...resources.errors],definitions=new Map(cards.map((card,i)=>['deck-'+i,{id:'deck-'+i,card}]));definitions.set('commander',{id:'commander',card:commander});
   const zones=new Map([...definitions].map(([id])=>[id,id==='commander'?'command':'library'])),library=result.order.map(i=>'deck-'+i),hand=[],board=new Map();
-  let turn=0,landDrops=0,pendingSpell=null,pendingTrigger=null,announced=null,paidAbility=null,frame=null;
+  let turn=0,landDrops=0,pendingSpell=null,pendingTrigger=null,announced=null,paidAbility=null,frame=null,tokenBudget=null;
   const fail=reason=>errors.push({turn,event:'zone/access',reason}),slot=id=>definitions.get(id),state=()=>({hand:hand.map(slot),board:[...board.values()],graveyard:[...zones].filter(([,z])=>z==='graveyard').map(([id])=>slot(id)),chosenType:result.chosenType});
   function move(id,from,to){if(zones.get(id)!==from)fail(`${id}: expected ${from}, found ${zones.get(id)}`);zones.set(id,to);}
   function effectsForTrigger(e){
@@ -47,7 +47,13 @@ export function auditGameplayTrace(result,commander,cards){
       move(e.id,'stack','battlefield');board.set(e.id,{...slot(e.id),tapped:e.tapped,since:turn});pendingSpell=null;
     }else if(e.event==='spell-resolved'){move(e.id,'stack','graveyard');pendingSpell=null;}
     else if(e.event==='ritual-resolved'){move(e.source,'stack','graveyard');pendingSpell=null;}
-    else if(e.event==='token-created'){
+    else if(e.event==='trigger-resolved'){
+      const source=slot(e.source),created=e.effect?.match(/^create (\d+) (Spawn|Scion)$/),allowed=source&&created&&cardModel(source.card).spawn.some(s=>s.phase===e.phase&&s.count===+created[1]&&s.subtype===created[2]);
+      if(!allowed||tokenBudget?.remaining||e.phase==='cast'&&pendingSpell!==e.source||e.phase==='entry'&&!board.has(e.source))fail('token resource trigger not justified/resolved in its required zone');
+      tokenBudget=created?{remaining:+created[1],subtype:created[2]}:null;
+    }else if(e.event==='token-created'){
+      if(!tokenBudget?.remaining||e.card.type_line!==`Token Creature — Eldrazi ${tokenBudget.subtype}`||e.card.power!==(tokenBudget.subtype==='Spawn'?'0':'1')||e.card.mana_cost!==''||e.card.oracle_text!=='Sacrifice this token: Add {C}.')fail('token invented before a supported trigger resolved');
+      if(tokenBudget)tokenBudget.remaining--;
       if(definitions.has(e.id))fail('duplicate token identity');definitions.set(e.id,{id:e.id,card:e.card,token:true});zones.set(e.id,'battlefield');board.set(e.id,{...slot(e.id),tapped:false,since:turn});
     }else if(e.event==='mana-activation'){
       const s=board.get(e.source);if(!s){fail('mana source unavailable in card ledger');continue;}
@@ -96,6 +102,6 @@ export function auditGameplayTrace(result,commander,cards){
       }
     }
   }
-  if(frame||announced)fail('unfinished access transaction');
+  if(frame||announced||tokenBudget?.remaining&&!result.lost)fail('unfinished access/resource transaction');
   return {valid:errors.length===0,errors,resourceAudit:resources.valid,zoneAudit:errors.length===resources.errors.length};
 }
