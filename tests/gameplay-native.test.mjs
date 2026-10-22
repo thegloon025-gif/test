@@ -93,3 +93,12 @@ test('non-Ulalek native strategy coverage guards remain mandatory',async()=>{
 test('object bound suspends a partially copied ability without falsely completing it',()=>{
  const {r}=run([battery(20),annie,spawn],[cast('Test mana source'),cast(annie),cast(ulalek),cast(spawn)],{maxNativeObjects:4});assert.ok(r.nativeExecution.boundedUnknown);assert.ok(r.trace.some(e=>e.event==='stack-resolve-suspended'));assert.equal(r.stats.native.boundHits,1);
 });
+test('copied mandatory draws can lose to an empty library; interrupted spells are not completed value',()=>{
+ const second={...echoes,name:'Second copy engine'},draw=c('Draw three','{0}','Sorcery','Draw three cards.');
+ const {r}=run([battery(20),echoes,second,draw],[cast('Test mana source'),cast(echoes),cast(second),cast(draw)]);
+ assert.ok(r.lost&&r.decked);assert.ok(r.trace.some(e=>e.event==='stack-resolve-aborted-loss'));assert.ok(r.trace.some(e=>e.event==='access-aborted-loss'));assert.equal(r.stats.cleanupDiscards,0);
+});
+test('copied supported life-loss effects can end the model with independent life evidence',()=>{
+ const second={...echoes,name:'Second copy engine'},draw=c('Risky draw','{0}','Sorcery','Draw a card. You lose 4 life.');
+ const {r}=run([battery(20),echoes,second,draw],[cast('Test mana source'),cast(echoes),cast(second),cast(draw)]);assert.ok(r.lost);assert.equal(r.decked,false);assert.equal(r.trace.find(e=>e.event==='turn-end').life,0);
+});

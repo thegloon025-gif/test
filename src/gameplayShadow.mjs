@@ -92,7 +92,7 @@ export function createShadowEvaluator({modelFingerprint,maxEntries=128,replay=tr
   if(replay){const replayStart=performance.now(),repeated=evaluateGameplay(options);if(JSON.stringify(repeated)!==JSON.stringify(run))throw Error('Diagnostic observation changed deterministic trace');stats.replayMs+=performance.now()-replayStart;stats.replays++;}
   const summaryStart=performance.now(),summary=summarizeShadowRun(run,pre,{commander,cards});
   if(nativeExecution){summary.native=run.stats.native;summary.nativeExecution=run.nativeExecution;summary.boundHits+=run.stats.native.boundHits;
-   if(run.nativeExecution.boundedUnknown)summary.metrics=Object.fromEntries(Object.keys(summary.metrics).map(k=>[k,null]));
+   if(run.nativeExecution.boundedUnknown||run.lost)summary.metrics=Object.fromEntries(Object.keys(summary.metrics).map(k=>[k,k==='modelSurvival'&&run.lost?0:null]));
   }
   const result={key,audit,summary};stats.summaryMs+=performance.now()-summaryStart;stats.evaluations++;stats.runtimeMs+=performance.now()-start;
   cache.set(key,result);if(cache.size>maxEntries){cache.delete(cache.keys().next().value);stats.evictions++;}stats.maxEntriesObserved=Math.max(stats.maxEntriesObserved,cache.size);return structuredClone({...result,...(includeTrace?{run}:{})});

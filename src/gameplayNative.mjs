@@ -80,7 +80,7 @@ export function createNativeStack(host,{seed,chosenType,triggerOrder='copy-first
   if(found)host.library.splice(host.library.indexOf(found),1);const reordered=nativeShuffle(host.library,seed,'tutor:'+shuffle++);host.library.splice(0,host.library.length,...reordered);
   if(found){(item.effect.destination==='hand'?host.hand:host.library).unshift(found);stats[item.effect.destination==='hand'?'tutorCardsToHand':'tutorCardsToTop']++;}emit({event:'native-tutor',ability:item.id,source:item.source.id,found:found?.id||null,destination:item.effect.destination,order:reordered.map(s=>s.id)});stats.tutors++;return !!found;
  }
- function resolve(item){if(item.kind==='spell'){host.resolveSpell(item.slot,item.origin);if(item.copyOf)stats.resolvedCopies++;return;}
+ function resolve(item){if(item.kind==='spell'){const complete=host.resolveSpell(item.slot,item.origin);if(item.copyOf&&complete!==false)stats.resolvedCopies++;return;}
   const e=item.effect;
   if(e.type==='ulalek'){const r=host.payOptional(item.source,e.cost,item);if(r.status!=='paid'){stats.declinedTriggers++;emit({event:'native-trigger-declined',ability:item.id,source:item.source.id,status:r.status,reason:r.reason});return;}
    stats.paidTriggers++;const snapshot=stack.slice();for(const s of snapshot.filter(s=>s.kind==='spell'))copyItem(s,item.id);for(const s of snapshot.filter(s=>s.kind==='ability'))copyItem(s,item.id);
@@ -95,7 +95,7 @@ export function createNativeStack(host,{seed,chosenType,triggerOrder='copy-first
   }else if(e.type==='activated-access')host.effects(e.effects,item.source,'activation');
  }
  function drain(){flush();while(stack.length&&!blocked&&!host.lost()){
-   if(++steps>maxSteps){bound();break;}const item=stack.pop();resolving=item;emit({event:'stack-resolve-start',id:item.id});resolve(item);emit({event:blocked?'stack-resolve-suspended':'stack-resolve-end',id:item.id});if(blocked)break;resolving=null;flush();
+   if(++steps>maxSteps){bound();break;}const item=stack.pop();resolving=item;emit({event:'stack-resolve-start',id:item.id});resolve(item);emit({event:blocked?'stack-resolve-suspended':host.lost()?'stack-resolve-aborted-loss':'stack-resolve-end',id:item.id});if(blocked||host.lost())break;resolving=null;flush();
   }}
  return {stats,registerCast,drain,entry(slot){accessTriggers('entry',slot);nativeTriggers('entry',slot);},draw(slot){if(++draws===2)nativeTriggers('secondDraw',slot);},beginTurn(){steps=0;draws=0;},activated(source,effects){push({id:'stack-'+serial++,kind:'ability',source,sourceZone:'battlefield',effect:{type:'activated-access',effects}});drain();},get blocked(){return blocked;},get resolving(){return resolving;},unknown};
 }

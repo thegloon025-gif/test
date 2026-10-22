@@ -84,7 +84,7 @@ export function evaluateGameplay({commander,cards,seed='gameplay-stage2-v1',turn
         if(looked.length)stats.selections++;emit({event:'selection',kind:e.kind,source:source.id,looked:looked.map(s=>s.id),keep:keep.map(s=>s.id),reject:reject.map(s=>s.id),destination:e.kind==='scry'?'bottom':'graveyard'});
       }
     }
-    emit({event:'access-resolved',source:source.id,reason});if(stats.effectDraws>before.draws||stats.selections>before.selections||exile.length>before.exile)useEngine(source,'access');
+    emit({event:native&&lost?'access-aborted-loss':'access-resolved',source:source.id,reason});if(stats.effectDraws>before.draws||stats.selections>before.selections||exile.length>before.exile)useEngine(source,'access');
   }
   function triggerAccess(phase,eventSlot,origin){
     if(!access)return;
@@ -214,7 +214,7 @@ export function evaluateGameplay({commander,cards,seed='gameplay-stage2-v1',turn
   }
   function resolveNativeSpell(slot,origin){
     if(slot.model.ritualMana){const produced=slot.model.ritualMana.map((type,n)=>({id:slot.id+':ritual:'+n,source:slot.id,type,restriction:'none'}));pool.push(...produced);toGrave(slot);emit({event:'ritual-resolved',source:slot.id,produced});}
-    else if(!slot.model.permanent){if(access&&slot.access.direct){effects(slot.access.direct,slot,'spell');stats.accessSpells++;}toGrave(slot);emit({event:slot.spellCopy?'copy-ceased':'spell-resolved',id:slot.id});}
+    else if(!slot.model.permanent){if(access&&slot.access.direct){effects(slot.access.direct,slot,'spell');if(lost)return false;stats.accessSpells++;}toGrave(slot);emit({event:slot.spellCopy?'copy-ceased':'spell-resolved',id:slot.id});}
     else{const b={...slot,since:turn,tapped:slot.model.tapped};board.push(b);if(slot===command)stats.commanderDeploymentTurn=turn;emit({event:'permanent-resolved',id:b.id,card:b.card.name,tapped:b.tapped});native.entry(b);
       if(cardTypes(b.card).includes('Legendary')){const same=active().filter(s=>cardTypes(s.card).includes('Legendary')&&s.card.name===b.card.name);if(same.length>1){const keep=same.find(s=>!s.spellCopy)||same[0];for(const s of same.filter(s=>s!==keep)){s.consumed=true;toGrave(s);emit({event:'native-legend-rule',id:s.id,keep:keep.id});}}}
     }
@@ -255,7 +255,7 @@ export function evaluateGameplay({commander,cards,seed='gameplay-stage2-v1',turn
     const missed=[];for(const slot of [...hand.filter(s=>!isLand(s.card)),...(!commanderCast?[command]:[])]){const r=castPlan(slot,false);missed.push({id:slot.id,card:slot.card.name,status:r.status==='paid'?'payable-but-not-selected':r.status,reason:r.reason||'policy/action limit preserves resources'});}
     for(const s of active())if(access)for(let i=0;i<s.access.abilities.length;i++){const r=abilityPlan(s,i);if(r.status!=='paid')missed.push({id:s.id,card:s.card.name,kind:'activation',status:r.status,reason:r.reason});}
     const threats=threatObservation();
-    if(!active().some(s=>/You have no maximum hand size\./i.test(cardText(s.card))))while(hand.length>7){const s=worstHand();hand.splice(hand.indexOf(s),1);graveyard.push(s);stats.cleanupDiscards++;emit({event:'cleanup-discard',id:s.id,card:s.card.name});}
+    if(!(native&&lost)&&!active().some(s=>/You have no maximum hand size\./i.test(cardText(s.card))))while(hand.length>7){const s=worstHand();hand.splice(hand.indexOf(s),1);graveyard.push(s);stats.cleanupDiscards++;emit({event:'cleanup-discard',id:s.id,card:s.card.name});}
     const engines=active().flatMap(s=>channels(s).map(c=>({id:s.id,card:s.card.name,...c,readyNow:engineReadiness(s,c),used:stats.usedEngines.some(e=>e.id===s.id&&(['access','top-access'].includes(e.kind)?c.kind==='access':e.kind===c.kind))})));
     const accessibleCards=hand.length+active().filter(s=>!s.token&&s.id!=='commander').length;
     const observation={turn,commanderDeployed:active().some(s=>s.id==='commander'),manaBeforeActions:beforeMana,manaRemaining:manaObservation(),handSize:hand.length,accessibleCards,netAccessibleCards:accessibleCards-7-stats.naturalDraws,naturalDraws:stats.naturalDraws,effectDraws:stats.effectDraws,effectDiscards:stats.accessDiscards,cleanupDiscards:stats.cleanupDiscards,returnedToTop:stats.returnedToTop,topCasts:stats.topCasts,accessSpells:stats.accessSpells,accessSacrifices:stats.accessSacrifices,engines,threatsBeforeActions,threatAvailability:threats,missed};observations.push(observation);
