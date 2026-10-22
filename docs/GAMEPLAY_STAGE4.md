@@ -37,8 +37,12 @@ Node.js 22+ and Git, from repository root. Keep the frozen data snapshot separat
 ```powershell
 node --test tests/gameplay-native.test.mjs tests/gameplay-deployment.test.mjs tests/gameplay-stage2.test.mjs tests/gameplay-shadow.test.mjs
 npm test
-node tools/trace-native-sequences.mjs C:\path\to\frozen-data C:\path\to\native-sequences
-node tools/benchmark-native-gameplay.mjs C:\path\to\frozen-data benchmarks/v12/stage4
+New-Item -ItemType Directory -Force benchmarks-local\stage4 | Out-Null
+Copy-Item benchmarks\v12\stage4\PROTOCOL.md benchmarks-local\stage4\PROTOCOL.md
+node tools/trace-native-sequences.mjs C:\path\to\frozen-data benchmarks-local\stage4\sequences
+node tools/benchmark-native-gameplay.mjs C:\path\to\frozen-data benchmarks-local\stage4
+node tools/audit-native-artifacts.mjs C:\path\to\frozen-data benchmarks-local\stage4 benchmarks-local\stage4\sequences
+node tools/explain-native-results.mjs benchmarks-local\stage4
 ```
 
 The benchmark expects the committed `stage4/PROTOCOL.md`. Use a separate output copy containing that protocol to preserve the committed validation archive. It replays fixed existing lists and Stage 3 proposals; it does not generate, reprice or select a new production deck. The standard UI and unchanged `start-windows.bat` still use production construction. Native BAT/browser execution requires a Windows check.
