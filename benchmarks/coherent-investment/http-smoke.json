@@ -1,0 +1,18 @@
+{
+  "commander": "Yuriko, the Tiger's Shadow",
+  "bracket": 4,
+  "price": 114.53,
+  "totalCards": 100,
+  "staticHTML": true,
+  "staticUpgradeSummaryJS": true,
+  "http": 200,
+  "audit": {
+    "total": 114.53,
+    "count": 100,
+    "missing": [],
+    "agreesWithGenerator": true,
+    "withinBudget": true,
+    "provenance": "exact-selected-cards",
+    "anomalies": []
+  }
+}

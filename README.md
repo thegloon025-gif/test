@@ -1,3 +1,9 @@
+### Unreleased PR #2 — combo execution review
+
+Generated decks now include an expandable **Combo execution requirements** disclosure: named quantities, commander participation, starting zones/states, mana and resource instructions, alternate-face setup and published outcomes. Inventory matches remain unverified execution; infinite mana or tokens still need a usable win outlet. Reliable combo timing stays unknown.
+
+The requested **Pod High-Power** preference (including turn-six two-card infinites) is recorded in [the pod-policy requirements](docs/POD_COMBO_POLICY.md). It is not enabled yet: cached loop instructions and a conditional turn-six example cannot establish reliable timing. Existing standard B3 and automatically Optimized B4 remain separate and unchanged. Fixed-cache exports and comparison: [Ulalek B3/B4 benchmark](benchmarks/pod-combo-VALIDATION.md).
+
 ### v1.1.5 — Quality-first full-budget investment
 
 The requested budget is a **hard maximum**, not a cost-minimization target. Strategy-first construction now makes up to 16 additional candidate improvement swaps *after* all 99 cards (including lands) are built. The comparison removes the previous acquisition-price penalty from **card quality**, then prefers higher-quality feasible replacements while retaining a mild preference for better budget utilization among closely ranked full candidates.

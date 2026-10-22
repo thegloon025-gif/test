@@ -1,0 +1,3518 @@
+{
+  "deck": "1 Ulalek, Fused Atrocity *CMDR*\n1 Archivist\n1 Basalt Monolith\n1 Birthing Hulk\n1 Deathless Behemoth\n1 Deranged Assistant\n1 Desolation Twin\n1 Devourer of Destiny\n1 Drowner of Hope\n1 Drownyard Lurker\n1 Eldrazi Ravager\n1 Eldrazi Repurposer\n1 Eldritch Immunity\n1 Emrakul's Influence\n1 Endbringer\n1 Fractured Powerstone\n1 Giant's Boulder\n1 Gideon Blackblade\n1 Glaring Fleshraker\n1 Guardian Idol\n1 H.E.R.B.I.E., Lovable Robot\n1 Hedron Crawler\n1 Honest Work\n1 Kozilek, the Great Distortion\n1 Kozilek's Pathfinder\n1 Kozilek's Unsealing\n1 Magus of the Library\n1 Mana Vault\n1 Manakin\n1 Millikin\n1 Mind Stone\n1 Moonsnare Prototype\n1 Nightshade Dryad\n1 Oblivion Sower\n1 Page, Loose Leaf\n1 Parting Thoughts\n1 Planar Atlas\n1 Prismatic Lens\n1 Rapacious One\n1 Sea Scryer\n1 Sire of Stagnation\n1 Sol Ring\n1 Solar Transformer\n1 Spawn-Gang Commander\n1 Talisman of Conviction\n1 Talisman of Creativity\n1 Talisman of Curiosity\n1 Talisman of Dominance\n1 Talisman of Hierarchy\n1 Talisman of Impulse\n1 Talisman of Indulgence\n1 Talisman of Progress\n1 Talisman of Resilience\n1 Talisman of Unity\n1 The Irencrag\n1 Thought Vessel\n1 Three Steps Ahead\n1 Ulamog, the Infinite Gyre\n1 Ulamog's Despoiler\n1 Ulamog's Nullifier\n1 Void Grafter\n1 Warped Tusker\n1 Writhing Chrysalis\n1 Command Tower\n1 Exotic Orchard\n1 Forest\n1 Forest\n1 Forest\n1 Forest\n1 Forest\n1 Holdout Settlement\n1 Island\n1 Island\n1 Island\n1 Island\n1 Island\n1 Mirrodin's Core\n1 Mountain\n1 Mountain\n1 Mountain\n1 Mountain\n1 Mountain\n1 Plains\n1 Plains\n1 Plains\n1 Plains\n1 Plains\n1 Spire of Industry\n1 Swamp\n1 Swamp\n1 Swamp\n1 Swamp\n1 Swamp\n1 Tendo Ice Bridge\n1 The Grey Havens\n1 Wastes\n1 Wastes\n1 Wastes\n1 Wastes\n1 Wastes",
+  "price": 113.07,
+  "engine": {
+    "mode": "strategy-first",
+    "packageExpansion": {
+      "limit": 3,
+      "expanded": [
+        "reference:legacy",
+        "local:engine",
+        "local:tempo"
+      ],
+      "reason": "Coverage leader plus flow/mana alternatives; remaining complete candidates retain single-card path results"
+    },
+    "generated": 5,
+    "complete": 5,
+    "distinct": 5,
+    "candidates": [
+      {
+        "id": "local:engine",
+        "label": "Engine and synergy",
+        "status": "ok",
+        "score": 165.6,
+        "sourceSpells": 0,
+        "sourceLands": 0,
+        "price": 113.07,
+        "budgetSwaps": 0,
+        "investment": {
+          "startingPrice": 60.48,
+          "finalPrice": 113.07,
+          "ceiling": 191,
+          "remaining": 77.93,
+          "swaps": [],
+          "searchMode": "unchanged",
+          "qualityGain": 0,
+          "diagnostics": {
+            "pool": 32138,
+            "shortlist": 850,
+            "shortlistLimit": 850,
+            "feasibleFinalistsPerRound": 3,
+            "rejections": {},
+            "qualityShortlistTop": [
+              {
+                "card": "Warped Tusker",
+                "price": 0.06,
+                "merit": 125.95
+              },
+              {
+                "card": "Drownyard Lurker",
+                "price": 0.11,
+                "merit": 125.94999999999999
+              },
+              {
+                "card": "Eldrazi Repurposer",
+                "price": 0.13,
+                "merit": 107.15
+              },
+              {
+                "card": "Glaring Fleshraker",
+                "price": 0.78,
+                "merit": 107.15
+              },
+              {
+                "card": "Writhing Chrysalis",
+                "price": 0.45,
+                "merit": 103.3
+              },
+              {
+                "card": "Kozilek's Unsealing",
+                "price": 0.36,
+                "merit": 102.15
+              },
+              {
+                "card": "Spawn-Gang Commander",
+                "price": 0.14,
+                "merit": 99.45
+              },
+              {
+                "card": "Desolation Twin",
+                "price": 0.3,
+                "merit": 94.39999999999999
+              },
+              {
+                "card": "Devourer of Destiny",
+                "price": 1.28,
+                "merit": 92.95
+              },
+              {
+                "card": "Deathless Behemoth",
+                "price": 0.09,
+                "merit": 89.8
+              },
+              {
+                "card": "Drowner of Hope",
+                "price": 0.19,
+                "merit": 89.8
+              },
+              {
+                "card": "Rapacious One",
+                "price": 0.09,
+                "merit": 89.8
+              }
+            ],
+            "watched": []
+          },
+          "note": "Bounded positive-utility search; unused budget is allowed. Costs are estimates, not verified EN NM carts.",
+          "candidates": [
+            {
+              "mode": "balanced",
+              "price": 109.65,
+              "score": 169.54,
+              "qualityGain": 44.6,
+              "swaps": 9,
+              "diagnostics": {
+                "pool": 32138,
+                "shortlist": 850,
+                "shortlistLimit": 850,
+                "feasibleFinalistsPerRound": 3,
+                "rejections": {
+                  "seven-plus spell cap": 727,
+                  "positive draw floor": 380,
+                  "role floor": 345,
+                  "high-output early mana": 55,
+                  "fixed-land mana demand": 72
+                },
+                "qualityShortlistTop": [
+                  {
+                    "card": "Warped Tusker",
+                    "price": 0.06,
+                    "merit": 125.95
+                  },
+                  {
+                    "card": "Drownyard Lurker",
+                    "price": 0.11,
+                    "merit": 125.94999999999999
+                  },
+                  {
+                    "card": "Eldrazi Repurposer",
+                    "price": 0.13,
+                    "merit": 107.15
+                  },
+                  {
+                    "card": "Glaring Fleshraker",
+                    "price": 0.78,
+                    "merit": 107.15
+                  },
+                  {
+                    "card": "Writhing Chrysalis",
+                    "price": 0.45,
+                    "merit": 103.3
+                  },
+                  {
+                    "card": "Kozilek's Unsealing",
+                    "price": 0.36,
+                    "merit": 102.15
+                  },
+                  {
+                    "card": "Spawn-Gang Commander",
+                    "price": 0.14,
+                    "merit": 99.45
+                  },
+                  {
+                    "card": "Desolation Twin",
+                    "price": 0.3,
+                    "merit": 94.39999999999999
+                  },
+                  {
+                    "card": "Devourer of Destiny",
+                    "price": 1.28,
+                    "merit": 92.95
+                  },
+                  {
+                    "card": "Deathless Behemoth",
+                    "price": 0.09,
+                    "merit": 89.8
+                  },
+                  {
+                    "card": "Drowner of Hope",
+                    "price": 0.19,
+                    "merit": 89.8
+                  },
+                  {
+                    "card": "Rapacious One",
+                    "price": 0.09,
+                    "merit": 89.8
+                  }
+                ],
+                "watched": []
+              }
+            },
+            {
+              "mode": "value",
+              "price": 109.65,
+              "score": 169.54,
+              "qualityGain": 44.6,
+              "swaps": 9,
+              "diagnostics": {
+                "pool": 32138,
+                "shortlist": 850,
+                "shortlistLimit": 850,
+                "feasibleFinalistsPerRound": 3,
+                "rejections": {
+                  "seven-plus spell cap": 727,
+                  "positive draw floor": 380,
+                  "role floor": 345,
+                  "high-output early mana": 55,
+                  "fixed-land mana demand": 81,
+                  "scalar deck score": 2
+                },
+                "qualityShortlistTop": [
+                  {
+                    "card": "Warped Tusker",
+                    "price": 0.06,
+                    "merit": 125.95
+                  },
+                  {
+                    "card": "Drownyard Lurker",
+                    "price": 0.11,
+                    "merit": 125.94999999999999
+                  },
+                  {
+                    "card": "Eldrazi Repurposer",
+                    "price": 0.13,
+                    "merit": 107.15
+                  },
+                  {
+                    "card": "Glaring Fleshraker",
+                    "price": 0.78,
+                    "merit": 107.15
+                  },
+                  {
+                    "card": "Writhing Chrysalis",
+                    "price": 0.45,
+                    "merit": 103.3
+                  },
+                  {
+                    "card": "Kozilek's Unsealing",
+                    "price": 0.36,
+                    "merit": 102.15
+                  },
+                  {
+                    "card": "Spawn-Gang Commander",
+                    "price": 0.14,
+                    "merit": 99.45
+                  },
+                  {
+                    "card": "Desolation Twin",
+                    "price": 0.3,
+                    "merit": 94.39999999999999
+                  },
+                  {
+                    "card": "Devourer of Destiny",
+                    "price": 1.28,
+                    "merit": 92.95
+                  },
+                  {
+                    "card": "Deathless Behemoth",
+                    "price": 0.09,
+                    "merit": 89.8
+                  },
+                  {
+                    "card": "Drowner of Hope",
+                    "price": 0.19,
+                    "merit": 89.8
+                  },
+                  {
+                    "card": "Rapacious One",
+                    "price": 0.09,
+                    "merit": 89.8
+                  }
+                ],
+                "watched": []
+              }
+            },
+            {
+              "mode": "quality",
+              "price": 122.16,
+              "score": 166.83,
+              "qualityGain": 38.45,
+              "swaps": 8,
+              "diagnostics": {
+                "pool": 32138,
+                "shortlist": 850,
+                "shortlistLimit": 850,
+                "feasibleFinalistsPerRound": 3,
+                "rejections": {
+                  "seven-plus spell cap": 641,
+                  "positive draw floor": 334,
+                  "role floor": 313,
+                  "high-output early mana": 55,
+                  "fixed-land mana demand": 248
+                },
+                "qualityShortlistTop": [
+                  {
+                    "card": "Warped Tusker",
+                    "price": 0.06,
+                    "merit": 125.95
+                  },
+                  {
+                    "card": "Drownyard Lurker",
+                    "price": 0.11,
+                    "merit": 125.94999999999999
+                  },
+                  {
+                    "card": "Eldrazi Repurposer",
+                    "price": 0.13,
+                    "merit": 107.15
+                  },
+                  {
+                    "card": "Glaring Fleshraker",
+                    "price": 0.78,
+                    "merit": 107.15
+                  },
+                  {
+                    "card": "Writhing Chrysalis",
+                    "price": 0.45,
+                    "merit": 103.3
+                  },
+                  {
+                    "card": "Kozilek's Unsealing",
+                    "price": 0.36,
+                    "merit": 102.15
+                  },
+                  {
+                    "card": "Spawn-Gang Commander",
+                    "price": 0.14,
+                    "merit": 99.45
+                  },
+                  {
+                    "card": "Desolation Twin",
+                    "price": 0.3,
+                    "merit": 94.39999999999999
+                  },
+                  {
+                    "card": "Devourer of Destiny",
+                    "price": 1.28,
+                    "merit": 92.95
+                  },
+                  {
+                    "card": "Deathless Behemoth",
+                    "price": 0.09,
+                    "merit": 89.8
+                  },
+                  {
+                    "card": "Drowner of Hope",
+                    "price": 0.19,
+                    "merit": 89.8
+                  },
+                  {
+                    "card": "Rapacious One",
+                    "price": 0.09,
+                    "merit": 89.8
+                  }
+                ],
+                "watched": []
+              }
+            },
+            {
+              "mode": "unchanged",
+              "price": 60.48,
+              "score": 151.54,
+              "qualityGain": 0,
+              "swaps": 0,
+              "diagnostics": {
+                "pool": 32138,
+                "shortlist": 850,
+                "shortlistLimit": 850,
+                "feasibleFinalistsPerRound": 3,
+                "rejections": {},
+                "qualityShortlistTop": [
+                  {
+                    "card": "Warped Tusker",
+                    "price": 0.06,
+                    "merit": 125.95
+                  },
+                  {
+                    "card": "Drownyard Lurker",
+                    "price": 0.11,
+                    "merit": 125.94999999999999
+                  },
+                  {
+                    "card": "Eldrazi Repurposer",
+                    "price": 0.13,
+                    "merit": 107.15
+                  },
+                  {
+                    "card": "Glaring Fleshraker",
+                    "price": 0.78,
+                    "merit": 107.15
+                  },
+                  {
+                    "card": "Writhing Chrysalis",
+                    "price": 0.45,
+                    "merit": 103.3
+                  },
+                  {
+                    "card": "Kozilek's Unsealing",
+                    "price": 0.36,
+                    "merit": 102.15
+                  },
+                  {
+                    "card": "Spawn-Gang Commander",
+                    "price": 0.14,
+                    "merit": 99.45
+                  },
+                  {
+                    "card": "Desolation Twin",
+                    "price": 0.3,
+                    "merit": 94.39999999999999
+                  },
+                  {
+                    "card": "Devourer of Destiny",
+                    "price": 1.28,
+                    "merit": 92.95
+                  },
+                  {
+                    "card": "Deathless Behemoth",
+                    "price": 0.09,
+                    "merit": 89.8
+                  },
+                  {
+                    "card": "Drowner of Hope",
+                    "price": 0.19,
+                    "merit": 89.8
+                  },
+                  {
+                    "card": "Rapacious One",
+                    "price": 0.09,
+                    "merit": 89.8
+                  }
+                ],
+                "watched": []
+              }
+            }
+          ],
+          "packages": [
+            {
+              "label": "functional complement",
+              "cuts": [
+                "Spell Satchel"
+              ],
+              "adds": [
+                "Mana Vault"
+              ],
+              "extraCost": 49.69,
+              "changes": {
+                "burstMana": 3
+              }
+            },
+            {
+              "label": "functional complement",
+              "cuts": [
+                "Tablet of Compleation"
+              ],
+              "adds": [
+                "Basalt Monolith"
+              ],
+              "extraCost": 2.79,
+              "changes": {
+                "burstMana": 1
+              }
+            },
+            {
+              "label": "functional complement",
+              "cuts": [
+                "Heartwood Crafter // Soul Tether"
+              ],
+              "adds": [
+                "Archivist"
+              ],
+              "extraCost": 0.11,
+              "changes": {
+                "independentDraw": 1,
+                "freeDraw": 1,
+                "flow": 1,
+                "supportedEngines": 1
+              }
+            }
+          ]
+        },
+        "packageInvestment": {
+          "method": "Atomic two/three-card investments plus single-card probes; Pareto functional improvements, price is only a ceiling",
+          "startingPrice": 60.48,
+          "finalPrice": 113.07,
+          "before": {
+            "vector": {
+              "threatPower": 62,
+              "threatProtection": 1,
+              "independentDraw": 1,
+              "freeDraw": 0,
+              "scalableDraw": 0,
+              "fastMana": 10,
+              "repeatableMana": 22,
+              "fixing": 1,
+              "trueColorless": 10,
+              "burstMana": 0,
+              "flow": 2,
+              "supportedEngines": 1,
+              "copySupport": 0,
+              "answers": 7,
+              "shields": 0,
+              "wideShields": 0,
+              "threats": 8,
+              "annihilator": 5,
+              "castAnswers": 2
+            },
+            "land": {
+              "score": 127.31,
+              "sources": {
+                "W": 12,
+                "U": 12,
+                "B": 12,
+                "R": 12,
+                "G": 12
+              },
+              "demand": {
+                "W": 2,
+                "U": 10,
+                "B": 3,
+                "R": 5,
+                "G": 11
+              },
+              "realColorless": 10,
+              "penalty": 0
+            },
+            "raw": {
+              "strategyRoles": {
+                "enabler": 44,
+                "engine": 23,
+                "payoff": 9,
+                "finisher": 16
+              },
+              "repeatableMana": 29,
+              "trueColorless": 29,
+              "reducers": 0,
+              "highSpellMana": 59
+            },
+            "unsupported": 1,
+            "method": "Supported function and explicit mana capacity; capped coverage, no price term, no gameplay rating or sequencing simulation"
+          },
+          "after": {
+            "vector": {
+              "threatPower": 62,
+              "threatProtection": 1,
+              "independentDraw": 2,
+              "freeDraw": 1,
+              "scalableDraw": 0,
+              "fastMana": 10,
+              "repeatableMana": 22,
+              "fixing": 1,
+              "trueColorless": 10,
+              "burstMana": 4,
+              "flow": 3,
+              "supportedEngines": 2,
+              "copySupport": 0,
+              "answers": 7,
+              "shields": 0,
+              "wideShields": 0,
+              "threats": 8,
+              "annihilator": 5,
+              "castAnswers": 2
+            },
+            "land": {
+              "score": 127.31,
+              "sources": {
+                "W": 12,
+                "U": 12,
+                "B": 12,
+                "R": 12,
+                "G": 12
+              },
+              "demand": {
+                "W": 2,
+                "U": 12,
+                "B": 3,
+                "R": 4,
+                "G": 9
+              },
+              "realColorless": 10,
+              "penalty": 0
+            },
+            "raw": {
+              "strategyRoles": {
+                "enabler": 43,
+                "engine": 23,
+                "payoff": 9,
+                "finisher": 16
+              },
+              "repeatableMana": 29,
+              "trueColorless": 29,
+              "reducers": 0,
+              "highSpellMana": 59
+            },
+            "unsupported": 0,
+            "method": "Supported function and explicit mana capacity; capped coverage, no price term, no gameplay rating or sequencing simulation"
+          },
+          "strategyFloors": {
+            "enabler": 8,
+            "engine": 21,
+            "payoff": 8,
+            "finisher": 4
+          },
+          "accepted": [
+            {
+              "label": "functional complement",
+              "cuts": [
+                "Spell Satchel"
+              ],
+              "adds": [
+                "Mana Vault"
+              ],
+              "extraCost": 49.69,
+              "changes": {
+                "burstMana": 3
+              }
+            },
+            {
+              "label": "functional complement",
+              "cuts": [
+                "Tablet of Compleation"
+              ],
+              "adds": [
+                "Basalt Monolith"
+              ],
+              "extraCost": 2.79,
+              "changes": {
+                "burstMana": 1
+              }
+            },
+            {
+              "label": "functional complement",
+              "cuts": [
+                "Heartwood Crafter // Soul Tether"
+              ],
+              "adds": [
+                "Archivist"
+              ],
+              "extraCost": 0.11,
+              "changes": {
+                "independentDraw": 1,
+                "freeDraw": 1,
+                "flow": 1,
+                "supportedEngines": 1
+              }
+            }
+          ],
+          "evaluated": 200,
+          "rejected": {
+            "mana base/demand": 5493,
+            "budget": 1873,
+            "ramp overprovision": 9857,
+            "high-curve investment needs mana partner": 95,
+            "no complete functional dominance": 5
+          },
+          "limits": {
+            "maxRounds": 3,
+            "beamWidth": 2,
+            "maxEvaluations": 40
+          },
+          "watch": [],
+          "originPrice": 60.48,
+          "protectedInput": {
+            "vector": {
+              "threatPower": 62,
+              "threatProtection": 1,
+              "independentDraw": 1,
+              "freeDraw": 0,
+              "scalableDraw": 0,
+              "fastMana": 10,
+              "repeatableMana": 22,
+              "fixing": 1,
+              "trueColorless": 10,
+              "burstMana": 0,
+              "flow": 2,
+              "supportedEngines": 1,
+              "copySupport": 0,
+              "answers": 7,
+              "shields": 0,
+              "wideShields": 0,
+              "threats": 8,
+              "annihilator": 5,
+              "castAnswers": 2
+            },
+            "land": {
+              "score": 127.31,
+              "sources": {
+                "W": 12,
+                "U": 12,
+                "B": 12,
+                "R": 12,
+                "G": 12
+              },
+              "demand": {
+                "W": 2,
+                "U": 10,
+                "B": 3,
+                "R": 5,
+                "G": 11
+              },
+              "realColorless": 10,
+              "penalty": 0
+            },
+            "raw": {
+              "strategyRoles": {
+                "enabler": 44,
+                "engine": 23,
+                "payoff": 9,
+                "finisher": 16
+              },
+              "repeatableMana": 29,
+              "trueColorless": 29,
+              "reducers": 0,
+              "highSpellMana": 59
+            },
+            "unsupported": 1,
+            "method": "Supported function and explicit mana capacity; capped coverage, no price term, no gameplay rating or sequencing simulation"
+          },
+          "originPath": "unchanged"
+        }
+      },
+      {
+        "id": "local:tempo",
+        "label": "Efficient tempo",
+        "status": "ok",
+        "score": 148.37,
+        "sourceSpells": 0,
+        "sourceLands": 0,
+        "price": 104.81,
+        "budgetSwaps": 2,
+        "investment": {
+          "startingPrice": 95.06,
+          "finalPrice": 104.81,
+          "ceiling": 191,
+          "remaining": 86.19,
+          "swaps": [
+            {
+              "out": "Lithoform Blight",
+              "in": "Nest Invader",
+              "extraCost": 0.14,
+              "qualityGain": 5
+            },
+            {
+              "out": "Unbridled Growth",
+              "in": "Kozilek's Command",
+              "extraCost": 6.77,
+              "qualityGain": 15
+            }
+          ],
+          "searchMode": "value",
+          "qualityGain": 20,
+          "diagnostics": {
+            "pool": 32138,
+            "shortlist": 850,
+            "shortlistLimit": 850,
+            "feasibleFinalistsPerRound": 3,
+            "rejections": {
+              "role floor": 67,
+              "positive draw floor": 3,
+              "scalar deck score": 1
+            },
+            "qualityShortlistTop": [
+              {
+                "card": "Kozilek's Unsealing",
+                "price": 0.36,
+                "merit": 81
+              },
+              {
+                "card": "Giant's Boulder",
+                "price": 0.42,
+                "merit": 80.00000000000001
+              },
+              {
+                "card": "Mind Stone",
+                "price": 0.17,
+                "merit": 80
+              },
+              {
+                "card": "Spell Satchel",
+                "price": 0.1,
+                "merit": 78.00000000000001
+              },
+              {
+                "card": "Magus of the Library",
+                "price": 0.54,
+                "merit": 78
+              },
+              {
+                "card": "Tablet of Compleation",
+                "price": 0.15,
+                "merit": 78
+              },
+              {
+                "card": "Eldrazi Repurposer",
+                "price": 0.13,
+                "merit": 74
+              },
+              {
+                "card": "Glaring Fleshraker",
+                "price": 0.78,
+                "merit": 74
+              },
+              {
+                "card": "Deranged Assistant",
+                "price": 0.09,
+                "merit": 72.00000000000001
+              },
+              {
+                "card": "Eldritch Immunity",
+                "price": 4.74,
+                "merit": 72.00000000000001
+              },
+              {
+                "card": "Guardian Idol",
+                "price": 0.09,
+                "merit": 72.00000000000001
+              },
+              {
+                "card": "Boreal Druid",
+                "price": 2.18,
+                "merit": 72
+              }
+            ],
+            "watched": []
+          },
+          "note": "Bounded positive-utility search; unused budget is allowed. Costs are estimates, not verified EN NM carts.",
+          "candidates": [
+            {
+              "mode": "value",
+              "price": 101.97,
+              "score": 136.49,
+              "qualityGain": 20,
+              "swaps": 2,
+              "diagnostics": {
+                "pool": 32138,
+                "shortlist": 850,
+                "shortlistLimit": 850,
+                "feasibleFinalistsPerRound": 3,
+                "rejections": {
+                  "role floor": 67,
+                  "positive draw floor": 3,
+                  "scalar deck score": 1
+                },
+                "qualityShortlistTop": [
+                  {
+                    "card": "Kozilek's Unsealing",
+                    "price": 0.36,
+                    "merit": 81
+                  },
+                  {
+                    "card": "Giant's Boulder",
+                    "price": 0.42,
+                    "merit": 80.00000000000001
+                  },
+                  {
+                    "card": "Mind Stone",
+                    "price": 0.17,
+                    "merit": 80
+                  },
+                  {
+                    "card": "Spell Satchel",
+                    "price": 0.1,
+                    "merit": 78.00000000000001
+                  },
+                  {
+                    "card": "Magus of the Library",
+                    "price": 0.54,
+                    "merit": 78
+                  },
+                  {
+                    "card": "Tablet of Compleation",
+                    "price": 0.15,
+                    "merit": 78
+                  },
+                  {
+                    "card": "Eldrazi Repurposer",
+                    "price": 0.13,
+                    "merit": 74
+                  },
+                  {
+                    "card": "Glaring Fleshraker",
+                    "price": 0.78,
+                    "merit": 74
+                  },
+                  {
+                    "card": "Deranged Assistant",
+                    "price": 0.09,
+                    "merit": 72.00000000000001
+                  },
+                  {
+                    "card": "Eldritch Immunity",
+                    "price": 4.74,
+                    "merit": 72.00000000000001
+                  },
+                  {
+                    "card": "Guardian Idol",
+                    "price": 0.09,
+                    "merit": 72.00000000000001
+                  },
+                  {
+                    "card": "Boreal Druid",
+                    "price": 2.18,
+                    "merit": 72
+                  }
+                ],
+                "watched": []
+              }
+            },
+            {
+              "mode": "quality",
+              "price": 101.83,
+              "score": 135.63,
+              "qualityGain": 15,
+              "swaps": 1,
+              "diagnostics": {
+                "pool": 32138,
+                "shortlist": 850,
+                "shortlistLimit": 850,
+                "feasibleFinalistsPerRound": 3,
+                "rejections": {
+                  "role floor": 44,
+                  "positive draw floor": 3,
+                  "fixed-land mana demand": 2
+                },
+                "qualityShortlistTop": [
+                  {
+                    "card": "Kozilek's Unsealing",
+                    "price": 0.36,
+                    "merit": 81
+                  },
+                  {
+                    "card": "Giant's Boulder",
+                    "price": 0.42,
+                    "merit": 80.00000000000001
+                  },
+                  {
+                    "card": "Mind Stone",
+                    "price": 0.17,
+                    "merit": 80
+                  },
+                  {
+                    "card": "Spell Satchel",
+                    "price": 0.1,
+                    "merit": 78.00000000000001
+                  },
+                  {
+                    "card": "Magus of the Library",
+                    "price": 0.54,
+                    "merit": 78
+                  },
+                  {
+                    "card": "Tablet of Compleation",
+                    "price": 0.15,
+                    "merit": 78
+                  },
+                  {
+                    "card": "Eldrazi Repurposer",
+                    "price": 0.13,
+                    "merit": 74
+                  },
+                  {
+                    "card": "Glaring Fleshraker",
+                    "price": 0.78,
+                    "merit": 74
+                  },
+                  {
+                    "card": "Deranged Assistant",
+                    "price": 0.09,
+                    "merit": 72.00000000000001
+                  },
+                  {
+                    "card": "Eldritch Immunity",
+                    "price": 4.74,
+                    "merit": 72.00000000000001
+                  },
+                  {
+                    "card": "Guardian Idol",
+                    "price": 0.09,
+                    "merit": 72.00000000000001
+                  },
+                  {
+                    "card": "Boreal Druid",
+                    "price": 2.18,
+                    "merit": 72
+                  }
+                ],
+                "watched": []
+              }
+            },
+            {
+              "mode": "balanced",
+              "price": 101.83,
+              "score": 135.63,
+              "qualityGain": 15,
+              "swaps": 1,
+              "diagnostics": {
+                "pool": 32138,
+                "shortlist": 850,
+                "shortlistLimit": 850,
+                "feasibleFinalistsPerRound": 3,
+                "rejections": {
+                  "role floor": 44,
+                  "positive draw floor": 3,
+                  "fixed-land mana demand": 2
+                },
+                "qualityShortlistTop": [
+                  {
+                    "card": "Kozilek's Unsealing",
+                    "price": 0.36,
+                    "merit": 81
+                  },
+                  {
+                    "card": "Giant's Boulder",
+                    "price": 0.42,
+                    "merit": 80.00000000000001
+                  },
+                  {
+                    "card": "Mind Stone",
+                    "price": 0.17,
+                    "merit": 80
+                  },
+                  {
+                    "card": "Spell Satchel",
+                    "price": 0.1,
+                    "merit": 78.00000000000001
+                  },
+                  {
+                    "card": "Magus of the Library",
+                    "price": 0.54,
+                    "merit": 78
+                  },
+                  {
+                    "card": "Tablet of Compleation",
+                    "price": 0.15,
+                    "merit": 78
+                  },
+                  {
+                    "card": "Eldrazi Repurposer",
+                    "price": 0.13,
+                    "merit": 74
+                  },
+                  {
+                    "card": "Glaring Fleshraker",
+                    "price": 0.78,
+                    "merit": 74
+                  },
+                  {
+                    "card": "Deranged Assistant",
+                    "price": 0.09,
+                    "merit": 72.00000000000001
+                  },
+                  {
+                    "card": "Eldritch Immunity",
+                    "price": 4.74,
+                    "merit": 72.00000000000001
+                  },
+                  {
+                    "card": "Guardian Idol",
+                    "price": 0.09,
+                    "merit": 72.00000000000001
+                  },
+                  {
+                    "card": "Boreal Druid",
+                    "price": 2.18,
+                    "merit": 72
+                  }
+                ],
+                "watched": []
+              }
+            },
+            {
+              "mode": "unchanged",
+              "price": 95.06,
+              "score": 133.21,
+              "qualityGain": 0,
+              "swaps": 0,
+              "diagnostics": {
+                "pool": 32138,
+                "shortlist": 850,
+                "shortlistLimit": 850,
+                "feasibleFinalistsPerRound": 3,
+                "rejections": {},
+                "qualityShortlistTop": [
+                  {
+                    "card": "Kozilek's Unsealing",
+                    "price": 0.36,
+                    "merit": 81
+                  },
+                  {
+                    "card": "Giant's Boulder",
+                    "price": 0.42,
+                    "merit": 80.00000000000001
+                  },
+                  {
+                    "card": "Mind Stone",
+                    "price": 0.17,
+                    "merit": 80
+                  },
+                  {
+                    "card": "Spell Satchel",
+                    "price": 0.1,
+                    "merit": 78.00000000000001
+                  },
+                  {
+                    "card": "Magus of the Library",
+                    "price": 0.54,
+                    "merit": 78
+                  },
+                  {
+                    "card": "Tablet of Compleation",
+                    "price": 0.15,
+                    "merit": 78
+                  },
+                  {
+                    "card": "Eldrazi Repurposer",
+                    "price": 0.13,
+                    "merit": 74
+                  },
+                  {
+                    "card": "Glaring Fleshraker",
+                    "price": 0.78,
+                    "merit": 74
+                  },
+                  {
+                    "card": "Deranged Assistant",
+                    "price": 0.09,
+                    "merit": 72.00000000000001
+                  },
+                  {
+                    "card": "Eldritch Immunity",
+                    "price": 4.74,
+                    "merit": 72.00000000000001
+                  },
+                  {
+                    "card": "Guardian Idol",
+                    "price": 0.09,
+                    "merit": 72.00000000000001
+                  },
+                  {
+                    "card": "Boreal Druid",
+                    "price": 2.18,
+                    "merit": 72
+                  }
+                ],
+                "watched": []
+              }
+            }
+          ],
+          "packages": [
+            {
+              "label": "functional complement",
+              "cuts": [
+                "Spell Satchel"
+              ],
+              "adds": [
+                "Basalt Monolith"
+              ],
+              "extraCost": 2.84,
+              "changes": {
+                "burstMana": 1
+              }
+            }
+          ]
+        },
+        "packageInvestment": {
+          "method": "Atomic two/three-card investments plus single-card probes; Pareto functional improvements, price is only a ceiling",
+          "startingPrice": 101.97,
+          "finalPrice": 104.81,
+          "before": {
+            "vector": {
+              "threatPower": 21,
+              "threatProtection": 0,
+              "independentDraw": 0,
+              "freeDraw": 0,
+              "scalableDraw": 0,
+              "fastMana": 10,
+              "repeatableMana": 22,
+              "fixing": 1,
+              "trueColorless": 10,
+              "burstMana": 3,
+              "flow": 2,
+              "supportedEngines": 0,
+              "copySupport": 0,
+              "answers": 6,
+              "shields": 0,
+              "wideShields": 0,
+              "threats": 4,
+              "annihilator": 0,
+              "castAnswers": 1
+            },
+            "land": {
+              "score": 120.6,
+              "sources": {
+                "W": 12,
+                "U": 12,
+                "B": 12,
+                "R": 12,
+                "G": 12
+              },
+              "demand": {
+                "W": 2,
+                "U": 10,
+                "B": 2,
+                "R": 4,
+                "G": 15
+              },
+              "realColorless": 10,
+              "penalty": 0
+            },
+            "raw": {
+              "strategyRoles": {
+                "enabler": 52,
+                "payoff": 8,
+                "engine": 17,
+                "finisher": 3
+              },
+              "repeatableMana": 33,
+              "trueColorless": 33,
+              "reducers": 0,
+              "highSpellMana": 21
+            },
+            "unsupported": 1,
+            "method": "Supported function and explicit mana capacity; capped coverage, no price term, no gameplay rating or sequencing simulation"
+          },
+          "after": {
+            "vector": {
+              "threatPower": 21,
+              "threatProtection": 0,
+              "independentDraw": 0,
+              "freeDraw": 0,
+              "scalableDraw": 0,
+              "fastMana": 10,
+              "repeatableMana": 22,
+              "fixing": 1,
+              "trueColorless": 10,
+              "burstMana": 4,
+              "flow": 2,
+              "supportedEngines": 0,
+              "copySupport": 0,
+              "answers": 6,
+              "shields": 0,
+              "wideShields": 0,
+              "threats": 4,
+              "annihilator": 0,
+              "castAnswers": 1
+            },
+            "land": {
+              "score": 120.6,
+              "sources": {
+                "W": 12,
+                "U": 12,
+                "B": 12,
+                "R": 12,
+                "G": 12
+              },
+              "demand": {
+                "W": 2,
+                "U": 10,
+                "B": 2,
+                "R": 4,
+                "G": 15
+              },
+              "realColorless": 10,
+              "penalty": 0
+            },
+            "raw": {
+              "strategyRoles": {
+                "enabler": 52,
+                "payoff": 8,
+                "engine": 17,
+                "finisher": 3
+              },
+              "repeatableMana": 33,
+              "trueColorless": 33,
+              "reducers": 0,
+              "highSpellMana": 21
+            },
+            "unsupported": 0,
+            "method": "Supported function and explicit mana capacity; capped coverage, no price term, no gameplay rating or sequencing simulation"
+          },
+          "strategyFloors": {
+            "enabler": 8,
+            "payoff": 8,
+            "engine": 15,
+            "finisher": 3
+          },
+          "accepted": [
+            {
+              "label": "functional complement",
+              "cuts": [
+                "Spell Satchel"
+              ],
+              "adds": [
+                "Basalt Monolith"
+              ],
+              "extraCost": 2.84,
+              "changes": {
+                "burstMana": 1
+              }
+            }
+          ],
+          "evaluated": 200,
+          "rejected": {
+            "ramp overprovision": 9345,
+            "budget": 1756,
+            "high-curve investment needs mana partner": 84,
+            "mana base/demand": 102,
+            "no complete functional dominance": 5,
+            "support dependency": 3
+          },
+          "limits": {
+            "maxRounds": 3,
+            "beamWidth": 2,
+            "maxEvaluations": 40
+          },
+          "watch": [],
+          "originPrice": 101.97,
+          "protectedInput": {
+            "vector": {
+              "threatPower": 21,
+              "threatProtection": 0,
+              "independentDraw": 0,
+              "freeDraw": 0,
+              "scalableDraw": 0,
+              "fastMana": 10,
+              "repeatableMana": 22,
+              "fixing": 1,
+              "trueColorless": 10,
+              "burstMana": 3,
+              "flow": 2,
+              "supportedEngines": 0,
+              "copySupport": 0,
+              "answers": 6,
+              "shields": 0,
+              "wideShields": 0,
+              "threats": 4,
+              "annihilator": 0,
+              "castAnswers": 1
+            },
+            "land": {
+              "score": 120.6,
+              "sources": {
+                "W": 12,
+                "U": 12,
+                "B": 12,
+                "R": 12,
+                "G": 12
+              },
+              "demand": {
+                "W": 2,
+                "U": 10,
+                "B": 3,
+                "R": 4,
+                "G": 15
+              },
+              "realColorless": 10,
+              "penalty": 0
+            },
+            "raw": {
+              "strategyRoles": {
+                "enabler": 51,
+                "payoff": 8,
+                "engine": 15,
+                "finisher": 3
+              },
+              "repeatableMana": 33,
+              "trueColorless": 33,
+              "reducers": 0,
+              "highSpellMana": 21
+            },
+            "unsupported": 1,
+            "method": "Supported function and explicit mana capacity; capped coverage, no price term, no gameplay rating or sequencing simulation"
+          },
+          "originPath": "value"
+        }
+      },
+      {
+        "id": "local:resilience",
+        "label": "Card advantage and resilience",
+        "status": "ok",
+        "score": 150.42,
+        "sourceSpells": 0,
+        "sourceLands": 0,
+        "price": 51.95,
+        "budgetSwaps": 1,
+        "investment": {
+          "startingPrice": 45.07,
+          "finalPrice": 51.95,
+          "ceiling": 191,
+          "remaining": 139.05,
+          "swaps": [
+            {
+              "out": "Snapping Voidcraw",
+              "in": "Kozilek's Command",
+              "extraCost": 6.88,
+              "qualityGain": 2.55
+            }
+          ],
+          "searchMode": "quality",
+          "qualityGain": 2.55,
+          "diagnostics": {
+            "pool": 32138,
+            "shortlist": 850,
+            "shortlistLimit": 850,
+            "feasibleFinalistsPerRound": 3,
+            "rejections": {
+              "positive draw floor": 7
+            },
+            "qualityShortlistTop": [
+              {
+                "card": "Drownyard Lurker",
+                "price": 0.11,
+                "merit": 101.85000000000001
+              },
+              {
+                "card": "Warped Tusker",
+                "price": 0.06,
+                "merit": 101.85000000000001
+              },
+              {
+                "card": "Kozilek's Unsealing",
+                "price": 0.36,
+                "merit": 101.05000000000001
+              },
+              {
+                "card": "Mind Stone",
+                "price": 0.17,
+                "merit": 87.2
+              },
+              {
+                "card": "Magus of the Library",
+                "price": 0.54,
+                "merit": 85.2
+              },
+              {
+                "card": "Spell Satchel",
+                "price": 0.1,
+                "merit": 85.2
+              },
+              {
+                "card": "Tablet of Compleation",
+                "price": 0.15,
+                "merit": 85.2
+              },
+              {
+                "card": "Emrakul's Influence",
+                "price": 0.13,
+                "merit": 83.30000000000001
+              },
+              {
+                "card": "Eldrazi Repurposer",
+                "price": 0.13,
+                "merit": 82.45000000000002
+              },
+              {
+                "card": "Glaring Fleshraker",
+                "price": 0.78,
+                "merit": 82.45000000000002
+              },
+              {
+                "card": "Eldritch Immunity",
+                "price": 4.74,
+                "merit": 80.4
+              },
+              {
+                "card": "Writhing Chrysalis",
+                "price": 0.45,
+                "merit": 77.89999999999999
+              }
+            ],
+            "watched": []
+          },
+          "note": "Bounded positive-utility search; unused budget is allowed. Costs are estimates, not verified EN NM carts.",
+          "candidates": [
+            {
+              "mode": "quality",
+              "price": 51.95,
+              "score": 150.42,
+              "qualityGain": 2.55,
+              "swaps": 1,
+              "diagnostics": {
+                "pool": 32138,
+                "shortlist": 850,
+                "shortlistLimit": 850,
+                "feasibleFinalistsPerRound": 3,
+                "rejections": {
+                  "positive draw floor": 7
+                },
+                "qualityShortlistTop": [
+                  {
+                    "card": "Drownyard Lurker",
+                    "price": 0.11,
+                    "merit": 101.85000000000001
+                  },
+                  {
+                    "card": "Warped Tusker",
+                    "price": 0.06,
+                    "merit": 101.85000000000001
+                  },
+                  {
+                    "card": "Kozilek's Unsealing",
+                    "price": 0.36,
+                    "merit": 101.05000000000001
+                  },
+                  {
+                    "card": "Mind Stone",
+                    "price": 0.17,
+                    "merit": 87.2
+                  },
+                  {
+                    "card": "Magus of the Library",
+                    "price": 0.54,
+                    "merit": 85.2
+                  },
+                  {
+                    "card": "Spell Satchel",
+                    "price": 0.1,
+                    "merit": 85.2
+                  },
+                  {
+                    "card": "Tablet of Compleation",
+                    "price": 0.15,
+                    "merit": 85.2
+                  },
+                  {
+                    "card": "Emrakul's Influence",
+                    "price": 0.13,
+                    "merit": 83.30000000000001
+                  },
+                  {
+                    "card": "Eldrazi Repurposer",
+                    "price": 0.13,
+                    "merit": 82.45000000000002
+                  },
+                  {
+                    "card": "Glaring Fleshraker",
+                    "price": 0.78,
+                    "merit": 82.45000000000002
+                  },
+                  {
+                    "card": "Eldritch Immunity",
+                    "price": 4.74,
+                    "merit": 80.4
+                  },
+                  {
+                    "card": "Writhing Chrysalis",
+                    "price": 0.45,
+                    "merit": 77.89999999999999
+                  }
+                ],
+                "watched": []
+              }
+            },
+            {
+              "mode": "balanced",
+              "price": 51.95,
+              "score": 150.42,
+              "qualityGain": 2.55,
+              "swaps": 1,
+              "diagnostics": {
+                "pool": 32138,
+                "shortlist": 850,
+                "shortlistLimit": 850,
+                "feasibleFinalistsPerRound": 3,
+                "rejections": {
+                  "positive draw floor": 7
+                },
+                "qualityShortlistTop": [
+                  {
+                    "card": "Drownyard Lurker",
+                    "price": 0.11,
+                    "merit": 101.85000000000001
+                  },
+                  {
+                    "card": "Warped Tusker",
+                    "price": 0.06,
+                    "merit": 101.85000000000001
+                  },
+                  {
+                    "card": "Kozilek's Unsealing",
+                    "price": 0.36,
+                    "merit": 101.05000000000001
+                  },
+                  {
+                    "card": "Mind Stone",
+                    "price": 0.17,
+                    "merit": 87.2
+                  },
+                  {
+                    "card": "Magus of the Library",
+                    "price": 0.54,
+                    "merit": 85.2
+                  },
+                  {
+                    "card": "Spell Satchel",
+                    "price": 0.1,
+                    "merit": 85.2
+                  },
+                  {
+                    "card": "Tablet of Compleation",
+                    "price": 0.15,
+                    "merit": 85.2
+                  },
+                  {
+                    "card": "Emrakul's Influence",
+                    "price": 0.13,
+                    "merit": 83.30000000000001
+                  },
+                  {
+                    "card": "Eldrazi Repurposer",
+                    "price": 0.13,
+                    "merit": 82.45000000000002
+                  },
+                  {
+                    "card": "Glaring Fleshraker",
+                    "price": 0.78,
+                    "merit": 82.45000000000002
+                  },
+                  {
+                    "card": "Eldritch Immunity",
+                    "price": 4.74,
+                    "merit": 80.4
+                  },
+                  {
+                    "card": "Writhing Chrysalis",
+                    "price": 0.45,
+                    "merit": 77.89999999999999
+                  }
+                ],
+                "watched": []
+              }
+            },
+            {
+              "mode": "value",
+              "price": 51.95,
+              "score": 150.42,
+              "qualityGain": 2.55,
+              "swaps": 1,
+              "diagnostics": {
+                "pool": 32138,
+                "shortlist": 850,
+                "shortlistLimit": 850,
+                "feasibleFinalistsPerRound": 3,
+                "rejections": {
+                  "positive draw floor": 7
+                },
+                "qualityShortlistTop": [
+                  {
+                    "card": "Drownyard Lurker",
+                    "price": 0.11,
+                    "merit": 101.85000000000001
+                  },
+                  {
+                    "card": "Warped Tusker",
+                    "price": 0.06,
+                    "merit": 101.85000000000001
+                  },
+                  {
+                    "card": "Kozilek's Unsealing",
+                    "price": 0.36,
+                    "merit": 101.05000000000001
+                  },
+                  {
+                    "card": "Mind Stone",
+                    "price": 0.17,
+                    "merit": 87.2
+                  },
+                  {
+                    "card": "Magus of the Library",
+                    "price": 0.54,
+                    "merit": 85.2
+                  },
+                  {
+                    "card": "Spell Satchel",
+                    "price": 0.1,
+                    "merit": 85.2
+                  },
+                  {
+                    "card": "Tablet of Compleation",
+                    "price": 0.15,
+                    "merit": 85.2
+                  },
+                  {
+                    "card": "Emrakul's Influence",
+                    "price": 0.13,
+                    "merit": 83.30000000000001
+                  },
+                  {
+                    "card": "Eldrazi Repurposer",
+                    "price": 0.13,
+                    "merit": 82.45000000000002
+                  },
+                  {
+                    "card": "Glaring Fleshraker",
+                    "price": 0.78,
+                    "merit": 82.45000000000002
+                  },
+                  {
+                    "card": "Eldritch Immunity",
+                    "price": 4.74,
+                    "merit": 80.4
+                  },
+                  {
+                    "card": "Writhing Chrysalis",
+                    "price": 0.45,
+                    "merit": 77.89999999999999
+                  }
+                ],
+                "watched": []
+              }
+            },
+            {
+              "mode": "unchanged",
+              "price": 45.07,
+              "score": 147.13,
+              "qualityGain": 0,
+              "swaps": 0,
+              "diagnostics": {
+                "pool": 32138,
+                "shortlist": 850,
+                "shortlistLimit": 850,
+                "feasibleFinalistsPerRound": 3,
+                "rejections": {},
+                "qualityShortlistTop": [
+                  {
+                    "card": "Drownyard Lurker",
+                    "price": 0.11,
+                    "merit": 101.85000000000001
+                  },
+                  {
+                    "card": "Warped Tusker",
+                    "price": 0.06,
+                    "merit": 101.85000000000001
+                  },
+                  {
+                    "card": "Kozilek's Unsealing",
+                    "price": 0.36,
+                    "merit": 101.05000000000001
+                  },
+                  {
+                    "card": "Mind Stone",
+                    "price": 0.17,
+                    "merit": 87.2
+                  },
+                  {
+                    "card": "Magus of the Library",
+                    "price": 0.54,
+                    "merit": 85.2
+                  },
+                  {
+                    "card": "Spell Satchel",
+                    "price": 0.1,
+                    "merit": 85.2
+                  },
+                  {
+                    "card": "Tablet of Compleation",
+                    "price": 0.15,
+                    "merit": 85.2
+                  },
+                  {
+                    "card": "Emrakul's Influence",
+                    "price": 0.13,
+                    "merit": 83.30000000000001
+                  },
+                  {
+                    "card": "Eldrazi Repurposer",
+                    "price": 0.13,
+                    "merit": 82.45000000000002
+                  },
+                  {
+                    "card": "Glaring Fleshraker",
+                    "price": 0.78,
+                    "merit": 82.45000000000002
+                  },
+                  {
+                    "card": "Eldritch Immunity",
+                    "price": 4.74,
+                    "merit": 80.4
+                  },
+                  {
+                    "card": "Writhing Chrysalis",
+                    "price": 0.45,
+                    "merit": 77.89999999999999
+                  }
+                ],
+                "watched": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": "local:threats",
+        "label": "High-impact threats",
+        "status": "ok",
+        "score": 153.54,
+        "sourceSpells": 0,
+        "sourceLands": 0,
+        "price": 110.41,
+        "budgetSwaps": 1,
+        "investment": {
+          "startingPrice": 104.06,
+          "finalPrice": 110.41,
+          "ceiling": 191,
+          "remaining": 80.59,
+          "swaps": [
+            {
+              "out": "H.E.R.B.I.E., Lovable Robot",
+              "in": "Kozilek's Command",
+              "extraCost": 6.35,
+              "qualityGain": 7.4
+            }
+          ],
+          "searchMode": "balanced",
+          "qualityGain": 7.4,
+          "diagnostics": {
+            "pool": 32138,
+            "shortlist": 850,
+            "shortlistLimit": 850,
+            "feasibleFinalistsPerRound": 3,
+            "rejections": {
+              "seven-plus spell cap": 1378,
+              "positive draw floor": 74,
+              "role floor": 44,
+              "fixed-land mana demand": 1
+            },
+            "qualityShortlistTop": [
+              {
+                "card": "Drownyard Lurker",
+                "price": 0.11,
+                "merit": 132.57500000000002
+              },
+              {
+                "card": "Warped Tusker",
+                "price": 0.06,
+                "merit": 132.57500000000002
+              },
+              {
+                "card": "Desolation Twin",
+                "price": 0.3,
+                "merit": 105.45000000000002
+              },
+              {
+                "card": "Devourer of Destiny",
+                "price": 1.28,
+                "merit": 104.975
+              },
+              {
+                "card": "Deathless Behemoth",
+                "price": 0.09,
+                "merit": 99.14999999999999
+              },
+              {
+                "card": "Drowner of Hope",
+                "price": 0.19,
+                "merit": 99.14999999999999
+              },
+              {
+                "card": "Rapacious One",
+                "price": 0.09,
+                "merit": 99.14999999999999
+              },
+              {
+                "card": "Eldrazi Repurposer",
+                "price": 0.13,
+                "merit": 99.025
+              },
+              {
+                "card": "Glaring Fleshraker",
+                "price": 0.78,
+                "merit": 99.025
+              },
+              {
+                "card": "Kozilek's Unsealing",
+                "price": 0.36,
+                "merit": 97.625
+              },
+              {
+                "card": "Writhing Chrysalis",
+                "price": 0.45,
+                "merit": 96.05
+              },
+              {
+                "card": "Kozilek, the Great Distortion",
+                "price": 4.51,
+                "merit": 96.04999999999998
+              }
+            ],
+            "watched": []
+          },
+          "note": "Bounded positive-utility search; unused budget is allowed. Costs are estimates, not verified EN NM carts.",
+          "candidates": [
+            {
+              "mode": "balanced",
+              "price": 110.41,
+              "score": 153.54,
+              "qualityGain": 7.4,
+              "swaps": 1,
+              "diagnostics": {
+                "pool": 32138,
+                "shortlist": 850,
+                "shortlistLimit": 850,
+                "feasibleFinalistsPerRound": 3,
+                "rejections": {
+                  "seven-plus spell cap": 1378,
+                  "positive draw floor": 74,
+                  "role floor": 44,
+                  "fixed-land mana demand": 1
+                },
+                "qualityShortlistTop": [
+                  {
+                    "card": "Drownyard Lurker",
+                    "price": 0.11,
+                    "merit": 132.57500000000002
+                  },
+                  {
+                    "card": "Warped Tusker",
+                    "price": 0.06,
+                    "merit": 132.57500000000002
+                  },
+                  {
+                    "card": "Desolation Twin",
+                    "price": 0.3,
+                    "merit": 105.45000000000002
+                  },
+                  {
+                    "card": "Devourer of Destiny",
+                    "price": 1.28,
+                    "merit": 104.975
+                  },
+                  {
+                    "card": "Deathless Behemoth",
+                    "price": 0.09,
+                    "merit": 99.14999999999999
+                  },
+                  {
+                    "card": "Drowner of Hope",
+                    "price": 0.19,
+                    "merit": 99.14999999999999
+                  },
+                  {
+                    "card": "Rapacious One",
+                    "price": 0.09,
+                    "merit": 99.14999999999999
+                  },
+                  {
+                    "card": "Eldrazi Repurposer",
+                    "price": 0.13,
+                    "merit": 99.025
+                  },
+                  {
+                    "card": "Glaring Fleshraker",
+                    "price": 0.78,
+                    "merit": 99.025
+                  },
+                  {
+                    "card": "Kozilek's Unsealing",
+                    "price": 0.36,
+                    "merit": 97.625
+                  },
+                  {
+                    "card": "Writhing Chrysalis",
+                    "price": 0.45,
+                    "merit": 96.05
+                  },
+                  {
+                    "card": "Kozilek, the Great Distortion",
+                    "price": 4.51,
+                    "merit": 96.04999999999998
+                  }
+                ],
+                "watched": []
+              }
+            },
+            {
+              "mode": "value",
+              "price": 110.41,
+              "score": 153.54,
+              "qualityGain": 7.4,
+              "swaps": 1,
+              "diagnostics": {
+                "pool": 32138,
+                "shortlist": 850,
+                "shortlistLimit": 850,
+                "feasibleFinalistsPerRound": 3,
+                "rejections": {
+                  "seven-plus spell cap": 1378,
+                  "positive draw floor": 74,
+                  "role floor": 44,
+                  "fixed-land mana demand": 1
+                },
+                "qualityShortlistTop": [
+                  {
+                    "card": "Drownyard Lurker",
+                    "price": 0.11,
+                    "merit": 132.57500000000002
+                  },
+                  {
+                    "card": "Warped Tusker",
+                    "price": 0.06,
+                    "merit": 132.57500000000002
+                  },
+                  {
+                    "card": "Desolation Twin",
+                    "price": 0.3,
+                    "merit": 105.45000000000002
+                  },
+                  {
+                    "card": "Devourer of Destiny",
+                    "price": 1.28,
+                    "merit": 104.975
+                  },
+                  {
+                    "card": "Deathless Behemoth",
+                    "price": 0.09,
+                    "merit": 99.14999999999999
+                  },
+                  {
+                    "card": "Drowner of Hope",
+                    "price": 0.19,
+                    "merit": 99.14999999999999
+                  },
+                  {
+                    "card": "Rapacious One",
+                    "price": 0.09,
+                    "merit": 99.14999999999999
+                  },
+                  {
+                    "card": "Eldrazi Repurposer",
+                    "price": 0.13,
+                    "merit": 99.025
+                  },
+                  {
+                    "card": "Glaring Fleshraker",
+                    "price": 0.78,
+                    "merit": 99.025
+                  },
+                  {
+                    "card": "Kozilek's Unsealing",
+                    "price": 0.36,
+                    "merit": 97.625
+                  },
+                  {
+                    "card": "Writhing Chrysalis",
+                    "price": 0.45,
+                    "merit": 96.05
+                  },
+                  {
+                    "card": "Kozilek, the Great Distortion",
+                    "price": 4.51,
+                    "merit": 96.04999999999998
+                  }
+                ],
+                "watched": []
+              }
+            },
+            {
+              "mode": "quality",
+              "price": 110.91,
+              "score": 153.54,
+              "qualityGain": 7.4,
+              "swaps": 1,
+              "diagnostics": {
+                "pool": 32138,
+                "shortlist": 850,
+                "shortlistLimit": 850,
+                "feasibleFinalistsPerRound": 3,
+                "rejections": {
+                  "seven-plus spell cap": 1378,
+                  "positive draw floor": 74,
+                  "role floor": 44,
+                  "fixed-land mana demand": 1
+                },
+                "qualityShortlistTop": [
+                  {
+                    "card": "Drownyard Lurker",
+                    "price": 0.11,
+                    "merit": 132.57500000000002
+                  },
+                  {
+                    "card": "Warped Tusker",
+                    "price": 0.06,
+                    "merit": 132.57500000000002
+                  },
+                  {
+                    "card": "Desolation Twin",
+                    "price": 0.3,
+                    "merit": 105.45000000000002
+                  },
+                  {
+                    "card": "Devourer of Destiny",
+                    "price": 1.28,
+                    "merit": 104.975
+                  },
+                  {
+                    "card": "Deathless Behemoth",
+                    "price": 0.09,
+                    "merit": 99.14999999999999
+                  },
+                  {
+                    "card": "Drowner of Hope",
+                    "price": 0.19,
+                    "merit": 99.14999999999999
+                  },
+                  {
+                    "card": "Rapacious One",
+                    "price": 0.09,
+                    "merit": 99.14999999999999
+                  },
+                  {
+                    "card": "Eldrazi Repurposer",
+                    "price": 0.13,
+                    "merit": 99.025
+                  },
+                  {
+                    "card": "Glaring Fleshraker",
+                    "price": 0.78,
+                    "merit": 99.025
+                  },
+                  {
+                    "card": "Kozilek's Unsealing",
+                    "price": 0.36,
+                    "merit": 97.625
+                  },
+                  {
+                    "card": "Writhing Chrysalis",
+                    "price": 0.45,
+                    "merit": 96.05
+                  },
+                  {
+                    "card": "Kozilek, the Great Distortion",
+                    "price": 4.51,
+                    "merit": 96.04999999999998
+                  }
+                ],
+                "watched": []
+              }
+            },
+            {
+              "mode": "unchanged",
+              "price": 104.06,
+              "score": 151.54,
+              "qualityGain": 0,
+              "swaps": 0,
+              "diagnostics": {
+                "pool": 32138,
+                "shortlist": 850,
+                "shortlistLimit": 850,
+                "feasibleFinalistsPerRound": 3,
+                "rejections": {},
+                "qualityShortlistTop": [
+                  {
+                    "card": "Drownyard Lurker",
+                    "price": 0.11,
+                    "merit": 132.57500000000002
+                  },
+                  {
+                    "card": "Warped Tusker",
+                    "price": 0.06,
+                    "merit": 132.57500000000002
+                  },
+                  {
+                    "card": "Desolation Twin",
+                    "price": 0.3,
+                    "merit": 105.45000000000002
+                  },
+                  {
+                    "card": "Devourer of Destiny",
+                    "price": 1.28,
+                    "merit": 104.975
+                  },
+                  {
+                    "card": "Deathless Behemoth",
+                    "price": 0.09,
+                    "merit": 99.14999999999999
+                  },
+                  {
+                    "card": "Drowner of Hope",
+                    "price": 0.19,
+                    "merit": 99.14999999999999
+                  },
+                  {
+                    "card": "Rapacious One",
+                    "price": 0.09,
+                    "merit": 99.14999999999999
+                  },
+                  {
+                    "card": "Eldrazi Repurposer",
+                    "price": 0.13,
+                    "merit": 99.025
+                  },
+                  {
+                    "card": "Glaring Fleshraker",
+                    "price": 0.78,
+                    "merit": 99.025
+                  },
+                  {
+                    "card": "Kozilek's Unsealing",
+                    "price": 0.36,
+                    "merit": 97.625
+                  },
+                  {
+                    "card": "Writhing Chrysalis",
+                    "price": 0.45,
+                    "merit": 96.05
+                  },
+                  {
+                    "card": "Kozilek, the Great Distortion",
+                    "price": 4.51,
+                    "merit": 96.04999999999998
+                  }
+                ],
+                "watched": []
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": "reference:legacy",
+        "label": "Complete reference with coordinated investment",
+        "status": "ok",
+        "score": 99.45,
+        "sourceSpells": 0,
+        "sourceLands": 0,
+        "price": 119.07,
+        "budgetSwaps": 0,
+        "investment": {
+          "startingPrice": 116.88,
+          "finalPrice": 119.07,
+          "ceiling": 191,
+          "remaining": 71.93,
+          "swaps": [],
+          "searchMode": "unchanged",
+          "qualityGain": 0,
+          "diagnostics": {
+            "pool": 32138,
+            "shortlist": 850,
+            "shortlistLimit": 850,
+            "feasibleFinalistsPerRound": 3,
+            "rejections": {},
+            "qualityShortlistTop": [
+              {
+                "card": "Warped Tusker",
+                "price": 0.06,
+                "merit": 125.95
+              },
+              {
+                "card": "Drownyard Lurker",
+                "price": 0.11,
+                "merit": 125.94999999999999
+              },
+              {
+                "card": "Eldrazi Repurposer",
+                "price": 0.13,
+                "merit": 107.15
+              },
+              {
+                "card": "Glaring Fleshraker",
+                "price": 0.78,
+                "merit": 107.15
+              },
+              {
+                "card": "Writhing Chrysalis",
+                "price": 0.45,
+                "merit": 103.3
+              },
+              {
+                "card": "Kozilek's Unsealing",
+                "price": 0.36,
+                "merit": 102.15
+              },
+              {
+                "card": "Spawn-Gang Commander",
+                "price": 0.14,
+                "merit": 99.45
+              },
+              {
+                "card": "Desolation Twin",
+                "price": 0.3,
+                "merit": 94.39999999999999
+              },
+              {
+                "card": "Devourer of Destiny",
+                "price": 1.28,
+                "merit": 92.95
+              },
+              {
+                "card": "Deathless Behemoth",
+                "price": 0.09,
+                "merit": 89.8
+              },
+              {
+                "card": "Drowner of Hope",
+                "price": 0.19,
+                "merit": 89.8
+              },
+              {
+                "card": "Rapacious One",
+                "price": 0.09,
+                "merit": 89.8
+              }
+            ],
+            "watched": []
+          },
+          "note": "Bounded positive-utility search; unused budget is allowed. Costs are estimates, not verified EN NM carts.",
+          "candidates": [
+            {
+              "mode": "balanced",
+              "price": 112.73,
+              "score": 160.65,
+              "qualityGain": 641.65,
+              "swaps": 16,
+              "diagnostics": {
+                "pool": 32138,
+                "shortlist": 850,
+                "shortlistLimit": 850,
+                "feasibleFinalistsPerRound": 3,
+                "rejections": {
+                  "seven-plus spell cap": 18252,
+                  "positive draw floor": 94320,
+                  "budget": 220,
+                  "three-mana ramp cap": 190,
+                  "role floor": 10023,
+                  "high-output early mana": 229,
+                  "scalar deck score": 30
+                },
+                "qualityShortlistTop": [
+                  {
+                    "card": "Warped Tusker",
+                    "price": 0.06,
+                    "merit": 125.95
+                  },
+                  {
+                    "card": "Drownyard Lurker",
+                    "price": 0.11,
+                    "merit": 125.94999999999999
+                  },
+                  {
+                    "card": "Eldrazi Repurposer",
+                    "price": 0.13,
+                    "merit": 107.15
+                  },
+                  {
+                    "card": "Glaring Fleshraker",
+                    "price": 0.78,
+                    "merit": 107.15
+                  },
+                  {
+                    "card": "Writhing Chrysalis",
+                    "price": 0.45,
+                    "merit": 103.3
+                  },
+                  {
+                    "card": "Kozilek's Unsealing",
+                    "price": 0.36,
+                    "merit": 102.15
+                  },
+                  {
+                    "card": "Spawn-Gang Commander",
+                    "price": 0.14,
+                    "merit": 99.45
+                  },
+                  {
+                    "card": "Desolation Twin",
+                    "price": 0.3,
+                    "merit": 94.39999999999999
+                  },
+                  {
+                    "card": "Devourer of Destiny",
+                    "price": 1.28,
+                    "merit": 92.95
+                  },
+                  {
+                    "card": "Deathless Behemoth",
+                    "price": 0.09,
+                    "merit": 89.8
+                  },
+                  {
+                    "card": "Drowner of Hope",
+                    "price": 0.19,
+                    "merit": 89.8
+                  },
+                  {
+                    "card": "Rapacious One",
+                    "price": 0.09,
+                    "merit": 89.8
+                  }
+                ],
+                "watched": []
+              }
+            },
+            {
+              "mode": "value",
+              "price": 112.73,
+              "score": 160.65,
+              "qualityGain": 641.65,
+              "swaps": 16,
+              "diagnostics": {
+                "pool": 32138,
+                "shortlist": 850,
+                "shortlistLimit": 850,
+                "feasibleFinalistsPerRound": 3,
+                "rejections": {
+                  "seven-plus spell cap": 18252,
+                  "positive draw floor": 94320,
+                  "budget": 220,
+                  "three-mana ramp cap": 190,
+                  "role floor": 10023,
+                  "high-output early mana": 229,
+                  "scalar deck score": 30
+                },
+                "qualityShortlistTop": [
+                  {
+                    "card": "Warped Tusker",
+                    "price": 0.06,
+                    "merit": 125.95
+                  },
+                  {
+                    "card": "Drownyard Lurker",
+                    "price": 0.11,
+                    "merit": 125.94999999999999
+                  },
+                  {
+                    "card": "Eldrazi Repurposer",
+                    "price": 0.13,
+                    "merit": 107.15
+                  },
+                  {
+                    "card": "Glaring Fleshraker",
+                    "price": 0.78,
+                    "merit": 107.15
+                  },
+                  {
+                    "card": "Writhing Chrysalis",
+                    "price": 0.45,
+                    "merit": 103.3
+                  },
+                  {
+                    "card": "Kozilek's Unsealing",
+                    "price": 0.36,
+                    "merit": 102.15
+                  },
+                  {
+                    "card": "Spawn-Gang Commander",
+                    "price": 0.14,
+                    "merit": 99.45
+                  },
+                  {
+                    "card": "Desolation Twin",
+                    "price": 0.3,
+                    "merit": 94.39999999999999
+                  },
+                  {
+                    "card": "Devourer of Destiny",
+                    "price": 1.28,
+                    "merit": 92.95
+                  },
+                  {
+                    "card": "Deathless Behemoth",
+                    "price": 0.09,
+                    "merit": 89.8
+                  },
+                  {
+                    "card": "Drowner of Hope",
+                    "price": 0.19,
+                    "merit": 89.8
+                  },
+                  {
+                    "card": "Rapacious One",
+                    "price": 0.09,
+                    "merit": 89.8
+                  }
+                ],
+                "watched": []
+              }
+            },
+            {
+              "mode": "quality",
+              "price": 126.62,
+              "score": 158.65,
+              "qualityGain": 674.75,
+              "swaps": 16,
+              "diagnostics": {
+                "pool": 32138,
+                "shortlist": 850,
+                "shortlistLimit": 850,
+                "feasibleFinalistsPerRound": 3,
+                "rejections": {
+                  "seven-plus spell cap": 18050,
+                  "positive draw floor": 92365,
+                  "budget": 212,
+                  "three-mana ramp cap": 187,
+                  "role floor": 9304,
+                  "high-output early mana": 232,
+                  "scalar deck score": 14,
+                  "castability/response limits": 6
+                },
+                "qualityShortlistTop": [
+                  {
+                    "card": "Warped Tusker",
+                    "price": 0.06,
+                    "merit": 125.95
+                  },
+                  {
+                    "card": "Drownyard Lurker",
+                    "price": 0.11,
+                    "merit": 125.94999999999999
+                  },
+                  {
+                    "card": "Eldrazi Repurposer",
+                    "price": 0.13,
+                    "merit": 107.15
+                  },
+                  {
+                    "card": "Glaring Fleshraker",
+                    "price": 0.78,
+                    "merit": 107.15
+                  },
+                  {
+                    "card": "Writhing Chrysalis",
+                    "price": 0.45,
+                    "merit": 103.3
+                  },
+                  {
+                    "card": "Kozilek's Unsealing",
+                    "price": 0.36,
+                    "merit": 102.15
+                  },
+                  {
+                    "card": "Spawn-Gang Commander",
+                    "price": 0.14,
+                    "merit": 99.45
+                  },
+                  {
+                    "card": "Desolation Twin",
+                    "price": 0.3,
+                    "merit": 94.39999999999999
+                  },
+                  {
+                    "card": "Devourer of Destiny",
+                    "price": 1.28,
+                    "merit": 92.95
+                  },
+                  {
+                    "card": "Deathless Behemoth",
+                    "price": 0.09,
+                    "merit": 89.8
+                  },
+                  {
+                    "card": "Drowner of Hope",
+                    "price": 0.19,
+                    "merit": 89.8
+                  },
+                  {
+                    "card": "Rapacious One",
+                    "price": 0.09,
+                    "merit": 89.8
+                  }
+                ],
+                "watched": []
+              }
+            },
+            {
+              "mode": "unchanged",
+              "price": 116.88,
+              "score": 94.65,
+              "qualityGain": 0,
+              "swaps": 0,
+              "diagnostics": {
+                "pool": 32138,
+                "shortlist": 850,
+                "shortlistLimit": 850,
+                "feasibleFinalistsPerRound": 3,
+                "rejections": {},
+                "qualityShortlistTop": [
+                  {
+                    "card": "Warped Tusker",
+                    "price": 0.06,
+                    "merit": 125.95
+                  },
+                  {
+                    "card": "Drownyard Lurker",
+                    "price": 0.11,
+                    "merit": 125.94999999999999
+                  },
+                  {
+                    "card": "Eldrazi Repurposer",
+                    "price": 0.13,
+                    "merit": 107.15
+                  },
+                  {
+                    "card": "Glaring Fleshraker",
+                    "price": 0.78,
+                    "merit": 107.15
+                  },
+                  {
+                    "card": "Writhing Chrysalis",
+                    "price": 0.45,
+                    "merit": 103.3
+                  },
+                  {
+                    "card": "Kozilek's Unsealing",
+                    "price": 0.36,
+                    "merit": 102.15
+                  },
+                  {
+                    "card": "Spawn-Gang Commander",
+                    "price": 0.14,
+                    "merit": 99.45
+                  },
+                  {
+                    "card": "Desolation Twin",
+                    "price": 0.3,
+                    "merit": 94.39999999999999
+                  },
+                  {
+                    "card": "Devourer of Destiny",
+                    "price": 1.28,
+                    "merit": 92.95
+                  },
+                  {
+                    "card": "Deathless Behemoth",
+                    "price": 0.09,
+                    "merit": 89.8
+                  },
+                  {
+                    "card": "Drowner of Hope",
+                    "price": 0.19,
+                    "merit": 89.8
+                  },
+                  {
+                    "card": "Rapacious One",
+                    "price": 0.09,
+                    "merit": 89.8
+                  }
+                ],
+                "watched": []
+              }
+            }
+          ],
+          "packages": [
+            {
+              "label": "functional complement",
+              "cuts": [
+                "Biomechan Engineer"
+              ],
+              "adds": [
+                "Insight Engine"
+              ],
+              "extraCost": 2.15,
+              "changes": {
+                "independentDraw": 1,
+                "scalableDraw": 1,
+                "supportedEngines": 1
+              }
+            },
+            {
+              "label": "functional complement",
+              "cuts": [
+                "Gretchen Titchwillow"
+              ],
+              "adds": [
+                "Arcanis the Omnipotent"
+              ],
+              "extraCost": 0,
+              "changes": {
+                "independentDraw": 1,
+                "freeDraw": 1,
+                "supportedEngines": 1
+              }
+            },
+            {
+              "label": "functional complement",
+              "cuts": [
+                "Broken Bond"
+              ],
+              "adds": [
+                "Archivist"
+              ],
+              "extraCost": 0.04,
+              "changes": {
+                "independentDraw": 1,
+                "freeDraw": 1,
+                "supportedEngines": 1
+              }
+            }
+          ]
+        },
+        "packageInvestment": {
+          "method": "Atomic two/three-card investments plus single-card probes; Pareto functional improvements, price is only a ceiling",
+          "startingPrice": 116.88,
+          "finalPrice": 119.07,
+          "before": {
+            "vector": {
+              "threatPower": 56,
+              "threatProtection": 0,
+              "independentDraw": 0,
+              "freeDraw": 0,
+              "scalableDraw": 0,
+              "fastMana": 4,
+              "repeatableMana": 19,
+              "fixing": 1,
+              "trueColorless": 6,
+              "burstMana": 0,
+              "flow": 10,
+              "supportedEngines": 2,
+              "copySupport": 0,
+              "answers": 6,
+              "shields": 3,
+              "wideShields": 1,
+              "threats": 8,
+              "annihilator": 3,
+              "castAnswers": 1
+            },
+            "land": {
+              "score": 119,
+              "sources": {
+                "W": 23,
+                "U": 25,
+                "B": 23,
+                "R": 23,
+                "G": 26
+              },
+              "demand": {
+                "W": 9,
+                "U": 12,
+                "B": 4,
+                "R": 6,
+                "G": 13
+              },
+              "realColorless": 19,
+              "penalty": 12
+            },
+            "raw": {
+              "strategyRoles": {
+                "engine": 24,
+                "finisher": 12,
+                "enabler": 19,
+                "payoff": 8
+              },
+              "repeatableMana": 19,
+              "trueColorless": 6,
+              "reducers": 1,
+              "highSpellMana": 54
+            },
+            "unsupported": 0,
+            "method": "Supported function and explicit mana capacity; capped coverage, no price term, no gameplay rating or sequencing simulation"
+          },
+          "after": {
+            "vector": {
+              "threatPower": 56,
+              "threatProtection": 0,
+              "independentDraw": 3,
+              "freeDraw": 2,
+              "scalableDraw": 1,
+              "fastMana": 4,
+              "repeatableMana": 19,
+              "fixing": 1,
+              "trueColorless": 6,
+              "burstMana": 0,
+              "flow": 10,
+              "supportedEngines": 5,
+              "copySupport": 0,
+              "answers": 6,
+              "shields": 3,
+              "wideShields": 1,
+              "threats": 8,
+              "annihilator": 3,
+              "castAnswers": 1
+            },
+            "land": {
+              "score": 119,
+              "sources": {
+                "W": 23,
+                "U": 25,
+                "B": 23,
+                "R": 23,
+                "G": 26
+              },
+              "demand": {
+                "W": 9,
+                "U": 16,
+                "B": 4,
+                "R": 6,
+                "G": 10
+              },
+              "realColorless": 19,
+              "penalty": 12
+            },
+            "raw": {
+              "strategyRoles": {
+                "engine": 24,
+                "finisher": 12,
+                "enabler": 19,
+                "payoff": 8
+              },
+              "repeatableMana": 19,
+              "trueColorless": 6,
+              "reducers": 1,
+              "highSpellMana": 54
+            },
+            "unsupported": 0,
+            "method": "Supported function and explicit mana capacity; capped coverage, no price term, no gameplay rating or sequencing simulation"
+          },
+          "strategyFloors": {
+            "engine": 21,
+            "finisher": 4,
+            "enabler": 8,
+            "payoff": 8
+          },
+          "accepted": [
+            {
+              "label": "functional complement",
+              "cuts": [
+                "Biomechan Engineer"
+              ],
+              "adds": [
+                "Insight Engine"
+              ],
+              "extraCost": 2.15,
+              "changes": {
+                "independentDraw": 1,
+                "scalableDraw": 1,
+                "supportedEngines": 1
+              }
+            },
+            {
+              "label": "functional complement",
+              "cuts": [
+                "Gretchen Titchwillow"
+              ],
+              "adds": [
+                "Arcanis the Omnipotent"
+              ],
+              "extraCost": 0,
+              "changes": {
+                "independentDraw": 1,
+                "freeDraw": 1,
+                "supportedEngines": 1
+              }
+            },
+            {
+              "label": "functional complement",
+              "cuts": [
+                "Broken Bond"
+              ],
+              "adds": [
+                "Archivist"
+              ],
+              "extraCost": 0.04,
+              "changes": {
+                "independentDraw": 1,
+                "freeDraw": 1,
+                "supportedEngines": 1
+              }
+            }
+          ],
+          "evaluated": 280,
+          "rejected": {
+            "ramp overprovision": 8313,
+            "budget": 3203,
+            "high-curve investment needs mana partner": 96,
+            "high-output early mana": 116,
+            "mana base/demand": 2656
+          },
+          "limits": {
+            "maxRounds": 3,
+            "beamWidth": 2,
+            "maxEvaluations": 40
+          },
+          "watch": [],
+          "originPrice": 116.88,
+          "protectedInput": {
+            "vector": {
+              "threatPower": 56,
+              "threatProtection": 0,
+              "independentDraw": 0,
+              "freeDraw": 0,
+              "scalableDraw": 0,
+              "fastMana": 4,
+              "repeatableMana": 19,
+              "fixing": 1,
+              "trueColorless": 6,
+              "burstMana": 0,
+              "flow": 10,
+              "supportedEngines": 2,
+              "copySupport": 0,
+              "answers": 6,
+              "shields": 3,
+              "wideShields": 1,
+              "threats": 8,
+              "annihilator": 3,
+              "castAnswers": 1
+            },
+            "land": {
+              "score": 119,
+              "sources": {
+                "W": 23,
+                "U": 25,
+                "B": 23,
+                "R": 23,
+                "G": 26
+              },
+              "demand": {
+                "W": 9,
+                "U": 12,
+                "B": 4,
+                "R": 6,
+                "G": 13
+              },
+              "realColorless": 19,
+              "penalty": 12
+            },
+            "raw": {
+              "strategyRoles": {
+                "engine": 24,
+                "finisher": 12,
+                "enabler": 19,
+                "payoff": 8
+              },
+              "repeatableMana": 19,
+              "trueColorless": 6,
+              "reducers": 1,
+              "highSpellMana": 54
+            },
+            "unsupported": 0,
+            "method": "Supported function and explicit mana capacity; capped coverage, no price term, no gameplay rating or sequencing simulation"
+          },
+          "originPath": "unchanged"
+        }
+      }
+    ],
+    "selected": "local:engine",
+    "method": "Independent source-template + local-strategy 99-card construction, plus guarded improvement-only budget reinvestment. High budget use is a goal, not proof of strength; no gameplay simulation.",
+    "legacyScore": 96.65,
+    "selectedScore": 165.6,
+    "selectedEvidence": {
+      "value": 165.6,
+      "onPlan": 57,
+      "mana": 33,
+      "positiveOrConditionalDraw": 12,
+      "broadAnswers": 8,
+      "shields": 3,
+      "threeManaRocks": 1,
+      "late": 7,
+      "unsupported": 0,
+      "landScore": 127.31,
+      "tempo": {
+        "efficientRamp": 32,
+        "threeManaRamp": 1,
+        "burstSources": 10,
+        "sevenPlusSpells": 7,
+        "weightedCardFlow": 6.7,
+        "heavyCurveAccelerationGap": 0,
+        "note": "Non-simulated tempo and draw-access evidence: mana timing, actual castability and triggers are not guaranteed."
+      }
+    },
+    "selectedSource": null,
+    "adaptedSourceSpells": 0,
+    "adaptedSourceLands": 0,
+    "reason": "Independent strategy candidate accepted after legal, budget and mechanical checks. Scores are local heuristics only."
+  },
+  "investment": {
+    "startingPrice": 60.48,
+    "finalPrice": 113.07,
+    "ceiling": 191,
+    "remaining": 77.93,
+    "swaps": [],
+    "searchMode": "unchanged",
+    "qualityGain": 0,
+    "diagnostics": {
+      "pool": 32138,
+      "shortlist": 850,
+      "shortlistLimit": 850,
+      "feasibleFinalistsPerRound": 3,
+      "rejections": {},
+      "qualityShortlistTop": [
+        {
+          "card": "Warped Tusker",
+          "price": 0.06,
+          "merit": 125.95
+        },
+        {
+          "card": "Drownyard Lurker",
+          "price": 0.11,
+          "merit": 125.94999999999999
+        },
+        {
+          "card": "Eldrazi Repurposer",
+          "price": 0.13,
+          "merit": 107.15
+        },
+        {
+          "card": "Glaring Fleshraker",
+          "price": 0.78,
+          "merit": 107.15
+        },
+        {
+          "card": "Writhing Chrysalis",
+          "price": 0.45,
+          "merit": 103.3
+        },
+        {
+          "card": "Kozilek's Unsealing",
+          "price": 0.36,
+          "merit": 102.15
+        },
+        {
+          "card": "Spawn-Gang Commander",
+          "price": 0.14,
+          "merit": 99.45
+        },
+        {
+          "card": "Desolation Twin",
+          "price": 0.3,
+          "merit": 94.39999999999999
+        },
+        {
+          "card": "Devourer of Destiny",
+          "price": 1.28,
+          "merit": 92.95
+        },
+        {
+          "card": "Deathless Behemoth",
+          "price": 0.09,
+          "merit": 89.8
+        },
+        {
+          "card": "Drowner of Hope",
+          "price": 0.19,
+          "merit": 89.8
+        },
+        {
+          "card": "Rapacious One",
+          "price": 0.09,
+          "merit": 89.8
+        }
+      ],
+      "watched": []
+    },
+    "note": "Bounded positive-utility search; unused budget is allowed. Costs are estimates, not verified EN NM carts.",
+    "candidates": [
+      {
+        "mode": "balanced",
+        "price": 109.65,
+        "score": 169.54,
+        "qualityGain": 44.6,
+        "swaps": 9,
+        "diagnostics": {
+          "pool": 32138,
+          "shortlist": 850,
+          "shortlistLimit": 850,
+          "feasibleFinalistsPerRound": 3,
+          "rejections": {
+            "seven-plus spell cap": 727,
+            "positive draw floor": 380,
+            "role floor": 345,
+            "high-output early mana": 55,
+            "fixed-land mana demand": 72
+          },
+          "qualityShortlistTop": [
+            {
+              "card": "Warped Tusker",
+              "price": 0.06,
+              "merit": 125.95
+            },
+            {
+              "card": "Drownyard Lurker",
+              "price": 0.11,
+              "merit": 125.94999999999999
+            },
+            {
+              "card": "Eldrazi Repurposer",
+              "price": 0.13,
+              "merit": 107.15
+            },
+            {
+              "card": "Glaring Fleshraker",
+              "price": 0.78,
+              "merit": 107.15
+            },
+            {
+              "card": "Writhing Chrysalis",
+              "price": 0.45,
+              "merit": 103.3
+            },
+            {
+              "card": "Kozilek's Unsealing",
+              "price": 0.36,
+              "merit": 102.15
+            },
+            {
+              "card": "Spawn-Gang Commander",
+              "price": 0.14,
+              "merit": 99.45
+            },
+            {
+              "card": "Desolation Twin",
+              "price": 0.3,
+              "merit": 94.39999999999999
+            },
+            {
+              "card": "Devourer of Destiny",
+              "price": 1.28,
+              "merit": 92.95
+            },
+            {
+              "card": "Deathless Behemoth",
+              "price": 0.09,
+              "merit": 89.8
+            },
+            {
+              "card": "Drowner of Hope",
+              "price": 0.19,
+              "merit": 89.8
+            },
+            {
+              "card": "Rapacious One",
+              "price": 0.09,
+              "merit": 89.8
+            }
+          ],
+          "watched": []
+        }
+      },
+      {
+        "mode": "value",
+        "price": 109.65,
+        "score": 169.54,
+        "qualityGain": 44.6,
+        "swaps": 9,
+        "diagnostics": {
+          "pool": 32138,
+          "shortlist": 850,
+          "shortlistLimit": 850,
+          "feasibleFinalistsPerRound": 3,
+          "rejections": {
+            "seven-plus spell cap": 727,
+            "positive draw floor": 380,
+            "role floor": 345,
+            "high-output early mana": 55,
+            "fixed-land mana demand": 81,
+            "scalar deck score": 2
+          },
+          "qualityShortlistTop": [
+            {
+              "card": "Warped Tusker",
+              "price": 0.06,
+              "merit": 125.95
+            },
+            {
+              "card": "Drownyard Lurker",
+              "price": 0.11,
+              "merit": 125.94999999999999
+            },
+            {
+              "card": "Eldrazi Repurposer",
+              "price": 0.13,
+              "merit": 107.15
+            },
+            {
+              "card": "Glaring Fleshraker",
+              "price": 0.78,
+              "merit": 107.15
+            },
+            {
+              "card": "Writhing Chrysalis",
+              "price": 0.45,
+              "merit": 103.3
+            },
+            {
+              "card": "Kozilek's Unsealing",
+              "price": 0.36,
+              "merit": 102.15
+            },
+            {
+              "card": "Spawn-Gang Commander",
+              "price": 0.14,
+              "merit": 99.45
+            },
+            {
+              "card": "Desolation Twin",
+              "price": 0.3,
+              "merit": 94.39999999999999
+            },
+            {
+              "card": "Devourer of Destiny",
+              "price": 1.28,
+              "merit": 92.95
+            },
+            {
+              "card": "Deathless Behemoth",
+              "price": 0.09,
+              "merit": 89.8
+            },
+            {
+              "card": "Drowner of Hope",
+              "price": 0.19,
+              "merit": 89.8
+            },
+            {
+              "card": "Rapacious One",
+              "price": 0.09,
+              "merit": 89.8
+            }
+          ],
+          "watched": []
+        }
+      },
+      {
+        "mode": "quality",
+        "price": 122.16,
+        "score": 166.83,
+        "qualityGain": 38.45,
+        "swaps": 8,
+        "diagnostics": {
+          "pool": 32138,
+          "shortlist": 850,
+          "shortlistLimit": 850,
+          "feasibleFinalistsPerRound": 3,
+          "rejections": {
+            "seven-plus spell cap": 641,
+            "positive draw floor": 334,
+            "role floor": 313,
+            "high-output early mana": 55,
+            "fixed-land mana demand": 248
+          },
+          "qualityShortlistTop": [
+            {
+              "card": "Warped Tusker",
+              "price": 0.06,
+              "merit": 125.95
+            },
+            {
+              "card": "Drownyard Lurker",
+              "price": 0.11,
+              "merit": 125.94999999999999
+            },
+            {
+              "card": "Eldrazi Repurposer",
+              "price": 0.13,
+              "merit": 107.15
+            },
+            {
+              "card": "Glaring Fleshraker",
+              "price": 0.78,
+              "merit": 107.15
+            },
+            {
+              "card": "Writhing Chrysalis",
+              "price": 0.45,
+              "merit": 103.3
+            },
+            {
+              "card": "Kozilek's Unsealing",
+              "price": 0.36,
+              "merit": 102.15
+            },
+            {
+              "card": "Spawn-Gang Commander",
+              "price": 0.14,
+              "merit": 99.45
+            },
+            {
+              "card": "Desolation Twin",
+              "price": 0.3,
+              "merit": 94.39999999999999
+            },
+            {
+              "card": "Devourer of Destiny",
+              "price": 1.28,
+              "merit": 92.95
+            },
+            {
+              "card": "Deathless Behemoth",
+              "price": 0.09,
+              "merit": 89.8
+            },
+            {
+              "card": "Drowner of Hope",
+              "price": 0.19,
+              "merit": 89.8
+            },
+            {
+              "card": "Rapacious One",
+              "price": 0.09,
+              "merit": 89.8
+            }
+          ],
+          "watched": []
+        }
+      },
+      {
+        "mode": "unchanged",
+        "price": 60.48,
+        "score": 151.54,
+        "qualityGain": 0,
+        "swaps": 0,
+        "diagnostics": {
+          "pool": 32138,
+          "shortlist": 850,
+          "shortlistLimit": 850,
+          "feasibleFinalistsPerRound": 3,
+          "rejections": {},
+          "qualityShortlistTop": [
+            {
+              "card": "Warped Tusker",
+              "price": 0.06,
+              "merit": 125.95
+            },
+            {
+              "card": "Drownyard Lurker",
+              "price": 0.11,
+              "merit": 125.94999999999999
+            },
+            {
+              "card": "Eldrazi Repurposer",
+              "price": 0.13,
+              "merit": 107.15
+            },
+            {
+              "card": "Glaring Fleshraker",
+              "price": 0.78,
+              "merit": 107.15
+            },
+            {
+              "card": "Writhing Chrysalis",
+              "price": 0.45,
+              "merit": 103.3
+            },
+            {
+              "card": "Kozilek's Unsealing",
+              "price": 0.36,
+              "merit": 102.15
+            },
+            {
+              "card": "Spawn-Gang Commander",
+              "price": 0.14,
+              "merit": 99.45
+            },
+            {
+              "card": "Desolation Twin",
+              "price": 0.3,
+              "merit": 94.39999999999999
+            },
+            {
+              "card": "Devourer of Destiny",
+              "price": 1.28,
+              "merit": 92.95
+            },
+            {
+              "card": "Deathless Behemoth",
+              "price": 0.09,
+              "merit": 89.8
+            },
+            {
+              "card": "Drowner of Hope",
+              "price": 0.19,
+              "merit": 89.8
+            },
+            {
+              "card": "Rapacious One",
+              "price": 0.09,
+              "merit": 89.8
+            }
+          ],
+          "watched": []
+        }
+      }
+    ],
+    "packages": [
+      {
+        "label": "functional complement",
+        "cuts": [
+          "Spell Satchel"
+        ],
+        "adds": [
+          "Mana Vault"
+        ],
+        "extraCost": 49.69,
+        "changes": {
+          "burstMana": 3
+        }
+      },
+      {
+        "label": "functional complement",
+        "cuts": [
+          "Tablet of Compleation"
+        ],
+        "adds": [
+          "Basalt Monolith"
+        ],
+        "extraCost": 2.79,
+        "changes": {
+          "burstMana": 1
+        }
+      },
+      {
+        "label": "functional complement",
+        "cuts": [
+          "Heartwood Crafter // Soul Tether"
+        ],
+        "adds": [
+          "Archivist"
+        ],
+        "extraCost": 0.11,
+        "changes": {
+          "independentDraw": 1,
+          "freeDraw": 1,
+          "flow": 1,
+          "supportedEngines": 1
+        }
+      }
+    ]
+  },
+  "selected": [
+    "Ulalek, Fused Atrocity",
+    "Archivist",
+    "Basalt Monolith",
+    "Birthing Hulk",
+    "Deathless Behemoth",
+    "Deranged Assistant",
+    "Desolation Twin",
+    "Devourer of Destiny",
+    "Drowner of Hope",
+    "Drownyard Lurker",
+    "Eldrazi Ravager",
+    "Eldrazi Repurposer",
+    "Eldritch Immunity",
+    "Emrakul's Influence",
+    "Endbringer",
+    "Fractured Powerstone",
+    "Giant's Boulder",
+    "Gideon Blackblade",
+    "Glaring Fleshraker",
+    "Guardian Idol",
+    "H.E.R.B.I.E., Lovable Robot",
+    "Hedron Crawler",
+    "Honest Work",
+    "Kozilek, the Great Distortion",
+    "Kozilek's Pathfinder",
+    "Kozilek's Unsealing",
+    "Magus of the Library",
+    "Mana Vault",
+    "Manakin",
+    "Millikin",
+    "Mind Stone",
+    "Moonsnare Prototype",
+    "Nightshade Dryad",
+    "Oblivion Sower",
+    "Page, Loose Leaf",
+    "Parting Thoughts",
+    "Planar Atlas",
+    "Prismatic Lens",
+    "Rapacious One",
+    "Sea Scryer",
+    "Sire of Stagnation",
+    "Sol Ring",
+    "Solar Transformer",
+    "Spawn-Gang Commander",
+    "Talisman of Conviction",
+    "Talisman of Creativity",
+    "Talisman of Curiosity",
+    "Talisman of Dominance",
+    "Talisman of Hierarchy",
+    "Talisman of Impulse",
+    "Talisman of Indulgence",
+    "Talisman of Progress",
+    "Talisman of Resilience",
+    "Talisman of Unity",
+    "The Irencrag",
+    "Thought Vessel",
+    "Three Steps Ahead",
+    "Ulamog, the Infinite Gyre",
+    "Ulamog's Despoiler",
+    "Ulamog's Nullifier",
+    "Void Grafter",
+    "Warped Tusker",
+    "Writhing Chrysalis",
+    "Command Tower",
+    "Exotic Orchard",
+    "Forest",
+    "Forest",
+    "Forest",
+    "Forest",
+    "Forest",
+    "Holdout Settlement",
+    "Island",
+    "Island",
+    "Island",
+    "Island",
+    "Island",
+    "Mirrodin's Core",
+    "Mountain",
+    "Mountain",
+    "Mountain",
+    "Mountain",
+    "Mountain",
+    "Plains",
+    "Plains",
+    "Plains",
+    "Plains",
+    "Plains",
+    "Spire of Industry",
+    "Swamp",
+    "Swamp",
+    "Swamp",
+    "Swamp",
+    "Swamp",
+    "Tendo Ice Bridge",
+    "The Grey Havens",
+    "Wastes",
+    "Wastes",
+    "Wastes",
+    "Wastes",
+    "Wastes"
+  ]
+}

@@ -14,8 +14,11 @@ import {landScore} from './manaBaseOptimizer.mjs';
 import {templatePredicate} from './comboTemplates.mjs';
 import {normalizedName} from './combos.mjs';
 import {sourceStructureEvidence} from './sourceQuality.mjs';
+import {strategyExecution,executionDominates} from './strategyExecution.mjs';
+import {refinePackageInvestments,selectInvestmentDeck,investmentEvidence,dominatesCandidateEvidence} from './packageInvestment.mjs';
 import {tempoEvidence,drawAccess,sustainedEarlyMana} from './playabilityEvidence.mjs';
 
+const INVESTMENT_STARTS=Symbol('investment starting decks');
 const basics={W:'Plains',U:'Island',B:'Swamp',R:'Mountain',G:'Forest',C:'Wastes'};
 const round=n=>Math.round(n*100)/100;
 const byName=(a,b)=>a.name.localeCompare(b.name);
@@ -121,7 +124,8 @@ function candidatePlans(communityDecks,commander,bracket,enabled,requested,catal
    // Selected community archetype narrows the first source, but alternatives
    // remain available so a poor source is not forced into the final deck.
    const preferred=new Set(requested?.selected?.sourceDecks||[]);
-   ordered.sort((a,b)=>Number(preferred.has(b.key))-Number(preferred.has(a.key))||stable(a.key,b.key));
+   // Stable sort preserves structural ordering within each preference group.
+   ordered.sort((a,b)=>Number(preferred.has(b.key))-Number(preferred.has(a.key)));
    const chosen=[];
    for(const deck of ordered){
     const bag=new Set((deck.mainboard||[]).filter(x=>Number(x.quantity)>0).map(x=>String(x.id)));
@@ -312,7 +316,7 @@ export function strategyScore(cards,commander,plan=planFor(commander)){
  * Package commitments, Bracket 3 compact-combo policy, role floors, and the
  * actual printing-level final budget are independently checked on every swap.
  */
-function investBudgetPath({built,pool,commander,plan=planFor(commander),bracket=3,budget,searchMode='quality',
+function investBudgetPath({built,pool,commander,plan=planFor(commander),bracket=3,budget,searchMode='quality',traceNames=[],
   limits=selectionLimits(plan,Number(bracket)),comboVariants=[],source=null,style=styles[0],maxSwaps=16}={}){
  if(!built||built.status!=='ok')return built;
  const fitsSelectionLimits=createSelectionLimitChecker();
@@ -341,7 +345,9 @@ function investBudgetPath({built,pool,commander,plan=planFor(commander),bracket=
  // Don't make an unmet floor worse, or strip out stronger existing evidence.
  const preserved=Object.fromEntries(floorKeys.map(key=>[key,Math.min(count(key),targets[key])]));
  const existingPositive=spells.filter(c=>fact(c).role.draw==='positive').length;
- const completed=[];
+ const completed=[],rejections={};
+ const watched=new Map(traceNames.map(name=>[name,{card:name,reasons:{}}]));
+ const rejected=(next,reason)=>{rejections[reason]=(rejections[reason]||0)+1;const w=watched.get(next.name);if(w)w.reasons[reason]=(w.reasons[reason]||0)+1;};
  let spent=before;
  let deckScore=strategyScore([...spells,...lands],commander,plan).value;
  let manaScore=landScore([...spells,...lands],{commander,plan}).score;
@@ -363,17 +369,17 @@ function investBudgetPath({built,pool,commander,plan=planFor(commander),bracket=
    const alternatives=[];
    for(const entry of shortlist){
     const next=entry.card,newFact=fact(next);
-    if(sourceRemoval&&!source?.has(oracleId(next))&&sourceCount()<=sourceFloor)continue;
+    if(sourceRemoval&&!source?.has(oracleId(next))&&sourceCount()<=sourceFloor){rejected(next,'source spine');continue;}
     const gain=entry.quality-oldQuality;
-    if(gain<=1.5)break;
+    if(gain<=1.5){for(const w of watched.values()){const candidate=shortlist.find(e=>e.card.name===w.card);if(candidate&&candidate.quality-oldQuality<=1.5){w.reasons['individual merit threshold']=(w.reasons['individual merit threshold']||0)+1;}}break;}
     // Protect exceptional cheap sustained acceleration even above role floors.
-    if(oldFact.earlyOutput>=2&&newFact.earlyOutput<oldFact.earlyOutput)continue;
-    if(cost(next)>priceRoom+1e-7)continue;
-    if(next.game_changer&&!old.game_changer&&currentGC>=(bracket===2?0:bracket===3?3:99))continue;
-    if(newFact.late&&!oldFact.late&&lateCount>=7)continue;
-    if(newFact.ramp&&newFact.cmc>=3&&!(oldFact.ramp&&oldFact.cmc>=3)&&threeRock>=2)continue;
-    if(floorKeys.some(key=>oldFact[key]&&!newFact[key]&&current[key]<=preserved[key]))continue;
-    if(oldFact.role.draw==='positive'&&newFact.role.draw!=='positive'&&currentPositive<=existingPositive)continue;
+    if(oldFact.earlyOutput>=2&&newFact.earlyOutput<oldFact.earlyOutput){rejected(next,'high-output early mana');continue;}
+    if(cost(next)>priceRoom+1e-7){rejected(next,'budget');continue;}
+    if(next.game_changer&&!old.game_changer&&currentGC>=(bracket===2?0:bracket===3?3:99)){rejected(next,'game changers');continue;}
+    if(newFact.late&&!oldFact.late&&lateCount>=7){rejected(next,'seven-plus spell cap');continue;}
+    if(newFact.ramp&&newFact.cmc>=3&&!(oldFact.ramp&&oldFact.cmc>=3)&&threeRock>=2){rejected(next,'three-mana ramp cap');continue;}
+    if(floorKeys.some(key=>oldFact[key]&&!newFact[key]&&current[key]<=preserved[key])){rejected(next,'role floor');continue;}
+    if(oldFact.role.draw==='positive'&&newFact.role.draw!=='positive'&&currentPositive<=existingPositive){rejected(next,'positive draw floor');continue;}
     // Rank several options before the expensive complete-deck checks. Three
     // independent paths explore absolute utility and two investment levels.
     if(!newFact.primary&&!newFact.ramp&&!newFact.draw&&!newFact.broad&&!newFact.shield)continue;
@@ -392,7 +398,7 @@ function investBudgetPath({built,pool,commander,plan=planFor(commander),bracket=
   // Rejection belongs to a pair in this deck state, never to a card globally.
   for(const proposal of proposals){
    const {index,old,next}=proposal;
-   if(castabilityIssues(next,lands).length||!fitsSelectionLimits(next,spells,limits,old))continue;
+   if(castabilityIssues(next,lands).length||!fitsSelectionLimits(next,spells,limits,old)){rejected(next,'castability/response limits');continue;}
    const nextSpells=spells.slice();nextSpells[index]=next;
    const nextCards=[...nextSpells,...lands];
    if(conservativeComboViolation(nextCards,commander,comboVariants,bracket)||!validateCommanderSingleton(commander,nextCards).valid)continue;
@@ -400,9 +406,9 @@ function investBudgetPath({built,pool,commander,plan=planFor(commander),bracket=
    const nextPrice=cost(commander)+sum(nextCards,cost);
    if(nextPrice>budget+1e-7)continue;
    const nextMana=landScore(nextCards,{commander,plan}).score;
-   if(nextMana<manaScore-1e-7)continue;
+   if(nextMana<manaScore-1e-7){rejected(next,'fixed-land mana demand');continue;}
    const nextScore=strategyScore(nextCards,commander,plan).value;
-   if(nextScore<deckScore-1e-7)continue;
+   if(nextScore<deckScore-1e-7){rejected(next,'scalar deck score');continue;}
    const option={...proposal,nextScore,nextMana,nextPrice};
    if(!best||nextScore>best.nextScore||nextScore===best.nextScore&&proposal.utility>best.utility)best=option;
    if(++valid>=3)break;
@@ -418,6 +424,7 @@ function investBudgetPath({built,pool,commander,plan=planFor(commander),bracket=
   budgetInvestment:{startingPrice:round(before),finalPrice:round(spent),ceiling:round(budget),
    remaining:round(Math.max(0,budget-spent)),swaps:completed,
    searchMode,qualityGain:round(sum(completed,x=>x.qualityGain)),
+   diagnostics:{pool:pool.length,shortlist:candidates.length,shortlistLimit:850,feasibleFinalistsPerRound:3,rejections,qualityShortlistTop:candidates.slice(0,12).map(x=>({card:x.card.name,price:cost(x.card),merit:x.quality})),deck:traceNames.length?spells.concat(lands).map(c=>c.name):undefined,watched:[...watched.values()].map(w=>({...w,inShortlist:candidates.some(e=>e.card.name===w.card),selected:spells.some(c=>c.name===w.card)}))},
    note:'Bounded positive-utility search; unused budget is allowed. Costs are estimates, not verified EN NM carts.'}};
  return outcome;
 }
@@ -436,11 +443,22 @@ export function investRemainingBudget(options={}){
  outcomes.sort((a,b)=>b.score-a.score||b.deck.budgetInvestment.qualityGain-a.deck.budgetInvestment.qualityGain||a.deck.price-b.deck.price);
  const selected=outcomes[0].deck;
  selected.budgetInvestment.candidates=outcomes.map(({deck,score})=>({mode:deck.budgetInvestment.searchMode,
-  price:deck.price,score,qualityGain:deck.budgetInvestment.qualityGain,swaps:deck.budgetInvestment.swaps.length}));
- return selected;
+  price:deck.price,score,qualityGain:deck.budgetInvestment.qualityGain,swaps:deck.budgetInvestment.swaps.length,diagnostics:deck.budgetInvestment.diagnostics}));
+ if(options.deferPackages){Object.defineProperty(selected,INVESTMENT_STARTS,{value:paths.concat(baseline)});return selected;}
+ return finishPackageInvestments(options,selected,paths.concat(baseline),plan);
+}
+function finishPackageInvestments(options,selected,starts,plan){
+ const commander=options.commander;
+ const refined=refinePackageInvestments({...options,plan,built:selected,startingDecks:starts,protectionBaseline:starts.find(x=>x.budgetInvestment?.searchMode==='unchanged')?.cards||options.built?.cards||selected.cards,
+  comboViolation:cards=>conservativeComboViolation(cards,commander,options.comboVariants||[],options.bracket??3),
+  score:cards=>strategyScore(cards,commander,plan).value});
+ refined.budgetInvestment={...(refined.budgetInvestment||selected.budgetInvestment),candidates:selected.budgetInvestment.candidates,finalPrice:refined.price,remaining:round(Math.max(0,options.budget-refined.price)),packages:refined.packageInvestment.accepted};
+ refined.sourceSpellCount=options.source?refined.cards.filter(c=>!isLandSlot(c)&&options.source.has(oracleId(c))).length:0;
+ refined.sourceLandCount=options.source?refined.cards.filter(c=>isLandSlot(c)&&options.source.has(oracleId(c))).length:0;
+ return refined;
 }
 
-export function constructStrategyDeck({cards,commander,bracket,budget,powerTarget='balanced',communityBuild=null,communityDecks=[],preferredCombos=[],comboVariants=[]}={}){
+export function constructStrategyDeck({cards,commander,bracket,budget,powerTarget='balanced',communityBuild=null,communityDecks=[],preferredCombos=[],comboVariants=[],investmentTrace=[],referenceDeck=null}={}){
  const profile={2:{lands:37,maxGameChangers:0},3:{lands:36,maxGameChangers:3},4:{lands:35,maxGameChangers:99}}[Number(bracket)];
  if(!profile)throw Error('Choose bracket 2, 3 or 4.');
  const plan=planFor(commander),pool=dedupeCatalog(cards,commander),commanderPrice=cost(commander);
@@ -451,13 +469,31 @@ export function constructStrategyDeck({cards,commander,bracket,budget,powerTarge
   const violation=conservativeComboViolation(built.cards,commander,comboVariants,bracket);
   if(violation)return {status:'recorded-bracket-combo-policy',strategy:entry.id,violation};
   const invested=investRemainingBudget({built,pool,commander,plan,bracket:Number(bracket),budget:Number(budget),
-   limits,comboVariants,source:entry.source,style:entry.style});
+   deferPackages:true,limits,comboVariants,source:entry.source,style:entry.style,traceNames:Array.isArray(investmentTrace)?investmentTrace:[],
+   packages:preferredCombos.map(c=>({id:c.id,cards:c.namedCards||c.added||[]}))});
   return invested;
  });
+ if(referenceDeck){results.push(investRemainingBudget({built:referenceDeck,pool,commander,plan,bracket:Number(bracket),budget:Number(budget),deferPackages:true,limits,comboVariants,traceNames:Array.isArray(investmentTrace)?investmentTrace:[]}));}
+ const complete=results.filter(x=>x.status==='ok');
+ const preferred=selectInvestmentDeck(complete,{commander,plan,score:cards=>strategyScore(cards,commander,plan).value});
+ const evidence=new Map(complete.map(x=>[x,investmentEvidence(x.cards,commander,plan)]));
+ const mostFlow=complete.slice().sort((a,b)=>evidence.get(b).vector.flow-evidence.get(a).vector.flow||stable(a.strategy,b.strategy))[0];
+ const mostMana=complete.slice().sort((a,b)=>evidence.get(b).vector.repeatableMana-evidence.get(a).vector.repeatableMana||stable(a.strategy,b.strategy))[0];
+ const expanded=[...new Set([preferred,mostFlow,mostMana,...complete].filter(Boolean))].slice(0,3);
+ for(const built of expanded){
+  const entry=entries.find(e=>e.id===built.strategy);
+  const improved=finishPackageInvestments({pool,commander,budget:Number(budget),bracket:Number(bracket),limits,comboVariants,source:entry?.source||null,
+   traceNames:Array.isArray(investmentTrace)?investmentTrace:[],packages:preferredCombos.map(c=>({id:c.id,cards:c.namedCards||c.added||[]}))},built,built[INVESTMENT_STARTS]||[],plan);
+  results[results.indexOf(built)]=improved;
+ }
  const successful=results.filter(x=>x.status==='ok');
  for(const r of successful)r.score=strategyScore(r.cards,commander,plan);
  // Compare complete-deck evidence first; spending more is not evidence.
+ const executionMemo=new Map();
+ const executionFor=cards=>{if(!executionMemo.has(cards))executionMemo.set(cards,strategyExecution(cards,commander,plan));return executionMemo.get(cards);};
+ const functionalChoice=selectInvestmentDeck(successful,{commander,plan,score:cards=>strategyScore(cards,commander,plan).value,executionFor,executionDominates});
  successful.sort((a,b)=>b.score.value-a.score.value||stable(a.strategy,b.strategy));
+ if(functionalChoice){successful.splice(successful.indexOf(functionalChoice),1);successful.unshift(functionalChoice);}
  // A user-picked community archetype is an explicit choice, not a loose bonus.
  // Prefer its valid source representatives; fall back only when no such source
  // constructs a complete and legal candidate. Automatic mode remains scored.
@@ -467,9 +503,23 @@ export function constructStrategyDeck({cards,commander,bracket,budget,powerTarge
   if(selected){successful.splice(successful.indexOf(selected),1);successful.unshift(selected);}
  }
  const distinct=new Set(successful.map(x=>x.cards.map(c=>oracleId(c)).sort(stable).join('|'))).size;
- return {selected:successful[0]||null,successful,report:{mode:'strategy-first',generated:results.length,complete:successful.length,distinct,
+ const compared=successful.map(deck=>({deck,evidence:investmentEvidence(deck.cards,commander,plan)}));
+ const functionalFrontier=compared.filter(x=>!compared.some(y=>x!==y&&dominatesCandidateEvidence(y.evidence,x.evidence)));
+ const selectedEvidence=compared.find(x=>x.deck===successful[0]);
+ const comparison=compared.map(({deck,evidence})=>{
+  const dominatedBy=compared.filter(other=>other.deck!==deck&&dominatesCandidateEvidence(other.evidence,evidence)).map(other=>other.deck.strategy);
+  const executionDominatedBy=functionalFrontier.filter(x=>x.deck!==deck&&executionDominates(executionFor(x.deck.cards),executionFor(deck.cards))).map(x=>x.deck.strategy);
+  return {id:deck.strategy,price:deck.price,score:deck.score.value,vector:evidence.vector,execution:executionFor(deck.cards),
+   selection:{reason:deck===successful[0]?'selected':dominatedBy.length?'functional frontier elimination':executionDominatedBy.length?'paired deployment frontier elimination':'incomparable surviving strategies; legacy scalar tie-break',
+    selectedGains:Object.keys(evidence.vector).filter(k=>selectedEvidence.evidence.vector[k]>evidence.vector[k]),
+    selectedLosses:Object.keys(evidence.vector).filter(k=>selectedEvidence.evidence.vector[k]<evidence.vector[k]),
+    selectedScore:successful[0].score.value,executionDominatedBy},
+   infrastructure:evidence.infrastructure.map(({card,kind,units,support})=>({card,kind,units,support})),
+   drawEngines:evidence.drawEngines.map(({card,trigger,topAccess,independent,support})=>({card,trigger,topAccess,independent,support})),dominatedBy};
+ });
+ return {selected:successful[0]||null,successful,report:{mode:'strategy-first',comparison,packageExpansion:{limit:3,expanded:expanded.map(x=>x.strategy),reason:'Coverage leader plus flow/mana alternatives; remaining complete candidates retain single-card path results'},generated:results.length,complete:successful.length,distinct,
   candidates:results.map(x=>({id:x.strategy,label:x.label||x.strategy,status:x.status,score:x.score?.value??null,
    sourceSpells:x.sourceSpellCount||0,sourceLands:x.sourceLandCount||0,price:x.price??null,
-   budgetSwaps:x.budgetInvestment?.swaps.length||0})),
-  selected:successful[0]?.strategy||null,method:'Independent source-template + local-strategy 99-card construction, plus guarded improvement-only budget reinvestment. High budget use is a goal, not proof of strength; no gameplay simulation.'}};
+   budgetSwaps:x.budgetInvestment?.swaps.length||0,investment:x.budgetInvestment,packageInvestment:x.packageInvestment})),
+  selected:successful[0]?.strategy||null,method:'Independent source-template + local-strategy 99-card construction, plus guarded improvement-only budget reinvestment. Functional frontier, paired deployment probes, then existing scalar for incomparable strategies. No spending merit or certified gameplay performance.'}};
 }

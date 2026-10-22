@@ -1,3 +1,34 @@
+## Unreleased — combo execution requirements and fixed-cache B3/B4 benchmark
+
+- Preserve standard combo gates and record the requested Pod High-Power rules separately as v1.2 requirements. Cached loop data does not establish reliable timing; no pod profile or pod-approved export is silently enabled.
+- Add structured execution-requirement audits for complete and proposed infinites in both constructors. Preserve quantities, commander participation, zones/states, full steps, true-colorless payments, template requirements and resource/outlet review. Expose the requirements in browser disclosures.
+- Flag alternate-face setup, including transformed Enigma Jewel / Locus prerequisites; do not mistake a cheap front face for a deployed back-face engine. Timing and win conversion remain unknown/unverified.
+- Add a read-only fixed-cache Ulalek B3 High / B4 Optimized benchmark and exact-printing exports, plus an explicit turn-six mana-ledger example whose draw order is assumed and whose reliability is unknown. No power gain, combo execution certification, version bump or release is claimed.
+
+## Unreleased — PR #2 functional restoration and deployment evidence
+
+- Restore deficient complete investment paths with bounded coordinated fixing, sustained mana, protection and answer packages; reserve evaluations for repairs and retain native supported infrastructure, combo locks, source spines and exact-printing/budget gates.
+- Record explicit coverage floors instead of protecting every surplus count. Preserve all raw true-colorless output; reject paid level mana and false board-wide protection assembled from unrelated Oracle clauses.
+- Compare surviving complete strategies using separate deterministic deployment probes, including exact colored/hybrid/true-colorless payment after setup and commander optional payment. Preserve distinct engine channels; only paired significant nondecreasing endpoint improvements prune alternatives. Incomparable strategies still use the legacy scalar; no price or spending merit.
+- Add restoration/payment/deployment regressions and trace accepted repairs and complete candidate selection reasons. Validation and remaining risks: `benchmarks/restoration-followup-VALIDATION.md`. PR #2 stays draft; no release or external gameplay improvement is claimed.
+
+## Unreleased — PR #2 strategy support and card-access follow-up
+
+- Keep tutors, cascade streams, cast copying, passive/activated trigger copying and cost reduction distinct in complete-deck dominance. Generic role surplus can no longer hide the loss of these supported capabilities; surplus-only advantages cannot prune an independent strategy after coverage targets are met. No price bonus is added.
+- Recognize chosen-type enter-or-attack draw, singleton creature-entry draw, combined entry/cast triggers and eligible top-library spell access. Preserve conditional classifications and reject unsupported coven, Class-level, emblem, same-name, payment, combat-only and temporary effects.
+- Apply post-draw power conditions and account for zero-MV reversible casting faces in engine discovery without altering pricing records.
+- Reserve bounded discovery slots by engine family and expose named support, frontiers and complete-candidate dominance edges. Add an exact-candidate replay tool and regression coverage.
+- Continue draft PR #2; fixed-cache comparisons and remaining quality risks are recorded in `benchmarks/engine-followup-VALIDATION.md`. No improved external power is claimed.
+
+## Unreleased — coherent multi-card investment and regression tracing
+
+- Preserve the user's actual €108.02 Ulalek list and real-world evaluator regression as historical evidence, without claiming price equivalence to v1.1.1.
+- Add bounded atomic two/three-card investments and spell/land packages. Compare supported full-deck functions before falling back to the old scalar score; spending earns no bonus.
+- Protect original true-colorless capacity, combo commitments, functional coverage and exact-record budget gates; require mana support for additional expensive threats and prevent ramp overprovision.
+- Reject unsupported/delayed/quoted mana and conditional, temporary, consumed or self-replacing draw as reliable engines. Expose accepted packages and bounded rejection traces; preserve the existing research/pricing/Windows flows.
+- Retain structural source ordering, add the complete re-invested reference as a candidate, and bound expensive package expansion to three candidates.
+- Add synthetic regressions and read-only replay tools. See `docs/COHERENT_INVESTMENT.md` and `benchmarks/coherent-investment-VALIDATION.md` for actual results and limitations. No gameplay improvement is certified.
+
 ## Unreleased — bounded budget-search portfolio
 
 - Compare completed quality, intermediate-investment and value paths with the unchanged deck, using existing strategy/deck evidence. Permit cheaper improvements and continued upgrades at the cap; remove spending bonuses.

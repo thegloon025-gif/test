@@ -1,0 +1,20 @@
+{
+  "http": 200,
+  "catalogCount": 32197,
+  "staticHtml": true,
+  "requirementDisclosureScript": true,
+  "commander": "Ulalek, Fused Atrocity",
+  "bracket": 4,
+  "mode": "explicit legacy A/B",
+  "price": 122.84,
+  "cards": 100,
+  "audit": {
+    "agrees": true,
+    "withinBudget": true,
+    "anomalies": []
+  },
+  "requirementRows": 41,
+  "timing": "unknown",
+  "executionVerified": false,
+  "cacheIsolation": "All server writes confined to disposable /tmp clone"
+}

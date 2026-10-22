@@ -1,6 +1,35 @@
 # CommanderOracle Independent — development roadmap
 
-Last revised: 2026-10-21. Local, deterministic Commander generator: **no paid AI API** is needed to build a deck.
+Last revised: 2026-10-22. Local, deterministic Commander generator: **no paid AI API** is needed to build a deck.
+
+## Pod combo rules and v1.2 execution groundwork
+
+- [x] Preserve the existing standard combo-policy option and all pricing/source/commitment constraints.
+- [x] Audit complete/proposed infinite requirements: quantities, commander, zones/states, alternate-face setup, exact mana symbols, actions, resource and outlet review.
+- [x] Expose requirements without claiming inventory is executable; record a conditional paid turn-six example separately from unknown earliest/reliable timing.
+- [ ] Implement an explicit Pod High-Power opt-in **after** validated complete-deck timing/reliability evidence exists. Two-card turn-six and later infinites must be allowed; reliably fast turn-three-to-five lines belong to B4; unknown stays unknown.
+- [ ] Model alternate faces, craft/additional resources, actual stack order, sickness, source expenditure, net loop resources and win conversion without count-based timing guesses.
+- [ ] Agree a definition of reliable execution and measure it against the selected deck. Invalidate evidence after relevant swaps or catalog changes.
+
+See `docs/POD_COMBO_POLICY.md` and `benchmarks/pod-combo-VALIDATION.md`. The pod profile is documented, not enabled, and no pod-approved deck is exported yet.
+
+## Coherent investment follow-up after merged PR #1
+
+- [x] Preserve and reprice the reported €108.02 Ulalek deck under one eligible-printing catalog.
+- [x] Trace individual-merit, shortlist, finalist, role, source, budget and fixed-mana barriers.
+- [x] Evaluate atomic two/three-card packages, including colored engine plus land repair, without a spending bonus.
+- [x] Compare full supported-function dominance before the legacy scalar; preserve input functions, exact colorless capacity, commitments and final budget.
+- [x] Add guards against unsupported mana/draw, excessive ramp and unsupported high-curve investments; record candidate expansion limits and accepted/rejected outcomes.
+- [ ] Calibrate independent/scalable draw, native support and threat capability against actual gameplay and permitted external evaluation. Static dominance is not certified strength.
+- [x] Correct combined enter/cast and enter/attack recognition, singleton entry support and top-library eligibility; reserve bounded discovery slots by engine family.
+- [x] Separate supported tutor, cascade, copying and cost-reduction capabilities in complete-deck dominance; record exact candidate elimination edges.
+- [ ] Find safe outgoing choices and funding/land-repair packages beyond the bounded search, and validate actual draw access and retained strategic engines through gameplay.
+- [x] Add bounded coordinated restoration of deficient paths with explicit surplus coverage limits and retained native infrastructure, raw true-colorless output and existing gates.
+- [x] Add deterministic separate deployment probes, source/card hashes and per-candidate selection explanations; preserve distinct engine execution channels and separate fixed-candidate replays from fresh generation.
+- [ ] Validate deployment probes against gameplay; model life costs, conditional lands, burst/Spawn mana, combat/ninjutsu, sacrifice/death draw and richer sequencing. Current probes do not certify power.
+- [ ] Replace the remaining legacy scalar decisions between incomparable surviving strategies only when stronger validated evidence justifies it.
+
+See `benchmarks/restoration-followup-VALIDATION.md` for the latest PR #2 follow-up and `benchmarks/engine-followup-VALIDATION.md` for its prior stage and `benchmarks/coherent-investment-VALIDATION.md` for its initial results. Prior reports below remain historical.
 
 ## Current development after v1.1.5
 
@@ -12,7 +41,7 @@ Last revised: 2026-10-21. Local, deterministic Commander generator: **no paid AI
 - [x] Add request-scoped caching for unchanged selection-limit counts, with equivalent-gate regression coverage.
 - [ ] Prioritize activation/loyalty timing, modal/adventure additional costs and whole-board versus single-target protection before treating further internal-score gains as card-quality improvements.
 - [ ] Calibrate against measured gameplay and fresh external evaluation. Historical scores remain unchanged; cached-catalog results are not live quotes.
-- [ ] Expand the investment search beyond fixed lands and one-card improvements, with realistic mana sequencing and atomic package alternatives.
+- [ ] Extend the new bounded atomic investment beyond its current frontier and land-repair limits, with realistic mana sequencing.
 - [ ] Support and verify the complete current official bracket 1–5 policy; current implementation retains approximate 2–4 profiles.
 
 The user has now supplied a 32,197-record Scryfall catalog and cached community/Spellbook data. Current offline comparisons and limitations are recorded in `benchmarks/budget-search-VALIDATION.md`; prior absence-of-data statements below describe historical releases.

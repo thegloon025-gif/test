@@ -1,0 +1,1811 @@
+{
+  "cards": [
+    {
+      "card": "Ulalek, Fused Atrocity",
+      "price": 0.46,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "m3c",
+        "setName": "Modern Horizons 3 Commander",
+        "collectorNumber": "4",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Ulalek%2C+Fused+Atrocity&language=1&minCondition=2"
+    },
+    {
+      "card": "Archivist",
+      "price": 0.26,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "9ed",
+        "setName": "Ninth Edition",
+        "collectorNumber": "60",
+        "language": "en",
+        "border": "white",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Archivist&language=1&minCondition=2"
+    },
+    {
+      "card": "Basalt Monolith",
+      "price": 2.94,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "cm2",
+        "setName": "Commander Anthology Volume II",
+        "collectorNumber": "173",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Basalt+Monolith&language=1&minCondition=2"
+    },
+    {
+      "card": "Birthing Hulk",
+      "price": 0.16,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "ogw",
+        "setName": "Oath of the Gatewatch",
+        "collectorNumber": "121",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Birthing+Hulk&language=1&minCondition=2"
+    },
+    {
+      "card": "Deathless Behemoth",
+      "price": 0.09,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "bfz",
+        "setName": "Battle for Zendikar",
+        "collectorNumber": "5",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Deathless+Behemoth&language=1&minCondition=2"
+    },
+    {
+      "card": "Deranged Assistant",
+      "price": 0.09,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "uma",
+        "setName": "Ultimate Masters",
+        "collectorNumber": "49",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Deranged+Assistant&language=1&minCondition=2"
+    },
+    {
+      "card": "Desolation Twin",
+      "price": 0.3,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "bfz",
+        "setName": "Battle for Zendikar",
+        "collectorNumber": "6",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Desolation+Twin&language=1&minCondition=2"
+    },
+    {
+      "card": "Devourer of Destiny",
+      "price": 1.28,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "mh3",
+        "setName": "Modern Horizons 3",
+        "collectorNumber": "2",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Devourer+of+Destiny&language=1&minCondition=2"
+    },
+    {
+      "card": "Drowner of Hope",
+      "price": 0.19,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "bfz",
+        "setName": "Battle for Zendikar",
+        "collectorNumber": "57",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Drowner+of+Hope&language=1&minCondition=2"
+    },
+    {
+      "card": "Drownyard Lurker",
+      "price": 0.11,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "mh3",
+        "setName": "Modern Horizons 3",
+        "collectorNumber": "3",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Drownyard+Lurker&language=1&minCondition=2"
+    },
+    {
+      "card": "Eldrazi Ravager",
+      "price": 0.12,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "mh3",
+        "setName": "Modern Horizons 3",
+        "collectorNumber": "5",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Eldrazi+Ravager&language=1&minCondition=2"
+    },
+    {
+      "card": "Eldrazi Repurposer",
+      "price": 0.13,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "mh3",
+        "setName": "Modern Horizons 3",
+        "collectorNumber": "150",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Eldrazi+Repurposer&language=1&minCondition=2"
+    },
+    {
+      "card": "Eldritch Immunity",
+      "price": 4.74,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "m3c",
+        "setName": "Modern Horizons 3 Commander",
+        "collectorNumber": "33",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Eldritch+Immunity&language=1&minCondition=2"
+    },
+    {
+      "card": "Emrakul's Influence",
+      "price": 0.13,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "emn",
+        "setName": "Eldritch Moon",
+        "collectorNumber": "157",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Emrakul%27s+Influence&language=1&minCondition=2"
+    },
+    {
+      "card": "Endbringer",
+      "price": 0.25,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "pogw",
+        "setName": "Oath of the Gatewatch Promos",
+        "collectorNumber": "3",
+        "language": "en",
+        "border": "black",
+        "finish": "foil",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Endbringer&language=1&minCondition=2"
+    },
+    {
+      "card": "Fractured Powerstone",
+      "price": 0.21,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "pca",
+        "setName": "Planechase Anthology",
+        "collectorNumber": "111",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Fractured+Powerstone&language=1&minCondition=2"
+    },
+    {
+      "card": "Giant's Boulder",
+      "price": 0.42,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "hob",
+        "setName": "The Hobbit",
+        "collectorNumber": "173",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Giant%27s+Boulder&language=1&minCondition=2"
+    },
+    {
+      "card": "Gideon Blackblade",
+      "price": 0.77,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "war",
+        "setName": "War of the Spark",
+        "collectorNumber": "13",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Gideon+Blackblade&language=1&minCondition=2"
+    },
+    {
+      "card": "Glaring Fleshraker",
+      "price": 0.78,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "mh3",
+        "setName": "Modern Horizons 3",
+        "collectorNumber": "7",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Glaring+Fleshraker&language=1&minCondition=2"
+    },
+    {
+      "card": "Guardian Idol",
+      "price": 0.09,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "ima",
+        "setName": "Iconic Masters",
+        "collectorNumber": "216",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Guardian+Idol&language=1&minCondition=2"
+    },
+    {
+      "card": "H.E.R.B.I.E., Lovable Robot",
+      "price": 0.62,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "msc",
+        "setName": "Marvel Super Heroes Commander",
+        "collectorNumber": "106",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=H.E.R.B.I.E.%2C+Lovable+Robot&language=1&minCondition=2"
+    },
+    {
+      "card": "Hedron Crawler",
+      "price": 0.13,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "ogw",
+        "setName": "Oath of the Gatewatch",
+        "collectorNumber": "164",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Hedron+Crawler&language=1&minCondition=2"
+    },
+    {
+      "card": "Honest Work",
+      "price": 0.15,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "tla",
+        "setName": "Avatar: The Last Airbender",
+        "collectorNumber": "55",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Honest+Work&language=1&minCondition=2"
+    },
+    {
+      "card": "Kozilek, the Great Distortion",
+      "price": 4.51,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "ogw",
+        "setName": "Oath of the Gatewatch",
+        "collectorNumber": "4",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Kozilek%2C+the+Great+Distortion&language=1&minCondition=2"
+    },
+    {
+      "card": "Kozilek's Pathfinder",
+      "price": 0.11,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "ogw",
+        "setName": "Oath of the Gatewatch",
+        "collectorNumber": "5",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Kozilek%27s+Pathfinder&language=1&minCondition=2"
+    },
+    {
+      "card": "Kozilek's Unsealing",
+      "price": 0.36,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "mh3",
+        "setName": "Modern Horizons 3",
+        "collectorNumber": "65",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Kozilek%27s+Unsealing&language=1&minCondition=2"
+    },
+    {
+      "card": "Magus of the Library",
+      "price": 0.54,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "plc",
+        "setName": "Planar Chaos",
+        "collectorNumber": "134",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Magus+of+the+Library&language=1&minCondition=2"
+    },
+    {
+      "card": "Mana Vault",
+      "price": 49.79,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "30a",
+        "setName": "30th Anniversary Edition",
+        "collectorNumber": "256",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Mana+Vault&language=1&minCondition=2"
+    },
+    {
+      "card": "Manakin",
+      "price": 0.21,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "ima",
+        "setName": "Iconic Masters",
+        "collectorNumber": "218",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Manakin&language=1&minCondition=2"
+    },
+    {
+      "card": "Millikin",
+      "price": 0.12,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "dmr",
+        "setName": "Dominaria Remastered",
+        "collectorNumber": "231",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Millikin&language=1&minCondition=2"
+    },
+    {
+      "card": "Mind Stone",
+      "price": 0.17,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "c18",
+        "setName": "Commander 2018",
+        "collectorNumber": "210",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Mind+Stone&language=1&minCondition=2"
+    },
+    {
+      "card": "Moonsnare Prototype",
+      "price": 0.22,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "neo",
+        "setName": "Kamigawa: Neon Dynasty",
+        "collectorNumber": "69",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Moonsnare+Prototype&language=1&minCondition=2"
+    },
+    {
+      "card": "Nightshade Dryad",
+      "price": 0.13,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "mh3",
+        "setName": "Modern Horizons 3",
+        "collectorNumber": "163",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Nightshade+Dryad&language=1&minCondition=2"
+    },
+    {
+      "card": "Oblivion Sower",
+      "price": 0.35,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "m3c",
+        "setName": "Modern Horizons 3 Commander",
+        "collectorNumber": "158",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Oblivion+Sower&language=1&minCondition=2"
+    },
+    {
+      "card": "Page, Loose Leaf",
+      "price": 0.18,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "sos",
+        "setName": "Secrets of Strixhaven",
+        "collectorNumber": "250",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Page%2C+Loose+Leaf&language=1&minCondition=2"
+    },
+    {
+      "card": "Parting Thoughts",
+      "price": 0.31,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "c16",
+        "setName": "Commander 2016",
+        "collectorNumber": "15",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Parting+Thoughts&language=1&minCondition=2"
+    },
+    {
+      "card": "Planar Atlas",
+      "price": 0.35,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "plst",
+        "setName": "The List",
+        "collectorNumber": "J22-51",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Planar+Atlas&language=1&minCondition=2"
+    },
+    {
+      "card": "Prismatic Lens",
+      "price": 0.15,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "ema",
+        "setName": "Eternal Masters",
+        "collectorNumber": "230",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Prismatic+Lens&language=1&minCondition=2"
+    },
+    {
+      "card": "Rapacious One",
+      "price": 0.09,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "cmm",
+        "setName": "Commander Masters",
+        "collectorNumber": "249",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Rapacious+One&language=1&minCondition=2"
+    },
+    {
+      "card": "Sea Scryer",
+      "price": 0.14,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "mir",
+        "setName": "Mirage",
+        "collectorNumber": "90",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Sea+Scryer&language=1&minCondition=2"
+    },
+    {
+      "card": "Sire of Stagnation",
+      "price": 1.07,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "m3c",
+        "setName": "Modern Horizons 3 Commander",
+        "collectorNumber": "272",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Sire+of+Stagnation&language=1&minCondition=2"
+    },
+    {
+      "card": "Sol Ring",
+      "price": 0.68,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "c16",
+        "setName": "Commander 2016",
+        "collectorNumber": "272",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Sol+Ring&language=1&minCondition=2"
+    },
+    {
+      "card": "Solar Transformer",
+      "price": 0.08,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "mh3",
+        "setName": "Modern Horizons 3",
+        "collectorNumber": "211",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Solar+Transformer&language=1&minCondition=2"
+    },
+    {
+      "card": "Spawn-Gang Commander",
+      "price": 0.14,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "mh3",
+        "setName": "Modern Horizons 3",
+        "collectorNumber": "140",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Spawn-Gang+Commander&language=1&minCondition=2"
+    },
+    {
+      "card": "Talisman of Conviction",
+      "price": 0.31,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "fic",
+        "setName": "Final Fantasy Commander",
+        "collectorNumber": "363",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Talisman+of+Conviction&language=1&minCondition=2"
+    },
+    {
+      "card": "Talisman of Creativity",
+      "price": 0.79,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "frc",
+        "setName": "Reality Fracture Commander",
+        "collectorNumber": "61",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Talisman+of+Creativity&language=1&minCondition=2"
+    },
+    {
+      "card": "Talisman of Curiosity",
+      "price": 0.33,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "pip",
+        "setName": "Fallout",
+        "collectorNumber": "245",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Talisman+of+Curiosity&language=1&minCondition=2"
+    },
+    {
+      "card": "Talisman of Dominance",
+      "price": 0.53,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "frc",
+        "setName": "Reality Fracture Commander",
+        "collectorNumber": "62",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Talisman+of+Dominance&language=1&minCondition=2"
+    },
+    {
+      "card": "Talisman of Hierarchy",
+      "price": 0.79,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "drc",
+        "setName": "Aetherdrift Commander",
+        "collectorNumber": "142",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Talisman+of+Hierarchy&language=1&minCondition=2"
+    },
+    {
+      "card": "Talisman of Impulse",
+      "price": 0.33,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "m3c",
+        "setName": "Modern Horizons 3 Commander",
+        "collectorNumber": "311",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Talisman+of+Impulse&language=1&minCondition=2"
+    },
+    {
+      "card": "Talisman of Indulgence",
+      "price": 0.69,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "frc",
+        "setName": "Reality Fracture Commander",
+        "collectorNumber": "63",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Talisman+of+Indulgence&language=1&minCondition=2"
+    },
+    {
+      "card": "Talisman of Progress",
+      "price": 0.21,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "frc",
+        "setName": "Reality Fracture Commander",
+        "collectorNumber": "64",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Talisman+of+Progress&language=1&minCondition=2"
+    },
+    {
+      "card": "Talisman of Resilience",
+      "price": 0.31,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "m3c",
+        "setName": "Modern Horizons 3 Commander",
+        "collectorNumber": "314",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Talisman+of+Resilience&language=1&minCondition=2"
+    },
+    {
+      "card": "Talisman of Unity",
+      "price": 0.5,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "mrd",
+        "setName": "Mirrodin",
+        "collectorNumber": "257",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Talisman+of+Unity&language=1&minCondition=2"
+    },
+    {
+      "card": "The Irencrag",
+      "price": 0.49,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "pwoe",
+        "setName": "Wilds of Eldraine Promos",
+        "collectorNumber": "248p",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=The+Irencrag&language=1&minCondition=2"
+    },
+    {
+      "card": "Thought Vessel",
+      "price": 1.16,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "cm2",
+        "setName": "Commander Anthology Volume II",
+        "collectorNumber": "224",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Thought+Vessel&language=1&minCondition=2"
+    },
+    {
+      "card": "Three Steps Ahead",
+      "price": 3.6,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "mar",
+        "setName": "Marvel Universe",
+        "collectorNumber": "62",
+        "language": "en",
+        "border": "borderless",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Three+Steps+Ahead&language=1&minCondition=2"
+    },
+    {
+      "card": "Ulamog, the Infinite Gyre",
+      "price": 26.44,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "roe",
+        "setName": "Rise of the Eldrazi",
+        "collectorNumber": "12",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Ulamog%2C+the+Infinite+Gyre&language=1&minCondition=2"
+    },
+    {
+      "card": "Ulamog's Despoiler",
+      "price": 0.12,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "bfz",
+        "setName": "Battle for Zendikar",
+        "collectorNumber": "16",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Ulamog%27s+Despoiler&language=1&minCondition=2"
+    },
+    {
+      "card": "Ulamog's Nullifier",
+      "price": 0.1,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "m3c",
+        "setName": "Modern Horizons 3 Commander",
+        "collectorNumber": "275",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Ulamog%27s+Nullifier&language=1&minCondition=2"
+    },
+    {
+      "card": "Void Grafter",
+      "price": 0.17,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "ogw",
+        "setName": "Oath of the Gatewatch",
+        "collectorNumber": "150",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Void+Grafter&language=1&minCondition=2"
+    },
+    {
+      "card": "Warped Tusker",
+      "price": 0.06,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "mh3",
+        "setName": "Modern Horizons 3",
+        "collectorNumber": "16",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Warped+Tusker&language=1&minCondition=2"
+    },
+    {
+      "card": "Writhing Chrysalis",
+      "price": 0.45,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "mh3",
+        "setName": "Modern Horizons 3",
+        "collectorNumber": "208",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Writhing+Chrysalis&language=1&minCondition=2"
+    },
+    {
+      "card": "Command Tower",
+      "price": 0.18,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "cmm",
+        "setName": "Commander Masters",
+        "collectorNumber": "420",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Command+Tower&language=1&minCondition=2"
+    },
+    {
+      "card": "Exotic Orchard",
+      "price": 0.16,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "ncc",
+        "setName": "New Capenna Commander",
+        "collectorNumber": "400",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Exotic+Orchard&language=1&minCondition=2"
+    },
+    {
+      "card": "Forest",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "blb",
+        "setName": "Bloomburrow",
+        "collectorNumber": "280",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Forest&language=1&minCondition=2"
+    },
+    {
+      "card": "Forest",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "blb",
+        "setName": "Bloomburrow",
+        "collectorNumber": "280",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Forest&language=1&minCondition=2"
+    },
+    {
+      "card": "Forest",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "blb",
+        "setName": "Bloomburrow",
+        "collectorNumber": "280",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Forest&language=1&minCondition=2"
+    },
+    {
+      "card": "Forest",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "blb",
+        "setName": "Bloomburrow",
+        "collectorNumber": "280",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Forest&language=1&minCondition=2"
+    },
+    {
+      "card": "Forest",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "blb",
+        "setName": "Bloomburrow",
+        "collectorNumber": "280",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Forest&language=1&minCondition=2"
+    },
+    {
+      "card": "Holdout Settlement",
+      "price": 0.45,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "scd",
+        "setName": "Starter Commander Decks",
+        "collectorNumber": "305",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Holdout+Settlement&language=1&minCondition=2"
+    },
+    {
+      "card": "Island",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "eld",
+        "setName": "Throne of Eldraine",
+        "collectorNumber": "255",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Island&language=1&minCondition=2"
+    },
+    {
+      "card": "Island",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "eld",
+        "setName": "Throne of Eldraine",
+        "collectorNumber": "255",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Island&language=1&minCondition=2"
+    },
+    {
+      "card": "Island",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "eld",
+        "setName": "Throne of Eldraine",
+        "collectorNumber": "255",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Island&language=1&minCondition=2"
+    },
+    {
+      "card": "Island",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "eld",
+        "setName": "Throne of Eldraine",
+        "collectorNumber": "255",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Island&language=1&minCondition=2"
+    },
+    {
+      "card": "Island",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "eld",
+        "setName": "Throne of Eldraine",
+        "collectorNumber": "255",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Island&language=1&minCondition=2"
+    },
+    {
+      "card": "Mirrodin's Core",
+      "price": 0.19,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "cns",
+        "setName": "Conspiracy",
+        "collectorNumber": "208",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Mirrodin%27s+Core&language=1&minCondition=2"
+    },
+    {
+      "card": "Mountain",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "2ed",
+        "setName": "Unlimited Edition",
+        "collectorNumber": "298",
+        "language": "en",
+        "border": "white",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Mountain&language=1&minCondition=2"
+    },
+    {
+      "card": "Mountain",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "2ed",
+        "setName": "Unlimited Edition",
+        "collectorNumber": "298",
+        "language": "en",
+        "border": "white",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Mountain&language=1&minCondition=2"
+    },
+    {
+      "card": "Mountain",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "2ed",
+        "setName": "Unlimited Edition",
+        "collectorNumber": "298",
+        "language": "en",
+        "border": "white",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Mountain&language=1&minCondition=2"
+    },
+    {
+      "card": "Mountain",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "2ed",
+        "setName": "Unlimited Edition",
+        "collectorNumber": "298",
+        "language": "en",
+        "border": "white",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Mountain&language=1&minCondition=2"
+    },
+    {
+      "card": "Mountain",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "2ed",
+        "setName": "Unlimited Edition",
+        "collectorNumber": "298",
+        "language": "en",
+        "border": "white",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Mountain&language=1&minCondition=2"
+    },
+    {
+      "card": "Plains",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "cma",
+        "setName": "Commander Anthology",
+        "collectorNumber": "292",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Plains&language=1&minCondition=2"
+    },
+    {
+      "card": "Plains",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "cma",
+        "setName": "Commander Anthology",
+        "collectorNumber": "292",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Plains&language=1&minCondition=2"
+    },
+    {
+      "card": "Plains",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "cma",
+        "setName": "Commander Anthology",
+        "collectorNumber": "292",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Plains&language=1&minCondition=2"
+    },
+    {
+      "card": "Plains",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "cma",
+        "setName": "Commander Anthology",
+        "collectorNumber": "292",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Plains&language=1&minCondition=2"
+    },
+    {
+      "card": "Plains",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "cma",
+        "setName": "Commander Anthology",
+        "collectorNumber": "292",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Plains&language=1&minCondition=2"
+    },
+    {
+      "card": "Spire of Industry",
+      "price": 0.21,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "drc",
+        "setName": "Aetherdrift Commander",
+        "collectorNumber": "172",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Spire+of+Industry&language=1&minCondition=2"
+    },
+    {
+      "card": "Swamp",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "jmp",
+        "setName": "Jumpstart",
+        "collectorNumber": "59",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Swamp&language=1&minCondition=2"
+    },
+    {
+      "card": "Swamp",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "jmp",
+        "setName": "Jumpstart",
+        "collectorNumber": "59",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Swamp&language=1&minCondition=2"
+    },
+    {
+      "card": "Swamp",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "jmp",
+        "setName": "Jumpstart",
+        "collectorNumber": "59",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Swamp&language=1&minCondition=2"
+    },
+    {
+      "card": "Swamp",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "jmp",
+        "setName": "Jumpstart",
+        "collectorNumber": "59",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Swamp&language=1&minCondition=2"
+    },
+    {
+      "card": "Swamp",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "jmp",
+        "setName": "Jumpstart",
+        "collectorNumber": "59",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Swamp&language=1&minCondition=2"
+    },
+    {
+      "card": "Tendo Ice Bridge",
+      "price": 0.22,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "m3c",
+        "setName": "Modern Horizons 3 Commander",
+        "collectorNumber": "393",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Tendo+Ice+Bridge&language=1&minCondition=2"
+    },
+    {
+      "card": "The Grey Havens",
+      "price": 0.16,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "ltr",
+        "setName": "The Lord of the Rings: Tales of Middle-earth",
+        "collectorNumber": "255",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=The+Grey+Havens&language=1&minCondition=2"
+    },
+    {
+      "card": "Wastes",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "plst",
+        "setName": "The List",
+        "collectorNumber": "OGW-183",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Wastes&language=1&minCondition=2"
+    },
+    {
+      "card": "Wastes",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "plst",
+        "setName": "The List",
+        "collectorNumber": "OGW-183",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Wastes&language=1&minCondition=2"
+    },
+    {
+      "card": "Wastes",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "plst",
+        "setName": "The List",
+        "collectorNumber": "OGW-183",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Wastes&language=1&minCondition=2"
+    },
+    {
+      "card": "Wastes",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "plst",
+        "setName": "The List",
+        "collectorNumber": "OGW-183",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Wastes&language=1&minCondition=2"
+    },
+    {
+      "card": "Wastes",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "plst",
+        "setName": "The List",
+        "collectorNumber": "OGW-183",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Wastes&language=1&minCondition=2"
+    }
+  ],
+  "total": 113.07,
+  "count": 100,
+  "missing": [],
+  "agreesWithGenerator": true,
+  "withinBudget": true,
+  "provenance": "exact-selected-cards",
+  "anomalies": []
+}
