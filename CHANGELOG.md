@@ -1,5 +1,11 @@
 ## Unreleased — draft PR #4 Native strategy execution
 
+## Unreleased development — Stage 5 (version remains 1.1.5)
+
+- Opt-in exact native stack sharing, proof-backed no-op batching and audited bounded continuation; remaining bounds stay unknown, with no infinite inference.
+- Narrow Fleshraker and Spawn-Gang player-damage execution, reserved Eldrazi sacrifice costs, independent outlet/life audits and four fixed decision policies.
+- Prospective shadow comparisons and historical bound/Zhulodok diagnostics remain separate; production construction/selection, frozen data and previous measurements are preserved. See `docs/GAMEPLAY_STAGE5.md` and `benchmarks/v12/stage5-VALIDATION.md`.
+
 - Add an opt-in bounded own-stack evaluator for supported Ulalek payments, additive trigger multiplication, copies versus casts, cascade, native tutors, post-resolution tokens and card access. Preserve default model, production construction/selection and version 1.1.5.
 - Independently replay stack/zone/resource receipts and reconcile actual native counters. Partial copy expansion stops as a suspended unknown, without fabricated resources, combo execution or wins.
 - Add controlled and real-card native sequences, repeat frozen shadow comparisons under larger disjoint cohorts and preserve unfamiliar-strategy abstention. See `docs/GAMEPLAY_STAGE4.md` and `benchmarks/v12/stage4-VALIDATION.md`. No release or external power claim.

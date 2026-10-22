@@ -129,3 +129,7 @@ The user has now supplied a 32,197-record Scryfall catalog and cached community/
 - [ ] Calibrate tiered EN NM estimate against diverse verified per-card quotes before calling it predictive.
 - [ ] External real-Scryfall budget and EDHCheck/EDHPowerLevel validation after user refreshes printing provenance.
 - [ ] Build durable saved-deck history and in-app guided strategy-preserving upgrade flow.
+
+### Stage 5 native execution (development, version unchanged)
+
+Structural stack compression/continuation and narrowly audited outlet execution remain opt-in shadow tools. Resolve remaining expansion bounds, unknown native interactions and fixed-pilot limitations before a separately reviewed production integration. Pod High-Power timing/reliability policy remains deferred. See `GAMEPLAY_STAGE5.md` and `../benchmarks/v12/stage5-VALIDATION.md` for actual outcomes and limitations.

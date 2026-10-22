@@ -6,10 +6,13 @@ import {accessModel,accessCondition,accessConditionStatus,knownPower,entryMatche
 import {GAMEPLAY_POLICIES,choosePilotAction,strategyChannels,rampUseful} from './gameplayPilot.mjs';
 import {planFor} from './mechanics.mjs';
 import {planTypes} from './engineSupport.mjs';
+import {outletModel,createOutletLedger} from './gameplayOutlets.mjs';
 import {createNativeStack,nativeModel} from './gameplayNative.mjs';
 
-export function evaluateGameplay({commander,cards,seed='gameplay-stage2-v1',turns=8,order,script,policy='native',mulligan='none',access=true,maxManaStates=4000,maxActions=24,onPreAction=null,nativeExecution=false,maxNativeSteps=192,maxNativeObjects=128,nativeTriggerOrder='copy-first'}={}) {
+export function evaluateGameplay({commander,cards,seed='gameplay-stage2-v1',turns=8,order,script,policy='native',mulligan='none',access=true,maxManaStates=4000,maxActions=24,onPreAction=null,nativeExecution=false,maxNativeSteps=192,maxNativeObjects=128,nativeTriggerOrder='copy-first',nativeStage5=false,nativeOutlets=true,nativeCompression=true,nativeContinuations=3,nativeDecisionPolicy='copy-first',opponentLife=[40,40,40]}={}) {
   if(!commander||!Array.isArray(cards)||cards.length<7||cards.length>99||!Number.isInteger(turns)||turns<1||turns>8||!GAMEPLAY_POLICIES.includes(policy)||!['none','one-free'].includes(mulligan)||!Number.isInteger(maxActions)||maxActions<1||maxActions>40||script&&mulligan!=='none')throw Error('Invalid Stage 2 bounds/options');
+  if(nativeStage5&&(!nativeExecution||typeof nativeCompression!=='boolean'||typeof nativeOutlets!=='boolean'||!['copy-first','resources-first','conservative','follow-up'].includes(nativeDecisionPolicy)))throw Error('Explicit native Stage 5 policy required');
+  const decision= nativeStage5?{order:nativeDecisionPolicy==='copy-first'?'copy-first':'resources-first',optional:['conservative','follow-up'].includes(nativeDecisionPolicy)?'conservative':'all',follow:nativeDecisionPolicy==='follow-up'}:null;
   order??=deploymentOrder(cards,seed);
   if(order.length!==cards.length||new Set(order).size!==cards.length||order.some(i=>!Number.isInteger(i)||i<0||i>=cards.length))throw Error('Order must be an exact permutation');
   const models=new Map(), make=(card,id)=>{
@@ -23,6 +26,8 @@ export function evaluateGameplay({commander,cards,seed='gameplay-stage2-v1',turn
   let native=null,copyId=0;
   const trace=[],observations=[],stats={casts:[],commanderDeploymentTurn:null,setupBeforePayableCommander:0,optionalPayments:[],effectDraws:0,naturalDraws:0,accessDiscards:0,cleanupDiscards:0,returnedToTop:0,topCasts:0,accessSacrifices:0,accessSpells:0,activations:0,selections:0,manaStates:0,manaSearches:0,boundHits:0,actionBoundHits:0,usedEngines:[],mulligans:0};
   const emit=e=>trace.push({turn,...e}),context=()=>({hand,board,graveyard,chosenType}),pilotContext=()=>({policy,turn,turns,commander,board,hand,nativeTypes});
+  const outlets=nativeStage5?createOutletLedger(emit,opponentLife):null;
+  const finished=()=>lost||!!outlets?.won;
   const opening=hand.map(s=>({id:s.id,card:s.card.name}));
   if(mulligan==='one-free'&&(hand.filter(s=>isLand(s.card)).length<2||hand.filter(s=>isLand(s.card)).length>5)){
     const previous=hand.map(s=>s.id);order=deploymentOrder(cards,seed+':free-mulligan:1');library=order.map(i=>slots[i]);hand=library.splice(0,7);stats.mulligans=1;
@@ -138,6 +143,22 @@ export function evaluateGameplay({commander,cards,seed='gameplay-stage2-v1',turn
     if(a.tap)s.tapped=true;if(a.sacrifice){s.consumed=true;toGrave(s);stats.accessSacrifices++;}s.lastAccess=turn;
     emit({event:'access-costs',source:s.id,abilityIndex:i,tap:a.tap,sacrifice:a.sacrifice,life:a.life});stats.activations++;if(native)native.activated(s,a.effects);else effects(a.effects,s,'activation');return r;
   }
+  function outletPlan(source,victim,record=true){
+    const a=outletModel(source.card).sacrificeDamage;
+    if(!nativeStage5||!nativeOutlets||!a||source.consumed||!victim||victim.consumed||!active().some(s=>s.id===victim.id)||!cardSubtypes(victim.card).includes(a.subtype))return {status:'blocked',reason:'outlet source/sacrifice unavailable'};
+    // The reserved sacrifice has no mana modes: it cannot also fund the fee.
+    const state=sourceState();state.sources=state.sources.filter(s=>s.id!==victim.id);
+    return pay(state,[{label:'outlet:'+source.id,cost:a.cost,context:{kind:'ability',abilityType:'activated',types:cardTypes(source.card)}}],record);
+  }
+  function activateOutlet(source,victim,target){
+    if(!Number.isInteger(target)||target<0||target>2||outlets.life[target]<=0)return {status:'blocked',reason:'opponent target unavailable'};
+    const r=outletPlan(source,victim);if(r.status!=='paid')return r;
+    const a=outletModel(source.card).sacrificeDamage;
+    emit({event:'outlet-announced',source:source.id,victim:victim.id,target});
+    commit(r,receipt=>emit({event:'outlet-paid',source:source.id,victim:victim.id,target,...receipt}));
+    victim.consumed=true;toGrave(victim);emit({event:'outlet-sacrifice',source:source.id,victim:victim.id,target});
+    native.activatedOutlet(source,a.damage,target);return r;
+  }
   function playLand(s){if(!s||!hand.includes(s)||!isLand(s.card)||landPlayed)return {status:'blocked',reason:'land unavailable/drop used'};landPlayed=true;hand.splice(hand.indexOf(s),1);const b={...s,since:turn,tapped:s.model.tapped};board.push(b);emit({event:'land',id:b.id,card:b.card.name,tapped:b.tapped,unknown:b.model.conditionalEntry});if(native){native.entry(b);native.drain();}else{spawn(b,'entry');triggerAccess('entry',b);}return {status:'played'};}
   function chooseLand(){
     const current=sourceState(),availableTypes=new Set(current.sources.filter(s=>!s.consumed).flatMap(s=>s.modes.flatMap(m=>m.outputs.flat())));
@@ -165,7 +186,18 @@ export function evaluateGameplay({commander,cards,seed='gameplay-stage2-v1',turn
       const ability=s.access.abilities[i];if(ability.effects.some(e=>e.kind==='exileTop')&&(!s.access.lookTop||!library[0]||top&&top.slot===library[0]&&castPlan(top.slot,false).status==='paid'))continue;
       const plan=abilityPlan(s,i);if(plan.status==='paid')actions.push({kind:'activate',slot:s,abilityIndex:i,plan});
     }
-    return choosePilotAction(actions,pilotContext()).filter(a=>a.rule.reason!=='remaining supported deployment'||!a.plan.receipts.some(r=>r.sacrifice));
+    const ranked=choosePilotAction(actions,pilotContext()).filter(a=>a.rule.reason!=='remaining supported deployment'||!a.plan.receipts.some(r=>r.sacrifice));
+    if(decision?.follow){const grants=active().map(s=>nativeModel(s.card).cascadeGrant).filter(Boolean);
+      for(const a of ranked)if(a.kind==='cast'&&a.origin==='hand'&&isColorless(a.slot.card)&&grants.some(g=>printedManaValue(a.slot.card)>=g.minMV)){a.followup=true;a.rule={priority:-1,reason:'cast payable hand follow-up while cascade engine is active'};}
+      ranked.sort((a,b)=>Number(!!b.followup)-Number(!!a.followup));
+    }
+    if(nativeStage5&&nativeOutlets)for(const source of active().filter(s=>outletModel(s.card).sacrificeDamage)){
+      const victim=active().find(s=>s.token&&cardSubtypes(s.card).includes('Eldrazi')&&outletPlan(source,s,false).status==='paid'),target=outlets.life.findIndex(n=>n>0);
+      if(victim&&target>=0){const a={kind:'outlet',slot:source,victim,target,rule:{reason:'convert spare resources through supported outlet'}};
+        if(outlets.life[target]<=2)ranked.unshift(a);else ranked.push(a);
+      }
+    }
+    return ranked;
   }
   function manaObservation(){const state=sourceState(),commanderContext=castContext(commander,true),max={};
     for(const type of ['generic','W','U','B','R','G','C']){
@@ -195,6 +227,11 @@ export function evaluateGameplay({commander,cards,seed='gameplay-stage2-v1',turn
     else if(channel.kind==='cast-payment')for(const h of hand)if(cardSubtypes(h.card).includes(s.model.castPayment.subtype))statuses.push(castPlan(h,true,false).status);
     return statuses.includes('paid')?'ready':statuses.includes('unknown')?'unknown':'blocked';
   }
+  function recordNativeFollowup(phase){
+    if(!nativeStage5||native?.blocked||finished())return;
+    const engines=active().filter(s=>nativeModel(s.card).cascadeGrant);
+    if(engines.length)emit({event:'native-followup-snapshot',phase,engines:engines.map(s=>s.id),horizonRemaining:turns-turn,hand:hand.filter(h=>!isLand(h.card)&&isColorless(h.card)&&engines.some(s=>printedManaValue(h.card)>=nativeModel(s.card).cascadeGrant.minMV)).map(h=>{const r=castPlan(h,false,false);return {id:h.id,card:h.card.name,status:r.status,reason:r.reason||null};})});
+  }
   function castNative(slot,origin='hand',requireOptional=false,free=false,permission=null){
     if(slot===command)origin='command';
     if(requireOptional){const preview=castPlan(slot,true,true,free);if(preview.status!=='paid')return preview;}
@@ -219,18 +256,19 @@ export function evaluateGameplay({commander,cards,seed='gameplay-stage2-v1',turn
       if(cardTypes(b.card).includes('Legendary')){const same=active().filter(s=>cardTypes(s.card).includes('Legendary')&&s.card.name===b.card.name);if(same.length>1){const keep=same.find(s=>!s.spellCopy)||same[0];for(const s of same.filter(s=>s!==keep)){s.consumed=true;toGrave(s);emit({event:'native-legend-rule',id:s.id,keep:keep.id});}}}
     }
   }
-  if(nativeExecution){native=createNativeStack({emit,active,context,library,hand,exile,effects,useEngine,lost:()=>lost,
+  if(nativeExecution){native=createNativeStack({emit,active,context,library,hand,exile,effects,useEngine,sourceState,lost:()=>lost,won:()=>!!outlets?.won,damage:(...args)=>outlets.damage(...args),
     copySlot:s=>({...make(s.card,'copy-'+copyId++),spellCopy:true,token:s.model.permanent}),
     resolveSpell:resolveNativeSpell,castCascade:(s,permission)=>castNative(s,'cascade',false,true,permission),
     payOptional:(source,cost,item)=>{const r=pay(sourceState(),[{label:'cast-trigger:'+source.id,cost,context:{kind:'ability',abilityType:'triggered',types:cardTypes(source.card)}}]);if(r.status==='paid'){commit(r,receipt=>emit({event:'native-trigger-paid',ability:item.id,source:source.id,causedBy:item.cause.id,...receipt}));stats.optionalPayments.push({turn,card:item.cause.card.name,cost,copy:!!item.copyOf,ability:item.id});useEngine(source,'cast-payment');}return r;},
     createTokens:(e,item)=>{for(let i=0;i<e.count;i++){const card={name:'Eldrazi'+(e.subtype?' '+e.subtype:''),type_line:'Token Creature — Eldrazi'+(e.subtype?' '+e.subtype:''),mana_cost:'',power:e.power,toughness:e.toughness,oracle_text:e.subtype?'Sacrifice this token: Add {C}.':''},token={...make(card,'token-'+tokenId++),token:true,since:turn,tapped:false};board.push(token);emit({event:'token-created',id:token.id,card,ability:item.id});native.entry(token);}}
-  },{seed,chosenType,triggerOrder:nativeTriggerOrder,maxSteps:maxNativeSteps,maxObjects:maxNativeObjects});stats.native=native.stats;}
-  for(turn=1;turn<=turns&&!lost&&!native?.blocked;turn++){
+  },{seed,chosenType,triggerOrder:decision?.order||nativeTriggerOrder,maxSteps:maxNativeSteps,maxObjects:maxNativeObjects,stage5:nativeStage5,enableOutlets:nativeOutlets,compression:nativeCompression,maxContinuations:nativeContinuations,optionalPolicy:decision?.optional||'all'});stats.native=native.stats;}
+  for(turn=1;turn<=turns&&!finished()&&!native?.blocked;turn++){
     native?.beginTurn();
     pool=[];creatureCasts=0;landPlayed=false;lastTop=null;for(const s of active())if(!s.model.noNaturalUntap)s.tapped=false;
-    emit({event:'untap',sources:sourceState().sources});draw(1,'natural');native?.drain();if(lost)break;
+    emit({event:'untap',sources:sourceState().sources});draw(1,'natural');native?.drain();if(finished())break;
     if(!script){const land=chooseLand();if(land)playLand(land);}
     const beforeMana=manaObservation(),threatsBeforeActions=threatObservation();let acts=0;
+    recordNativeFollowup('before-actions');
     // A read-only diagnostic snapshot before spending action mana. Payment
     // previews do not resolve effects or change the pilot/trace/statistics.
     if(onPreAction){
@@ -239,31 +277,34 @@ export function evaluateGameplay({commander,cards,seed='gameplay-stage2-v1',turn
       onPreAction(structuredClone({turn,state:sourceState(),commander:commanderCast?null:probe(command),hand:hand.filter(s=>!isLand(s.card)).map(probe),engines:active().flatMap(s=>channels(s).map(c=>({card:s.card.name,...c,ready:engineReadiness(s,c)})))}));
     }
     if(script){if((script[turn]||[]).length>maxActions)throw Error('Script action bound exceeded');for(const a of script[turn]||[]){
-      if(lost||native?.blocked)break;const top=topChoice(),s=a.card===commander.name&&!commanderCast?command:a.origin==='library'?top?.slot:hand.find(s=>s.card.name===a.card);
-      const source=active().find(s=>s.card.name===a.card),r=a.type==='land'?playLand(s):a.type==='cast'&&s&&s.card.name===a.card?cast(s,a.origin||'hand',!!a.requireOptional):a.type==='activate'&&source?activate(source,a.abilityIndex||0):{status:'unknown',reason:'unsupported action/source unavailable'};
+      if(finished()||native?.blocked)break;const top=topChoice(),s=a.card===commander.name&&!commanderCast?command:a.origin==='library'?top?.slot:hand.find(s=>s.card.name===a.card);
+      const source=active().find(s=>s.card.name===a.card),r=a.type==='land'?playLand(s):a.type==='cast'&&s&&s.card.name===a.card?cast(s,a.origin||'hand',!!a.requireOptional):a.type==='activate'&&source?activate(source,a.abilityIndex||0):a.type==='outlet'&&source&&nativeStage5?activateOutlet(source,active().find(s=>s.id===a.sacrifice||s.card.name===a.sacrifice),a.target):{status:'unknown',reason:'unsupported action/source unavailable'};
+      recordNativeFollowup('after-script-action');
       if(!['paid','played'].includes(r.status))emit({event:'action-failed',action:a,status:r.status,reason:r.reason});
-    }}else for(;acts<maxActions&&!lost&&!native?.blocked;acts++){
+    }}else for(;acts<maxActions&&!finished()&&!native?.blocked;acts++){
       if(!landPlayed){const lateLand=chooseLand();if(lateLand){emit({event:'decision',policy,chosen:lateLand.id,kind:'land',reason:'use an available land drop after access',alternatives:[]});playLand(lateLand);continue;}}
       const options=candidates();if(!options.length)break;
       const payableCommander=options.find(a=>a.commander),guarded=payableCommander&&stats.setupBeforePayableCommander>=1;
       const a=guarded?{...payableCommander,rule:{reason:'take the payable commander after one setup action'}}:options[0];
       if(payableCommander&&!a.commander)stats.setupBeforePayableCommander++;
       emit({event:'decision',policy,chosen:a.slot.id,kind:a.kind,reason:a.rule.reason,commanderPayable:!!payableCommander,setupBudgetUsed:stats.setupBeforePayableCommander,alternatives:options.filter(x=>x.slot.id!==a.slot.id).slice(0,4).map(x=>({id:x.slot.id,kind:x.kind,reason:x.rule.reason}))});
-      if(a.kind==='cast'){cast(a.slot,a.origin);if(a.provider)useEngine(a.provider,'top-access');}else activate(a.slot,a.abilityIndex);
+      if(a.kind==='cast'){cast(a.slot,a.origin);if(a.provider)useEngine(a.provider,'top-access');}else if(a.kind==='outlet')activateOutlet(a.slot,a.victim,a.target);else activate(a.slot,a.abilityIndex);
+      recordNativeFollowup('after-action');
     }
-    if(acts===maxActions){stats.actionBoundHits++;emit({event:'action-bound',status:'unknown',limit:maxActions});}
+    if(acts===maxActions&&(!nativeStage5||!finished()&&!native?.blocked)){stats.actionBoundHits++;emit({event:'action-bound',status:'unknown',limit:maxActions});}
     const missed=[];for(const slot of [...hand.filter(s=>!isLand(s.card)),...(!commanderCast?[command]:[])]){const r=castPlan(slot,false);missed.push({id:slot.id,card:slot.card.name,status:r.status==='paid'?'payable-but-not-selected':r.status,reason:r.reason||'policy/action limit preserves resources'});}
     for(const s of active())if(access)for(let i=0;i<s.access.abilities.length;i++){const r=abilityPlan(s,i);if(r.status!=='paid')missed.push({id:s.id,card:s.card.name,kind:'activation',status:r.status,reason:r.reason});}
     const threats=threatObservation();
-    if(!(native&&lost)&&!active().some(s=>/You have no maximum hand size\./i.test(cardText(s.card))))while(hand.length>7){const s=worstHand();hand.splice(hand.indexOf(s),1);graveyard.push(s);stats.cleanupDiscards++;emit({event:'cleanup-discard',id:s.id,card:s.card.name});}
+    if(!(native&&(lost||nativeStage5&&outlets?.won))&&!(nativeStage5&&native?.blocked)&&!active().some(s=>/You have no maximum hand size\./i.test(cardText(s.card))))while(hand.length>7){const s=worstHand();hand.splice(hand.indexOf(s),1);graveyard.push(s);stats.cleanupDiscards++;emit({event:'cleanup-discard',id:s.id,card:s.card.name});}
     const engines=active().flatMap(s=>channels(s).map(c=>({id:s.id,card:s.card.name,...c,readyNow:engineReadiness(s,c),used:stats.usedEngines.some(e=>e.id===s.id&&(['access','top-access'].includes(e.kind)?c.kind==='access':e.kind===c.kind))})));
     const accessibleCards=hand.length+active().filter(s=>!s.token&&s.id!=='commander').length;
     const observation={turn,commanderDeployed:active().some(s=>s.id==='commander'),manaBeforeActions:beforeMana,manaRemaining:manaObservation(),handSize:hand.length,accessibleCards,netAccessibleCards:accessibleCards-7-stats.naturalDraws,naturalDraws:stats.naturalDraws,effectDraws:stats.effectDraws,effectDiscards:stats.accessDiscards,cleanupDiscards:stats.cleanupDiscards,returnedToTop:stats.returnedToTop,topCasts:stats.topCasts,accessSpells:stats.accessSpells,accessSacrifices:stats.accessSacrifices,engines,threatsBeforeActions,threatAvailability:threats,missed};observations.push(observation);
     emit({event:'turn-end',hand:hand.map(s=>s.card.name),handIds:hand.map(s=>s.id),library:library.map(s=>s.id),graveyard:graveyard.map(s=>s.id),exile:exile.map(s=>s.id),opponents:opponents.map(s=>s.id),ceased:ceased.map(s=>s.id),board:active().map(s=>({id:s.id,card:s.card.name,tapped:s.tapped})),floatingExpires:pool,life});
   }
-  return {schemaVersion:native?4:2,evaluator:native?'gameplay-native-v1':'gameplay-stage2-v1',seed,turns,policy,mulligan,order,initialOpening:opening,commander:commander.name,nativeTypes,chosenType,stats,observations,decked,lost,
-    assumptions:{opening:7,mulligan,drawOnTurnOne:true,rankingIntegration:false,commanderTaxPriorCasts:0,access,mainPhases:1,maxActions,maxManaStates,maxSetupActionsBeforePayableCommander:1,sourcePayments:'optimized exact ledger',opponents:'three inert seats; no combat/interaction; supported control transfers leave our board',optionalPayment:native?'separate payment at trigger resolution under fixed '+nativeTriggerOrder+' ordering':'reserve before resolving resource/access triggers',threatDefinition:'native creature with printed power >=4 or printed MV >=5; payment availability, not win conversion; other threat/combat/copy outcomes unknown',otherRulesCoverage:'not quantified; parsed access is not complete Oracle/rules coverage'},
-    ...(native?{nativeExecution:{triggerOrder:nativeTriggerOrder,maxSteps:maxNativeSteps,maxObjects:maxNativeObjects,boundedUnknown:native.blocked,unknown:[...models.keys()].map(c=>({card:c.name,clauses:nativeModel(c).unknown})).filter(c=>c.clauses.length)}}:{}),
+  return {schemaVersion:native?4:2,evaluator:nativeStage5?'gameplay-native-v2':native?'gameplay-native-v1':'gameplay-stage2-v1',seed,turns,policy,mulligan,order,initialOpening:opening,commander:commander.name,nativeTypes,chosenType,stats,observations,decked,lost,
+    assumptions:{opening:7,mulligan,drawOnTurnOne:true,rankingIntegration:false,commanderTaxPriorCasts:0,access,mainPhases:1,maxActions,maxManaStates,maxSetupActionsBeforePayableCommander:1,sourcePayments:'optimized exact ledger',opponents:'three inert seats; no combat/interaction; supported control transfers leave our board',optionalPayment:native?'separate payment at trigger resolution under fixed '+(decision?.order||nativeTriggerOrder)+' ordering':'reserve before resolving resource/access triggers',threatDefinition:'native creature with printed power >=4 or printed MV >=5; payment availability, not win conversion; other threat/combat/copy outcomes unknown',otherRulesCoverage:'not quantified; parsed access is not complete Oracle/rules coverage'},
+    ...(nativeStage5?{stage5:{outletsEnabled:nativeOutlets,decisionPolicy:nativeDecisionPolicy,compression:nativeCompression,maxContinuations:nativeContinuations,logicalStackCap:4096},outlets:{initialLife:opponentLife,life:outlets.life,won:outlets.won,damageEvents:outlets.events.length,totalDamage:outlets.events.reduce((n,e)=>n+e.amount,0),lethalTurn:outlets.won?trace.findLast(e=>e.event==='opponent-eliminated').turn:null}}:{}),
+    ...(native?{nativeExecution:{triggerOrder:decision?.order||nativeTriggerOrder,maxSteps:maxNativeSteps,maxObjects:maxNativeObjects,boundedUnknown:native.blocked,unknown:[...models.keys()].map(c=>({card:c.name,clauses:nativeModel(c).unknown.filter(l=>!(nativeStage5&&nativeOutlets&&outletModel(c).recognized.includes(l)))})).filter(c=>c.clauses.length)}}:{}),
     coverage:{cardsWithSupportedAccess:[...models.values()].filter(m=>m.access.direct||m.access.abilities.length||m.access.triggers.length||m.access.top).length,cardsWithUnmodeledAccess:[...models.values()].filter(m=>m.access.unknown.length).length,unmodeledAccessClauses:[...models.values()].reduce((n,m)=>n+m.access.unknown.length,0)},
     unknown:[...models].map(([card,m])=>({card:card.name,access:m.access.unknown,other:m.model.unknown.filter(s=>!s.startsWith('other Oracle effects'))})),trace};
 }

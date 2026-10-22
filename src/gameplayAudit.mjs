@@ -2,6 +2,7 @@
 import {parseManaCost, manaAllowed} from './gameplayMana.mjs';
 import {cardModel, cardTypes, cardSubtypes, castContext, isCreature, isLand} from './gameplayCards.mjs';
 import {accessModel} from './gameplayAccess.mjs';
+import {outletModel} from './gameplayOutlets.mjs';
 import {nativeModel} from './gameplayNative.mjs';
 export function auditDeploymentTrace(result, commander, cards) {
   const definitions = new Map(cards.map((c, i) => ['deck-' + i, c])); definitions.set('commander', commander);
@@ -66,6 +67,18 @@ export function auditDeploymentTrace(result, commander, cards) {
       const card=definitions.get(e.source),cause=definitions.get(e.causedBy),context={kind:'ability',abilityType:'triggered',types:card?cardTypes(card):[]};
       if(!card||!nativeModel(card).ulalek||!cause||!cardSubtypes(cause).includes('Eldrazi')||e.cost!=='{C}{C}'||e.reduction!==0||JSON.stringify(context)!==JSON.stringify(e.context))error(e.event,'invalid native optional payment');
       spend(e.spent,e.cost,context,e.reduction);
+    } else if(e.event==='native-noop-group'&&result.stage5&&e.reason==='C-upper-bound'){
+      // Independent upper bound: ignore fees and restrictions, overestimating C.
+      let upper=[...pool.values()].filter(u=>u.type==='C').length;
+      for(const s of board.values())upper+=Math.max(0,...s.model.modes.filter(m=>(!m.minLands||[...board.values()].filter(b=>isLand(b.card)).length>=m.minLands)&&!(m.tap&&(s.tapped||isCreature(s.card)&&s.since===turn&&!s.model.haste))).flatMap(m=>m.outputs.map(o=>o.filter(t=>t==='C').length)));
+      if(upper>=2||e.colorlessUpperBound!==upper)error(e.event,'no proof that C C is impossible');
+    } else if(e.event==='outlet-paid'&&result.stage5){
+      const s=board.get(e.source),victim=board.get(e.victim),a=s&&outletModel(s.card).sacrificeDamage,context={kind:'ability',abilityType:'activated',types:s?cardTypes(s.card):[]};
+      if(!a||!victim||!cardSubtypes(victim.card).includes('Eldrazi')||e.cost!==a.cost||e.reduction!==0||JSON.stringify(context)!==JSON.stringify(e.context))error(e.event,'outlet fee/source/reserved victim invalid');
+      if(e.spent.some(u=>u.source===e.victim))error(e.event,'sacrifice also paid mana');
+      spend(e.spent,e.cost,context,e.reduction);
+    } else if(e.event==='outlet-sacrifice'&&result.stage5){
+      const victim=board.get(e.victim);if(!victim||!cardSubtypes(victim.card).includes('Eldrazi'))error(e.event,'sacrifice missing or already spent');else board.delete(e.victim);
     } else if (e.event === 'optional-trigger-paid') {
       const source=board.get(e.label.replace(/^cast-trigger:/,''));
       const trigger=source?.model.castPayment, context={kind:'ability',abilityType:'triggered',types:source?cardTypes(source.card):[]};
