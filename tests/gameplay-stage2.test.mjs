@@ -102,6 +102,12 @@ test('a land obtained by access can use the still-available land drop that same 
  const r=evaluateGameplay({commander:cmd,cards,order:cards.map((_,i)=>i),turns:1,policy:'development'});
  assert.equal(r.trace.find(e=>e.event==='land').card,'Obtained Forest');assert.ok(r.stats.casts.some(s=>s.card==='Green'&&s.turn===1));assert.ok(auditGameplayTrace(r,cmd,cards).valid);
 });
+test('land planning preserves a real typed follow-up and its separately reserved true-colorless payment',()=>{
+ const commander=c('Copy leader','{0}','Legendary Creature — Eldrazi','Whenever you cast an Eldrazi spell, you may pay {C}{C}. If you do, copy all spells you control.');
+ const cards=[land('A','G'),land('B','G'),land('Surplus green','G'),land('Needed colorless','C'),c('Stone','{0}','Artifact','{T}: Add {C}.'),...fillers(4),body('Follow-up','{1}{G}'),...fillers()];
+ const r=evaluateGameplay({commander,cards,order:cards.map((_,i)=>i),turns:3,policy:'native'});
+ assert.equal(r.trace.find(e=>e.event==='land'&&e.turn===3).card,'Needed colorless');assert.equal(r.stats.optionalPayments.length,1);assert.equal(r.stats.optionalPayments[0].turn,3);assert.ok(auditGameplayTrace(r,commander,cards).valid);
+});
 test('empty-library draw is a model loss, not a successful engine or infinite advantage',()=>{
  const cards=[c('Draw','{0}','Sorcery','Draw two cards.'),...fillers(6),body('Last')],r=evaluateGameplay({commander:cmd,cards,order:cards.map((_,i)=>i),turns:1,script:{1:[cast('Draw')]}});
  assert.equal(r.decked,true);assert.equal(r.lost,true);assert.equal(r.stats.effectDraws,0);assert.ok(auditGameplayTrace(r,cmd,cards).valid);

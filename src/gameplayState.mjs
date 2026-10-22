@@ -139,12 +139,16 @@ export function evaluateGameplay({commander,cards,seed='gameplay-stage2-v1',turn
     const current=sourceState(),availableTypes=new Set(current.sources.filter(s=>!s.consumed).flatMap(s=>s.modes.flatMap(m=>m.outputs.flat())));
     const targetCost=(!commanderCast?command.model.cost||'':'')+hand.filter(s=>!isLand(s.card)&&(printedManaValue(s.card)||0)<=4).map(s=>s.model.cost||'').join('');
     const wanted=new Set([...targetCost.matchAll(/\{([WUBRGC])\}/g)].map(m=>m[1]).filter(t=>!availableTypes.has(t)));
+    const costKnown=!active().some(s=>s.model.unknownTax);
     const candidates=hand.filter(s=>isLand(s.card)).map(s=>{
-      const hypothetical={...current,sources:[...current.sources,{id:s.id,types:cardTypes(s.card),subtypes:cardSubtypes(s.card),modes:s.model.modes.filter(m=>!m.minLands||active().filter(b=>isLand(b.card)).length+1>=m.minLands),tapped:s.model.tapped,sick:isCreature(s.card)&&!s.model.haste}]};
-      const enables=!commanderCast&&parseManaCost(command.model.cost||'{X}')&&pay(hypothetical,[{cost:command.model.cost,reduction:reductionFor(commander),context:castContext(commander,true)}],false).status==='paid';
-      return {slot:s,enables:!!enables,fixes:s.model.modes.some(m=>m.outputs.some(o=>o.some(t=>wanted.has(t))))};
+      const landCount=active().filter(b=>isLand(b.card)).length+1;
+      const hypothetical={...current,sources:[...current.sources.map(source=>({...source,modes:board.find(b=>b.id===source.id).model.modes.filter(m=>!m.minLands||landCount>=m.minLands)})),{id:s.id,types:cardTypes(s.card),subtypes:cardSubtypes(s.card),modes:s.model.modes.filter(m=>!m.minLands||landCount>=m.minLands),tapped:s.model.tapped,sick:isCreature(s.card)&&!s.model.haste}]};
+      const enables=costKnown&&!commanderCast&&!command.model.extraCost&&parseManaCost(command.model.cost||'{X}')&&pay(hypothetical,[{cost:command.model.cost,reduction:reductionFor(commander),context:castContext(commander,true)}],false).status==='paid';
+      const trigger=active().find(b=>b.id==='commander')?.model.castPayment;
+      const enablesFollowup=costKnown&&!!trigger&&hand.some(h=>h.model.permanent&&!h.model.extraCost&&!cardSubtypes(h.card).includes('Aura')&&parseManaCost(h.model.cost||'{X}')&&cardSubtypes(h.card).includes(trigger.subtype)&&pay(hypothetical,[{cost:h.model.cost,reduction:reductionFor(h.card),context:castContext(h.card)},{cost:trigger.cost,context:{kind:'ability',abilityType:'triggered'}}],false).status==='paid');
+      return {slot:s,enables:!!enables,enablesFollowup,fixes:s.model.modes.some(m=>m.outputs.some(o=>o.some(t=>wanted.has(t))))};
     });
-    candidates.sort((a,b)=>Number(b.enables)-Number(a.enables)||Number(a.slot.model.tapped)-Number(b.slot.model.tapped)||Number(b.fixes)-Number(a.fixes)||b.slot.model.modes.length-a.slot.model.modes.length||a.slot.id.localeCompare(b.slot.id));
+    candidates.sort((a,b)=>Number(b.enables)-Number(a.enables)||Number(b.enablesFollowup)-Number(a.enablesFollowup)||Number(a.slot.model.tapped)-Number(b.slot.model.tapped)||Number(b.fixes)-Number(a.fixes)||b.slot.model.modes.length-a.slot.model.modes.length||a.slot.id.localeCompare(b.slot.id));
     return candidates[0]?.slot;
   }
   function topChoice(){const providers=active().filter(s=>s.access.top&&s.access.lookTop);if(!access||!providers.length||!library.length)return null;
