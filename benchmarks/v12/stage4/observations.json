@@ -1,0 +1,1211 @@
+{
+  "sourceSHA256": "83955e349dcabe0af2d26e102f6a87883542cc4619bf801605dfc56085464af2",
+  "metrics": [
+    {
+      "slug": "ulalek-b3",
+      "id": "original",
+      "partition": "training",
+      "runs": 48,
+      "bounded": 0,
+      "modelLoss": 0,
+      "observedPrefix": {
+        "spellCopies": 201,
+        "resolvedCopies": 201,
+        "triggerCopies": 133,
+        "cascades": 8,
+        "castsFromCascade": 8,
+        "tutors": 12,
+        "tutorCardsToHand": 0,
+        "tutorCardsToTop": 12,
+        "tokens": 123,
+        "paidTriggers": 108
+      },
+      "castingCascadeEngineRuns": 2,
+      "unknownNativeClauseRecords": 28
+    },
+    {
+      "slug": "ulalek-b3",
+      "id": "original",
+      "partition": "holdout",
+      "runs": 96,
+      "bounded": 0,
+      "modelLoss": 0,
+      "observedPrefix": {
+        "spellCopies": 150,
+        "resolvedCopies": 150,
+        "triggerCopies": 69,
+        "cascades": 0,
+        "castsFromCascade": 0,
+        "tutors": 19,
+        "tutorCardsToHand": 0,
+        "tutorCardsToTop": 19,
+        "tokens": 143,
+        "paidTriggers": 108
+      },
+      "castingCascadeEngineRuns": 7,
+      "unknownNativeClauseRecords": 28
+    },
+    {
+      "slug": "ulalek-b3",
+      "id": "repair-01",
+      "partition": "training",
+      "runs": 48,
+      "bounded": 0,
+      "modelLoss": 0,
+      "observedPrefix": {
+        "spellCopies": 186,
+        "resolvedCopies": 186,
+        "triggerCopies": 114,
+        "cascades": 0,
+        "castsFromCascade": 0,
+        "tutors": 9,
+        "tutorCardsToHand": 0,
+        "tutorCardsToTop": 9,
+        "tokens": 102,
+        "paidTriggers": 93
+      },
+      "castingCascadeEngineRuns": 3,
+      "unknownNativeClauseRecords": 29
+    },
+    {
+      "slug": "ulalek-b3",
+      "id": "repair-01",
+      "partition": "holdout",
+      "runs": 96,
+      "bounded": 0,
+      "modelLoss": 0,
+      "observedPrefix": {
+        "spellCopies": 166,
+        "resolvedCopies": 166,
+        "triggerCopies": 88,
+        "cascades": 0,
+        "castsFromCascade": 0,
+        "tutors": 15,
+        "tutorCardsToHand": 0,
+        "tutorCardsToTop": 15,
+        "tokens": 165,
+        "paidTriggers": 117
+      },
+      "castingCascadeEngineRuns": 7,
+      "unknownNativeClauseRecords": 29
+    },
+    {
+      "slug": "ulalek-b3",
+      "id": "repair-03",
+      "partition": "training",
+      "runs": 48,
+      "bounded": 0,
+      "modelLoss": 0,
+      "observedPrefix": {
+        "spellCopies": 191,
+        "resolvedCopies": 191,
+        "triggerCopies": 112,
+        "cascades": 0,
+        "castsFromCascade": 0,
+        "tutors": 9,
+        "tutorCardsToHand": 0,
+        "tutorCardsToTop": 9,
+        "tokens": 120,
+        "paidTriggers": 98
+      },
+      "castingCascadeEngineRuns": 3,
+      "unknownNativeClauseRecords": 29
+    },
+    {
+      "slug": "ulalek-b3",
+      "id": "repair-03",
+      "partition": "holdout",
+      "runs": 96,
+      "bounded": 2,
+      "modelLoss": 0,
+      "observedPrefix": {
+        "spellCopies": 269,
+        "resolvedCopies": 239,
+        "triggerCopies": 379,
+        "cascades": 0,
+        "castsFromCascade": 0,
+        "tutors": 24,
+        "tutorCardsToHand": 0,
+        "tutorCardsToTop": 24,
+        "tokens": 153,
+        "paidTriggers": 132
+      },
+      "castingCascadeEngineRuns": 7,
+      "unknownNativeClauseRecords": 29
+    },
+    {
+      "slug": "ulalek-b3",
+      "id": "repair-04",
+      "partition": "training",
+      "runs": 48,
+      "bounded": 2,
+      "modelLoss": 0,
+      "observedPrefix": {
+        "spellCopies": 221,
+        "resolvedCopies": 191,
+        "triggerCopies": 338,
+        "cascades": 0,
+        "castsFromCascade": 0,
+        "tutors": 9,
+        "tutorCardsToHand": 0,
+        "tutorCardsToTop": 9,
+        "tokens": 120,
+        "paidTriggers": 112
+      },
+      "castingCascadeEngineRuns": 1,
+      "unknownNativeClauseRecords": 29
+    },
+    {
+      "slug": "ulalek-b3",
+      "id": "repair-04",
+      "partition": "holdout",
+      "runs": 96,
+      "bounded": 0,
+      "modelLoss": 0,
+      "observedPrefix": {
+        "spellCopies": 154,
+        "resolvedCopies": 154,
+        "triggerCopies": 76,
+        "cascades": 0,
+        "castsFromCascade": 0,
+        "tutors": 21,
+        "tutorCardsToHand": 0,
+        "tutorCardsToTop": 21,
+        "tokens": 154,
+        "paidTriggers": 114
+      },
+      "castingCascadeEngineRuns": 7,
+      "unknownNativeClauseRecords": 29
+    },
+    {
+      "slug": "ulalek-b3",
+      "id": "repair-11",
+      "partition": "training",
+      "runs": 48,
+      "bounded": 0,
+      "modelLoss": 0,
+      "observedPrefix": {
+        "spellCopies": 183,
+        "resolvedCopies": 183,
+        "triggerCopies": 114,
+        "cascades": 0,
+        "castsFromCascade": 0,
+        "tutors": 9,
+        "tutorCardsToHand": 0,
+        "tutorCardsToTop": 9,
+        "tokens": 111,
+        "paidTriggers": 90
+      },
+      "castingCascadeEngineRuns": 3,
+      "unknownNativeClauseRecords": 29
+    },
+    {
+      "slug": "ulalek-b3",
+      "id": "repair-11",
+      "partition": "holdout",
+      "runs": 96,
+      "bounded": 0,
+      "modelLoss": 0,
+      "observedPrefix": {
+        "spellCopies": 155,
+        "resolvedCopies": 155,
+        "triggerCopies": 63,
+        "cascades": 0,
+        "castsFromCascade": 0,
+        "tutors": 19,
+        "tutorCardsToHand": 0,
+        "tutorCardsToTop": 19,
+        "tokens": 139,
+        "paidTriggers": 120
+      },
+      "castingCascadeEngineRuns": 7,
+      "unknownNativeClauseRecords": 29
+    },
+    {
+      "slug": "ulalek-b3",
+      "id": "repair-13",
+      "partition": "training",
+      "runs": 48,
+      "bounded": 0,
+      "modelLoss": 0,
+      "observedPrefix": {
+        "spellCopies": 188,
+        "resolvedCopies": 188,
+        "triggerCopies": 112,
+        "cascades": 0,
+        "castsFromCascade": 0,
+        "tutors": 9,
+        "tutorCardsToHand": 0,
+        "tutorCardsToTop": 9,
+        "tokens": 129,
+        "paidTriggers": 95
+      },
+      "castingCascadeEngineRuns": 3,
+      "unknownNativeClauseRecords": 29
+    },
+    {
+      "slug": "ulalek-b3",
+      "id": "repair-13",
+      "partition": "holdout",
+      "runs": 96,
+      "bounded": 2,
+      "modelLoss": 0,
+      "observedPrefix": {
+        "spellCopies": 252,
+        "resolvedCopies": 222,
+        "triggerCopies": 352,
+        "cascades": 0,
+        "castsFromCascade": 0,
+        "tutors": 26,
+        "tutorCardsToHand": 0,
+        "tutorCardsToTop": 26,
+        "tokens": 153,
+        "paidTriggers": 129
+      },
+      "castingCascadeEngineRuns": 7,
+      "unknownNativeClauseRecords": 29
+    },
+    {
+      "slug": "ulalek-b3",
+      "id": "repair-14",
+      "partition": "training",
+      "runs": 48,
+      "bounded": 2,
+      "modelLoss": 0,
+      "observedPrefix": {
+        "spellCopies": 218,
+        "resolvedCopies": 188,
+        "triggerCopies": 338,
+        "cascades": 0,
+        "castsFromCascade": 0,
+        "tutors": 9,
+        "tutorCardsToHand": 0,
+        "tutorCardsToTop": 9,
+        "tokens": 129,
+        "paidTriggers": 109
+      },
+      "castingCascadeEngineRuns": 1,
+      "unknownNativeClauseRecords": 29
+    },
+    {
+      "slug": "ulalek-b3",
+      "id": "repair-14",
+      "partition": "holdout",
+      "runs": 96,
+      "bounded": 0,
+      "modelLoss": 0,
+      "observedPrefix": {
+        "spellCopies": 137,
+        "resolvedCopies": 137,
+        "triggerCopies": 67,
+        "cascades": 0,
+        "castsFromCascade": 0,
+        "tutors": 23,
+        "tutorCardsToHand": 0,
+        "tutorCardsToTop": 23,
+        "tokens": 146,
+        "paidTriggers": 113
+      },
+      "castingCascadeEngineRuns": 7,
+      "unknownNativeClauseRecords": 29
+    },
+    {
+      "slug": "ulalek-b4",
+      "id": "original",
+      "partition": "training",
+      "runs": 48,
+      "bounded": 0,
+      "modelLoss": 0,
+      "observedPrefix": {
+        "spellCopies": 109,
+        "resolvedCopies": 109,
+        "triggerCopies": 28,
+        "cascades": 0,
+        "castsFromCascade": 0,
+        "tutors": 0,
+        "tutorCardsToHand": 0,
+        "tutorCardsToTop": 0,
+        "tokens": 100,
+        "paidTriggers": 93
+      },
+      "castingCascadeEngineRuns": 0,
+      "unknownNativeClauseRecords": 23
+    },
+    {
+      "slug": "ulalek-b4",
+      "id": "original",
+      "partition": "holdout",
+      "runs": 96,
+      "bounded": 5,
+      "modelLoss": 1,
+      "observedPrefix": {
+        "spellCopies": 380,
+        "resolvedCopies": 152,
+        "triggerCopies": 681,
+        "cascades": 0,
+        "castsFromCascade": 0,
+        "tutors": 0,
+        "tutorCardsToHand": 0,
+        "tutorCardsToTop": 0,
+        "tokens": 255,
+        "paidTriggers": 124
+      },
+      "castingCascadeEngineRuns": 13,
+      "unknownNativeClauseRecords": 23
+    },
+    {
+      "slug": "ulalek-b4",
+      "id": "repair-01",
+      "partition": "training",
+      "runs": 48,
+      "bounded": 0,
+      "modelLoss": 0,
+      "observedPrefix": {
+        "spellCopies": 107,
+        "resolvedCopies": 107,
+        "triggerCopies": 28,
+        "cascades": 0,
+        "castsFromCascade": 0,
+        "tutors": 0,
+        "tutorCardsToHand": 0,
+        "tutorCardsToTop": 0,
+        "tokens": 102,
+        "paidTriggers": 91
+      },
+      "castingCascadeEngineRuns": 0,
+      "unknownNativeClauseRecords": 24
+    },
+    {
+      "slug": "ulalek-b4",
+      "id": "repair-01",
+      "partition": "holdout",
+      "runs": 96,
+      "bounded": 5,
+      "modelLoss": 1,
+      "observedPrefix": {
+        "spellCopies": 423,
+        "resolvedCopies": 179,
+        "triggerCopies": 727,
+        "cascades": 0,
+        "castsFromCascade": 0,
+        "tutors": 0,
+        "tutorCardsToHand": 0,
+        "tutorCardsToTop": 0,
+        "tokens": 270,
+        "paidTriggers": 128
+      },
+      "castingCascadeEngineRuns": 13,
+      "unknownNativeClauseRecords": 24
+    },
+    {
+      "slug": "ulalek-b4",
+      "id": "repair-02",
+      "partition": "training",
+      "runs": 48,
+      "bounded": 0,
+      "modelLoss": 0,
+      "observedPrefix": {
+        "spellCopies": 98,
+        "resolvedCopies": 98,
+        "triggerCopies": 32,
+        "cascades": 0,
+        "castsFromCascade": 0,
+        "tutors": 0,
+        "tutorCardsToHand": 0,
+        "tutorCardsToTop": 0,
+        "tokens": 110,
+        "paidTriggers": 86
+      },
+      "castingCascadeEngineRuns": 0,
+      "unknownNativeClauseRecords": 23
+    },
+    {
+      "slug": "ulalek-b4",
+      "id": "repair-02",
+      "partition": "holdout",
+      "runs": 96,
+      "bounded": 4,
+      "modelLoss": 1,
+      "observedPrefix": {
+        "spellCopies": 554,
+        "resolvedCopies": 161,
+        "triggerCopies": 472,
+        "cascades": 0,
+        "castsFromCascade": 0,
+        "tutors": 0,
+        "tutorCardsToHand": 0,
+        "tutorCardsToTop": 0,
+        "tokens": 294,
+        "paidTriggers": 120
+      },
+      "castingCascadeEngineRuns": 13,
+      "unknownNativeClauseRecords": 23
+    },
+    {
+      "slug": "ulalek-b4",
+      "id": "repair-03",
+      "partition": "training",
+      "runs": 48,
+      "bounded": 0,
+      "modelLoss": 0,
+      "observedPrefix": {
+        "spellCopies": 110,
+        "resolvedCopies": 110,
+        "triggerCopies": 37,
+        "cascades": 0,
+        "castsFromCascade": 0,
+        "tutors": 0,
+        "tutorCardsToHand": 0,
+        "tutorCardsToTop": 0,
+        "tokens": 114,
+        "paidTriggers": 91
+      },
+      "castingCascadeEngineRuns": 3,
+      "unknownNativeClauseRecords": 24
+    },
+    {
+      "slug": "ulalek-b4",
+      "id": "repair-03",
+      "partition": "holdout",
+      "runs": 96,
+      "bounded": 6,
+      "modelLoss": 0,
+      "observedPrefix": {
+        "spellCopies": 579,
+        "resolvedCopies": 245,
+        "triggerCopies": 788,
+        "cascades": 16,
+        "castsFromCascade": 16,
+        "tutors": 0,
+        "tutorCardsToHand": 0,
+        "tutorCardsToTop": 0,
+        "tokens": 464,
+        "paidTriggers": 158
+      },
+      "castingCascadeEngineRuns": 15,
+      "unknownNativeClauseRecords": 24
+    },
+    {
+      "slug": "ulalek-b4",
+      "id": "repair-04",
+      "partition": "training",
+      "runs": 48,
+      "bounded": 1,
+      "modelLoss": 0,
+      "observedPrefix": {
+        "spellCopies": 145,
+        "resolvedCopies": 114,
+        "triggerCopies": 148,
+        "cascades": 0,
+        "castsFromCascade": 0,
+        "tutors": 0,
+        "tutorCardsToHand": 0,
+        "tutorCardsToTop": 0,
+        "tokens": 119,
+        "paidTriggers": 95
+      },
+      "castingCascadeEngineRuns": 0,
+      "unknownNativeClauseRecords": 24
+    },
+    {
+      "slug": "ulalek-b4",
+      "id": "repair-04",
+      "partition": "holdout",
+      "runs": 96,
+      "bounded": 6,
+      "modelLoss": 0,
+      "observedPrefix": {
+        "spellCopies": 544,
+        "resolvedCopies": 210,
+        "triggerCopies": 740,
+        "cascades": 10,
+        "castsFromCascade": 10,
+        "tutors": 0,
+        "tutorCardsToHand": 0,
+        "tutorCardsToTop": 0,
+        "tokens": 389,
+        "paidTriggers": 147
+      },
+      "castingCascadeEngineRuns": 14,
+      "unknownNativeClauseRecords": 24
+    },
+    {
+      "slug": "ulalek-b4",
+      "id": "repair-13",
+      "partition": "training",
+      "runs": 48,
+      "bounded": 0,
+      "modelLoss": 0,
+      "observedPrefix": {
+        "spellCopies": 114,
+        "resolvedCopies": 114,
+        "triggerCopies": 40,
+        "cascades": 0,
+        "castsFromCascade": 0,
+        "tutors": 0,
+        "tutorCardsToHand": 0,
+        "tutorCardsToTop": 0,
+        "tokens": 117,
+        "paidTriggers": 95
+      },
+      "castingCascadeEngineRuns": 3,
+      "unknownNativeClauseRecords": 24
+    },
+    {
+      "slug": "ulalek-b4",
+      "id": "repair-13",
+      "partition": "holdout",
+      "runs": 96,
+      "bounded": 6,
+      "modelLoss": 0,
+      "observedPrefix": {
+        "spellCopies": 549,
+        "resolvedCopies": 215,
+        "triggerCopies": 748,
+        "cascades": 0,
+        "castsFromCascade": 0,
+        "tutors": 0,
+        "tutorCardsToHand": 0,
+        "tutorCardsToTop": 0,
+        "tokens": 375,
+        "paidTriggers": 140
+      },
+      "castingCascadeEngineRuns": 15,
+      "unknownNativeClauseRecords": 24
+    },
+    {
+      "slug": "ulalek-b4",
+      "id": "repair-14",
+      "partition": "training",
+      "runs": 48,
+      "bounded": 1,
+      "modelLoss": 0,
+      "observedPrefix": {
+        "spellCopies": 149,
+        "resolvedCopies": 118,
+        "triggerCopies": 151,
+        "cascades": 0,
+        "castsFromCascade": 0,
+        "tutors": 0,
+        "tutorCardsToHand": 0,
+        "tutorCardsToTop": 0,
+        "tokens": 122,
+        "paidTriggers": 99
+      },
+      "castingCascadeEngineRuns": 0,
+      "unknownNativeClauseRecords": 24
+    },
+    {
+      "slug": "ulalek-b4",
+      "id": "repair-14",
+      "partition": "holdout",
+      "runs": 96,
+      "bounded": 6,
+      "modelLoss": 0,
+      "observedPrefix": {
+        "spellCopies": 525,
+        "resolvedCopies": 191,
+        "triggerCopies": 711,
+        "cascades": 0,
+        "castsFromCascade": 0,
+        "tutors": 0,
+        "tutorCardsToHand": 0,
+        "tutorCardsToTop": 0,
+        "tokens": 316,
+        "paidTriggers": 132
+      },
+      "castingCascadeEngineRuns": 14,
+      "unknownNativeClauseRecords": 24
+    },
+    {
+      "slug": "yuriko-b3",
+      "id": "original",
+      "partition": "training",
+      "runs": 48,
+      "bounded": 0,
+      "modelLoss": 0,
+      "observedPrefix": {
+        "spellCopies": 0,
+        "resolvedCopies": 0,
+        "triggerCopies": 0,
+        "cascades": 0,
+        "castsFromCascade": 0,
+        "tutors": 0,
+        "tutorCardsToHand": 0,
+        "tutorCardsToTop": 0,
+        "tokens": 0,
+        "paidTriggers": 0
+      },
+      "castingCascadeEngineRuns": 0,
+      "unknownNativeClauseRecords": 20
+    },
+    {
+      "slug": "yuriko-b3",
+      "id": "original",
+      "partition": "holdout",
+      "runs": 96,
+      "bounded": 0,
+      "modelLoss": 0,
+      "observedPrefix": {
+        "spellCopies": 0,
+        "resolvedCopies": 0,
+        "triggerCopies": 0,
+        "cascades": 0,
+        "castsFromCascade": 0,
+        "tutors": 0,
+        "tutorCardsToHand": 0,
+        "tutorCardsToTop": 0,
+        "tokens": 0,
+        "paidTriggers": 0
+      },
+      "castingCascadeEngineRuns": 0,
+      "unknownNativeClauseRecords": 20
+    },
+    {
+      "slug": "wilhelt-b3",
+      "id": "original",
+      "partition": "training",
+      "runs": 48,
+      "bounded": 0,
+      "modelLoss": 0,
+      "observedPrefix": {
+        "spellCopies": 0,
+        "resolvedCopies": 0,
+        "triggerCopies": 0,
+        "cascades": 0,
+        "castsFromCascade": 0,
+        "tutors": 0,
+        "tutorCardsToHand": 0,
+        "tutorCardsToTop": 0,
+        "tokens": 0,
+        "paidTriggers": 0
+      },
+      "castingCascadeEngineRuns": 0,
+      "unknownNativeClauseRecords": 24
+    },
+    {
+      "slug": "wilhelt-b3",
+      "id": "original",
+      "partition": "holdout",
+      "runs": 96,
+      "bounded": 0,
+      "modelLoss": 0,
+      "observedPrefix": {
+        "spellCopies": 0,
+        "resolvedCopies": 0,
+        "triggerCopies": 0,
+        "cascades": 0,
+        "castsFromCascade": 0,
+        "tutors": 0,
+        "tutorCardsToHand": 0,
+        "tutorCardsToTop": 0,
+        "tokens": 0,
+        "paidTriggers": 0
+      },
+      "castingCascadeEngineRuns": 0,
+      "unknownNativeClauseRecords": 24
+    },
+    {
+      "slug": "zada-b3",
+      "id": "original",
+      "partition": "training",
+      "runs": 48,
+      "bounded": 0,
+      "modelLoss": 0,
+      "observedPrefix": {
+        "spellCopies": 0,
+        "resolvedCopies": 0,
+        "triggerCopies": 0,
+        "cascades": 0,
+        "castsFromCascade": 0,
+        "tutors": 0,
+        "tutorCardsToHand": 0,
+        "tutorCardsToTop": 0,
+        "tokens": 0,
+        "paidTriggers": 0
+      },
+      "castingCascadeEngineRuns": 0,
+      "unknownNativeClauseRecords": 24
+    },
+    {
+      "slug": "zada-b3",
+      "id": "original",
+      "partition": "holdout",
+      "runs": 96,
+      "bounded": 0,
+      "modelLoss": 0,
+      "observedPrefix": {
+        "spellCopies": 0,
+        "resolvedCopies": 0,
+        "triggerCopies": 0,
+        "cascades": 0,
+        "castsFromCascade": 0,
+        "tutors": 0,
+        "tutorCardsToHand": 0,
+        "tutorCardsToTop": 0,
+        "tokens": 0,
+        "paidTriggers": 0
+      },
+      "castingCascadeEngineRuns": 0,
+      "unknownNativeClauseRecords": 24
+    }
+  ],
+  "reviewed": [
+    {
+      "id": "paid-copy-and-entry-resources",
+      "price": 174.24,
+      "cascadeHits": [],
+      "commanderTurn": 5,
+      "native": {
+        "castsFromCascade": 0,
+        "spellCopies": 2,
+        "triggerCopies": 1,
+        "resolvedCopies": 2,
+        "cascades": 0,
+        "tutors": 0,
+        "tutorCardsToHand": 0,
+        "tutorCardsToTop": 0,
+        "tokens": 10,
+        "paidTriggers": 2,
+        "declinedTriggers": 0,
+        "multipliedTriggers": 0,
+        "boundHits": 0,
+        "unsupported": [],
+        "maxStack": 4
+      },
+      "actions": [
+        {
+          "turn": 2,
+          "id": "deck-1",
+          "card": "Arcane Signet",
+          "commander": false,
+          "origin": "hand"
+        },
+        {
+          "turn": 3,
+          "id": "deck-33",
+          "card": "Mind Stone",
+          "commander": false,
+          "origin": "hand"
+        },
+        {
+          "turn": 5,
+          "id": "commander",
+          "card": "Ulalek, Fused Atrocity",
+          "commander": true,
+          "origin": "command"
+        },
+        {
+          "turn": 6,
+          "id": "deck-47",
+          "card": "Spawn-Gang Commander",
+          "commander": false,
+          "origin": "hand"
+        },
+        {
+          "turn": 7,
+          "id": "deck-10",
+          "card": "Drowner of Hope",
+          "commander": false,
+          "origin": "hand"
+        }
+      ]
+    },
+    {
+      "id": "multiplied-trigger-sequence",
+      "price": 174.24,
+      "cascadeHits": [],
+      "commanderTurn": 5,
+      "native": {
+        "castsFromCascade": 0,
+        "spellCopies": 2,
+        "triggerCopies": 3,
+        "resolvedCopies": 2,
+        "cascades": 0,
+        "tutors": 0,
+        "tutorCardsToHand": 0,
+        "tutorCardsToTop": 0,
+        "tokens": 9,
+        "paidTriggers": 2,
+        "declinedTriggers": 1,
+        "multipliedTriggers": 1,
+        "boundHits": 0,
+        "unsupported": [],
+        "maxStack": 6
+      },
+      "actions": [
+        {
+          "turn": 2,
+          "id": "deck-1",
+          "card": "Arcane Signet",
+          "commander": false,
+          "origin": "hand"
+        },
+        {
+          "turn": 3,
+          "id": "deck-33",
+          "card": "Mind Stone",
+          "commander": false,
+          "origin": "hand"
+        },
+        {
+          "turn": 4,
+          "id": "deck-0",
+          "card": "Annie Joins Up",
+          "commander": false,
+          "origin": "hand"
+        },
+        {
+          "turn": 5,
+          "id": "commander",
+          "card": "Ulalek, Fused Atrocity",
+          "commander": true,
+          "origin": "command"
+        },
+        {
+          "turn": 6,
+          "id": "deck-47",
+          "card": "Spawn-Gang Commander",
+          "commander": false,
+          "origin": "hand"
+        }
+      ]
+    },
+    {
+      "id": "true-C-shortfall",
+      "price": 174.24,
+      "cascadeHits": [],
+      "commanderTurn": 5,
+      "native": {
+        "castsFromCascade": 0,
+        "spellCopies": 0,
+        "triggerCopies": 0,
+        "resolvedCopies": 0,
+        "cascades": 0,
+        "tutors": 0,
+        "tutorCardsToHand": 0,
+        "tutorCardsToTop": 0,
+        "tokens": 0,
+        "paidTriggers": 0,
+        "declinedTriggers": 1,
+        "multipliedTriggers": 0,
+        "boundHits": 0,
+        "unsupported": [],
+        "maxStack": 2
+      },
+      "actions": [
+        {
+          "turn": 2,
+          "id": "deck-1",
+          "card": "Arcane Signet",
+          "commander": false,
+          "origin": "hand"
+        },
+        {
+          "turn": 3,
+          "id": "deck-33",
+          "card": "Mind Stone",
+          "commander": false,
+          "origin": "hand"
+        },
+        {
+          "turn": 5,
+          "id": "commander",
+          "card": "Ulalek, Fused Atrocity",
+          "commander": true,
+          "origin": "command"
+        },
+        {
+          "turn": 6,
+          "id": "deck-20",
+          "card": "Endbringer",
+          "commander": false,
+          "origin": "hand"
+        }
+      ]
+    },
+    {
+      "id": "native-cascade",
+      "price": 174.24,
+      "cascadeHits": [
+        "Annie Joins Up",
+        "Basking Broodscale"
+      ],
+      "commanderTurn": null,
+      "native": {
+        "castsFromCascade": 2,
+        "spellCopies": 0,
+        "triggerCopies": 0,
+        "resolvedCopies": 0,
+        "cascades": 2,
+        "tutors": 0,
+        "tutorCardsToHand": 0,
+        "tutorCardsToTop": 0,
+        "tokens": 0,
+        "paidTriggers": 0,
+        "declinedTriggers": 0,
+        "multipliedTriggers": 0,
+        "boundHits": 0,
+        "unsupported": [],
+        "maxStack": 3
+      },
+      "actions": [
+        {
+          "turn": 1,
+          "id": "deck-45",
+          "card": "Sol Ring",
+          "commander": false,
+          "origin": "hand"
+        },
+        {
+          "turn": 2,
+          "id": "deck-53",
+          "card": "Thran Dynamo",
+          "commander": false,
+          "origin": "hand"
+        },
+        {
+          "turn": 3,
+          "id": "deck-61",
+          "card": "Zhulodok, Void Gorger",
+          "commander": false,
+          "origin": "hand"
+        },
+        {
+          "turn": 4,
+          "id": "deck-9",
+          "card": "Devourer of Destiny",
+          "commander": false,
+          "origin": "hand"
+        },
+        {
+          "turn": 4,
+          "id": "deck-0",
+          "card": "Annie Joins Up",
+          "commander": false,
+          "origin": "cascade"
+        },
+        {
+          "turn": 4,
+          "id": "deck-2",
+          "card": "Basking Broodscale",
+          "commander": false,
+          "origin": "cascade"
+        }
+      ]
+    },
+    {
+      "id": "generic-mana-instead-of-cascade",
+      "price": 133.2,
+      "cascadeHits": [],
+      "commanderTurn": null,
+      "native": {
+        "castsFromCascade": 0,
+        "spellCopies": 0,
+        "triggerCopies": 0,
+        "resolvedCopies": 0,
+        "cascades": 0,
+        "tutors": 0,
+        "tutorCardsToHand": 0,
+        "tutorCardsToTop": 0,
+        "tokens": 0,
+        "paidTriggers": 0,
+        "declinedTriggers": 0,
+        "multipliedTriggers": 0,
+        "boundHits": 0,
+        "unsupported": [],
+        "maxStack": 1
+      },
+      "actions": [
+        {
+          "turn": 1,
+          "id": "deck-45",
+          "card": "Sol Ring",
+          "commander": false,
+          "origin": "hand"
+        },
+        {
+          "turn": 2,
+          "id": "deck-53",
+          "card": "Thran Dynamo",
+          "commander": false,
+          "origin": "hand"
+        },
+        {
+          "turn": 3,
+          "id": "deck-61",
+          "card": "Worn Powerstone",
+          "commander": false,
+          "origin": "hand"
+        },
+        {
+          "turn": 4,
+          "id": "deck-9",
+          "card": "Devourer of Destiny",
+          "commander": false,
+          "origin": "hand"
+        }
+      ]
+    },
+    {
+      "id": "echoes-multiplied-cascade",
+      "price": 174.24,
+      "cascadeHits": [
+        "Basking Broodscale",
+        "Blisterpod",
+        "Chittering Dispatcher",
+        "Conduit of Ruin"
+      ],
+      "commanderTurn": null,
+      "native": {
+        "castsFromCascade": 4,
+        "spellCopies": 6,
+        "triggerCopies": 0,
+        "resolvedCopies": 6,
+        "cascades": 4,
+        "tutors": 2,
+        "tutorCardsToHand": 0,
+        "tutorCardsToTop": 2,
+        "tokens": 0,
+        "paidTriggers": 0,
+        "declinedTriggers": 0,
+        "multipliedTriggers": 3,
+        "boundHits": 0,
+        "unsupported": [],
+        "maxStack": 6
+      },
+      "actions": [
+        {
+          "turn": 1,
+          "id": "deck-45",
+          "card": "Sol Ring",
+          "commander": false,
+          "origin": "hand"
+        },
+        {
+          "turn": 2,
+          "id": "deck-53",
+          "card": "Thran Dynamo",
+          "commander": false,
+          "origin": "hand"
+        },
+        {
+          "turn": 3,
+          "id": "deck-12",
+          "card": "Echoes of Eternity",
+          "commander": false,
+          "origin": "hand"
+        },
+        {
+          "turn": 4,
+          "id": "deck-61",
+          "card": "Zhulodok, Void Gorger",
+          "commander": false,
+          "origin": "hand"
+        },
+        {
+          "turn": 5,
+          "id": "deck-9",
+          "card": "Devourer of Destiny",
+          "commander": false,
+          "origin": "hand"
+        },
+        {
+          "turn": 5,
+          "id": "deck-2",
+          "card": "Basking Broodscale",
+          "commander": false,
+          "origin": "cascade"
+        },
+        {
+          "turn": 5,
+          "id": "deck-3",
+          "card": "Blisterpod",
+          "commander": false,
+          "origin": "cascade"
+        },
+        {
+          "turn": 5,
+          "id": "deck-4",
+          "card": "Chittering Dispatcher",
+          "commander": false,
+          "origin": "cascade"
+        },
+        {
+          "turn": 5,
+          "id": "deck-5",
+          "card": "Conduit of Ruin",
+          "commander": false,
+          "origin": "cascade"
+        }
+      ]
+    },
+    {
+      "id": "tutor-copy-deployment",
+      "price": 174.24,
+      "cascadeHits": [],
+      "commanderTurn": 4,
+      "native": {
+        "castsFromCascade": 0,
+        "spellCopies": 11,
+        "triggerCopies": 9,
+        "resolvedCopies": 11,
+        "cascades": 0,
+        "tutors": 4,
+        "tutorCardsToHand": 0,
+        "tutorCardsToTop": 4,
+        "tokens": 0,
+        "paidTriggers": 3,
+        "declinedTriggers": 4,
+        "multipliedTriggers": 3,
+        "boundHits": 0,
+        "unsupported": [],
+        "maxStack": 10
+      },
+      "actions": [
+        {
+          "turn": 1,
+          "id": "deck-45",
+          "card": "Sol Ring",
+          "commander": false,
+          "origin": "hand"
+        },
+        {
+          "turn": 2,
+          "id": "deck-53",
+          "card": "Thran Dynamo",
+          "commander": false,
+          "origin": "hand"
+        },
+        {
+          "turn": 3,
+          "id": "deck-12",
+          "card": "Echoes of Eternity",
+          "commander": false,
+          "origin": "hand"
+        },
+        {
+          "turn": 4,
+          "id": "commander",
+          "card": "Ulalek, Fused Atrocity",
+          "commander": true,
+          "origin": "command"
+        },
+        {
+          "turn": 5,
+          "id": "deck-5",
+          "card": "Conduit of Ruin",
+          "commander": false,
+          "origin": "hand"
+        },
+        {
+          "turn": 6,
+          "id": "deck-9",
+          "card": "Devourer of Destiny",
+          "commander": false,
+          "origin": "hand"
+        }
+      ]
+    }
+  ]
+}

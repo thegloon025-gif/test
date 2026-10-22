@@ -1,0 +1,57 @@
+{
+  "sourceBaseCommit": "9ba4fc2f257daae5b4403fa127d648565cc3f100",
+  "implementationCommits": [
+    "f569604",
+    "9ba4fc2",
+    "0943eca"
+  ],
+  "tests": {
+    "baseline": {
+      "tests": 253,
+      "pass": 253,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "durationMs": 135277.837848
+    },
+    "focused": {
+      "tests": 78,
+      "pass": 78,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "durationMs": 3286.824947
+    },
+    "full": {
+      "tests": 273,
+      "pass": 273,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "durationMs": 151633.478441
+    }
+  },
+  "benchmarkRuntimeMs": 257067,
+  "audits": {
+    "auditorSHA256": "af7f130708e277cd4f73a342289bef9d7d94ff118519f420a60aaa0d2ed9976c",
+    "sourceBaseCommit": "9ba4fc2f257daae5b4403fa127d648565cc3f100",
+    "exact100CardExports": 24,
+    "exactSelectedPrintingChecks": 3100,
+    "representativeResourceZoneStackAudits": 40,
+    "serializedCohortVectors": 4464,
+    "nativeBoundedVectors": 48,
+    "nativeModelLossVectors": 3,
+    "oldStage1HashesMatched": 160,
+    "oldStage2SampleTracesMatched": 15,
+    "oldStage3MetricVectorsMatched": 1008,
+    "archivesAndCachesUnchanged": true,
+    "productionSelectionUnchanged": true,
+    "runtimeMs": 4340
+  },
+  "httpSmoke": "http-smoke.json",
+  "windowsBATExecuted": false,
+  "externalEvaluatorsCalled": false
+}

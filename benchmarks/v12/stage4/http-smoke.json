@@ -1,0 +1,22 @@
+{
+  "isolatedCopy": "/tmp/commanderoracle-stage4-smoke-4859q_vm",
+  "version": "1.1.5",
+  "catalogCount": 32197,
+  "assets": [
+    {
+      "path": "/",
+      "status": 200
+    },
+    {
+      "path": "/app.js",
+      "status": 200
+    },
+    {
+      "path": "/style.css",
+      "status": 200
+    }
+  ],
+  "cachedCommanderLookup": true,
+  "networkResearch": false,
+  "windowsLauncher": "byte preserved; BAT/browser not executed on Linux"
+}
