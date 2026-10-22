@@ -97,7 +97,7 @@ for (const [slug, name, bracket, path] of cases) {
       const replay=evaluateDeployment({commander,cards:records.slice(1),seed:seed+':0'});
       assert.ok(auditDeploymentTrace(replay,commander,records.slice(1)).valid);
       assert.equal(hash(JSON.stringify(replay)),row.runs[0].traceSHA256,'Resumed selected records replay differently');
-      fresh.push({...prior,generationProvenance:{sourceBaseCommit:previous.metadata.sourceBaseCommit,sourceSHA256:previous.metadata.sourceSHA256},resumed:true});
+      fresh.push({...prior,generationProvenance:prior.generationProvenance||{sourceBaseCommit:previous.metadata.sourceBaseCommit,sourceSHA256:previous.metadata.sourceSHA256},resumed:true});
       await writeFile(output+'/fresh-generation.json',JSON.stringify({metadata,rows:fresh},null,2)+'\n');
       console.log('Retained independently generated result',slug,prior.audit.price,prior.runtimeMs,'ms'); continue;
     }

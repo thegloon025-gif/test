@@ -1,0 +1,35 @@
+{
+  "isolatedCopy": true,
+  "sourceCachesTouched": false,
+  "version": "1.1.5",
+  "catalogCount": 32197,
+  "pages": [
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 14599
+    },
+    {
+      "path": "/app.js",
+      "status": 200,
+      "bytes": 47600
+    },
+    {
+      "path": "/style.css",
+      "status": 200,
+      "bytes": 8415
+    }
+  ],
+  "legacyApi": {
+    "status": 200,
+    "count": 100,
+    "price": 130.92,
+    "pricingMode": "scryfall_eur",
+    "auditCount": 100,
+    "agrees": true,
+    "withinBudget": true,
+    "runtimeMs": 43914
+  },
+  "windowsLauncherUnchanged": true,
+  "windowsExecution": "Not executed: Linux environment"
+}
