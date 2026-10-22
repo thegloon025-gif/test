@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "recorded_on": "2026-10-23",
+  "purpose": "User-observed external evaluator evidence and DeckCheck recovery hypothesis for v1.2 Stage 7; not independently rerun, no game-performance certification.",
+  "context": {
+    "commander": "Ulalek, Fused Atrocity",
+    "budget_eur": 191,
+    "source_branch": "codex/v1.2-gameplay-intelligence",
+    "source_stage6_commit": "42e5715f52a40eceb0d13b1df3bdc88332a5430b",
+    "pricing": "Frozen selected-printing Scryfall EUR estimates with owned basic lands; not verified Cardmarket English NM offers."
+  },
+  "decks": [
+    {
+      "id": "B3-original",
+      "source": "benchmarks/v12/stage6/ulalek-b3-original.txt",
+      "estimated_price_eur": 174.24,
+      "edhcheck": {
+        "power": 5.7,
+        "bracket_estimate": 2,
+        "speed": 5.6,
+        "consistency": 6.6
+      },
+      "edhpowerlevel": {
+        "power": 5.33,
+        "bracket_estimate": 2,
+        "efficiency": 4.64,
+        "average_playability_percent": 56.5
+      }
+    },
+    {
+      "id": "B3-challenger-1",
+      "source": "benchmarks/v12/stage6/ulalek-b3-challenger-1.txt",
+      "estimated_price_eur": 187.59,
+      "edhcheck": {
+        "power": 5.8,
+        "bracket_estimate": 2,
+        "speed": 5.6,
+        "consistency": 6.9,
+        "saltiness": 2.2,
+        "reported_infinite_3plus_count": 12
+      },
+      "edhpowerlevel": {
+        "power": 5.58,
+        "bracket_estimate": 2,
+        "efficiency": 4.59,
+        "impact": 524.25,
+        "score_1000": 449,
+        "average_playability_percent": 57
+      }
+    },
+    {
+      "id": "B4-original",
+      "source": "benchmarks/v12/stage6/ulalek-b4-original.txt",
+      "estimated_price_eur": 173.88,
+      "edhcheck": {
+        "power": 5.6,
+        "bracket_estimate": 2,
+        "speed": 6,
+        "consistency": 6.5
+      },
+      "edhpowerlevel": {
+        "power": 5.48,
+        "bracket_estimate": 4,
+        "efficiency": 4.91,
+        "impact": 509.8,
+        "score_1000": 444,
+        "average_playability_percent": 60.4
+      }
+    },
+    {
+      "id": "B4-challenger-2",
+      "source": "benchmarks/v12/stage6/ulalek-b4-challenger-2.txt",
+      "estimated_price_eur": 175.39,
+      "edhcheck": {
+        "power": 5.7,
+        "bracket_estimate": 2,
+        "speed": 5.9,
+        "consistency": 6.8,
+        "saltiness": 2.4,
+        "reported_infinite_3plus_count": 11
+      },
+      "edhpowerlevel": {
+        "power": 5.52,
+        "bracket_estimate": 4,
+        "efficiency": 4.78,
+        "impact": 515.81,
+        "score_1000": 446,
+        "average_playability_percent": 59.6
+      },
+      "deckcheck": {
+        "threat_index": 26,
+        "bracket_display": "Bracket 4 — Optimized",
+        "bracket_note": "DeckCheck says bracket card rules set Bracket 4, and score does not alter it.",
+        "archetype": "Eldrazi Tribal Big-Mana Stompy",
+        "engine_ready_turn": 5,
+        "first_must_answer_threat_turn": 6,
+        "respond_turns": 2,
+        "omni_score_scans_completed": 1,
+        "omni_score_scans_required": 2,
+        "benchmarks": {
+          "mana_velocity": {
+            "tier": "A",
+            "points": 5
+          },
+          "card_flow": {
+            "tier": "B",
+            "points": 2
+          },
+          "selection_redundancy": {
+            "tier": "B",
+            "points": 2
+          },
+          "assembly_velocity": {
+            "tier": "B",
+            "points": 2
+          },
+          "critical_onset": {
+            "tier": "B",
+            "points": 2
+          },
+          "win_compactness": {
+            "tier": "B",
+            "points": 2
+          },
+          "exposure": {
+            "tier": "B",
+            "points": 2
+          },
+          "reactive_disruption": {
+            "tier": "B",
+            "points": 2
+          },
+          "proactive_denial": {
+            "tier": "B",
+            "points": 2
+          },
+          "plan_shielding": {
+            "tier": "B",
+            "points": 2
+          },
+          "engine_recovery": {
+            "tier": "B",
+            "points": 1,
+            "max_points": 4
+          },
+          "independence": {
+            "tier": "A",
+            "points": 2
+          }
+        },
+        "recovery_explanation": {
+          "hypothetical_event": "A sweeper removes Ulalek and nonland ramp",
+          "estimated_own_turns_to_recover": 3,
+          "sequence": [
+            "Turn 1 rebuild mana",
+            "Turn 2 recast Ulalek at seven mana",
+            "Turn 3 resume duplication operations"
+          ],
+          "interpretation": "Third-party heuristic scenario, not measured gameplay, not necessarily a single specific real MTG spell; must be tested with explicit removal semantics."
+        }
+      }
+    }
+  ],
+  "interpretation": [
+    "External power scores are evaluator heuristics; small changes do not prove actual game strength and evaluators disagree on bracket.",
+    "DeckCheck bracket display is based on its separate bracket-card rule, not power score certification.",
+    "Engine Recovery B/1 of 4 points is a prioritized diagnostic hypothesis, not definitive weakness; compound commander+nonland-ramp removal is a severe scenario.",
+    "Preserve unedited historical baselines elsewhere. This file records additional user-supplied observations.",
+    "Do not optimize directly for evaluator points or declare recovery turns confirmed. Simulate explicit removals as separate opt-in post-interruption scenarios using supported mechanics, with unknown outcomes when not covered."
+  ]
+}
