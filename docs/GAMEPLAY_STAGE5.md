@@ -51,8 +51,12 @@ node --test tests/gameplay-stage5.test.mjs tests/gameplay-native.test.mjs tests/
 npm test
 New-Item -ItemType Directory -Force benchmarks-local\stage5 | Out-Null
 Copy-Item benchmarks\v12\stage5\PROTOCOL.md benchmarks-local\stage5\PROTOCOL.md
+node tools/trace-stage5-outlets.mjs C:\path\to\frozen-data benchmarks-local\stage5\sequences
 node tools/benchmark-native-stage5.mjs C:\path\to\frozen-data benchmarks-local\stage5 --diagnostics
 node tools/benchmark-native-stage5.mjs C:\path\to\frozen-data benchmarks-local\stage5
+node tools/observe-stage5-originals.mjs C:\path\to\frozen-data benchmarks-local\stage5
+node tools/audit-native-stage5.mjs C:\path\to\frozen-data benchmarks-local\stage5
+node tools/explain-native-stage5.mjs benchmarks-local\stage5
 ```
 
 The harness audits and replays every evaluation, checks exact printing prices/exports and old archive/cache/production fingerprints, then saves compact vectors/aggregate intervals. Existing Stage 4 exports are reused; it creates no new production deck. The unchanged `start-windows.bat` starts the usual application; native evaluation remains a developer tool.
