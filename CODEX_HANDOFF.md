@@ -55,3 +55,8 @@ The user's **`data/` folder lives in their Windows installation**, is absent fro
 ## Broader next features (not authorization to do everything at once)
 
 More reliable EDHREC-like insights **only from authorized sources**; functional Scryfall tagging/role evidence; genuine mana sequencing and hand simulation; stronger source-deck quality evaluation, hidden-gem recommendations; comparison of generated alternatives; later a strategy-preserving in-app upgrader. Moxfield authenticated push and live Cardmarket EN NM acquisition remain unimplemented.
+
+
+## Stage 6 continuation (draft PR #4; version still 1.1.5)
+
+Stage 6 adds bounded source/Oracle-backed complete shadow challengers and terminal-aware paired comparison, without production construction/selection changes. Read `docs/GAMEPLAY_STAGE6.md`, `benchmarks/v12/stage6-VALIDATION.md` and the frozen protocol before continuing. Six new Ulalek complete challengers pass existing construction safeguards; 306/306 tests and 3,192 independently audited/replayed prospective runs pass. None establishes robust complete-deck improvement across both partitions and all fixed pilots/decisions. Keep PR #4 stacked on draft PR #2, unmerged/unreleased. Exact original selected-printing decks, caches, Stage 1–5 outputs and human external scores are preserved. The report identifies manual-testing lists and the smallest follow-up: verified prospective tutor-target/follow-up planning and lower-setup supported access. Do not treat increased draw/damage totals, conditional lethal, higher spending or a favorable pilot as a production promotion decision. Pod High-Power remains inactive.
