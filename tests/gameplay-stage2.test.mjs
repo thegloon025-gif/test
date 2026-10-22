@@ -83,6 +83,11 @@ test('commander-first and development policies reveal distinct deployment tradeo
  assert.equal(a.stats.casts.find(e=>e.commander).turn,2);assert.equal(b.stats.casts.find(e=>e.commander).turn,3);assert.ok(b.stats.casts.some(e=>e.card==='Rock'&&e.turn===2));
  assert.ok(auditGameplayTrace(a,commander,cards).valid&&auditGameplayTrace(b,commander,cards).valid);
 });
+test('repeatable draw/setup cannot repeatedly starve an already-payable commander',()=>{
+ const commander=c('Leader','{2}','Legendary Creature — Eldrazi'),cards=[c('Draw engine','{0}','Artifact','{2}: Draw a card.'),land('A'),land('B'),land('C'),land('D'),body('A0'),body('B0'),...Array.from({length:20},(_,i)=>body('Next '+i))];
+ const r=evaluateGameplay({commander,cards,order:cards.map((_,i)=>i),policy:'development',turns:4});
+ assert.equal(r.stats.commanderDeploymentTurn,3);assert.equal(r.stats.setupBeforePayableCommander,1);assert.ok(r.trace.some(e=>e.event==='decision'&&e.reason==='take the payable commander after one setup action'));assert.ok(auditGameplayTrace(r,commander,cards).valid);
+});
 test('one free mulligan is deterministic, preserves inventory and makes no future-draw decision',()=>{
  const cards=[...fillers(7),...Array.from({length:12},(_,i)=>land('L'+i)),...fillers(8)];const before=structuredClone(cards),options={commander:cmd,cards,order:cards.map((_,i)=>i),mulligan:'one-free',seed:'mulligan-check',turns:2};
  const r=evaluateGameplay(options);assert.equal(r.stats.mulligans,1);assert.equal(r.trace.find(e=>e.event==='opening').hand.length,7);assert.equal(new Set(r.order).size,cards.length);assert.deepEqual(evaluateGameplay(options),r);assert.deepEqual(cards,before);assert.ok(auditGameplayTrace(r,cmd,cards).valid);

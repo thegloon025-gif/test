@@ -19,7 +19,7 @@ export function evaluateGameplay({commander,cards,seed='gameplay-stage2-v1',turn
   const nativeTypes=planTypes(planFor(commander));if(!nativeTypes.length)nativeTypes.push(...cardSubtypes(commander));
   const chosenType=[...nativeTypes].sort((a,b)=>cards.filter(c=>cardSubtypes(c).includes(b)).length-cards.filter(c=>cardSubtypes(c).includes(a)).length||a.localeCompare(b))[0]||'Creature';
   let library=order.map(i=>slots[i]),hand=library.splice(0,7),board=[],graveyard=[],exile=[],opponents=[],ceased=[],pool=[],life=40,turn=0,creatureCasts=0,landPlayed=false,commanderCast=false,tokenId=0,decked=false,lost=false,lastTop=null;
-  const trace=[],observations=[],stats={casts:[],commanderDeploymentTurn:null,optionalPayments:[],effectDraws:0,naturalDraws:0,accessDiscards:0,cleanupDiscards:0,returnedToTop:0,topCasts:0,accessSacrifices:0,accessSpells:0,activations:0,selections:0,manaStates:0,manaSearches:0,boundHits:0,actionBoundHits:0,usedEngines:[],mulligans:0};
+  const trace=[],observations=[],stats={casts:[],commanderDeploymentTurn:null,setupBeforePayableCommander:0,optionalPayments:[],effectDraws:0,naturalDraws:0,accessDiscards:0,cleanupDiscards:0,returnedToTop:0,topCasts:0,accessSacrifices:0,accessSpells:0,activations:0,selections:0,manaStates:0,manaSearches:0,boundHits:0,actionBoundHits:0,usedEngines:[],mulligans:0};
   const emit=e=>trace.push({turn,...e}),context=()=>({hand,board,graveyard,chosenType}),pilotContext=()=>({policy,turn,turns,commander,board,hand,nativeTypes});
   const opening=hand.map(s=>({id:s.id,card:s.card.name}));
   if(mulligan==='one-free'&&(hand.filter(s=>isLand(s.card)).length<2||hand.filter(s=>isLand(s.card)).length>5)){
@@ -190,7 +190,11 @@ export function evaluateGameplay({commander,cards,seed='gameplay-stage2-v1',turn
       if(!['paid','played'].includes(r.status))emit({event:'action-failed',action:a,status:r.status,reason:r.reason});
     }}else for(;acts<maxActions&&!lost;acts++){
       if(!landPlayed){const lateLand=chooseLand();if(lateLand){emit({event:'decision',policy,chosen:lateLand.id,kind:'land',reason:'use an available land drop after access',alternatives:[]});playLand(lateLand);continue;}}
-      const options=candidates();if(!options.length)break;const a=options[0];emit({event:'decision',policy,chosen:a.slot.id,kind:a.kind,reason:a.rule.reason,alternatives:options.slice(1,5).map(x=>({id:x.slot.id,kind:x.kind,reason:x.rule.reason}))});
+      const options=candidates();if(!options.length)break;
+      const payableCommander=options.find(a=>a.commander),guarded=payableCommander&&stats.setupBeforePayableCommander>=1;
+      const a=guarded?{...payableCommander,rule:{reason:'take the payable commander after one setup action'}}:options[0];
+      if(payableCommander&&!a.commander)stats.setupBeforePayableCommander++;
+      emit({event:'decision',policy,chosen:a.slot.id,kind:a.kind,reason:a.rule.reason,commanderPayable:!!payableCommander,setupBudgetUsed:stats.setupBeforePayableCommander,alternatives:options.filter(x=>x.slot.id!==a.slot.id).slice(0,4).map(x=>({id:x.slot.id,kind:x.kind,reason:x.rule.reason}))});
       if(a.kind==='cast'){cast(a.slot,a.origin);if(a.provider)useEngine(a.provider,'top-access');}else activate(a.slot,a.abilityIndex);
     }
     if(acts===maxActions){stats.actionBoundHits++;emit({event:'action-bound',status:'unknown',limit:maxActions});}
@@ -204,7 +208,7 @@ export function evaluateGameplay({commander,cards,seed='gameplay-stage2-v1',turn
     emit({event:'turn-end',hand:hand.map(s=>s.card.name),handIds:hand.map(s=>s.id),library:library.map(s=>s.id),graveyard:graveyard.map(s=>s.id),exile:exile.map(s=>s.id),opponents:opponents.map(s=>s.id),ceased:ceased.map(s=>s.id),board:active().map(s=>({id:s.id,card:s.card.name,tapped:s.tapped})),floatingExpires:pool,life});
   }
   return {schemaVersion:2,evaluator:'gameplay-stage2-v1',seed,turns,policy,mulligan,order,initialOpening:opening,commander:commander.name,nativeTypes,chosenType,stats,observations,decked,lost,
-    assumptions:{opening:7,mulligan,drawOnTurnOne:true,rankingIntegration:false,commanderTaxPriorCasts:0,access,mainPhases:1,maxActions,maxManaStates,sourcePayments:'optimized exact ledger',opponents:'three inert seats; no combat/interaction; supported control transfers leave our board',optionalPayment:'reserve before resolving resource/access triggers',threatDefinition:'native creature with printed power >=4 or printed MV >=5; payment availability, not win conversion; other threat/combat/copy outcomes unknown',otherRulesCoverage:'not quantified; parsed access is not complete Oracle/rules coverage'},
+    assumptions:{opening:7,mulligan,drawOnTurnOne:true,rankingIntegration:false,commanderTaxPriorCasts:0,access,mainPhases:1,maxActions,maxManaStates,maxSetupActionsBeforePayableCommander:1,sourcePayments:'optimized exact ledger',opponents:'three inert seats; no combat/interaction; supported control transfers leave our board',optionalPayment:'reserve before resolving resource/access triggers',threatDefinition:'native creature with printed power >=4 or printed MV >=5; payment availability, not win conversion; other threat/combat/copy outcomes unknown',otherRulesCoverage:'not quantified; parsed access is not complete Oracle/rules coverage'},
     coverage:{cardsWithSupportedAccess:[...models.values()].filter(m=>m.access.direct||m.access.abilities.length||m.access.triggers.length||m.access.top).length,cardsWithUnmodeledAccess:[...models.values()].filter(m=>m.access.unknown.length).length,unmodeledAccessClauses:[...models.values()].reduce((n,m)=>n+m.access.unknown.length,0)},
     unknown:[...models].map(([card,m])=>({card:card.name,access:m.access.unknown,other:m.model.unknown.filter(s=>!s.startsWith('other Oracle effects'))})),trace};
 }
