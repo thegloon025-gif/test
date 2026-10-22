@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {evaluateGameplay} from '../src/gameplayState.mjs';
 import {auditGameplayTrace} from '../src/gameplayZoneAudit.mjs';
 import {CompactNativeStack,colorlessUpperBound} from '../src/gameplayNativeStack.mjs';
-import {outletModel} from '../src/gameplayOutlets.mjs';
+import {outletModel,safeOutletResource} from '../src/gameplayOutlets.mjs';
 const c=(name,cost,type,text='',rest={})=>({name,mana_cost:cost,type_line:type,oracle_text:text,...rest});
 const cmd=c('Ulalek','{C/W}{C/U}{C/B}{C/R}{C/G}','Legendary Creature — Eldrazi','Devoid\nWhenever you cast an Eldrazi spell, you may pay {C}{C}. If you do, copy all spells you control, then copy all other activated and triggered abilities you control. You may choose new targets for the copies.',{color_identity:['W','U','B','R','G']});
 const battery=n=>c('Mana','{0}','Sorcery','Add '+'{C}'.repeat(n)+'.');
@@ -101,4 +101,9 @@ test('one eliminated target is not a table win, and paid outlet activations resp
 test('unsupported commander mechanics still force abstention under Stage 5',async()=>{
  const {nativeCoverageIncomplete,shadowVerdict}=await import('../src/gameplayShadow.mjs');
  for(const text of ['Commander ninjutsu {U}{B}','Whenever another Zombie you control dies, create a token.','Whenever you cast a spell that targets only this creature, copy it.']){const commander={...cmd,oracle_text:text};assert.ok(nativeCoverageIncomplete(commander));assert.equal(shadowVerdict({}, {}, {nativeCoverageIncomplete:true}).status,'abstain-native-coverage');}
+});
+
+test('automatic outlet ammunition protects copied native engines and requires Spawn/Scion tokens',()=>{
+ assert.equal(safeOutletResource({card:fleshraker,token:true}),false);assert.equal(safeOutletResource({card:gang,token:true}),false);
+ assert.equal(safeOutletResource({card:c('Resource','','Token Creature — Eldrazi Spawn'),token:true}),true);assert.equal(safeOutletResource({card:c('Scion','','Token Creature — Eldrazi Scion'),token:true}),true);assert.equal(safeOutletResource({card:c('Printed source','','Creature — Eldrazi Spawn')}),false);
 });

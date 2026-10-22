@@ -1,7 +1,7 @@
 /** Narrow Oracle-verified outlets. Only inert opposing player seats are legal
  * targets in this model; no creature/planeswalker/battle target inference. */
 import {withoutReminder} from './gameplayAccess.mjs';
-import {cardText} from './gameplayCards.mjs';
+import {cardText,cardSubtypes} from './gameplayCards.mjs';
 export function outletModel(card){
  const lines=withoutReminder(cardText(card)).split('\n').map(l=>l.trim());
  const entryLine='Whenever another colorless creature you control enters, this creature deals 1 damage to each opponent.',sacrificeLine='{1}{C}, Sacrifice an Eldrazi: This creature deals 2 damage to any target.';
@@ -22,3 +22,6 @@ export function createOutletLedger(emit,initialLife=[40,40,40]){
  }
  return {life,events,damage,get won(){return life.every(n=>n<=0);}};
 }
+
+/** Automatic ammunition excludes copied engines and ordinary Eldrazi bodies. */
+export function safeOutletResource(slot){return !!slot.token&&cardSubtypes(slot.card).some(t=>t==='Spawn'||t==='Scion');}

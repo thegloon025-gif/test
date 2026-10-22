@@ -6,7 +6,7 @@ import {accessModel,accessCondition,accessConditionStatus,knownPower,entryMatche
 import {GAMEPLAY_POLICIES,choosePilotAction,strategyChannels,rampUseful} from './gameplayPilot.mjs';
 import {planFor} from './mechanics.mjs';
 import {planTypes} from './engineSupport.mjs';
-import {outletModel,createOutletLedger} from './gameplayOutlets.mjs';
+import {outletModel,createOutletLedger,safeOutletResource} from './gameplayOutlets.mjs';
 import {createNativeStack,nativeModel} from './gameplayNative.mjs';
 
 export function evaluateGameplay({commander,cards,seed='gameplay-stage2-v1',turns=8,order,script,policy='native',mulligan='none',access=true,maxManaStates=4000,maxActions=24,onPreAction=null,nativeExecution=false,maxNativeSteps=192,maxNativeObjects=128,nativeTriggerOrder='copy-first',nativeStage5=false,nativeOutlets=true,nativeCompression=true,nativeContinuations=3,nativeDecisionPolicy='copy-first',opponentLife=[40,40,40]}={}) {
@@ -192,7 +192,7 @@ export function evaluateGameplay({commander,cards,seed='gameplay-stage2-v1',turn
       ranked.sort((a,b)=>Number(!!b.followup)-Number(!!a.followup));
     }
     if(nativeStage5&&nativeOutlets)for(const source of active().filter(s=>outletModel(s.card).sacrificeDamage)){
-      const victim=active().find(s=>s.token&&cardSubtypes(s.card).includes('Eldrazi')&&outletPlan(source,s,false).status==='paid'),target=outlets.life.findIndex(n=>n>0);
+      const victim=active().find(s=>safeOutletResource(s)&&outletPlan(source,s,false).status==='paid'),target=outlets.life.findIndex(n=>n>0);
       if(victim&&target>=0){const a={kind:'outlet',slot:source,victim,target,rule:{reason:'convert spare resources through supported outlet'}};
         if(outlets.life[target]<=2)ranked.unshift(a);else ranked.push(a);
       }

@@ -32,7 +32,7 @@ All three inherited deployment pilots remain fixed. Four separate Stage 5 decisi
 3. Resources-first, conservative: decline copied Ulalek payments, permit originally triggered/additional triggers.
 4. Resources-first/conservative plus priority for an actually payable colorless hand spell that qualifies for an already deployed cascade grant.
 
-The fourth policy changes action order, not deck scoring, and retains the inherited one-setup-action commander guard. It is not multi-turn planning or tutor/priority search. All configurations use the same outlet rule: a lethal shot at the first live seat takes priority; otherwise use supported spare-mana shots after deployment/access, sacrificing tokens only. Controlled scripts can explicitly sacrifice other legal Eldrazi.
+The fourth policy changes action order, not deck scoring, and retains the inherited one-setup-action commander guard. It is not multi-turn planning or tutor/priority search. All configurations use the same outlet rule: a lethal shot at the first live seat takes priority; otherwise use supported spare-mana shots after deployment/access, sacrificing Spawn/Scion tokens only, preserving copied native engines. Controlled scripts can explicitly sacrifice other legal Eldrazi.
 
 Follow-up snapshots before and after actions distinguish absent qualifying hand spells, blocked/unknown payments and payable opportunities. They are ledger previews after supported stack resolution, not resources borrowed from pending triggers. Historical Stage 4 Zhulodok diagnosis uses its original pre-action probes and marks the missing same-turn post-deployment view explicitly. Horizons and incomplete execution are separate from mana deficiency.
 
