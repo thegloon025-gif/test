@@ -1,3 +1,7 @@
+### Draft PR #4 — Gameplay-aware shadow experiments
+
+Stage 3 adds an offline comparison of complete coordinated repairs using common card identities, three fixed pilots and holdout seeds. Exact payments, zones, selected printings and budgets are audited; unsupported native strategies force abstention. Production construction and selection remain unchanged. See [method and Windows commands](docs/GAMEPLAY_STAGE3.md) and [validation](benchmarks/v12/stage3-VALIDATION.md). Version remains 1.1.5; no external power improvement is claimed.
+
 ### Draft PR #4 — Stateful access and deployment policies
 
 Stage 2 now resolves supported draws, selections, entry/cast triggers and paid top-library access into actual card zones. Three deterministic pilots and an opt-in conservative free mulligan expose sequencing tradeoffs. Exact mana and card movements are independently audited; optimized payment search keeps unknowns explicit. Deck construction, selection and version 1.1.5 remain unchanged. See [model and Windows commands](docs/GAMEPLAY_STAGE2.md) and [fixed-deck comparisons](benchmarks/v12/stage2-VALIDATION.md).

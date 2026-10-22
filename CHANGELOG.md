@@ -1,3 +1,10 @@
+## Unreleased — draft PR #4 Gameplay-aware shadow optimization
+
+- Add offline, bounded complete-deck shadow experiments around the existing atomic investment infrastructure; preserve production construction, selection and version 1.1.5.
+- Couple changed decks by common card identity, compare three fixed pilots with disjoint training/holdout inputs, audit actual resource/zone receipts, and retain paired uncertainty and unsupported-native abstention.
+- Diagnose pre-action payments, optional-trigger competition, supported access and cross-pilot delays separately from post-action exhaustion; protect native engines, source spines, combo commitments, true-colorless, conditional high-output mana and exact selected-record budgets.
+- Export complete proposed decks, exact-printing audits and readable decisions. Methodology: `docs/GAMEPLAY_STAGE3.md`; fixed-cache results and remaining risks: `benchmarks/v12/stage3-VALIDATION.md`. No production recommendation or fresh external power claim.
+
 ## Unreleased — draft PR #4 Stateful access and strategy-aware deployment
 
 - Add actual library/hand/stack/battlefield/graveyard/exile/control-transfer state for supported draw, activated draw, entry/cast triggers, selection and paid top casting. Preserve prerequisites, sickness, restrictions, life, effect order and late land drops; unsupported effects remain unknown.

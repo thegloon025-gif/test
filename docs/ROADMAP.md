@@ -10,7 +10,8 @@ Last revised: 2026-10-22. Local, deterministic Commander generator: **no paid AI
 - [x] Stage 2: execute supported draw/activated/entry/cast access, scry/surveil and top casting in actual card zones; audit movement and exact fees/prerequisites.
 - [x] Compare three deterministic pilots, conservative free mulligans, optimized payment search and common-seed card-flow/deployment observations with unknowns and sampling uncertainty. Keep ranking unchanged.
 - [ ] Expand hand-reviewed tutor, conditional source, alternate-face, combat/ninjutsu, target-copy and sacrifice/death coverage before claiming complete strategy execution or reliable combos.
-- [ ] Stage 3 proposal: shadow-test complete strategy candidates and coordinated repairs with common-input, supported gameplay evidence and holdouts. Preserve distinct engines, unknown coverage and price/legality/source/combo gates; no spending bonuses or replacement static scalar.
+- [x] Stage 3 foundation: bounded shadow-only full-deck repairs, common-card-identity coupling, all fixed pilots, separate holdout seeds, audited payment/zone traces and exact-printing exports. Preserve native engines and incomplete-strategy abstention; production selection stays unchanged.
+- [ ] Stage 3 integration decision: expand native mechanics/pilot coverage, larger prospective holdouts and external evaluation before explicitly reviewing any production feedback hook. See `GAMEPLAY_STAGE3.md` and the Stage 3 validation report.
 
 See [Stage 1 model](GAMEPLAY_STAGE1.md) and [validation](../benchmarks/v12/stage1-VALIDATION.md). Existing PR #2 deployment probes remain unchanged; this stricter foundation is separate.
 

@@ -7,7 +7,7 @@ import {GAMEPLAY_POLICIES,choosePilotAction,strategyChannels,rampUseful} from '.
 import {planFor} from './mechanics.mjs';
 import {planTypes} from './engineSupport.mjs';
 
-export function evaluateGameplay({commander,cards,seed='gameplay-stage2-v1',turns=8,order,script,policy='native',mulligan='none',access=true,maxManaStates=4000,maxActions=24}={}) {
+export function evaluateGameplay({commander,cards,seed='gameplay-stage2-v1',turns=8,order,script,policy='native',mulligan='none',access=true,maxManaStates=4000,maxActions=24,onPreAction=null}={}) {
   if(!commander||!Array.isArray(cards)||cards.length<7||cards.length>99||!Number.isInteger(turns)||turns<1||turns>8||!GAMEPLAY_POLICIES.includes(policy)||!['none','one-free'].includes(mulligan)||!Number.isInteger(maxActions)||maxActions<1||maxActions>40||script&&mulligan!=='none')throw Error('Invalid Stage 2 bounds/options');
   order??=deploymentOrder(cards,seed);
   if(order.length!==cards.length||new Set(order).size!==cards.length||order.some(i=>!Number.isInteger(i)||i<0||i>=cards.length))throw Error('Order must be an exact permutation');
@@ -188,6 +188,13 @@ export function evaluateGameplay({commander,cards,seed='gameplay-stage2-v1',turn
     emit({event:'untap',sources:sourceState().sources});draw(1,'natural');if(lost)break;
     if(!script){const land=chooseLand();if(land)playLand(land);}
     const beforeMana=manaObservation(),threatsBeforeActions=threatObservation();let acts=0;
+    // A read-only diagnostic snapshot before spending action mana. Payment
+    // previews do not resolve effects or change the pilot/trace/statistics.
+    if(onPreAction){
+      const probe=slot=>{const r=castPlan(slot,false,false),joint=castPlan(slot,true,false);
+        return {id:slot.id,card:slot.card.name,cost:slot.model.cost,reduction:reductionFor(slot.card),context:castContext(slot.card,slot===command),status:r.status,reason:r.reason||null,jointStatus:joint.status,triggerCosts:(joint.triggers||[]).map(s=>s.model.castPayment.cost)};};
+      onPreAction(structuredClone({turn,state:sourceState(),commander:commanderCast?null:probe(command),hand:hand.filter(s=>!isLand(s.card)).map(probe),engines:active().flatMap(s=>strategyChannels(s,nativeTypes).map(c=>({card:s.card.name,...c,ready:engineReadiness(s,c)})))}));
+    }
     if(script){if((script[turn]||[]).length>maxActions)throw Error('Script action bound exceeded');for(const a of script[turn]||[]){
       if(lost)break;const top=topChoice(),s=a.card===commander.name&&!commanderCast?command:a.origin==='library'?top?.slot:hand.find(s=>s.card.name===a.card);
       const source=active().find(s=>s.card.name===a.card),r=a.type==='land'?playLand(s):a.type==='cast'&&s&&s.card.name===a.card?cast(s,a.origin||'hand',!!a.requireOptional):a.type==='activate'&&source?activate(source,a.abilityIndex||0):{status:'unknown',reason:'unsupported action/source unavailable'};

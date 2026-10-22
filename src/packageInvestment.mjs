@@ -2,7 +2,7 @@
  * The evidence vector describes supported functions, never a power rating.
  * A more expensive deck cannot win because of price, nor can the legacy
  * scalar score veto a strict functional improvement. No network or caches. */
-import {castFaces,castHasType,castHasSubtype,isLandSlot,legalFor,oracleId,priceOf,landManaQuality} from './cards.mjs';
+import {castFaces,castHasType,castHasSubtype,isLandSlot,legalFor,oracleId,priceOf,landManaQuality,trueColorlessSource} from './cards.mjs';
 import {oracleText,roleEvidence,dependencyEvidence} from './roleEvidence.mjs';
 import {planFor,analysis,synergy} from './mechanics.mjs';
 import {landScore} from './manaBaseOptimizer.mjs';
@@ -142,7 +142,7 @@ function combinations(items,n){if(n===0)return [[]];return items.flatMap((x,i)=>
 const gained=(next,old)=>Object.fromEntries(Object.keys(old.vector).filter(k=>next.vector[k]!==old.vector[k]).map(k=>[k,next.vector[k]-old.vector[k]]));
 
 export function refinePackageInvestments({built,pool,commander,plan=planFor(commander),budget,bracket=3,limits=selectionLimits(plan,Number(bracket)),
- source=null,startingDecks=[],protectionBaseline=built?.cards,comboViolation=()=>null,score=()=>0,packages=[],traceNames=[],maxRounds=3,beamWidth=2,maxEvaluations=40}={}){
+ source=null,startingDecks=[],protectionBaseline=built?.cards,comboViolation=()=>null,score=()=>0,packages=[],traceNames=[],maxRounds=3,beamWidth=2,maxEvaluations=40,observeProposal=null,shadowOnly=false,shadowProtectedNames=[]}={}){
  if(!built||built.status!=='ok')return built;
  const memo=new WeakMap(),scoreMemo=new WeakMap(),strategyMemo=new WeakMap(),manaMemo=new WeakMap();
  const manaFor=c=>{if(!manaMemo.has(c))manaMemo.set(c,manaCapacity(c));return manaMemo.get(c);};
@@ -216,10 +216,12 @@ export function refinePackageInvestments({built,pool,commander,plan=planFor(comm
     .sort((a,b)=>Number(b.p.issue)-Number(a.p.issue)||
      (a.p.mana.units+a.p.flow+a.p.engine+a.p.removal+a.p.shield+a.p.threat)-(b.p.mana.units+b.p.flow+b.p.engine+b.p.removal+b.p.shield+b.p.threat)||
      a.impact-b.impact||Number(b.card.cmc)-Number(a.card.cmc)||stable(a.card.name,b.card.name)).map(x=>x.card);
-   const cuts=[...new Set([...rankedCuts.slice(0,4),...rankedCuts.slice().sort((a,b)=>cost(b)-cost(a)||stable(a.name,b.name)).slice(0,2),...rankedCuts.slice(4,6)])];
+   const protectedNames=new Set([...current.infrastructure,...current.drawEngines].map(x=>x.card).concat(shadowOnly?shadowProtectedNames:[]));
+   const cutFrontier=shadowOnly?rankedCuts.filter(c=>!protectedNames.has(c.name)):rankedCuts;
+   const cuts=[...new Set([...cutFrontier.slice(0,4),...cutFrontier.slice().sort((a,b)=>cost(b)-cost(a)||stable(a.name,b.name)).slice(0,2),...cutFrontier.slice(4,6),...(shadowOnly?cutFrontier.filter(c=>manaFor(c).units===1).slice(0,2):[])])];
    const landAdds=candidates.filter(c=>isLandSlot(c)&&!owned.has(singletonName(c))).filter(c=>{const m=landManaQuality(c);return !m.restricted&&!m.needsActivationPayment&&!m.unusable&&!m.consumable;}).sort((a,b)=>landManaQuality(b).colors.length-landManaQuality(a).colors.length||Number(landManaQuality(a).entersTapped)-Number(landManaQuality(b).entersTapped)||stable(a.name,b.name)).slice(0,3);
    const sortedLandCuts=state.cards.filter(isLandSlot).sort((a,b)=>landManaQuality(a).colors.length-landManaQuality(b).colors.length||Number(landManaQuality(b).entersTapped)-Number(landManaQuality(a).entersTapped)||stable(a.name,b.name));
-   const landCuts=[...new Set([sortedLandCuts[0],sortedLandCuts.find(c=>!landManaQuality(c).canC)])].filter(Boolean);
+   const landCuts=[...new Set([sortedLandCuts[0],sortedLandCuts.find(c=>!landManaQuality(c).canC),...(shadowOnly?sortedLandCuts.filter(c=>landManaQuality(c).entersTapped&&!landManaQuality(c).canC).slice(0,2):[])])].filter(Boolean);
    const proposals=[];
    const deficits=Object.fromEntries(Object.entries(functionalFloors).filter(([k,n])=>current.vector[k]<n));
    // Restore complete paths atomically, rather than requiring each isolated
@@ -271,6 +273,18 @@ export function refinePackageInvestments({built,pool,commander,plan=planFor(comm
     proposals.push({add,remove,cards,key,price,label,rough});
    }
    for(const add of additions)for(const cut of cuts)propose([add],[cut]);
+   if(shadowOnly){
+    // Additional bounded shadow experiments; normal construction never enters
+    // this path. Existing validation below still applies to every full deck.
+    for(const land of landAdds)for(const cutLand of landCuts){
+     propose([land],[cutLand],'land sequencing repair');
+     for(const d of draw.slice(0,6))for(const cut of cuts.slice(0,6))propose([d.card,land],[cut,cutLand],'access/mana-base repair');
+     for(const m of mana.filter(x=>x.p.mana.fast).slice(0,3))for(const d of draw.slice(0,6)){
+      if(m.card===d.card)continue;
+      for(const manaCut of cuts.filter(c=>manaFor(c).fast).slice(0,2))for(const cut of cuts.filter(c=>c!==manaCut).slice(0,3))propose([m.card,d.card,land],[manaCut,cut,cutLand],'acceleration/access/land repair');
+     }
+    }
+   }
    for(const pair of combinations(additions,2))for(const pairCuts of combinations(cuts.slice(0,6),2))propose(pair,pairCuts);
    const tripleAdds=[...new Set([mana[0]?.card,mana[1]?.card,...mana.filter(x=>x.p.mana.fast).slice(0,2).map(x=>x.card),draw[0]?.card,draw[1]?.card,support[0]?.card].filter(Boolean))];
    for(const triple of combinations(tripleAdds,3))for(const tripleCuts of combinations(cuts.slice(0,5),3))propose(triple,tripleCuts);
@@ -299,10 +313,38 @@ export function refinePackageInvestments({built,pool,commander,plan=planFor(comm
    while(scheduled.length<report.limits.maxEvaluations){let changed=false;for(const bucket of buckets.values()){
     if(bucket.length){scheduled.push(bucket.shift());changed=true;if(scheduled.length>=report.limits.maxEvaluations)break;}
    }if(!changed)break;}
+   let evaluationSchedule=scheduled;
+   if(shadowOnly){
+    // Separate incoming sizes and land repairs before the cap. Do not let
+    // expensive annihilator bundles occupy the whole experimental frontier.
+    const groups=new Map();
+    for(const p of proposals.slice().sort((a,b)=>a.add.reduce((n,c)=>n+engineManaValue(c),0)-b.add.reduce((n,c)=>n+engineManaValue(c),0)||stable(a.add.map(c=>c.name).join('|'),b.add.map(c=>c.name).join('|')))){
+     if(p.remove.some(c=>protectedNames.has(c.name)))continue;
+     if(requireColorless&&p.cards.filter(c=>isLandSlot(c)&&trueColorlessSource(c)).length<original.land.realColorless)continue;
+     const k=p.label+':'+p.add.length;if(!groups.has(k))groups.set(k,[]);groups.get(k).push(p);
+    }
+    evaluationSchedule=[];const bundles=new Map();
+    while(evaluationSchedule.length<report.limits.maxEvaluations){let changed=false;for(const bucket of groups.values()){
+     while(bucket.length){const p=bucket.shift(),key=p.add.map(singletonName).sort(stable).join('|'),n=bundles.get(key)||0;if(n>=2)continue;
+      bundles.set(key,n+1);evaluationSchedule.push(p);changed=true;break;}
+     if(evaluationSchedule.length>=report.limits.maxEvaluations)break;
+    }if(!changed)break;}
+   }
    const prior=new Map(state.cards.map(c=>[c,dependencyEvidence(c,state.cards)]));
-   for(const p of scheduled){
+   for(const p of evaluationSchedule){
     report.evaluated++;seen.add(p.key);for(const c of p.add){const w=watch.get(c.name);if(w)w.considered++;}
-    const fail=reason=>record(p.add,reason),lands=p.cards.filter(isLandSlot);
+    // Opt-in, observational only. The callback cannot vote in production
+    // selection. Incomparable packages may be safe shadow experiments even
+    // when the production functional-dominance gate rejects them.
+    const observe=reason=>{if(!observeProposal)return;
+     const e=evidenceFor(p.cards),extra=[];
+     if(!preservesInput(p.cards))extra.push('protected input functions');
+     if(current.infrastructure.some(x=>!e.infrastructure.some(y=>y.card===x.card&&y.kind===x.kind&&y.units>=x.units)))extra.push('distinct native infrastructure');
+     if(current.drawEngines.some(x=>!e.drawEngines.some(y=>y.card===x.card)))extra.push('reliable card-access engine');
+     const hard=reason&&!['no complete functional dominance'].includes(reason)?[reason]:[];
+     observeProposal({label:p.label,cards:p.cards.slice(),add:p.add.slice(),remove:p.remove.slice(),price:round(p.price),productionReason:reason||'accepted',shadowReasons:[...hard,...extra],before:current,after:e});
+    };
+    const fail=reason=>{record(p.add,reason);observe(reason);},lands=p.cards.filter(isLandSlot);
     if(p.remove.some(c=>{const m=manaFor(c);return m.fast&&m.units>=2&&p.cards.filter(x=>{const n=manaFor(x);return n.fast&&n.units>=m.units;}).length<state.cards.filter(x=>{const n=manaFor(x);return n.fast&&n.units>=m.units;}).length;})){fail('high-output early mana');continue;}
     const maxSources=Math.max(Number(bracket)===4?13:Number(bracket)===3?12:10,state.cards.filter(c=>manaFor(c).units>0).length);
     if(p.cards.filter(c=>manaFor(c).units>0).length>maxSources){fail('ramp overprovision');continue;}
@@ -324,6 +366,7 @@ export function refinePackageInvestments({built,pool,commander,plan=planFor(comm
      if(!preservesInput(p.cards)){fail('incomplete functional restoration');continue;}
      if(current.infrastructure.some(x=>!evidence.infrastructure.some(y=>y.card===x.card&&y.kind===x.kind&&y.units>=x.units))){fail('native infrastructure restoration');continue;}
     }else if(!dominatesEvidence(progress(evidence),progress(current))){fail('no complete functional dominance');continue;}
+    observe(null);
     const entry={label:p.label,cuts:p.remove.map(c=>c.name),adds:p.add.map(c=>c.name),extraCost:round(p.price-sumCost(state.cards,commander)),changes:gained(evidence,current)};
     if(p.label==='functional restoration')report.restoredPaths.push({origin:state.budgetInvestment?.searchMode||state.strategy,price:round(p.price),...entry});
     expanded.push({...state,cards:p.cards,price:round(p.price),atomic:[...state.atomic,entry]});
