@@ -1,0 +1,6764 @@
+{
+  "audit": {
+    "valid": true,
+    "errors": [],
+    "resourceAudit": true,
+    "zoneAudit": true
+  },
+  "schemaVersion": 2,
+  "evaluator": "gameplay-stage2-v1",
+  "seed": "gameplay-stage1-2026-10-22:0",
+  "turns": 8,
+  "policy": "commander-first",
+  "mulligan": "none",
+  "order": [
+    11,
+    44,
+    73,
+    25,
+    43,
+    26,
+    4,
+    35,
+    76,
+    30,
+    28,
+    42,
+    59,
+    74,
+    66,
+    7,
+    97,
+    63,
+    41,
+    19,
+    79,
+    55,
+    27,
+    61,
+    38,
+    52,
+    33,
+    1,
+    29,
+    8,
+    13,
+    54,
+    12,
+    16,
+    48,
+    23,
+    50,
+    22,
+    77,
+    69,
+    84,
+    78,
+    67,
+    92,
+    34,
+    45,
+    21,
+    60,
+    53,
+    88,
+    68,
+    15,
+    2,
+    47,
+    20,
+    75,
+    70,
+    82,
+    85,
+    39,
+    9,
+    81,
+    49,
+    91,
+    36,
+    95,
+    89,
+    64,
+    58,
+    3,
+    86,
+    98,
+    32,
+    40,
+    96,
+    83,
+    18,
+    65,
+    14,
+    10,
+    80,
+    57,
+    17,
+    56,
+    93,
+    94,
+    90,
+    71,
+    0,
+    72,
+    62,
+    5,
+    51,
+    31,
+    37,
+    46,
+    6,
+    87,
+    24
+  ],
+  "initialOpening": [
+    {
+      "id": "deck-11",
+      "card": "Delver of Secrets // Insectile Aberration"
+    },
+    {
+      "id": "deck-44",
+      "card": "Rattlechains"
+    },
+    {
+      "id": "deck-73",
+      "card": "Island"
+    },
+    {
+      "id": "deck-25",
+      "card": "Giant's Boulder"
+    },
+    {
+      "id": "deck-43",
+      "card": "Rampart Crawler"
+    },
+    {
+      "id": "deck-26",
+      "card": "H.E.R.B.I.E., Lovable Robot"
+    },
+    {
+      "id": "deck-4",
+      "card": "Aven Envoy"
+    }
+  ],
+  "commander": "Yuriko, the Tiger's Shadow",
+  "nativeTypes": [
+    "Ninja"
+  ],
+  "chosenType": "Ninja",
+  "stats": {
+    "casts": [
+      {
+        "turn": 1,
+        "id": "deck-25",
+        "card": "Giant's Boulder",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 2,
+        "id": "deck-26",
+        "card": "H.E.R.B.I.E., Lovable Robot",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 3,
+        "id": "commander",
+        "card": "Yuriko, the Tiger's Shadow",
+        "commander": true,
+        "origin": "command"
+      },
+      {
+        "turn": 4,
+        "id": "deck-28",
+        "card": "Illvoi Galeblade",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 5,
+        "id": "deck-11",
+        "card": "Delver of Secrets // Insectile Aberration",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 5,
+        "id": "deck-30",
+        "card": "Locthwain Gargoyle",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 5,
+        "id": "deck-35",
+        "card": "Network Disruptor",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 6,
+        "id": "deck-59",
+        "card": "Thran Dynamo",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 6,
+        "id": "deck-42",
+        "card": "PuPu UFO",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 7,
+        "id": "deck-4",
+        "card": "Aven Envoy",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 7,
+        "id": "deck-43",
+        "card": "Rampart Crawler",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 7,
+        "id": "deck-44",
+        "card": "Rattlechains",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 8,
+        "id": "deck-7",
+        "card": "Caller of Gales",
+        "commander": false,
+        "origin": "hand"
+      }
+    ],
+    "commanderDeploymentTurn": 3,
+    "setupBeforePayableCommander": 0,
+    "optionalPayments": [],
+    "effectDraws": 1,
+    "naturalDraws": 8,
+    "accessDiscards": 0,
+    "cleanupDiscards": 0,
+    "returnedToTop": 0,
+    "topCasts": 0,
+    "accessSacrifices": 1,
+    "accessSpells": 0,
+    "activations": 1,
+    "selections": 1,
+    "manaStates": 1089,
+    "manaSearches": 155,
+    "boundHits": 0,
+    "actionBoundHits": 0,
+    "usedEngines": [
+      {
+        "id": "deck-25",
+        "card": "Giant's Boulder",
+        "kind": "access",
+        "turn": 1
+      },
+      {
+        "id": "deck-28",
+        "card": "Illvoi Galeblade",
+        "kind": "access",
+        "turn": 4
+      }
+    ],
+    "mulligans": 0
+  },
+  "observations": [
+    {
+      "turn": 1,
+      "commanderDeployed": false,
+      "manaBeforeActions": {
+        "context": "independent maxima for commander spell; not simultaneous or additive",
+        "max": {
+          "generic": {
+            "payableAtLeast": 1,
+            "unknown": false,
+            "cap": 16
+          },
+          "W": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "U": {
+            "payableAtLeast": 1,
+            "unknown": false,
+            "cap": 16
+          },
+          "B": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "R": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "G": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "C": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          }
+        },
+        "separateTriggeredCC": "blocked"
+      },
+      "manaRemaining": {
+        "context": "independent maxima for commander spell; not simultaneous or additive",
+        "max": {
+          "generic": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "W": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "U": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "B": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "R": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "G": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "C": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          }
+        },
+        "separateTriggeredCC": "blocked"
+      },
+      "handSize": 6,
+      "accessibleCards": 8,
+      "netAccessibleCards": 0,
+      "naturalDraws": 1,
+      "effectDraws": 0,
+      "effectDiscards": 0,
+      "cleanupDiscards": 0,
+      "returnedToTop": 0,
+      "topCasts": 0,
+      "accessSpells": 0,
+      "accessSacrifices": 0,
+      "engines": [
+        {
+          "id": "deck-25",
+          "card": "Giant's Boulder",
+          "kind": "access",
+          "supported": true,
+          "native": false,
+          "readyNow": "blocked",
+          "used": true
+        }
+      ],
+      "threatsBeforeActions": [],
+      "threatAvailability": [],
+      "missed": [
+        {
+          "id": "deck-11",
+          "card": "Delver of Secrets // Insectile Aberration",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-44",
+          "card": "Rattlechains",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-43",
+          "card": "Rampart Crawler",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-26",
+          "card": "H.E.R.B.I.E., Lovable Robot",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-4",
+          "card": "Aven Envoy",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-35",
+          "card": "Network Disruptor",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "commander",
+          "card": "Yuriko, the Tiger's Shadow",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        }
+      ]
+    },
+    {
+      "turn": 2,
+      "commanderDeployed": false,
+      "manaBeforeActions": {
+        "context": "independent maxima for commander spell; not simultaneous or additive",
+        "max": {
+          "generic": {
+            "payableAtLeast": 2,
+            "unknown": false,
+            "cap": 16
+          },
+          "W": {
+            "payableAtLeast": 1,
+            "unknown": false,
+            "cap": 16
+          },
+          "U": {
+            "payableAtLeast": 2,
+            "unknown": false,
+            "cap": 16
+          },
+          "B": {
+            "payableAtLeast": 1,
+            "unknown": false,
+            "cap": 16
+          },
+          "R": {
+            "payableAtLeast": 1,
+            "unknown": false,
+            "cap": 16
+          },
+          "G": {
+            "payableAtLeast": 1,
+            "unknown": false,
+            "cap": 16
+          },
+          "C": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          }
+        },
+        "separateTriggeredCC": "blocked"
+      },
+      "manaRemaining": {
+        "context": "independent maxima for commander spell; not simultaneous or additive",
+        "max": {
+          "generic": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "W": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "U": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "B": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "R": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "G": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "C": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          }
+        },
+        "separateTriggeredCC": "blocked"
+      },
+      "handSize": 5,
+      "accessibleCards": 9,
+      "netAccessibleCards": 0,
+      "naturalDraws": 2,
+      "effectDraws": 0,
+      "effectDiscards": 0,
+      "cleanupDiscards": 0,
+      "returnedToTop": 0,
+      "topCasts": 0,
+      "accessSpells": 0,
+      "accessSacrifices": 0,
+      "engines": [
+        {
+          "id": "deck-25",
+          "card": "Giant's Boulder",
+          "kind": "access",
+          "supported": true,
+          "native": false,
+          "readyNow": "blocked",
+          "used": true
+        }
+      ],
+      "threatsBeforeActions": [],
+      "threatAvailability": [],
+      "missed": [
+        {
+          "id": "deck-11",
+          "card": "Delver of Secrets // Insectile Aberration",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-44",
+          "card": "Rattlechains",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-43",
+          "card": "Rampart Crawler",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-4",
+          "card": "Aven Envoy",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-35",
+          "card": "Network Disruptor",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "commander",
+          "card": "Yuriko, the Tiger's Shadow",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        }
+      ]
+    },
+    {
+      "turn": 3,
+      "commanderDeployed": true,
+      "manaBeforeActions": {
+        "context": "independent maxima for commander spell; not simultaneous or additive",
+        "max": {
+          "generic": {
+            "payableAtLeast": 3,
+            "unknown": false,
+            "cap": 16
+          },
+          "W": {
+            "payableAtLeast": 2,
+            "unknown": false,
+            "cap": 16
+          },
+          "U": {
+            "payableAtLeast": 3,
+            "unknown": false,
+            "cap": 16
+          },
+          "B": {
+            "payableAtLeast": 2,
+            "unknown": false,
+            "cap": 16
+          },
+          "R": {
+            "payableAtLeast": 2,
+            "unknown": false,
+            "cap": 16
+          },
+          "G": {
+            "payableAtLeast": 2,
+            "unknown": false,
+            "cap": 16
+          },
+          "C": {
+            "payableAtLeast": 1,
+            "unknown": false,
+            "cap": 16
+          }
+        },
+        "separateTriggeredCC": "blocked"
+      },
+      "manaRemaining": {
+        "context": "independent maxima for commander spell; not simultaneous or additive",
+        "max": {
+          "generic": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "W": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "U": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "B": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "R": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "G": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "C": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          }
+        },
+        "separateTriggeredCC": "blocked"
+      },
+      "handSize": 6,
+      "accessibleCards": 10,
+      "netAccessibleCards": 0,
+      "naturalDraws": 3,
+      "effectDraws": 0,
+      "effectDiscards": 0,
+      "cleanupDiscards": 0,
+      "returnedToTop": 0,
+      "topCasts": 0,
+      "accessSpells": 0,
+      "accessSacrifices": 0,
+      "engines": [
+        {
+          "id": "deck-25",
+          "card": "Giant's Boulder",
+          "kind": "access",
+          "supported": true,
+          "native": false,
+          "readyNow": "blocked",
+          "used": true
+        }
+      ],
+      "threatsBeforeActions": [],
+      "threatAvailability": [],
+      "missed": [
+        {
+          "id": "deck-11",
+          "card": "Delver of Secrets // Insectile Aberration",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-44",
+          "card": "Rattlechains",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-43",
+          "card": "Rampart Crawler",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-4",
+          "card": "Aven Envoy",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-35",
+          "card": "Network Disruptor",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-30",
+          "card": "Locthwain Gargoyle",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        }
+      ]
+    },
+    {
+      "turn": 4,
+      "commanderDeployed": true,
+      "manaBeforeActions": {
+        "context": "independent maxima for commander spell; not simultaneous or additive",
+        "max": {
+          "generic": {
+            "payableAtLeast": 3,
+            "unknown": false,
+            "cap": 16
+          },
+          "W": {
+            "payableAtLeast": 2,
+            "unknown": false,
+            "cap": 16
+          },
+          "U": {
+            "payableAtLeast": 3,
+            "unknown": false,
+            "cap": 16
+          },
+          "B": {
+            "payableAtLeast": 2,
+            "unknown": false,
+            "cap": 16
+          },
+          "R": {
+            "payableAtLeast": 2,
+            "unknown": false,
+            "cap": 16
+          },
+          "G": {
+            "payableAtLeast": 2,
+            "unknown": false,
+            "cap": 16
+          },
+          "C": {
+            "payableAtLeast": 1,
+            "unknown": false,
+            "cap": 16
+          }
+        },
+        "separateTriggeredCC": "blocked"
+      },
+      "manaRemaining": {
+        "context": "independent maxima for commander spell; not simultaneous or additive",
+        "max": {
+          "generic": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "W": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "U": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "B": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "R": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "G": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "C": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          }
+        },
+        "separateTriggeredCC": "blocked"
+      },
+      "handSize": 7,
+      "accessibleCards": 11,
+      "netAccessibleCards": 0,
+      "naturalDraws": 4,
+      "effectDraws": 1,
+      "effectDiscards": 0,
+      "cleanupDiscards": 0,
+      "returnedToTop": 0,
+      "topCasts": 0,
+      "accessSpells": 0,
+      "accessSacrifices": 1,
+      "engines": [
+        {
+          "id": "deck-25",
+          "card": "Giant's Boulder",
+          "kind": "access",
+          "supported": true,
+          "native": false,
+          "readyNow": "blocked",
+          "used": true
+        }
+      ],
+      "threatsBeforeActions": [],
+      "threatAvailability": [],
+      "missed": [
+        {
+          "id": "deck-11",
+          "card": "Delver of Secrets // Insectile Aberration",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-44",
+          "card": "Rattlechains",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-43",
+          "card": "Rampart Crawler",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-4",
+          "card": "Aven Envoy",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-35",
+          "card": "Network Disruptor",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-30",
+          "card": "Locthwain Gargoyle",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-42",
+          "card": "PuPu UFO",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        }
+      ]
+    },
+    {
+      "turn": 5,
+      "commanderDeployed": true,
+      "manaBeforeActions": {
+        "context": "independent maxima for commander spell; not simultaneous or additive",
+        "max": {
+          "generic": {
+            "payableAtLeast": 3,
+            "unknown": false,
+            "cap": 16
+          },
+          "W": {
+            "payableAtLeast": 2,
+            "unknown": false,
+            "cap": 16
+          },
+          "U": {
+            "payableAtLeast": 3,
+            "unknown": false,
+            "cap": 16
+          },
+          "B": {
+            "payableAtLeast": 2,
+            "unknown": false,
+            "cap": 16
+          },
+          "R": {
+            "payableAtLeast": 2,
+            "unknown": false,
+            "cap": 16
+          },
+          "G": {
+            "payableAtLeast": 2,
+            "unknown": false,
+            "cap": 16
+          },
+          "C": {
+            "payableAtLeast": 1,
+            "unknown": false,
+            "cap": 16
+          }
+        },
+        "separateTriggeredCC": "blocked"
+      },
+      "manaRemaining": {
+        "context": "independent maxima for commander spell; not simultaneous or additive",
+        "max": {
+          "generic": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "W": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "U": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "B": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "R": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "G": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "C": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          }
+        },
+        "separateTriggeredCC": "blocked"
+      },
+      "handSize": 5,
+      "accessibleCards": 12,
+      "netAccessibleCards": 0,
+      "naturalDraws": 5,
+      "effectDraws": 1,
+      "effectDiscards": 0,
+      "cleanupDiscards": 0,
+      "returnedToTop": 0,
+      "topCasts": 0,
+      "accessSpells": 0,
+      "accessSacrifices": 1,
+      "engines": [
+        {
+          "id": "deck-25",
+          "card": "Giant's Boulder",
+          "kind": "access",
+          "supported": true,
+          "native": false,
+          "readyNow": "blocked",
+          "used": true
+        }
+      ],
+      "threatsBeforeActions": [],
+      "threatAvailability": [],
+      "missed": [
+        {
+          "id": "deck-44",
+          "card": "Rattlechains",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-43",
+          "card": "Rampart Crawler",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-4",
+          "card": "Aven Envoy",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-42",
+          "card": "PuPu UFO",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-59",
+          "card": "Thran Dynamo",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        }
+      ]
+    },
+    {
+      "turn": 6,
+      "commanderDeployed": true,
+      "manaBeforeActions": {
+        "context": "independent maxima for commander spell; not simultaneous or additive",
+        "max": {
+          "generic": {
+            "payableAtLeast": 4,
+            "unknown": false,
+            "cap": 16
+          },
+          "W": {
+            "payableAtLeast": 2,
+            "unknown": false,
+            "cap": 16
+          },
+          "U": {
+            "payableAtLeast": 4,
+            "unknown": false,
+            "cap": 16
+          },
+          "B": {
+            "payableAtLeast": 2,
+            "unknown": false,
+            "cap": 16
+          },
+          "R": {
+            "payableAtLeast": 2,
+            "unknown": false,
+            "cap": 16
+          },
+          "G": {
+            "payableAtLeast": 2,
+            "unknown": false,
+            "cap": 16
+          },
+          "C": {
+            "payableAtLeast": 1,
+            "unknown": false,
+            "cap": 16
+          }
+        },
+        "separateTriggeredCC": "blocked"
+      },
+      "manaRemaining": {
+        "context": "independent maxima for commander spell; not simultaneous or additive",
+        "max": {
+          "generic": {
+            "payableAtLeast": 1,
+            "unknown": false,
+            "cap": 16
+          },
+          "W": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "U": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "B": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "R": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "G": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "C": {
+            "payableAtLeast": 1,
+            "unknown": false,
+            "cap": 16
+          }
+        },
+        "separateTriggeredCC": "blocked"
+      },
+      "handSize": 3,
+      "accessibleCards": 13,
+      "netAccessibleCards": 0,
+      "naturalDraws": 6,
+      "effectDraws": 1,
+      "effectDiscards": 0,
+      "cleanupDiscards": 0,
+      "returnedToTop": 0,
+      "topCasts": 0,
+      "accessSpells": 0,
+      "accessSacrifices": 1,
+      "engines": [
+        {
+          "id": "deck-25",
+          "card": "Giant's Boulder",
+          "kind": "access",
+          "supported": true,
+          "native": false,
+          "readyNow": "blocked",
+          "used": true
+        }
+      ],
+      "threatsBeforeActions": [],
+      "threatAvailability": [],
+      "missed": [
+        {
+          "id": "deck-44",
+          "card": "Rattlechains",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-43",
+          "card": "Rampart Crawler",
+          "status": "blocked",
+          "reason": "required colored or true-colorless type unavailable"
+        },
+        {
+          "id": "deck-4",
+          "card": "Aven Envoy",
+          "status": "blocked",
+          "reason": "required colored or true-colorless type unavailable"
+        }
+      ]
+    },
+    {
+      "turn": 7,
+      "commanderDeployed": true,
+      "manaBeforeActions": {
+        "context": "independent maxima for commander spell; not simultaneous or additive",
+        "max": {
+          "generic": {
+            "payableAtLeast": 8,
+            "unknown": false,
+            "cap": 16
+          },
+          "W": {
+            "payableAtLeast": 2,
+            "unknown": false,
+            "cap": 16
+          },
+          "U": {
+            "payableAtLeast": 6,
+            "unknown": false,
+            "cap": 16
+          },
+          "B": {
+            "payableAtLeast": 2,
+            "unknown": false,
+            "cap": 16
+          },
+          "R": {
+            "payableAtLeast": 2,
+            "unknown": false,
+            "cap": 16
+          },
+          "G": {
+            "payableAtLeast": 2,
+            "unknown": false,
+            "cap": 16
+          },
+          "C": {
+            "payableAtLeast": 4,
+            "unknown": false,
+            "cap": 16
+          }
+        },
+        "separateTriggeredCC": "paid"
+      },
+      "manaRemaining": {
+        "context": "independent maxima for commander spell; not simultaneous or additive",
+        "max": {
+          "generic": {
+            "payableAtLeast": 3,
+            "unknown": false,
+            "cap": 16
+          },
+          "W": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "U": {
+            "payableAtLeast": 1,
+            "unknown": false,
+            "cap": 16
+          },
+          "B": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "R": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "G": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "C": {
+            "payableAtLeast": 2,
+            "unknown": false,
+            "cap": 16
+          }
+        },
+        "separateTriggeredCC": "paid"
+      },
+      "handSize": 0,
+      "accessibleCards": 14,
+      "netAccessibleCards": 0,
+      "naturalDraws": 7,
+      "effectDraws": 1,
+      "effectDiscards": 0,
+      "cleanupDiscards": 0,
+      "returnedToTop": 0,
+      "topCasts": 0,
+      "accessSpells": 0,
+      "accessSacrifices": 1,
+      "engines": [
+        {
+          "id": "deck-25",
+          "card": "Giant's Boulder",
+          "kind": "access",
+          "supported": true,
+          "native": false,
+          "readyNow": "blocked",
+          "used": true
+        }
+      ],
+      "threatsBeforeActions": [],
+      "threatAvailability": [],
+      "missed": []
+    },
+    {
+      "turn": 8,
+      "commanderDeployed": true,
+      "manaBeforeActions": {
+        "context": "independent maxima for commander spell; not simultaneous or additive",
+        "max": {
+          "generic": {
+            "payableAtLeast": 8,
+            "unknown": false,
+            "cap": 16
+          },
+          "W": {
+            "payableAtLeast": 2,
+            "unknown": false,
+            "cap": 16
+          },
+          "U": {
+            "payableAtLeast": 6,
+            "unknown": false,
+            "cap": 16
+          },
+          "B": {
+            "payableAtLeast": 2,
+            "unknown": false,
+            "cap": 16
+          },
+          "R": {
+            "payableAtLeast": 2,
+            "unknown": false,
+            "cap": 16
+          },
+          "G": {
+            "payableAtLeast": 2,
+            "unknown": false,
+            "cap": 16
+          },
+          "C": {
+            "payableAtLeast": 4,
+            "unknown": false,
+            "cap": 16
+          }
+        },
+        "separateTriggeredCC": "paid"
+      },
+      "manaRemaining": {
+        "context": "independent maxima for commander spell; not simultaneous or additive",
+        "max": {
+          "generic": {
+            "payableAtLeast": 7,
+            "unknown": false,
+            "cap": 16
+          },
+          "W": {
+            "payableAtLeast": 2,
+            "unknown": false,
+            "cap": 16
+          },
+          "U": {
+            "payableAtLeast": 5,
+            "unknown": false,
+            "cap": 16
+          },
+          "B": {
+            "payableAtLeast": 2,
+            "unknown": false,
+            "cap": 16
+          },
+          "R": {
+            "payableAtLeast": 2,
+            "unknown": false,
+            "cap": 16
+          },
+          "G": {
+            "payableAtLeast": 2,
+            "unknown": false,
+            "cap": 16
+          },
+          "C": {
+            "payableAtLeast": 4,
+            "unknown": false,
+            "cap": 16
+          }
+        },
+        "separateTriggeredCC": "paid"
+      },
+      "handSize": 0,
+      "accessibleCards": 15,
+      "netAccessibleCards": 0,
+      "naturalDraws": 8,
+      "effectDraws": 1,
+      "effectDiscards": 0,
+      "cleanupDiscards": 0,
+      "returnedToTop": 0,
+      "topCasts": 0,
+      "accessSpells": 0,
+      "accessSacrifices": 1,
+      "engines": [
+        {
+          "id": "deck-25",
+          "card": "Giant's Boulder",
+          "kind": "access",
+          "supported": true,
+          "native": false,
+          "readyNow": "blocked",
+          "used": true
+        }
+      ],
+      "threatsBeforeActions": [],
+      "threatAvailability": [],
+      "missed": []
+    }
+  ],
+  "decked": false,
+  "lost": false,
+  "assumptions": {
+    "opening": 7,
+    "mulligan": "none",
+    "drawOnTurnOne": true,
+    "rankingIntegration": false,
+    "commanderTaxPriorCasts": 0,
+    "access": true,
+    "mainPhases": 1,
+    "maxActions": 24,
+    "maxManaStates": 4000,
+    "maxSetupActionsBeforePayableCommander": 1,
+    "sourcePayments": "optimized exact ledger",
+    "opponents": "three inert seats; no combat/interaction; supported control transfers leave our board",
+    "optionalPayment": "reserve before resolving resource/access triggers",
+    "threatDefinition": "native creature with printed power >=4 or printed MV >=5; payment availability, not win conversion; other threat/combat/copy outcomes unknown",
+    "otherRulesCoverage": "not quantified; parsed access is not complete Oracle/rules coverage"
+  },
+  "coverage": {
+    "cardsWithSupportedAccess": 14,
+    "cardsWithUnmodeledAccess": 13,
+    "unmodeledAccessClauses": 14
+  },
+  "unknown": [
+    {
+      "card": "Aerial Doombot",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Arcane Signet",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Artificer's Assistant",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Ascendant Spirit",
+      "access": [
+        {
+          "line": "{S}{S}{S}{S}: If this creature is an Angel, put two +1/+1 counters on it and it gains \"Whenever this creature deals combat damage to a player, draw a card.\"",
+          "reason": "unsupported access prerequisites/effect"
+        }
+      ],
+      "other": []
+    },
+    {
+      "card": "Aven Envoy",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Azra Smokeshaper",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Brass Gnat",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Caller of Gales",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Callous Inspector",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Cloud Sprite",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Conch Horn",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Delver of Secrets // Insectile Aberration",
+      "access": [
+        {
+          "line": "At the beginning of your upkeep, look at the top card of your library. You may reveal that card. If an instant or sorcery card is revealed this way, transform this creature.",
+          "reason": "unsupported access prerequisites/effect"
+        }
+      ],
+      "other": [
+        "alternate faces/transform/craft not evaluated; front face only"
+      ]
+    },
+    {
+      "card": "Diresight",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Dokuchi Silencer",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Dreadmalkin",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Dream Beavers",
+      "access": [
+        {
+          "line": "When this creature enters, each opponent loses 1 life and you gain 1 life. Scry 1.",
+          "reason": "unsupported access prerequisites/effect"
+        }
+      ],
+      "other": []
+    },
+    {
+      "card": "Drifter il-Dal",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Duskwalker",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Etherium Pteramander",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Eye Collector",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Faerie Seer",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Faerie Squadron",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Fledgling Osprey",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Flitterwing Nuisance",
+      "access": [
+        {
+          "line": "{2}{U}, Remove a counter from this creature: Whenever a creature you control deals combat damage to a player or planeswalker this turn, draw a card.",
+          "reason": "unsupported access prerequisites/effect"
+        }
+      ],
+      "other": []
+    },
+    {
+      "card": "Fugitive Droid",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Giant's Boulder",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "H.E.R.B.I.E., Lovable Robot",
+      "access": [
+        {
+          "line": "At the beginning of combat on your turn, if you've cast a noncreature spell this turn, surveil 1.",
+          "reason": "unsupported access prerequisites/effect"
+        }
+      ],
+      "other": []
+    },
+    {
+      "card": "Harrier Strix",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Illvoi Galeblade",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Lantern Bearer // Lanterns' Lift",
+      "access": [],
+      "other": [
+        "alternate faces/transform/craft not evaluated; front face only"
+      ]
+    },
+    {
+      "card": "Locthwain Gargoyle",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Mausoleum Wanderer",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Merfolk Windrobber",
+      "access": [
+        {
+          "line": "Sacrifice this creature: Draw a card. Activate only if an opponent has eight or more cards in their graveyard.",
+          "reason": "unsupported access prerequisites/effect"
+        }
+      ],
+      "other": []
+    },
+    {
+      "card": "Mind Stone",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Mistway Spy",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Network Disruptor",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Notion Rain",
+      "access": [
+        {
+          "line": "Surveil 2, then draw two cards. Notion Rain deals 2 damage to you.",
+          "reason": "unsupported access prerequisites/effect"
+        }
+      ],
+      "other": []
+    },
+    {
+      "card": "Ornithopter of Paradise",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Phyrexian Battleflies",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Planar Atlas",
+      "access": [
+        {
+          "line": "When this artifact enters, you may look at the top four cards of your library. If you do, reveal up to one land card from among them, then put that card on top of your library and the rest on the bottom in a random order.",
+          "reason": "unsupported access prerequisites/effect"
+        }
+      ],
+      "other": []
+    },
+    {
+      "card": "Plumecreed Escort",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Pteramander",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "PuPu UFO",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Rampart Crawler",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Rattlechains",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Risky Research",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Rowan's Grim Search",
+      "access": [
+        {
+          "line": "If this spell was bargained, look at the top four cards of your library, then put up to two of them back on top of your library in any order and the rest into your graveyard.",
+          "reason": "unsupported access prerequisites/effect"
+        },
+        {
+          "line": "You draw two cards and you lose 2 life.",
+          "reason": "unsupported access prerequisites/effect"
+        }
+      ],
+      "other": []
+    },
+    {
+      "card": "Silver Raven",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Siren Stormtamer",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Sol Ring",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Spectral Sailor",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Spellgyre",
+      "access": [
+        {
+          "line": "• Surveil 2, then draw two cards.",
+          "reason": "unsupported access prerequisites/effect"
+        }
+      ],
+      "other": []
+    },
+    {
+      "card": "Spindrift Drake",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Staff of Compleation",
+      "access": [],
+      "other": [
+        "unsupported activation cost: {T}, Pay 2 life: Add one mana of any color."
+      ]
+    },
+    {
+      "card": "Stirge",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Stronghold Confessor",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "The One Ring",
+      "access": [
+        {
+          "line": "{T}: Put a burden counter on The One Ring, then draw a card for each burden counter on The One Ring.",
+          "reason": "unsupported access prerequisites/effect"
+        }
+      ],
+      "other": []
+    },
+    {
+      "card": "Thought Nibbler",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Thousand-Faced Shadow",
+      "access": [],
+      "other": [
+        "conditional entry; mana withheld on entry turn"
+      ]
+    },
+    {
+      "card": "Thran Dynamo",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Three Steps Ahead",
+      "access": [
+        {
+          "line": "+ {2} — Draw two cards, then discard a card.",
+          "reason": "unsupported access prerequisites/effect"
+        }
+      ],
+      "other": []
+    },
+    {
+      "card": "Vampire Bats",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Zephyr Sprite",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Command Tower",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Exotic Orchard",
+      "access": [],
+      "other": [
+        "unsupported mana production: {T}: Add one mana of any color that a land an opponent controls could produce."
+      ]
+    },
+    {
+      "card": "Island",
+      "access": [],
+      "other": [
+        "unsupported activation cost: ({T}: Add {U}.)"
+      ]
+    },
+    {
+      "card": "Mirrodin's Core",
+      "access": [],
+      "other": [
+        "unsupported activation cost: {T}, Remove a charge counter from this land: Add one mana of any color."
+      ]
+    },
+    {
+      "card": "River of Tears",
+      "access": [],
+      "other": [
+        "unsupported mana condition: {T}: Add {U}. If you played a land this turn, add {B} instead."
+      ]
+    },
+    {
+      "card": "Rootwater Depths",
+      "access": [],
+      "other": [
+        "unsupported mana condition: {T}: Add {U} or {B}. This land doesn't untap during your next untap step."
+      ]
+    },
+    {
+      "card": "Spire of Industry",
+      "access": [],
+      "other": [
+        "unsupported activation cost: {T}, Pay 1 life: Add one mana of any color. Activate only if you control an artifact."
+      ]
+    },
+    {
+      "card": "Swamp",
+      "access": [],
+      "other": [
+        "unsupported activation cost: ({T}: Add {B}.)"
+      ]
+    },
+    {
+      "card": "Tendo Ice Bridge",
+      "access": [],
+      "other": [
+        "unsupported activation cost: {T}, Remove a charge counter from this land: Add one mana of any color."
+      ]
+    },
+    {
+      "card": "The Grey Havens",
+      "access": [],
+      "other": [
+        "unsupported mana production: {T}: Add one mana of any color among legendary creature cards in your graveyard."
+      ]
+    },
+    {
+      "card": "Waterveil Cavern",
+      "access": [],
+      "other": [
+        "unsupported mana condition: {T}: Add {U} or {B}. This land doesn't untap during your next untap step."
+      ]
+    },
+    {
+      "card": "Yuriko, the Tiger's Shadow",
+      "access": [
+        {
+          "line": "Whenever a Ninja you control deals combat damage to a player, reveal the top card of your library and put that card into your hand. Each opponent loses life equal to that card's mana value.",
+          "reason": "unsupported access prerequisites/effect"
+        }
+      ],
+      "other": []
+    }
+  ],
+  "trace": [
+    {
+      "turn": 0,
+      "event": "opening",
+      "hand": [
+        {
+          "id": "deck-11",
+          "card": "Delver of Secrets // Insectile Aberration"
+        },
+        {
+          "id": "deck-44",
+          "card": "Rattlechains"
+        },
+        {
+          "id": "deck-73",
+          "card": "Island"
+        },
+        {
+          "id": "deck-25",
+          "card": "Giant's Boulder"
+        },
+        {
+          "id": "deck-43",
+          "card": "Rampart Crawler"
+        },
+        {
+          "id": "deck-26",
+          "card": "H.E.R.B.I.E., Lovable Robot"
+        },
+        {
+          "id": "deck-4",
+          "card": "Aven Envoy"
+        }
+      ]
+    },
+    {
+      "turn": 1,
+      "event": "untap",
+      "sources": []
+    },
+    {
+      "turn": 1,
+      "event": "draw",
+      "card": "Network Disruptor",
+      "id": "deck-35",
+      "reason": "natural"
+    },
+    {
+      "turn": 1,
+      "event": "land",
+      "id": "deck-73",
+      "card": "Island",
+      "tapped": false,
+      "unknown": false
+    },
+    {
+      "turn": 1,
+      "event": "decision",
+      "policy": "commander-first",
+      "chosen": "deck-25",
+      "kind": "cast",
+      "reason": "develop usable mana",
+      "commanderPayable": false,
+      "setupBudgetUsed": 0,
+      "alternatives": [
+        {
+          "id": "deck-11",
+          "kind": "cast",
+          "reason": "remaining supported deployment"
+        },
+        {
+          "id": "deck-35",
+          "kind": "cast",
+          "reason": "remaining supported deployment"
+        },
+        {
+          "id": "deck-4",
+          "kind": "cast",
+          "reason": "remaining supported deployment"
+        }
+      ]
+    },
+    {
+      "turn": 1,
+      "event": "mana-activation",
+      "card": "Island",
+      "kind": "activation",
+      "source": "deck-73",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "cost": "",
+        "outputs": [
+          [
+            "U"
+          ]
+        ]
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-73:0:0",
+          "type": "U",
+          "source": "deck-73",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 1,
+      "event": "cast-paid",
+      "id": "deck-25",
+      "card": "Giant's Boulder",
+      "origin": "hand",
+      "kind": "payment",
+      "label": "spell",
+      "cost": "{1}",
+      "reduction": 0,
+      "context": {
+        "kind": "spell",
+        "types": [
+          "Artifact"
+        ],
+        "subtypes": [],
+        "commander": false
+      },
+      "spent": [
+        {
+          "id": "deck-73:0:0",
+          "type": "U",
+          "source": "deck-73",
+          "restriction": "none",
+          "paidFor": "*"
+        }
+      ]
+    },
+    {
+      "turn": 1,
+      "event": "permanent-resolved",
+      "id": "deck-25",
+      "card": "Giant's Boulder",
+      "tapped": false,
+      "effects": {
+        "manaUnknown": [],
+        "accessUnknown": [],
+        "other": "other Oracle effects unmodeled"
+      }
+    },
+    {
+      "turn": 1,
+      "event": "access-trigger-pending",
+      "source": "deck-25",
+      "phase": "entry",
+      "causedBy": "deck-25"
+    },
+    {
+      "turn": 1,
+      "event": "access-resolving",
+      "source": "deck-25",
+      "reason": "trigger:entry",
+      "effects": [
+        {
+          "kind": "scry",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "turn": 1,
+      "event": "selection",
+      "kind": "scry",
+      "source": "deck-25",
+      "looked": [
+        "deck-76",
+        "deck-30"
+      ],
+      "keep": [
+        "deck-76",
+        "deck-30"
+      ],
+      "reject": [],
+      "destination": "bottom"
+    },
+    {
+      "turn": 1,
+      "event": "access-resolved",
+      "source": "deck-25",
+      "reason": "trigger:entry"
+    },
+    {
+      "turn": 1,
+      "event": "turn-end",
+      "hand": [
+        "Delver of Secrets // Insectile Aberration",
+        "Rattlechains",
+        "Rampart Crawler",
+        "H.E.R.B.I.E., Lovable Robot",
+        "Aven Envoy",
+        "Network Disruptor"
+      ],
+      "handIds": [
+        "deck-11",
+        "deck-44",
+        "deck-43",
+        "deck-26",
+        "deck-4",
+        "deck-35"
+      ],
+      "library": [
+        "deck-76",
+        "deck-30",
+        "deck-28",
+        "deck-42",
+        "deck-59",
+        "deck-74",
+        "deck-66",
+        "deck-7",
+        "deck-97",
+        "deck-63",
+        "deck-41",
+        "deck-19",
+        "deck-79",
+        "deck-55",
+        "deck-27",
+        "deck-61",
+        "deck-38",
+        "deck-52",
+        "deck-33",
+        "deck-1",
+        "deck-29",
+        "deck-8",
+        "deck-13",
+        "deck-54",
+        "deck-12",
+        "deck-16",
+        "deck-48",
+        "deck-23",
+        "deck-50",
+        "deck-22",
+        "deck-77",
+        "deck-69",
+        "deck-84",
+        "deck-78",
+        "deck-67",
+        "deck-92",
+        "deck-34",
+        "deck-45",
+        "deck-21",
+        "deck-60",
+        "deck-53",
+        "deck-88",
+        "deck-68",
+        "deck-15",
+        "deck-2",
+        "deck-47",
+        "deck-20",
+        "deck-75",
+        "deck-70",
+        "deck-82",
+        "deck-85",
+        "deck-39",
+        "deck-9",
+        "deck-81",
+        "deck-49",
+        "deck-91",
+        "deck-36",
+        "deck-95",
+        "deck-89",
+        "deck-64",
+        "deck-58",
+        "deck-3",
+        "deck-86",
+        "deck-98",
+        "deck-32",
+        "deck-40",
+        "deck-96",
+        "deck-83",
+        "deck-18",
+        "deck-65",
+        "deck-14",
+        "deck-10",
+        "deck-80",
+        "deck-57",
+        "deck-17",
+        "deck-56",
+        "deck-93",
+        "deck-94",
+        "deck-90",
+        "deck-71",
+        "deck-0",
+        "deck-72",
+        "deck-62",
+        "deck-5",
+        "deck-51",
+        "deck-31",
+        "deck-37",
+        "deck-46",
+        "deck-6",
+        "deck-87",
+        "deck-24"
+      ],
+      "graveyard": [],
+      "exile": [],
+      "opponents": [],
+      "ceased": [],
+      "board": [
+        {
+          "id": "deck-73",
+          "card": "Island",
+          "tapped": true
+        },
+        {
+          "id": "deck-25",
+          "card": "Giant's Boulder",
+          "tapped": false
+        }
+      ],
+      "floatingExpires": [],
+      "life": 40
+    },
+    {
+      "turn": 2,
+      "event": "untap",
+      "sources": [
+        {
+          "id": "deck-73",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-25",
+          "types": [
+            "Artifact"
+          ],
+          "subtypes": [],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "{1}",
+              "outputs": [
+                [
+                  "W"
+                ],
+                [
+                  "U"
+                ],
+                [
+                  "B"
+                ],
+                [
+                  "R"
+                ],
+                [
+                  "G"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        }
+      ]
+    },
+    {
+      "turn": 2,
+      "event": "draw",
+      "card": "Island",
+      "id": "deck-76",
+      "reason": "natural"
+    },
+    {
+      "turn": 2,
+      "event": "land",
+      "id": "deck-76",
+      "card": "Island",
+      "tapped": false,
+      "unknown": false
+    },
+    {
+      "turn": 2,
+      "event": "decision",
+      "policy": "commander-first",
+      "chosen": "deck-26",
+      "kind": "cast",
+      "reason": "develop usable mana",
+      "commanderPayable": false,
+      "setupBudgetUsed": 0,
+      "alternatives": [
+        {
+          "id": "deck-11",
+          "kind": "cast",
+          "reason": "remaining supported deployment"
+        },
+        {
+          "id": "deck-35",
+          "kind": "cast",
+          "reason": "remaining supported deployment"
+        },
+        {
+          "id": "deck-4",
+          "kind": "cast",
+          "reason": "remaining supported deployment"
+        },
+        {
+          "id": "deck-43",
+          "kind": "cast",
+          "reason": "remaining supported deployment"
+        }
+      ]
+    },
+    {
+      "turn": 2,
+      "event": "mana-activation",
+      "card": "Island",
+      "kind": "activation",
+      "source": "deck-73",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "cost": "",
+        "outputs": [
+          [
+            "U"
+          ]
+        ]
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-73:0:0",
+          "type": "U",
+          "source": "deck-73",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 2,
+      "event": "mana-activation",
+      "card": "Giant's Boulder",
+      "kind": "activation",
+      "source": "deck-25",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "sacrifice": false,
+        "cost": "{1}",
+        "outputs": [
+          [
+            "W"
+          ],
+          [
+            "U"
+          ],
+          [
+            "B"
+          ],
+          [
+            "R"
+          ],
+          [
+            "G"
+          ]
+        ],
+        "restriction": "none",
+        "life": 0,
+        "minLands": 0
+      },
+      "spent": [
+        {
+          "id": "deck-73:0:0",
+          "type": "U",
+          "source": "deck-73",
+          "restriction": "none",
+          "paidFor": "*"
+        }
+      ],
+      "produced": [
+        {
+          "id": "deck-25:0:0",
+          "type": "W",
+          "source": "deck-25",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 2,
+      "event": "mana-activation",
+      "card": "Island",
+      "kind": "activation",
+      "source": "deck-76",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "cost": "",
+        "outputs": [
+          [
+            "U"
+          ]
+        ]
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-76:0:0",
+          "type": "U",
+          "source": "deck-76",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 2,
+      "event": "cast-paid",
+      "id": "deck-26",
+      "card": "H.E.R.B.I.E., Lovable Robot",
+      "origin": "hand",
+      "kind": "payment",
+      "label": "spell",
+      "cost": "{2}",
+      "reduction": 0,
+      "context": {
+        "kind": "spell",
+        "types": [
+          "Legendary",
+          "Artifact",
+          "Creature"
+        ],
+        "subtypes": [
+          "Robot",
+          "Scout"
+        ],
+        "commander": false
+      },
+      "spent": [
+        {
+          "id": "deck-76:0:0",
+          "type": "U",
+          "source": "deck-76",
+          "restriction": "none",
+          "paidFor": "*"
+        },
+        {
+          "id": "deck-25:0:0",
+          "type": "W",
+          "source": "deck-25",
+          "restriction": "none",
+          "paidFor": "*"
+        }
+      ]
+    },
+    {
+      "turn": 2,
+      "event": "permanent-resolved",
+      "id": "deck-26",
+      "card": "H.E.R.B.I.E., Lovable Robot",
+      "tapped": false,
+      "effects": {
+        "manaUnknown": [],
+        "accessUnknown": [
+          {
+            "line": "At the beginning of combat on your turn, if you've cast a noncreature spell this turn, surveil 1.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": "other Oracle effects unmodeled"
+      }
+    },
+    {
+      "turn": 2,
+      "event": "turn-end",
+      "hand": [
+        "Delver of Secrets // Insectile Aberration",
+        "Rattlechains",
+        "Rampart Crawler",
+        "Aven Envoy",
+        "Network Disruptor"
+      ],
+      "handIds": [
+        "deck-11",
+        "deck-44",
+        "deck-43",
+        "deck-4",
+        "deck-35"
+      ],
+      "library": [
+        "deck-30",
+        "deck-28",
+        "deck-42",
+        "deck-59",
+        "deck-74",
+        "deck-66",
+        "deck-7",
+        "deck-97",
+        "deck-63",
+        "deck-41",
+        "deck-19",
+        "deck-79",
+        "deck-55",
+        "deck-27",
+        "deck-61",
+        "deck-38",
+        "deck-52",
+        "deck-33",
+        "deck-1",
+        "deck-29",
+        "deck-8",
+        "deck-13",
+        "deck-54",
+        "deck-12",
+        "deck-16",
+        "deck-48",
+        "deck-23",
+        "deck-50",
+        "deck-22",
+        "deck-77",
+        "deck-69",
+        "deck-84",
+        "deck-78",
+        "deck-67",
+        "deck-92",
+        "deck-34",
+        "deck-45",
+        "deck-21",
+        "deck-60",
+        "deck-53",
+        "deck-88",
+        "deck-68",
+        "deck-15",
+        "deck-2",
+        "deck-47",
+        "deck-20",
+        "deck-75",
+        "deck-70",
+        "deck-82",
+        "deck-85",
+        "deck-39",
+        "deck-9",
+        "deck-81",
+        "deck-49",
+        "deck-91",
+        "deck-36",
+        "deck-95",
+        "deck-89",
+        "deck-64",
+        "deck-58",
+        "deck-3",
+        "deck-86",
+        "deck-98",
+        "deck-32",
+        "deck-40",
+        "deck-96",
+        "deck-83",
+        "deck-18",
+        "deck-65",
+        "deck-14",
+        "deck-10",
+        "deck-80",
+        "deck-57",
+        "deck-17",
+        "deck-56",
+        "deck-93",
+        "deck-94",
+        "deck-90",
+        "deck-71",
+        "deck-0",
+        "deck-72",
+        "deck-62",
+        "deck-5",
+        "deck-51",
+        "deck-31",
+        "deck-37",
+        "deck-46",
+        "deck-6",
+        "deck-87",
+        "deck-24"
+      ],
+      "graveyard": [],
+      "exile": [],
+      "opponents": [],
+      "ceased": [],
+      "board": [
+        {
+          "id": "deck-73",
+          "card": "Island",
+          "tapped": true
+        },
+        {
+          "id": "deck-25",
+          "card": "Giant's Boulder",
+          "tapped": true
+        },
+        {
+          "id": "deck-76",
+          "card": "Island",
+          "tapped": true
+        },
+        {
+          "id": "deck-26",
+          "card": "H.E.R.B.I.E., Lovable Robot",
+          "tapped": false
+        }
+      ],
+      "floatingExpires": [],
+      "life": 40
+    },
+    {
+      "turn": 3,
+      "event": "untap",
+      "sources": [
+        {
+          "id": "deck-73",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-25",
+          "types": [
+            "Artifact"
+          ],
+          "subtypes": [],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "{1}",
+              "outputs": [
+                [
+                  "W"
+                ],
+                [
+                  "U"
+                ],
+                [
+                  "B"
+                ],
+                [
+                  "R"
+                ],
+                [
+                  "G"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-76",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-26",
+          "types": [
+            "Legendary",
+            "Artifact",
+            "Creature"
+          ],
+          "subtypes": [
+            "Robot",
+            "Scout"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            },
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "{1}",
+              "outputs": [
+                [
+                  "W"
+                ],
+                [
+                  "U"
+                ],
+                [
+                  "B"
+                ],
+                [
+                  "R"
+                ],
+                [
+                  "G"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        }
+      ]
+    },
+    {
+      "turn": 3,
+      "event": "draw",
+      "card": "Locthwain Gargoyle",
+      "id": "deck-30",
+      "reason": "natural"
+    },
+    {
+      "turn": 3,
+      "event": "decision",
+      "policy": "commander-first",
+      "chosen": "commander",
+      "kind": "cast",
+      "reason": "cast commander now",
+      "commanderPayable": true,
+      "setupBudgetUsed": 0,
+      "alternatives": [
+        {
+          "id": "deck-11",
+          "kind": "cast",
+          "reason": "remaining supported deployment"
+        },
+        {
+          "id": "deck-30",
+          "kind": "cast",
+          "reason": "remaining supported deployment"
+        },
+        {
+          "id": "deck-35",
+          "kind": "cast",
+          "reason": "remaining supported deployment"
+        },
+        {
+          "id": "deck-4",
+          "kind": "cast",
+          "reason": "remaining supported deployment"
+        }
+      ]
+    },
+    {
+      "turn": 3,
+      "event": "mana-activation",
+      "card": "Island",
+      "kind": "activation",
+      "source": "deck-73",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "cost": "",
+        "outputs": [
+          [
+            "U"
+          ]
+        ]
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-73:0:0",
+          "type": "U",
+          "source": "deck-73",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 3,
+      "event": "mana-activation",
+      "card": "Giant's Boulder",
+      "kind": "activation",
+      "source": "deck-25",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "sacrifice": false,
+        "cost": "{1}",
+        "outputs": [
+          [
+            "W"
+          ],
+          [
+            "U"
+          ],
+          [
+            "B"
+          ],
+          [
+            "R"
+          ],
+          [
+            "G"
+          ]
+        ],
+        "restriction": "none",
+        "life": 0,
+        "minLands": 0
+      },
+      "spent": [
+        {
+          "id": "deck-73:0:0",
+          "type": "U",
+          "source": "deck-73",
+          "restriction": "none",
+          "paidFor": "*"
+        }
+      ],
+      "produced": [
+        {
+          "id": "deck-25:0:0",
+          "type": "B",
+          "source": "deck-25",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 3,
+      "event": "mana-activation",
+      "card": "Island",
+      "kind": "activation",
+      "source": "deck-76",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "cost": "",
+        "outputs": [
+          [
+            "U"
+          ]
+        ]
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-76:0:0",
+          "type": "U",
+          "source": "deck-76",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 3,
+      "event": "mana-activation",
+      "card": "H.E.R.B.I.E., Lovable Robot",
+      "kind": "activation",
+      "source": "deck-26",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "sacrifice": false,
+        "cost": "",
+        "outputs": [
+          [
+            "C"
+          ]
+        ],
+        "restriction": "none",
+        "life": 0,
+        "minLands": 0
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-26:0:0",
+          "type": "C",
+          "source": "deck-26",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 3,
+      "event": "cast-paid",
+      "id": "commander",
+      "card": "Yuriko, the Tiger's Shadow",
+      "origin": "command",
+      "kind": "payment",
+      "label": "spell",
+      "cost": "{1}{U}{B}",
+      "reduction": 0,
+      "context": {
+        "kind": "spell",
+        "types": [
+          "Legendary",
+          "Creature"
+        ],
+        "subtypes": [
+          "Human",
+          "Ninja"
+        ],
+        "commander": true
+      },
+      "spent": [
+        {
+          "id": "deck-76:0:0",
+          "type": "U",
+          "source": "deck-76",
+          "restriction": "none",
+          "paidFor": "U"
+        },
+        {
+          "id": "deck-25:0:0",
+          "type": "B",
+          "source": "deck-25",
+          "restriction": "none",
+          "paidFor": "B"
+        },
+        {
+          "id": "deck-26:0:0",
+          "type": "C",
+          "source": "deck-26",
+          "restriction": "none",
+          "paidFor": "*"
+        }
+      ]
+    },
+    {
+      "turn": 3,
+      "event": "permanent-resolved",
+      "id": "commander",
+      "card": "Yuriko, the Tiger's Shadow",
+      "tapped": false,
+      "effects": {
+        "manaUnknown": [],
+        "accessUnknown": [
+          {
+            "line": "Whenever a Ninja you control deals combat damage to a player, reveal the top card of your library and put that card into your hand. Each opponent loses life equal to that card's mana value.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": "other Oracle effects unmodeled"
+      }
+    },
+    {
+      "turn": 3,
+      "event": "turn-end",
+      "hand": [
+        "Delver of Secrets // Insectile Aberration",
+        "Rattlechains",
+        "Rampart Crawler",
+        "Aven Envoy",
+        "Network Disruptor",
+        "Locthwain Gargoyle"
+      ],
+      "handIds": [
+        "deck-11",
+        "deck-44",
+        "deck-43",
+        "deck-4",
+        "deck-35",
+        "deck-30"
+      ],
+      "library": [
+        "deck-28",
+        "deck-42",
+        "deck-59",
+        "deck-74",
+        "deck-66",
+        "deck-7",
+        "deck-97",
+        "deck-63",
+        "deck-41",
+        "deck-19",
+        "deck-79",
+        "deck-55",
+        "deck-27",
+        "deck-61",
+        "deck-38",
+        "deck-52",
+        "deck-33",
+        "deck-1",
+        "deck-29",
+        "deck-8",
+        "deck-13",
+        "deck-54",
+        "deck-12",
+        "deck-16",
+        "deck-48",
+        "deck-23",
+        "deck-50",
+        "deck-22",
+        "deck-77",
+        "deck-69",
+        "deck-84",
+        "deck-78",
+        "deck-67",
+        "deck-92",
+        "deck-34",
+        "deck-45",
+        "deck-21",
+        "deck-60",
+        "deck-53",
+        "deck-88",
+        "deck-68",
+        "deck-15",
+        "deck-2",
+        "deck-47",
+        "deck-20",
+        "deck-75",
+        "deck-70",
+        "deck-82",
+        "deck-85",
+        "deck-39",
+        "deck-9",
+        "deck-81",
+        "deck-49",
+        "deck-91",
+        "deck-36",
+        "deck-95",
+        "deck-89",
+        "deck-64",
+        "deck-58",
+        "deck-3",
+        "deck-86",
+        "deck-98",
+        "deck-32",
+        "deck-40",
+        "deck-96",
+        "deck-83",
+        "deck-18",
+        "deck-65",
+        "deck-14",
+        "deck-10",
+        "deck-80",
+        "deck-57",
+        "deck-17",
+        "deck-56",
+        "deck-93",
+        "deck-94",
+        "deck-90",
+        "deck-71",
+        "deck-0",
+        "deck-72",
+        "deck-62",
+        "deck-5",
+        "deck-51",
+        "deck-31",
+        "deck-37",
+        "deck-46",
+        "deck-6",
+        "deck-87",
+        "deck-24"
+      ],
+      "graveyard": [],
+      "exile": [],
+      "opponents": [],
+      "ceased": [],
+      "board": [
+        {
+          "id": "deck-73",
+          "card": "Island",
+          "tapped": true
+        },
+        {
+          "id": "deck-25",
+          "card": "Giant's Boulder",
+          "tapped": true
+        },
+        {
+          "id": "deck-76",
+          "card": "Island",
+          "tapped": true
+        },
+        {
+          "id": "deck-26",
+          "card": "H.E.R.B.I.E., Lovable Robot",
+          "tapped": true
+        },
+        {
+          "id": "commander",
+          "card": "Yuriko, the Tiger's Shadow",
+          "tapped": false
+        }
+      ],
+      "floatingExpires": [],
+      "life": 40
+    },
+    {
+      "turn": 4,
+      "event": "untap",
+      "sources": [
+        {
+          "id": "deck-73",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-25",
+          "types": [
+            "Artifact"
+          ],
+          "subtypes": [],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "{1}",
+              "outputs": [
+                [
+                  "W"
+                ],
+                [
+                  "U"
+                ],
+                [
+                  "B"
+                ],
+                [
+                  "R"
+                ],
+                [
+                  "G"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-76",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-26",
+          "types": [
+            "Legendary",
+            "Artifact",
+            "Creature"
+          ],
+          "subtypes": [
+            "Robot",
+            "Scout"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            },
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "{1}",
+              "outputs": [
+                [
+                  "W"
+                ],
+                [
+                  "U"
+                ],
+                [
+                  "B"
+                ],
+                [
+                  "R"
+                ],
+                [
+                  "G"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "commander",
+          "types": [
+            "Legendary",
+            "Creature"
+          ],
+          "subtypes": [
+            "Human",
+            "Ninja"
+          ],
+          "modes": [],
+          "tapped": false,
+          "sick": false
+        }
+      ]
+    },
+    {
+      "turn": 4,
+      "event": "draw",
+      "card": "Illvoi Galeblade",
+      "id": "deck-28",
+      "reason": "natural"
+    },
+    {
+      "turn": 4,
+      "event": "decision",
+      "policy": "commander-first",
+      "chosen": "deck-28",
+      "kind": "cast",
+      "reason": "deploy supported access/reduction",
+      "commanderPayable": false,
+      "setupBudgetUsed": 0,
+      "alternatives": [
+        {
+          "id": "deck-11",
+          "kind": "cast",
+          "reason": "remaining supported deployment"
+        },
+        {
+          "id": "deck-30",
+          "kind": "cast",
+          "reason": "remaining supported deployment"
+        },
+        {
+          "id": "deck-35",
+          "kind": "cast",
+          "reason": "remaining supported deployment"
+        },
+        {
+          "id": "deck-4",
+          "kind": "cast",
+          "reason": "remaining supported deployment"
+        }
+      ]
+    },
+    {
+      "turn": 4,
+      "event": "mana-activation",
+      "card": "Island",
+      "kind": "activation",
+      "source": "deck-73",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "cost": "",
+        "outputs": [
+          [
+            "U"
+          ]
+        ]
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-73:0:0",
+          "type": "U",
+          "source": "deck-73",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 4,
+      "event": "cast-paid",
+      "id": "deck-28",
+      "card": "Illvoi Galeblade",
+      "origin": "hand",
+      "kind": "payment",
+      "label": "spell",
+      "cost": "{U}",
+      "reduction": 0,
+      "context": {
+        "kind": "spell",
+        "types": [
+          "Creature"
+        ],
+        "subtypes": [
+          "Jellyfish",
+          "Warrior"
+        ],
+        "commander": false
+      },
+      "spent": [
+        {
+          "id": "deck-73:0:0",
+          "type": "U",
+          "source": "deck-73",
+          "restriction": "none",
+          "paidFor": "U"
+        }
+      ]
+    },
+    {
+      "turn": 4,
+      "event": "permanent-resolved",
+      "id": "deck-28",
+      "card": "Illvoi Galeblade",
+      "tapped": false,
+      "effects": {
+        "manaUnknown": [],
+        "accessUnknown": [],
+        "other": "other Oracle effects unmodeled"
+      }
+    },
+    {
+      "turn": 4,
+      "event": "decision",
+      "policy": "commander-first",
+      "chosen": "deck-28",
+      "kind": "activate",
+      "reason": "use spare mana for access",
+      "commanderPayable": false,
+      "setupBudgetUsed": 0,
+      "alternatives": [
+        {
+          "id": "deck-11",
+          "kind": "cast",
+          "reason": "remaining supported deployment"
+        },
+        {
+          "id": "deck-30",
+          "kind": "cast",
+          "reason": "remaining supported deployment"
+        },
+        {
+          "id": "deck-35",
+          "kind": "cast",
+          "reason": "remaining supported deployment"
+        },
+        {
+          "id": "deck-4",
+          "kind": "cast",
+          "reason": "remaining supported deployment"
+        }
+      ]
+    },
+    {
+      "turn": 4,
+      "event": "access-announced",
+      "source": "deck-28",
+      "abilityIndex": 0
+    },
+    {
+      "turn": 4,
+      "event": "mana-activation",
+      "card": "Island",
+      "kind": "activation",
+      "source": "deck-76",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "cost": "",
+        "outputs": [
+          [
+            "U"
+          ]
+        ]
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-76:0:0",
+          "type": "U",
+          "source": "deck-76",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 4,
+      "event": "mana-activation",
+      "card": "Giant's Boulder",
+      "kind": "activation",
+      "source": "deck-25",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "sacrifice": false,
+        "cost": "{1}",
+        "outputs": [
+          [
+            "W"
+          ],
+          [
+            "U"
+          ],
+          [
+            "B"
+          ],
+          [
+            "R"
+          ],
+          [
+            "G"
+          ]
+        ],
+        "restriction": "none",
+        "life": 0,
+        "minLands": 0
+      },
+      "spent": [
+        {
+          "id": "deck-76:0:0",
+          "type": "U",
+          "source": "deck-76",
+          "restriction": "none",
+          "paidFor": "*"
+        }
+      ],
+      "produced": [
+        {
+          "id": "deck-25:0:0",
+          "type": "W",
+          "source": "deck-25",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 4,
+      "event": "mana-activation",
+      "card": "H.E.R.B.I.E., Lovable Robot",
+      "kind": "activation",
+      "source": "deck-26",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "sacrifice": false,
+        "cost": "",
+        "outputs": [
+          [
+            "C"
+          ]
+        ],
+        "restriction": "none",
+        "life": 0,
+        "minLands": 0
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-26:0:0",
+          "type": "C",
+          "source": "deck-26",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 4,
+      "event": "activated-access-paid",
+      "source": "deck-28",
+      "abilityIndex": 0,
+      "kind": "payment",
+      "label": "access:deck-28",
+      "cost": "{2}",
+      "reduction": 0,
+      "context": {
+        "kind": "ability",
+        "abilityType": "activated",
+        "types": [
+          "Creature"
+        ]
+      },
+      "spent": [
+        {
+          "id": "deck-26:0:0",
+          "type": "C",
+          "source": "deck-26",
+          "restriction": "none",
+          "paidFor": "*"
+        },
+        {
+          "id": "deck-25:0:0",
+          "type": "W",
+          "source": "deck-25",
+          "restriction": "none",
+          "paidFor": "*"
+        }
+      ]
+    },
+    {
+      "turn": 4,
+      "event": "access-costs",
+      "source": "deck-28",
+      "abilityIndex": 0,
+      "tap": false,
+      "sacrifice": true,
+      "life": 0
+    },
+    {
+      "turn": 4,
+      "event": "access-resolving",
+      "source": "deck-28",
+      "reason": "activation",
+      "effects": [
+        {
+          "kind": "draw",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "turn": 4,
+      "event": "access-draw",
+      "card": "PuPu UFO",
+      "id": "deck-42",
+      "reason": "activation",
+      "source": "deck-28"
+    },
+    {
+      "turn": 4,
+      "event": "access-resolved",
+      "source": "deck-28",
+      "reason": "activation"
+    },
+    {
+      "turn": 4,
+      "event": "turn-end",
+      "hand": [
+        "Delver of Secrets // Insectile Aberration",
+        "Rattlechains",
+        "Rampart Crawler",
+        "Aven Envoy",
+        "Network Disruptor",
+        "Locthwain Gargoyle",
+        "PuPu UFO"
+      ],
+      "handIds": [
+        "deck-11",
+        "deck-44",
+        "deck-43",
+        "deck-4",
+        "deck-35",
+        "deck-30",
+        "deck-42"
+      ],
+      "library": [
+        "deck-59",
+        "deck-74",
+        "deck-66",
+        "deck-7",
+        "deck-97",
+        "deck-63",
+        "deck-41",
+        "deck-19",
+        "deck-79",
+        "deck-55",
+        "deck-27",
+        "deck-61",
+        "deck-38",
+        "deck-52",
+        "deck-33",
+        "deck-1",
+        "deck-29",
+        "deck-8",
+        "deck-13",
+        "deck-54",
+        "deck-12",
+        "deck-16",
+        "deck-48",
+        "deck-23",
+        "deck-50",
+        "deck-22",
+        "deck-77",
+        "deck-69",
+        "deck-84",
+        "deck-78",
+        "deck-67",
+        "deck-92",
+        "deck-34",
+        "deck-45",
+        "deck-21",
+        "deck-60",
+        "deck-53",
+        "deck-88",
+        "deck-68",
+        "deck-15",
+        "deck-2",
+        "deck-47",
+        "deck-20",
+        "deck-75",
+        "deck-70",
+        "deck-82",
+        "deck-85",
+        "deck-39",
+        "deck-9",
+        "deck-81",
+        "deck-49",
+        "deck-91",
+        "deck-36",
+        "deck-95",
+        "deck-89",
+        "deck-64",
+        "deck-58",
+        "deck-3",
+        "deck-86",
+        "deck-98",
+        "deck-32",
+        "deck-40",
+        "deck-96",
+        "deck-83",
+        "deck-18",
+        "deck-65",
+        "deck-14",
+        "deck-10",
+        "deck-80",
+        "deck-57",
+        "deck-17",
+        "deck-56",
+        "deck-93",
+        "deck-94",
+        "deck-90",
+        "deck-71",
+        "deck-0",
+        "deck-72",
+        "deck-62",
+        "deck-5",
+        "deck-51",
+        "deck-31",
+        "deck-37",
+        "deck-46",
+        "deck-6",
+        "deck-87",
+        "deck-24"
+      ],
+      "graveyard": [
+        "deck-28"
+      ],
+      "exile": [],
+      "opponents": [],
+      "ceased": [],
+      "board": [
+        {
+          "id": "deck-73",
+          "card": "Island",
+          "tapped": true
+        },
+        {
+          "id": "deck-25",
+          "card": "Giant's Boulder",
+          "tapped": true
+        },
+        {
+          "id": "deck-76",
+          "card": "Island",
+          "tapped": true
+        },
+        {
+          "id": "deck-26",
+          "card": "H.E.R.B.I.E., Lovable Robot",
+          "tapped": true
+        },
+        {
+          "id": "commander",
+          "card": "Yuriko, the Tiger's Shadow",
+          "tapped": false
+        }
+      ],
+      "floatingExpires": [],
+      "life": 40
+    },
+    {
+      "turn": 5,
+      "event": "untap",
+      "sources": [
+        {
+          "id": "deck-73",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-25",
+          "types": [
+            "Artifact"
+          ],
+          "subtypes": [],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "{1}",
+              "outputs": [
+                [
+                  "W"
+                ],
+                [
+                  "U"
+                ],
+                [
+                  "B"
+                ],
+                [
+                  "R"
+                ],
+                [
+                  "G"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-76",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-26",
+          "types": [
+            "Legendary",
+            "Artifact",
+            "Creature"
+          ],
+          "subtypes": [
+            "Robot",
+            "Scout"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            },
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "{1}",
+              "outputs": [
+                [
+                  "W"
+                ],
+                [
+                  "U"
+                ],
+                [
+                  "B"
+                ],
+                [
+                  "R"
+                ],
+                [
+                  "G"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "commander",
+          "types": [
+            "Legendary",
+            "Creature"
+          ],
+          "subtypes": [
+            "Human",
+            "Ninja"
+          ],
+          "modes": [],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-28",
+          "types": [
+            "Creature"
+          ],
+          "subtypes": [
+            "Jellyfish",
+            "Warrior"
+          ],
+          "modes": [],
+          "tapped": false,
+          "consumed": true,
+          "sick": false
+        }
+      ]
+    },
+    {
+      "turn": 5,
+      "event": "draw",
+      "card": "Thran Dynamo",
+      "id": "deck-59",
+      "reason": "natural"
+    },
+    {
+      "turn": 5,
+      "event": "decision",
+      "policy": "commander-first",
+      "chosen": "deck-11",
+      "kind": "cast",
+      "reason": "remaining supported deployment",
+      "commanderPayable": false,
+      "setupBudgetUsed": 0,
+      "alternatives": [
+        {
+          "id": "deck-30",
+          "kind": "cast",
+          "reason": "remaining supported deployment"
+        },
+        {
+          "id": "deck-35",
+          "kind": "cast",
+          "reason": "remaining supported deployment"
+        },
+        {
+          "id": "deck-4",
+          "kind": "cast",
+          "reason": "remaining supported deployment"
+        },
+        {
+          "id": "deck-43",
+          "kind": "cast",
+          "reason": "remaining supported deployment"
+        }
+      ]
+    },
+    {
+      "turn": 5,
+      "event": "mana-activation",
+      "card": "Island",
+      "kind": "activation",
+      "source": "deck-73",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "cost": "",
+        "outputs": [
+          [
+            "U"
+          ]
+        ]
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-73:0:0",
+          "type": "U",
+          "source": "deck-73",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 5,
+      "event": "cast-paid",
+      "id": "deck-11",
+      "card": "Delver of Secrets // Insectile Aberration",
+      "origin": "hand",
+      "kind": "payment",
+      "label": "spell",
+      "cost": "{U}",
+      "reduction": 0,
+      "context": {
+        "kind": "spell",
+        "types": [
+          "Creature"
+        ],
+        "subtypes": [
+          "Human",
+          "Wizard"
+        ],
+        "commander": false
+      },
+      "spent": [
+        {
+          "id": "deck-73:0:0",
+          "type": "U",
+          "source": "deck-73",
+          "restriction": "none",
+          "paidFor": "U"
+        }
+      ]
+    },
+    {
+      "turn": 5,
+      "event": "permanent-resolved",
+      "id": "deck-11",
+      "card": "Delver of Secrets // Insectile Aberration",
+      "tapped": false,
+      "effects": {
+        "manaUnknown": [
+          "alternate faces/transform/craft not evaluated; front face only"
+        ],
+        "accessUnknown": [
+          {
+            "line": "At the beginning of your upkeep, look at the top card of your library. You may reveal that card. If an instant or sorcery card is revealed this way, transform this creature.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": "other Oracle effects unmodeled"
+      }
+    },
+    {
+      "turn": 5,
+      "event": "decision",
+      "policy": "commander-first",
+      "chosen": "deck-30",
+      "kind": "cast",
+      "reason": "remaining supported deployment",
+      "commanderPayable": false,
+      "setupBudgetUsed": 0,
+      "alternatives": [
+        {
+          "id": "deck-35",
+          "kind": "cast",
+          "reason": "remaining supported deployment"
+        },
+        {
+          "id": "deck-4",
+          "kind": "cast",
+          "reason": "remaining supported deployment"
+        },
+        {
+          "id": "deck-43",
+          "kind": "cast",
+          "reason": "remaining supported deployment"
+        },
+        {
+          "id": "deck-42",
+          "kind": "cast",
+          "reason": "remaining supported deployment"
+        }
+      ]
+    },
+    {
+      "turn": 5,
+      "event": "mana-activation",
+      "card": "Island",
+      "kind": "activation",
+      "source": "deck-76",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "cost": "",
+        "outputs": [
+          [
+            "U"
+          ]
+        ]
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-76:0:0",
+          "type": "U",
+          "source": "deck-76",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 5,
+      "event": "cast-paid",
+      "id": "deck-30",
+      "card": "Locthwain Gargoyle",
+      "origin": "hand",
+      "kind": "payment",
+      "label": "spell",
+      "cost": "{1}",
+      "reduction": 0,
+      "context": {
+        "kind": "spell",
+        "types": [
+          "Artifact",
+          "Creature"
+        ],
+        "subtypes": [
+          "Gargoyle"
+        ],
+        "commander": false
+      },
+      "spent": [
+        {
+          "id": "deck-76:0:0",
+          "type": "U",
+          "source": "deck-76",
+          "restriction": "none",
+          "paidFor": "*"
+        }
+      ]
+    },
+    {
+      "turn": 5,
+      "event": "permanent-resolved",
+      "id": "deck-30",
+      "card": "Locthwain Gargoyle",
+      "tapped": false,
+      "effects": {
+        "manaUnknown": [],
+        "accessUnknown": [],
+        "other": "other Oracle effects unmodeled"
+      }
+    },
+    {
+      "turn": 5,
+      "event": "decision",
+      "policy": "commander-first",
+      "chosen": "deck-35",
+      "kind": "cast",
+      "reason": "remaining supported deployment",
+      "commanderPayable": false,
+      "setupBudgetUsed": 0,
+      "alternatives": [
+        {
+          "id": "deck-4",
+          "kind": "cast",
+          "reason": "remaining supported deployment"
+        },
+        {
+          "id": "deck-43",
+          "kind": "cast",
+          "reason": "remaining supported deployment"
+        }
+      ]
+    },
+    {
+      "turn": 5,
+      "event": "mana-activation",
+      "card": "H.E.R.B.I.E., Lovable Robot",
+      "kind": "activation",
+      "source": "deck-26",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "sacrifice": false,
+        "cost": "",
+        "outputs": [
+          [
+            "C"
+          ]
+        ],
+        "restriction": "none",
+        "life": 0,
+        "minLands": 0
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-26:0:0",
+          "type": "C",
+          "source": "deck-26",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 5,
+      "event": "mana-activation",
+      "card": "Giant's Boulder",
+      "kind": "activation",
+      "source": "deck-25",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "sacrifice": false,
+        "cost": "{1}",
+        "outputs": [
+          [
+            "W"
+          ],
+          [
+            "U"
+          ],
+          [
+            "B"
+          ],
+          [
+            "R"
+          ],
+          [
+            "G"
+          ]
+        ],
+        "restriction": "none",
+        "life": 0,
+        "minLands": 0
+      },
+      "spent": [
+        {
+          "id": "deck-26:0:0",
+          "type": "C",
+          "source": "deck-26",
+          "restriction": "none",
+          "paidFor": "*"
+        }
+      ],
+      "produced": [
+        {
+          "id": "deck-25:0:0",
+          "type": "U",
+          "source": "deck-25",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 5,
+      "event": "cast-paid",
+      "id": "deck-35",
+      "card": "Network Disruptor",
+      "origin": "hand",
+      "kind": "payment",
+      "label": "spell",
+      "cost": "{U}",
+      "reduction": 0,
+      "context": {
+        "kind": "spell",
+        "types": [
+          "Artifact",
+          "Creature"
+        ],
+        "subtypes": [
+          "Moonfolk",
+          "Rogue"
+        ],
+        "commander": false
+      },
+      "spent": [
+        {
+          "id": "deck-25:0:0",
+          "type": "U",
+          "source": "deck-25",
+          "restriction": "none",
+          "paidFor": "U"
+        }
+      ]
+    },
+    {
+      "turn": 5,
+      "event": "permanent-resolved",
+      "id": "deck-35",
+      "card": "Network Disruptor",
+      "tapped": false,
+      "effects": {
+        "manaUnknown": [],
+        "accessUnknown": [],
+        "other": "other Oracle effects unmodeled"
+      }
+    },
+    {
+      "turn": 5,
+      "event": "turn-end",
+      "hand": [
+        "Rattlechains",
+        "Rampart Crawler",
+        "Aven Envoy",
+        "PuPu UFO",
+        "Thran Dynamo"
+      ],
+      "handIds": [
+        "deck-44",
+        "deck-43",
+        "deck-4",
+        "deck-42",
+        "deck-59"
+      ],
+      "library": [
+        "deck-74",
+        "deck-66",
+        "deck-7",
+        "deck-97",
+        "deck-63",
+        "deck-41",
+        "deck-19",
+        "deck-79",
+        "deck-55",
+        "deck-27",
+        "deck-61",
+        "deck-38",
+        "deck-52",
+        "deck-33",
+        "deck-1",
+        "deck-29",
+        "deck-8",
+        "deck-13",
+        "deck-54",
+        "deck-12",
+        "deck-16",
+        "deck-48",
+        "deck-23",
+        "deck-50",
+        "deck-22",
+        "deck-77",
+        "deck-69",
+        "deck-84",
+        "deck-78",
+        "deck-67",
+        "deck-92",
+        "deck-34",
+        "deck-45",
+        "deck-21",
+        "deck-60",
+        "deck-53",
+        "deck-88",
+        "deck-68",
+        "deck-15",
+        "deck-2",
+        "deck-47",
+        "deck-20",
+        "deck-75",
+        "deck-70",
+        "deck-82",
+        "deck-85",
+        "deck-39",
+        "deck-9",
+        "deck-81",
+        "deck-49",
+        "deck-91",
+        "deck-36",
+        "deck-95",
+        "deck-89",
+        "deck-64",
+        "deck-58",
+        "deck-3",
+        "deck-86",
+        "deck-98",
+        "deck-32",
+        "deck-40",
+        "deck-96",
+        "deck-83",
+        "deck-18",
+        "deck-65",
+        "deck-14",
+        "deck-10",
+        "deck-80",
+        "deck-57",
+        "deck-17",
+        "deck-56",
+        "deck-93",
+        "deck-94",
+        "deck-90",
+        "deck-71",
+        "deck-0",
+        "deck-72",
+        "deck-62",
+        "deck-5",
+        "deck-51",
+        "deck-31",
+        "deck-37",
+        "deck-46",
+        "deck-6",
+        "deck-87",
+        "deck-24"
+      ],
+      "graveyard": [
+        "deck-28"
+      ],
+      "exile": [],
+      "opponents": [],
+      "ceased": [],
+      "board": [
+        {
+          "id": "deck-73",
+          "card": "Island",
+          "tapped": true
+        },
+        {
+          "id": "deck-25",
+          "card": "Giant's Boulder",
+          "tapped": true
+        },
+        {
+          "id": "deck-76",
+          "card": "Island",
+          "tapped": true
+        },
+        {
+          "id": "deck-26",
+          "card": "H.E.R.B.I.E., Lovable Robot",
+          "tapped": true
+        },
+        {
+          "id": "commander",
+          "card": "Yuriko, the Tiger's Shadow",
+          "tapped": false
+        },
+        {
+          "id": "deck-11",
+          "card": "Delver of Secrets // Insectile Aberration",
+          "tapped": false
+        },
+        {
+          "id": "deck-30",
+          "card": "Locthwain Gargoyle",
+          "tapped": false
+        },
+        {
+          "id": "deck-35",
+          "card": "Network Disruptor",
+          "tapped": false
+        }
+      ],
+      "floatingExpires": [],
+      "life": 40
+    },
+    {
+      "turn": 6,
+      "event": "untap",
+      "sources": [
+        {
+          "id": "deck-73",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-25",
+          "types": [
+            "Artifact"
+          ],
+          "subtypes": [],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "{1}",
+              "outputs": [
+                [
+                  "W"
+                ],
+                [
+                  "U"
+                ],
+                [
+                  "B"
+                ],
+                [
+                  "R"
+                ],
+                [
+                  "G"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-76",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-26",
+          "types": [
+            "Legendary",
+            "Artifact",
+            "Creature"
+          ],
+          "subtypes": [
+            "Robot",
+            "Scout"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            },
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "{1}",
+              "outputs": [
+                [
+                  "W"
+                ],
+                [
+                  "U"
+                ],
+                [
+                  "B"
+                ],
+                [
+                  "R"
+                ],
+                [
+                  "G"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "commander",
+          "types": [
+            "Legendary",
+            "Creature"
+          ],
+          "subtypes": [
+            "Human",
+            "Ninja"
+          ],
+          "modes": [],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-28",
+          "types": [
+            "Creature"
+          ],
+          "subtypes": [
+            "Jellyfish",
+            "Warrior"
+          ],
+          "modes": [],
+          "tapped": false,
+          "consumed": true,
+          "sick": false
+        },
+        {
+          "id": "deck-11",
+          "types": [
+            "Creature"
+          ],
+          "subtypes": [
+            "Human",
+            "Wizard"
+          ],
+          "modes": [],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-30",
+          "types": [
+            "Artifact",
+            "Creature"
+          ],
+          "subtypes": [
+            "Gargoyle"
+          ],
+          "modes": [],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-35",
+          "types": [
+            "Artifact",
+            "Creature"
+          ],
+          "subtypes": [
+            "Moonfolk",
+            "Rogue"
+          ],
+          "modes": [],
+          "tapped": false,
+          "sick": false
+        }
+      ]
+    },
+    {
+      "turn": 6,
+      "event": "draw",
+      "card": "Island",
+      "id": "deck-74",
+      "reason": "natural"
+    },
+    {
+      "turn": 6,
+      "event": "land",
+      "id": "deck-74",
+      "card": "Island",
+      "tapped": false,
+      "unknown": false
+    },
+    {
+      "turn": 6,
+      "event": "decision",
+      "policy": "commander-first",
+      "chosen": "deck-59",
+      "kind": "cast",
+      "reason": "develop usable mana",
+      "commanderPayable": false,
+      "setupBudgetUsed": 0,
+      "alternatives": [
+        {
+          "id": "deck-4",
+          "kind": "cast",
+          "reason": "remaining supported deployment"
+        },
+        {
+          "id": "deck-43",
+          "kind": "cast",
+          "reason": "remaining supported deployment"
+        },
+        {
+          "id": "deck-42",
+          "kind": "cast",
+          "reason": "remaining supported deployment"
+        },
+        {
+          "id": "deck-44",
+          "kind": "cast",
+          "reason": "remaining supported deployment"
+        }
+      ]
+    },
+    {
+      "turn": 6,
+      "event": "mana-activation",
+      "card": "Island",
+      "kind": "activation",
+      "source": "deck-73",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "cost": "",
+        "outputs": [
+          [
+            "U"
+          ]
+        ]
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-73:0:0",
+          "type": "U",
+          "source": "deck-73",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 6,
+      "event": "mana-activation",
+      "card": "Giant's Boulder",
+      "kind": "activation",
+      "source": "deck-25",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "sacrifice": false,
+        "cost": "{1}",
+        "outputs": [
+          [
+            "W"
+          ],
+          [
+            "U"
+          ],
+          [
+            "B"
+          ],
+          [
+            "R"
+          ],
+          [
+            "G"
+          ]
+        ],
+        "restriction": "none",
+        "life": 0,
+        "minLands": 0
+      },
+      "spent": [
+        {
+          "id": "deck-73:0:0",
+          "type": "U",
+          "source": "deck-73",
+          "restriction": "none",
+          "paidFor": "*"
+        }
+      ],
+      "produced": [
+        {
+          "id": "deck-25:0:0",
+          "type": "W",
+          "source": "deck-25",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 6,
+      "event": "mana-activation",
+      "card": "Island",
+      "kind": "activation",
+      "source": "deck-76",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "cost": "",
+        "outputs": [
+          [
+            "U"
+          ]
+        ]
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-76:0:0",
+          "type": "U",
+          "source": "deck-76",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 6,
+      "event": "mana-activation",
+      "card": "H.E.R.B.I.E., Lovable Robot",
+      "kind": "activation",
+      "source": "deck-26",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "sacrifice": false,
+        "cost": "",
+        "outputs": [
+          [
+            "C"
+          ]
+        ],
+        "restriction": "none",
+        "life": 0,
+        "minLands": 0
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-26:0:0",
+          "type": "C",
+          "source": "deck-26",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 6,
+      "event": "mana-activation",
+      "card": "Island",
+      "kind": "activation",
+      "source": "deck-74",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "cost": "",
+        "outputs": [
+          [
+            "U"
+          ]
+        ]
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-74:0:0",
+          "type": "U",
+          "source": "deck-74",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 6,
+      "event": "cast-paid",
+      "id": "deck-59",
+      "card": "Thran Dynamo",
+      "origin": "hand",
+      "kind": "payment",
+      "label": "spell",
+      "cost": "{4}",
+      "reduction": 0,
+      "context": {
+        "kind": "spell",
+        "types": [
+          "Artifact"
+        ],
+        "subtypes": [],
+        "commander": false
+      },
+      "spent": [
+        {
+          "id": "deck-26:0:0",
+          "type": "C",
+          "source": "deck-26",
+          "restriction": "none",
+          "paidFor": "*"
+        },
+        {
+          "id": "deck-76:0:0",
+          "type": "U",
+          "source": "deck-76",
+          "restriction": "none",
+          "paidFor": "*"
+        },
+        {
+          "id": "deck-74:0:0",
+          "type": "U",
+          "source": "deck-74",
+          "restriction": "none",
+          "paidFor": "*"
+        },
+        {
+          "id": "deck-25:0:0",
+          "type": "W",
+          "source": "deck-25",
+          "restriction": "none",
+          "paidFor": "*"
+        }
+      ]
+    },
+    {
+      "turn": 6,
+      "event": "permanent-resolved",
+      "id": "deck-59",
+      "card": "Thran Dynamo",
+      "tapped": false,
+      "effects": {
+        "manaUnknown": [],
+        "accessUnknown": [],
+        "other": "other Oracle effects unmodeled"
+      }
+    },
+    {
+      "turn": 6,
+      "event": "decision",
+      "policy": "commander-first",
+      "chosen": "deck-42",
+      "kind": "cast",
+      "reason": "remaining supported deployment",
+      "commanderPayable": false,
+      "setupBudgetUsed": 0,
+      "alternatives": []
+    },
+    {
+      "turn": 6,
+      "event": "mana-activation",
+      "card": "Thran Dynamo",
+      "kind": "activation",
+      "source": "deck-59",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "sacrifice": false,
+        "cost": "",
+        "outputs": [
+          [
+            "C",
+            "C",
+            "C"
+          ]
+        ],
+        "restriction": "none",
+        "life": 0,
+        "minLands": 0
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-59:0:0",
+          "type": "C",
+          "source": "deck-59",
+          "restriction": "none"
+        },
+        {
+          "id": "deck-59:0:1",
+          "type": "C",
+          "source": "deck-59",
+          "restriction": "none"
+        },
+        {
+          "id": "deck-59:0:2",
+          "type": "C",
+          "source": "deck-59",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 6,
+      "event": "cast-paid",
+      "id": "deck-42",
+      "card": "PuPu UFO",
+      "origin": "hand",
+      "kind": "payment",
+      "label": "spell",
+      "cost": "{2}",
+      "reduction": 0,
+      "context": {
+        "kind": "spell",
+        "types": [
+          "Artifact",
+          "Creature"
+        ],
+        "subtypes": [
+          "Construct",
+          "Alien"
+        ],
+        "commander": false
+      },
+      "spent": [
+        {
+          "id": "deck-59:0:0",
+          "type": "C",
+          "source": "deck-59",
+          "restriction": "none",
+          "paidFor": "*"
+        },
+        {
+          "id": "deck-59:0:1",
+          "type": "C",
+          "source": "deck-59",
+          "restriction": "none",
+          "paidFor": "*"
+        }
+      ]
+    },
+    {
+      "turn": 6,
+      "event": "permanent-resolved",
+      "id": "deck-42",
+      "card": "PuPu UFO",
+      "tapped": false,
+      "effects": {
+        "manaUnknown": [],
+        "accessUnknown": [],
+        "other": "other Oracle effects unmodeled"
+      }
+    },
+    {
+      "turn": 6,
+      "event": "turn-end",
+      "hand": [
+        "Rattlechains",
+        "Rampart Crawler",
+        "Aven Envoy"
+      ],
+      "handIds": [
+        "deck-44",
+        "deck-43",
+        "deck-4"
+      ],
+      "library": [
+        "deck-66",
+        "deck-7",
+        "deck-97",
+        "deck-63",
+        "deck-41",
+        "deck-19",
+        "deck-79",
+        "deck-55",
+        "deck-27",
+        "deck-61",
+        "deck-38",
+        "deck-52",
+        "deck-33",
+        "deck-1",
+        "deck-29",
+        "deck-8",
+        "deck-13",
+        "deck-54",
+        "deck-12",
+        "deck-16",
+        "deck-48",
+        "deck-23",
+        "deck-50",
+        "deck-22",
+        "deck-77",
+        "deck-69",
+        "deck-84",
+        "deck-78",
+        "deck-67",
+        "deck-92",
+        "deck-34",
+        "deck-45",
+        "deck-21",
+        "deck-60",
+        "deck-53",
+        "deck-88",
+        "deck-68",
+        "deck-15",
+        "deck-2",
+        "deck-47",
+        "deck-20",
+        "deck-75",
+        "deck-70",
+        "deck-82",
+        "deck-85",
+        "deck-39",
+        "deck-9",
+        "deck-81",
+        "deck-49",
+        "deck-91",
+        "deck-36",
+        "deck-95",
+        "deck-89",
+        "deck-64",
+        "deck-58",
+        "deck-3",
+        "deck-86",
+        "deck-98",
+        "deck-32",
+        "deck-40",
+        "deck-96",
+        "deck-83",
+        "deck-18",
+        "deck-65",
+        "deck-14",
+        "deck-10",
+        "deck-80",
+        "deck-57",
+        "deck-17",
+        "deck-56",
+        "deck-93",
+        "deck-94",
+        "deck-90",
+        "deck-71",
+        "deck-0",
+        "deck-72",
+        "deck-62",
+        "deck-5",
+        "deck-51",
+        "deck-31",
+        "deck-37",
+        "deck-46",
+        "deck-6",
+        "deck-87",
+        "deck-24"
+      ],
+      "graveyard": [
+        "deck-28"
+      ],
+      "exile": [],
+      "opponents": [],
+      "ceased": [],
+      "board": [
+        {
+          "id": "deck-73",
+          "card": "Island",
+          "tapped": true
+        },
+        {
+          "id": "deck-25",
+          "card": "Giant's Boulder",
+          "tapped": true
+        },
+        {
+          "id": "deck-76",
+          "card": "Island",
+          "tapped": true
+        },
+        {
+          "id": "deck-26",
+          "card": "H.E.R.B.I.E., Lovable Robot",
+          "tapped": true
+        },
+        {
+          "id": "commander",
+          "card": "Yuriko, the Tiger's Shadow",
+          "tapped": false
+        },
+        {
+          "id": "deck-11",
+          "card": "Delver of Secrets // Insectile Aberration",
+          "tapped": false
+        },
+        {
+          "id": "deck-30",
+          "card": "Locthwain Gargoyle",
+          "tapped": false
+        },
+        {
+          "id": "deck-35",
+          "card": "Network Disruptor",
+          "tapped": false
+        },
+        {
+          "id": "deck-74",
+          "card": "Island",
+          "tapped": true
+        },
+        {
+          "id": "deck-59",
+          "card": "Thran Dynamo",
+          "tapped": true
+        },
+        {
+          "id": "deck-42",
+          "card": "PuPu UFO",
+          "tapped": false
+        }
+      ],
+      "floatingExpires": [
+        {
+          "id": "deck-59:0:2",
+          "type": "C",
+          "source": "deck-59",
+          "restriction": "none"
+        }
+      ],
+      "life": 40
+    },
+    {
+      "turn": 7,
+      "event": "untap",
+      "sources": [
+        {
+          "id": "deck-73",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-25",
+          "types": [
+            "Artifact"
+          ],
+          "subtypes": [],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "{1}",
+              "outputs": [
+                [
+                  "W"
+                ],
+                [
+                  "U"
+                ],
+                [
+                  "B"
+                ],
+                [
+                  "R"
+                ],
+                [
+                  "G"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-76",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-26",
+          "types": [
+            "Legendary",
+            "Artifact",
+            "Creature"
+          ],
+          "subtypes": [
+            "Robot",
+            "Scout"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            },
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "{1}",
+              "outputs": [
+                [
+                  "W"
+                ],
+                [
+                  "U"
+                ],
+                [
+                  "B"
+                ],
+                [
+                  "R"
+                ],
+                [
+                  "G"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "commander",
+          "types": [
+            "Legendary",
+            "Creature"
+          ],
+          "subtypes": [
+            "Human",
+            "Ninja"
+          ],
+          "modes": [],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-28",
+          "types": [
+            "Creature"
+          ],
+          "subtypes": [
+            "Jellyfish",
+            "Warrior"
+          ],
+          "modes": [],
+          "tapped": false,
+          "consumed": true,
+          "sick": false
+        },
+        {
+          "id": "deck-11",
+          "types": [
+            "Creature"
+          ],
+          "subtypes": [
+            "Human",
+            "Wizard"
+          ],
+          "modes": [],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-30",
+          "types": [
+            "Artifact",
+            "Creature"
+          ],
+          "subtypes": [
+            "Gargoyle"
+          ],
+          "modes": [],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-35",
+          "types": [
+            "Artifact",
+            "Creature"
+          ],
+          "subtypes": [
+            "Moonfolk",
+            "Rogue"
+          ],
+          "modes": [],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-74",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-59",
+          "types": [
+            "Artifact"
+          ],
+          "subtypes": [],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "C",
+                  "C",
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-42",
+          "types": [
+            "Artifact",
+            "Creature"
+          ],
+          "subtypes": [
+            "Construct",
+            "Alien"
+          ],
+          "modes": [],
+          "tapped": false,
+          "sick": false
+        }
+      ]
+    },
+    {
+      "turn": 7,
+      "event": "draw",
+      "card": "Island",
+      "id": "deck-66",
+      "reason": "natural"
+    },
+    {
+      "turn": 7,
+      "event": "land",
+      "id": "deck-66",
+      "card": "Island",
+      "tapped": false,
+      "unknown": false
+    },
+    {
+      "turn": 7,
+      "event": "decision",
+      "policy": "commander-first",
+      "chosen": "deck-4",
+      "kind": "cast",
+      "reason": "remaining supported deployment",
+      "commanderPayable": false,
+      "setupBudgetUsed": 0,
+      "alternatives": [
+        {
+          "id": "deck-43",
+          "kind": "cast",
+          "reason": "remaining supported deployment"
+        },
+        {
+          "id": "deck-44",
+          "kind": "cast",
+          "reason": "remaining supported deployment"
+        }
+      ]
+    },
+    {
+      "turn": 7,
+      "event": "mana-activation",
+      "card": "Island",
+      "kind": "activation",
+      "source": "deck-73",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "cost": "",
+        "outputs": [
+          [
+            "U"
+          ]
+        ]
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-73:0:0",
+          "type": "U",
+          "source": "deck-73",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 7,
+      "event": "cast-paid",
+      "id": "deck-4",
+      "card": "Aven Envoy",
+      "origin": "hand",
+      "kind": "payment",
+      "label": "spell",
+      "cost": "{U}",
+      "reduction": 0,
+      "context": {
+        "kind": "spell",
+        "types": [
+          "Creature"
+        ],
+        "subtypes": [
+          "Bird",
+          "Soldier"
+        ],
+        "commander": false
+      },
+      "spent": [
+        {
+          "id": "deck-73:0:0",
+          "type": "U",
+          "source": "deck-73",
+          "restriction": "none",
+          "paidFor": "U"
+        }
+      ]
+    },
+    {
+      "turn": 7,
+      "event": "permanent-resolved",
+      "id": "deck-4",
+      "card": "Aven Envoy",
+      "tapped": false,
+      "effects": {
+        "manaUnknown": [],
+        "accessUnknown": [],
+        "other": "other Oracle effects unmodeled"
+      }
+    },
+    {
+      "turn": 7,
+      "event": "decision",
+      "policy": "commander-first",
+      "chosen": "deck-43",
+      "kind": "cast",
+      "reason": "remaining supported deployment",
+      "commanderPayable": false,
+      "setupBudgetUsed": 0,
+      "alternatives": [
+        {
+          "id": "deck-44",
+          "kind": "cast",
+          "reason": "remaining supported deployment"
+        }
+      ]
+    },
+    {
+      "turn": 7,
+      "event": "mana-activation",
+      "card": "Island",
+      "kind": "activation",
+      "source": "deck-76",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "cost": "",
+        "outputs": [
+          [
+            "U"
+          ]
+        ]
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-76:0:0",
+          "type": "U",
+          "source": "deck-76",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 7,
+      "event": "mana-activation",
+      "card": "Giant's Boulder",
+      "kind": "activation",
+      "source": "deck-25",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "sacrifice": false,
+        "cost": "{1}",
+        "outputs": [
+          [
+            "W"
+          ],
+          [
+            "U"
+          ],
+          [
+            "B"
+          ],
+          [
+            "R"
+          ],
+          [
+            "G"
+          ]
+        ],
+        "restriction": "none",
+        "life": 0,
+        "minLands": 0
+      },
+      "spent": [
+        {
+          "id": "deck-76:0:0",
+          "type": "U",
+          "source": "deck-76",
+          "restriction": "none",
+          "paidFor": "*"
+        }
+      ],
+      "produced": [
+        {
+          "id": "deck-25:0:0",
+          "type": "W",
+          "source": "deck-25",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 7,
+      "event": "mana-activation",
+      "card": "H.E.R.B.I.E., Lovable Robot",
+      "kind": "activation",
+      "source": "deck-26",
+      "mode": 1,
+      "ability": {
+        "tap": true,
+        "sacrifice": false,
+        "cost": "{1}",
+        "outputs": [
+          [
+            "W"
+          ],
+          [
+            "U"
+          ],
+          [
+            "B"
+          ],
+          [
+            "R"
+          ],
+          [
+            "G"
+          ]
+        ],
+        "restriction": "none",
+        "life": 0,
+        "minLands": 0
+      },
+      "spent": [
+        {
+          "id": "deck-25:0:0",
+          "type": "W",
+          "source": "deck-25",
+          "restriction": "none",
+          "paidFor": "*"
+        }
+      ],
+      "produced": [
+        {
+          "id": "deck-26:1:0",
+          "type": "B",
+          "source": "deck-26",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 7,
+      "event": "cast-paid",
+      "id": "deck-43",
+      "card": "Rampart Crawler",
+      "origin": "hand",
+      "kind": "payment",
+      "label": "spell",
+      "cost": "{B}",
+      "reduction": 0,
+      "context": {
+        "kind": "spell",
+        "types": [
+          "Creature"
+        ],
+        "subtypes": [
+          "Lizard",
+          "Mercenary"
+        ],
+        "commander": false
+      },
+      "spent": [
+        {
+          "id": "deck-26:1:0",
+          "type": "B",
+          "source": "deck-26",
+          "restriction": "none",
+          "paidFor": "B"
+        }
+      ]
+    },
+    {
+      "turn": 7,
+      "event": "permanent-resolved",
+      "id": "deck-43",
+      "card": "Rampart Crawler",
+      "tapped": false,
+      "effects": {
+        "manaUnknown": [],
+        "accessUnknown": [],
+        "other": "other Oracle effects unmodeled"
+      }
+    },
+    {
+      "turn": 7,
+      "event": "decision",
+      "policy": "commander-first",
+      "chosen": "deck-44",
+      "kind": "cast",
+      "reason": "remaining supported deployment",
+      "commanderPayable": false,
+      "setupBudgetUsed": 0,
+      "alternatives": []
+    },
+    {
+      "turn": 7,
+      "event": "mana-activation",
+      "card": "Island",
+      "kind": "activation",
+      "source": "deck-74",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "cost": "",
+        "outputs": [
+          [
+            "U"
+          ]
+        ]
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-74:0:0",
+          "type": "U",
+          "source": "deck-74",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 7,
+      "event": "mana-activation",
+      "card": "Thran Dynamo",
+      "kind": "activation",
+      "source": "deck-59",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "sacrifice": false,
+        "cost": "",
+        "outputs": [
+          [
+            "C",
+            "C",
+            "C"
+          ]
+        ],
+        "restriction": "none",
+        "life": 0,
+        "minLands": 0
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-59:0:0",
+          "type": "C",
+          "source": "deck-59",
+          "restriction": "none"
+        },
+        {
+          "id": "deck-59:0:1",
+          "type": "C",
+          "source": "deck-59",
+          "restriction": "none"
+        },
+        {
+          "id": "deck-59:0:2",
+          "type": "C",
+          "source": "deck-59",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 7,
+      "event": "cast-paid",
+      "id": "deck-44",
+      "card": "Rattlechains",
+      "origin": "hand",
+      "kind": "payment",
+      "label": "spell",
+      "cost": "{1}{U}",
+      "reduction": 0,
+      "context": {
+        "kind": "spell",
+        "types": [
+          "Creature"
+        ],
+        "subtypes": [
+          "Spirit"
+        ],
+        "commander": false
+      },
+      "spent": [
+        {
+          "id": "deck-74:0:0",
+          "type": "U",
+          "source": "deck-74",
+          "restriction": "none",
+          "paidFor": "U"
+        },
+        {
+          "id": "deck-59:0:0",
+          "type": "C",
+          "source": "deck-59",
+          "restriction": "none",
+          "paidFor": "*"
+        }
+      ]
+    },
+    {
+      "turn": 7,
+      "event": "permanent-resolved",
+      "id": "deck-44",
+      "card": "Rattlechains",
+      "tapped": false,
+      "effects": {
+        "manaUnknown": [],
+        "accessUnknown": [],
+        "other": "other Oracle effects unmodeled"
+      }
+    },
+    {
+      "turn": 7,
+      "event": "turn-end",
+      "hand": [],
+      "handIds": [],
+      "library": [
+        "deck-7",
+        "deck-97",
+        "deck-63",
+        "deck-41",
+        "deck-19",
+        "deck-79",
+        "deck-55",
+        "deck-27",
+        "deck-61",
+        "deck-38",
+        "deck-52",
+        "deck-33",
+        "deck-1",
+        "deck-29",
+        "deck-8",
+        "deck-13",
+        "deck-54",
+        "deck-12",
+        "deck-16",
+        "deck-48",
+        "deck-23",
+        "deck-50",
+        "deck-22",
+        "deck-77",
+        "deck-69",
+        "deck-84",
+        "deck-78",
+        "deck-67",
+        "deck-92",
+        "deck-34",
+        "deck-45",
+        "deck-21",
+        "deck-60",
+        "deck-53",
+        "deck-88",
+        "deck-68",
+        "deck-15",
+        "deck-2",
+        "deck-47",
+        "deck-20",
+        "deck-75",
+        "deck-70",
+        "deck-82",
+        "deck-85",
+        "deck-39",
+        "deck-9",
+        "deck-81",
+        "deck-49",
+        "deck-91",
+        "deck-36",
+        "deck-95",
+        "deck-89",
+        "deck-64",
+        "deck-58",
+        "deck-3",
+        "deck-86",
+        "deck-98",
+        "deck-32",
+        "deck-40",
+        "deck-96",
+        "deck-83",
+        "deck-18",
+        "deck-65",
+        "deck-14",
+        "deck-10",
+        "deck-80",
+        "deck-57",
+        "deck-17",
+        "deck-56",
+        "deck-93",
+        "deck-94",
+        "deck-90",
+        "deck-71",
+        "deck-0",
+        "deck-72",
+        "deck-62",
+        "deck-5",
+        "deck-51",
+        "deck-31",
+        "deck-37",
+        "deck-46",
+        "deck-6",
+        "deck-87",
+        "deck-24"
+      ],
+      "graveyard": [
+        "deck-28"
+      ],
+      "exile": [],
+      "opponents": [],
+      "ceased": [],
+      "board": [
+        {
+          "id": "deck-73",
+          "card": "Island",
+          "tapped": true
+        },
+        {
+          "id": "deck-25",
+          "card": "Giant's Boulder",
+          "tapped": true
+        },
+        {
+          "id": "deck-76",
+          "card": "Island",
+          "tapped": true
+        },
+        {
+          "id": "deck-26",
+          "card": "H.E.R.B.I.E., Lovable Robot",
+          "tapped": true
+        },
+        {
+          "id": "commander",
+          "card": "Yuriko, the Tiger's Shadow",
+          "tapped": false
+        },
+        {
+          "id": "deck-11",
+          "card": "Delver of Secrets // Insectile Aberration",
+          "tapped": false
+        },
+        {
+          "id": "deck-30",
+          "card": "Locthwain Gargoyle",
+          "tapped": false
+        },
+        {
+          "id": "deck-35",
+          "card": "Network Disruptor",
+          "tapped": false
+        },
+        {
+          "id": "deck-74",
+          "card": "Island",
+          "tapped": true
+        },
+        {
+          "id": "deck-59",
+          "card": "Thran Dynamo",
+          "tapped": true
+        },
+        {
+          "id": "deck-42",
+          "card": "PuPu UFO",
+          "tapped": false
+        },
+        {
+          "id": "deck-66",
+          "card": "Island",
+          "tapped": false
+        },
+        {
+          "id": "deck-4",
+          "card": "Aven Envoy",
+          "tapped": false
+        },
+        {
+          "id": "deck-43",
+          "card": "Rampart Crawler",
+          "tapped": false
+        },
+        {
+          "id": "deck-44",
+          "card": "Rattlechains",
+          "tapped": false
+        }
+      ],
+      "floatingExpires": [
+        {
+          "id": "deck-59:0:1",
+          "type": "C",
+          "source": "deck-59",
+          "restriction": "none"
+        },
+        {
+          "id": "deck-59:0:2",
+          "type": "C",
+          "source": "deck-59",
+          "restriction": "none"
+        }
+      ],
+      "life": 40
+    },
+    {
+      "turn": 8,
+      "event": "untap",
+      "sources": [
+        {
+          "id": "deck-73",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-25",
+          "types": [
+            "Artifact"
+          ],
+          "subtypes": [],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "{1}",
+              "outputs": [
+                [
+                  "W"
+                ],
+                [
+                  "U"
+                ],
+                [
+                  "B"
+                ],
+                [
+                  "R"
+                ],
+                [
+                  "G"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-76",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-26",
+          "types": [
+            "Legendary",
+            "Artifact",
+            "Creature"
+          ],
+          "subtypes": [
+            "Robot",
+            "Scout"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            },
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "{1}",
+              "outputs": [
+                [
+                  "W"
+                ],
+                [
+                  "U"
+                ],
+                [
+                  "B"
+                ],
+                [
+                  "R"
+                ],
+                [
+                  "G"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "commander",
+          "types": [
+            "Legendary",
+            "Creature"
+          ],
+          "subtypes": [
+            "Human",
+            "Ninja"
+          ],
+          "modes": [],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-28",
+          "types": [
+            "Creature"
+          ],
+          "subtypes": [
+            "Jellyfish",
+            "Warrior"
+          ],
+          "modes": [],
+          "tapped": false,
+          "consumed": true,
+          "sick": false
+        },
+        {
+          "id": "deck-11",
+          "types": [
+            "Creature"
+          ],
+          "subtypes": [
+            "Human",
+            "Wizard"
+          ],
+          "modes": [],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-30",
+          "types": [
+            "Artifact",
+            "Creature"
+          ],
+          "subtypes": [
+            "Gargoyle"
+          ],
+          "modes": [],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-35",
+          "types": [
+            "Artifact",
+            "Creature"
+          ],
+          "subtypes": [
+            "Moonfolk",
+            "Rogue"
+          ],
+          "modes": [],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-74",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-59",
+          "types": [
+            "Artifact"
+          ],
+          "subtypes": [],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "C",
+                  "C",
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-42",
+          "types": [
+            "Artifact",
+            "Creature"
+          ],
+          "subtypes": [
+            "Construct",
+            "Alien"
+          ],
+          "modes": [],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-66",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-4",
+          "types": [
+            "Creature"
+          ],
+          "subtypes": [
+            "Bird",
+            "Soldier"
+          ],
+          "modes": [],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-43",
+          "types": [
+            "Creature"
+          ],
+          "subtypes": [
+            "Lizard",
+            "Mercenary"
+          ],
+          "modes": [],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-44",
+          "types": [
+            "Creature"
+          ],
+          "subtypes": [
+            "Spirit"
+          ],
+          "modes": [],
+          "tapped": false,
+          "sick": false
+        }
+      ]
+    },
+    {
+      "turn": 8,
+      "event": "draw",
+      "card": "Caller of Gales",
+      "id": "deck-7",
+      "reason": "natural"
+    },
+    {
+      "turn": 8,
+      "event": "decision",
+      "policy": "commander-first",
+      "chosen": "deck-7",
+      "kind": "cast",
+      "reason": "remaining supported deployment",
+      "commanderPayable": false,
+      "setupBudgetUsed": 0,
+      "alternatives": []
+    },
+    {
+      "turn": 8,
+      "event": "mana-activation",
+      "card": "Island",
+      "kind": "activation",
+      "source": "deck-73",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "cost": "",
+        "outputs": [
+          [
+            "U"
+          ]
+        ]
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-73:0:0",
+          "type": "U",
+          "source": "deck-73",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 8,
+      "event": "cast-paid",
+      "id": "deck-7",
+      "card": "Caller of Gales",
+      "origin": "hand",
+      "kind": "payment",
+      "label": "spell",
+      "cost": "{U}",
+      "reduction": 0,
+      "context": {
+        "kind": "spell",
+        "types": [
+          "Creature"
+        ],
+        "subtypes": [
+          "Merfolk",
+          "Wizard"
+        ],
+        "commander": false
+      },
+      "spent": [
+        {
+          "id": "deck-73:0:0",
+          "type": "U",
+          "source": "deck-73",
+          "restriction": "none",
+          "paidFor": "U"
+        }
+      ]
+    },
+    {
+      "turn": 8,
+      "event": "permanent-resolved",
+      "id": "deck-7",
+      "card": "Caller of Gales",
+      "tapped": false,
+      "effects": {
+        "manaUnknown": [],
+        "accessUnknown": [],
+        "other": "other Oracle effects unmodeled"
+      }
+    },
+    {
+      "turn": 8,
+      "event": "turn-end",
+      "hand": [],
+      "handIds": [],
+      "library": [
+        "deck-97",
+        "deck-63",
+        "deck-41",
+        "deck-19",
+        "deck-79",
+        "deck-55",
+        "deck-27",
+        "deck-61",
+        "deck-38",
+        "deck-52",
+        "deck-33",
+        "deck-1",
+        "deck-29",
+        "deck-8",
+        "deck-13",
+        "deck-54",
+        "deck-12",
+        "deck-16",
+        "deck-48",
+        "deck-23",
+        "deck-50",
+        "deck-22",
+        "deck-77",
+        "deck-69",
+        "deck-84",
+        "deck-78",
+        "deck-67",
+        "deck-92",
+        "deck-34",
+        "deck-45",
+        "deck-21",
+        "deck-60",
+        "deck-53",
+        "deck-88",
+        "deck-68",
+        "deck-15",
+        "deck-2",
+        "deck-47",
+        "deck-20",
+        "deck-75",
+        "deck-70",
+        "deck-82",
+        "deck-85",
+        "deck-39",
+        "deck-9",
+        "deck-81",
+        "deck-49",
+        "deck-91",
+        "deck-36",
+        "deck-95",
+        "deck-89",
+        "deck-64",
+        "deck-58",
+        "deck-3",
+        "deck-86",
+        "deck-98",
+        "deck-32",
+        "deck-40",
+        "deck-96",
+        "deck-83",
+        "deck-18",
+        "deck-65",
+        "deck-14",
+        "deck-10",
+        "deck-80",
+        "deck-57",
+        "deck-17",
+        "deck-56",
+        "deck-93",
+        "deck-94",
+        "deck-90",
+        "deck-71",
+        "deck-0",
+        "deck-72",
+        "deck-62",
+        "deck-5",
+        "deck-51",
+        "deck-31",
+        "deck-37",
+        "deck-46",
+        "deck-6",
+        "deck-87",
+        "deck-24"
+      ],
+      "graveyard": [
+        "deck-28"
+      ],
+      "exile": [],
+      "opponents": [],
+      "ceased": [],
+      "board": [
+        {
+          "id": "deck-73",
+          "card": "Island",
+          "tapped": true
+        },
+        {
+          "id": "deck-25",
+          "card": "Giant's Boulder",
+          "tapped": false
+        },
+        {
+          "id": "deck-76",
+          "card": "Island",
+          "tapped": false
+        },
+        {
+          "id": "deck-26",
+          "card": "H.E.R.B.I.E., Lovable Robot",
+          "tapped": false
+        },
+        {
+          "id": "commander",
+          "card": "Yuriko, the Tiger's Shadow",
+          "tapped": false
+        },
+        {
+          "id": "deck-11",
+          "card": "Delver of Secrets // Insectile Aberration",
+          "tapped": false
+        },
+        {
+          "id": "deck-30",
+          "card": "Locthwain Gargoyle",
+          "tapped": false
+        },
+        {
+          "id": "deck-35",
+          "card": "Network Disruptor",
+          "tapped": false
+        },
+        {
+          "id": "deck-74",
+          "card": "Island",
+          "tapped": false
+        },
+        {
+          "id": "deck-59",
+          "card": "Thran Dynamo",
+          "tapped": false
+        },
+        {
+          "id": "deck-42",
+          "card": "PuPu UFO",
+          "tapped": false
+        },
+        {
+          "id": "deck-66",
+          "card": "Island",
+          "tapped": false
+        },
+        {
+          "id": "deck-4",
+          "card": "Aven Envoy",
+          "tapped": false
+        },
+        {
+          "id": "deck-43",
+          "card": "Rampart Crawler",
+          "tapped": false
+        },
+        {
+          "id": "deck-44",
+          "card": "Rattlechains",
+          "tapped": false
+        },
+        {
+          "id": "deck-7",
+          "card": "Caller of Gales",
+          "tapped": false
+        }
+      ],
+      "floatingExpires": [],
+      "life": 40
+    }
+  ]
+}

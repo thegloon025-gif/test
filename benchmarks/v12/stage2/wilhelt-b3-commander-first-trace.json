@@ -1,0 +1,3526 @@
+{
+  "audit": {
+    "valid": true,
+    "errors": [],
+    "resourceAudit": true,
+    "zoneAudit": true
+  },
+  "schemaVersion": 2,
+  "evaluator": "gameplay-stage2-v1",
+  "seed": "gameplay-stage1-2026-10-22:0",
+  "turns": 8,
+  "policy": "commander-first",
+  "mulligan": "none",
+  "order": [
+    11,
+    44,
+    73,
+    25,
+    43,
+    26,
+    4,
+    35,
+    76,
+    30,
+    28,
+    42,
+    59,
+    74,
+    66,
+    7,
+    97,
+    63,
+    41,
+    19,
+    79,
+    55,
+    27,
+    61,
+    38,
+    52,
+    33,
+    1,
+    29,
+    8,
+    13,
+    54,
+    12,
+    16,
+    48,
+    23,
+    50,
+    22,
+    77,
+    69,
+    84,
+    78,
+    67,
+    92,
+    34,
+    45,
+    21,
+    60,
+    53,
+    88,
+    68,
+    15,
+    2,
+    47,
+    20,
+    75,
+    70,
+    82,
+    85,
+    39,
+    9,
+    81,
+    49,
+    91,
+    36,
+    95,
+    89,
+    64,
+    58,
+    3,
+    86,
+    98,
+    32,
+    40,
+    96,
+    83,
+    18,
+    65,
+    14,
+    10,
+    80,
+    57,
+    17,
+    56,
+    93,
+    94,
+    90,
+    71,
+    0,
+    72,
+    62,
+    5,
+    51,
+    31,
+    37,
+    46,
+    6,
+    87,
+    24
+  ],
+  "initialOpening": [
+    {
+      "id": "deck-11",
+      "card": "Cemetery Reaper"
+    },
+    {
+      "id": "deck-44",
+      "card": "Ragamuffyn"
+    },
+    {
+      "id": "deck-73",
+      "card": "Island"
+    },
+    {
+      "id": "deck-25",
+      "card": "Gutless Ghoul"
+    },
+    {
+      "id": "deck-43",
+      "card": "Plague Belcher"
+    },
+    {
+      "id": "deck-26",
+      "card": "Headless Rider"
+    },
+    {
+      "id": "deck-4",
+      "card": "Arcanis the Omnipotent"
+    }
+  ],
+  "commander": "Wilhelt, the Rotcleaver",
+  "nativeTypes": [
+    "Zombie"
+  ],
+  "chosenType": "Zombie",
+  "stats": {
+    "casts": [],
+    "commanderDeploymentTurn": null,
+    "setupBeforePayableCommander": 0,
+    "optionalPayments": [],
+    "effectDraws": 0,
+    "naturalDraws": 8,
+    "accessDiscards": 0,
+    "cleanupDiscards": 4,
+    "returnedToTop": 0,
+    "topCasts": 0,
+    "accessSacrifices": 0,
+    "accessSpells": 0,
+    "activations": 0,
+    "selections": 0,
+    "manaStates": 0,
+    "manaSearches": 136,
+    "boundHits": 0,
+    "actionBoundHits": 0,
+    "usedEngines": [],
+    "mulligans": 0
+  },
+  "observations": [
+    {
+      "turn": 1,
+      "commanderDeployed": false,
+      "manaBeforeActions": {
+        "context": "independent maxima for commander spell; not simultaneous or additive",
+        "max": {
+          "generic": {
+            "payableAtLeast": 1,
+            "unknown": false,
+            "cap": 16
+          },
+          "W": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "U": {
+            "payableAtLeast": 1,
+            "unknown": false,
+            "cap": 16
+          },
+          "B": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "R": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "G": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "C": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          }
+        },
+        "separateTriggeredCC": "blocked"
+      },
+      "manaRemaining": {
+        "context": "independent maxima for commander spell; not simultaneous or additive",
+        "max": {
+          "generic": {
+            "payableAtLeast": 1,
+            "unknown": false,
+            "cap": 16
+          },
+          "W": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "U": {
+            "payableAtLeast": 1,
+            "unknown": false,
+            "cap": 16
+          },
+          "B": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "R": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "G": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "C": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          }
+        },
+        "separateTriggeredCC": "blocked"
+      },
+      "handSize": 7,
+      "accessibleCards": 8,
+      "netAccessibleCards": 0,
+      "naturalDraws": 1,
+      "effectDraws": 0,
+      "effectDiscards": 0,
+      "cleanupDiscards": 0,
+      "returnedToTop": 0,
+      "topCasts": 0,
+      "accessSpells": 0,
+      "accessSacrifices": 0,
+      "engines": [],
+      "threatsBeforeActions": [
+        {
+          "card": "Plague Belcher",
+          "status": "blocked"
+        }
+      ],
+      "threatAvailability": [
+        {
+          "card": "Plague Belcher",
+          "status": "blocked"
+        }
+      ],
+      "missed": [
+        {
+          "id": "deck-11",
+          "card": "Cemetery Reaper",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-44",
+          "card": "Ragamuffyn",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-25",
+          "card": "Gutless Ghoul",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-43",
+          "card": "Plague Belcher",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-26",
+          "card": "Headless Rider",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-4",
+          "card": "Arcanis the Omnipotent",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-35",
+          "card": "Mindleech Ghoul",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "commander",
+          "card": "Wilhelt, the Rotcleaver",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        }
+      ]
+    },
+    {
+      "turn": 2,
+      "commanderDeployed": false,
+      "manaBeforeActions": {
+        "context": "independent maxima for commander spell; not simultaneous or additive",
+        "max": {
+          "generic": {
+            "payableAtLeast": 2,
+            "unknown": false,
+            "cap": 16
+          },
+          "W": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "U": {
+            "payableAtLeast": 2,
+            "unknown": false,
+            "cap": 16
+          },
+          "B": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "R": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "G": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "C": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          }
+        },
+        "separateTriggeredCC": "blocked"
+      },
+      "manaRemaining": {
+        "context": "independent maxima for commander spell; not simultaneous or additive",
+        "max": {
+          "generic": {
+            "payableAtLeast": 2,
+            "unknown": false,
+            "cap": 16
+          },
+          "W": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "U": {
+            "payableAtLeast": 2,
+            "unknown": false,
+            "cap": 16
+          },
+          "B": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "R": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "G": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "C": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          }
+        },
+        "separateTriggeredCC": "blocked"
+      },
+      "handSize": 7,
+      "accessibleCards": 9,
+      "netAccessibleCards": 0,
+      "naturalDraws": 2,
+      "effectDraws": 0,
+      "effectDiscards": 0,
+      "cleanupDiscards": 0,
+      "returnedToTop": 0,
+      "topCasts": 0,
+      "accessSpells": 0,
+      "accessSacrifices": 0,
+      "engines": [],
+      "threatsBeforeActions": [
+        {
+          "card": "Plague Belcher",
+          "status": "blocked"
+        }
+      ],
+      "threatAvailability": [
+        {
+          "card": "Plague Belcher",
+          "status": "blocked"
+        }
+      ],
+      "missed": [
+        {
+          "id": "deck-11",
+          "card": "Cemetery Reaper",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-44",
+          "card": "Ragamuffyn",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-25",
+          "card": "Gutless Ghoul",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-43",
+          "card": "Plague Belcher",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-26",
+          "card": "Headless Rider",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-4",
+          "card": "Arcanis the Omnipotent",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-35",
+          "card": "Mindleech Ghoul",
+          "status": "blocked",
+          "reason": "required colored or true-colorless type unavailable"
+        },
+        {
+          "id": "commander",
+          "card": "Wilhelt, the Rotcleaver",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        }
+      ]
+    },
+    {
+      "turn": 3,
+      "commanderDeployed": false,
+      "manaBeforeActions": {
+        "context": "independent maxima for commander spell; not simultaneous or additive",
+        "max": {
+          "generic": {
+            "payableAtLeast": 2,
+            "unknown": false,
+            "cap": 16
+          },
+          "W": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "U": {
+            "payableAtLeast": 2,
+            "unknown": false,
+            "cap": 16
+          },
+          "B": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "R": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "G": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "C": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          }
+        },
+        "separateTriggeredCC": "blocked"
+      },
+      "manaRemaining": {
+        "context": "independent maxima for commander spell; not simultaneous or additive",
+        "max": {
+          "generic": {
+            "payableAtLeast": 2,
+            "unknown": false,
+            "cap": 16
+          },
+          "W": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "U": {
+            "payableAtLeast": 2,
+            "unknown": false,
+            "cap": 16
+          },
+          "B": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "R": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "G": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "C": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          }
+        },
+        "separateTriggeredCC": "blocked"
+      },
+      "handSize": 7,
+      "accessibleCards": 9,
+      "netAccessibleCards": -1,
+      "naturalDraws": 3,
+      "effectDraws": 0,
+      "effectDiscards": 0,
+      "cleanupDiscards": 1,
+      "returnedToTop": 0,
+      "topCasts": 0,
+      "accessSpells": 0,
+      "accessSacrifices": 0,
+      "engines": [],
+      "threatsBeforeActions": [
+        {
+          "card": "Plague Belcher",
+          "status": "blocked"
+        }
+      ],
+      "threatAvailability": [
+        {
+          "card": "Plague Belcher",
+          "status": "blocked"
+        }
+      ],
+      "missed": [
+        {
+          "id": "deck-11",
+          "card": "Cemetery Reaper",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-44",
+          "card": "Ragamuffyn",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-25",
+          "card": "Gutless Ghoul",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-43",
+          "card": "Plague Belcher",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-26",
+          "card": "Headless Rider",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-4",
+          "card": "Arcanis the Omnipotent",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-35",
+          "card": "Mindleech Ghoul",
+          "status": "blocked",
+          "reason": "required colored or true-colorless type unavailable"
+        },
+        {
+          "id": "deck-30",
+          "card": "Jarl of the Forsaken",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "commander",
+          "card": "Wilhelt, the Rotcleaver",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        }
+      ]
+    },
+    {
+      "turn": 4,
+      "commanderDeployed": false,
+      "manaBeforeActions": {
+        "context": "independent maxima for commander spell; not simultaneous or additive",
+        "max": {
+          "generic": {
+            "payableAtLeast": 2,
+            "unknown": false,
+            "cap": 16
+          },
+          "W": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "U": {
+            "payableAtLeast": 2,
+            "unknown": false,
+            "cap": 16
+          },
+          "B": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "R": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "G": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "C": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          }
+        },
+        "separateTriggeredCC": "blocked"
+      },
+      "manaRemaining": {
+        "context": "independent maxima for commander spell; not simultaneous or additive",
+        "max": {
+          "generic": {
+            "payableAtLeast": 2,
+            "unknown": false,
+            "cap": 16
+          },
+          "W": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "U": {
+            "payableAtLeast": 2,
+            "unknown": false,
+            "cap": 16
+          },
+          "B": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "R": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "G": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "C": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          }
+        },
+        "separateTriggeredCC": "blocked"
+      },
+      "handSize": 7,
+      "accessibleCards": 9,
+      "netAccessibleCards": -2,
+      "naturalDraws": 4,
+      "effectDraws": 0,
+      "effectDiscards": 0,
+      "cleanupDiscards": 2,
+      "returnedToTop": 0,
+      "topCasts": 0,
+      "accessSpells": 0,
+      "accessSacrifices": 0,
+      "engines": [],
+      "threatsBeforeActions": [
+        {
+          "card": "Plague Belcher",
+          "status": "blocked"
+        }
+      ],
+      "threatAvailability": [
+        {
+          "card": "Plague Belcher",
+          "status": "blocked"
+        }
+      ],
+      "missed": [
+        {
+          "id": "deck-11",
+          "card": "Cemetery Reaper",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-44",
+          "card": "Ragamuffyn",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-25",
+          "card": "Gutless Ghoul",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-43",
+          "card": "Plague Belcher",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-26",
+          "card": "Headless Rider",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-4",
+          "card": "Arcanis the Omnipotent",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-35",
+          "card": "Mindleech Ghoul",
+          "status": "blocked",
+          "reason": "required colored or true-colorless type unavailable"
+        },
+        {
+          "id": "deck-28",
+          "card": "Hungry Ghoul",
+          "status": "blocked",
+          "reason": "required colored or true-colorless type unavailable"
+        },
+        {
+          "id": "commander",
+          "card": "Wilhelt, the Rotcleaver",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        }
+      ]
+    },
+    {
+      "turn": 5,
+      "commanderDeployed": false,
+      "manaBeforeActions": {
+        "context": "independent maxima for commander spell; not simultaneous or additive",
+        "max": {
+          "generic": {
+            "payableAtLeast": 2,
+            "unknown": false,
+            "cap": 16
+          },
+          "W": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "U": {
+            "payableAtLeast": 2,
+            "unknown": false,
+            "cap": 16
+          },
+          "B": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "R": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "G": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "C": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          }
+        },
+        "separateTriggeredCC": "blocked"
+      },
+      "manaRemaining": {
+        "context": "independent maxima for commander spell; not simultaneous or additive",
+        "max": {
+          "generic": {
+            "payableAtLeast": 2,
+            "unknown": false,
+            "cap": 16
+          },
+          "W": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "U": {
+            "payableAtLeast": 2,
+            "unknown": false,
+            "cap": 16
+          },
+          "B": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "R": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "G": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "C": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          }
+        },
+        "separateTriggeredCC": "blocked"
+      },
+      "handSize": 7,
+      "accessibleCards": 9,
+      "netAccessibleCards": -3,
+      "naturalDraws": 5,
+      "effectDraws": 0,
+      "effectDiscards": 0,
+      "cleanupDiscards": 3,
+      "returnedToTop": 0,
+      "topCasts": 0,
+      "accessSpells": 0,
+      "accessSacrifices": 0,
+      "engines": [],
+      "threatsBeforeActions": [
+        {
+          "card": "Plague Belcher",
+          "status": "blocked"
+        }
+      ],
+      "threatAvailability": [
+        {
+          "card": "Plague Belcher",
+          "status": "blocked"
+        }
+      ],
+      "missed": [
+        {
+          "id": "deck-11",
+          "card": "Cemetery Reaper",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-25",
+          "card": "Gutless Ghoul",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-43",
+          "card": "Plague Belcher",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-26",
+          "card": "Headless Rider",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-4",
+          "card": "Arcanis the Omnipotent",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-35",
+          "card": "Mindleech Ghoul",
+          "status": "blocked",
+          "reason": "required colored or true-colorless type unavailable"
+        },
+        {
+          "id": "deck-28",
+          "card": "Hungry Ghoul",
+          "status": "blocked",
+          "reason": "required colored or true-colorless type unavailable"
+        },
+        {
+          "id": "deck-42",
+          "card": "Phyrexian Ghoul",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "commander",
+          "card": "Wilhelt, the Rotcleaver",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        }
+      ]
+    },
+    {
+      "turn": 6,
+      "commanderDeployed": false,
+      "manaBeforeActions": {
+        "context": "independent maxima for commander spell; not simultaneous or additive",
+        "max": {
+          "generic": {
+            "payableAtLeast": 2,
+            "unknown": false,
+            "cap": 16
+          },
+          "W": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "U": {
+            "payableAtLeast": 2,
+            "unknown": false,
+            "cap": 16
+          },
+          "B": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "R": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "G": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "C": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          }
+        },
+        "separateTriggeredCC": "blocked"
+      },
+      "manaRemaining": {
+        "context": "independent maxima for commander spell; not simultaneous or additive",
+        "max": {
+          "generic": {
+            "payableAtLeast": 2,
+            "unknown": false,
+            "cap": 16
+          },
+          "W": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "U": {
+            "payableAtLeast": 2,
+            "unknown": false,
+            "cap": 16
+          },
+          "B": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "R": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "G": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "C": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          }
+        },
+        "separateTriggeredCC": "blocked"
+      },
+      "handSize": 7,
+      "accessibleCards": 9,
+      "netAccessibleCards": -4,
+      "naturalDraws": 6,
+      "effectDraws": 0,
+      "effectDiscards": 0,
+      "cleanupDiscards": 4,
+      "returnedToTop": 0,
+      "topCasts": 0,
+      "accessSpells": 0,
+      "accessSacrifices": 0,
+      "engines": [],
+      "threatsBeforeActions": [],
+      "threatAvailability": [],
+      "missed": [
+        {
+          "id": "deck-11",
+          "card": "Cemetery Reaper",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-25",
+          "card": "Gutless Ghoul",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-26",
+          "card": "Headless Rider",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-4",
+          "card": "Arcanis the Omnipotent",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-35",
+          "card": "Mindleech Ghoul",
+          "status": "blocked",
+          "reason": "required colored or true-colorless type unavailable"
+        },
+        {
+          "id": "deck-28",
+          "card": "Hungry Ghoul",
+          "status": "blocked",
+          "reason": "required colored or true-colorless type unavailable"
+        },
+        {
+          "id": "deck-42",
+          "card": "Phyrexian Ghoul",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-59",
+          "card": "Vengeful Dead",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "commander",
+          "card": "Wilhelt, the Rotcleaver",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        }
+      ]
+    },
+    {
+      "turn": 7,
+      "commanderDeployed": false,
+      "manaBeforeActions": {
+        "context": "independent maxima for commander spell; not simultaneous or additive",
+        "max": {
+          "generic": {
+            "payableAtLeast": 3,
+            "unknown": false,
+            "cap": 16
+          },
+          "W": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "U": {
+            "payableAtLeast": 3,
+            "unknown": false,
+            "cap": 16
+          },
+          "B": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "R": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "G": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "C": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          }
+        },
+        "separateTriggeredCC": "blocked"
+      },
+      "manaRemaining": {
+        "context": "independent maxima for commander spell; not simultaneous or additive",
+        "max": {
+          "generic": {
+            "payableAtLeast": 3,
+            "unknown": false,
+            "cap": 16
+          },
+          "W": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "U": {
+            "payableAtLeast": 3,
+            "unknown": false,
+            "cap": 16
+          },
+          "B": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "R": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "G": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "C": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          }
+        },
+        "separateTriggeredCC": "blocked"
+      },
+      "handSize": 7,
+      "accessibleCards": 10,
+      "netAccessibleCards": -4,
+      "naturalDraws": 7,
+      "effectDraws": 0,
+      "effectDiscards": 0,
+      "cleanupDiscards": 4,
+      "returnedToTop": 0,
+      "topCasts": 0,
+      "accessSpells": 0,
+      "accessSacrifices": 0,
+      "engines": [],
+      "threatsBeforeActions": [],
+      "threatAvailability": [],
+      "missed": [
+        {
+          "id": "deck-11",
+          "card": "Cemetery Reaper",
+          "status": "blocked",
+          "reason": "required colored or true-colorless type unavailable"
+        },
+        {
+          "id": "deck-25",
+          "card": "Gutless Ghoul",
+          "status": "blocked",
+          "reason": "required colored or true-colorless type unavailable"
+        },
+        {
+          "id": "deck-26",
+          "card": "Headless Rider",
+          "status": "blocked",
+          "reason": "required colored or true-colorless type unavailable"
+        },
+        {
+          "id": "deck-4",
+          "card": "Arcanis the Omnipotent",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-35",
+          "card": "Mindleech Ghoul",
+          "status": "blocked",
+          "reason": "required colored or true-colorless type unavailable"
+        },
+        {
+          "id": "deck-28",
+          "card": "Hungry Ghoul",
+          "status": "blocked",
+          "reason": "required colored or true-colorless type unavailable"
+        },
+        {
+          "id": "deck-42",
+          "card": "Phyrexian Ghoul",
+          "status": "blocked",
+          "reason": "required colored or true-colorless type unavailable"
+        },
+        {
+          "id": "commander",
+          "card": "Wilhelt, the Rotcleaver",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        }
+      ]
+    },
+    {
+      "turn": 8,
+      "commanderDeployed": false,
+      "manaBeforeActions": {
+        "context": "independent maxima for commander spell; not simultaneous or additive",
+        "max": {
+          "generic": {
+            "payableAtLeast": 4,
+            "unknown": false,
+            "cap": 16
+          },
+          "W": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "U": {
+            "payableAtLeast": 4,
+            "unknown": false,
+            "cap": 16
+          },
+          "B": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "R": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "G": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "C": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          }
+        },
+        "separateTriggeredCC": "blocked"
+      },
+      "manaRemaining": {
+        "context": "independent maxima for commander spell; not simultaneous or additive",
+        "max": {
+          "generic": {
+            "payableAtLeast": 4,
+            "unknown": false,
+            "cap": 16
+          },
+          "W": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "U": {
+            "payableAtLeast": 4,
+            "unknown": false,
+            "cap": 16
+          },
+          "B": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "R": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "G": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          },
+          "C": {
+            "payableAtLeast": 0,
+            "unknown": false,
+            "cap": 16
+          }
+        },
+        "separateTriggeredCC": "blocked"
+      },
+      "handSize": 7,
+      "accessibleCards": 11,
+      "netAccessibleCards": -4,
+      "naturalDraws": 8,
+      "effectDraws": 0,
+      "effectDiscards": 0,
+      "cleanupDiscards": 4,
+      "returnedToTop": 0,
+      "topCasts": 0,
+      "accessSpells": 0,
+      "accessSacrifices": 0,
+      "engines": [],
+      "threatsBeforeActions": [],
+      "threatAvailability": [],
+      "missed": [
+        {
+          "id": "deck-11",
+          "card": "Cemetery Reaper",
+          "status": "blocked",
+          "reason": "required colored or true-colorless type unavailable"
+        },
+        {
+          "id": "deck-25",
+          "card": "Gutless Ghoul",
+          "status": "blocked",
+          "reason": "required colored or true-colorless type unavailable"
+        },
+        {
+          "id": "deck-26",
+          "card": "Headless Rider",
+          "status": "blocked",
+          "reason": "required colored or true-colorless type unavailable"
+        },
+        {
+          "id": "deck-4",
+          "card": "Arcanis the Omnipotent",
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks"
+        },
+        {
+          "id": "deck-35",
+          "card": "Mindleech Ghoul",
+          "status": "blocked",
+          "reason": "required colored or true-colorless type unavailable"
+        },
+        {
+          "id": "deck-28",
+          "card": "Hungry Ghoul",
+          "status": "blocked",
+          "reason": "required colored or true-colorless type unavailable"
+        },
+        {
+          "id": "deck-42",
+          "card": "Phyrexian Ghoul",
+          "status": "blocked",
+          "reason": "required colored or true-colorless type unavailable"
+        },
+        {
+          "id": "commander",
+          "card": "Wilhelt, the Rotcleaver",
+          "status": "blocked",
+          "reason": "required colored or true-colorless type unavailable"
+        }
+      ]
+    }
+  ],
+  "decked": false,
+  "lost": false,
+  "assumptions": {
+    "opening": 7,
+    "mulligan": "none",
+    "drawOnTurnOne": true,
+    "rankingIntegration": false,
+    "commanderTaxPriorCasts": 0,
+    "access": true,
+    "mainPhases": 1,
+    "maxActions": 24,
+    "maxManaStates": 4000,
+    "maxSetupActionsBeforePayableCommander": 1,
+    "sourcePayments": "optimized exact ledger",
+    "opponents": "three inert seats; no combat/interaction; supported control transfers leave our board",
+    "optionalPayment": "reserve before resolving resource/access triggers",
+    "threatDefinition": "native creature with printed power >=4 or printed MV >=5; payment availability, not win conversion; other threat/combat/copy outcomes unknown",
+    "otherRulesCoverage": "not quantified; parsed access is not complete Oracle/rules coverage"
+  },
+  "coverage": {
+    "cardsWithSupportedAccess": 6,
+    "cardsWithUnmodeledAccess": 12,
+    "unmodeledAccessClauses": 12
+  },
+  "unknown": [
+    {
+      "card": "Abattoir Ghoul",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Accursed Centaur",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Accursed Horde",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Arcane Signet",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Arcanis the Omnipotent",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Archghoul of Thraben",
+      "access": [
+        {
+          "line": "Whenever this creature or another Zombie you control dies, look at the top card of your library. If it's a Zombie card, you may reveal it and put it into your hand. If you don't put the card into your hand, you may put it into your graveyard.",
+          "reason": "unsupported access prerequisites/effect"
+        }
+      ],
+      "other": []
+    },
+    {
+      "card": "Archivist",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Boneyard Desecrator",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Boneyard Scourge",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Brain Gorgers",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Carrion Feeder",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Cemetery Reaper",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Corpse Augur",
+      "access": [
+        {
+          "line": "When this creature dies, you draw X cards and you lose X life, where X is the number of creature cards in target player's graveyard.",
+          "reason": "unsupported access prerequisites/effect"
+        }
+      ],
+      "other": []
+    },
+    {
+      "card": "Corpse Blockade",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Curator's Ward",
+      "access": [
+        {
+          "line": "When enchanted permanent leaves the battlefield, if it was historic, draw two cards.",
+          "reason": "unsupported access prerequisites/effect"
+        }
+      ],
+      "other": []
+    },
+    {
+      "card": "Dauthi Ghoul",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Diregraf Captain",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Dreadmalkin",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Fell Stinger",
+      "access": [
+        {
+          "line": "When this creature exploits a creature, target player draws two cards and loses 2 life.",
+          "reason": "unsupported access prerequisites/effect"
+        }
+      ],
+      "other": []
+    },
+    {
+      "card": "Feral Ghoul",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Gavony Unhallowed",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Giant's Boulder",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Gnawing Zombie",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Graf Reaver",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Grimgrin, Corpse-Born // Grimgrin, Corpse-Born",
+      "access": [],
+      "other": [
+        "alternate faces/transform/craft not evaluated; front face only"
+      ]
+    },
+    {
+      "card": "Gutless Ghoul",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Headless Rider",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Hithlain Rope",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Hungry Ghoul",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Insight Engine",
+      "access": [
+        {
+          "line": "{2}, {T}: Put a charge counter on this artifact, then draw a card for each charge counter on it.",
+          "reason": "unsupported access prerequisites/effect"
+        }
+      ],
+      "other": []
+    },
+    {
+      "card": "Jarl of the Forsaken",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Jason Bright, Glowing Prophet",
+      "access": [
+        {
+          "line": "Whenever a Zombie or Mutant you control dies, if its power was different from its base power, draw a card.",
+          "reason": "unsupported access prerequisites/effect"
+        }
+      ],
+      "other": []
+    },
+    {
+      "card": "Liliana's Standard Bearer",
+      "access": [
+        {
+          "line": "When this creature enters, draw X cards, where X is the number of creatures that died under your control this turn.",
+          "reason": "unsupported access prerequisites/effect"
+        }
+      ],
+      "other": []
+    },
+    {
+      "card": "Midnight Reaper",
+      "access": [
+        {
+          "line": "Whenever a nontoken creature you control dies, this creature deals 1 damage to you and you draw a card.",
+          "reason": "unsupported access prerequisites/effect"
+        }
+      ],
+      "other": []
+    },
+    {
+      "card": "Mind Stone",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Mindleech Ghoul",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Murderous Rider // Swift End",
+      "access": [],
+      "other": [
+        "alternate faces/transform/craft not evaluated; front face only"
+      ]
+    },
+    {
+      "card": "My Precious // Allure of Power",
+      "access": [],
+      "other": [
+        "alternate faces/transform/craft not evaluated; front face only"
+      ]
+    },
+    {
+      "card": "Nantuko Husk",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Necrosavant",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Overcharged Amalgam",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Patchwork Crawler",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Phyrexian Ghoul",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Plague Belcher",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Ragamuffyn",
+      "access": [
+        {
+          "line": "Hellbent — {T}, Sacrifice a creature or land: Draw a card. Activate only if you have no cards in hand.",
+          "reason": "unsupported access prerequisites/effect"
+        }
+      ],
+      "other": []
+    },
+    {
+      "card": "Repository Skaab",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Sedraxis Alchemist",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Sepulcher Ghoul",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Sidisi, Regent of the Mire",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Silumgar Scavenger",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Skull Skaab",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Sol Ring",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Stronghold Assassin",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Tablet of Compleation",
+      "access": [
+        {
+          "line": "{1}, {T}: Draw a card. Activate only if this artifact has five or more oil counters on it.",
+          "reason": "unsupported access prerequisites/effect"
+        }
+      ],
+      "other": [
+        "unsupported mana condition: {T}: Add {C}. Activate only if this artifact has two or more oil counters on it."
+      ]
+    },
+    {
+      "card": "The Soul Stone",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Thran Dynamo",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Tomb Tyrant",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Undead Augur",
+      "access": [
+        {
+          "line": "Whenever this creature or another Zombie you control dies, you draw a card and lose 1 life.",
+          "reason": "unsupported access prerequisites/effect"
+        }
+      ],
+      "other": []
+    },
+    {
+      "card": "Undercity Necrolisk",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Vengeful Dead",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Vesper Ghoul",
+      "access": [],
+      "other": [
+        "unsupported activation cost: {T}, Pay 1 life: Add one mana of any color."
+      ]
+    },
+    {
+      "card": "Voracious Null",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Wight",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Command Tower",
+      "access": [],
+      "other": []
+    },
+    {
+      "card": "Exotic Orchard",
+      "access": [],
+      "other": [
+        "unsupported mana production: {T}: Add one mana of any color that a land an opponent controls could produce."
+      ]
+    },
+    {
+      "card": "Island",
+      "access": [],
+      "other": [
+        "unsupported activation cost: ({T}: Add {U}.)"
+      ]
+    },
+    {
+      "card": "Mirrodin's Core",
+      "access": [],
+      "other": [
+        "unsupported activation cost: {T}, Remove a charge counter from this land: Add one mana of any color."
+      ]
+    },
+    {
+      "card": "River of Tears",
+      "access": [],
+      "other": [
+        "unsupported mana condition: {T}: Add {U}. If you played a land this turn, add {B} instead."
+      ]
+    },
+    {
+      "card": "Rootwater Depths",
+      "access": [],
+      "other": [
+        "unsupported mana condition: {T}: Add {U} or {B}. This land doesn't untap during your next untap step."
+      ]
+    },
+    {
+      "card": "Spire of Industry",
+      "access": [],
+      "other": [
+        "unsupported activation cost: {T}, Pay 1 life: Add one mana of any color. Activate only if you control an artifact."
+      ]
+    },
+    {
+      "card": "Swamp",
+      "access": [],
+      "other": [
+        "unsupported activation cost: ({T}: Add {B}.)"
+      ]
+    },
+    {
+      "card": "Tendo Ice Bridge",
+      "access": [],
+      "other": [
+        "unsupported activation cost: {T}, Remove a charge counter from this land: Add one mana of any color."
+      ]
+    },
+    {
+      "card": "The Grey Havens",
+      "access": [],
+      "other": [
+        "unsupported mana production: {T}: Add one mana of any color among legendary creature cards in your graveyard."
+      ]
+    },
+    {
+      "card": "Waterveil Cavern",
+      "access": [],
+      "other": [
+        "unsupported mana condition: {T}: Add {U} or {B}. This land doesn't untap during your next untap step."
+      ]
+    },
+    {
+      "card": "Wilhelt, the Rotcleaver",
+      "access": [
+        {
+          "line": "At the beginning of your end step, you may sacrifice a Zombie. If you do, draw a card.",
+          "reason": "unsupported access prerequisites/effect"
+        }
+      ],
+      "other": []
+    }
+  ],
+  "trace": [
+    {
+      "turn": 0,
+      "event": "opening",
+      "hand": [
+        {
+          "id": "deck-11",
+          "card": "Cemetery Reaper"
+        },
+        {
+          "id": "deck-44",
+          "card": "Ragamuffyn"
+        },
+        {
+          "id": "deck-73",
+          "card": "Island"
+        },
+        {
+          "id": "deck-25",
+          "card": "Gutless Ghoul"
+        },
+        {
+          "id": "deck-43",
+          "card": "Plague Belcher"
+        },
+        {
+          "id": "deck-26",
+          "card": "Headless Rider"
+        },
+        {
+          "id": "deck-4",
+          "card": "Arcanis the Omnipotent"
+        }
+      ]
+    },
+    {
+      "turn": 1,
+      "event": "untap",
+      "sources": []
+    },
+    {
+      "turn": 1,
+      "event": "draw",
+      "card": "Mindleech Ghoul",
+      "id": "deck-35",
+      "reason": "natural"
+    },
+    {
+      "turn": 1,
+      "event": "land",
+      "id": "deck-73",
+      "card": "Island",
+      "tapped": false,
+      "unknown": false
+    },
+    {
+      "turn": 1,
+      "event": "turn-end",
+      "hand": [
+        "Cemetery Reaper",
+        "Ragamuffyn",
+        "Gutless Ghoul",
+        "Plague Belcher",
+        "Headless Rider",
+        "Arcanis the Omnipotent",
+        "Mindleech Ghoul"
+      ],
+      "handIds": [
+        "deck-11",
+        "deck-44",
+        "deck-25",
+        "deck-43",
+        "deck-26",
+        "deck-4",
+        "deck-35"
+      ],
+      "library": [
+        "deck-76",
+        "deck-30",
+        "deck-28",
+        "deck-42",
+        "deck-59",
+        "deck-74",
+        "deck-66",
+        "deck-7",
+        "deck-97",
+        "deck-63",
+        "deck-41",
+        "deck-19",
+        "deck-79",
+        "deck-55",
+        "deck-27",
+        "deck-61",
+        "deck-38",
+        "deck-52",
+        "deck-33",
+        "deck-1",
+        "deck-29",
+        "deck-8",
+        "deck-13",
+        "deck-54",
+        "deck-12",
+        "deck-16",
+        "deck-48",
+        "deck-23",
+        "deck-50",
+        "deck-22",
+        "deck-77",
+        "deck-69",
+        "deck-84",
+        "deck-78",
+        "deck-67",
+        "deck-92",
+        "deck-34",
+        "deck-45",
+        "deck-21",
+        "deck-60",
+        "deck-53",
+        "deck-88",
+        "deck-68",
+        "deck-15",
+        "deck-2",
+        "deck-47",
+        "deck-20",
+        "deck-75",
+        "deck-70",
+        "deck-82",
+        "deck-85",
+        "deck-39",
+        "deck-9",
+        "deck-81",
+        "deck-49",
+        "deck-91",
+        "deck-36",
+        "deck-95",
+        "deck-89",
+        "deck-64",
+        "deck-58",
+        "deck-3",
+        "deck-86",
+        "deck-98",
+        "deck-32",
+        "deck-40",
+        "deck-96",
+        "deck-83",
+        "deck-18",
+        "deck-65",
+        "deck-14",
+        "deck-10",
+        "deck-80",
+        "deck-57",
+        "deck-17",
+        "deck-56",
+        "deck-93",
+        "deck-94",
+        "deck-90",
+        "deck-71",
+        "deck-0",
+        "deck-72",
+        "deck-62",
+        "deck-5",
+        "deck-51",
+        "deck-31",
+        "deck-37",
+        "deck-46",
+        "deck-6",
+        "deck-87",
+        "deck-24"
+      ],
+      "graveyard": [],
+      "exile": [],
+      "opponents": [],
+      "ceased": [],
+      "board": [
+        {
+          "id": "deck-73",
+          "card": "Island",
+          "tapped": false
+        }
+      ],
+      "floatingExpires": [],
+      "life": 40
+    },
+    {
+      "turn": 2,
+      "event": "untap",
+      "sources": [
+        {
+          "id": "deck-73",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        }
+      ]
+    },
+    {
+      "turn": 2,
+      "event": "draw",
+      "card": "Island",
+      "id": "deck-76",
+      "reason": "natural"
+    },
+    {
+      "turn": 2,
+      "event": "land",
+      "id": "deck-76",
+      "card": "Island",
+      "tapped": false,
+      "unknown": false
+    },
+    {
+      "turn": 2,
+      "event": "turn-end",
+      "hand": [
+        "Cemetery Reaper",
+        "Ragamuffyn",
+        "Gutless Ghoul",
+        "Plague Belcher",
+        "Headless Rider",
+        "Arcanis the Omnipotent",
+        "Mindleech Ghoul"
+      ],
+      "handIds": [
+        "deck-11",
+        "deck-44",
+        "deck-25",
+        "deck-43",
+        "deck-26",
+        "deck-4",
+        "deck-35"
+      ],
+      "library": [
+        "deck-30",
+        "deck-28",
+        "deck-42",
+        "deck-59",
+        "deck-74",
+        "deck-66",
+        "deck-7",
+        "deck-97",
+        "deck-63",
+        "deck-41",
+        "deck-19",
+        "deck-79",
+        "deck-55",
+        "deck-27",
+        "deck-61",
+        "deck-38",
+        "deck-52",
+        "deck-33",
+        "deck-1",
+        "deck-29",
+        "deck-8",
+        "deck-13",
+        "deck-54",
+        "deck-12",
+        "deck-16",
+        "deck-48",
+        "deck-23",
+        "deck-50",
+        "deck-22",
+        "deck-77",
+        "deck-69",
+        "deck-84",
+        "deck-78",
+        "deck-67",
+        "deck-92",
+        "deck-34",
+        "deck-45",
+        "deck-21",
+        "deck-60",
+        "deck-53",
+        "deck-88",
+        "deck-68",
+        "deck-15",
+        "deck-2",
+        "deck-47",
+        "deck-20",
+        "deck-75",
+        "deck-70",
+        "deck-82",
+        "deck-85",
+        "deck-39",
+        "deck-9",
+        "deck-81",
+        "deck-49",
+        "deck-91",
+        "deck-36",
+        "deck-95",
+        "deck-89",
+        "deck-64",
+        "deck-58",
+        "deck-3",
+        "deck-86",
+        "deck-98",
+        "deck-32",
+        "deck-40",
+        "deck-96",
+        "deck-83",
+        "deck-18",
+        "deck-65",
+        "deck-14",
+        "deck-10",
+        "deck-80",
+        "deck-57",
+        "deck-17",
+        "deck-56",
+        "deck-93",
+        "deck-94",
+        "deck-90",
+        "deck-71",
+        "deck-0",
+        "deck-72",
+        "deck-62",
+        "deck-5",
+        "deck-51",
+        "deck-31",
+        "deck-37",
+        "deck-46",
+        "deck-6",
+        "deck-87",
+        "deck-24"
+      ],
+      "graveyard": [],
+      "exile": [],
+      "opponents": [],
+      "ceased": [],
+      "board": [
+        {
+          "id": "deck-73",
+          "card": "Island",
+          "tapped": false
+        },
+        {
+          "id": "deck-76",
+          "card": "Island",
+          "tapped": false
+        }
+      ],
+      "floatingExpires": [],
+      "life": 40
+    },
+    {
+      "turn": 3,
+      "event": "untap",
+      "sources": [
+        {
+          "id": "deck-73",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-76",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        }
+      ]
+    },
+    {
+      "turn": 3,
+      "event": "draw",
+      "card": "Jarl of the Forsaken",
+      "id": "deck-30",
+      "reason": "natural"
+    },
+    {
+      "turn": 3,
+      "event": "cleanup-discard",
+      "id": "deck-30",
+      "card": "Jarl of the Forsaken"
+    },
+    {
+      "turn": 3,
+      "event": "turn-end",
+      "hand": [
+        "Cemetery Reaper",
+        "Ragamuffyn",
+        "Gutless Ghoul",
+        "Plague Belcher",
+        "Headless Rider",
+        "Arcanis the Omnipotent",
+        "Mindleech Ghoul"
+      ],
+      "handIds": [
+        "deck-11",
+        "deck-44",
+        "deck-25",
+        "deck-43",
+        "deck-26",
+        "deck-4",
+        "deck-35"
+      ],
+      "library": [
+        "deck-28",
+        "deck-42",
+        "deck-59",
+        "deck-74",
+        "deck-66",
+        "deck-7",
+        "deck-97",
+        "deck-63",
+        "deck-41",
+        "deck-19",
+        "deck-79",
+        "deck-55",
+        "deck-27",
+        "deck-61",
+        "deck-38",
+        "deck-52",
+        "deck-33",
+        "deck-1",
+        "deck-29",
+        "deck-8",
+        "deck-13",
+        "deck-54",
+        "deck-12",
+        "deck-16",
+        "deck-48",
+        "deck-23",
+        "deck-50",
+        "deck-22",
+        "deck-77",
+        "deck-69",
+        "deck-84",
+        "deck-78",
+        "deck-67",
+        "deck-92",
+        "deck-34",
+        "deck-45",
+        "deck-21",
+        "deck-60",
+        "deck-53",
+        "deck-88",
+        "deck-68",
+        "deck-15",
+        "deck-2",
+        "deck-47",
+        "deck-20",
+        "deck-75",
+        "deck-70",
+        "deck-82",
+        "deck-85",
+        "deck-39",
+        "deck-9",
+        "deck-81",
+        "deck-49",
+        "deck-91",
+        "deck-36",
+        "deck-95",
+        "deck-89",
+        "deck-64",
+        "deck-58",
+        "deck-3",
+        "deck-86",
+        "deck-98",
+        "deck-32",
+        "deck-40",
+        "deck-96",
+        "deck-83",
+        "deck-18",
+        "deck-65",
+        "deck-14",
+        "deck-10",
+        "deck-80",
+        "deck-57",
+        "deck-17",
+        "deck-56",
+        "deck-93",
+        "deck-94",
+        "deck-90",
+        "deck-71",
+        "deck-0",
+        "deck-72",
+        "deck-62",
+        "deck-5",
+        "deck-51",
+        "deck-31",
+        "deck-37",
+        "deck-46",
+        "deck-6",
+        "deck-87",
+        "deck-24"
+      ],
+      "graveyard": [
+        "deck-30"
+      ],
+      "exile": [],
+      "opponents": [],
+      "ceased": [],
+      "board": [
+        {
+          "id": "deck-73",
+          "card": "Island",
+          "tapped": false
+        },
+        {
+          "id": "deck-76",
+          "card": "Island",
+          "tapped": false
+        }
+      ],
+      "floatingExpires": [],
+      "life": 40
+    },
+    {
+      "turn": 4,
+      "event": "untap",
+      "sources": [
+        {
+          "id": "deck-73",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-76",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        }
+      ]
+    },
+    {
+      "turn": 4,
+      "event": "draw",
+      "card": "Hungry Ghoul",
+      "id": "deck-28",
+      "reason": "natural"
+    },
+    {
+      "turn": 4,
+      "event": "cleanup-discard",
+      "id": "deck-44",
+      "card": "Ragamuffyn"
+    },
+    {
+      "turn": 4,
+      "event": "turn-end",
+      "hand": [
+        "Cemetery Reaper",
+        "Gutless Ghoul",
+        "Plague Belcher",
+        "Headless Rider",
+        "Arcanis the Omnipotent",
+        "Mindleech Ghoul",
+        "Hungry Ghoul"
+      ],
+      "handIds": [
+        "deck-11",
+        "deck-25",
+        "deck-43",
+        "deck-26",
+        "deck-4",
+        "deck-35",
+        "deck-28"
+      ],
+      "library": [
+        "deck-42",
+        "deck-59",
+        "deck-74",
+        "deck-66",
+        "deck-7",
+        "deck-97",
+        "deck-63",
+        "deck-41",
+        "deck-19",
+        "deck-79",
+        "deck-55",
+        "deck-27",
+        "deck-61",
+        "deck-38",
+        "deck-52",
+        "deck-33",
+        "deck-1",
+        "deck-29",
+        "deck-8",
+        "deck-13",
+        "deck-54",
+        "deck-12",
+        "deck-16",
+        "deck-48",
+        "deck-23",
+        "deck-50",
+        "deck-22",
+        "deck-77",
+        "deck-69",
+        "deck-84",
+        "deck-78",
+        "deck-67",
+        "deck-92",
+        "deck-34",
+        "deck-45",
+        "deck-21",
+        "deck-60",
+        "deck-53",
+        "deck-88",
+        "deck-68",
+        "deck-15",
+        "deck-2",
+        "deck-47",
+        "deck-20",
+        "deck-75",
+        "deck-70",
+        "deck-82",
+        "deck-85",
+        "deck-39",
+        "deck-9",
+        "deck-81",
+        "deck-49",
+        "deck-91",
+        "deck-36",
+        "deck-95",
+        "deck-89",
+        "deck-64",
+        "deck-58",
+        "deck-3",
+        "deck-86",
+        "deck-98",
+        "deck-32",
+        "deck-40",
+        "deck-96",
+        "deck-83",
+        "deck-18",
+        "deck-65",
+        "deck-14",
+        "deck-10",
+        "deck-80",
+        "deck-57",
+        "deck-17",
+        "deck-56",
+        "deck-93",
+        "deck-94",
+        "deck-90",
+        "deck-71",
+        "deck-0",
+        "deck-72",
+        "deck-62",
+        "deck-5",
+        "deck-51",
+        "deck-31",
+        "deck-37",
+        "deck-46",
+        "deck-6",
+        "deck-87",
+        "deck-24"
+      ],
+      "graveyard": [
+        "deck-30",
+        "deck-44"
+      ],
+      "exile": [],
+      "opponents": [],
+      "ceased": [],
+      "board": [
+        {
+          "id": "deck-73",
+          "card": "Island",
+          "tapped": false
+        },
+        {
+          "id": "deck-76",
+          "card": "Island",
+          "tapped": false
+        }
+      ],
+      "floatingExpires": [],
+      "life": 40
+    },
+    {
+      "turn": 5,
+      "event": "untap",
+      "sources": [
+        {
+          "id": "deck-73",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-76",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        }
+      ]
+    },
+    {
+      "turn": 5,
+      "event": "draw",
+      "card": "Phyrexian Ghoul",
+      "id": "deck-42",
+      "reason": "natural"
+    },
+    {
+      "turn": 5,
+      "event": "cleanup-discard",
+      "id": "deck-43",
+      "card": "Plague Belcher"
+    },
+    {
+      "turn": 5,
+      "event": "turn-end",
+      "hand": [
+        "Cemetery Reaper",
+        "Gutless Ghoul",
+        "Headless Rider",
+        "Arcanis the Omnipotent",
+        "Mindleech Ghoul",
+        "Hungry Ghoul",
+        "Phyrexian Ghoul"
+      ],
+      "handIds": [
+        "deck-11",
+        "deck-25",
+        "deck-26",
+        "deck-4",
+        "deck-35",
+        "deck-28",
+        "deck-42"
+      ],
+      "library": [
+        "deck-59",
+        "deck-74",
+        "deck-66",
+        "deck-7",
+        "deck-97",
+        "deck-63",
+        "deck-41",
+        "deck-19",
+        "deck-79",
+        "deck-55",
+        "deck-27",
+        "deck-61",
+        "deck-38",
+        "deck-52",
+        "deck-33",
+        "deck-1",
+        "deck-29",
+        "deck-8",
+        "deck-13",
+        "deck-54",
+        "deck-12",
+        "deck-16",
+        "deck-48",
+        "deck-23",
+        "deck-50",
+        "deck-22",
+        "deck-77",
+        "deck-69",
+        "deck-84",
+        "deck-78",
+        "deck-67",
+        "deck-92",
+        "deck-34",
+        "deck-45",
+        "deck-21",
+        "deck-60",
+        "deck-53",
+        "deck-88",
+        "deck-68",
+        "deck-15",
+        "deck-2",
+        "deck-47",
+        "deck-20",
+        "deck-75",
+        "deck-70",
+        "deck-82",
+        "deck-85",
+        "deck-39",
+        "deck-9",
+        "deck-81",
+        "deck-49",
+        "deck-91",
+        "deck-36",
+        "deck-95",
+        "deck-89",
+        "deck-64",
+        "deck-58",
+        "deck-3",
+        "deck-86",
+        "deck-98",
+        "deck-32",
+        "deck-40",
+        "deck-96",
+        "deck-83",
+        "deck-18",
+        "deck-65",
+        "deck-14",
+        "deck-10",
+        "deck-80",
+        "deck-57",
+        "deck-17",
+        "deck-56",
+        "deck-93",
+        "deck-94",
+        "deck-90",
+        "deck-71",
+        "deck-0",
+        "deck-72",
+        "deck-62",
+        "deck-5",
+        "deck-51",
+        "deck-31",
+        "deck-37",
+        "deck-46",
+        "deck-6",
+        "deck-87",
+        "deck-24"
+      ],
+      "graveyard": [
+        "deck-30",
+        "deck-44",
+        "deck-43"
+      ],
+      "exile": [],
+      "opponents": [],
+      "ceased": [],
+      "board": [
+        {
+          "id": "deck-73",
+          "card": "Island",
+          "tapped": false
+        },
+        {
+          "id": "deck-76",
+          "card": "Island",
+          "tapped": false
+        }
+      ],
+      "floatingExpires": [],
+      "life": 40
+    },
+    {
+      "turn": 6,
+      "event": "untap",
+      "sources": [
+        {
+          "id": "deck-73",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-76",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        }
+      ]
+    },
+    {
+      "turn": 6,
+      "event": "draw",
+      "card": "Vengeful Dead",
+      "id": "deck-59",
+      "reason": "natural"
+    },
+    {
+      "turn": 6,
+      "event": "cleanup-discard",
+      "id": "deck-59",
+      "card": "Vengeful Dead"
+    },
+    {
+      "turn": 6,
+      "event": "turn-end",
+      "hand": [
+        "Cemetery Reaper",
+        "Gutless Ghoul",
+        "Headless Rider",
+        "Arcanis the Omnipotent",
+        "Mindleech Ghoul",
+        "Hungry Ghoul",
+        "Phyrexian Ghoul"
+      ],
+      "handIds": [
+        "deck-11",
+        "deck-25",
+        "deck-26",
+        "deck-4",
+        "deck-35",
+        "deck-28",
+        "deck-42"
+      ],
+      "library": [
+        "deck-74",
+        "deck-66",
+        "deck-7",
+        "deck-97",
+        "deck-63",
+        "deck-41",
+        "deck-19",
+        "deck-79",
+        "deck-55",
+        "deck-27",
+        "deck-61",
+        "deck-38",
+        "deck-52",
+        "deck-33",
+        "deck-1",
+        "deck-29",
+        "deck-8",
+        "deck-13",
+        "deck-54",
+        "deck-12",
+        "deck-16",
+        "deck-48",
+        "deck-23",
+        "deck-50",
+        "deck-22",
+        "deck-77",
+        "deck-69",
+        "deck-84",
+        "deck-78",
+        "deck-67",
+        "deck-92",
+        "deck-34",
+        "deck-45",
+        "deck-21",
+        "deck-60",
+        "deck-53",
+        "deck-88",
+        "deck-68",
+        "deck-15",
+        "deck-2",
+        "deck-47",
+        "deck-20",
+        "deck-75",
+        "deck-70",
+        "deck-82",
+        "deck-85",
+        "deck-39",
+        "deck-9",
+        "deck-81",
+        "deck-49",
+        "deck-91",
+        "deck-36",
+        "deck-95",
+        "deck-89",
+        "deck-64",
+        "deck-58",
+        "deck-3",
+        "deck-86",
+        "deck-98",
+        "deck-32",
+        "deck-40",
+        "deck-96",
+        "deck-83",
+        "deck-18",
+        "deck-65",
+        "deck-14",
+        "deck-10",
+        "deck-80",
+        "deck-57",
+        "deck-17",
+        "deck-56",
+        "deck-93",
+        "deck-94",
+        "deck-90",
+        "deck-71",
+        "deck-0",
+        "deck-72",
+        "deck-62",
+        "deck-5",
+        "deck-51",
+        "deck-31",
+        "deck-37",
+        "deck-46",
+        "deck-6",
+        "deck-87",
+        "deck-24"
+      ],
+      "graveyard": [
+        "deck-30",
+        "deck-44",
+        "deck-43",
+        "deck-59"
+      ],
+      "exile": [],
+      "opponents": [],
+      "ceased": [],
+      "board": [
+        {
+          "id": "deck-73",
+          "card": "Island",
+          "tapped": false
+        },
+        {
+          "id": "deck-76",
+          "card": "Island",
+          "tapped": false
+        }
+      ],
+      "floatingExpires": [],
+      "life": 40
+    },
+    {
+      "turn": 7,
+      "event": "untap",
+      "sources": [
+        {
+          "id": "deck-73",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-76",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        }
+      ]
+    },
+    {
+      "turn": 7,
+      "event": "draw",
+      "card": "Island",
+      "id": "deck-74",
+      "reason": "natural"
+    },
+    {
+      "turn": 7,
+      "event": "land",
+      "id": "deck-74",
+      "card": "Island",
+      "tapped": false,
+      "unknown": false
+    },
+    {
+      "turn": 7,
+      "event": "turn-end",
+      "hand": [
+        "Cemetery Reaper",
+        "Gutless Ghoul",
+        "Headless Rider",
+        "Arcanis the Omnipotent",
+        "Mindleech Ghoul",
+        "Hungry Ghoul",
+        "Phyrexian Ghoul"
+      ],
+      "handIds": [
+        "deck-11",
+        "deck-25",
+        "deck-26",
+        "deck-4",
+        "deck-35",
+        "deck-28",
+        "deck-42"
+      ],
+      "library": [
+        "deck-66",
+        "deck-7",
+        "deck-97",
+        "deck-63",
+        "deck-41",
+        "deck-19",
+        "deck-79",
+        "deck-55",
+        "deck-27",
+        "deck-61",
+        "deck-38",
+        "deck-52",
+        "deck-33",
+        "deck-1",
+        "deck-29",
+        "deck-8",
+        "deck-13",
+        "deck-54",
+        "deck-12",
+        "deck-16",
+        "deck-48",
+        "deck-23",
+        "deck-50",
+        "deck-22",
+        "deck-77",
+        "deck-69",
+        "deck-84",
+        "deck-78",
+        "deck-67",
+        "deck-92",
+        "deck-34",
+        "deck-45",
+        "deck-21",
+        "deck-60",
+        "deck-53",
+        "deck-88",
+        "deck-68",
+        "deck-15",
+        "deck-2",
+        "deck-47",
+        "deck-20",
+        "deck-75",
+        "deck-70",
+        "deck-82",
+        "deck-85",
+        "deck-39",
+        "deck-9",
+        "deck-81",
+        "deck-49",
+        "deck-91",
+        "deck-36",
+        "deck-95",
+        "deck-89",
+        "deck-64",
+        "deck-58",
+        "deck-3",
+        "deck-86",
+        "deck-98",
+        "deck-32",
+        "deck-40",
+        "deck-96",
+        "deck-83",
+        "deck-18",
+        "deck-65",
+        "deck-14",
+        "deck-10",
+        "deck-80",
+        "deck-57",
+        "deck-17",
+        "deck-56",
+        "deck-93",
+        "deck-94",
+        "deck-90",
+        "deck-71",
+        "deck-0",
+        "deck-72",
+        "deck-62",
+        "deck-5",
+        "deck-51",
+        "deck-31",
+        "deck-37",
+        "deck-46",
+        "deck-6",
+        "deck-87",
+        "deck-24"
+      ],
+      "graveyard": [
+        "deck-30",
+        "deck-44",
+        "deck-43",
+        "deck-59"
+      ],
+      "exile": [],
+      "opponents": [],
+      "ceased": [],
+      "board": [
+        {
+          "id": "deck-73",
+          "card": "Island",
+          "tapped": false
+        },
+        {
+          "id": "deck-76",
+          "card": "Island",
+          "tapped": false
+        },
+        {
+          "id": "deck-74",
+          "card": "Island",
+          "tapped": false
+        }
+      ],
+      "floatingExpires": [],
+      "life": 40
+    },
+    {
+      "turn": 8,
+      "event": "untap",
+      "sources": [
+        {
+          "id": "deck-73",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-76",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-74",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        }
+      ]
+    },
+    {
+      "turn": 8,
+      "event": "draw",
+      "card": "Island",
+      "id": "deck-66",
+      "reason": "natural"
+    },
+    {
+      "turn": 8,
+      "event": "land",
+      "id": "deck-66",
+      "card": "Island",
+      "tapped": false,
+      "unknown": false
+    },
+    {
+      "turn": 8,
+      "event": "turn-end",
+      "hand": [
+        "Cemetery Reaper",
+        "Gutless Ghoul",
+        "Headless Rider",
+        "Arcanis the Omnipotent",
+        "Mindleech Ghoul",
+        "Hungry Ghoul",
+        "Phyrexian Ghoul"
+      ],
+      "handIds": [
+        "deck-11",
+        "deck-25",
+        "deck-26",
+        "deck-4",
+        "deck-35",
+        "deck-28",
+        "deck-42"
+      ],
+      "library": [
+        "deck-7",
+        "deck-97",
+        "deck-63",
+        "deck-41",
+        "deck-19",
+        "deck-79",
+        "deck-55",
+        "deck-27",
+        "deck-61",
+        "deck-38",
+        "deck-52",
+        "deck-33",
+        "deck-1",
+        "deck-29",
+        "deck-8",
+        "deck-13",
+        "deck-54",
+        "deck-12",
+        "deck-16",
+        "deck-48",
+        "deck-23",
+        "deck-50",
+        "deck-22",
+        "deck-77",
+        "deck-69",
+        "deck-84",
+        "deck-78",
+        "deck-67",
+        "deck-92",
+        "deck-34",
+        "deck-45",
+        "deck-21",
+        "deck-60",
+        "deck-53",
+        "deck-88",
+        "deck-68",
+        "deck-15",
+        "deck-2",
+        "deck-47",
+        "deck-20",
+        "deck-75",
+        "deck-70",
+        "deck-82",
+        "deck-85",
+        "deck-39",
+        "deck-9",
+        "deck-81",
+        "deck-49",
+        "deck-91",
+        "deck-36",
+        "deck-95",
+        "deck-89",
+        "deck-64",
+        "deck-58",
+        "deck-3",
+        "deck-86",
+        "deck-98",
+        "deck-32",
+        "deck-40",
+        "deck-96",
+        "deck-83",
+        "deck-18",
+        "deck-65",
+        "deck-14",
+        "deck-10",
+        "deck-80",
+        "deck-57",
+        "deck-17",
+        "deck-56",
+        "deck-93",
+        "deck-94",
+        "deck-90",
+        "deck-71",
+        "deck-0",
+        "deck-72",
+        "deck-62",
+        "deck-5",
+        "deck-51",
+        "deck-31",
+        "deck-37",
+        "deck-46",
+        "deck-6",
+        "deck-87",
+        "deck-24"
+      ],
+      "graveyard": [
+        "deck-30",
+        "deck-44",
+        "deck-43",
+        "deck-59"
+      ],
+      "exile": [],
+      "opponents": [],
+      "ceased": [],
+      "board": [
+        {
+          "id": "deck-73",
+          "card": "Island",
+          "tapped": false
+        },
+        {
+          "id": "deck-76",
+          "card": "Island",
+          "tapped": false
+        },
+        {
+          "id": "deck-74",
+          "card": "Island",
+          "tapped": false
+        },
+        {
+          "id": "deck-66",
+          "card": "Island",
+          "tapped": false
+        }
+      ],
+      "floatingExpires": [],
+      "life": 40
+    }
+  ]
+}

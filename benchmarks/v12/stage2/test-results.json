@@ -1,0 +1,58 @@
+{
+  "node": "v24.19.0",
+  "baseline": {
+    "command": "npm test",
+    "sourceCommit": "78d45e9",
+    "tests": 213,
+    "pass": 213,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "duration_ms": 121119.646859
+  },
+  "focused": {
+    "command": "node --test tests/gameplay-stage2.test.mjs tests/gameplay-deployment.test.mjs",
+    "sourceCommit": "203703a",
+    "tests": 39,
+    "pass": 39,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "duration_ms": 278.743009
+  },
+  "full": {
+    "command": "npm test",
+    "sourceCommit": "203703a",
+    "tests": 234,
+    "pass": 234,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "duration_ms": 126055.616061
+  },
+  "preservation": {
+    "package.json": "295cf3d6a4acfd87d0e7613e9da3ecdd4e5dbc4d022a82b76ce6e9663965005d",
+    "server.mjs": "5a8a855b1222253192c4a34c864a75d51f0c84f8f1503f3c6f3543cfcae1b45d",
+    "start-windows.bat": "3aac6ed95cc36cf5d816969d33df83c8835d34703cbe3df57cf026e745f9099d",
+    "AGENTS.md": "91df93b8f16c7bfa535b4090748e73080e240dde4c2502510464f4bbd7c02161",
+    "CODEX_HANDOFF.md": "b54df2b0d39f51abefad44b892efa8ee02c7591ea0ffd398f9c0d60b4cf07940",
+    "src/generator.mjs": "efdaf047835a9cc1f5195522543e208eb17649d917dd11e5c63542dc5a5ceda4",
+    "src/strategyFirst.mjs": "b7d2ffb8340975c0ce36e19f909283c60c22a54a4bc8b8424e6210c935ac25a7",
+    "src/packageInvestment.mjs": "eec813420596492033350b600c6fa14ab873fb243bdde84eaed9ccef70a415a8",
+    "src/strategyExecution.mjs": "6555a42346370204e2e00cfb82f40880e87195498bd9baf239c637996b436787",
+    "benchmarks/v12/external-baseline-2026-10-22.json": "9f7030d07c01ebce088e2462f5b78c75c364290c36d69e6e1007f621f543d63d"
+  },
+  "experiments": {
+    "baseRuns": 1440,
+    "identicalReplays": 1440,
+    "resourceAudits": 1440,
+    "zoneEffectAudits": 1120,
+    "originalStage1TraceHashesMatched": 160,
+    "fixedBoundHitCases": 28,
+    "fixedCaseStatuses": {
+      "paid": 6,
+      "blocked": 22,
+      "unknown": 0
+    }
+  }
+}

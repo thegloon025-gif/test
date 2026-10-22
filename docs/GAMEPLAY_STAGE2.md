@@ -58,6 +58,8 @@ Readiness is a currently payable supported activation/follow-up; “used” requ
 
 Benchmarks use 32 deterministic common seeds per configuration. Wilson 95% intervals describe sampled model events; paired bootstrap intervals describe common-seed differences. They cover neither unsupported mechanics nor human play/opponents and do not establish reliable combo turns or win rates. Comparisons are exploratory, without multiple-comparison correction. Unknown coverage counts identified unsupported access clauses and channels; full Oracle/rules coverage is not quantified.
 
+Bootstrap intervals may collapse when all sampled differences tie; that is not proof of population equivalence or absence of rare differences. Interpret these small cohorts with the full per-turn evidence and holdout validation, not only a turn-five threshold.
+
 ## Local commands (Node 22+, Windows compatible)
 
 Keep the original `data` directory; do not refresh it for a frozen comparison. Benchmarking requires Git for source provenance. The trace CLI accepts frozen deck slugs and resolves their exact archived records, preserving printing aliases/prices.

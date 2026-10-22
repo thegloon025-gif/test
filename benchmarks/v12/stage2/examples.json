@@ -1,0 +1,1743 @@
+[
+  {
+    "slug": "ulalek-b3",
+    "kind": "access",
+    "trial": 4,
+    "seed": "gameplay-stage1-2026-10-22:4",
+    "selection": "first seed with an observed model difference; illustrative, not representative reliability",
+    "before": "native-no-access",
+    "after": "native",
+    "commanderTurns": [
+      2,
+      2
+    ],
+    "draws": [
+      0,
+      2
+    ],
+    "topCasts": [
+      0,
+      0
+    ],
+    "newAccessEvents": [
+      {
+        "turn": 5,
+        "event": "top-exiled",
+        "card": "Temple of Silence",
+        "source": "deck-34"
+      },
+      {
+        "turn": 5,
+        "event": "access-draw",
+        "card": "Island",
+        "source": "deck-20"
+      },
+      {
+        "turn": 6,
+        "event": "top-exiled",
+        "card": "Strionic Resonator",
+        "source": "deck-34"
+      },
+      {
+        "turn": 7,
+        "event": "top-exiled",
+        "card": "Temple of the False God",
+        "source": "deck-34"
+      },
+      {
+        "turn": 8,
+        "event": "top-exiled",
+        "card": "Island",
+        "source": "deck-34"
+      },
+      {
+        "turn": 8,
+        "event": "access-draw",
+        "card": "Plains",
+        "source": "deck-20"
+      }
+    ],
+    "castSequenceBefore": [
+      {
+        "turn": 1,
+        "id": "deck-45",
+        "card": "Sol Ring",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 1,
+        "id": "deck-51",
+        "card": "Talisman of Impulse",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 2,
+        "id": "commander",
+        "card": "Ulalek, Fused Atrocity",
+        "commander": true,
+        "origin": "command"
+      },
+      {
+        "turn": 3,
+        "id": "deck-20",
+        "card": "Endbringer",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 4,
+        "id": "deck-16",
+        "card": "Eldrazi Repurposer",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 5,
+        "id": "deck-34",
+        "card": "Mystic Forge",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 6,
+        "id": "deck-10",
+        "card": "Drowner of Hope",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 7,
+        "id": "deck-6",
+        "card": "Deathless Behemoth",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 8,
+        "id": "deck-53",
+        "card": "Thran Dynamo",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 8,
+        "id": "deck-7",
+        "card": "Deepfathom Skulker",
+        "commander": false,
+        "origin": "hand"
+      }
+    ],
+    "castSequenceAfter": [
+      {
+        "turn": 1,
+        "id": "deck-45",
+        "card": "Sol Ring",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 1,
+        "id": "deck-51",
+        "card": "Talisman of Impulse",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 2,
+        "id": "commander",
+        "card": "Ulalek, Fused Atrocity",
+        "commander": true,
+        "origin": "command"
+      },
+      {
+        "turn": 3,
+        "id": "deck-20",
+        "card": "Endbringer",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 4,
+        "id": "deck-16",
+        "card": "Eldrazi Repurposer",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 5,
+        "id": "deck-34",
+        "card": "Mystic Forge",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 6,
+        "id": "deck-53",
+        "card": "Thran Dynamo",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 6,
+        "id": "deck-10",
+        "card": "Drowner of Hope",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 7,
+        "id": "deck-6",
+        "card": "Deathless Behemoth",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 7,
+        "id": "deck-50",
+        "card": "Tablet of Compleation",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 8,
+        "id": "deck-7",
+        "card": "Deepfathom Skulker",
+        "commander": false,
+        "origin": "hand"
+      }
+    ]
+  },
+  {
+    "slug": "ulalek-b3",
+    "kind": "pilot",
+    "trial": 9,
+    "seed": "gameplay-stage1-2026-10-22:9",
+    "selection": "first seed with an observed model difference; illustrative, not representative reliability",
+    "before": "commander-first",
+    "after": "development",
+    "commanderTurns": [
+      5,
+      6
+    ],
+    "draws": [
+      0,
+      0
+    ],
+    "topCasts": [
+      0,
+      0
+    ],
+    "newAccessEvents": [
+      {
+        "turn": 5,
+        "event": "top-exiled",
+        "card": "Strionic Resonator",
+        "source": "deck-34"
+      },
+      {
+        "turn": 6,
+        "event": "top-exiled",
+        "card": "Echoes of Eternity",
+        "source": "deck-34"
+      },
+      {
+        "turn": 7,
+        "event": "top-exiled",
+        "card": "Rapacious One",
+        "source": "deck-34"
+      },
+      {
+        "turn": 8,
+        "event": "top-exiled",
+        "card": "Karplusan Forest",
+        "source": "deck-34"
+      }
+    ],
+    "castSequenceBefore": [
+      {
+        "turn": 2,
+        "id": "deck-26",
+        "card": "Idol of False Gods",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 5,
+        "id": "commander",
+        "card": "Ulalek, Fused Atrocity",
+        "commander": true,
+        "origin": "command"
+      },
+      {
+        "turn": 6,
+        "id": "deck-34",
+        "card": "Mystic Forge",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 7,
+        "id": "deck-49",
+        "card": "Strionic Resonator",
+        "commander": false,
+        "origin": "hand"
+      }
+    ],
+    "castSequenceAfter": [
+      {
+        "turn": 2,
+        "id": "deck-26",
+        "card": "Idol of False Gods",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 5,
+        "id": "deck-34",
+        "card": "Mystic Forge",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 6,
+        "id": "commander",
+        "card": "Ulalek, Fused Atrocity",
+        "commander": true,
+        "origin": "command"
+      },
+      {
+        "turn": 7,
+        "id": "deck-29",
+        "card": "Kozilek's Pathfinder",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 8,
+        "id": "deck-6",
+        "card": "Deathless Behemoth",
+        "commander": false,
+        "origin": "hand"
+      }
+    ]
+  },
+  {
+    "slug": "ulalek-b4",
+    "kind": "access",
+    "trial": 0,
+    "seed": "gameplay-stage1-2026-10-22:0",
+    "selection": "first seed with an observed model difference; illustrative, not representative reliability",
+    "before": "native-no-access",
+    "after": "native",
+    "commanderTurns": [
+      5,
+      5
+    ],
+    "draws": [
+      0,
+      3
+    ],
+    "topCasts": [
+      0,
+      0
+    ],
+    "newAccessEvents": [
+      {
+        "turn": 8,
+        "event": "access-draw",
+        "card": "Deranged Assistant",
+        "source": "deck-28"
+      },
+      {
+        "turn": 8,
+        "event": "access-draw",
+        "card": "Wooded Bastion",
+        "source": "deck-28"
+      },
+      {
+        "turn": 8,
+        "event": "access-draw",
+        "card": "Adarkar Wastes",
+        "source": "deck-28"
+      }
+    ],
+    "castSequenceBefore": [
+      {
+        "turn": 2,
+        "id": "deck-25",
+        "card": "Hedron Crawler",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 3,
+        "id": "deck-43",
+        "card": "Solar Transformer",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 4,
+        "id": "deck-28",
+        "card": "Kozilek's Unsealing",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 5,
+        "id": "deck-42",
+        "card": "Sol Ring",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 5,
+        "id": "commander",
+        "card": "Ulalek, Fused Atrocity",
+        "commander": true,
+        "origin": "command"
+      },
+      {
+        "turn": 6,
+        "id": "deck-11",
+        "card": "Echoes of Eternity",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 7,
+        "id": "deck-35",
+        "card": "Oblivion Sower",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 8,
+        "id": "deck-59",
+        "card": "Warped Tusker",
+        "commander": false,
+        "origin": "hand"
+      }
+    ],
+    "castSequenceAfter": [
+      {
+        "turn": 2,
+        "id": "deck-25",
+        "card": "Hedron Crawler",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 3,
+        "id": "deck-43",
+        "card": "Solar Transformer",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 4,
+        "id": "deck-28",
+        "card": "Kozilek's Unsealing",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 5,
+        "id": "deck-42",
+        "card": "Sol Ring",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 5,
+        "id": "commander",
+        "card": "Ulalek, Fused Atrocity",
+        "commander": true,
+        "origin": "command"
+      },
+      {
+        "turn": 6,
+        "id": "deck-11",
+        "card": "Echoes of Eternity",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 7,
+        "id": "deck-35",
+        "card": "Oblivion Sower",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 8,
+        "id": "deck-59",
+        "card": "Warped Tusker",
+        "commander": false,
+        "origin": "hand"
+      }
+    ]
+  },
+  {
+    "slug": "ulalek-b4",
+    "kind": "pilot",
+    "trial": 2,
+    "seed": "gameplay-stage1-2026-10-22:2",
+    "selection": "first seed with an observed model difference; illustrative, not representative reliability",
+    "before": "commander-first",
+    "after": "development",
+    "commanderTurns": [
+      4,
+      5
+    ],
+    "draws": [
+      1,
+      1
+    ],
+    "topCasts": [
+      0,
+      0
+    ],
+    "newAccessEvents": [
+      {
+        "turn": 7,
+        "event": "access-draw",
+        "card": "Mind Stone",
+        "source": "deck-18"
+      }
+    ],
+    "castSequenceBefore": [
+      {
+        "turn": 2,
+        "id": "deck-23",
+        "card": "Great Forest Druid",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 3,
+        "id": "deck-19",
+        "card": "Fanatic of Rhonas",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 3,
+        "id": "deck-30",
+        "card": "Millikin",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 4,
+        "id": "commander",
+        "card": "Ulalek, Fused Atrocity",
+        "commander": true,
+        "origin": "command"
+      },
+      {
+        "turn": 5,
+        "id": "deck-25",
+        "card": "Hedron Crawler",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 6,
+        "id": "deck-18",
+        "card": "Endbringer",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 7,
+        "id": "deck-45",
+        "card": "Spawn-Gang Commander",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 8,
+        "id": "deck-31",
+        "card": "Mind Stone",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 8,
+        "id": "deck-38",
+        "card": "Rapacious One",
+        "commander": false,
+        "origin": "hand"
+      }
+    ],
+    "castSequenceAfter": [
+      {
+        "turn": 2,
+        "id": "deck-23",
+        "card": "Great Forest Druid",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 3,
+        "id": "deck-19",
+        "card": "Fanatic of Rhonas",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 3,
+        "id": "deck-30",
+        "card": "Millikin",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 4,
+        "id": "deck-25",
+        "card": "Hedron Crawler",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 5,
+        "id": "commander",
+        "card": "Ulalek, Fused Atrocity",
+        "commander": true,
+        "origin": "command"
+      },
+      {
+        "turn": 6,
+        "id": "deck-18",
+        "card": "Endbringer",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 7,
+        "id": "deck-45",
+        "card": "Spawn-Gang Commander",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 8,
+        "id": "deck-31",
+        "card": "Mind Stone",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 8,
+        "id": "deck-38",
+        "card": "Rapacious One",
+        "commander": false,
+        "origin": "hand"
+      }
+    ]
+  },
+  {
+    "slug": "yuriko-b3",
+    "kind": "access",
+    "trial": 0,
+    "seed": "gameplay-stage1-2026-10-22:0",
+    "selection": "first seed with an observed model difference; illustrative, not representative reliability",
+    "before": "native-no-access",
+    "after": "native",
+    "commanderTurns": [
+      3,
+      3
+    ],
+    "draws": [
+      0,
+      1
+    ],
+    "topCasts": [
+      0,
+      0
+    ],
+    "newAccessEvents": [
+      {
+        "turn": 1,
+        "event": "selection",
+        "source": "deck-25"
+      },
+      {
+        "turn": 4,
+        "event": "access-draw",
+        "card": "PuPu UFO",
+        "source": "deck-28"
+      }
+    ],
+    "castSequenceBefore": [
+      {
+        "turn": 1,
+        "id": "deck-25",
+        "card": "Giant's Boulder",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 2,
+        "id": "deck-26",
+        "card": "H.E.R.B.I.E., Lovable Robot",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 3,
+        "id": "commander",
+        "card": "Yuriko, the Tiger's Shadow",
+        "commander": true,
+        "origin": "command"
+      },
+      {
+        "turn": 4,
+        "id": "deck-28",
+        "card": "Illvoi Galeblade",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 4,
+        "id": "deck-11",
+        "card": "Delver of Secrets // Insectile Aberration",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 4,
+        "id": "deck-30",
+        "card": "Locthwain Gargoyle",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 5,
+        "id": "deck-35",
+        "card": "Network Disruptor",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 5,
+        "id": "deck-4",
+        "card": "Aven Envoy",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 5,
+        "id": "deck-43",
+        "card": "Rampart Crawler",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 6,
+        "id": "deck-42",
+        "card": "PuPu UFO",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 7,
+        "id": "deck-59",
+        "card": "Thran Dynamo",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 8,
+        "id": "deck-44",
+        "card": "Rattlechains",
+        "commander": false,
+        "origin": "hand"
+      }
+    ],
+    "castSequenceAfter": [
+      {
+        "turn": 1,
+        "id": "deck-25",
+        "card": "Giant's Boulder",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 2,
+        "id": "deck-26",
+        "card": "H.E.R.B.I.E., Lovable Robot",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 3,
+        "id": "commander",
+        "card": "Yuriko, the Tiger's Shadow",
+        "commander": true,
+        "origin": "command"
+      },
+      {
+        "turn": 4,
+        "id": "deck-28",
+        "card": "Illvoi Galeblade",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 5,
+        "id": "deck-11",
+        "card": "Delver of Secrets // Insectile Aberration",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 5,
+        "id": "deck-30",
+        "card": "Locthwain Gargoyle",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 5,
+        "id": "deck-35",
+        "card": "Network Disruptor",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 6,
+        "id": "deck-59",
+        "card": "Thran Dynamo",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 6,
+        "id": "deck-42",
+        "card": "PuPu UFO",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 7,
+        "id": "deck-4",
+        "card": "Aven Envoy",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 7,
+        "id": "deck-43",
+        "card": "Rampart Crawler",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 7,
+        "id": "deck-44",
+        "card": "Rattlechains",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 8,
+        "id": "deck-7",
+        "card": "Caller of Gales",
+        "commander": false,
+        "origin": "hand"
+      }
+    ]
+  },
+  {
+    "slug": "yuriko-b3",
+    "kind": "pilot",
+    "trial": 5,
+    "seed": "gameplay-stage1-2026-10-22:5",
+    "selection": "first seed with an observed model difference; illustrative, not representative reliability",
+    "before": "commander-first",
+    "after": "development",
+    "commanderTurns": [
+      3,
+      4
+    ],
+    "draws": [
+      4,
+      4
+    ],
+    "topCasts": [
+      0,
+      0
+    ],
+    "newAccessEvents": [
+      {
+        "turn": 5,
+        "event": "access-draw",
+        "card": "Swamp",
+        "source": "deck-27"
+      },
+      {
+        "turn": 6,
+        "event": "access-draw",
+        "card": "Island",
+        "source": "deck-27"
+      },
+      {
+        "turn": 7,
+        "event": "access-draw",
+        "card": "Duskwalker",
+        "source": "deck-27"
+      },
+      {
+        "turn": 7,
+        "event": "selection",
+        "source": "deck-2"
+      },
+      {
+        "turn": 8,
+        "event": "access-draw",
+        "card": "Island",
+        "source": "deck-27"
+      }
+    ],
+    "castSequenceBefore": [
+      {
+        "turn": 1,
+        "id": "deck-11",
+        "card": "Delver of Secrets // Insectile Aberration",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 2,
+        "id": "deck-37",
+        "card": "Ornithopter of Paradise",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 3,
+        "id": "commander",
+        "card": "Yuriko, the Tiger's Shadow",
+        "commander": true,
+        "origin": "command"
+      },
+      {
+        "turn": 3,
+        "id": "deck-30",
+        "card": "Locthwain Gargoyle",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 4,
+        "id": "deck-39",
+        "card": "Planar Atlas",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 4,
+        "id": "deck-27",
+        "card": "Harrier Strix",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 4,
+        "id": "deck-55",
+        "card": "Stronghold Confessor",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 7,
+        "id": "deck-2",
+        "card": "Artificer's Assistant",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 7,
+        "id": "deck-17",
+        "card": "Duskwalker",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 7,
+        "id": "deck-6",
+        "card": "Brass Gnat",
+        "commander": false,
+        "origin": "hand"
+      }
+    ],
+    "castSequenceAfter": [
+      {
+        "turn": 1,
+        "id": "deck-11",
+        "card": "Delver of Secrets // Insectile Aberration",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 2,
+        "id": "deck-37",
+        "card": "Ornithopter of Paradise",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 3,
+        "id": "deck-39",
+        "card": "Planar Atlas",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 3,
+        "id": "deck-27",
+        "card": "Harrier Strix",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 3,
+        "id": "deck-30",
+        "card": "Locthwain Gargoyle",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 4,
+        "id": "commander",
+        "card": "Yuriko, the Tiger's Shadow",
+        "commander": true,
+        "origin": "command"
+      },
+      {
+        "turn": 4,
+        "id": "deck-55",
+        "card": "Stronghold Confessor",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 7,
+        "id": "deck-2",
+        "card": "Artificer's Assistant",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 7,
+        "id": "deck-17",
+        "card": "Duskwalker",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 7,
+        "id": "deck-6",
+        "card": "Brass Gnat",
+        "commander": false,
+        "origin": "hand"
+      }
+    ]
+  },
+  {
+    "slug": "wilhelt-b3",
+    "kind": "access",
+    "trial": 1,
+    "seed": "gameplay-stage1-2026-10-22:1",
+    "selection": "first seed with an observed model difference; illustrative, not representative reliability",
+    "before": "native-no-access",
+    "after": "native",
+    "commanderTurns": [
+      3,
+      3
+    ],
+    "draws": [
+      0,
+      4
+    ],
+    "topCasts": [
+      0,
+      0
+    ],
+    "newAccessEvents": [
+      {
+        "turn": 1,
+        "event": "selection",
+        "source": "deck-21"
+      },
+      {
+        "turn": 6,
+        "event": "access-draw",
+        "card": "Island",
+        "source": "deck-6"
+      },
+      {
+        "turn": 7,
+        "event": "access-draw",
+        "card": "Mind Stone",
+        "source": "deck-6"
+      },
+      {
+        "turn": 7,
+        "event": "access-draw",
+        "card": "Fell Stinger",
+        "source": "deck-34"
+      },
+      {
+        "turn": 8,
+        "event": "access-draw",
+        "card": "Feral Ghoul",
+        "source": "deck-6"
+      }
+    ],
+    "castSequenceBefore": [
+      {
+        "turn": 1,
+        "id": "deck-21",
+        "card": "Giant's Boulder",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 2,
+        "id": "deck-3",
+        "card": "Arcane Signet",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 3,
+        "id": "commander",
+        "card": "Wilhelt, the Rotcleaver",
+        "commander": true,
+        "origin": "command"
+      },
+      {
+        "turn": 4,
+        "id": "deck-48",
+        "card": "Sidisi, Regent of the Mire",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 4,
+        "id": "deck-62",
+        "card": "Wight",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 5,
+        "id": "deck-42",
+        "card": "Phyrexian Ghoul",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 5,
+        "id": "deck-46",
+        "card": "Sedraxis Alchemist",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 6,
+        "id": "deck-6",
+        "card": "Archivist",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 7,
+        "id": "deck-10",
+        "card": "Carrion Feeder",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 7,
+        "id": "deck-7",
+        "card": "Boneyard Desecrator",
+        "commander": false,
+        "origin": "hand"
+      }
+    ],
+    "castSequenceAfter": [
+      {
+        "turn": 1,
+        "id": "deck-21",
+        "card": "Giant's Boulder",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 2,
+        "id": "deck-3",
+        "card": "Arcane Signet",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 3,
+        "id": "commander",
+        "card": "Wilhelt, the Rotcleaver",
+        "commander": true,
+        "origin": "command"
+      },
+      {
+        "turn": 4,
+        "id": "deck-48",
+        "card": "Sidisi, Regent of the Mire",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 4,
+        "id": "deck-62",
+        "card": "Wight",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 5,
+        "id": "deck-6",
+        "card": "Archivist",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 6,
+        "id": "deck-10",
+        "card": "Carrion Feeder",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 6,
+        "id": "deck-42",
+        "card": "Phyrexian Ghoul",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 7,
+        "id": "deck-46",
+        "card": "Sedraxis Alchemist",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 7,
+        "id": "deck-34",
+        "card": "Mind Stone",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 8,
+        "id": "deck-1",
+        "card": "Accursed Centaur",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 8,
+        "id": "deck-18",
+        "card": "Fell Stinger",
+        "commander": false,
+        "origin": "hand"
+      }
+    ]
+  },
+  {
+    "slug": "wilhelt-b3",
+    "kind": "pilot",
+    "trial": 2,
+    "seed": "gameplay-stage1-2026-10-22:2",
+    "selection": "first seed with an observed model difference; illustrative, not representative reliability",
+    "before": "commander-first",
+    "after": "development",
+    "commanderTurns": [
+      6,
+      7
+    ],
+    "draws": [
+      0,
+      0
+    ],
+    "topCasts": [
+      0,
+      0
+    ],
+    "newAccessEvents": [],
+    "castSequenceBefore": [
+      {
+        "turn": 2,
+        "id": "deck-41",
+        "card": "Patchwork Crawler",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 6,
+        "id": "commander",
+        "card": "Wilhelt, the Rotcleaver",
+        "commander": true,
+        "origin": "command"
+      },
+      {
+        "turn": 7,
+        "id": "deck-55",
+        "card": "Thran Dynamo",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 8,
+        "id": "deck-23",
+        "card": "Graf Reaver",
+        "commander": false,
+        "origin": "hand"
+      }
+    ],
+    "castSequenceAfter": [
+      {
+        "turn": 2,
+        "id": "deck-41",
+        "card": "Patchwork Crawler",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 6,
+        "id": "deck-55",
+        "card": "Thran Dynamo",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 7,
+        "id": "commander",
+        "card": "Wilhelt, the Rotcleaver",
+        "commander": true,
+        "origin": "command"
+      },
+      {
+        "turn": 8,
+        "id": "deck-23",
+        "card": "Graf Reaver",
+        "commander": false,
+        "origin": "hand"
+      }
+    ]
+  },
+  {
+    "slug": "zada-b3",
+    "kind": "access",
+    "trial": 0,
+    "seed": "gameplay-stage1-2026-10-22:0",
+    "selection": "first seed with an observed model difference; illustrative, not representative reliability",
+    "before": "native-no-access",
+    "after": "native",
+    "commanderTurns": [
+      4,
+      4
+    ],
+    "draws": [
+      0,
+      1
+    ],
+    "topCasts": [
+      0,
+      1
+    ],
+    "newAccessEvents": [
+      {
+        "turn": 5,
+        "event": "top-exiled",
+        "card": "Walking Atlas",
+        "source": "deck-30"
+      },
+      {
+        "turn": 6,
+        "event": "top-exiled",
+        "card": "Fogwell's Gym",
+        "source": "deck-30"
+      },
+      {
+        "turn": 7,
+        "event": "top-exiled",
+        "card": "Barbarian Ring",
+        "source": "deck-30"
+      },
+      {
+        "turn": 8,
+        "event": "access-draw",
+        "card": "Hedron Crawler",
+        "source": "deck-11"
+      },
+      {
+        "turn": 8,
+        "event": "top-exiled",
+        "card": "Mountain",
+        "source": "deck-30"
+      }
+    ],
+    "castSequenceBefore": [
+      {
+        "turn": 2,
+        "id": "deck-25",
+        "card": "Manakin",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 3,
+        "id": "deck-35",
+        "card": "Plague Myr",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 4,
+        "id": "commander",
+        "card": "Zada, Hedron Grinder",
+        "commander": true,
+        "origin": "command"
+      },
+      {
+        "turn": 5,
+        "id": "deck-30",
+        "card": "Mystic Forge",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 6,
+        "id": "deck-26",
+        "card": "Millikin",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 6,
+        "id": "deck-59",
+        "card": "Walking Atlas",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 7,
+        "id": "deck-28",
+        "card": "Molten-Core Maestro",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 7,
+        "id": "deck-42",
+        "card": "Slobad, Goblin Tinkerer",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 8,
+        "id": "deck-43",
+        "card": "Smoldering Egg // Ashmouth Dragon",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 8,
+        "id": "deck-44",
+        "card": "Soul Separator",
+        "commander": false,
+        "origin": "hand"
+      }
+    ],
+    "castSequenceAfter": [
+      {
+        "turn": 2,
+        "id": "deck-25",
+        "card": "Manakin",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 3,
+        "id": "deck-35",
+        "card": "Plague Myr",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 4,
+        "id": "commander",
+        "card": "Zada, Hedron Grinder",
+        "commander": true,
+        "origin": "command"
+      },
+      {
+        "turn": 5,
+        "id": "deck-30",
+        "card": "Mystic Forge",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 6,
+        "id": "deck-7",
+        "card": "Dino DNA",
+        "commander": false,
+        "origin": "library"
+      },
+      {
+        "turn": 6,
+        "id": "deck-26",
+        "card": "Millikin",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 6,
+        "id": "deck-28",
+        "card": "Molten-Core Maestro",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 7,
+        "id": "deck-11",
+        "card": "Endbringer",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 8,
+        "id": "deck-19",
+        "card": "Hedron Crawler",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 8,
+        "id": "deck-41",
+        "card": "Rimrock Knight // Boulder Rush",
+        "commander": false,
+        "origin": "hand"
+      }
+    ]
+  },
+  {
+    "slug": "zada-b3",
+    "kind": "pilot",
+    "trial": 0,
+    "seed": "gameplay-stage1-2026-10-22:0",
+    "selection": "first seed with an observed model difference; illustrative, not representative reliability",
+    "before": "commander-first",
+    "after": "development",
+    "commanderTurns": [
+      4,
+      5
+    ],
+    "draws": [
+      1,
+      1
+    ],
+    "topCasts": [
+      1,
+      1
+    ],
+    "newAccessEvents": [
+      {
+        "turn": 4,
+        "event": "top-exiled",
+        "card": "Slobad, Goblin Tinkerer",
+        "source": "deck-30"
+      },
+      {
+        "turn": 5,
+        "event": "top-exiled",
+        "card": "Mountain",
+        "source": "deck-30"
+      },
+      {
+        "turn": 6,
+        "event": "top-exiled",
+        "card": "Tendo Ice Bridge",
+        "source": "deck-30"
+      },
+      {
+        "turn": 7,
+        "event": "top-exiled",
+        "card": "Rimrock Knight // Boulder Rush",
+        "source": "deck-30"
+      },
+      {
+        "turn": 8,
+        "event": "top-exiled",
+        "card": "Mountain",
+        "source": "deck-30"
+      },
+      {
+        "turn": 8,
+        "event": "access-draw",
+        "card": "Twinferno",
+        "source": "deck-11"
+      }
+    ],
+    "castSequenceBefore": [
+      {
+        "turn": 2,
+        "id": "deck-25",
+        "card": "Manakin",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 3,
+        "id": "deck-35",
+        "card": "Plague Myr",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 4,
+        "id": "commander",
+        "card": "Zada, Hedron Grinder",
+        "commander": true,
+        "origin": "command"
+      },
+      {
+        "turn": 5,
+        "id": "deck-30",
+        "card": "Mystic Forge",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 6,
+        "id": "deck-7",
+        "card": "Dino DNA",
+        "commander": false,
+        "origin": "library"
+      },
+      {
+        "turn": 6,
+        "id": "deck-26",
+        "card": "Millikin",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 6,
+        "id": "deck-28",
+        "card": "Molten-Core Maestro",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 7,
+        "id": "deck-11",
+        "card": "Endbringer",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 8,
+        "id": "deck-19",
+        "card": "Hedron Crawler",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 8,
+        "id": "deck-41",
+        "card": "Rimrock Knight // Boulder Rush",
+        "commander": false,
+        "origin": "hand"
+      }
+    ],
+    "castSequenceAfter": [
+      {
+        "turn": 2,
+        "id": "deck-25",
+        "card": "Manakin",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 3,
+        "id": "deck-35",
+        "card": "Plague Myr",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 4,
+        "id": "deck-30",
+        "card": "Mystic Forge",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 5,
+        "id": "commander",
+        "card": "Zada, Hedron Grinder",
+        "commander": true,
+        "origin": "command"
+      },
+      {
+        "turn": 6,
+        "id": "deck-7",
+        "card": "Dino DNA",
+        "commander": false,
+        "origin": "library"
+      },
+      {
+        "turn": 6,
+        "id": "deck-26",
+        "card": "Millikin",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 6,
+        "id": "deck-28",
+        "card": "Molten-Core Maestro",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 7,
+        "id": "deck-11",
+        "card": "Endbringer",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 8,
+        "id": "deck-19",
+        "card": "Hedron Crawler",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 8,
+        "id": "deck-43",
+        "card": "Smoldering Egg // Ashmouth Dragon",
+        "commander": false,
+        "origin": "hand"
+      }
+    ]
+  }
+]

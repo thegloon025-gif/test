@@ -1,0 +1,6677 @@
+{
+  "run": {
+    "schemaVersion": 2,
+    "evaluator": "gameplay-stage2-v1",
+    "seed": "gameplay-stage1-2026-10-22:5",
+    "turns": 8,
+    "policy": "development",
+    "mulligan": "none",
+    "order": [
+      39,
+      37,
+      84,
+      30,
+      11,
+      65,
+      55,
+      79,
+      63,
+      27,
+      62,
+      2,
+      87,
+      23,
+      78,
+      6,
+      17,
+      82,
+      74,
+      28,
+      45,
+      97,
+      9,
+      60,
+      0,
+      12,
+      29,
+      41,
+      8,
+      61,
+      51,
+      86,
+      56,
+      70,
+      94,
+      5,
+      83,
+      49,
+      32,
+      31,
+      47,
+      33,
+      77,
+      46,
+      76,
+      38,
+      81,
+      90,
+      19,
+      59,
+      71,
+      58,
+      67,
+      42,
+      20,
+      1,
+      22,
+      40,
+      53,
+      96,
+      80,
+      3,
+      4,
+      43,
+      24,
+      69,
+      48,
+      75,
+      14,
+      25,
+      89,
+      7,
+      85,
+      50,
+      35,
+      72,
+      88,
+      44,
+      95,
+      91,
+      26,
+      73,
+      93,
+      92,
+      57,
+      36,
+      52,
+      18,
+      54,
+      15,
+      68,
+      66,
+      13,
+      16,
+      10,
+      21,
+      64,
+      98,
+      34
+    ],
+    "initialOpening": [
+      {
+        "id": "deck-39",
+        "card": "Planar Atlas"
+      },
+      {
+        "id": "deck-37",
+        "card": "Ornithopter of Paradise"
+      },
+      {
+        "id": "deck-84",
+        "card": "Swamp"
+      },
+      {
+        "id": "deck-30",
+        "card": "Locthwain Gargoyle"
+      },
+      {
+        "id": "deck-11",
+        "card": "Delver of Secrets // Insectile Aberration"
+      },
+      {
+        "id": "deck-65",
+        "card": "Island"
+      },
+      {
+        "id": "deck-55",
+        "card": "Stronghold Confessor"
+      }
+    ],
+    "commander": "Yuriko, the Tiger's Shadow",
+    "nativeTypes": [
+      "Ninja"
+    ],
+    "chosenType": "Ninja",
+    "stats": {
+      "casts": [
+        {
+          "turn": 1,
+          "id": "deck-11",
+          "card": "Delver of Secrets // Insectile Aberration",
+          "commander": false,
+          "origin": "hand"
+        },
+        {
+          "turn": 2,
+          "id": "deck-37",
+          "card": "Ornithopter of Paradise",
+          "commander": false,
+          "origin": "hand"
+        },
+        {
+          "turn": 3,
+          "id": "deck-39",
+          "card": "Planar Atlas",
+          "commander": false,
+          "origin": "hand"
+        },
+        {
+          "turn": 3,
+          "id": "deck-27",
+          "card": "Harrier Strix",
+          "commander": false,
+          "origin": "hand"
+        },
+        {
+          "turn": 3,
+          "id": "deck-30",
+          "card": "Locthwain Gargoyle",
+          "commander": false,
+          "origin": "hand"
+        },
+        {
+          "turn": 4,
+          "id": "commander",
+          "card": "Yuriko, the Tiger's Shadow",
+          "commander": true,
+          "origin": "command"
+        },
+        {
+          "turn": 4,
+          "id": "deck-55",
+          "card": "Stronghold Confessor",
+          "commander": false,
+          "origin": "hand"
+        },
+        {
+          "turn": 7,
+          "id": "deck-2",
+          "card": "Artificer's Assistant",
+          "commander": false,
+          "origin": "hand"
+        },
+        {
+          "turn": 7,
+          "id": "deck-17",
+          "card": "Duskwalker",
+          "commander": false,
+          "origin": "hand"
+        },
+        {
+          "turn": 7,
+          "id": "deck-6",
+          "card": "Brass Gnat",
+          "commander": false,
+          "origin": "hand"
+        }
+      ],
+      "commanderDeploymentTurn": 4,
+      "setupBeforePayableCommander": 1,
+      "optionalPayments": [],
+      "effectDraws": 4,
+      "naturalDraws": 8,
+      "accessDiscards": 4,
+      "cleanupDiscards": 0,
+      "returnedToTop": 0,
+      "topCasts": 0,
+      "accessSacrifices": 0,
+      "accessSpells": 0,
+      "activations": 4,
+      "selections": 1,
+      "manaStates": 588,
+      "manaSearches": 120,
+      "boundHits": 0,
+      "actionBoundHits": 0,
+      "usedEngines": [
+        {
+          "id": "deck-27",
+          "card": "Harrier Strix",
+          "kind": "access",
+          "turn": 5
+        },
+        {
+          "id": "deck-2",
+          "card": "Artificer's Assistant",
+          "kind": "access",
+          "turn": 7
+        }
+      ],
+      "mulligans": 0
+    },
+    "observations": [
+      {
+        "turn": 1,
+        "commanderDeployed": false,
+        "manaBeforeActions": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "blocked"
+        },
+        "manaRemaining": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "blocked"
+        },
+        "handSize": 6,
+        "accessibleCards": 8,
+        "netAccessibleCards": 0,
+        "naturalDraws": 1,
+        "effectDraws": 0,
+        "effectDiscards": 0,
+        "cleanupDiscards": 0,
+        "returnedToTop": 0,
+        "topCasts": 0,
+        "accessSpells": 0,
+        "accessSacrifices": 0,
+        "engines": [],
+        "threatsBeforeActions": [],
+        "threatAvailability": [],
+        "missed": [
+          {
+            "id": "deck-39",
+            "card": "Planar Atlas",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-37",
+            "card": "Ornithopter of Paradise",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-30",
+            "card": "Locthwain Gargoyle",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-55",
+            "card": "Stronghold Confessor",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "commander",
+            "card": "Yuriko, the Tiger's Shadow",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          }
+        ]
+      },
+      {
+        "turn": 2,
+        "commanderDeployed": false,
+        "manaBeforeActions": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "blocked"
+        },
+        "manaRemaining": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "blocked"
+        },
+        "handSize": 5,
+        "accessibleCards": 9,
+        "netAccessibleCards": 0,
+        "naturalDraws": 2,
+        "effectDraws": 0,
+        "effectDiscards": 0,
+        "cleanupDiscards": 0,
+        "returnedToTop": 0,
+        "topCasts": 0,
+        "accessSpells": 0,
+        "accessSacrifices": 0,
+        "engines": [],
+        "threatsBeforeActions": [],
+        "threatAvailability": [],
+        "missed": [
+          {
+            "id": "deck-39",
+            "card": "Planar Atlas",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-30",
+            "card": "Locthwain Gargoyle",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-55",
+            "card": "Stronghold Confessor",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "commander",
+            "card": "Yuriko, the Tiger's Shadow",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          }
+        ]
+      },
+      {
+        "turn": 3,
+        "commanderDeployed": false,
+        "manaBeforeActions": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 4,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 3,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "blocked"
+        },
+        "manaRemaining": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "blocked"
+        },
+        "handSize": 2,
+        "accessibleCards": 10,
+        "netAccessibleCards": 0,
+        "naturalDraws": 3,
+        "effectDraws": 0,
+        "effectDiscards": 0,
+        "cleanupDiscards": 0,
+        "returnedToTop": 0,
+        "topCasts": 0,
+        "accessSpells": 0,
+        "accessSacrifices": 0,
+        "engines": [
+          {
+            "id": "deck-27",
+            "card": "Harrier Strix",
+            "kind": "access",
+            "supported": true,
+            "native": false,
+            "readyNow": "blocked",
+            "used": false
+          }
+        ],
+        "threatsBeforeActions": [],
+        "threatAvailability": [],
+        "missed": [
+          {
+            "id": "deck-55",
+            "card": "Stronghold Confessor",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "commander",
+            "card": "Yuriko, the Tiger's Shadow",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-27",
+            "card": "Harrier Strix",
+            "kind": "activation",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          }
+        ]
+      },
+      {
+        "turn": 4,
+        "commanderDeployed": true,
+        "manaBeforeActions": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 6,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 3,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 3,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "paid"
+        },
+        "manaRemaining": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "paid"
+        },
+        "handSize": 1,
+        "accessibleCards": 11,
+        "netAccessibleCards": 0,
+        "naturalDraws": 4,
+        "effectDraws": 0,
+        "effectDiscards": 0,
+        "cleanupDiscards": 0,
+        "returnedToTop": 0,
+        "topCasts": 0,
+        "accessSpells": 0,
+        "accessSacrifices": 0,
+        "engines": [
+          {
+            "id": "deck-27",
+            "card": "Harrier Strix",
+            "kind": "access",
+            "supported": true,
+            "native": false,
+            "readyNow": "blocked",
+            "used": false
+          }
+        ],
+        "threatsBeforeActions": [],
+        "threatAvailability": [],
+        "missed": [
+          {
+            "id": "deck-62",
+            "card": "Zephyr Sprite",
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable"
+          },
+          {
+            "id": "deck-27",
+            "card": "Harrier Strix",
+            "kind": "activation",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          }
+        ]
+      },
+      {
+        "turn": 5,
+        "commanderDeployed": true,
+        "manaBeforeActions": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 6,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 3,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 3,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "paid"
+        },
+        "manaRemaining": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 3,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "paid"
+        },
+        "handSize": 2,
+        "accessibleCards": 12,
+        "netAccessibleCards": 0,
+        "naturalDraws": 5,
+        "effectDraws": 1,
+        "effectDiscards": 1,
+        "cleanupDiscards": 0,
+        "returnedToTop": 0,
+        "topCasts": 0,
+        "accessSpells": 0,
+        "accessSacrifices": 0,
+        "engines": [
+          {
+            "id": "deck-27",
+            "card": "Harrier Strix",
+            "kind": "access",
+            "supported": true,
+            "native": false,
+            "readyNow": "blocked",
+            "used": true
+          }
+        ],
+        "threatsBeforeActions": [],
+        "threatAvailability": [],
+        "missed": [
+          {
+            "id": "deck-62",
+            "card": "Zephyr Sprite",
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable"
+          },
+          {
+            "id": "deck-2",
+            "card": "Artificer's Assistant",
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable"
+          },
+          {
+            "id": "deck-27",
+            "card": "Harrier Strix",
+            "kind": "activation",
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable"
+          }
+        ]
+      },
+      {
+        "turn": 6,
+        "commanderDeployed": true,
+        "manaBeforeActions": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 6,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 3,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 3,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "paid"
+        },
+        "manaRemaining": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 3,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "paid"
+        },
+        "handSize": 3,
+        "accessibleCards": 13,
+        "netAccessibleCards": 0,
+        "naturalDraws": 6,
+        "effectDraws": 2,
+        "effectDiscards": 2,
+        "cleanupDiscards": 0,
+        "returnedToTop": 0,
+        "topCasts": 0,
+        "accessSpells": 0,
+        "accessSacrifices": 0,
+        "engines": [
+          {
+            "id": "deck-27",
+            "card": "Harrier Strix",
+            "kind": "access",
+            "supported": true,
+            "native": false,
+            "readyNow": "blocked",
+            "used": true
+          }
+        ],
+        "threatsBeforeActions": [],
+        "threatAvailability": [],
+        "missed": [
+          {
+            "id": "deck-62",
+            "card": "Zephyr Sprite",
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable"
+          },
+          {
+            "id": "deck-2",
+            "card": "Artificer's Assistant",
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable"
+          },
+          {
+            "id": "deck-23",
+            "card": "Flitterwing Nuisance",
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable"
+          },
+          {
+            "id": "deck-27",
+            "card": "Harrier Strix",
+            "kind": "activation",
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable"
+          }
+        ]
+      },
+      {
+        "turn": 7,
+        "commanderDeployed": true,
+        "manaBeforeActions": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 6,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 3,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 3,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "paid"
+        },
+        "manaRemaining": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "blocked"
+        },
+        "handSize": 1,
+        "accessibleCards": 14,
+        "netAccessibleCards": 0,
+        "naturalDraws": 7,
+        "effectDraws": 3,
+        "effectDiscards": 3,
+        "cleanupDiscards": 0,
+        "returnedToTop": 0,
+        "topCasts": 0,
+        "accessSpells": 0,
+        "accessSacrifices": 0,
+        "engines": [
+          {
+            "id": "deck-27",
+            "card": "Harrier Strix",
+            "kind": "access",
+            "supported": true,
+            "native": false,
+            "readyNow": "blocked",
+            "used": true
+          },
+          {
+            "id": "deck-2",
+            "card": "Artificer's Assistant",
+            "kind": "access",
+            "supported": true,
+            "native": false,
+            "readyNow": "blocked",
+            "used": true
+          }
+        ],
+        "threatsBeforeActions": [],
+        "threatAvailability": [],
+        "missed": [
+          {
+            "id": "deck-23",
+            "card": "Flitterwing Nuisance",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-27",
+            "card": "Harrier Strix",
+            "kind": "activation",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          }
+        ]
+      },
+      {
+        "turn": 8,
+        "commanderDeployed": true,
+        "manaBeforeActions": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 7,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 3,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 3,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 3,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "paid"
+        },
+        "manaRemaining": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 4,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 3,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "paid"
+        },
+        "handSize": 1,
+        "accessibleCards": 15,
+        "netAccessibleCards": 0,
+        "naturalDraws": 8,
+        "effectDraws": 4,
+        "effectDiscards": 4,
+        "cleanupDiscards": 0,
+        "returnedToTop": 0,
+        "topCasts": 0,
+        "accessSpells": 0,
+        "accessSacrifices": 0,
+        "engines": [
+          {
+            "id": "deck-27",
+            "card": "Harrier Strix",
+            "kind": "access",
+            "supported": true,
+            "native": false,
+            "readyNow": "blocked",
+            "used": true
+          },
+          {
+            "id": "deck-2",
+            "card": "Artificer's Assistant",
+            "kind": "access",
+            "supported": true,
+            "native": false,
+            "readyNow": "blocked",
+            "used": true
+          }
+        ],
+        "threatsBeforeActions": [],
+        "threatAvailability": [],
+        "missed": [
+          {
+            "id": "deck-23",
+            "card": "Flitterwing Nuisance",
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable"
+          },
+          {
+            "id": "deck-27",
+            "card": "Harrier Strix",
+            "kind": "activation",
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable"
+          }
+        ]
+      }
+    ],
+    "decked": false,
+    "lost": false,
+    "assumptions": {
+      "opening": 7,
+      "mulligan": "none",
+      "drawOnTurnOne": true,
+      "rankingIntegration": false,
+      "commanderTaxPriorCasts": 0,
+      "access": true,
+      "mainPhases": 1,
+      "maxActions": 24,
+      "maxManaStates": 4000,
+      "maxSetupActionsBeforePayableCommander": 1,
+      "sourcePayments": "optimized exact ledger",
+      "opponents": "three inert seats; no combat/interaction; supported control transfers leave our board",
+      "optionalPayment": "reserve before resolving resource/access triggers",
+      "threatDefinition": "native creature with printed power >=4 or printed MV >=5; payment availability, not win conversion; other threat/combat/copy outcomes unknown",
+      "otherRulesCoverage": "not quantified; parsed access is not complete Oracle/rules coverage"
+    },
+    "coverage": {
+      "cardsWithSupportedAccess": 14,
+      "cardsWithUnmodeledAccess": 13,
+      "unmodeledAccessClauses": 14
+    },
+    "unknown": [
+      {
+        "card": "Aerial Doombot",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Arcane Signet",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Artificer's Assistant",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Ascendant Spirit",
+        "access": [
+          {
+            "line": "{S}{S}{S}{S}: If this creature is an Angel, put two +1/+1 counters on it and it gains \"Whenever this creature deals combat damage to a player, draw a card.\"",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      },
+      {
+        "card": "Aven Envoy",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Azra Smokeshaper",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Brass Gnat",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Caller of Gales",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Callous Inspector",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Cloud Sprite",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Conch Horn",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Delver of Secrets // Insectile Aberration",
+        "access": [
+          {
+            "line": "At the beginning of your upkeep, look at the top card of your library. You may reveal that card. If an instant or sorcery card is revealed this way, transform this creature.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": [
+          "alternate faces/transform/craft not evaluated; front face only"
+        ]
+      },
+      {
+        "card": "Diresight",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Dokuchi Silencer",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Dreadmalkin",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Dream Beavers",
+        "access": [
+          {
+            "line": "When this creature enters, each opponent loses 1 life and you gain 1 life. Scry 1.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      },
+      {
+        "card": "Drifter il-Dal",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Duskwalker",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Etherium Pteramander",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Eye Collector",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Faerie Seer",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Faerie Squadron",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Fledgling Osprey",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Flitterwing Nuisance",
+        "access": [
+          {
+            "line": "{2}{U}, Remove a counter from this creature: Whenever a creature you control deals combat damage to a player or planeswalker this turn, draw a card.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      },
+      {
+        "card": "Fugitive Droid",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Giant's Boulder",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "H.E.R.B.I.E., Lovable Robot",
+        "access": [
+          {
+            "line": "At the beginning of combat on your turn, if you've cast a noncreature spell this turn, surveil 1.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      },
+      {
+        "card": "Harrier Strix",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Illvoi Galeblade",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Lantern Bearer // Lanterns' Lift",
+        "access": [],
+        "other": [
+          "alternate faces/transform/craft not evaluated; front face only"
+        ]
+      },
+      {
+        "card": "Locthwain Gargoyle",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Mausoleum Wanderer",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Merfolk Windrobber",
+        "access": [
+          {
+            "line": "Sacrifice this creature: Draw a card. Activate only if an opponent has eight or more cards in their graveyard.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      },
+      {
+        "card": "Mind Stone",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Mistway Spy",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Network Disruptor",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Notion Rain",
+        "access": [
+          {
+            "line": "Surveil 2, then draw two cards. Notion Rain deals 2 damage to you.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      },
+      {
+        "card": "Ornithopter of Paradise",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Phyrexian Battleflies",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Planar Atlas",
+        "access": [
+          {
+            "line": "When this artifact enters, you may look at the top four cards of your library. If you do, reveal up to one land card from among them, then put that card on top of your library and the rest on the bottom in a random order.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      },
+      {
+        "card": "Plumecreed Escort",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Pteramander",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "PuPu UFO",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Rampart Crawler",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Rattlechains",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Risky Research",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Rowan's Grim Search",
+        "access": [
+          {
+            "line": "If this spell was bargained, look at the top four cards of your library, then put up to two of them back on top of your library in any order and the rest into your graveyard.",
+            "reason": "unsupported access prerequisites/effect"
+          },
+          {
+            "line": "You draw two cards and you lose 2 life.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      },
+      {
+        "card": "Silver Raven",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Siren Stormtamer",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Sol Ring",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Spectral Sailor",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Spellgyre",
+        "access": [
+          {
+            "line": "• Surveil 2, then draw two cards.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      },
+      {
+        "card": "Spindrift Drake",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Staff of Compleation",
+        "access": [],
+        "other": [
+          "unsupported activation cost: {T}, Pay 2 life: Add one mana of any color."
+        ]
+      },
+      {
+        "card": "Stirge",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Stronghold Confessor",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "The One Ring",
+        "access": [
+          {
+            "line": "{T}: Put a burden counter on The One Ring, then draw a card for each burden counter on The One Ring.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      },
+      {
+        "card": "Thought Nibbler",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Thousand-Faced Shadow",
+        "access": [],
+        "other": [
+          "conditional entry; mana withheld on entry turn"
+        ]
+      },
+      {
+        "card": "Thran Dynamo",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Three Steps Ahead",
+        "access": [
+          {
+            "line": "+ {2} — Draw two cards, then discard a card.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      },
+      {
+        "card": "Vampire Bats",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Zephyr Sprite",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Command Tower",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Exotic Orchard",
+        "access": [],
+        "other": [
+          "unsupported mana production: {T}: Add one mana of any color that a land an opponent controls could produce."
+        ]
+      },
+      {
+        "card": "Island",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {U}.)"
+        ]
+      },
+      {
+        "card": "Mirrodin's Core",
+        "access": [],
+        "other": [
+          "unsupported activation cost: {T}, Remove a charge counter from this land: Add one mana of any color."
+        ]
+      },
+      {
+        "card": "River of Tears",
+        "access": [],
+        "other": [
+          "unsupported mana condition: {T}: Add {U}. If you played a land this turn, add {B} instead."
+        ]
+      },
+      {
+        "card": "Rootwater Depths",
+        "access": [],
+        "other": [
+          "unsupported mana condition: {T}: Add {U} or {B}. This land doesn't untap during your next untap step."
+        ]
+      },
+      {
+        "card": "Spire of Industry",
+        "access": [],
+        "other": [
+          "unsupported activation cost: {T}, Pay 1 life: Add one mana of any color. Activate only if you control an artifact."
+        ]
+      },
+      {
+        "card": "Swamp",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {B}.)"
+        ]
+      },
+      {
+        "card": "Tendo Ice Bridge",
+        "access": [],
+        "other": [
+          "unsupported activation cost: {T}, Remove a charge counter from this land: Add one mana of any color."
+        ]
+      },
+      {
+        "card": "The Grey Havens",
+        "access": [],
+        "other": [
+          "unsupported mana production: {T}: Add one mana of any color among legendary creature cards in your graveyard."
+        ]
+      },
+      {
+        "card": "Waterveil Cavern",
+        "access": [],
+        "other": [
+          "unsupported mana condition: {T}: Add {U} or {B}. This land doesn't untap during your next untap step."
+        ]
+      },
+      {
+        "card": "Yuriko, the Tiger's Shadow",
+        "access": [
+          {
+            "line": "Whenever a Ninja you control deals combat damage to a player, reveal the top card of your library and put that card into your hand. Each opponent loses life equal to that card's mana value.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      }
+    ],
+    "trace": [
+      {
+        "turn": 0,
+        "event": "opening",
+        "hand": [
+          {
+            "id": "deck-39",
+            "card": "Planar Atlas"
+          },
+          {
+            "id": "deck-37",
+            "card": "Ornithopter of Paradise"
+          },
+          {
+            "id": "deck-84",
+            "card": "Swamp"
+          },
+          {
+            "id": "deck-30",
+            "card": "Locthwain Gargoyle"
+          },
+          {
+            "id": "deck-11",
+            "card": "Delver of Secrets // Insectile Aberration"
+          },
+          {
+            "id": "deck-65",
+            "card": "Island"
+          },
+          {
+            "id": "deck-55",
+            "card": "Stronghold Confessor"
+          }
+        ]
+      },
+      {
+        "turn": 1,
+        "event": "untap",
+        "sources": []
+      },
+      {
+        "turn": 1,
+        "event": "draw",
+        "card": "Mirrodin's Core",
+        "id": "deck-79",
+        "reason": "natural"
+      },
+      {
+        "turn": 1,
+        "event": "land",
+        "id": "deck-65",
+        "card": "Island",
+        "tapped": false,
+        "unknown": false
+      },
+      {
+        "turn": 1,
+        "event": "decision",
+        "policy": "development",
+        "chosen": "deck-11",
+        "kind": "cast",
+        "reason": "remaining supported deployment",
+        "commanderPayable": false,
+        "setupBudgetUsed": 0,
+        "alternatives": [
+          {
+            "id": "deck-30",
+            "kind": "cast",
+            "reason": "remaining supported deployment"
+          }
+        ]
+      },
+      {
+        "turn": 1,
+        "event": "mana-activation",
+        "card": "Island",
+        "kind": "activation",
+        "source": "deck-65",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "cost": "",
+          "outputs": [
+            [
+              "U"
+            ]
+          ]
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-65:0:0",
+            "type": "U",
+            "source": "deck-65",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 1,
+        "event": "cast-paid",
+        "id": "deck-11",
+        "card": "Delver of Secrets // Insectile Aberration",
+        "origin": "hand",
+        "kind": "payment",
+        "label": "spell",
+        "cost": "{U}",
+        "reduction": 0,
+        "context": {
+          "kind": "spell",
+          "types": [
+            "Creature"
+          ],
+          "subtypes": [
+            "Human",
+            "Wizard"
+          ],
+          "commander": false
+        },
+        "spent": [
+          {
+            "id": "deck-65:0:0",
+            "type": "U",
+            "source": "deck-65",
+            "restriction": "none",
+            "paidFor": "U"
+          }
+        ]
+      },
+      {
+        "turn": 1,
+        "event": "permanent-resolved",
+        "id": "deck-11",
+        "card": "Delver of Secrets // Insectile Aberration",
+        "tapped": false,
+        "effects": {
+          "manaUnknown": [
+            "alternate faces/transform/craft not evaluated; front face only"
+          ],
+          "accessUnknown": [
+            {
+              "line": "At the beginning of your upkeep, look at the top card of your library. You may reveal that card. If an instant or sorcery card is revealed this way, transform this creature.",
+              "reason": "unsupported access prerequisites/effect"
+            }
+          ],
+          "other": "other Oracle effects unmodeled"
+        }
+      },
+      {
+        "turn": 1,
+        "event": "turn-end",
+        "hand": [
+          "Planar Atlas",
+          "Ornithopter of Paradise",
+          "Swamp",
+          "Locthwain Gargoyle",
+          "Stronghold Confessor",
+          "Mirrodin's Core"
+        ],
+        "handIds": [
+          "deck-39",
+          "deck-37",
+          "deck-84",
+          "deck-30",
+          "deck-55",
+          "deck-79"
+        ],
+        "library": [
+          "deck-63",
+          "deck-27",
+          "deck-62",
+          "deck-2",
+          "deck-87",
+          "deck-23",
+          "deck-78",
+          "deck-6",
+          "deck-17",
+          "deck-82",
+          "deck-74",
+          "deck-28",
+          "deck-45",
+          "deck-97",
+          "deck-9",
+          "deck-60",
+          "deck-0",
+          "deck-12",
+          "deck-29",
+          "deck-41",
+          "deck-8",
+          "deck-61",
+          "deck-51",
+          "deck-86",
+          "deck-56",
+          "deck-70",
+          "deck-94",
+          "deck-5",
+          "deck-83",
+          "deck-49",
+          "deck-32",
+          "deck-31",
+          "deck-47",
+          "deck-33",
+          "deck-77",
+          "deck-46",
+          "deck-76",
+          "deck-38",
+          "deck-81",
+          "deck-90",
+          "deck-19",
+          "deck-59",
+          "deck-71",
+          "deck-58",
+          "deck-67",
+          "deck-42",
+          "deck-20",
+          "deck-1",
+          "deck-22",
+          "deck-40",
+          "deck-53",
+          "deck-96",
+          "deck-80",
+          "deck-3",
+          "deck-4",
+          "deck-43",
+          "deck-24",
+          "deck-69",
+          "deck-48",
+          "deck-75",
+          "deck-14",
+          "deck-25",
+          "deck-89",
+          "deck-7",
+          "deck-85",
+          "deck-50",
+          "deck-35",
+          "deck-72",
+          "deck-88",
+          "deck-44",
+          "deck-95",
+          "deck-91",
+          "deck-26",
+          "deck-73",
+          "deck-93",
+          "deck-92",
+          "deck-57",
+          "deck-36",
+          "deck-52",
+          "deck-18",
+          "deck-54",
+          "deck-15",
+          "deck-68",
+          "deck-66",
+          "deck-13",
+          "deck-16",
+          "deck-10",
+          "deck-21",
+          "deck-64",
+          "deck-98",
+          "deck-34"
+        ],
+        "graveyard": [],
+        "exile": [],
+        "opponents": [],
+        "ceased": [],
+        "board": [
+          {
+            "id": "deck-65",
+            "card": "Island",
+            "tapped": true
+          },
+          {
+            "id": "deck-11",
+            "card": "Delver of Secrets // Insectile Aberration",
+            "tapped": false
+          }
+        ],
+        "floatingExpires": [],
+        "life": 40
+      },
+      {
+        "turn": 2,
+        "event": "untap",
+        "sources": [
+          {
+            "id": "deck-65",
+            "types": [
+              "Basic",
+              "Land"
+            ],
+            "subtypes": [
+              "Island"
+            ],
+            "modes": [
+              {
+                "tap": true,
+                "cost": "",
+                "outputs": [
+                  [
+                    "U"
+                  ]
+                ]
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-11",
+            "types": [
+              "Creature"
+            ],
+            "subtypes": [
+              "Human",
+              "Wizard"
+            ],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          }
+        ]
+      },
+      {
+        "turn": 2,
+        "event": "draw",
+        "card": "Command Tower",
+        "id": "deck-63",
+        "reason": "natural"
+      },
+      {
+        "turn": 2,
+        "event": "land",
+        "id": "deck-63",
+        "card": "Command Tower",
+        "tapped": false,
+        "unknown": false
+      },
+      {
+        "turn": 2,
+        "event": "decision",
+        "policy": "development",
+        "chosen": "deck-37",
+        "kind": "cast",
+        "reason": "develop usable mana",
+        "commanderPayable": false,
+        "setupBudgetUsed": 0,
+        "alternatives": [
+          {
+            "id": "deck-39",
+            "kind": "cast",
+            "reason": "develop usable mana"
+          },
+          {
+            "id": "deck-30",
+            "kind": "cast",
+            "reason": "remaining supported deployment"
+          },
+          {
+            "id": "deck-55",
+            "kind": "cast",
+            "reason": "remaining supported deployment"
+          }
+        ]
+      },
+      {
+        "turn": 2,
+        "event": "mana-activation",
+        "card": "Island",
+        "kind": "activation",
+        "source": "deck-65",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "cost": "",
+          "outputs": [
+            [
+              "U"
+            ]
+          ]
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-65:0:0",
+            "type": "U",
+            "source": "deck-65",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 2,
+        "event": "mana-activation",
+        "card": "Command Tower",
+        "kind": "activation",
+        "source": "deck-63",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "sacrifice": false,
+          "cost": "",
+          "outputs": [
+            [
+              "B"
+            ],
+            [
+              "U"
+            ]
+          ],
+          "restriction": "none",
+          "life": 0,
+          "minLands": 0
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-63:0:0",
+            "type": "B",
+            "source": "deck-63",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 2,
+        "event": "cast-paid",
+        "id": "deck-37",
+        "card": "Ornithopter of Paradise",
+        "origin": "hand",
+        "kind": "payment",
+        "label": "spell",
+        "cost": "{2}",
+        "reduction": 0,
+        "context": {
+          "kind": "spell",
+          "types": [
+            "Artifact",
+            "Creature"
+          ],
+          "subtypes": [
+            "Thopter"
+          ],
+          "commander": false
+        },
+        "spent": [
+          {
+            "id": "deck-63:0:0",
+            "type": "B",
+            "source": "deck-63",
+            "restriction": "none",
+            "paidFor": "*"
+          },
+          {
+            "id": "deck-65:0:0",
+            "type": "U",
+            "source": "deck-65",
+            "restriction": "none",
+            "paidFor": "*"
+          }
+        ]
+      },
+      {
+        "turn": 2,
+        "event": "permanent-resolved",
+        "id": "deck-37",
+        "card": "Ornithopter of Paradise",
+        "tapped": false,
+        "effects": {
+          "manaUnknown": [],
+          "accessUnknown": [],
+          "other": "other Oracle effects unmodeled"
+        }
+      },
+      {
+        "turn": 2,
+        "event": "turn-end",
+        "hand": [
+          "Planar Atlas",
+          "Swamp",
+          "Locthwain Gargoyle",
+          "Stronghold Confessor",
+          "Mirrodin's Core"
+        ],
+        "handIds": [
+          "deck-39",
+          "deck-84",
+          "deck-30",
+          "deck-55",
+          "deck-79"
+        ],
+        "library": [
+          "deck-27",
+          "deck-62",
+          "deck-2",
+          "deck-87",
+          "deck-23",
+          "deck-78",
+          "deck-6",
+          "deck-17",
+          "deck-82",
+          "deck-74",
+          "deck-28",
+          "deck-45",
+          "deck-97",
+          "deck-9",
+          "deck-60",
+          "deck-0",
+          "deck-12",
+          "deck-29",
+          "deck-41",
+          "deck-8",
+          "deck-61",
+          "deck-51",
+          "deck-86",
+          "deck-56",
+          "deck-70",
+          "deck-94",
+          "deck-5",
+          "deck-83",
+          "deck-49",
+          "deck-32",
+          "deck-31",
+          "deck-47",
+          "deck-33",
+          "deck-77",
+          "deck-46",
+          "deck-76",
+          "deck-38",
+          "deck-81",
+          "deck-90",
+          "deck-19",
+          "deck-59",
+          "deck-71",
+          "deck-58",
+          "deck-67",
+          "deck-42",
+          "deck-20",
+          "deck-1",
+          "deck-22",
+          "deck-40",
+          "deck-53",
+          "deck-96",
+          "deck-80",
+          "deck-3",
+          "deck-4",
+          "deck-43",
+          "deck-24",
+          "deck-69",
+          "deck-48",
+          "deck-75",
+          "deck-14",
+          "deck-25",
+          "deck-89",
+          "deck-7",
+          "deck-85",
+          "deck-50",
+          "deck-35",
+          "deck-72",
+          "deck-88",
+          "deck-44",
+          "deck-95",
+          "deck-91",
+          "deck-26",
+          "deck-73",
+          "deck-93",
+          "deck-92",
+          "deck-57",
+          "deck-36",
+          "deck-52",
+          "deck-18",
+          "deck-54",
+          "deck-15",
+          "deck-68",
+          "deck-66",
+          "deck-13",
+          "deck-16",
+          "deck-10",
+          "deck-21",
+          "deck-64",
+          "deck-98",
+          "deck-34"
+        ],
+        "graveyard": [],
+        "exile": [],
+        "opponents": [],
+        "ceased": [],
+        "board": [
+          {
+            "id": "deck-65",
+            "card": "Island",
+            "tapped": true
+          },
+          {
+            "id": "deck-11",
+            "card": "Delver of Secrets // Insectile Aberration",
+            "tapped": false
+          },
+          {
+            "id": "deck-63",
+            "card": "Command Tower",
+            "tapped": true
+          },
+          {
+            "id": "deck-37",
+            "card": "Ornithopter of Paradise",
+            "tapped": false
+          }
+        ],
+        "floatingExpires": [],
+        "life": 40
+      },
+      {
+        "turn": 3,
+        "event": "untap",
+        "sources": [
+          {
+            "id": "deck-65",
+            "types": [
+              "Basic",
+              "Land"
+            ],
+            "subtypes": [
+              "Island"
+            ],
+            "modes": [
+              {
+                "tap": true,
+                "cost": "",
+                "outputs": [
+                  [
+                    "U"
+                  ]
+                ]
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-11",
+            "types": [
+              "Creature"
+            ],
+            "subtypes": [
+              "Human",
+              "Wizard"
+            ],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-63",
+            "types": [
+              "Land"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "B"
+                  ],
+                  [
+                    "U"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-37",
+            "types": [
+              "Artifact",
+              "Creature"
+            ],
+            "subtypes": [
+              "Thopter"
+            ],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "W"
+                  ],
+                  [
+                    "U"
+                  ],
+                  [
+                    "B"
+                  ],
+                  [
+                    "R"
+                  ],
+                  [
+                    "G"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          }
+        ]
+      },
+      {
+        "turn": 3,
+        "event": "draw",
+        "card": "Harrier Strix",
+        "id": "deck-27",
+        "reason": "natural"
+      },
+      {
+        "turn": 3,
+        "event": "land",
+        "id": "deck-79",
+        "card": "Mirrodin's Core",
+        "tapped": false,
+        "unknown": false
+      },
+      {
+        "turn": 3,
+        "event": "decision",
+        "policy": "development",
+        "chosen": "deck-39",
+        "kind": "cast",
+        "reason": "develop usable mana",
+        "commanderPayable": true,
+        "setupBudgetUsed": 1,
+        "alternatives": [
+          {
+            "id": "deck-27",
+            "kind": "cast",
+            "reason": "set up access/reduction"
+          },
+          {
+            "id": "commander",
+            "kind": "cast",
+            "reason": "deploy commander"
+          },
+          {
+            "id": "deck-30",
+            "kind": "cast",
+            "reason": "remaining supported deployment"
+          },
+          {
+            "id": "deck-55",
+            "kind": "cast",
+            "reason": "remaining supported deployment"
+          }
+        ]
+      },
+      {
+        "turn": 3,
+        "event": "mana-activation",
+        "card": "Island",
+        "kind": "activation",
+        "source": "deck-65",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "cost": "",
+          "outputs": [
+            [
+              "U"
+            ]
+          ]
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-65:0:0",
+            "type": "U",
+            "source": "deck-65",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 3,
+        "event": "mana-activation",
+        "card": "Command Tower",
+        "kind": "activation",
+        "source": "deck-63",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "sacrifice": false,
+          "cost": "",
+          "outputs": [
+            [
+              "B"
+            ],
+            [
+              "U"
+            ]
+          ],
+          "restriction": "none",
+          "life": 0,
+          "minLands": 0
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-63:0:0",
+            "type": "B",
+            "source": "deck-63",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 3,
+        "event": "cast-paid",
+        "id": "deck-39",
+        "card": "Planar Atlas",
+        "origin": "hand",
+        "kind": "payment",
+        "label": "spell",
+        "cost": "{2}",
+        "reduction": 0,
+        "context": {
+          "kind": "spell",
+          "types": [
+            "Artifact"
+          ],
+          "subtypes": [],
+          "commander": false
+        },
+        "spent": [
+          {
+            "id": "deck-63:0:0",
+            "type": "B",
+            "source": "deck-63",
+            "restriction": "none",
+            "paidFor": "*"
+          },
+          {
+            "id": "deck-65:0:0",
+            "type": "U",
+            "source": "deck-65",
+            "restriction": "none",
+            "paidFor": "*"
+          }
+        ]
+      },
+      {
+        "turn": 3,
+        "event": "permanent-resolved",
+        "id": "deck-39",
+        "card": "Planar Atlas",
+        "tapped": true,
+        "effects": {
+          "manaUnknown": [],
+          "accessUnknown": [
+            {
+              "line": "When this artifact enters, you may look at the top four cards of your library. If you do, reveal up to one land card from among them, then put that card on top of your library and the rest on the bottom in a random order.",
+              "reason": "unsupported access prerequisites/effect"
+            }
+          ],
+          "other": "other Oracle effects unmodeled"
+        }
+      },
+      {
+        "turn": 3,
+        "event": "decision",
+        "policy": "development",
+        "chosen": "deck-27",
+        "kind": "cast",
+        "reason": "set up access/reduction",
+        "commanderPayable": false,
+        "setupBudgetUsed": 1,
+        "alternatives": [
+          {
+            "id": "deck-30",
+            "kind": "cast",
+            "reason": "remaining supported deployment"
+          },
+          {
+            "id": "deck-55",
+            "kind": "cast",
+            "reason": "remaining supported deployment"
+          }
+        ]
+      },
+      {
+        "turn": 3,
+        "event": "mana-activation",
+        "card": "Ornithopter of Paradise",
+        "kind": "activation",
+        "source": "deck-37",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "sacrifice": false,
+          "cost": "",
+          "outputs": [
+            [
+              "W"
+            ],
+            [
+              "U"
+            ],
+            [
+              "B"
+            ],
+            [
+              "R"
+            ],
+            [
+              "G"
+            ]
+          ],
+          "restriction": "none",
+          "life": 0,
+          "minLands": 0
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-37:0:0",
+            "type": "U",
+            "source": "deck-37",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 3,
+        "event": "cast-paid",
+        "id": "deck-27",
+        "card": "Harrier Strix",
+        "origin": "hand",
+        "kind": "payment",
+        "label": "spell",
+        "cost": "{U}",
+        "reduction": 0,
+        "context": {
+          "kind": "spell",
+          "types": [
+            "Creature"
+          ],
+          "subtypes": [
+            "Bird"
+          ],
+          "commander": false
+        },
+        "spent": [
+          {
+            "id": "deck-37:0:0",
+            "type": "U",
+            "source": "deck-37",
+            "restriction": "none",
+            "paidFor": "U"
+          }
+        ]
+      },
+      {
+        "turn": 3,
+        "event": "permanent-resolved",
+        "id": "deck-27",
+        "card": "Harrier Strix",
+        "tapped": false,
+        "effects": {
+          "manaUnknown": [],
+          "accessUnknown": [],
+          "other": "other Oracle effects unmodeled"
+        }
+      },
+      {
+        "turn": 3,
+        "event": "decision",
+        "policy": "development",
+        "chosen": "deck-30",
+        "kind": "cast",
+        "reason": "remaining supported deployment",
+        "commanderPayable": false,
+        "setupBudgetUsed": 1,
+        "alternatives": []
+      },
+      {
+        "turn": 3,
+        "event": "mana-activation",
+        "card": "Mirrodin's Core",
+        "kind": "activation",
+        "source": "deck-79",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "sacrifice": false,
+          "cost": "",
+          "outputs": [
+            [
+              "C"
+            ]
+          ],
+          "restriction": "none",
+          "life": 0,
+          "minLands": 0
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-79:0:0",
+            "type": "C",
+            "source": "deck-79",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 3,
+        "event": "cast-paid",
+        "id": "deck-30",
+        "card": "Locthwain Gargoyle",
+        "origin": "hand",
+        "kind": "payment",
+        "label": "spell",
+        "cost": "{1}",
+        "reduction": 0,
+        "context": {
+          "kind": "spell",
+          "types": [
+            "Artifact",
+            "Creature"
+          ],
+          "subtypes": [
+            "Gargoyle"
+          ],
+          "commander": false
+        },
+        "spent": [
+          {
+            "id": "deck-79:0:0",
+            "type": "C",
+            "source": "deck-79",
+            "restriction": "none",
+            "paidFor": "*"
+          }
+        ]
+      },
+      {
+        "turn": 3,
+        "event": "permanent-resolved",
+        "id": "deck-30",
+        "card": "Locthwain Gargoyle",
+        "tapped": false,
+        "effects": {
+          "manaUnknown": [],
+          "accessUnknown": [],
+          "other": "other Oracle effects unmodeled"
+        }
+      },
+      {
+        "turn": 3,
+        "event": "turn-end",
+        "hand": [
+          "Swamp",
+          "Stronghold Confessor"
+        ],
+        "handIds": [
+          "deck-84",
+          "deck-55"
+        ],
+        "library": [
+          "deck-62",
+          "deck-2",
+          "deck-87",
+          "deck-23",
+          "deck-78",
+          "deck-6",
+          "deck-17",
+          "deck-82",
+          "deck-74",
+          "deck-28",
+          "deck-45",
+          "deck-97",
+          "deck-9",
+          "deck-60",
+          "deck-0",
+          "deck-12",
+          "deck-29",
+          "deck-41",
+          "deck-8",
+          "deck-61",
+          "deck-51",
+          "deck-86",
+          "deck-56",
+          "deck-70",
+          "deck-94",
+          "deck-5",
+          "deck-83",
+          "deck-49",
+          "deck-32",
+          "deck-31",
+          "deck-47",
+          "deck-33",
+          "deck-77",
+          "deck-46",
+          "deck-76",
+          "deck-38",
+          "deck-81",
+          "deck-90",
+          "deck-19",
+          "deck-59",
+          "deck-71",
+          "deck-58",
+          "deck-67",
+          "deck-42",
+          "deck-20",
+          "deck-1",
+          "deck-22",
+          "deck-40",
+          "deck-53",
+          "deck-96",
+          "deck-80",
+          "deck-3",
+          "deck-4",
+          "deck-43",
+          "deck-24",
+          "deck-69",
+          "deck-48",
+          "deck-75",
+          "deck-14",
+          "deck-25",
+          "deck-89",
+          "deck-7",
+          "deck-85",
+          "deck-50",
+          "deck-35",
+          "deck-72",
+          "deck-88",
+          "deck-44",
+          "deck-95",
+          "deck-91",
+          "deck-26",
+          "deck-73",
+          "deck-93",
+          "deck-92",
+          "deck-57",
+          "deck-36",
+          "deck-52",
+          "deck-18",
+          "deck-54",
+          "deck-15",
+          "deck-68",
+          "deck-66",
+          "deck-13",
+          "deck-16",
+          "deck-10",
+          "deck-21",
+          "deck-64",
+          "deck-98",
+          "deck-34"
+        ],
+        "graveyard": [],
+        "exile": [],
+        "opponents": [],
+        "ceased": [],
+        "board": [
+          {
+            "id": "deck-65",
+            "card": "Island",
+            "tapped": true
+          },
+          {
+            "id": "deck-11",
+            "card": "Delver of Secrets // Insectile Aberration",
+            "tapped": false
+          },
+          {
+            "id": "deck-63",
+            "card": "Command Tower",
+            "tapped": true
+          },
+          {
+            "id": "deck-37",
+            "card": "Ornithopter of Paradise",
+            "tapped": true
+          },
+          {
+            "id": "deck-79",
+            "card": "Mirrodin's Core",
+            "tapped": true
+          },
+          {
+            "id": "deck-39",
+            "card": "Planar Atlas",
+            "tapped": true
+          },
+          {
+            "id": "deck-27",
+            "card": "Harrier Strix",
+            "tapped": false
+          },
+          {
+            "id": "deck-30",
+            "card": "Locthwain Gargoyle",
+            "tapped": false
+          }
+        ],
+        "floatingExpires": [],
+        "life": 40
+      },
+      {
+        "turn": 4,
+        "event": "untap",
+        "sources": [
+          {
+            "id": "deck-65",
+            "types": [
+              "Basic",
+              "Land"
+            ],
+            "subtypes": [
+              "Island"
+            ],
+            "modes": [
+              {
+                "tap": true,
+                "cost": "",
+                "outputs": [
+                  [
+                    "U"
+                  ]
+                ]
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-11",
+            "types": [
+              "Creature"
+            ],
+            "subtypes": [
+              "Human",
+              "Wizard"
+            ],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-63",
+            "types": [
+              "Land"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "B"
+                  ],
+                  [
+                    "U"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-37",
+            "types": [
+              "Artifact",
+              "Creature"
+            ],
+            "subtypes": [
+              "Thopter"
+            ],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "W"
+                  ],
+                  [
+                    "U"
+                  ],
+                  [
+                    "B"
+                  ],
+                  [
+                    "R"
+                  ],
+                  [
+                    "G"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-79",
+            "types": [
+              "Land"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-39",
+            "types": [
+              "Artifact"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-27",
+            "types": [
+              "Creature"
+            ],
+            "subtypes": [
+              "Bird"
+            ],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-30",
+            "types": [
+              "Artifact",
+              "Creature"
+            ],
+            "subtypes": [
+              "Gargoyle"
+            ],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          }
+        ]
+      },
+      {
+        "turn": 4,
+        "event": "draw",
+        "card": "Zephyr Sprite",
+        "id": "deck-62",
+        "reason": "natural"
+      },
+      {
+        "turn": 4,
+        "event": "land",
+        "id": "deck-84",
+        "card": "Swamp",
+        "tapped": false,
+        "unknown": false
+      },
+      {
+        "turn": 4,
+        "event": "decision",
+        "policy": "development",
+        "chosen": "commander",
+        "kind": "cast",
+        "reason": "take the payable commander after one setup action",
+        "commanderPayable": true,
+        "setupBudgetUsed": 1,
+        "alternatives": [
+          {
+            "id": "deck-27",
+            "kind": "activate",
+            "reason": "refill before running out of plays"
+          },
+          {
+            "id": "deck-55",
+            "kind": "cast",
+            "reason": "remaining supported deployment"
+          },
+          {
+            "id": "deck-62",
+            "kind": "cast",
+            "reason": "remaining supported deployment"
+          }
+        ]
+      },
+      {
+        "turn": 4,
+        "event": "mana-activation",
+        "card": "Island",
+        "kind": "activation",
+        "source": "deck-65",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "cost": "",
+          "outputs": [
+            [
+              "U"
+            ]
+          ]
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-65:0:0",
+            "type": "U",
+            "source": "deck-65",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 4,
+        "event": "mana-activation",
+        "card": "Command Tower",
+        "kind": "activation",
+        "source": "deck-63",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "sacrifice": false,
+          "cost": "",
+          "outputs": [
+            [
+              "B"
+            ],
+            [
+              "U"
+            ]
+          ],
+          "restriction": "none",
+          "life": 0,
+          "minLands": 0
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-63:0:0",
+            "type": "B",
+            "source": "deck-63",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 4,
+        "event": "mana-activation",
+        "card": "Ornithopter of Paradise",
+        "kind": "activation",
+        "source": "deck-37",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "sacrifice": false,
+          "cost": "",
+          "outputs": [
+            [
+              "W"
+            ],
+            [
+              "U"
+            ],
+            [
+              "B"
+            ],
+            [
+              "R"
+            ],
+            [
+              "G"
+            ]
+          ],
+          "restriction": "none",
+          "life": 0,
+          "minLands": 0
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-37:0:0",
+            "type": "W",
+            "source": "deck-37",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 4,
+        "event": "cast-paid",
+        "id": "commander",
+        "card": "Yuriko, the Tiger's Shadow",
+        "origin": "command",
+        "kind": "payment",
+        "label": "spell",
+        "cost": "{1}{U}{B}",
+        "reduction": 0,
+        "context": {
+          "kind": "spell",
+          "types": [
+            "Legendary",
+            "Creature"
+          ],
+          "subtypes": [
+            "Human",
+            "Ninja"
+          ],
+          "commander": true
+        },
+        "spent": [
+          {
+            "id": "deck-65:0:0",
+            "type": "U",
+            "source": "deck-65",
+            "restriction": "none",
+            "paidFor": "U"
+          },
+          {
+            "id": "deck-63:0:0",
+            "type": "B",
+            "source": "deck-63",
+            "restriction": "none",
+            "paidFor": "B"
+          },
+          {
+            "id": "deck-37:0:0",
+            "type": "W",
+            "source": "deck-37",
+            "restriction": "none",
+            "paidFor": "*"
+          }
+        ]
+      },
+      {
+        "turn": 4,
+        "event": "permanent-resolved",
+        "id": "commander",
+        "card": "Yuriko, the Tiger's Shadow",
+        "tapped": false,
+        "effects": {
+          "manaUnknown": [],
+          "accessUnknown": [
+            {
+              "line": "Whenever a Ninja you control deals combat damage to a player, reveal the top card of your library and put that card into your hand. Each opponent loses life equal to that card's mana value.",
+              "reason": "unsupported access prerequisites/effect"
+            }
+          ],
+          "other": "other Oracle effects unmodeled"
+        }
+      },
+      {
+        "turn": 4,
+        "event": "decision",
+        "policy": "development",
+        "chosen": "deck-55",
+        "kind": "cast",
+        "reason": "remaining supported deployment",
+        "commanderPayable": false,
+        "setupBudgetUsed": 1,
+        "alternatives": []
+      },
+      {
+        "turn": 4,
+        "event": "mana-activation",
+        "card": "Mirrodin's Core",
+        "kind": "activation",
+        "source": "deck-79",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "sacrifice": false,
+          "cost": "",
+          "outputs": [
+            [
+              "C"
+            ]
+          ],
+          "restriction": "none",
+          "life": 0,
+          "minLands": 0
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-79:0:0",
+            "type": "C",
+            "source": "deck-79",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 4,
+        "event": "mana-activation",
+        "card": "Planar Atlas",
+        "kind": "activation",
+        "source": "deck-39",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "sacrifice": false,
+          "cost": "",
+          "outputs": [
+            [
+              "C"
+            ]
+          ],
+          "restriction": "none",
+          "life": 0,
+          "minLands": 0
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-39:0:0",
+            "type": "C",
+            "source": "deck-39",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 4,
+        "event": "mana-activation",
+        "card": "Swamp",
+        "kind": "activation",
+        "source": "deck-84",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "cost": "",
+          "outputs": [
+            [
+              "B"
+            ]
+          ]
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-84:0:0",
+            "type": "B",
+            "source": "deck-84",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 4,
+        "event": "cast-paid",
+        "id": "deck-55",
+        "card": "Stronghold Confessor",
+        "origin": "hand",
+        "kind": "payment",
+        "label": "spell",
+        "cost": "{B}",
+        "reduction": 0,
+        "context": {
+          "kind": "spell",
+          "types": [
+            "Creature"
+          ],
+          "subtypes": [
+            "Human",
+            "Cleric"
+          ],
+          "commander": false
+        },
+        "spent": [
+          {
+            "id": "deck-84:0:0",
+            "type": "B",
+            "source": "deck-84",
+            "restriction": "none",
+            "paidFor": "B"
+          }
+        ]
+      },
+      {
+        "turn": 4,
+        "event": "permanent-resolved",
+        "id": "deck-55",
+        "card": "Stronghold Confessor",
+        "tapped": false,
+        "effects": {
+          "manaUnknown": [],
+          "accessUnknown": [],
+          "other": "other Oracle effects unmodeled"
+        }
+      },
+      {
+        "turn": 4,
+        "event": "turn-end",
+        "hand": [
+          "Zephyr Sprite"
+        ],
+        "handIds": [
+          "deck-62"
+        ],
+        "library": [
+          "deck-2",
+          "deck-87",
+          "deck-23",
+          "deck-78",
+          "deck-6",
+          "deck-17",
+          "deck-82",
+          "deck-74",
+          "deck-28",
+          "deck-45",
+          "deck-97",
+          "deck-9",
+          "deck-60",
+          "deck-0",
+          "deck-12",
+          "deck-29",
+          "deck-41",
+          "deck-8",
+          "deck-61",
+          "deck-51",
+          "deck-86",
+          "deck-56",
+          "deck-70",
+          "deck-94",
+          "deck-5",
+          "deck-83",
+          "deck-49",
+          "deck-32",
+          "deck-31",
+          "deck-47",
+          "deck-33",
+          "deck-77",
+          "deck-46",
+          "deck-76",
+          "deck-38",
+          "deck-81",
+          "deck-90",
+          "deck-19",
+          "deck-59",
+          "deck-71",
+          "deck-58",
+          "deck-67",
+          "deck-42",
+          "deck-20",
+          "deck-1",
+          "deck-22",
+          "deck-40",
+          "deck-53",
+          "deck-96",
+          "deck-80",
+          "deck-3",
+          "deck-4",
+          "deck-43",
+          "deck-24",
+          "deck-69",
+          "deck-48",
+          "deck-75",
+          "deck-14",
+          "deck-25",
+          "deck-89",
+          "deck-7",
+          "deck-85",
+          "deck-50",
+          "deck-35",
+          "deck-72",
+          "deck-88",
+          "deck-44",
+          "deck-95",
+          "deck-91",
+          "deck-26",
+          "deck-73",
+          "deck-93",
+          "deck-92",
+          "deck-57",
+          "deck-36",
+          "deck-52",
+          "deck-18",
+          "deck-54",
+          "deck-15",
+          "deck-68",
+          "deck-66",
+          "deck-13",
+          "deck-16",
+          "deck-10",
+          "deck-21",
+          "deck-64",
+          "deck-98",
+          "deck-34"
+        ],
+        "graveyard": [],
+        "exile": [],
+        "opponents": [],
+        "ceased": [],
+        "board": [
+          {
+            "id": "deck-65",
+            "card": "Island",
+            "tapped": true
+          },
+          {
+            "id": "deck-11",
+            "card": "Delver of Secrets // Insectile Aberration",
+            "tapped": false
+          },
+          {
+            "id": "deck-63",
+            "card": "Command Tower",
+            "tapped": true
+          },
+          {
+            "id": "deck-37",
+            "card": "Ornithopter of Paradise",
+            "tapped": true
+          },
+          {
+            "id": "deck-79",
+            "card": "Mirrodin's Core",
+            "tapped": true
+          },
+          {
+            "id": "deck-39",
+            "card": "Planar Atlas",
+            "tapped": true
+          },
+          {
+            "id": "deck-27",
+            "card": "Harrier Strix",
+            "tapped": false
+          },
+          {
+            "id": "deck-30",
+            "card": "Locthwain Gargoyle",
+            "tapped": false
+          },
+          {
+            "id": "deck-84",
+            "card": "Swamp",
+            "tapped": true
+          },
+          {
+            "id": "commander",
+            "card": "Yuriko, the Tiger's Shadow",
+            "tapped": false
+          },
+          {
+            "id": "deck-55",
+            "card": "Stronghold Confessor",
+            "tapped": false
+          }
+        ],
+        "floatingExpires": [
+          {
+            "id": "deck-79:0:0",
+            "type": "C",
+            "source": "deck-79",
+            "restriction": "none"
+          },
+          {
+            "id": "deck-39:0:0",
+            "type": "C",
+            "source": "deck-39",
+            "restriction": "none"
+          }
+        ],
+        "life": 40
+      },
+      {
+        "turn": 5,
+        "event": "untap",
+        "sources": [
+          {
+            "id": "deck-65",
+            "types": [
+              "Basic",
+              "Land"
+            ],
+            "subtypes": [
+              "Island"
+            ],
+            "modes": [
+              {
+                "tap": true,
+                "cost": "",
+                "outputs": [
+                  [
+                    "U"
+                  ]
+                ]
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-11",
+            "types": [
+              "Creature"
+            ],
+            "subtypes": [
+              "Human",
+              "Wizard"
+            ],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-63",
+            "types": [
+              "Land"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "B"
+                  ],
+                  [
+                    "U"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-37",
+            "types": [
+              "Artifact",
+              "Creature"
+            ],
+            "subtypes": [
+              "Thopter"
+            ],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "W"
+                  ],
+                  [
+                    "U"
+                  ],
+                  [
+                    "B"
+                  ],
+                  [
+                    "R"
+                  ],
+                  [
+                    "G"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-79",
+            "types": [
+              "Land"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-39",
+            "types": [
+              "Artifact"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-27",
+            "types": [
+              "Creature"
+            ],
+            "subtypes": [
+              "Bird"
+            ],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-30",
+            "types": [
+              "Artifact",
+              "Creature"
+            ],
+            "subtypes": [
+              "Gargoyle"
+            ],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-84",
+            "types": [
+              "Basic",
+              "Land"
+            ],
+            "subtypes": [
+              "Swamp"
+            ],
+            "modes": [
+              {
+                "tap": true,
+                "cost": "",
+                "outputs": [
+                  [
+                    "B"
+                  ]
+                ]
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "commander",
+            "types": [
+              "Legendary",
+              "Creature"
+            ],
+            "subtypes": [
+              "Human",
+              "Ninja"
+            ],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-55",
+            "types": [
+              "Creature"
+            ],
+            "subtypes": [
+              "Human",
+              "Cleric"
+            ],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          }
+        ]
+      },
+      {
+        "turn": 5,
+        "event": "draw",
+        "card": "Artificer's Assistant",
+        "id": "deck-2",
+        "reason": "natural"
+      },
+      {
+        "turn": 5,
+        "event": "decision",
+        "policy": "development",
+        "chosen": "deck-27",
+        "kind": "activate",
+        "reason": "refill before running out of plays",
+        "commanderPayable": false,
+        "setupBudgetUsed": 1,
+        "alternatives": [
+          {
+            "id": "deck-2",
+            "kind": "cast",
+            "reason": "remaining supported deployment"
+          },
+          {
+            "id": "deck-62",
+            "kind": "cast",
+            "reason": "remaining supported deployment"
+          }
+        ]
+      },
+      {
+        "turn": 5,
+        "event": "access-announced",
+        "source": "deck-27",
+        "abilityIndex": 0
+      },
+      {
+        "turn": 5,
+        "event": "mana-activation",
+        "card": "Island",
+        "kind": "activation",
+        "source": "deck-65",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "cost": "",
+          "outputs": [
+            [
+              "U"
+            ]
+          ]
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-65:0:0",
+            "type": "U",
+            "source": "deck-65",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 5,
+        "event": "mana-activation",
+        "card": "Command Tower",
+        "kind": "activation",
+        "source": "deck-63",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "sacrifice": false,
+          "cost": "",
+          "outputs": [
+            [
+              "B"
+            ],
+            [
+              "U"
+            ]
+          ],
+          "restriction": "none",
+          "life": 0,
+          "minLands": 0
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-63:0:0",
+            "type": "B",
+            "source": "deck-63",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 5,
+        "event": "mana-activation",
+        "card": "Ornithopter of Paradise",
+        "kind": "activation",
+        "source": "deck-37",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "sacrifice": false,
+          "cost": "",
+          "outputs": [
+            [
+              "W"
+            ],
+            [
+              "U"
+            ],
+            [
+              "B"
+            ],
+            [
+              "R"
+            ],
+            [
+              "G"
+            ]
+          ],
+          "restriction": "none",
+          "life": 0,
+          "minLands": 0
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-37:0:0",
+            "type": "W",
+            "source": "deck-37",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 5,
+        "event": "activated-access-paid",
+        "source": "deck-27",
+        "abilityIndex": 0,
+        "kind": "payment",
+        "label": "access:deck-27",
+        "cost": "{2}{U}",
+        "reduction": 0,
+        "context": {
+          "kind": "ability",
+          "abilityType": "activated",
+          "types": [
+            "Creature"
+          ]
+        },
+        "spent": [
+          {
+            "id": "deck-65:0:0",
+            "type": "U",
+            "source": "deck-65",
+            "restriction": "none",
+            "paidFor": "U"
+          },
+          {
+            "id": "deck-63:0:0",
+            "type": "B",
+            "source": "deck-63",
+            "restriction": "none",
+            "paidFor": "*"
+          },
+          {
+            "id": "deck-37:0:0",
+            "type": "W",
+            "source": "deck-37",
+            "restriction": "none",
+            "paidFor": "*"
+          }
+        ]
+      },
+      {
+        "turn": 5,
+        "event": "access-costs",
+        "source": "deck-27",
+        "abilityIndex": 0,
+        "tap": false,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 5,
+        "event": "access-resolving",
+        "source": "deck-27",
+        "reason": "activation",
+        "effects": [
+          {
+            "kind": "draw",
+            "count": 1
+          },
+          {
+            "kind": "discard",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "turn": 5,
+        "event": "access-draw",
+        "card": "Swamp",
+        "id": "deck-87",
+        "reason": "activation",
+        "source": "deck-27"
+      },
+      {
+        "turn": 5,
+        "event": "discard",
+        "id": "deck-87",
+        "card": "Swamp",
+        "source": "deck-27"
+      },
+      {
+        "turn": 5,
+        "event": "access-resolved",
+        "source": "deck-27",
+        "reason": "activation"
+      },
+      {
+        "turn": 5,
+        "event": "turn-end",
+        "hand": [
+          "Zephyr Sprite",
+          "Artificer's Assistant"
+        ],
+        "handIds": [
+          "deck-62",
+          "deck-2"
+        ],
+        "library": [
+          "deck-23",
+          "deck-78",
+          "deck-6",
+          "deck-17",
+          "deck-82",
+          "deck-74",
+          "deck-28",
+          "deck-45",
+          "deck-97",
+          "deck-9",
+          "deck-60",
+          "deck-0",
+          "deck-12",
+          "deck-29",
+          "deck-41",
+          "deck-8",
+          "deck-61",
+          "deck-51",
+          "deck-86",
+          "deck-56",
+          "deck-70",
+          "deck-94",
+          "deck-5",
+          "deck-83",
+          "deck-49",
+          "deck-32",
+          "deck-31",
+          "deck-47",
+          "deck-33",
+          "deck-77",
+          "deck-46",
+          "deck-76",
+          "deck-38",
+          "deck-81",
+          "deck-90",
+          "deck-19",
+          "deck-59",
+          "deck-71",
+          "deck-58",
+          "deck-67",
+          "deck-42",
+          "deck-20",
+          "deck-1",
+          "deck-22",
+          "deck-40",
+          "deck-53",
+          "deck-96",
+          "deck-80",
+          "deck-3",
+          "deck-4",
+          "deck-43",
+          "deck-24",
+          "deck-69",
+          "deck-48",
+          "deck-75",
+          "deck-14",
+          "deck-25",
+          "deck-89",
+          "deck-7",
+          "deck-85",
+          "deck-50",
+          "deck-35",
+          "deck-72",
+          "deck-88",
+          "deck-44",
+          "deck-95",
+          "deck-91",
+          "deck-26",
+          "deck-73",
+          "deck-93",
+          "deck-92",
+          "deck-57",
+          "deck-36",
+          "deck-52",
+          "deck-18",
+          "deck-54",
+          "deck-15",
+          "deck-68",
+          "deck-66",
+          "deck-13",
+          "deck-16",
+          "deck-10",
+          "deck-21",
+          "deck-64",
+          "deck-98",
+          "deck-34"
+        ],
+        "graveyard": [
+          "deck-87"
+        ],
+        "exile": [],
+        "opponents": [],
+        "ceased": [],
+        "board": [
+          {
+            "id": "deck-65",
+            "card": "Island",
+            "tapped": true
+          },
+          {
+            "id": "deck-11",
+            "card": "Delver of Secrets // Insectile Aberration",
+            "tapped": false
+          },
+          {
+            "id": "deck-63",
+            "card": "Command Tower",
+            "tapped": true
+          },
+          {
+            "id": "deck-37",
+            "card": "Ornithopter of Paradise",
+            "tapped": true
+          },
+          {
+            "id": "deck-79",
+            "card": "Mirrodin's Core",
+            "tapped": false
+          },
+          {
+            "id": "deck-39",
+            "card": "Planar Atlas",
+            "tapped": false
+          },
+          {
+            "id": "deck-27",
+            "card": "Harrier Strix",
+            "tapped": false
+          },
+          {
+            "id": "deck-30",
+            "card": "Locthwain Gargoyle",
+            "tapped": false
+          },
+          {
+            "id": "deck-84",
+            "card": "Swamp",
+            "tapped": false
+          },
+          {
+            "id": "commander",
+            "card": "Yuriko, the Tiger's Shadow",
+            "tapped": false
+          },
+          {
+            "id": "deck-55",
+            "card": "Stronghold Confessor",
+            "tapped": false
+          }
+        ],
+        "floatingExpires": [],
+        "life": 40
+      },
+      {
+        "turn": 6,
+        "event": "untap",
+        "sources": [
+          {
+            "id": "deck-65",
+            "types": [
+              "Basic",
+              "Land"
+            ],
+            "subtypes": [
+              "Island"
+            ],
+            "modes": [
+              {
+                "tap": true,
+                "cost": "",
+                "outputs": [
+                  [
+                    "U"
+                  ]
+                ]
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-11",
+            "types": [
+              "Creature"
+            ],
+            "subtypes": [
+              "Human",
+              "Wizard"
+            ],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-63",
+            "types": [
+              "Land"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "B"
+                  ],
+                  [
+                    "U"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-37",
+            "types": [
+              "Artifact",
+              "Creature"
+            ],
+            "subtypes": [
+              "Thopter"
+            ],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "W"
+                  ],
+                  [
+                    "U"
+                  ],
+                  [
+                    "B"
+                  ],
+                  [
+                    "R"
+                  ],
+                  [
+                    "G"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-79",
+            "types": [
+              "Land"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-39",
+            "types": [
+              "Artifact"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-27",
+            "types": [
+              "Creature"
+            ],
+            "subtypes": [
+              "Bird"
+            ],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-30",
+            "types": [
+              "Artifact",
+              "Creature"
+            ],
+            "subtypes": [
+              "Gargoyle"
+            ],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-84",
+            "types": [
+              "Basic",
+              "Land"
+            ],
+            "subtypes": [
+              "Swamp"
+            ],
+            "modes": [
+              {
+                "tap": true,
+                "cost": "",
+                "outputs": [
+                  [
+                    "B"
+                  ]
+                ]
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "commander",
+            "types": [
+              "Legendary",
+              "Creature"
+            ],
+            "subtypes": [
+              "Human",
+              "Ninja"
+            ],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-55",
+            "types": [
+              "Creature"
+            ],
+            "subtypes": [
+              "Human",
+              "Cleric"
+            ],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          }
+        ]
+      },
+      {
+        "turn": 6,
+        "event": "draw",
+        "card": "Flitterwing Nuisance",
+        "id": "deck-23",
+        "reason": "natural"
+      },
+      {
+        "turn": 6,
+        "event": "decision",
+        "policy": "development",
+        "chosen": "deck-27",
+        "kind": "activate",
+        "reason": "refill before running out of plays",
+        "commanderPayable": false,
+        "setupBudgetUsed": 1,
+        "alternatives": [
+          {
+            "id": "deck-2",
+            "kind": "cast",
+            "reason": "remaining supported deployment"
+          },
+          {
+            "id": "deck-23",
+            "kind": "cast",
+            "reason": "remaining supported deployment"
+          },
+          {
+            "id": "deck-62",
+            "kind": "cast",
+            "reason": "remaining supported deployment"
+          }
+        ]
+      },
+      {
+        "turn": 6,
+        "event": "access-announced",
+        "source": "deck-27",
+        "abilityIndex": 0
+      },
+      {
+        "turn": 6,
+        "event": "mana-activation",
+        "card": "Island",
+        "kind": "activation",
+        "source": "deck-65",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "cost": "",
+          "outputs": [
+            [
+              "U"
+            ]
+          ]
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-65:0:0",
+            "type": "U",
+            "source": "deck-65",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 6,
+        "event": "mana-activation",
+        "card": "Command Tower",
+        "kind": "activation",
+        "source": "deck-63",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "sacrifice": false,
+          "cost": "",
+          "outputs": [
+            [
+              "B"
+            ],
+            [
+              "U"
+            ]
+          ],
+          "restriction": "none",
+          "life": 0,
+          "minLands": 0
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-63:0:0",
+            "type": "B",
+            "source": "deck-63",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 6,
+        "event": "mana-activation",
+        "card": "Ornithopter of Paradise",
+        "kind": "activation",
+        "source": "deck-37",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "sacrifice": false,
+          "cost": "",
+          "outputs": [
+            [
+              "W"
+            ],
+            [
+              "U"
+            ],
+            [
+              "B"
+            ],
+            [
+              "R"
+            ],
+            [
+              "G"
+            ]
+          ],
+          "restriction": "none",
+          "life": 0,
+          "minLands": 0
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-37:0:0",
+            "type": "W",
+            "source": "deck-37",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 6,
+        "event": "activated-access-paid",
+        "source": "deck-27",
+        "abilityIndex": 0,
+        "kind": "payment",
+        "label": "access:deck-27",
+        "cost": "{2}{U}",
+        "reduction": 0,
+        "context": {
+          "kind": "ability",
+          "abilityType": "activated",
+          "types": [
+            "Creature"
+          ]
+        },
+        "spent": [
+          {
+            "id": "deck-65:0:0",
+            "type": "U",
+            "source": "deck-65",
+            "restriction": "none",
+            "paidFor": "U"
+          },
+          {
+            "id": "deck-63:0:0",
+            "type": "B",
+            "source": "deck-63",
+            "restriction": "none",
+            "paidFor": "*"
+          },
+          {
+            "id": "deck-37:0:0",
+            "type": "W",
+            "source": "deck-37",
+            "restriction": "none",
+            "paidFor": "*"
+          }
+        ]
+      },
+      {
+        "turn": 6,
+        "event": "access-costs",
+        "source": "deck-27",
+        "abilityIndex": 0,
+        "tap": false,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 6,
+        "event": "access-resolving",
+        "source": "deck-27",
+        "reason": "activation",
+        "effects": [
+          {
+            "kind": "draw",
+            "count": 1
+          },
+          {
+            "kind": "discard",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "turn": 6,
+        "event": "access-draw",
+        "card": "Island",
+        "id": "deck-78",
+        "reason": "activation",
+        "source": "deck-27"
+      },
+      {
+        "turn": 6,
+        "event": "discard",
+        "id": "deck-78",
+        "card": "Island",
+        "source": "deck-27"
+      },
+      {
+        "turn": 6,
+        "event": "access-resolved",
+        "source": "deck-27",
+        "reason": "activation"
+      },
+      {
+        "turn": 6,
+        "event": "turn-end",
+        "hand": [
+          "Zephyr Sprite",
+          "Artificer's Assistant",
+          "Flitterwing Nuisance"
+        ],
+        "handIds": [
+          "deck-62",
+          "deck-2",
+          "deck-23"
+        ],
+        "library": [
+          "deck-6",
+          "deck-17",
+          "deck-82",
+          "deck-74",
+          "deck-28",
+          "deck-45",
+          "deck-97",
+          "deck-9",
+          "deck-60",
+          "deck-0",
+          "deck-12",
+          "deck-29",
+          "deck-41",
+          "deck-8",
+          "deck-61",
+          "deck-51",
+          "deck-86",
+          "deck-56",
+          "deck-70",
+          "deck-94",
+          "deck-5",
+          "deck-83",
+          "deck-49",
+          "deck-32",
+          "deck-31",
+          "deck-47",
+          "deck-33",
+          "deck-77",
+          "deck-46",
+          "deck-76",
+          "deck-38",
+          "deck-81",
+          "deck-90",
+          "deck-19",
+          "deck-59",
+          "deck-71",
+          "deck-58",
+          "deck-67",
+          "deck-42",
+          "deck-20",
+          "deck-1",
+          "deck-22",
+          "deck-40",
+          "deck-53",
+          "deck-96",
+          "deck-80",
+          "deck-3",
+          "deck-4",
+          "deck-43",
+          "deck-24",
+          "deck-69",
+          "deck-48",
+          "deck-75",
+          "deck-14",
+          "deck-25",
+          "deck-89",
+          "deck-7",
+          "deck-85",
+          "deck-50",
+          "deck-35",
+          "deck-72",
+          "deck-88",
+          "deck-44",
+          "deck-95",
+          "deck-91",
+          "deck-26",
+          "deck-73",
+          "deck-93",
+          "deck-92",
+          "deck-57",
+          "deck-36",
+          "deck-52",
+          "deck-18",
+          "deck-54",
+          "deck-15",
+          "deck-68",
+          "deck-66",
+          "deck-13",
+          "deck-16",
+          "deck-10",
+          "deck-21",
+          "deck-64",
+          "deck-98",
+          "deck-34"
+        ],
+        "graveyard": [
+          "deck-87",
+          "deck-78"
+        ],
+        "exile": [],
+        "opponents": [],
+        "ceased": [],
+        "board": [
+          {
+            "id": "deck-65",
+            "card": "Island",
+            "tapped": true
+          },
+          {
+            "id": "deck-11",
+            "card": "Delver of Secrets // Insectile Aberration",
+            "tapped": false
+          },
+          {
+            "id": "deck-63",
+            "card": "Command Tower",
+            "tapped": true
+          },
+          {
+            "id": "deck-37",
+            "card": "Ornithopter of Paradise",
+            "tapped": true
+          },
+          {
+            "id": "deck-79",
+            "card": "Mirrodin's Core",
+            "tapped": false
+          },
+          {
+            "id": "deck-39",
+            "card": "Planar Atlas",
+            "tapped": false
+          },
+          {
+            "id": "deck-27",
+            "card": "Harrier Strix",
+            "tapped": false
+          },
+          {
+            "id": "deck-30",
+            "card": "Locthwain Gargoyle",
+            "tapped": false
+          },
+          {
+            "id": "deck-84",
+            "card": "Swamp",
+            "tapped": false
+          },
+          {
+            "id": "commander",
+            "card": "Yuriko, the Tiger's Shadow",
+            "tapped": false
+          },
+          {
+            "id": "deck-55",
+            "card": "Stronghold Confessor",
+            "tapped": false
+          }
+        ],
+        "floatingExpires": [],
+        "life": 40
+      },
+      {
+        "turn": 7,
+        "event": "untap",
+        "sources": [
+          {
+            "id": "deck-65",
+            "types": [
+              "Basic",
+              "Land"
+            ],
+            "subtypes": [
+              "Island"
+            ],
+            "modes": [
+              {
+                "tap": true,
+                "cost": "",
+                "outputs": [
+                  [
+                    "U"
+                  ]
+                ]
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-11",
+            "types": [
+              "Creature"
+            ],
+            "subtypes": [
+              "Human",
+              "Wizard"
+            ],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-63",
+            "types": [
+              "Land"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "B"
+                  ],
+                  [
+                    "U"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-37",
+            "types": [
+              "Artifact",
+              "Creature"
+            ],
+            "subtypes": [
+              "Thopter"
+            ],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "W"
+                  ],
+                  [
+                    "U"
+                  ],
+                  [
+                    "B"
+                  ],
+                  [
+                    "R"
+                  ],
+                  [
+                    "G"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-79",
+            "types": [
+              "Land"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-39",
+            "types": [
+              "Artifact"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-27",
+            "types": [
+              "Creature"
+            ],
+            "subtypes": [
+              "Bird"
+            ],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-30",
+            "types": [
+              "Artifact",
+              "Creature"
+            ],
+            "subtypes": [
+              "Gargoyle"
+            ],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-84",
+            "types": [
+              "Basic",
+              "Land"
+            ],
+            "subtypes": [
+              "Swamp"
+            ],
+            "modes": [
+              {
+                "tap": true,
+                "cost": "",
+                "outputs": [
+                  [
+                    "B"
+                  ]
+                ]
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "commander",
+            "types": [
+              "Legendary",
+              "Creature"
+            ],
+            "subtypes": [
+              "Human",
+              "Ninja"
+            ],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-55",
+            "types": [
+              "Creature"
+            ],
+            "subtypes": [
+              "Human",
+              "Cleric"
+            ],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          }
+        ]
+      },
+      {
+        "turn": 7,
+        "event": "draw",
+        "card": "Brass Gnat",
+        "id": "deck-6",
+        "reason": "natural"
+      },
+      {
+        "turn": 7,
+        "event": "decision",
+        "policy": "development",
+        "chosen": "deck-2",
+        "kind": "cast",
+        "reason": "set up access/reduction",
+        "commanderPayable": false,
+        "setupBudgetUsed": 1,
+        "alternatives": [
+          {
+            "id": "deck-27",
+            "kind": "activate",
+            "reason": "use spare mana for access"
+          },
+          {
+            "id": "deck-23",
+            "kind": "cast",
+            "reason": "remaining supported deployment"
+          },
+          {
+            "id": "deck-6",
+            "kind": "cast",
+            "reason": "remaining supported deployment"
+          },
+          {
+            "id": "deck-62",
+            "kind": "cast",
+            "reason": "remaining supported deployment"
+          }
+        ]
+      },
+      {
+        "turn": 7,
+        "event": "mana-activation",
+        "card": "Island",
+        "kind": "activation",
+        "source": "deck-65",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "cost": "",
+          "outputs": [
+            [
+              "U"
+            ]
+          ]
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-65:0:0",
+            "type": "U",
+            "source": "deck-65",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 7,
+        "event": "cast-paid",
+        "id": "deck-2",
+        "card": "Artificer's Assistant",
+        "origin": "hand",
+        "kind": "payment",
+        "label": "spell",
+        "cost": "{U}",
+        "reduction": 0,
+        "context": {
+          "kind": "spell",
+          "types": [
+            "Creature"
+          ],
+          "subtypes": [
+            "Bird"
+          ],
+          "commander": false
+        },
+        "spent": [
+          {
+            "id": "deck-65:0:0",
+            "type": "U",
+            "source": "deck-65",
+            "restriction": "none",
+            "paidFor": "U"
+          }
+        ]
+      },
+      {
+        "turn": 7,
+        "event": "permanent-resolved",
+        "id": "deck-2",
+        "card": "Artificer's Assistant",
+        "tapped": false,
+        "effects": {
+          "manaUnknown": [],
+          "accessUnknown": [],
+          "other": "other Oracle effects unmodeled"
+        }
+      },
+      {
+        "turn": 7,
+        "event": "decision",
+        "policy": "development",
+        "chosen": "deck-27",
+        "kind": "activate",
+        "reason": "refill before running out of plays",
+        "commanderPayable": false,
+        "setupBudgetUsed": 1,
+        "alternatives": [
+          {
+            "id": "deck-23",
+            "kind": "cast",
+            "reason": "remaining supported deployment"
+          },
+          {
+            "id": "deck-6",
+            "kind": "cast",
+            "reason": "remaining supported deployment"
+          },
+          {
+            "id": "deck-62",
+            "kind": "cast",
+            "reason": "remaining supported deployment"
+          }
+        ]
+      },
+      {
+        "turn": 7,
+        "event": "access-announced",
+        "source": "deck-27",
+        "abilityIndex": 0
+      },
+      {
+        "turn": 7,
+        "event": "mana-activation",
+        "card": "Command Tower",
+        "kind": "activation",
+        "source": "deck-63",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "sacrifice": false,
+          "cost": "",
+          "outputs": [
+            [
+              "B"
+            ],
+            [
+              "U"
+            ]
+          ],
+          "restriction": "none",
+          "life": 0,
+          "minLands": 0
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-63:0:0",
+            "type": "B",
+            "source": "deck-63",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 7,
+        "event": "mana-activation",
+        "card": "Ornithopter of Paradise",
+        "kind": "activation",
+        "source": "deck-37",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "sacrifice": false,
+          "cost": "",
+          "outputs": [
+            [
+              "W"
+            ],
+            [
+              "U"
+            ],
+            [
+              "B"
+            ],
+            [
+              "R"
+            ],
+            [
+              "G"
+            ]
+          ],
+          "restriction": "none",
+          "life": 0,
+          "minLands": 0
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-37:0:0",
+            "type": "U",
+            "source": "deck-37",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 7,
+        "event": "mana-activation",
+        "card": "Mirrodin's Core",
+        "kind": "activation",
+        "source": "deck-79",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "sacrifice": false,
+          "cost": "",
+          "outputs": [
+            [
+              "C"
+            ]
+          ],
+          "restriction": "none",
+          "life": 0,
+          "minLands": 0
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-79:0:0",
+            "type": "C",
+            "source": "deck-79",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 7,
+        "event": "activated-access-paid",
+        "source": "deck-27",
+        "abilityIndex": 0,
+        "kind": "payment",
+        "label": "access:deck-27",
+        "cost": "{2}{U}",
+        "reduction": 0,
+        "context": {
+          "kind": "ability",
+          "abilityType": "activated",
+          "types": [
+            "Creature"
+          ]
+        },
+        "spent": [
+          {
+            "id": "deck-37:0:0",
+            "type": "U",
+            "source": "deck-37",
+            "restriction": "none",
+            "paidFor": "U"
+          },
+          {
+            "id": "deck-63:0:0",
+            "type": "B",
+            "source": "deck-63",
+            "restriction": "none",
+            "paidFor": "*"
+          },
+          {
+            "id": "deck-79:0:0",
+            "type": "C",
+            "source": "deck-79",
+            "restriction": "none",
+            "paidFor": "*"
+          }
+        ]
+      },
+      {
+        "turn": 7,
+        "event": "access-costs",
+        "source": "deck-27",
+        "abilityIndex": 0,
+        "tap": false,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 7,
+        "event": "access-resolving",
+        "source": "deck-27",
+        "reason": "activation",
+        "effects": [
+          {
+            "kind": "draw",
+            "count": 1
+          },
+          {
+            "kind": "discard",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "turn": 7,
+        "event": "access-draw",
+        "card": "Duskwalker",
+        "id": "deck-17",
+        "reason": "activation",
+        "source": "deck-27"
+      },
+      {
+        "turn": 7,
+        "event": "discard",
+        "id": "deck-62",
+        "card": "Zephyr Sprite",
+        "source": "deck-27"
+      },
+      {
+        "turn": 7,
+        "event": "access-resolved",
+        "source": "deck-27",
+        "reason": "activation"
+      },
+      {
+        "turn": 7,
+        "event": "decision",
+        "policy": "development",
+        "chosen": "deck-17",
+        "kind": "cast",
+        "reason": "remaining supported deployment",
+        "commanderPayable": false,
+        "setupBudgetUsed": 1,
+        "alternatives": [
+          {
+            "id": "deck-6",
+            "kind": "cast",
+            "reason": "remaining supported deployment"
+          }
+        ]
+      },
+      {
+        "turn": 7,
+        "event": "mana-activation",
+        "card": "Planar Atlas",
+        "kind": "activation",
+        "source": "deck-39",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "sacrifice": false,
+          "cost": "",
+          "outputs": [
+            [
+              "C"
+            ]
+          ],
+          "restriction": "none",
+          "life": 0,
+          "minLands": 0
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-39:0:0",
+            "type": "C",
+            "source": "deck-39",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 7,
+        "event": "mana-activation",
+        "card": "Swamp",
+        "kind": "activation",
+        "source": "deck-84",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "cost": "",
+          "outputs": [
+            [
+              "B"
+            ]
+          ]
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-84:0:0",
+            "type": "B",
+            "source": "deck-84",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 7,
+        "event": "cast-paid",
+        "id": "deck-17",
+        "card": "Duskwalker",
+        "origin": "hand",
+        "kind": "payment",
+        "label": "spell",
+        "cost": "{B}",
+        "reduction": 0,
+        "context": {
+          "kind": "spell",
+          "types": [
+            "Creature"
+          ],
+          "subtypes": [
+            "Human",
+            "Minion"
+          ],
+          "commander": false
+        },
+        "spent": [
+          {
+            "id": "deck-84:0:0",
+            "type": "B",
+            "source": "deck-84",
+            "restriction": "none",
+            "paidFor": "B"
+          }
+        ]
+      },
+      {
+        "turn": 7,
+        "event": "permanent-resolved",
+        "id": "deck-17",
+        "card": "Duskwalker",
+        "tapped": false,
+        "effects": {
+          "manaUnknown": [],
+          "accessUnknown": [],
+          "other": "other Oracle effects unmodeled"
+        }
+      },
+      {
+        "turn": 7,
+        "event": "decision",
+        "policy": "development",
+        "chosen": "deck-6",
+        "kind": "cast",
+        "reason": "remaining supported deployment",
+        "commanderPayable": false,
+        "setupBudgetUsed": 1,
+        "alternatives": []
+      },
+      {
+        "turn": 7,
+        "event": "cast-paid",
+        "id": "deck-6",
+        "card": "Brass Gnat",
+        "origin": "hand",
+        "kind": "payment",
+        "label": "spell",
+        "cost": "{1}",
+        "reduction": 0,
+        "context": {
+          "kind": "spell",
+          "types": [
+            "Artifact",
+            "Creature"
+          ],
+          "subtypes": [
+            "Insect"
+          ],
+          "commander": false
+        },
+        "spent": [
+          {
+            "id": "deck-39:0:0",
+            "type": "C",
+            "source": "deck-39",
+            "restriction": "none",
+            "paidFor": "*"
+          }
+        ]
+      },
+      {
+        "turn": 7,
+        "event": "access-trigger-pending",
+        "source": "deck-2",
+        "phase": "cast",
+        "causedBy": "deck-6",
+        "origin": "hand"
+      },
+      {
+        "turn": 7,
+        "event": "access-resolving",
+        "source": "deck-2",
+        "reason": "trigger:cast",
+        "effects": [
+          {
+            "kind": "scry",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "turn": 7,
+        "event": "selection",
+        "kind": "scry",
+        "source": "deck-2",
+        "looked": [
+          "deck-82"
+        ],
+        "keep": [
+          "deck-82"
+        ],
+        "reject": [],
+        "destination": "bottom"
+      },
+      {
+        "turn": 7,
+        "event": "access-resolved",
+        "source": "deck-2",
+        "reason": "trigger:cast"
+      },
+      {
+        "turn": 7,
+        "event": "permanent-resolved",
+        "id": "deck-6",
+        "card": "Brass Gnat",
+        "tapped": false,
+        "effects": {
+          "manaUnknown": [],
+          "accessUnknown": [],
+          "other": "other Oracle effects unmodeled"
+        }
+      },
+      {
+        "turn": 7,
+        "event": "turn-end",
+        "hand": [
+          "Flitterwing Nuisance"
+        ],
+        "handIds": [
+          "deck-23"
+        ],
+        "library": [
+          "deck-82",
+          "deck-74",
+          "deck-28",
+          "deck-45",
+          "deck-97",
+          "deck-9",
+          "deck-60",
+          "deck-0",
+          "deck-12",
+          "deck-29",
+          "deck-41",
+          "deck-8",
+          "deck-61",
+          "deck-51",
+          "deck-86",
+          "deck-56",
+          "deck-70",
+          "deck-94",
+          "deck-5",
+          "deck-83",
+          "deck-49",
+          "deck-32",
+          "deck-31",
+          "deck-47",
+          "deck-33",
+          "deck-77",
+          "deck-46",
+          "deck-76",
+          "deck-38",
+          "deck-81",
+          "deck-90",
+          "deck-19",
+          "deck-59",
+          "deck-71",
+          "deck-58",
+          "deck-67",
+          "deck-42",
+          "deck-20",
+          "deck-1",
+          "deck-22",
+          "deck-40",
+          "deck-53",
+          "deck-96",
+          "deck-80",
+          "deck-3",
+          "deck-4",
+          "deck-43",
+          "deck-24",
+          "deck-69",
+          "deck-48",
+          "deck-75",
+          "deck-14",
+          "deck-25",
+          "deck-89",
+          "deck-7",
+          "deck-85",
+          "deck-50",
+          "deck-35",
+          "deck-72",
+          "deck-88",
+          "deck-44",
+          "deck-95",
+          "deck-91",
+          "deck-26",
+          "deck-73",
+          "deck-93",
+          "deck-92",
+          "deck-57",
+          "deck-36",
+          "deck-52",
+          "deck-18",
+          "deck-54",
+          "deck-15",
+          "deck-68",
+          "deck-66",
+          "deck-13",
+          "deck-16",
+          "deck-10",
+          "deck-21",
+          "deck-64",
+          "deck-98",
+          "deck-34"
+        ],
+        "graveyard": [
+          "deck-87",
+          "deck-78",
+          "deck-62"
+        ],
+        "exile": [],
+        "opponents": [],
+        "ceased": [],
+        "board": [
+          {
+            "id": "deck-65",
+            "card": "Island",
+            "tapped": true
+          },
+          {
+            "id": "deck-11",
+            "card": "Delver of Secrets // Insectile Aberration",
+            "tapped": false
+          },
+          {
+            "id": "deck-63",
+            "card": "Command Tower",
+            "tapped": true
+          },
+          {
+            "id": "deck-37",
+            "card": "Ornithopter of Paradise",
+            "tapped": true
+          },
+          {
+            "id": "deck-79",
+            "card": "Mirrodin's Core",
+            "tapped": true
+          },
+          {
+            "id": "deck-39",
+            "card": "Planar Atlas",
+            "tapped": true
+          },
+          {
+            "id": "deck-27",
+            "card": "Harrier Strix",
+            "tapped": false
+          },
+          {
+            "id": "deck-30",
+            "card": "Locthwain Gargoyle",
+            "tapped": false
+          },
+          {
+            "id": "deck-84",
+            "card": "Swamp",
+            "tapped": true
+          },
+          {
+            "id": "commander",
+            "card": "Yuriko, the Tiger's Shadow",
+            "tapped": false
+          },
+          {
+            "id": "deck-55",
+            "card": "Stronghold Confessor",
+            "tapped": false
+          },
+          {
+            "id": "deck-2",
+            "card": "Artificer's Assistant",
+            "tapped": false
+          },
+          {
+            "id": "deck-17",
+            "card": "Duskwalker",
+            "tapped": false
+          },
+          {
+            "id": "deck-6",
+            "card": "Brass Gnat",
+            "tapped": false
+          }
+        ],
+        "floatingExpires": [],
+        "life": 40
+      },
+      {
+        "turn": 8,
+        "event": "untap",
+        "sources": [
+          {
+            "id": "deck-65",
+            "types": [
+              "Basic",
+              "Land"
+            ],
+            "subtypes": [
+              "Island"
+            ],
+            "modes": [
+              {
+                "tap": true,
+                "cost": "",
+                "outputs": [
+                  [
+                    "U"
+                  ]
+                ]
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-11",
+            "types": [
+              "Creature"
+            ],
+            "subtypes": [
+              "Human",
+              "Wizard"
+            ],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-63",
+            "types": [
+              "Land"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "B"
+                  ],
+                  [
+                    "U"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-37",
+            "types": [
+              "Artifact",
+              "Creature"
+            ],
+            "subtypes": [
+              "Thopter"
+            ],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "W"
+                  ],
+                  [
+                    "U"
+                  ],
+                  [
+                    "B"
+                  ],
+                  [
+                    "R"
+                  ],
+                  [
+                    "G"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-79",
+            "types": [
+              "Land"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-39",
+            "types": [
+              "Artifact"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-27",
+            "types": [
+              "Creature"
+            ],
+            "subtypes": [
+              "Bird"
+            ],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-30",
+            "types": [
+              "Artifact",
+              "Creature"
+            ],
+            "subtypes": [
+              "Gargoyle"
+            ],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-84",
+            "types": [
+              "Basic",
+              "Land"
+            ],
+            "subtypes": [
+              "Swamp"
+            ],
+            "modes": [
+              {
+                "tap": true,
+                "cost": "",
+                "outputs": [
+                  [
+                    "B"
+                  ]
+                ]
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "commander",
+            "types": [
+              "Legendary",
+              "Creature"
+            ],
+            "subtypes": [
+              "Human",
+              "Ninja"
+            ],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-55",
+            "types": [
+              "Creature"
+            ],
+            "subtypes": [
+              "Human",
+              "Cleric"
+            ],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-2",
+            "types": [
+              "Creature"
+            ],
+            "subtypes": [
+              "Bird"
+            ],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-17",
+            "types": [
+              "Creature"
+            ],
+            "subtypes": [
+              "Human",
+              "Minion"
+            ],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-6",
+            "types": [
+              "Artifact",
+              "Creature"
+            ],
+            "subtypes": [
+              "Insect"
+            ],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          }
+        ]
+      },
+      {
+        "turn": 8,
+        "event": "draw",
+        "card": "Spire of Industry",
+        "id": "deck-82",
+        "reason": "natural"
+      },
+      {
+        "turn": 8,
+        "event": "land",
+        "id": "deck-82",
+        "card": "Spire of Industry",
+        "tapped": false,
+        "unknown": false
+      },
+      {
+        "turn": 8,
+        "event": "decision",
+        "policy": "development",
+        "chosen": "deck-27",
+        "kind": "activate",
+        "reason": "refill before running out of plays",
+        "commanderPayable": false,
+        "setupBudgetUsed": 1,
+        "alternatives": [
+          {
+            "id": "deck-23",
+            "kind": "cast",
+            "reason": "remaining supported deployment"
+          }
+        ]
+      },
+      {
+        "turn": 8,
+        "event": "access-announced",
+        "source": "deck-27",
+        "abilityIndex": 0
+      },
+      {
+        "turn": 8,
+        "event": "mana-activation",
+        "card": "Island",
+        "kind": "activation",
+        "source": "deck-65",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "cost": "",
+          "outputs": [
+            [
+              "U"
+            ]
+          ]
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-65:0:0",
+            "type": "U",
+            "source": "deck-65",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 8,
+        "event": "mana-activation",
+        "card": "Command Tower",
+        "kind": "activation",
+        "source": "deck-63",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "sacrifice": false,
+          "cost": "",
+          "outputs": [
+            [
+              "B"
+            ],
+            [
+              "U"
+            ]
+          ],
+          "restriction": "none",
+          "life": 0,
+          "minLands": 0
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-63:0:0",
+            "type": "B",
+            "source": "deck-63",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 8,
+        "event": "mana-activation",
+        "card": "Ornithopter of Paradise",
+        "kind": "activation",
+        "source": "deck-37",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "sacrifice": false,
+          "cost": "",
+          "outputs": [
+            [
+              "W"
+            ],
+            [
+              "U"
+            ],
+            [
+              "B"
+            ],
+            [
+              "R"
+            ],
+            [
+              "G"
+            ]
+          ],
+          "restriction": "none",
+          "life": 0,
+          "minLands": 0
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-37:0:0",
+            "type": "W",
+            "source": "deck-37",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 8,
+        "event": "activated-access-paid",
+        "source": "deck-27",
+        "abilityIndex": 0,
+        "kind": "payment",
+        "label": "access:deck-27",
+        "cost": "{2}{U}",
+        "reduction": 0,
+        "context": {
+          "kind": "ability",
+          "abilityType": "activated",
+          "types": [
+            "Creature"
+          ]
+        },
+        "spent": [
+          {
+            "id": "deck-65:0:0",
+            "type": "U",
+            "source": "deck-65",
+            "restriction": "none",
+            "paidFor": "U"
+          },
+          {
+            "id": "deck-63:0:0",
+            "type": "B",
+            "source": "deck-63",
+            "restriction": "none",
+            "paidFor": "*"
+          },
+          {
+            "id": "deck-37:0:0",
+            "type": "W",
+            "source": "deck-37",
+            "restriction": "none",
+            "paidFor": "*"
+          }
+        ]
+      },
+      {
+        "turn": 8,
+        "event": "access-costs",
+        "source": "deck-27",
+        "abilityIndex": 0,
+        "tap": false,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 8,
+        "event": "access-resolving",
+        "source": "deck-27",
+        "reason": "activation",
+        "effects": [
+          {
+            "kind": "draw",
+            "count": 1
+          },
+          {
+            "kind": "discard",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "turn": 8,
+        "event": "access-draw",
+        "card": "Island",
+        "id": "deck-74",
+        "reason": "activation",
+        "source": "deck-27"
+      },
+      {
+        "turn": 8,
+        "event": "discard",
+        "id": "deck-74",
+        "card": "Island",
+        "source": "deck-27"
+      },
+      {
+        "turn": 8,
+        "event": "access-resolved",
+        "source": "deck-27",
+        "reason": "activation"
+      },
+      {
+        "turn": 8,
+        "event": "turn-end",
+        "hand": [
+          "Flitterwing Nuisance"
+        ],
+        "handIds": [
+          "deck-23"
+        ],
+        "library": [
+          "deck-28",
+          "deck-45",
+          "deck-97",
+          "deck-9",
+          "deck-60",
+          "deck-0",
+          "deck-12",
+          "deck-29",
+          "deck-41",
+          "deck-8",
+          "deck-61",
+          "deck-51",
+          "deck-86",
+          "deck-56",
+          "deck-70",
+          "deck-94",
+          "deck-5",
+          "deck-83",
+          "deck-49",
+          "deck-32",
+          "deck-31",
+          "deck-47",
+          "deck-33",
+          "deck-77",
+          "deck-46",
+          "deck-76",
+          "deck-38",
+          "deck-81",
+          "deck-90",
+          "deck-19",
+          "deck-59",
+          "deck-71",
+          "deck-58",
+          "deck-67",
+          "deck-42",
+          "deck-20",
+          "deck-1",
+          "deck-22",
+          "deck-40",
+          "deck-53",
+          "deck-96",
+          "deck-80",
+          "deck-3",
+          "deck-4",
+          "deck-43",
+          "deck-24",
+          "deck-69",
+          "deck-48",
+          "deck-75",
+          "deck-14",
+          "deck-25",
+          "deck-89",
+          "deck-7",
+          "deck-85",
+          "deck-50",
+          "deck-35",
+          "deck-72",
+          "deck-88",
+          "deck-44",
+          "deck-95",
+          "deck-91",
+          "deck-26",
+          "deck-73",
+          "deck-93",
+          "deck-92",
+          "deck-57",
+          "deck-36",
+          "deck-52",
+          "deck-18",
+          "deck-54",
+          "deck-15",
+          "deck-68",
+          "deck-66",
+          "deck-13",
+          "deck-16",
+          "deck-10",
+          "deck-21",
+          "deck-64",
+          "deck-98",
+          "deck-34"
+        ],
+        "graveyard": [
+          "deck-87",
+          "deck-78",
+          "deck-62",
+          "deck-74"
+        ],
+        "exile": [],
+        "opponents": [],
+        "ceased": [],
+        "board": [
+          {
+            "id": "deck-65",
+            "card": "Island",
+            "tapped": true
+          },
+          {
+            "id": "deck-11",
+            "card": "Delver of Secrets // Insectile Aberration",
+            "tapped": false
+          },
+          {
+            "id": "deck-63",
+            "card": "Command Tower",
+            "tapped": true
+          },
+          {
+            "id": "deck-37",
+            "card": "Ornithopter of Paradise",
+            "tapped": true
+          },
+          {
+            "id": "deck-79",
+            "card": "Mirrodin's Core",
+            "tapped": false
+          },
+          {
+            "id": "deck-39",
+            "card": "Planar Atlas",
+            "tapped": false
+          },
+          {
+            "id": "deck-27",
+            "card": "Harrier Strix",
+            "tapped": false
+          },
+          {
+            "id": "deck-30",
+            "card": "Locthwain Gargoyle",
+            "tapped": false
+          },
+          {
+            "id": "deck-84",
+            "card": "Swamp",
+            "tapped": false
+          },
+          {
+            "id": "commander",
+            "card": "Yuriko, the Tiger's Shadow",
+            "tapped": false
+          },
+          {
+            "id": "deck-55",
+            "card": "Stronghold Confessor",
+            "tapped": false
+          },
+          {
+            "id": "deck-2",
+            "card": "Artificer's Assistant",
+            "tapped": false
+          },
+          {
+            "id": "deck-17",
+            "card": "Duskwalker",
+            "tapped": false
+          },
+          {
+            "id": "deck-6",
+            "card": "Brass Gnat",
+            "tapped": false
+          },
+          {
+            "id": "deck-82",
+            "card": "Spire of Industry",
+            "tapped": false
+          }
+        ],
+        "floatingExpires": [],
+        "life": 40
+      }
+    ]
+  },
+  "audit": {
+    "valid": true,
+    "errors": [],
+    "resourceAudit": true,
+    "zoneAudit": true
+  }
+}
