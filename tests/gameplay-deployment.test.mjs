@@ -103,6 +103,9 @@ test('Ulalek hybrid cast and subsequent Eldrazi plus CC are distinct payments wi
   const paid = r.trace.filter(e => e.turn === 6 && ['cast-paid','optional-trigger-paid'].includes(e.event)).flatMap(e => e.spent);
   assert.equal(paid.length, 5); assert.equal(new Set(paid.map(u => u.id)).size, 5);
   assert.equal(r.trace.filter(e => e.event === 'optional-trigger-paid')[0].spent.filter(u => u.type === 'C').length, 2);
+  assert.equal(auditDeploymentTrace(r,ula,cards).valid,true);
+  const altered=structuredClone(r);altered.trace.find(e=>e.event==='optional-trigger-paid').context.abilityType='activated';
+  assert.equal(auditDeploymentTrace(altered,ula,cards).valid,false);
 });
 test('cast-trigger Spawn cannot fund their own spell or pre-resolution optional payment', () => {
   const ula = c('Ulalek', '{0}', 'Legendary Creature — Eldrazi', 'Whenever you cast an Eldrazi spell, you may pay {C}{C}. If you do, copy all spells you control.');
@@ -156,6 +159,10 @@ test('independent ledger audit catches reused mana, tapping twice and changed pa
   assert.equal(auditDeploymentTrace(duplicate,commander,cards).valid,false);
   const changed = structuredClone(r); changed.trace.find(e=>e.event==='cast-paid').cost='{C}';
   assert.equal(auditDeploymentTrace(changed,commander,cards).valid,false);
+  const alteredContext=structuredClone(r);alteredContext.trace.find(e=>e.event==='cast-paid').context={kind:'ability',abilityType:'activated'};
+  assert.equal(auditDeploymentTrace(alteredContext,commander,cards).valid,false);
+  const changedGeneric=structuredClone(r);changedGeneric.trace.find(e=>e.event==='cast-paid').cost='{1}';
+  assert.equal(auditDeploymentTrace(changedGeneric,commander,cards).valid,false);
   const reused = structuredClone(r), j = reused.trace.findIndex(e=>e.event==='cast-paid');
   reused.trace.splice(j+1,0,structuredClone(reused.trace[j]));
   assert.equal(auditDeploymentTrace(reused,commander,cards).valid,false);

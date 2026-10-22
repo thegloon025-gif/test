@@ -41,6 +41,8 @@ assert.deepEqual(evaluateDeployment({commander,cards,seed,order,script:script?.a
 const prices=selected.map(c=>{assert.ok(priceOf(c)!==null);return {name:c.name,price:priceOf(c),printing:c.printing};});
 const estimatedPrice=prices.reduce((n,c)=>n+Math.round(c.price*100),0)/100;
 await writeFile(output,JSON.stringify({catalogSHA256,exportSHA256:createHash('sha256').update(exported).digest('hex'),estimatedPrice,
-  pricing:'Selected catalog Scryfall EUR estimates, owned basics; not verified EN NM offers',stipulatedDraws:!!script,ledgerAudit,prices,...result},null,2)+'\n');
+  pricing:'Resolved current catalog Scryfall EUR estimates, owned basics; not verified EN NM offers',
+  originalPrintingProvenance:'Unknown from plain text alone. Frozen benchmarking uses archived selected-printing ledgers instead.',
+  stipulatedDraws:!!script,ledgerAudit,prices,...result},null,2)+'\n');
 assert.equal(createHash('sha256').update(await readFile(cache+'/cards.json')).digest('hex'),catalogSHA256,'Catalog changed');
 console.log(output,estimatedPrice,'EUR',result.stats.casts.length,'paid casts',result.stats.optionalPayments.length,'separate optional payments; not combo execution');

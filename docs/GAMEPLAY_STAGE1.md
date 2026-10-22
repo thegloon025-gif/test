@@ -28,7 +28,7 @@ Traces record the opener, draws, land drops, individual activations, fee/spell/o
 
 ## Reproduce locally (Windows or Node shell)
 
-From the project directory with Node 22+ and the existing catalog in `data`:
+From the project directory with Node 22+ and the existing catalog in `data`. The full benchmark also expects Git and a checkout for source provenance; the standalone trace CLI needs only Node and the catalog:
 
 ```text
 node --test tests/gameplay-deployment.test.mjs
@@ -39,7 +39,7 @@ node tools/benchmark-gameplay.mjs data benchmarks/v12/local-stage1
 node tools/benchmark-gameplay.mjs data benchmarks/v12/local-generated --generate
 ```
 
-The trace CLI accepts complete exports with `*CMDR*` or `[Commander]`. It requires unambiguous exact catalog names and verifies 100 cards, singleton and color legality; it emits selected-printing prices and a catalog hash. It does not regenerate decks or alter policy. Benchmarking uses cached research only, verifies exact selected-record pricing and the €191 ceiling for fresh generation, and checks input hashes remain unchanged. Runtime fields are measurements; deterministic replays compare execution results without runtime fields. Outputs contain selected public card data, not the complete catalog or private account/cache content.
+The trace CLI accepts complete exports with `*CMDR*` or `[Commander]`. It requires unambiguous exact catalog names and verifies 100 cards, singleton and color legality; it emits the resolved current catalog printing prices and hash. A plain-text export lacks original printing identifiers: the CLI labels that provenance unknown and does not certify an original cart/printing total. Frozen benchmarking instead resolves archived selected-printing ledgers, including reversible export aliases (Wilhelt's selected Grimgrin is €10.77, not the other €1.33 catalog record). It verifies exact selected-record pricing and the €191 ceiling for fresh generation and checks input hashes remain unchanged. Neither tool alters policy or caches. Runtime fields are measurements; deterministic replays compare execution results without runtime fields. Outputs contain selected public card data, not the complete catalog or private account/cache content.
 
 ## Stage 2 prerequisites
 

@@ -1,6 +1,8 @@
 /** Read-only Stage 1 benchmark. Node 22+, no network or cache writes.
  * node tools/benchmark-gameplay.mjs CACHE_DIR OUTPUT_DIR [--generate]
  * --generate runs the unchanged strategy-first constructor for all five cases.
+ * --resume-generation retains separately fingerprinted completed generations,
+ * reaudits their exact records/traces, and generates any outstanding cases.
  * Frozen replay and fresh generation results are always separate artifacts. */
 import assert from 'node:assert/strict';
 import {readFile, writeFile, mkdir} from 'node:fs/promises';
@@ -13,10 +15,10 @@ import {selectedCards} from '../src/deckSelection.mjs';
 import {auditExportPricing} from '../src/pricing.mjs';
 import {readComboLibrary} from '../src/comboLibrary.mjs';
 import {prepareCommunityConstruction} from '../src/communityConstruction.mjs';
-import {validateCommanderSingleton} from '../src/deckValidation.mjs';
+import {validateCommanderSingleton, exportCardName} from '../src/deckValidation.mjs';
 import {oracleId, legalFor, priceOf} from '../src/cards.mjs';
 const [cache, output, generate] = process.argv.slice(2);
-if (!output || generate && generate !== '--generate') throw Error('Supply CACHE_DIR OUTPUT_DIR [--generate]');
+if (!output || generate && !['--generate','--resume-generation'].includes(generate)) throw Error('Supply CACHE_DIR OUTPUT_DIR [--generate|--resume-generation]');
 const root = new URL('../', import.meta.url), hash = x => createHash('sha256').update(x).digest('hex');
 const inputs = {};
 for (const file of ['cards.json','community-decks.json','combo-library.json']) inputs[file] = hash(await readFile(cache + '/' + file));
@@ -36,6 +38,14 @@ for (const path of ['src/gameplayMana.mjs','src/gameplayCards.mjs','src/gameplay
 const metadata = {sourceBaseCommit: execFileSync('git', ['rev-parse','HEAD'], {encoding:'utf8'}).trim(), sourceSHA256, inputs, frozenBaselineSHA256: frozenBaseline, trials, seed,
   pricing: 'Exact selected eligible Scryfall EUR records; owned basics; not verified English NM offers', rankingIntegration: false};
 const rows = [], fresh = [];
+const previous = generate === '--resume-generation' ? JSON.parse(await readFile(output+'/fresh-generation.json')) : null;
+if(previous) { assert.deepEqual(previous.metadata.inputs,inputs); for(const file of ['src/generator.mjs','src/strategyFirst.mjs']) assert.equal(previous.metadata.sourceSHA256[file],sourceSHA256[file]); }
+function archivedRecord(row) {
+  const matches=catalog.filter(c=>c.name===row.name&&(!row.id||oracleId(c)===row.id)&&JSON.stringify(c.printing)===JSON.stringify(row.printing));
+  assert.equal(matches.length,1,'Archived record missing/ambiguous: '+row.name);
+  assert.equal(row.id?priceOf(matches[0]):matches[0].prices?.eur,row.price,'Archived selected price changed: '+row.name);
+  return matches[0];
+}
 function parseDeck(text) {
   return text.trim().split(/\r?\n/).flatMap(line => {
     const m = line.replace(/\s+(?:\*CMDR\*|\[Commander\])$/, '').match(/^(\d+)x?\s+(.+)$/);
@@ -56,16 +66,10 @@ function auditSelection(selected, commander) {
 }
 for (const [slug, name, bracket, path] of cases) {
   const commander = catalog.find(c => c.name === name), beforeText = await readFile(new URL(path, root), 'utf8');
-  const selected = parseDeck(beforeText), audit = auditSelection(selected, commander), start = performance.now();
   const archived = slug.startsWith('ulalek') ? JSON.parse(await readFile(new URL(path.replace('.txt','-audit.json'),root))).selectedPrintings
     : JSON.parse(await readFile(new URL('benchmarks/restoration-followup/generated-after.json',root))).find(r=>r.name===name&&r.bracket===bracket).selected;
-  assert.equal(archived.length,selected.length);
-  for(let i=0;i<selected.length;i++) {
-    assert.equal(selected[i].name,archived[i].name,'Frozen export/printing order differs');
-    assert.deepEqual(selected[i].printing,archived[i].printing,'Selected printing changed since frozen experiment');
-    if(archived[i].id) assert.equal(oracleId(selected[i]),archived[i].id);
-    else assert.equal(selected[i].prices?.eur,archived[i].price,'Catalog price changed since frozen experiment');
-  }
+  const selected=archived.map(archivedRecord), exported=parseDeck(beforeText), audit=auditSelection(selected,commander), start=performance.now();
+  assert.deepEqual(exported.map(exportCardName),selected.map(exportCardName),'Frozen export/selected-record quantities or order differ');
   const runs = [];
   for (let trial = 0; trial < trials; trial++) {
     const options = {commander, cards: selected.slice(1), seed: seed + ':' + trial};
@@ -84,12 +88,25 @@ for (const [slug, name, bracket, path] of cases) {
   rows.push(row); console.log('Replay',slug,row.audit.price,row.summary,row.runtimeMsIncludingReplay,'ms');
   await writeFile(output + '/frozen-replay.json', JSON.stringify({metadata, rows}, null, 2) + '\n');
   if (generate) {
+    const prior=previous?.rows.find(r=>r.slug===slug);
+    if(prior) {
+      const records=prior.audit.selectedPrintings.map(archivedRecord); assert.deepEqual(auditSelection(records,commander),prior.audit);
+      const saved=parseDeck(await readFile(`${output}/${slug}-generated.txt`,'utf8'));
+      assert.deepEqual(saved.map(exportCardName),records.map(exportCardName));
+      assert.deepEqual(records.map(exportCardName),archived.map(archivedRecord).map(exportCardName),'Resumed generation unexpectedly differs; rerun --generate');
+      const replay=evaluateDeployment({commander,cards:records.slice(1),seed:seed+':0'});
+      assert.ok(auditDeploymentTrace(replay,commander,records.slice(1)).valid);
+      assert.equal(hash(JSON.stringify(replay)),row.runs[0].traceSHA256,'Resumed selected records replay differently');
+      fresh.push({...prior,generationProvenance:{sourceBaseCommit:previous.metadata.sourceBaseCommit,sourceSHA256:previous.metadata.sourceSHA256},resumed:true});
+      await writeFile(output+'/fresh-generation.json',JSON.stringify({metadata,rows:fresh},null,2)+'\n');
+      console.log('Retained independently generated result',slug,prior.audit.price,prior.runtimeMs,'ms'); continue;
+    }
     console.log('Generating',slug); const start = performance.now();
     const d = generateDeck({cards:catalog,commander,budget:191,bracket,powerTarget:bracket===3?'high':'balanced',constructionMode:'strategy-first',
       comboVariants:library.find(e=>e.commanderId===oracleId(commander))?.variants || [], communityBuild:prepareCommunityConstruction({decks:research,commander,bracket,catalog}),communityDecks:research});
     const selected = selectedCards(d), exact = auditExportPricing(d,commander,catalog), audit = auditSelection(selected,commander);
     assert.ok(exact.agreesWithGenerator && exact.withinBudget && !exact.anomalies.length && exact.count === 100);
-    const names = a => {const map = new Map(); for(const c of a) map.set(c.name,(map.get(c.name)||0)+1); return map;};
+    const names = a => {const map = new Map(); for(const c of a) {const name=exportCardName(c);map.set(name,(map.get(name)||0)+1);} return map;};
     const before=names(parseDeck(beforeText)), after=names(selected), differences=[];
     for(const name of new Set([...before.keys(),...after.keys()])) if(before.get(name)!==after.get(name)) differences.push({card:name,before:before.get(name)||0,after:after.get(name)||0});
     const freshRun = evaluateDeployment({commander,cards:selected.slice(1),seed:seed+':0'}), ledgerAudit=auditDeploymentTrace(freshRun,commander,selected.slice(1)); assert.ok(ledgerAudit.valid);
