@@ -34,7 +34,7 @@ export function evaluateGameplay({commander,cards,seed='gameplay-stage2-v1',turn
   function reductionFor(c){return active().flatMap(s=>s.model.reducers).reduce((n,r)=>n+((r.kind==='colorless'&&isColorless(c)||r.kind==='creatures'&&isCreature(c)||r.kind==='firstCreature'&&isCreature(c)&&!creatureCasts)?r.amount:0),0);}
   function castPlan(slot,reserve=true,record=true){
     const m=slot.model;if((!m.permanent&&!m.ritualMana&&!(access&&slot.access.direct))||cardSubtypes(slot.card).includes('Aura'))return {status:'unknown',reason:'target/nonpermanent effects unsupported',states:0};
-    if(m.extraCost||m.cost==null||!parseManaCost(m.cost)||active().some(s=>s.model.unknownTax))return {status:'unknown',reason:'unknown cost or battlefield tax',states:0};
+    if(m.extraCost||m.cost==null||m.cost===''||!parseManaCost(m.cost)||active().some(s=>s.model.unknownTax))return {status:'unknown',reason:'unknown/unpayable base cost or battlefield tax',states:0};
     if(/enters under the control of an opponent/i.test(cardText(slot.card)))return {status:'unknown',reason:'enters under opponent control',states:0};
     const triggers=active().filter(s=>s.model.castPayment&&cardSubtypes(slot.card).includes(s.model.castPayment.subtype));
     const payments=[{label:'spell',cost:m.cost,reduction:reductionFor(slot.card),context:castContext(slot.card,slot===command)}];

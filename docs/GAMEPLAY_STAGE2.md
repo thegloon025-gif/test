@@ -44,6 +44,8 @@ Stage 1 keeps the original search by default. Stage 2 opts into:
 
 The actual search still produces distinct, legal activation and spending receipts. Tests cross-check optimized and exhaustive small-source legacy outcomes, restricted fees/trigger costs, source use and atomic unknown behavior. The benchmark separately replays the exact original bound-hit inputs, an extended legacy cross-check, and full newly evaluated policies; those are different experiments.
 
+A spell with no mana cost is not a free `{0}` spell. Stage 2 leaves its normal casting unknown/unpayable; suspend and alternate-cost permission are not inferred. Zero-mana activated costs and explicit `{0}` spell costs remain distinct and supported.
+
 ## Metrics, audits and uncertainty
 
 Per-turn observations record actual commander presence and first deployment turn; independent affordable mana-type/generic counts for the commander context; separately affordable triggered `{C}{C}`; effect/natural draws, discards, top returns/casts, hand size; supported/unknown native channels deployed, ready and actually used; payable large native bodies; and missed plays with underlying causes. Mana-type maxima are **not simultaneous or additive**; counts saturate at the documented 16-unit observation cap. Unknown query results remain null/unknown.

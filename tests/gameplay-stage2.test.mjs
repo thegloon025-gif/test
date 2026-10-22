@@ -76,6 +76,7 @@ test('unsupported counters, combat, paid triggers, equipment grants and modal ac
   const m=accessModel(c('Unsupported','{0}','Artifact',text));assert.equal(m.direct,null);assert.equal(m.abilities.length+m.triggers.length,0);assert.ok(m.unknown.length);
  }
  assert.equal(accessEffects('Draw two cards unless an opponent pays {3}.'),null);
+ const absent=run([c('No mana cost','','Sorcery','Draw three cards.'),...fillers(6)],{1:[cast('No mana cost')]});assert.equal(absent.stats.effectDraws,0);assert.equal(absent.trace.find(e=>e.event==='action-failed').status,'unknown');
 });
 test('commander-first and development policies reveal distinct deployment tradeoffs',()=>{
  const commander=c('Leader','{2}','Legendary Creature — Eldrazi'),cards=[land('A'),land('B'),land('C'),c('Rock','{2}','Artifact','{T}: Add {C}.'),...fillers()];
