@@ -1,3 +1,7 @@
+### Draft PR #4 — Native strategy execution
+
+Stage 4 adds an opt-in supported own-stack model for native copying, multiplication, cascade, tutors and resolved token resources. Exact payments and stack/zone receipts are independently audited; bounds and unimplemented mechanics remain unknown. Production selection and version 1.1.5 stay unchanged. See [model and local commands](docs/GAMEPLAY_STAGE4.md) and [validation](benchmarks/v12/stage4-VALIDATION.md).
+
 ### Draft PR #4 — Gameplay-aware shadow experiments
 
 Stage 3 adds an offline comparison of complete coordinated repairs using common card identities, three fixed pilots and holdout seeds. Exact payments, zones, selected printings and budgets are audited; unsupported native strategies force abstention. Production construction and selection remain unchanged. See [method and Windows commands](docs/GAMEPLAY_STAGE3.md) and [validation](benchmarks/v12/stage3-VALIDATION.md). Version remains 1.1.5; no external power improvement is claimed.

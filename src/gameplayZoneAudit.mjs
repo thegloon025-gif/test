@@ -4,8 +4,10 @@
 import {auditDeploymentTrace} from './gameplayAudit.mjs';
 import {accessModel,accessCondition,entryMatches,matchesCastFilter,topCastAllowed} from './gameplayAccess.mjs';
 import {cardModel,isCreature,isLand} from './gameplayCards.mjs';
+import {auditNativeGameplayTrace} from './gameplayNativeAudit.mjs';
 const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
 export function auditGameplayTrace(result,commander,cards){
+  if(result.schemaVersion===4)return auditNativeGameplayTrace(result,commander,cards);
   const resources=auditDeploymentTrace(result,commander,cards),errors=[...resources.errors],definitions=new Map(cards.map((card,i)=>['deck-'+i,{id:'deck-'+i,card}]));definitions.set('commander',{id:'commander',card:commander});
   const zones=new Map([...definitions].map(([id])=>[id,id==='commander'?'command':'library'])),library=result.order.map(i=>'deck-'+i),hand=[],board=new Map();
   let turn=0,landDrops=0,pendingSpell=null,pendingTrigger=null,announced=null,paidAbility=null,frame=null,tokenBudget=null;

@@ -66,7 +66,7 @@ export function summarizeShadowRun(run,pre,{commander,cards=[]}={}){
  }
  return {seed:run.seed,policy:run.policy,metrics:{modelSurvival:Number(!run.lost),commanderByT5:Number(commanderTurn!==null&&commanderTurn<=5),commanderByT8:Number(commanderTurn!==null),commanderTempo:commanderTurn===null?0:9-commanderTurn,
   netAccess:final?.netAccessibleCards??null,realizedDraws:run.stats.effectDraws,topCasts:run.stats.topCasts,
-  optionalPayments:[commander,...cards].filter(Boolean).some(c=>cardModel(c,commander?.color_identity||[]).castPayment)?run.stats.optionalPayments.length:null,
+  optionalPayments:[commander,...cards].filter(Boolean).some(c=>cardModel(c,commander?.color_identity||[]).castPayment)?run.stats.optionalPayments.filter(p=>!p.copy).length:null,
   supportedEngineUses:run.stats.usedEngines.length,
   observedLargeNativeCasts:run.stats.casts.filter(c=>!c.commander&&run.observations.some(o=>o.turn===c.turn&&o.threatsBeforeActions.some(t=>t.card===c.card))).length},
   commanderTurn,coverage:run.coverage,unknown:run.unknown.filter(u=>u.access.length||u.other.length),boundHits:run.stats.boundHits,actionBoundHits:run.stats.actionBoundHits,lost:run.lost,
@@ -76,21 +76,25 @@ export function summarizeShadowRun(run,pre,{commander,cards=[]}={}){
 /** Exact records, model fingerprint, seed and pilot all enter the bounded LRU.
  * The cache contains summaries, not mutable game state. Audit each miss and
  * replay deterministically; never store failed/unaudited traces. */
-export function createShadowEvaluator({modelFingerprint,maxEntries=128,replay=true}={}){
+export function createShadowEvaluator({modelFingerprint,maxEntries=128,replay=true,nativeExecution=false}={}){
  if(!modelFingerprint||!Number.isInteger(maxEntries)||maxEntries<1||maxEntries>1024)throw Error('Explicit model fingerprint and bounded cache required');
  const cache=new Map(),stats={evaluations:0,hits:0,evictions:0,audits:0,replays:0,runtimeMs:0,keyMs:0,simulationMs:0,auditMs:0,replayMs:0,summaryMs:0,maxEntriesObserved:0};
  function evaluate({commander,cards,seed,policy,includeTrace=false}){
   if(!SHADOW_POLICIES.includes(policy))throw Error('Fixed shadow policy required');
   const keyStart=performance.now();
   const record=c=>({id:oracleId(c),name:c.name,price:priceOf(c),record:c});
-  const key=hash(JSON.stringify({schema:SHADOW_SCHEMA,modelFingerprint,commander:record(commander),cards:cards.map(record),seed,policy,mulligan:'none'}));
+  const key=hash(JSON.stringify({schema:SHADOW_SCHEMA,modelFingerprint,commander:record(commander),cards:cards.map(record),seed,policy,mulligan:'none',...(nativeExecution?{nativeExecution:true}:{})}));
   stats.keyMs+=performance.now()-keyStart;
   if(cache.has(key)&&!includeTrace){const value=cache.get(key);cache.delete(key);cache.set(key,value);stats.hits++;return structuredClone(value);}
-  const start=performance.now(),pre=[],options={commander,cards,seed,policy,order:commonIdentityOrder(cards,seed),mulligan:'none'};
+  const start=performance.now(),pre=[],options={commander,cards,seed,policy,order:commonIdentityOrder(cards,seed),mulligan:'none',...(nativeExecution?{nativeExecution:true}:{})};
   const simulationStart=performance.now(),run=evaluateGameplay({...options,onPreAction:p=>pre.push(p)});stats.simulationMs+=performance.now()-simulationStart;
   const auditStart=performance.now(),audit=auditGameplayTrace(run,commander,cards);stats.auditMs+=performance.now()-auditStart;if(!audit.valid)throw Error(JSON.stringify(audit));stats.audits++;
   if(replay){const replayStart=performance.now(),repeated=evaluateGameplay(options);if(JSON.stringify(repeated)!==JSON.stringify(run))throw Error('Diagnostic observation changed deterministic trace');stats.replayMs+=performance.now()-replayStart;stats.replays++;}
-  const summaryStart=performance.now(),result={key,audit,summary:summarizeShadowRun(run,pre,{commander,cards})};stats.summaryMs+=performance.now()-summaryStart;stats.evaluations++;stats.runtimeMs+=performance.now()-start;
+  const summaryStart=performance.now(),summary=summarizeShadowRun(run,pre,{commander,cards});
+  if(nativeExecution){summary.native=run.stats.native;summary.nativeExecution=run.nativeExecution;summary.boundHits+=run.stats.native.boundHits;
+   if(run.nativeExecution.boundedUnknown)summary.metrics=Object.fromEntries(Object.keys(summary.metrics).map(k=>[k,null]));
+  }
+  const result={key,audit,summary};stats.summaryMs+=performance.now()-summaryStart;stats.evaluations++;stats.runtimeMs+=performance.now()-start;
   cache.set(key,result);if(cache.size>maxEntries){cache.delete(cache.keys().next().value);stats.evictions++;}stats.maxEntriesObserved=Math.max(stats.maxEntriesObserved,cache.size);return structuredClone({...result,...(includeTrace?{run}:{})});
  }
  return {evaluate,stats};

@@ -1,3 +1,9 @@
+## Unreleased — draft PR #4 Native strategy execution
+
+- Add an opt-in bounded own-stack evaluator for supported Ulalek payments, additive trigger multiplication, copies versus casts, cascade, native tutors, post-resolution tokens and card access. Preserve default model, production construction/selection and version 1.1.5.
+- Independently replay stack/zone/resource receipts and reconcile actual native counters. Partial copy expansion stops as a suspended unknown, without fabricated resources, combo execution or wins.
+- Add controlled and real-card native sequences, repeat frozen shadow comparisons under larger disjoint cohorts and preserve unfamiliar-strategy abstention. See `docs/GAMEPLAY_STAGE4.md` and `benchmarks/v12/stage4-VALIDATION.md`. No release or external power claim.
+
 ## Unreleased — draft PR #4 Gameplay-aware shadow optimization
 
 - Add offline, bounded complete-deck shadow experiments around the existing atomic investment infrastructure; preserve production construction, selection and version 1.1.5.

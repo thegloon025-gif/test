@@ -2,6 +2,7 @@
 import {parseManaCost, manaAllowed} from './gameplayMana.mjs';
 import {cardModel, cardTypes, cardSubtypes, castContext, isCreature, isLand} from './gameplayCards.mjs';
 import {accessModel} from './gameplayAccess.mjs';
+import {nativeModel} from './gameplayNative.mjs';
 export function auditDeploymentTrace(result, commander, cards) {
   const definitions = new Map(cards.map((c, i) => ['deck-' + i, c])); definitions.set('commander', commander);
   const board = new Map(), pool = new Map(), errors = [];
@@ -28,7 +29,9 @@ export function auditDeploymentTrace(result, commander, cards) {
   }
   for (const e of result.trace) {
     turn = e.turn;
-    if (e.event === 'untap') {
+    if(e.event==='copy-created'&&result.schemaVersion===4){const card=definitions.get(e.original);if(!card||definitions.has(e.id))error(e.event,'invalid copy definition');else definitions.set(e.id,card);
+    }else if(e.event==='native-legend-rule'&&result.schemaVersion===4)board.delete(e.id);
+    else if (e.event === 'untap') {
       pool.clear();
       for (const s of board.values()) if (!s.model.noNaturalUntap) s.tapped = false;
     } else if (e.event === 'land' || e.event === 'permanent-resolved' || e.event === 'token-created') {
@@ -57,7 +60,11 @@ export function auditDeploymentTrace(result, commander, cards) {
       if (!card) { error(e.event,'unknown spell identity'); continue; }
       pendingSpell=card;
       const context=castContext(card,e.id==='commander'), cost=cardModel(card).cost+(e.id==='commander'&&result.assumptions.commanderTaxPriorCasts?`{${2*result.assumptions.commanderTaxPriorCasts}}`:'');
-      if (JSON.stringify(context)!==JSON.stringify(e.context) || e.cost!==cost) error(e.event,'spell context/printed cost differs');
+      if (JSON.stringify(context)!==JSON.stringify(e.context) || e.cost!==(result.schemaVersion===4&&e.freeCast?'':cost)) error(e.event,'spell context/printed cost differs');
+      spend(e.spent,e.cost,context,e.reduction);
+    } else if(e.event==='native-trigger-paid'&&result.schemaVersion===4){
+      const card=definitions.get(e.source),cause=definitions.get(e.causedBy),context={kind:'ability',abilityType:'triggered',types:card?cardTypes(card):[]};
+      if(!card||!nativeModel(card).ulalek||!cause||!cardSubtypes(cause).includes('Eldrazi')||e.cost!=='{C}{C}'||e.reduction!==0||JSON.stringify(context)!==JSON.stringify(e.context))error(e.event,'invalid native optional payment');
       spend(e.spent,e.cost,context,e.reduction);
     } else if (e.event === 'optional-trigger-paid') {
       const source=board.get(e.label.replace(/^cast-trigger:/,''));
