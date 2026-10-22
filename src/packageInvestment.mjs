@@ -142,7 +142,7 @@ function combinations(items,n){if(n===0)return [[]];return items.flatMap((x,i)=>
 const gained=(next,old)=>Object.fromEntries(Object.keys(old.vector).filter(k=>next.vector[k]!==old.vector[k]).map(k=>[k,next.vector[k]-old.vector[k]]));
 
 export function refinePackageInvestments({built,pool,commander,plan=planFor(commander),budget,bracket=3,limits=selectionLimits(plan,Number(bracket)),
- source=null,startingDecks=[],protectionBaseline=built?.cards,comboViolation=()=>null,score=()=>0,packages=[],traceNames=[],maxRounds=3,beamWidth=2,maxEvaluations=40,observeProposal=null,shadowOnly=false,shadowProtectedNames=[]}={}){
+ source=null,startingDecks=[],protectionBaseline=built?.cards,comboViolation=()=>null,score=()=>0,packages=[],traceNames=[],maxRounds=3,beamWidth=2,maxEvaluations=40,observeProposal=null,shadowOnly=false,shadowProtectedNames=[],shadowProposals=[]}={}){
  if(!built||built.status!=='ok')return built;
  const memo=new WeakMap(),scoreMemo=new WeakMap(),strategyMemo=new WeakMap(),manaMemo=new WeakMap();
  const manaFor=c=>{if(!manaMemo.has(c))manaMemo.set(c,manaCapacity(c));return manaMemo.get(c);};
@@ -330,6 +330,18 @@ export function refinePackageInvestments({built,pool,commander,plan=planFor(comm
      if(evaluationSchedule.length>=report.limits.maxEvaluations)break;
     }if(!changed)break;}
    }
+   // Explicit bounded experiments reuse every gate below. This path cannot
+   // affect default/production scheduling, scoring or its returned winner.
+   if(shadowOnly&&shadowProposals.length){
+    evaluationSchedule=[];const declared=new Set();
+    for(const request of shadowProposals.slice(0,64)){
+     const add=request.add,remove=request.remove;
+     if(!Array.isArray(add)||!Array.isArray(remove)||add.length<1||add.length>3||remove.length!==add.length||new Set(remove).size!==remove.length||add.some(c=>!candidates.includes(c))||remove.some(c=>!state.cards.includes(c))){reject('invalid declared shadow package');continue;}
+     const before=proposals.length;propose(add,remove,'declared shadow package:'+String(request.id||'package'));
+     if(proposals.length>before){const p=proposals.at(-1);if(!declared.has(p.key)){declared.add(p.key);evaluationSchedule.push(p);}}
+    }
+    evaluationSchedule=evaluationSchedule.slice(0,report.limits.maxEvaluations);
+   }
    const prior=new Map(state.cards.map(c=>[c,dependencyEvidence(c,state.cards)]));
    for(const p of evaluationSchedule){
     report.evaluated++;seen.add(p.key);for(const c of p.add){const w=watch.get(c.name);if(w)w.considered++;}
@@ -345,6 +357,7 @@ export function refinePackageInvestments({built,pool,commander,plan=planFor(comm
      observeProposal({label:p.label,cards:p.cards.slice(),add:p.add.slice(),remove:p.remove.slice(),price:round(p.price),productionReason:reason||'accepted',shadowReasons:[...hard,...extra],before:current,after:e});
     };
     const fail=reason=>{record(p.add,reason);observe(reason);},lands=p.cards.filter(isLandSlot);
+    if(shadowOnly&&p.remove.some(c=>protectedNames.has(c.name))){fail('protected native/access infrastructure');continue;}
     if(p.remove.some(c=>{const m=manaFor(c);return m.fast&&m.units>=2&&p.cards.filter(x=>{const n=manaFor(x);return n.fast&&n.units>=m.units;}).length<state.cards.filter(x=>{const n=manaFor(x);return n.fast&&n.units>=m.units;}).length;})){fail('high-output early mana');continue;}
     const maxSources=Math.max(Number(bracket)===4?13:Number(bracket)===3?12:10,state.cards.filter(c=>manaFor(c).units>0).length);
     if(p.cards.filter(c=>manaFor(c).units>0).length>maxSources){fail('ramp overprovision');continue;}

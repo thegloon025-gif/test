@@ -694,3 +694,5 @@ Card information and price estimates from [Scryfall](https://scryfall.com). Magi
 `benchmarks/ulalek-v01-user.txt` is the actual first Ulalek €191 / Bracket 3 exported list provided by the user. It is **not** a trusted strong deck, not a generator preset, and is only saved so we can compare real changes after rerunning v0.3 with the user's local database.
 
 Stage 5 developer-only native execution: [supported mechanics and offline reproduction](docs/GAMEPLAY_STAGE5.md), [validation](benchmarks/v12/stage5-VALIDATION.md). Production selection and app version remain unchanged.
+
+Stage 6 developer-only construction experiments: [model, terminal contract and Windows reproduction](docs/GAMEPLAY_STAGE6.md), [new complete-deck challengers and validation](benchmarks/v12/stage6-VALIDATION.md). Shadow only; production ranking and version 1.1.5 remain unchanged.

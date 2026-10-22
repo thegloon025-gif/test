@@ -1,3 +1,9 @@
+## Unreleased development — Stage 6 (version remains 1.1.5)
+
+- Discover new source/Oracle-backed complete shadow challengers with bounded coordinated access, mana, tutor/follow-up, land and answer packages through existing investment safeguards. Production generation and candidate selection remain unchanged.
+- Separate observed T8 completion, supported conditional lethal, model loss and runtime/search unknowns; preserve missing future observations and interval-valued unknown outcomes.
+- Freeze complete candidates, all fixed pilots/decisions and disjoint samples before prospective comparisons; add exact-printing exports, independent persisted audits, prefix engine-value diagnostics and an explicit integration-readiness screen. See `docs/GAMEPLAY_STAGE6.md` and `benchmarks/v12/stage6-VALIDATION.md` for actual results and limitations.
+
 ## Unreleased — draft PR #4 Native strategy execution
 
 ## Unreleased development — Stage 5 (version remains 1.1.5)
