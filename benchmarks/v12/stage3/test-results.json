@@ -1,0 +1,60 @@
+{
+  "coreCommit": "436df81d66677dd39268c70dac98182d68d57aa0",
+  "nodeVersion": "v24.19.0",
+  "baseline": {
+    "tests": 234,
+    "pass": 234,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0,
+    "durationMs": 128846.063473
+  },
+  "focused": {
+    "tests": 58,
+    "pass": 58,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0,
+    "durationMs": 3722.724033
+  },
+  "full": {
+    "tests": 253,
+    "pass": 253,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0,
+    "durationMs": 148295.106744
+  },
+  "catalogAndResearchUnchanged": true,
+  "stage1AndStage2ArchivesUnchanged": true,
+  "historicalExternalMeasurementsUnchanged": true,
+  "windowsLauncherAndVersionUnchanged": true,
+  "productionGeneratorStrategyAndLegacyExecutionUnchanged": true,
+  "benchmarkSourceHashesMatchCommittedCore": true,
+  "independentAudit": {
+    "sourceBaseCommit": "3ece65b376ffaa2f6b940a757f2b5b1a3758467c",
+    "auditorSHA256": "bcab107958c18248ba5d6762a308288eb1bcc0fa7902fe8a00c2b61b6fb4633e",
+    "catalogSHA256": "6add2c5dd20809fd787438d3c8825f8dd21a74e7d3fc429f83c7a9a091045f6c",
+    "exactExportAudits": 205,
+    "selectedPrintingRecordChecks": 3200,
+    "representativeResourceAndZoneAudits": 50,
+    "compressedRunVectorsAudited": 1944,
+    "originalStage1TraceHashesMatched": 160,
+    "originalStage2SampleTracesMatched": 15,
+    "minimumPrice": 101.56,
+    "maximumPrice": 187.84,
+    "allWithin191": true,
+    "all100SingletonLegal": true,
+    "allBracketInventoryGatesPassed": true,
+    "runtimeMs": 2677
+  },
+  "benchmarkCohortRuns": 1944,
+  "benchmarkAuditedEvaluationsIncludingSamples": 1988,
+  "benchmarkDeterministicReplays": 1988,
+  "additionalMechanismTraceRuns": 6,
+  "additionalMechanismTraceAudits": 6,
+  "additionalMechanismTraceReplays": 6
+}

@@ -45,6 +45,8 @@ git switch codex/v1.2-gameplay-intelligence
 node --test tests/gameplay-shadow.test.mjs tests/gameplay-stage2.test.mjs tests/gameplay-deployment.test.mjs
 npm test
 node tools/benchmark-shadow-gameplay.mjs C:\path\to\frozen-data C:\path\to\shadow-results
+node tools/explain-shadow-results.mjs C:\path\to\frozen-data C:\path\to\shadow-results
+node tools/audit-shadow-artifacts.mjs C:\path\to\frozen-data C:\path\to\shadow-results --compress-runs
 ```
 
 Optional discovery-only check:
@@ -53,7 +55,7 @@ Optional discovery-only check:
 node tools/benchmark-shadow-gameplay.mjs C:\path\to\frozen-data C:\path\to\shadow-screen --screen-only
 ```
 
-The harness reads the archived exact printing ledger, catalog and cached research, and performs no network requests. Outputs include complete before/after `.txt` imports, exact-printing audits, all scheduled proposal explanations/capabilities, paired statistics, per-turn observations and representative full resource/zone traces. Original archived Stage 1/2 outputs and user-observed external scores are fingerprinted before/after. Startup/UI behavior remains available through the unchanged `start-windows.bat`; the UI does not adopt shadow repairs.
+The harness reads the archived exact printing ledger, catalog and cached research, and performs no network requests. Outputs include complete before/after `.txt` imports, exact-printing audits, all scheduled proposal explanations/capabilities, paired statistics, per-turn observations and representative full resource/zone traces. The explanation tool produces readable decisions, paired turn intervals and illustrative mechanism/counterexample traces. The separate audit rechecks every export, selected printing and sample receipt, then losslessly compresses only the generated run logs (`*-runs.json.gz`) with raw/gzip hashes. Original archived Stage 1/2 outputs and user-observed external scores are fingerprinted before/after. Startup/UI behavior remains available through the unchanged `start-windows.bat`; the UI does not adopt shadow repairs.
 
 ## What is required before production integration
 
