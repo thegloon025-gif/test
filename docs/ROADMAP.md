@@ -2,6 +2,16 @@
 
 Last revised: 2026-10-22. Local, deterministic Commander generator: **no paid AI API** is needed to build a deck.
 
+## v1.2 Gameplay Intelligence (draft PR #4, no release)
+
+- [x] Stage 0: freeze user-observed B3/B4 external measurements without overwriting their historical meaning.
+- [x] Stage 1 foundation: independent bounded turns 1–8 resource ledger, actual seeded hands/draws, land/ramp timing, exact mana/restrictions/fees, sickness, separate optional cast-trigger payments and post-resolution token resources.
+- [x] Reproducible execution traces, independent receipt audit, unknown mechanics and search bounds; fixed-cache Ulalek B3/B4, Yuriko, Wilhelt and Zada validation. No ranking integration or version change.
+- [ ] Expand hand-reviewed stateful draw, tutor, conditional source, alternate-face, combat/ninjutsu, target-copy and sacrifice/death coverage before measuring complete strategy execution.
+- [ ] Stage 2: validate paired gameplay measurements and pilot policies, then feed bottlenecks into coherent package construction. Do not replace the objective with incomplete probes or spending bonuses.
+
+See [Stage 1 model](GAMEPLAY_STAGE1.md) and [validation](../benchmarks/v12/stage1-VALIDATION.md). Existing PR #2 deployment probes remain unchanged; this stricter foundation is separate.
+
 ## Pod combo rules and v1.2 execution groundwork
 
 - [x] Preserve the existing standard combo-policy option and all pricing/source/commitment constraints.

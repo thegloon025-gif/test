@@ -1,3 +1,9 @@
+## Unreleased — draft PR #4 Gameplay Intelligence Stage 1
+
+- Add a separate deterministic turns 1–8 deployment foundation with opening hands, actual draws, land drops, tapped entry, ramp casting, creature sickness and explicit commander tax inputs. Keep construction, ranking, version, standard/pod policy and historical external benchmarks unchanged.
+- Account for exact colored/generic/hybrid/true-colorless payments, source activation fees and restrictions, distinct mana units, generic reductions, temporary mana and supported post-resolution Spawn/Scion resources. Reserve optional cast-trigger costs separately; no advance trigger credit.
+- Produce reproducible payment/deployment/blocked-action traces, bounded-search unknowns and an independent resource receipt audit. Add regression tests, read-only Windows-compatible trace/benchmark tools and fixed-cache five-deck validation. Unmodeled draw/combat/copy/loop mechanics are not successes or power estimates.
+
 ## Unreleased — combo execution requirements and fixed-cache B3/B4 benchmark
 
 - Preserve standard combo gates and record the requested Pod High-Power rules separately as v1.2 requirements. Cached loop data does not establish reliable timing; no pod profile or pod-approved export is silently enabled.

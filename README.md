@@ -1,3 +1,7 @@
+### Draft PR #4 — Gameplay Intelligence Stage 1
+
+An independent deterministic turn-by-turn mana/deployment evaluator now produces auditable turns 1–8 traces. It tracks source activations, fees, restrictions, tapped lands, creature sickness, separate Ulalek payments and resource-trigger resolution. Unsupported mechanics remain unknown. It does not change deck selection or version 1.1.5. See [model and Windows commands](docs/GAMEPLAY_STAGE1.md) and [validation](benchmarks/v12/stage1-VALIDATION.md). Frozen external scores remain historical observations.
+
 ### Unreleased PR #2 — combo execution review
 
 Generated decks now include an expandable **Combo execution requirements** disclosure: named quantities, commander participation, starting zones/states, mana and resource instructions, alternate-face setup and published outcomes. Inventory matches remain unverified execution; infinite mana or tokens still need a usable win outlet. Reliable combo timing stays unknown.
