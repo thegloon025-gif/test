@@ -1,0 +1,45 @@
+{
+  "modelSourceCommit": "f000b75e64d107d74bb9669d483e698b1400e6d0",
+  "implementationCommits": [
+    "a1ef037",
+    "f000b75",
+    "ce6baef"
+  ],
+  "node": "v24.19.0",
+  "tests": {
+    "baseline": {
+      "tests": 273,
+      "pass": 273,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "durationMs": 130170.411142
+    },
+    "focused": {
+      "tests": 99,
+      "pass": 99,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "durationMs": 3715.96898
+    },
+    "full": {
+      "tests": 294,
+      "pass": 294,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "durationMs": 155099.419266
+    }
+  },
+  "cohortRuntimeMs": 418258,
+  "historicalDiagnosticRuntimeMs": 77375,
+  "supplementalOriginalRuntimeMs": 84611,
+  "independentAudit": "independent-audit.json",
+  "serverSmoke": "http-smoke.json",
+  "externalEvaluatorsCalled": false,
+  "windowsBATExecuted": false
+}
