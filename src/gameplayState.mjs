@@ -10,11 +10,13 @@ import {outletModel,createOutletLedger,safeOutletResource} from './gameplayOutle
 import {createNativeStack,nativeModel} from './gameplayNative.mjs';
 import {validateStage7,removalEvidence} from './gameplayRecovery.mjs';
 import {deathModel,deathUnknown,endStepVictim,tokenCard} from './gameplayDeath.mjs';
+import {creatureSacrificeModel,safeSacrificeVictims,sacrificeHasSupportedValue} from './gameplaySacrifice.mjs';
 import {chooseTutorTarget} from './gameplayTutor.mjs';
 
-export function evaluateGameplay({commander,cards,seed='gameplay-stage2-v1',turns=8,order,script,policy='native',mulligan='none',access=true,maxManaStates=4000,maxActions=24,onPreAction=null,nativeExecution=false,maxNativeSteps=192,maxNativeObjects=128,nativeTriggerOrder='copy-first',nativeStage5=false,nativeOutlets=true,nativeCompression=true,nativeContinuations=3,nativeDecisionPolicy='copy-first',opponentLife=[40,40,40],stage7=null,stage8=null}={}) {
+export function evaluateGameplay({commander,cards,seed='gameplay-stage2-v1',turns=8,order,script,policy='native',mulligan='none',access=true,maxManaStates=4000,maxActions=24,onPreAction=null,nativeExecution=false,maxNativeSteps=192,maxNativeObjects=128,nativeTriggerOrder='copy-first',nativeStage5=false,nativeOutlets=true,nativeCompression=true,nativeContinuations=3,nativeDecisionPolicy='copy-first',opponentLife=[40,40,40],stage7=null,stage8=null,stage9=false}={}) {
   if(!commander||!Array.isArray(cards)||cards.length<7||cards.length>99||!Number.isInteger(turns)||turns<1||turns>8||!GAMEPLAY_POLICIES.includes(policy)||!['none','one-free'].includes(mulligan)||!Number.isInteger(maxActions)||maxActions<1||maxActions>40||script&&mulligan!=='none')throw Error('Invalid Stage 2 bounds/options');
   if(nativeStage5&&(!nativeExecution||typeof nativeCompression!=='boolean'||typeof nativeOutlets!=='boolean'||!['copy-first','resources-first','conservative','follow-up'].includes(nativeDecisionPolicy)))throw Error('Explicit native Stage 5 policy required');
+  if(typeof stage9!=='boolean'||stage9&&!stage8)throw Error('Stage 9 requires explicit Stage 8 state');
   if(stage8&&Object.values(stage8.requirements||{}).some(v=>!['commander','target'].includes(v)))throw Error('Unknown Stage 8 opportunity requirement');
   if(stage8&&(!stage7||!nativeStage5||stage8.conditioned!==true))throw Error('Stage 8 requires explicit conditioned experiment options and Stage 7');
   stage7=validateStage7(stage7);if(stage7&&!nativeStage5)throw Error('Stage 7 requires native Stage 5');
@@ -30,7 +32,7 @@ export function evaluateGameplay({commander,cards,seed='gameplay-stage2-v1',turn
   const nativeTypes=planTypes(planFor(commander));if(!nativeTypes.length)nativeTypes.push(...cardSubtypes(commander));
   const chosenType=[...nativeTypes].sort((a,b)=>cards.filter(c=>cardSubtypes(c).includes(b)).length-cards.filter(c=>cardSubtypes(c).includes(a)).length||a.localeCompare(b))[0]||'Creature';
   let library=order.map(i=>slots[i]),hand=library.splice(0,7),board=[],graveyard=[],exile=[],opponents=[],ceased=[],pool=[],life=40,turn=0,creatureCasts=0,landPlayed=false,commanderCast=false,tokenId=0,decked=false,lost=false,lastTop=null;
-  let native=null,copyId=0;
+  let native=null,copyId=0,lastCreatureSacrifice=0;const sacrificeEvents=[];
   const trace=[],observations=[],stats={casts:[],commanderDeploymentTurn:null,setupBeforePayableCommander:0,optionalPayments:[],effectDraws:0,naturalDraws:0,accessDiscards:0,cleanupDiscards:0,returnedToTop:0,topCasts:0,accessSacrifices:0,accessSpells:0,activations:0,selections:0,manaStates:0,manaSearches:0,boundHits:0,actionBoundHits:0,usedEngines:[],mulligans:0};
   const emit=e=>trace.push({turn,...e}),context=()=>({hand,board,graveyard,chosenType}),pilotContext=()=>({policy,turn,turns,commander,board,hand,nativeTypes});
   const outlets=nativeStage5?createOutletLedger(emit,opponentLife):null;
@@ -47,7 +49,7 @@ export function evaluateGameplay({commander,cards,seed='gameplay-stage2-v1',turn
   function sourceState(){const landCount=active().filter(s=>isLand(s.card)).length;return {pool,life,sources:board.map(s=>({id:s.id,types:cardTypes(s.card),subtypes:cardSubtypes(s.card),modes:s.model.modes.filter(m=>!m.minLands||landCount>=m.minLands),tapped:s.tapped,consumed:s.consumed,sick:isCreature(s.card)&&s.since===turn&&!s.model.haste}))};}
   function pay(state,payments,record=true){
     let omitted=false;
-    if(stage8&&deathUnknown(active()).length)state={...state,sources:state.sources.map(s=>({...s,modes:s.modes.filter(m=>{if(m.sacrifice&&s.types.includes('Creature')){omitted=true;return false;}return true;})}))};
+    if(stage8&&deathUnknown(active(),{additional:stage9}).length)state={...state,sources:state.sources.map(s=>({...s,modes:s.modes.filter(m=>{if(m.sacrifice&&s.types.includes('Creature')){omitted=true;return false;}return true;})}))};
     let r=planManaPayments(state,payments,{maxStates:maxManaStates,optimized:true});
     if(omitted&&r.status==='blocked')r={...r,status:'unknown',reason:'unsupported death/replacement prerequisites for creature mana sacrifice'};
     if(record){stats.manaSearches++;stats.manaStates+=r.states;if(r.status==='unknown'&&r.reason.includes('bound'))stats.boundHits++;}return r;
@@ -89,6 +91,7 @@ export function evaluateGameplay({commander,cards,seed='gameplay-stage2-v1',turn
     emit({event:'access-resolving',source:source.id,reason,effects});
     for(const e of effects){if(lost)break;
       if(e.kind==='draw')draw(e.count,reason,source.id);
+      else if(stage9&&e.kind==='gainLife'){life+=e.count;emit({event:'life-gain',source:source.id,count:e.count});}
       else if(e.kind==='loseLife'){life-=e.count;emit({event:'life-loss',source:source.id,count:e.count});if(life<=0){lost=true;emit({event:'model-loss',reason:'life exhausted'});}}
       else if(e.kind==='giveAway'&&!source.consumed){source.consumed=true;opponents.push(source);emit({event:'give-away',id:source.id});}
       else if(e.kind==='discard'||e.kind==='handTop')for(let i=0;i<e.count&&hand.length;i++){
@@ -146,7 +149,7 @@ export function evaluateGameplay({commander,cards,seed='gameplay-stage2-v1',turn
     return r;
   }
   function abilityPlan(s,i,record=true){const a=s.access.abilities[i];
-    if(stage8&&a?.sacrifice&&isCreature(s.card)&&deathUnknown(active()).length)return {status:'unknown',reason:'unsupported death/replacement on sacrifice',states:0};
+    if(stage8&&a?.sacrifice&&isCreature(s.card)&&deathUnknown(active(),{additional:stage9}).length)return {status:'unknown',reason:'unsupported death/replacement on sacrifice',states:0};
     if(a&&accessConditionStatus(a.condition,context())==='unknown')return {status:'unknown',reason:'activation power prerequisite unknown: modifiers/counters',states:0};
     if(!a||s.consumed||a.tap&&(s.tapped||isCreature(s.card)&&s.since===turn&&!s.model.haste)||a.once&&s.lastAccess===turn||!accessCondition(a.condition,context())||life<=a.life)return {status:'blocked',reason:'activation prerequisite: tappedness, sickness, condition, once/turn or life',states:0};
     const state=sourceState();state.life-=a.life;if(a.tap||a.sacrifice)state.sources=state.sources.map(b=>b.id===s.id?{...b,modes:a.tap?[]:b.modes.filter(m=>!m.sacrifice)}:b);
@@ -160,7 +163,7 @@ export function evaluateGameplay({commander,cards,seed='gameplay-stage2-v1',turn
     emit({event:'access-costs',source:s.id,abilityIndex:i,tap:a.tap,sacrifice:a.sacrifice,life:a.life});stats.activations++;if(stage8)flushDeaths();if(native)native.activated(s,a.effects);else effects(a.effects,s,'activation');return r;
   }
   function outletPlan(source,victim,record=true){
-    if(stage8&&deathUnknown(active()).length)return {status:'unknown',reason:'unsupported death/replacement on sacrifice',states:0};
+    if(stage8&&deathUnknown(active(),{additional:stage9}).length)return {status:'unknown',reason:'unsupported death/replacement on sacrifice',states:0};
     const a=outletModel(source.card).sacrificeDamage;
     if(!nativeStage5||!nativeOutlets||!a||source.consumed||!victim||victim.consumed||!active().some(s=>s.id===victim.id)||!cardSubtypes(victim.card).includes(a.subtype))return {status:'blocked',reason:'outlet source/sacrifice unavailable'};
     // The reserved sacrifice has no mana modes: it cannot also fund the fee.
@@ -175,6 +178,20 @@ export function evaluateGameplay({commander,cards,seed='gameplay-stage2-v1',turn
     commit(r,receipt=>emit({event:'outlet-paid',source:source.id,victim:victim.id,target,...receipt}));
     victim.consumed=true;toGrave(victim);emit({event:'outlet-sacrifice',source:source.id,victim:victim.id,target});if(stage8)flushDeaths();
     native.activatedOutlet(source,a.damage,target);return r;
+  }
+  function creatureSacrificePlan(source,victim,index=0,record=true){
+    const ability=creatureSacrificeModel(source.card)[index];
+    if(!stage9||!ability||!active().some(s=>s.id===source.id)||!victim||!active().some(s=>s.id===victim.id)||!isCreature(victim.card)||victim.id==='commander')return {status:'blocked',reason:'creature sacrifice source/victim unavailable'};
+    if(deathUnknown(active(),{additional:true}).length)return {status:'unknown',reason:'unsupported death/replacement on creature sacrifice'};
+    const state=sourceState();state.sources=state.sources.filter(s=>s.id!==victim.id);
+    return pay(state,[{label:'creature-sacrifice:'+source.id,cost:ability.cost,context:{kind:'ability',abilityType:'activated',types:cardTypes(source.card)}}],record);
+  }
+  function activateCreatureSacrifice(source,victim,index=0){
+    const r=creatureSacrificePlan(source,victim,index);if(r.status!=='paid')return r;
+    const ability=creatureSacrificeModel(source.card)[index];emit({event:'creature-sacrifice-announced',source:source.id,victim:victim.id,abilityIndex:index});
+    commit(r,receipt=>emit({event:'creature-sacrifice-paid',source:source.id,victim:victim.id,abilityIndex:index,...receipt}));
+    victim.consumed=true;toGrave(victim);emit({event:'creature-sacrifice-cost',source:source.id,victim:victim.id,abilityIndex:index});flushDeaths();
+    lastCreatureSacrifice=turn;sacrificeEvents.push({turn,source:source.id,victim:victim.id});native.activatedSacrifice(source,ability.effects);return r;
   }
   function playLand(s){if(!s||!hand.includes(s)||!isLand(s.card)||landPlayed)return {status:'blocked',reason:'land unavailable/drop used'};landPlayed=true;hand.splice(hand.indexOf(s),1);const b={...s,since:turn,tapped:s.model.tapped};board.push(b);emit({event:'land',id:b.id,card:b.card.name,tapped:b.tapped,unknown:b.model.conditionalEntry});if(native){native.entry(b);native.drain();}else{spawn(b,'entry');triggerAccess('entry',b);}return {status:'played'};}
   function chooseLand(){
@@ -213,6 +230,10 @@ export function evaluateGameplay({commander,cards,seed='gameplay-stage2-v1',turn
       if(victim&&target>=0){const a={kind:'outlet',slot:source,victim,target,rule:{reason:'convert spare resources through supported outlet'}};
         if(outlets.life[target]<=2)ranked.unshift(a);else ranked.push(a);
       }
+    }
+    if(stage9&&lastCreatureSacrifice!==turn)for(const source of active())for(let index=0;index<creatureSacrificeModel(source.card).length;index++){
+      const victim=safeSacrificeVictims(active()).find(v=>v.id!==source.id&&sacrificeHasSupportedValue(active(),v)&&creatureSacrificePlan(source,v,index,false).status==='paid');
+      if(victim){ranked.push({kind:'creature-sacrifice',slot:source,victim,abilityIndex:index,rule:{reason:'one supported sacrifice conversion after deployment'}});break;}
     }
     return ranked;
   }
@@ -275,7 +296,7 @@ export function evaluateGameplay({commander,cards,seed='gameplay-stage2-v1',turn
   }
   function manaSnapshot(){const observation=manaObservation();return {generic:observation.max.generic.payableAtLeast,C:observation.max.C.payableAtLeast,unknown:observation.max.generic.unknown||observation.max.C.unknown,copyCC:observation.separateTriggeredCC};}
   function injectDisruptions(){for(const spec of stage7?.disruptions.filter(d=>!fired.has(d.id)&&(stage8?d.turn<=turn:d.turn===turn))||[]){
-    const lki=active().map(s=>({...s})),evidence=removalEvidence(lki,spec,{death:!!stage8});
+    const lki=active().map(s=>({...s})),evidence=removalEvidence(lki,spec,{death:!!stage8,additionalDeaths:stage9});
     if(stage8&&(!evidence.targets.length||stage8.requirements?.[spec.id]==='commander'&&!lki.some(s=>s.id==='commander')))continue;
     fired.add(spec.id);
     if(native.resolving||native.blocked){stage7Suspended=true;emit({event:'disruption-unknown',id:spec.id,reasons:[{reason:'stack not safely empty'}]});break;}
@@ -311,12 +332,12 @@ export function evaluateGameplay({commander,cards,seed='gameplay-stage2-v1',turn
   }
   if(nativeExecution){native=createNativeStack({emit,active,context,library,hand,exile,effects,useEngine,sourceState,lost:()=>lost,won:()=>!!outlets?.won,damage:(...args)=>outlets.damage(...args),
     ...(stage7?.tutorPolicy==='state-aware'?{chooseTutor:(eligible,item)=>{const choice=chooseTutorTarget(eligible,{turn,turns,board:active(),hand,nativeTypes,commander,preview:s=>tutorPreview(s,item.effect.destination)});emit({event:'native-tutor-choice',ability:item.id,destination:item.effect.destination,...choice});return choice.chosen;}}:{}),
-    ...(stage8?{sacrificeEndStep:item=>{const victim=deathUnknown(active()).length?null:endStepVictim(active(),stage8);emit({event:'end-step-choice',ability:item.id,source:item.source.id,victim:victim?.id||null,unknown:deathUnknown(active())});if(!victim)return null;victim.consumed=true;toGrave(victim);emit({event:'end-step-sacrifice',ability:item.id,source:item.source.id,victim:victim.id});flushDeaths();return victim;}}:{}),
+    ...(stage8?{sacrificeEndStep:item=>{const victim=deathUnknown(active(),{additional:stage9}).length?null:endStepVictim(active(),stage8);emit({event:'end-step-choice',ability:item.id,source:item.source.id,victim:victim?.id||null,unknown:deathUnknown(active(),{additional:stage9})});if(!victim)return null;victim.consumed=true;toGrave(victim);emit({event:'end-step-sacrifice',ability:item.id,source:item.source.id,victim:victim.id});flushDeaths();return victim;}}:{}),
     copySlot:s=>({...make(s.card,'copy-'+copyId++),spellCopy:true,token:s.model.permanent}),
     resolveSpell:resolveNativeSpell,castCascade:(s,permission)=>castNative(s,'cascade',false,true,permission),
     payOptional:(source,cost,item)=>{const r=pay(sourceState(),[{label:'cast-trigger:'+source.id,cost,context:{kind:'ability',abilityType:'triggered',types:cardTypes(source.card)}}]);if(r.status==='paid'){commit(r,receipt=>emit({event:'native-trigger-paid',ability:item.id,source:source.id,causedBy:item.cause.id,...receipt}));stats.optionalPayments.push({turn,card:item.cause.card.name,cost,copy:!!item.copyOf,ability:item.id});useEngine(source,'cast-payment');}return r;},
     createTokens:(e,item)=>{for(let i=0;i<e.count;i++){const card=tokenCard(e),token={...make(card,'token-'+tokenId++),token:true,since:turn,tapped:false};board.push(token);emit({event:'token-created',id:token.id,card,ability:item.id});native.entry(token);}}
-  },{seed,chosenType,triggerOrder:decision?.order||nativeTriggerOrder,maxSteps:maxNativeSteps,maxObjects:maxNativeObjects,stage5:nativeStage5,enableOutlets:nativeOutlets,compression:nativeCompression,maxContinuations:nativeContinuations,optionalPolicy:decision?.optional||'all',stage8:!!stage8});stats.native=native.stats;}
+  },{seed,chosenType,triggerOrder:decision?.order||nativeTriggerOrder,maxSteps:maxNativeSteps,maxObjects:maxNativeObjects,stage5:nativeStage5,enableOutlets:nativeOutlets,compression:nativeCompression,maxContinuations:nativeContinuations,optionalPolicy:decision?.optional||'all',stage8:!!stage8,stage9});stats.native=native.stats;}
   for(turn=1;turn<=turns&&!finished()&&!native?.blocked;turn++){
     native?.beginTurn();
     pool=[];creatureCasts=0;landPlayed=false;lastTop=null;for(const s of active())if(!s.model.noNaturalUntap)s.tapped=false;
@@ -335,7 +356,7 @@ export function evaluateGameplay({commander,cards,seed='gameplay-stage2-v1',turn
     }
     if(script){if((script[turn]||[]).length>maxActions)throw Error('Script action bound exceeded');for(const a of script[turn]||[]){
       if(finished()||native?.blocked)break;const top=topChoice(),s=a.card===commander.name&&!commanderCast?command:a.origin==='library'?top?.slot:hand.find(s=>s.card.name===a.card);
-      const source=active().find(s=>s.card.name===a.card),r=a.type==='land'?playLand(s):a.type==='cast'&&s&&s.card.name===a.card?cast(s,a.origin||'hand',!!a.requireOptional):a.type==='activate'&&source?activate(source,a.abilityIndex||0):a.type==='outlet'&&source&&nativeStage5?activateOutlet(source,active().find(s=>s.id===a.sacrifice||s.card.name===a.sacrifice),a.target):{status:'unknown',reason:'unsupported action/source unavailable'};
+      const source=active().find(s=>s.card.name===a.card),r=a.type==='land'?playLand(s):a.type==='cast'&&s&&s.card.name===a.card?cast(s,a.origin||'hand',!!a.requireOptional):a.type==='activate'&&source?activate(source,a.abilityIndex||0):a.type==='sacrifice'&&source&&stage9?activateCreatureSacrifice(source,active().find(s=>s.id===a.sacrifice||s.card.name===a.sacrifice),a.abilityIndex||0):a.type==='outlet'&&source&&nativeStage5?activateOutlet(source,active().find(s=>s.id===a.sacrifice||s.card.name===a.sacrifice),a.target):{status:'unknown',reason:'unsupported action/source unavailable'};
       if(stage8){injectDisruptions();if(stage7Suspended)break;}
       recordNativeFollowup('after-script-action');
       if(!['paid','played'].includes(r.status))emit({event:'action-failed',action:a,status:r.status,reason:r.reason});
@@ -346,7 +367,7 @@ export function evaluateGameplay({commander,cards,seed='gameplay-stage2-v1',turn
       const a=guarded?{...payableCommander,rule:{reason:'take the payable commander after one setup action'}}:options[0];
       if(payableCommander&&!a.commander)stats.setupBeforePayableCommander++;
       emit({event:'decision',policy,chosen:a.slot.id,kind:a.kind,reason:a.rule.reason,commanderPayable:!!payableCommander,setupBudgetUsed:stats.setupBeforePayableCommander,alternatives:options.filter(x=>x.slot.id!==a.slot.id).slice(0,4).map(x=>({id:x.slot.id,kind:x.kind,reason:x.rule.reason}))});
-      if(a.kind==='cast'){cast(a.slot,a.origin);if(a.provider)useEngine(a.provider,'top-access');}else if(a.kind==='outlet')activateOutlet(a.slot,a.victim,a.target);else activate(a.slot,a.abilityIndex);
+      if(a.kind==='cast'){cast(a.slot,a.origin);if(a.provider)useEngine(a.provider,'top-access');}else if(a.kind==='outlet')activateOutlet(a.slot,a.victim,a.target);else if(a.kind==='creature-sacrifice')activateCreatureSacrifice(a.slot,a.victim,a.abilityIndex);else activate(a.slot,a.abilityIndex);
       if(stage8){injectDisruptions();if(stage7Suspended)break;}
       recordNativeFollowup('after-action');
     }
@@ -363,10 +384,11 @@ export function evaluateGameplay({commander,cards,seed='gameplay-stage2-v1',turn
   }
   return {schemaVersion:native?4:2,evaluator:nativeStage5?'gameplay-native-v2':native?'gameplay-native-v1':'gameplay-stage2-v1',seed,turns,policy,mulligan,order,initialOpening:opening,commander:commander.name,nativeTypes,chosenType,stats,observations,decked,lost,
     assumptions:{opening:7,mulligan,drawOnTurnOne:true,rankingIntegration:false,commanderTaxPriorCasts:0,access,mainPhases:1,maxActions,maxManaStates,maxSetupActionsBeforePayableCommander:1,sourcePayments:'optimized exact ledger',opponents:'three inert seats; no combat/interaction; supported control transfers leave our board',optionalPayment:native?'separate payment at trigger resolution under fixed '+(decision?.order||nativeTriggerOrder)+' ordering':'reserve before resolving resource/access triggers',threatDefinition:'native creature with printed power >=4 or printed MV >=5; payment availability, not win conversion; other threat/combat/copy outcomes unknown',otherRulesCoverage:'not quantified; parsed access is not complete Oracle/rules coverage'},
+    ...(stage9?{stage9:{creatureSacrifices:sacrificeEvents,automaticLimit:1,policy:'after ordinary deployment; tokens/simple creatures with actual supported death value; reserve end-step Zombie'}}:{}),
     ...(stage8?{stage8:{...stage8,opportunities:trace.filter(e=>e.event==='native-tutor').map(e=>({turn:e.turn,ability:e.ability,destination:e.destination,found:e.found})),unreached:stage7.disruptions.filter(d=>!fired.has(d.id)).map(d=>d.id)}}:{}),
     ...(stage7?{stage7:{...stage7,suspendedUnknown:stage7Suspended,commandCasts,checkpoints}}:{}),
     ...(nativeStage5?{stage5:{outletsEnabled:nativeOutlets,decisionPolicy:nativeDecisionPolicy,compression:nativeCompression,maxContinuations:nativeContinuations,logicalStackCap:4096},outlets:{initialLife:opponentLife,life:outlets.life,won:outlets.won,damageEvents:outlets.events.length,totalDamage:outlets.events.reduce((n,e)=>n+e.amount,0),lethalTurn:outlets.won?trace.findLast(e=>e.event==='opponent-eliminated').turn:null}}:{}),
-    ...(native?{nativeExecution:{triggerOrder:decision?.order||nativeTriggerOrder,maxSteps:maxNativeSteps,maxObjects:maxNativeObjects,boundedUnknown:native.blocked,unknown:[...models.keys()].map(c=>({card:c.name,clauses:nativeModel(c).unknown.filter(l=>!(stage8&&deathModel(c).recognized.includes(l))&&!(nativeStage5&&nativeOutlets&&outletModel(c).recognized.includes(l)))})).filter(c=>c.clauses.length)}}:{}),
+    ...(native?{nativeExecution:{triggerOrder:decision?.order||nativeTriggerOrder,maxSteps:maxNativeSteps,maxObjects:maxNativeObjects,boundedUnknown:native.blocked,unknown:[...models.keys()].map(c=>({card:c.name,clauses:nativeModel(c).unknown.filter(l=>!(stage8&&deathModel(c,{additional:stage9}).recognized.includes(l))&&!(nativeStage5&&nativeOutlets&&outletModel(c).recognized.includes(l)))})).filter(c=>c.clauses.length)}}:{}),
     coverage:{cardsWithSupportedAccess:[...models.values()].filter(m=>m.access.direct||m.access.abilities.length||m.access.triggers.length||m.access.top).length,cardsWithUnmodeledAccess:[...models.values()].filter(m=>m.access.unknown.length).length,unmodeledAccessClauses:[...models.values()].reduce((n,m)=>n+m.access.unknown.length,0)},
     unknown:[...models].map(([card,m])=>({card:card.name,access:m.access.unknown,other:m.model.unknown.filter(s=>!s.startsWith('other Oracle effects'))})),trace};
 }

@@ -7,12 +7,13 @@ import {nativeModel,triggerMultipliers,tutorMatches,nativeShuffle} from './gamep
 import {outletModel} from './gameplayOutlets.mjs';
 import {deathModel,deathMatches,deathUnknown,endStepVictim,tokenCard} from './gameplayDeath.mjs';
 import {removalEvidence} from './gameplayRecovery.mjs';
+import {creatureSacrificeModel} from './gameplaySacrifice.mjs';
 import {singletonName} from './deckValidation.mjs';
 const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
 export function auditNativeGameplayTrace(result,commander,cards){
  const resources=auditDeploymentTrace(result,commander,cards),errors=[...resources.errors],defs=new Map(cards.map((card,i)=>['deck-'+i,{id:'deck-'+i,card}]));defs.set('commander',{id:'commander',card:commander});
  const zones=new Map([...defs.keys()].map(id=>[id,id==='commander'?'command':'library'])),library=result.order.map(i=>'deck-'+i),hand=[],board=new Map(),objects=new Map(),stack=[],triggered=new Map(),expected=new Map(),pushes=new Set(),castAnnouncements=new Set();
- const opposingLife=result.stage5?[...result.outlets.initialLife]:null,eliminated=new Set();let outletActivation=null,quantumSteps=0,continuations=0,logicalPeak=0,storagePeak=0,residency=0;
+ const opposingLife=result.stage5?[...result.outlets.initialLife]:null,eliminated=new Set();let outletActivation=null,creatureSacrifice=null,quantumSteps=0,continuations=0,logicalPeak=0,storagePeak=0,residency=0;
  const cardKeys=new WeakMap();let cardSerial=0;
  function residentKey(o){if(o.kind==='ability')return JSON.stringify([o.kind,o.source,o.zone,o.effect,o.cause,o.phase]);if(!o.copyOf)return null;const card=slot(o.source).card;if(!cardKeys.has(card))cardKeys.set(card,cardSerial++);return 'spell:'+cardKeys.get(card);}
  function popStack(){const id=stack.pop(),o=objects.get(id),below=objects.get(stack.at(-1));if(id!==undefined&&(o.residentKey===null||o.residentKey!==below?.residentKey))residency--;return id;}
@@ -47,11 +48,11 @@ export function auditNativeGameplayTrace(result,commander,cards){
  }
  function storage(){return result.stage5?.compression?residency:stack.length;}
  function consume(kind,e){const step=effectFrame?.steps[0];if(!effectFrame||effectFrame.source!==e.source||!step||step.kind!==kind){fail('effect outside justified frame: '+kind);return;}
-  if(kind==='loseLife'&&step.count!==e.count)fail('life effect quantity');if(--step.remaining===0)effectFrame.steps.shift();}
- function expectDeaths(lki,victims){for(const source of lki)for(const t of deathModel(source.card).triggers)for(const victim of victims)if(deathMatches(source,victim,t.filter))expect(source,'battlefield','death',victim,t.effect,lki);}
+  if(['loseLife','gainLife'].includes(kind)&&step.count!==e.count)fail('life effect quantity');if(--step.remaining===0)effectFrame.steps.shift();}
+ function expectDeaths(lki,victims){for(const source of lki)for(const t of deathModel(source.card,{additional:!!result.stage9}).triggers)for(const victim of victims)if(deathMatches(source,victim,t.filter))expect(source,'battlefield','death',victim,t.effect,lki);}
  for(const e of result.trace){turn=e.turn;
   if(result.stage8){
-   const victim=e.event==='mana-activation'&&e.sacrifice||e.event==='access-costs'&&e.sacrifice?e.source:e.event==='outlet-sacrifice'||e.event==='end-step-sacrifice'?e.victim:e.event==='native-legend-rule'?e.id:null;
+   const victim=e.event==='mana-activation'&&e.sacrifice||e.event==='access-costs'&&e.sacrifice?e.source:e.event==='outlet-sacrifice'||e.event==='end-step-sacrifice'||e.event==='creature-sacrifice-cost'?e.victim:e.event==='native-legend-rule'?e.id:null;
    if(victim&&isCreature(board.get(victim)?.card||{})){costDeaths.push({lki:[...board.values()],victim:board.get(victim)});}
   }
   if(e.event==='death-cost-observed'){
@@ -64,13 +65,13 @@ export function auditNativeGameplayTrace(result,commander,cards){
    if(!result.stage8||endStepTurn===turn||stack.length||current)fail('invalid/duplicate end-step checkpoint');endStepTurn=turn;for(const b of board.values())if(deathModel(b.card).endStep)expect(b,'battlefield','endStep',b,{type:'end-step-sacrifice'});
   }else if(e.event==='end-step-choice'){
    if(!result.stage8||current?.id!==e.ability||current.effect.type!=='end-step-sacrifice'||current.source!==e.source||endChoice)fail('unjustified end-step choice');
-   const victim=deathUnknown([...board.values()]).length?null:endStepVictim([...board.values()],result.stage8);if(!same(deathUnknown([...board.values()]),e.unknown))fail('unjustified sacrifice unknown');if((victim?.id||null)!==e.victim)fail('end-step victim not legal/conservative');endChoice={...e};current.endDecided=true;current.requiresAccess=!!victim;
+   const victim=deathUnknown([...board.values()],{additional:!!result.stage9}).length?null:endStepVictim([...board.values()],result.stage8);if(!same(deathUnknown([...board.values()],{additional:!!result.stage9}),e.unknown))fail('unjustified sacrifice unknown');if((victim?.id||null)!==e.victim)fail('end-step victim not legal/conservative');endChoice={...e};current.endDecided=true;current.requiresAccess=!!victim;
   }else if(e.event==='end-step-sacrifice'){
    const victim=board.get(e.victim);if(!endChoice||endChoice.victim!==e.victim||endChoice.ability!==e.ability||!victim||current?.id!==e.ability)fail('unpaid/nonexistent end-step sacrifice');else{move(e.victim,'battlefield',victim.token?'ceased':'graveyard');board.delete(e.victim);current.endSacrificed=true;}endChoice=null;
   }else
   if(e.event==='disruption-checkpoint'){
    const spec=result.stage7?.disruptions.find(d=>d.id===e.spec.id);if(!spec||!same(spec,e.spec)||(result.stage8?turn<spec.turn:turn!==spec.turn)||stack.length||current||effectFrame)fail('invalid interruption checkpoint');
-   const proof=removalEvidence([...board.values()],e.spec,{death:!!result.stage8});if(result.stage8&&(!proof.targets.length||result.stage8.requirements?.[e.spec.id]==='commander'&&!board.has('commander')))fail('opportunity prerequisites not present');disruption={spec:e.spec,proof,moved:new Set(),commandPending:null,tokens:new Set()};
+   const proof=removalEvidence([...board.values()],e.spec,{death:!!result.stage8,additionalDeaths:!!result.stage9});if(result.stage8&&(!proof.targets.length||result.stage8.requirements?.[e.spec.id]==='commander'&&!board.has('commander')))fail('opportunity prerequisites not present');disruption={spec:e.spec,proof,moved:new Set(),commandPending:null,tokens:new Set()};
   }else if(e.event==='disruption-unknown'){
    if(!result.stage7?.suspendedUnknown||!disruption?.proof.unknown.length||!same(e.reasons,disruption.proof.unknown))fail('unjustified disruption unknown');
   }else if(e.event==='disruption-move'){
@@ -113,6 +114,8 @@ export function auditNativeGameplayTrace(result,commander,cards){
     else if(!same(e.effect,original?.effect)||e.source!==original?.source||e.cause!==original?.cause)fail('copied ability changed characteristics');entry={...original,...e};
    }else if(e.kind==='ability'&&e.effect.type==='activated-outlet'){
     if(!result.stage5?.outletsEnabled||!outletActivation?.paid||!outletActivation.sacrificed||e.source!==outletActivation.source||e.effect.count!==outletModel(slot(e.source).card).sacrificeDamage.damage||e.effect.target!==outletActivation.target)fail('unpaid outlet on stack');outletActivation=null;
+   }else if(e.kind==='ability'&&e.effect.type==='activated-sacrifice'){
+    if(!result.stage9||!creatureSacrifice?.paid||!creatureSacrifice.sacrificed||creatureSacrifice.source!==e.source||!same(e.effect.effects,creatureSacrifice.effects))fail('unpaid creature sacrifice ability');creatureSacrifice=null;
    }else if(e.kind==='ability'&&e.effect.type==='activated-access'){
     if(!activation||activation.source!==e.source||!same(e.effect.effects,activation.effects))fail('unpaid activated access on stack');activation=null;
    }else if(e.kind==='ability'){const t=triggered.get(e.id);if(!t||e.source!==t.source||e.cause!==t.cause||!same(e.effect,t.effect))fail('stack trigger not created');triggered.delete(e.id);entry={...t,...e};}
@@ -123,7 +126,7 @@ export function auditNativeGameplayTrace(result,commander,cards){
    if(current||popStack()!==e.id||!objects.has(e.id))fail('LIFO/resolution mismatch');current={...objects.get(e.id),owed:null,tokens:0,revealed:[],found:null,tutored:false};
    if(current.effect?.type==='spell-copy'){const target=stack.find(id=>objects.get(id)?.source===current.effect.target&&objects.get(id)?.kind==='spell');current.owed=target?[target]:[];}
    if(['opponent-damage','activated-outlet'].includes(current.effect?.type)){const target=current.effect.target;current.damageOwed=target==='each'?opposingLife.map((n,i)=>i).filter(i=>opposingLife[i]>0):opposingLife[target]>0?[target]:[];}
-   current.requiresAccess=current.effect?.type==='activated-access'||current.effect?.type==='refill'&&hand.length<current.effect.size||current.effect?.type==='access'&&!(current.effect.trigger.phase==='entry'&&current.effect.trigger.singleton&&!entryMatches(current.effect.trigger,slot(current.source),slot(current.cause),state()))||current.kind==='spell'&&!cardModel(slot(current.source).card).permanent&&!!accessModel(slot(current.source).card).direct;
+   current.requiresAccess=['activated-access','activated-sacrifice'].includes(current.effect?.type)||current.effect?.type==='refill'&&hand.length<current.effect.size||current.effect?.type==='access'&&!(current.effect.trigger.phase==='entry'&&current.effect.trigger.singleton&&!entryMatches(current.effect.trigger,slot(current.source),slot(current.cause),state()))||current.kind==='spell'&&!cardModel(slot(current.source).card).permanent&&!!accessModel(slot(current.source).card).direct;
   }else if(e.event==='native-trigger-paid'){
    if(current?.id!==e.ability||current.effect.type!=='ulalek'||current.source!==e.source||current.cause!==e.causedBy||current.owed)fail('Ulalek payment outside its resolution or duplicate');
    else{current.owed=stack.filter(id=>objects.get(id).kind==='spell').concat(stack.filter(id=>objects.get(id).kind==='ability'));current.optionalDecision=true;}
@@ -140,6 +143,12 @@ export function auditNativeGameplayTrace(result,commander,cards){
    }
   }else if(e.event==='native-continuation'){
    if(!result.stage5||current||quantumSteps!==result.nativeExecution.maxSteps||e.steps!==quantumSteps||e.index!==++continuations||continuations>result.stage5.maxContinuations||!same(e.stack,stack)||!same(e.pending,[...triggered.keys()])||e.storage!==storage())fail('continuation changed stack/order or exceeded work budget');quantumSteps=0;
+  }else if(e.event==='creature-sacrifice-announced'){
+   const source=board.get(e.source),victim=board.get(e.victim),a=source&&creatureSacrificeModel(source.card)[e.abilityIndex];if(!result.stage9||creatureSacrifice||!a||!victim||!isCreature(victim.card)||e.victim==='commander'||deathUnknown([...board.values()],{additional:true}).length)fail('illegal creature sacrifice announcement');creatureSacrifice={source:e.source,victim:e.victim,index:e.abilityIndex,effects:a?.effects};
+  }else if(e.event==='creature-sacrifice-paid'){
+   if(!creatureSacrifice||creatureSacrifice.source!==e.source||creatureSacrifice.victim!==e.victim||creatureSacrifice.index!==e.abilityIndex||!board.has(e.victim))fail('creature sacrifice payment lost reserved creature');else creatureSacrifice.paid=true;
+  }else if(e.event==='creature-sacrifice-cost'){
+   const victim=board.get(e.victim);if(!creatureSacrifice?.paid||creatureSacrifice.victim!==e.victim||!victim)fail('missing/unpaid creature sacrifice');else{move(e.victim,'battlefield',victim.token?'ceased':'graveyard');board.delete(e.victim);creatureSacrifice.sacrificed=true;}
   }else if(e.event==='outlet-announced'){
    const b=board.get(e.source),victim=board.get(e.victim);if(!result.stage5?.outletsEnabled||outletActivation||!b||!outletModel(b.card).sacrificeDamage||!victim||!cardSubtypes(victim.card).includes('Eldrazi')||!Number.isInteger(e.target)||!(opposingLife[e.target]>0))fail('illegal outlet announcement');outletActivation={source:e.source,victim:e.victim,target:e.target};
   }else if(e.event==='outlet-paid'){
@@ -194,10 +203,10 @@ export function auditNativeGameplayTrace(result,commander,cards){
   else if(e.event==='access-resolving'){
    let allowed=null;if(current?.effect?.type==='access')allowed=current.effect.trigger.effects;
    else if(current?.effect?.type==='refill')allowed=[{kind:'draw',count:Math.max(0,current.effect.size-hand.length)}];
-   else if(current?.effect?.type==='activated-access')allowed=current.effect.effects;
+   else if(['activated-access','activated-sacrifice'].includes(current?.effect?.type))allowed=current.effect.effects;
    else if(current?.effect?.type==='end-step-sacrifice'&&current.endSacrificed)allowed=[{kind:'draw',count:1}];
    else if(current?.kind==='spell')allowed=accessModel(slot(current.source).card).direct;
-   if(effectFrame||!same(allowed,e.effects)||e.source!==current?.source||current?.accessStarted)fail('unjustified access budget');if(current)current.accessStarted=true;effectFrame={source:e.source,steps:e.effects.map(x=>({...x,remaining:['scry','surveil','giveAway','exileTop','loseLife'].includes(x.kind)?1:x.count}))};
+   if(effectFrame||!same(allowed,e.effects)||e.source!==current?.source||current?.accessStarted)fail('unjustified access budget');if(current)current.accessStarted=true;effectFrame={source:e.source,steps:e.effects.map(x=>({...x,remaining:['scry','surveil','giveAway','exileTop','loseLife','gainLife'].includes(x.kind)?1:x.count}))};
   }else if(e.event==='access-resolved'){if(!effectFrame||effectFrame.source!==e.source||effectFrame.steps.length&&!result.lost&&!(hand.length===0&&effectFrame.steps.every(s=>['discard','handTop'].includes(s.kind))))fail('access effect skipped');effectFrame=null;}
   else if(e.event==='access-aborted-loss'){if(!result.lost||!lossEvidence||!effectFrame||effectFrame.source!==e.source)fail('unjustified access abortion');effectFrame=null;}
   else if(e.event==='selection'){
@@ -206,6 +215,7 @@ export function auditNativeGameplayTrace(result,commander,cards){
    if(e.event==='cleanup-discard'){if(hand.length<=7)fail('unneeded cleanup');}else consume(e.event==='discard'?'discard':'handTop',e);
    if(!hand.includes(e.id))fail('card not in hand');else hand.splice(hand.indexOf(e.id),1);move(e.id,'hand',e.event==='hand-to-top'?'library':'graveyard');if(e.event==='hand-to-top')library.unshift(e.id);
   }else if(e.event==='top-exiled'){consume('exileTop',e);if(library.shift()!==e.id)fail('exile not top');move(e.id,'library','exile');}
+  else if(e.event==='life-gain'){consume('gainLife',e);life+=e.count;}
   else if(e.event==='life-loss'){consume('loseLife',e);life-=e.count;if(life<=0)lossEvidence=true;}
   else if(e.event==='give-away'){consume('giveAway',{...e,source:e.id});move(e.id,'battlefield','opponents');board.delete(e.id);}
   else if(e.event==='mana-activation'){life-=e.life||0;if(life<=0)lossEvidence=true;const b=board.get(e.source);if(!b)fail('mana source not controlled');else{if(e.tap)b.tapped=true;if(e.sacrifice){move(e.source,'battlefield',b.token?'ceased':'graveyard');board.delete(e.source);}}}
@@ -215,7 +225,7 @@ export function auditNativeGameplayTrace(result,commander,cards){
    for(const [z,ids]of [['battlefield',e.board.map(s=>s.id)],['graveyard',e.graveyard],['exile',e.exile],['opponents',e.opponents],['ceased',e.ceased]])if(!same([...zones].filter(([,zone])=>zone===z).map(([id])=>id).sort(),[...ids].sort()))fail(z+' snapshot mismatch');
   }
  }
- if(deathBatch||costDeaths.length||endChoice)fail('unfinished death/sacrifice transaction');
+ if(creatureSacrifice||deathBatch||costDeaths.length||endChoice)fail('unfinished death/sacrifice transaction');
  if((disruption&&!result.stage7?.suspendedUnknown)||choice)fail('unfinished interruption/tutor decision');
  if(result.lost&&!lossEvidence)fail('model loss without verified resource/zone evidence');
  if(!result.nativeExecution.boundedUnknown&&!result.lost&&!result.outlets?.won&&(stack.length||triggered.size||castAnnouncements.size||[...expected.values()].some(x=>x.remaining)||current||effectFrame))fail('unfinished native transaction');

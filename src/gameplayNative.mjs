@@ -37,7 +37,7 @@ export function triggerMultipliers(source,zone,board,chosenType){const out=[];
  for(const b of board){const model=nativeModel(b.card);for(const kind of model.multiplier){const types=cardSubtypes(source.card),chosen=types.includes(chosenType)||/This creature is the chosen type in addition to its other types\./.test(cardText(source.card));
   if(kind==='legendary-creature'&&zone==='battlefield'&&isCreature(source.card)&&cardTypes(source.card).includes('Legendary')||kind==='chosen-creature'&&zone==='battlefield'&&b.id!==source.id&&isCreature(source.card)&&chosen||kind==='colorless'&&isColorless(source.card)&&(zone==='stack'||b.id!==source.id))out.push({source:b.id,kind});
  }}return out;}
-export function createNativeStack(host,{seed,chosenType,triggerOrder='copy-first',maxSteps=192,maxObjects=128,stage5=false,enableOutlets=true,compression=true,maxContinuations=3,optionalPolicy='all',stage8=false}={}){
+export function createNativeStack(host,{seed,chosenType,triggerOrder='copy-first',maxSteps=192,maxObjects=128,stage5=false,enableOutlets=true,compression=true,maxContinuations=3,optionalPolicy='all',stage8=false,stage9=false}={}){
  if(!['copy-first','resources-first'].includes(triggerOrder)||!Number.isInteger(maxSteps)||maxSteps<1||maxSteps>512||!Number.isInteger(maxObjects)||maxObjects<2||maxObjects>256)throw Error('Invalid native bounds');
  if(!Number.isInteger(maxContinuations)||maxContinuations<0||maxContinuations>3||!['all','conservative'].includes(optionalPolicy))throw Error('Invalid Stage 5 policy/bound');
  const stack=stage5&&compression?new CompactNativeStack():[],pending=[],modelMemo=new WeakMap();let serial=0,resolving=null,steps=0,shuffle=0,draws=0,blocked=false,continuations=0;
@@ -103,6 +103,7 @@ export function createNativeStack(host,{seed,chosenType,triggerOrder='copy-first
    host.effects(t.effects,item.source,'native-trigger');
   }else if(e.type==='opponent-damage'||e.type==='activated-outlet')host.damage(item.source.id,e.count,e.target,item.id);
   else if(e.type==='end-step-sacrifice'){const victim=host.sacrificeEndStep(item);if(victim)host.effects([{kind:'draw',count:1}],item.source,'end-step-sacrifice');}
+  else if(e.type==='activated-sacrifice')host.effects(e.effects,item.source,'creature-sacrifice');
   else if(e.type==='activated-access')host.effects(e.effects,item.source,'activation');
  }
  function drain(){flush();while(stack.length&&!blocked&&!host.lost()&&!host.won?.()){
@@ -120,8 +121,8 @@ export function createNativeStack(host,{seed,chosenType,triggerOrder='copy-first
    if(++steps>maxSteps){if(stage5&&continuations<maxContinuations){emit({event:'native-continuation',index:++continuations,steps:maxSteps,stack:stack.map(s=>s.id),pending:pending.map(s=>s.id),storage:size()});stats.continuations++;steps=1;}else{bound();break;}}
    const item=stack.pop();resolving=item;emit({event:'stack-resolve-start',id:item.id});resolve(item);emit({event:blocked?'stack-resolve-suspended':host.lost()?'stack-resolve-aborted-loss':'stack-resolve-end',id:item.id});if(blocked||host.lost()||host.won?.())break;resolving=null;flush();
   }}
- return {stats,registerCast,drain,
-  deaths(lki,victims){if(!stage8)return;for(const source of lki)for(const t of deathModel(source.card).triggers)for(const victim of victims)if(deathMatches(source,victim,t.filter))trigger(source,'battlefield',t.effect,victim,'death',lki);},
+ return {stats,registerCast,drain,activatedSacrifice(source,effects){if(!stage9)throw Error('Stage 9 required');push({id:'stack-'+serial++,kind:'ability',source,sourceZone:'battlefield',effect:{type:'activated-sacrifice',effects}});drain();},
+  deaths(lki,victims){if(!stage8)return;for(const source of lki)for(const t of deathModel(source.card,{additional:stage9}).triggers)for(const victim of victims)if(deathMatches(source,victim,t.filter))trigger(source,'battlefield',t.effect,victim,'death',lki);},
   endStep(){if(!stage8)return;for(const s of host.active())if(deathModel(s.card).endStep)trigger(s,'battlefield',{type:'end-step-sacrifice'},s,'endStep');drain();},
   entry(slot){accessTriggers('entry',slot);nativeTriggers('entry',slot);},draw(slot){if(++draws===2)nativeTriggers('secondDraw',slot);},beginTurn(){steps=0;draws=0;continuations=0;},activated(source,effects){push({id:'stack-'+serial++,kind:'ability',source,sourceZone:'battlefield',effect:{type:'activated-access',effects}});drain();},activatedOutlet(source,count,target){push({id:'stack-'+serial++,kind:'ability',source,sourceZone:'battlefield',effect:{type:'activated-outlet',count,target}});drain();},get blocked(){return blocked;},get resolving(){return resolving;},unknown};
 }

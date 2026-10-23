@@ -15,12 +15,12 @@ export function disruptionTargets(board,spec){return board.filter(s=>{
  if(spec.scope==='engine')return s.card.name===spec.card;
  return s.id==='commander'||!isLand(s.card)&&(cardModel(s.card).modes.length||cardModel(s.card).reducers.length||/\bAdd\b|cost.*less to cast/.test(cardText(s.card)));
 });}
-export function removalEvidence(board,spec,{death=false}={}){
+export function removalEvidence(board,spec,{death=false,additionalDeaths=false}={}){
  const targets=disruptionTargets(board,spec),unknown=[],survivors=[],removed=[];if(!targets.length)return {targets,unknown,survivors,removed};const lines=s=>withoutReminder(cardText(s.card)).split('\n').map(l=>l.trim());
  const protectedArtifact=s=>cardTypes(s.card).includes('Artifact')&&board.some(b=>lines(b).includes('Artifacts you control have indestructible.'));
  const dying=spec.effect==='destroy'&&targets.some(s=>isCreature(s.card)&&!lines(s).includes('Indestructible')&&!protectedArtifact(s));
  for(const b of board)for(const l of lines(b)){
-  if(death&&deathModel(b.card).recognized.includes(l))continue;
+  if(death&&deathModel(b.card,{additional:additionalDeaths}).recognized.includes(l))continue;
   if(/return.*graveyard|graveyard.*(?:cast|return)|leaves (?:the )?battlefield|would.*(?:die|graveyard|exil|leave)|regenerate|totem armor|shield counter|phases? out/i.test(l)||dying&&/\bdies\b|\bdie\b|put into.*graveyard|graveyard.*(?:shuffle|library)/i.test(l))unknown.push({card:b.card.name,clause:l});
   if(/indestructible/i.test(l)&&l!=='Indestructible'&&l!=='Artifacts you control have indestructible.')unknown.push({card:b.card.name,clause:l});
   if(['commander','engine'].includes(spec.scope)&&/hexproof|shroud|ward|protection from|can't be the target/i.test(l)&&(targets.includes(b)||/other .*creatures?|creatures? you control|equipped creature|enchanted creature/i.test(l)))unknown.push({card:b.card.name,clause:l});

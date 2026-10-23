@@ -2,11 +2,13 @@
  * replacement layers. Death matching uses pre-event battlefield information. */
 import {cardText,cardSubtypes,isCreature} from './gameplayCards.mjs';
 import {withoutReminder} from './gameplayAccess.mjs';
-export function deathModel(card){
+export function deathModel(card,{additional=false}={}){
  const triggers=[],recognized=[];let endStep=false;
  for(const line of withoutReminder(cardText(card)).split('\n').map(l=>l.trim())){
   let effect=null,filter=null;
-  if(line==="Whenever another Zombie you control dies, if it didn't have decayed, create a 2/2 black Zombie creature token with decayed."){
+  if(additional&&line==='Whenever a creature you control dies, you draw a card and you lose 1 life.'){
+   filter={};effect={type:'access',trigger:{phase:'death',effects:[{kind:'draw',count:1},{kind:'loseLife',count:1}]}};
+  }else if(line==="Whenever another Zombie you control dies, if it didn't have decayed, create a 2/2 black Zombie creature token with decayed."){
    filter={another:true,subtype:'Zombie',noDecayed:true};effect={type:'tokens',count:1,power:'2',toughness:'2',tribe:'Zombie',decayed:true};
   }else if(line==='Whenever this creature or another nontoken Zombie you control dies, create a 2/2 black Zombie creature token.'){
    filter={selfOrNontoken:true,subtype:'Zombie'};effect={type:'tokens',count:1,power:'2',toughness:'2',tribe:'Zombie',decayed:false};
@@ -29,4 +31,4 @@ export function deathMatches(source,victim,filter){return isCreature(victim.card
 export function endStepVictim(board,{allowSimpleCreature=false}={}){return board.filter(s=>s.id!=='commander'&&isCreature(s.card)&&cardSubtypes(s.card).includes('Zombie')&&(s.token||allowSimpleCreature&&['','This creature enters tapped.'].includes(withoutReminder(cardText(s.card))))).sort((a,b)=>Number(b.token||false)-Number(a.token||false)||a.id.localeCompare(b.id))[0]||null;}
 export function tokenCard(e){return e.tribe==='Zombie'?{name:'Zombie',type_line:'Token Creature — Zombie',mana_cost:'',colors:['B'],power:e.power,toughness:e.toughness,oracle_text:e.decayed?'Decayed':''}:{name:'Eldrazi'+(e.subtype?' '+e.subtype:''),type_line:'Token Creature — Eldrazi'+(e.subtype?' '+e.subtype:''),mana_cost:'',power:e.power,toughness:e.toughness,oracle_text:e.subtype?'Sacrifice this token: Add {C}.':''};}
 
-export function deathUnknown(board){return board.flatMap(s=>withoutReminder(cardText(s.card)).split('\n').map(l=>l.trim()).filter(l=>/\bdies?\b|graveyard|leaves (?:the )?battlefield|would.*(?:exile|leave)|regenerate|totem armor|shield counter/i.test(l)&&!deathModel(s.card).recognized.includes(l)).map(clause=>({card:s.card.name,clause})));}
+export function deathUnknown(board,options={}){return board.flatMap(s=>withoutReminder(cardText(s.card)).split('\n').map(l=>l.trim()).filter(l=>/\bdies?\b|graveyard|leaves (?:the )?battlefield|would.*(?:exile|leave)|regenerate|totem armor|shield counter/i.test(l)&&!deathModel(s.card,options).recognized.includes(l)).map(clause=>({card:s.card.name,clause})));}

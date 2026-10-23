@@ -1,5 +1,10 @@
 ## Unreleased draft PR #4 — Stage 8 opportunities and death events
 
+## Unreleased — Stage 9 generalized deck-quality checkpoint
+
+- Add opt-in, exactly paid creature-sacrifice life/scry abilities and Dark Prophecy death access using actual costs, last-known sources, zones, stack ordering and independent receipt audits. Default execution and production deck selection stay unchanged.
+- Add bounded Wilhelt sacrifice/access and resilient-access shadow packages, fresh fixed-pilot comparisons, exact selected-printing exports and a release/maintainability decision report. See `docs/GAMEPLAY_STAGE9.md` and `benchmarks/v12/stage9-VALIDATION.md`. Version remains 1.1.5; no external power claim or release.
+
 - Add explicit state-conditioned intervention checkpoints and exact matched-prefix recovery observations; retain unconditional opportunity frequency and censoring separately.
 - Add strict last-known simultaneous-death triggers, supported Zombie/Spawn/Scion resources, end-step Zombie sacrifice/draw, copied-legend deaths and independent event/zone/resource audits.
 - Record real tutor inventories; fix state-aware projections after consumed mana sources. Preserve legacy defaults, production selection, version 1.1.5 and local/Windows behavior.

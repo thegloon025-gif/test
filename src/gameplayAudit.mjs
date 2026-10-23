@@ -4,6 +4,7 @@ import {cardModel, cardTypes, cardSubtypes, castContext, isCreature, isLand} fro
 import {accessModel} from './gameplayAccess.mjs';
 import {outletModel} from './gameplayOutlets.mjs';
 import {nativeModel} from './gameplayNative.mjs';
+import {creatureSacrificeModel} from './gameplaySacrifice.mjs';
 import {auditTutorPlans} from './gameplayTutorAudit.mjs';
 export function auditDeploymentTrace(result, commander, cards) {
   const definitions = new Map(cards.map((c, i) => ['deck-' + i, c])); definitions.set('commander', commander);
@@ -33,6 +34,11 @@ export function auditDeploymentTrace(result, commander, cards) {
     turn = e.turn;
     if(e.event==='native-tutor-choice'){for(const reason of auditTutorPlans(e,{board,pool,life,turn,definitions,commander,creatureCasts}))error(e.event,reason);}
     else if(e.event==='end-step-sacrifice'){if(!result.stage8||!board.has(e.victim))error(e.event,'unavailable sacrifice');board.delete(e.victim);}
+    else if(e.event==='creature-sacrifice-paid'){
+      const source=board.get(e.source),victim=board.get(e.victim),ability=source&&creatureSacrificeModel(source.card)[e.abilityIndex],context={kind:'ability',abilityType:'activated',types:source?cardTypes(source.card):[]};
+      if(!result.stage9||!ability||!victim||!isCreature(victim.card)||e.victim==='commander'||e.cost!==ability.cost||e.reduction!==0||JSON.stringify(e.context)!==JSON.stringify(context)||e.spent.some(u=>u.source===e.victim))error(e.event,'illegal creature sacrifice payment/reserved victim');
+      spend(e.spent,e.cost,context,e.reduction);
+    }else if(e.event==='creature-sacrifice-cost'){if(!result.stage9||!board.has(e.victim))error(e.event,'creature already spent');board.delete(e.victim);}
     else if(e.event==='disruption-move'){if(!result.stage7||!board.has(e.id))error(e.event,'unavailable disruption source');board.delete(e.id);}
     else if(e.event==='copy-created'&&result.schemaVersion===4){const card=definitions.get(e.original);if(!card||definitions.has(e.id))error(e.event,'invalid copy definition');else definitions.set(e.id,card);
     }else if(e.event==='native-legend-rule'&&result.schemaVersion===4)board.delete(e.id);
@@ -103,6 +109,7 @@ export function auditDeploymentTrace(result, commander, cards) {
       }
     } else if(e.event==='give-away')board.delete(e.id);
     else if(e.event==='life-loss')life-=e.count;
+    else if(e.event==='life-gain'){if(!result.stage9)error(e.event,'unsupported life gain');life+=e.count;}
     else if(e.event==='spell-resolved')pendingSpell=null;
     else if (e.event === 'ritual-resolved') {
       const card = definitions.get(e.source), output = card && cardModel(card).ritualMana;
