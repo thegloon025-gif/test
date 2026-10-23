@@ -11,9 +11,10 @@ import {validateCommanderSingleton,exportCardName} from '../src/deckValidation.m
 import {conservativeComboViolation} from '../src/strategyFirst.mjs';
 import {compareExecutionCohorts} from '../src/gameplayComparison.mjs';
 import {opportunityPair,summarizeOpportunityPairs} from '../src/gameplayOpportunity.mjs';
-import {shadowSeeds,pairedInterval} from '../src/gameplayShadow.mjs';
+import {shadowSeeds,pairedInterval,commonIdentityOrder} from '../src/gameplayShadow.mjs';
+import {readOpportunityJSON} from './opportunity-evidence.mjs';
 const [cache,out]=process.argv.slice(2),started=performance.now();
-const sha=x=>createHash('sha256').update(x).digest('hex'),load=async f=>JSON.parse(await readFile(f)),plain=x=>JSON.parse(JSON.stringify(x));
+const sha=x=>createHash('sha256').update(x).digest('hex'),load=readOpportunityJSON,plain=x=>JSON.parse(JSON.stringify(x));
 async function hashes(dir,prefix=''){const h={};for(const e of(await readdir(dir,{withFileTypes:true})).sort((a,b)=>a.name.localeCompare(b.name))){const k=prefix+e.name;if(e.isDirectory())Object.assign(h,await hashes(dir+'/'+e.name,k+'/'));else h[k]=sha(await readFile(dir+'/'+e.name));}return h;}
 const f=await load(out+'/inputs.json'),protocol=await load(out+'/protocol.json'),seeds=shadowSeeds(protocol.samples);
 assert.deepEqual(await hashes(cache),f.metadata.cache);assert.deepEqual(await hashes('src'),f.metadata.source);assert.equal(sha(await readFile(out+'/protocol.json')),f.metadata.protocol);assert.equal(sha(await readFile('tools/benchmark-quality-checkpoint.mjs')),f.metadata.runner);
@@ -27,7 +28,7 @@ for(const d of f.decks){
  const audit=await load(out+'/'+d.name+'-audit.json');assert.equal(audit.total,d.price);assert.equal(audit.count,100);assert.ok(audit.withinBudget&&audit.agreesWithGenerator&&!audit.anomalies.length);assert.deepEqual(audit.selectedPrintings,[d.commander,...d.cards]);
  assert.equal(await readFile(out+'/'+d.name+'.txt','utf8'),'1x '+commander.name+' [Commander]\n'+cards.map(c=>'1x '+exportCardName(c)).join('\n')+'\n');
 }
-let total=0,samples=0,fixtures=0,tables=0,panels=0;const statuses={},opportunities={};
+let total=0,samples=0,fixtures=0,realCardFixtures=0,tables=0,panels=0;const statuses={},opportunities={};
 for(const phase of ['training','holdout']){
  const report=await load(out+'/'+phase+'.json'),raw=await readFile(out+'/'+phase+'-vectors.json.gz');assert.equal(sha(raw),report.vectorSHA256);assert.equal(sha(await readFile(out+'/inputs.json')),report.inputsSHA256);
  const{vectors,pairs}=JSON.parse(gunzipSync(raw)),seen=new Set();assert.equal(vectors.length,report.runs);assert.equal(report.runs,report.audited);assert.equal(report.runs,report.replayed);statuses[phase]={};opportunities[phase]={};
@@ -40,7 +41,24 @@ for(const phase of ['training','holdout']){
   if(s.scenario!=='control'){const control=evaluateGameplay({...stored.options,commander,cards,stage7:{tutorPolicy:'state-aware',disruptions:[]},stage8:{conditioned:true,requirements:{}}});assert.ok(auditGameplayTrace(control,commander,cards).valid);const expected=opportunityPair(control,stored.run),p=pairs.find(p=>p.deck===s.deck&&p.seed===s.seed&&p.policy===s.policy&&p.scenario===s.scenario);for(const[k,v]of Object.entries(expected))assert.deepEqual(p[k],v);}samples++;
  }total+=vectors.length;
 }
-for(const e of await load(out+'/fixtures/index.json')){const raw=await readFile(out+'/fixtures/'+e.file);assert.equal(sha(raw),e.sha256);const s=JSON.parse(gunzipSync(raw)),cards=s.cards.map((_,i)=>s.cards[s.cardRefs[i]]);assert.ok(auditGameplayTrace(s.run,s.commander,cards).valid);assert.deepEqual(plain(evaluateGameplay({...s.options,commander:s.commander,cards})),s.run);fixtures++;}
+for(const e of await load(out+'/fixtures/index.json')){
+ const raw=await readFile(out+'/fixtures/'+e.file);assert.equal(sha(raw),e.sha256);const s=JSON.parse(gunzipSync(raw)),cards=s.cards.map((_,i)=>s.cards[s.cardRefs[i]]);assert.ok(auditGameplayTrace(s.run,s.commander,cards).valid);assert.deepEqual(plain(evaluateGameplay({...s.options,commander:s.commander,cards})),s.run);fixtures++;
+ // Replay controlled scripts against actual cached Oracle records as well as
+ // minimal unit fixtures. This is still scripted evidence, not natural timing.
+ const unique=s.cards.map(c=>catalog.find(x=>x.name===c.name)),realCards=s.cardRefs.map(i=>unique[i]),commander=catalog.find(c=>c.name===s.commander.name);assert.ok(commander&&realCards.every(Boolean));
+ const real=evaluateGameplay({...s.options,commander,cards:realCards});assert.ok(auditGameplayTrace(real,commander,realCards).valid);
+ // Intrinsic basic-land modes omit optional zero/default fields compared with
+ // explicit unit Oracle text. Compare resolved economic/zone receipts, not
+ // representation bytes, after independently auditing each actual payment.
+ const outcomes=r=>r.trace.filter(e=>/^(creature-sacrifice-|access-draw|life-gain|life-loss|token-created|end-step-sacrifice|turn-end)/.test(e.event)).map(e=>Object.fromEntries(['turn','event','source','victim','id','count','life','hand','graveyard'].filter(k=>k in e).map(k=>[k,e[k]])));
+ assert.deepEqual(plain(outcomes(real)),outcomes(s.run));assert.equal(real.stats.effectDraws,s.run.stats.effectDraws);assert.equal(real.lost,s.run.lost);realCardFixtures++;
+}
 let oldReplays=0;for(const file of(await readdir('benchmarks/v12/stage6')).filter(f=>f.endsWith('-fixed-trace.json.gz'))){const s=JSON.parse(gunzipSync(await readFile('benchmarks/v12/stage6/'+file))),ledger=await load('benchmarks/v12/stage6/'+file.replace('-fixed-trace.json.gz','-audit.json')),[commander,...cards]=ledger.selectedPrintings.map(p=>by.get(p.id)),r=s.run;assert.deepEqual(plain(evaluateGameplay({commander,cards,seed:r.seed,order:r.order,policy:r.policy,nativeExecution:true,nativeStage5:true,nativeDecisionPolicy:'conservative'})),r);assert.ok(auditGameplayTrace(r,commander,cards).valid);oldReplays++;}
-const result={auditorSHA256:sha(await readFile(new URL(import.meta.url))),completeDecks:f.decks.length,selectedPrintingSlots:slots,auditedAndReplayedVectors:total,pairedTablesRecomputed:tables,opportunityPanelsRecomputed:panels,firstOpportunitySamplesReauditedAndReplayed:samples,controlledFixturesReauditedAndReplayed:fixtures,archivedStage6DefaultTracesMatched:oldReplays,terminalStatuses:statuses,opportunityStatuses:opportunities,preservedArchivesCachesProductionAndLauncher:true,unknownNativeStrategiesAbstain:true,limitations:'Grammar is shared; independent resource/zone/stack/death/life receipts are not a full rules proof or optimal pilot proof. Every cohort run is audited/replayed by the hashed runner; saved first receipts are separately reaudited here.',runtimeMs:Math.round(performance.now()-started)};
+// Same-input opt-in preservation check, not another performance cohort.
+let ulalekOptInTraceMatches=0;
+for(const d of f.decks.filter(d=>d.slug.startsWith('ulalek')))for(const policy of protocol.policies)for(const seed of seeds.training.slice(0,2)){
+ const{commander,cards}=selected.get(d.name),opts={commander,cards,seed,policy,order:commonIdentityOrder(cards,seed),nativeExecution:true,nativeStage5:true,nativeDecisionPolicy:'conservative',stage7:{tutorPolicy:'state-aware',disruptions:[]},stage8:{conditioned:true,requirements:{}}};
+ const old=evaluateGameplay(opts),current=evaluateGameplay({...opts,stage9:true});assert.deepEqual(current.trace,old.trace);assert.ok(auditGameplayTrace(current,commander,cards).valid&&auditGameplayTrace(old,commander,cards).valid);ulalekOptInTraceMatches++;
+}
+const result={auditorSHA256:sha(await readFile(new URL(import.meta.url))),completeDecks:f.decks.length,selectedPrintingSlots:slots,auditedAndReplayedVectors:total,pairedTablesRecomputed:tables,opportunityPanelsRecomputed:panels,firstOpportunitySamplesReauditedAndReplayed:samples,controlledFixturesReauditedAndReplayed:fixtures,controlledActualCatalogOutcomeMatches:realCardFixtures,archivedStage6DefaultTracesMatched:oldReplays,ulalekOptInTraceMatches,terminalStatuses:statuses,opportunityStatuses:opportunities,preservedArchivesCachesProductionAndLauncher:true,unknownNativeStrategiesAbstain:true,limitations:'Grammar is shared; independent resource/zone/stack/death/life receipts are not a full rules proof or optimal pilot proof. Every cohort run is audited/replayed by the hashed runner; saved first receipts are separately reaudited here.',runtimeMs:Math.round(performance.now()-started)};
 await writeFile(out+'/independent-audit.json',JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result,null,2));
