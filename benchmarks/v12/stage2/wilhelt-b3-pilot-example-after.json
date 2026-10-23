@@ -1,0 +1,4574 @@
+{
+  "run": {
+    "schemaVersion": 2,
+    "evaluator": "gameplay-stage2-v1",
+    "seed": "gameplay-stage1-2026-10-22:2",
+    "turns": 8,
+    "policy": "development",
+    "mulligan": "none",
+    "order": [
+      55,
+      18,
+      77,
+      26,
+      41,
+      96,
+      67,
+      23,
+      30,
+      19,
+      25,
+      45,
+      93,
+      40,
+      31,
+      38,
+      90,
+      70,
+      94,
+      4,
+      29,
+      1,
+      5,
+      53,
+      82,
+      71,
+      73,
+      85,
+      39,
+      11,
+      14,
+      24,
+      21,
+      61,
+      69,
+      68,
+      98,
+      64,
+      97,
+      83,
+      48,
+      43,
+      75,
+      20,
+      6,
+      60,
+      66,
+      42,
+      56,
+      78,
+      80,
+      79,
+      10,
+      32,
+      65,
+      57,
+      17,
+      27,
+      35,
+      95,
+      28,
+      52,
+      9,
+      51,
+      0,
+      12,
+      8,
+      86,
+      7,
+      44,
+      13,
+      63,
+      46,
+      74,
+      50,
+      81,
+      22,
+      87,
+      59,
+      49,
+      92,
+      54,
+      33,
+      84,
+      34,
+      16,
+      36,
+      62,
+      37,
+      89,
+      47,
+      3,
+      58,
+      88,
+      15,
+      91,
+      2,
+      72,
+      76
+    ],
+    "initialOpening": [
+      {
+        "id": "deck-55",
+        "card": "Thran Dynamo"
+      },
+      {
+        "id": "deck-18",
+        "card": "Fell Stinger"
+      },
+      {
+        "id": "deck-77",
+        "card": "Mirrodin's Core"
+      },
+      {
+        "id": "deck-26",
+        "card": "Headless Rider"
+      },
+      {
+        "id": "deck-41",
+        "card": "Patchwork Crawler"
+      },
+      {
+        "id": "deck-96",
+        "card": "Tendo Ice Bridge"
+      },
+      {
+        "id": "deck-67",
+        "card": "Island"
+      }
+    ],
+    "commander": "Wilhelt, the Rotcleaver",
+    "nativeTypes": [
+      "Zombie"
+    ],
+    "chosenType": "Zombie",
+    "stats": {
+      "casts": [
+        {
+          "turn": 2,
+          "id": "deck-41",
+          "card": "Patchwork Crawler",
+          "commander": false,
+          "origin": "hand"
+        },
+        {
+          "turn": 6,
+          "id": "deck-55",
+          "card": "Thran Dynamo",
+          "commander": false,
+          "origin": "hand"
+        },
+        {
+          "turn": 7,
+          "id": "commander",
+          "card": "Wilhelt, the Rotcleaver",
+          "commander": true,
+          "origin": "command"
+        },
+        {
+          "turn": 8,
+          "id": "deck-23",
+          "card": "Graf Reaver",
+          "commander": false,
+          "origin": "hand"
+        }
+      ],
+      "commanderDeploymentTurn": 7,
+      "setupBeforePayableCommander": 1,
+      "optionalPayments": [],
+      "effectDraws": 0,
+      "naturalDraws": 8,
+      "accessDiscards": 0,
+      "cleanupDiscards": 1,
+      "returnedToTop": 0,
+      "topCasts": 0,
+      "accessSacrifices": 0,
+      "accessSpells": 0,
+      "activations": 0,
+      "selections": 0,
+      "manaStates": 530,
+      "manaSearches": 149,
+      "boundHits": 0,
+      "actionBoundHits": 0,
+      "usedEngines": [],
+      "mulligans": 0
+    },
+    "observations": [
+      {
+        "turn": 1,
+        "commanderDeployed": false,
+        "manaBeforeActions": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "blocked"
+        },
+        "manaRemaining": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "blocked"
+        },
+        "handSize": 7,
+        "accessibleCards": 8,
+        "netAccessibleCards": 0,
+        "naturalDraws": 1,
+        "effectDraws": 0,
+        "effectDiscards": 0,
+        "cleanupDiscards": 0,
+        "returnedToTop": 0,
+        "topCasts": 0,
+        "accessSpells": 0,
+        "accessSacrifices": 0,
+        "engines": [],
+        "threatsBeforeActions": [],
+        "threatAvailability": [],
+        "missed": [
+          {
+            "id": "deck-55",
+            "card": "Thran Dynamo",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-18",
+            "card": "Fell Stinger",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-26",
+            "card": "Headless Rider",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-41",
+            "card": "Patchwork Crawler",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-23",
+            "card": "Graf Reaver",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "commander",
+            "card": "Wilhelt, the Rotcleaver",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          }
+        ]
+      },
+      {
+        "turn": 2,
+        "commanderDeployed": false,
+        "manaBeforeActions": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "blocked"
+        },
+        "manaRemaining": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "blocked"
+        },
+        "handSize": 6,
+        "accessibleCards": 9,
+        "netAccessibleCards": 0,
+        "naturalDraws": 2,
+        "effectDraws": 0,
+        "effectDiscards": 0,
+        "cleanupDiscards": 0,
+        "returnedToTop": 0,
+        "topCasts": 0,
+        "accessSpells": 0,
+        "accessSacrifices": 0,
+        "engines": [],
+        "threatsBeforeActions": [],
+        "threatAvailability": [],
+        "missed": [
+          {
+            "id": "deck-55",
+            "card": "Thran Dynamo",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-18",
+            "card": "Fell Stinger",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-26",
+            "card": "Headless Rider",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-23",
+            "card": "Graf Reaver",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-30",
+            "card": "Jarl of the Forsaken",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "commander",
+            "card": "Wilhelt, the Rotcleaver",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          }
+        ]
+      },
+      {
+        "turn": 3,
+        "commanderDeployed": false,
+        "manaBeforeActions": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 3,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "paid"
+        },
+        "manaRemaining": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 3,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "paid"
+        },
+        "handSize": 6,
+        "accessibleCards": 10,
+        "netAccessibleCards": 0,
+        "naturalDraws": 3,
+        "effectDraws": 0,
+        "effectDiscards": 0,
+        "cleanupDiscards": 0,
+        "returnedToTop": 0,
+        "topCasts": 0,
+        "accessSpells": 0,
+        "accessSacrifices": 0,
+        "engines": [],
+        "threatsBeforeActions": [],
+        "threatAvailability": [],
+        "missed": [
+          {
+            "id": "deck-55",
+            "card": "Thran Dynamo",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-18",
+            "card": "Fell Stinger",
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable"
+          },
+          {
+            "id": "deck-26",
+            "card": "Headless Rider",
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable"
+          },
+          {
+            "id": "deck-23",
+            "card": "Graf Reaver",
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable"
+          },
+          {
+            "id": "deck-30",
+            "card": "Jarl of the Forsaken",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-19",
+            "card": "Feral Ghoul",
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable"
+          },
+          {
+            "id": "commander",
+            "card": "Wilhelt, the Rotcleaver",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          }
+        ]
+      },
+      {
+        "turn": 4,
+        "commanderDeployed": false,
+        "manaBeforeActions": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 3,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "paid"
+        },
+        "manaRemaining": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 3,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "paid"
+        },
+        "handSize": 7,
+        "accessibleCards": 11,
+        "netAccessibleCards": 0,
+        "naturalDraws": 4,
+        "effectDraws": 0,
+        "effectDiscards": 0,
+        "cleanupDiscards": 0,
+        "returnedToTop": 0,
+        "topCasts": 0,
+        "accessSpells": 0,
+        "accessSacrifices": 0,
+        "engines": [],
+        "threatsBeforeActions": [],
+        "threatAvailability": [],
+        "missed": [
+          {
+            "id": "deck-55",
+            "card": "Thran Dynamo",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-18",
+            "card": "Fell Stinger",
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable"
+          },
+          {
+            "id": "deck-26",
+            "card": "Headless Rider",
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable"
+          },
+          {
+            "id": "deck-23",
+            "card": "Graf Reaver",
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable"
+          },
+          {
+            "id": "deck-30",
+            "card": "Jarl of the Forsaken",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-19",
+            "card": "Feral Ghoul",
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable"
+          },
+          {
+            "id": "deck-25",
+            "card": "Gutless Ghoul",
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable"
+          },
+          {
+            "id": "commander",
+            "card": "Wilhelt, the Rotcleaver",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          }
+        ]
+      },
+      {
+        "turn": 5,
+        "commanderDeployed": false,
+        "manaBeforeActions": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 3,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "paid"
+        },
+        "manaRemaining": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 3,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "paid"
+        },
+        "handSize": 7,
+        "accessibleCards": 11,
+        "netAccessibleCards": -1,
+        "naturalDraws": 5,
+        "effectDraws": 0,
+        "effectDiscards": 0,
+        "cleanupDiscards": 1,
+        "returnedToTop": 0,
+        "topCasts": 0,
+        "accessSpells": 0,
+        "accessSacrifices": 0,
+        "engines": [],
+        "threatsBeforeActions": [],
+        "threatAvailability": [],
+        "missed": [
+          {
+            "id": "deck-55",
+            "card": "Thran Dynamo",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-18",
+            "card": "Fell Stinger",
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable"
+          },
+          {
+            "id": "deck-26",
+            "card": "Headless Rider",
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable"
+          },
+          {
+            "id": "deck-23",
+            "card": "Graf Reaver",
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable"
+          },
+          {
+            "id": "deck-30",
+            "card": "Jarl of the Forsaken",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-19",
+            "card": "Feral Ghoul",
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable"
+          },
+          {
+            "id": "deck-25",
+            "card": "Gutless Ghoul",
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable"
+          },
+          {
+            "id": "deck-45",
+            "card": "Repository Skaab",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "commander",
+            "card": "Wilhelt, the Rotcleaver",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          }
+        ]
+      },
+      {
+        "turn": 6,
+        "commanderDeployed": false,
+        "manaBeforeActions": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 4,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "paid"
+        },
+        "manaRemaining": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 3,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 3,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "paid"
+        },
+        "handSize": 6,
+        "accessibleCards": 12,
+        "netAccessibleCards": -1,
+        "naturalDraws": 6,
+        "effectDraws": 0,
+        "effectDiscards": 0,
+        "cleanupDiscards": 1,
+        "returnedToTop": 0,
+        "topCasts": 0,
+        "accessSpells": 0,
+        "accessSacrifices": 0,
+        "engines": [],
+        "threatsBeforeActions": [],
+        "threatAvailability": [],
+        "missed": [
+          {
+            "id": "deck-18",
+            "card": "Fell Stinger",
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable"
+          },
+          {
+            "id": "deck-26",
+            "card": "Headless Rider",
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable"
+          },
+          {
+            "id": "deck-23",
+            "card": "Graf Reaver",
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable"
+          },
+          {
+            "id": "deck-30",
+            "card": "Jarl of the Forsaken",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-19",
+            "card": "Feral Ghoul",
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable"
+          },
+          {
+            "id": "deck-25",
+            "card": "Gutless Ghoul",
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable"
+          },
+          {
+            "id": "commander",
+            "card": "Wilhelt, the Rotcleaver",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          }
+        ]
+      },
+      {
+        "turn": 7,
+        "commanderDeployed": true,
+        "manaBeforeActions": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 7,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 5,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "paid"
+        },
+        "manaRemaining": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 3,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 3,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "paid"
+        },
+        "handSize": 7,
+        "accessibleCards": 13,
+        "netAccessibleCards": -1,
+        "naturalDraws": 7,
+        "effectDraws": 0,
+        "effectDiscards": 0,
+        "cleanupDiscards": 1,
+        "returnedToTop": 0,
+        "topCasts": 0,
+        "accessSpells": 0,
+        "accessSacrifices": 0,
+        "engines": [],
+        "threatsBeforeActions": [],
+        "threatAvailability": [],
+        "missed": [
+          {
+            "id": "deck-18",
+            "card": "Fell Stinger",
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable"
+          },
+          {
+            "id": "deck-26",
+            "card": "Headless Rider",
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable"
+          },
+          {
+            "id": "deck-23",
+            "card": "Graf Reaver",
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable"
+          },
+          {
+            "id": "deck-30",
+            "card": "Jarl of the Forsaken",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-19",
+            "card": "Feral Ghoul",
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable"
+          },
+          {
+            "id": "deck-25",
+            "card": "Gutless Ghoul",
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable"
+          },
+          {
+            "id": "deck-40",
+            "card": "Overcharged Amalgam",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          }
+        ]
+      },
+      {
+        "turn": 8,
+        "commanderDeployed": true,
+        "manaBeforeActions": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 7,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 5,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "paid"
+        },
+        "manaRemaining": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 5,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 5,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "paid"
+        },
+        "handSize": 7,
+        "accessibleCards": 14,
+        "netAccessibleCards": -1,
+        "naturalDraws": 8,
+        "effectDraws": 0,
+        "effectDiscards": 0,
+        "cleanupDiscards": 1,
+        "returnedToTop": 0,
+        "topCasts": 0,
+        "accessSpells": 0,
+        "accessSacrifices": 0,
+        "engines": [],
+        "threatsBeforeActions": [],
+        "threatAvailability": [],
+        "missed": [
+          {
+            "id": "deck-18",
+            "card": "Fell Stinger",
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable"
+          },
+          {
+            "id": "deck-26",
+            "card": "Headless Rider",
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable"
+          },
+          {
+            "id": "deck-30",
+            "card": "Jarl of the Forsaken",
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable"
+          },
+          {
+            "id": "deck-19",
+            "card": "Feral Ghoul",
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable"
+          },
+          {
+            "id": "deck-25",
+            "card": "Gutless Ghoul",
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable"
+          },
+          {
+            "id": "deck-40",
+            "card": "Overcharged Amalgam",
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable"
+          },
+          {
+            "id": "deck-31",
+            "card": "Jason Bright, Glowing Prophet",
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable"
+          }
+        ]
+      }
+    ],
+    "decked": false,
+    "lost": false,
+    "assumptions": {
+      "opening": 7,
+      "mulligan": "none",
+      "drawOnTurnOne": true,
+      "rankingIntegration": false,
+      "commanderTaxPriorCasts": 0,
+      "access": true,
+      "mainPhases": 1,
+      "maxActions": 24,
+      "maxManaStates": 4000,
+      "maxSetupActionsBeforePayableCommander": 1,
+      "sourcePayments": "optimized exact ledger",
+      "opponents": "three inert seats; no combat/interaction; supported control transfers leave our board",
+      "optionalPayment": "reserve before resolving resource/access triggers",
+      "threatDefinition": "native creature with printed power >=4 or printed MV >=5; payment availability, not win conversion; other threat/combat/copy outcomes unknown",
+      "otherRulesCoverage": "not quantified; parsed access is not complete Oracle/rules coverage"
+    },
+    "coverage": {
+      "cardsWithSupportedAccess": 6,
+      "cardsWithUnmodeledAccess": 12,
+      "unmodeledAccessClauses": 12
+    },
+    "unknown": [
+      {
+        "card": "Abattoir Ghoul",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Accursed Centaur",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Accursed Horde",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Arcane Signet",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Arcanis the Omnipotent",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Archghoul of Thraben",
+        "access": [
+          {
+            "line": "Whenever this creature or another Zombie you control dies, look at the top card of your library. If it's a Zombie card, you may reveal it and put it into your hand. If you don't put the card into your hand, you may put it into your graveyard.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      },
+      {
+        "card": "Archivist",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Boneyard Desecrator",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Boneyard Scourge",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Brain Gorgers",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Carrion Feeder",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Cemetery Reaper",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Corpse Augur",
+        "access": [
+          {
+            "line": "When this creature dies, you draw X cards and you lose X life, where X is the number of creature cards in target player's graveyard.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      },
+      {
+        "card": "Corpse Blockade",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Curator's Ward",
+        "access": [
+          {
+            "line": "When enchanted permanent leaves the battlefield, if it was historic, draw two cards.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      },
+      {
+        "card": "Dauthi Ghoul",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Diregraf Captain",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Dreadmalkin",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Fell Stinger",
+        "access": [
+          {
+            "line": "When this creature exploits a creature, target player draws two cards and loses 2 life.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      },
+      {
+        "card": "Feral Ghoul",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Gavony Unhallowed",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Giant's Boulder",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Gnawing Zombie",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Graf Reaver",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Grimgrin, Corpse-Born // Grimgrin, Corpse-Born",
+        "access": [],
+        "other": [
+          "alternate faces/transform/craft not evaluated; front face only"
+        ]
+      },
+      {
+        "card": "Gutless Ghoul",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Headless Rider",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Hithlain Rope",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Hungry Ghoul",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Insight Engine",
+        "access": [
+          {
+            "line": "{2}, {T}: Put a charge counter on this artifact, then draw a card for each charge counter on it.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      },
+      {
+        "card": "Jarl of the Forsaken",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Jason Bright, Glowing Prophet",
+        "access": [
+          {
+            "line": "Whenever a Zombie or Mutant you control dies, if its power was different from its base power, draw a card.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      },
+      {
+        "card": "Liliana's Standard Bearer",
+        "access": [
+          {
+            "line": "When this creature enters, draw X cards, where X is the number of creatures that died under your control this turn.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      },
+      {
+        "card": "Midnight Reaper",
+        "access": [
+          {
+            "line": "Whenever a nontoken creature you control dies, this creature deals 1 damage to you and you draw a card.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      },
+      {
+        "card": "Mind Stone",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Mindleech Ghoul",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Murderous Rider // Swift End",
+        "access": [],
+        "other": [
+          "alternate faces/transform/craft not evaluated; front face only"
+        ]
+      },
+      {
+        "card": "My Precious // Allure of Power",
+        "access": [],
+        "other": [
+          "alternate faces/transform/craft not evaluated; front face only"
+        ]
+      },
+      {
+        "card": "Nantuko Husk",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Necrosavant",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Overcharged Amalgam",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Patchwork Crawler",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Phyrexian Ghoul",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Plague Belcher",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Ragamuffyn",
+        "access": [
+          {
+            "line": "Hellbent — {T}, Sacrifice a creature or land: Draw a card. Activate only if you have no cards in hand.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      },
+      {
+        "card": "Repository Skaab",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Sedraxis Alchemist",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Sepulcher Ghoul",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Sidisi, Regent of the Mire",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Silumgar Scavenger",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Skull Skaab",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Sol Ring",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Stronghold Assassin",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Tablet of Compleation",
+        "access": [
+          {
+            "line": "{1}, {T}: Draw a card. Activate only if this artifact has five or more oil counters on it.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": [
+          "unsupported mana condition: {T}: Add {C}. Activate only if this artifact has two or more oil counters on it."
+        ]
+      },
+      {
+        "card": "The Soul Stone",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Thran Dynamo",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Tomb Tyrant",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Undead Augur",
+        "access": [
+          {
+            "line": "Whenever this creature or another Zombie you control dies, you draw a card and lose 1 life.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      },
+      {
+        "card": "Undercity Necrolisk",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Vengeful Dead",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Vesper Ghoul",
+        "access": [],
+        "other": [
+          "unsupported activation cost: {T}, Pay 1 life: Add one mana of any color."
+        ]
+      },
+      {
+        "card": "Voracious Null",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Wight",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Command Tower",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Exotic Orchard",
+        "access": [],
+        "other": [
+          "unsupported mana production: {T}: Add one mana of any color that a land an opponent controls could produce."
+        ]
+      },
+      {
+        "card": "Island",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {U}.)"
+        ]
+      },
+      {
+        "card": "Mirrodin's Core",
+        "access": [],
+        "other": [
+          "unsupported activation cost: {T}, Remove a charge counter from this land: Add one mana of any color."
+        ]
+      },
+      {
+        "card": "River of Tears",
+        "access": [],
+        "other": [
+          "unsupported mana condition: {T}: Add {U}. If you played a land this turn, add {B} instead."
+        ]
+      },
+      {
+        "card": "Rootwater Depths",
+        "access": [],
+        "other": [
+          "unsupported mana condition: {T}: Add {U} or {B}. This land doesn't untap during your next untap step."
+        ]
+      },
+      {
+        "card": "Spire of Industry",
+        "access": [],
+        "other": [
+          "unsupported activation cost: {T}, Pay 1 life: Add one mana of any color. Activate only if you control an artifact."
+        ]
+      },
+      {
+        "card": "Swamp",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {B}.)"
+        ]
+      },
+      {
+        "card": "Tendo Ice Bridge",
+        "access": [],
+        "other": [
+          "unsupported activation cost: {T}, Remove a charge counter from this land: Add one mana of any color."
+        ]
+      },
+      {
+        "card": "The Grey Havens",
+        "access": [],
+        "other": [
+          "unsupported mana production: {T}: Add one mana of any color among legendary creature cards in your graveyard."
+        ]
+      },
+      {
+        "card": "Waterveil Cavern",
+        "access": [],
+        "other": [
+          "unsupported mana condition: {T}: Add {U} or {B}. This land doesn't untap during your next untap step."
+        ]
+      },
+      {
+        "card": "Wilhelt, the Rotcleaver",
+        "access": [
+          {
+            "line": "At the beginning of your end step, you may sacrifice a Zombie. If you do, draw a card.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      }
+    ],
+    "trace": [
+      {
+        "turn": 0,
+        "event": "opening",
+        "hand": [
+          {
+            "id": "deck-55",
+            "card": "Thran Dynamo"
+          },
+          {
+            "id": "deck-18",
+            "card": "Fell Stinger"
+          },
+          {
+            "id": "deck-77",
+            "card": "Mirrodin's Core"
+          },
+          {
+            "id": "deck-26",
+            "card": "Headless Rider"
+          },
+          {
+            "id": "deck-41",
+            "card": "Patchwork Crawler"
+          },
+          {
+            "id": "deck-96",
+            "card": "Tendo Ice Bridge"
+          },
+          {
+            "id": "deck-67",
+            "card": "Island"
+          }
+        ]
+      },
+      {
+        "turn": 1,
+        "event": "untap",
+        "sources": []
+      },
+      {
+        "turn": 1,
+        "event": "draw",
+        "card": "Graf Reaver",
+        "id": "deck-23",
+        "reason": "natural"
+      },
+      {
+        "turn": 1,
+        "event": "land",
+        "id": "deck-67",
+        "card": "Island",
+        "tapped": false,
+        "unknown": false
+      },
+      {
+        "turn": 1,
+        "event": "turn-end",
+        "hand": [
+          "Thran Dynamo",
+          "Fell Stinger",
+          "Mirrodin's Core",
+          "Headless Rider",
+          "Patchwork Crawler",
+          "Tendo Ice Bridge",
+          "Graf Reaver"
+        ],
+        "handIds": [
+          "deck-55",
+          "deck-18",
+          "deck-77",
+          "deck-26",
+          "deck-41",
+          "deck-96",
+          "deck-23"
+        ],
+        "library": [
+          "deck-30",
+          "deck-19",
+          "deck-25",
+          "deck-45",
+          "deck-93",
+          "deck-40",
+          "deck-31",
+          "deck-38",
+          "deck-90",
+          "deck-70",
+          "deck-94",
+          "deck-4",
+          "deck-29",
+          "deck-1",
+          "deck-5",
+          "deck-53",
+          "deck-82",
+          "deck-71",
+          "deck-73",
+          "deck-85",
+          "deck-39",
+          "deck-11",
+          "deck-14",
+          "deck-24",
+          "deck-21",
+          "deck-61",
+          "deck-69",
+          "deck-68",
+          "deck-98",
+          "deck-64",
+          "deck-97",
+          "deck-83",
+          "deck-48",
+          "deck-43",
+          "deck-75",
+          "deck-20",
+          "deck-6",
+          "deck-60",
+          "deck-66",
+          "deck-42",
+          "deck-56",
+          "deck-78",
+          "deck-80",
+          "deck-79",
+          "deck-10",
+          "deck-32",
+          "deck-65",
+          "deck-57",
+          "deck-17",
+          "deck-27",
+          "deck-35",
+          "deck-95",
+          "deck-28",
+          "deck-52",
+          "deck-9",
+          "deck-51",
+          "deck-0",
+          "deck-12",
+          "deck-8",
+          "deck-86",
+          "deck-7",
+          "deck-44",
+          "deck-13",
+          "deck-63",
+          "deck-46",
+          "deck-74",
+          "deck-50",
+          "deck-81",
+          "deck-22",
+          "deck-87",
+          "deck-59",
+          "deck-49",
+          "deck-92",
+          "deck-54",
+          "deck-33",
+          "deck-84",
+          "deck-34",
+          "deck-16",
+          "deck-36",
+          "deck-62",
+          "deck-37",
+          "deck-89",
+          "deck-47",
+          "deck-3",
+          "deck-58",
+          "deck-88",
+          "deck-15",
+          "deck-91",
+          "deck-2",
+          "deck-72",
+          "deck-76"
+        ],
+        "graveyard": [],
+        "exile": [],
+        "opponents": [],
+        "ceased": [],
+        "board": [
+          {
+            "id": "deck-67",
+            "card": "Island",
+            "tapped": false
+          }
+        ],
+        "floatingExpires": [],
+        "life": 40
+      },
+      {
+        "turn": 2,
+        "event": "untap",
+        "sources": [
+          {
+            "id": "deck-67",
+            "types": [
+              "Basic",
+              "Land"
+            ],
+            "subtypes": [
+              "Island"
+            ],
+            "modes": [
+              {
+                "tap": true,
+                "cost": "",
+                "outputs": [
+                  [
+                    "U"
+                  ]
+                ]
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          }
+        ]
+      },
+      {
+        "turn": 2,
+        "event": "draw",
+        "card": "Jarl of the Forsaken",
+        "id": "deck-30",
+        "reason": "natural"
+      },
+      {
+        "turn": 2,
+        "event": "land",
+        "id": "deck-77",
+        "card": "Mirrodin's Core",
+        "tapped": false,
+        "unknown": false
+      },
+      {
+        "turn": 2,
+        "event": "decision",
+        "policy": "development",
+        "chosen": "deck-41",
+        "kind": "cast",
+        "reason": "deploy native creature",
+        "commanderPayable": false,
+        "setupBudgetUsed": 0,
+        "alternatives": []
+      },
+      {
+        "turn": 2,
+        "event": "mana-activation",
+        "card": "Island",
+        "kind": "activation",
+        "source": "deck-67",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "cost": "",
+          "outputs": [
+            [
+              "U"
+            ]
+          ]
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-67:0:0",
+            "type": "U",
+            "source": "deck-67",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 2,
+        "event": "mana-activation",
+        "card": "Mirrodin's Core",
+        "kind": "activation",
+        "source": "deck-77",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "sacrifice": false,
+          "cost": "",
+          "outputs": [
+            [
+              "C"
+            ]
+          ],
+          "restriction": "none",
+          "life": 0,
+          "minLands": 0
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-77:0:0",
+            "type": "C",
+            "source": "deck-77",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 2,
+        "event": "cast-paid",
+        "id": "deck-41",
+        "card": "Patchwork Crawler",
+        "origin": "hand",
+        "kind": "payment",
+        "label": "spell",
+        "cost": "{1}{U}",
+        "reduction": 0,
+        "context": {
+          "kind": "spell",
+          "types": [
+            "Creature"
+          ],
+          "subtypes": [
+            "Zombie",
+            "Horror"
+          ],
+          "commander": false
+        },
+        "spent": [
+          {
+            "id": "deck-67:0:0",
+            "type": "U",
+            "source": "deck-67",
+            "restriction": "none",
+            "paidFor": "U"
+          },
+          {
+            "id": "deck-77:0:0",
+            "type": "C",
+            "source": "deck-77",
+            "restriction": "none",
+            "paidFor": "*"
+          }
+        ]
+      },
+      {
+        "turn": 2,
+        "event": "permanent-resolved",
+        "id": "deck-41",
+        "card": "Patchwork Crawler",
+        "tapped": false,
+        "effects": {
+          "manaUnknown": [],
+          "accessUnknown": [],
+          "other": "other Oracle effects unmodeled"
+        }
+      },
+      {
+        "turn": 2,
+        "event": "turn-end",
+        "hand": [
+          "Thran Dynamo",
+          "Fell Stinger",
+          "Headless Rider",
+          "Tendo Ice Bridge",
+          "Graf Reaver",
+          "Jarl of the Forsaken"
+        ],
+        "handIds": [
+          "deck-55",
+          "deck-18",
+          "deck-26",
+          "deck-96",
+          "deck-23",
+          "deck-30"
+        ],
+        "library": [
+          "deck-19",
+          "deck-25",
+          "deck-45",
+          "deck-93",
+          "deck-40",
+          "deck-31",
+          "deck-38",
+          "deck-90",
+          "deck-70",
+          "deck-94",
+          "deck-4",
+          "deck-29",
+          "deck-1",
+          "deck-5",
+          "deck-53",
+          "deck-82",
+          "deck-71",
+          "deck-73",
+          "deck-85",
+          "deck-39",
+          "deck-11",
+          "deck-14",
+          "deck-24",
+          "deck-21",
+          "deck-61",
+          "deck-69",
+          "deck-68",
+          "deck-98",
+          "deck-64",
+          "deck-97",
+          "deck-83",
+          "deck-48",
+          "deck-43",
+          "deck-75",
+          "deck-20",
+          "deck-6",
+          "deck-60",
+          "deck-66",
+          "deck-42",
+          "deck-56",
+          "deck-78",
+          "deck-80",
+          "deck-79",
+          "deck-10",
+          "deck-32",
+          "deck-65",
+          "deck-57",
+          "deck-17",
+          "deck-27",
+          "deck-35",
+          "deck-95",
+          "deck-28",
+          "deck-52",
+          "deck-9",
+          "deck-51",
+          "deck-0",
+          "deck-12",
+          "deck-8",
+          "deck-86",
+          "deck-7",
+          "deck-44",
+          "deck-13",
+          "deck-63",
+          "deck-46",
+          "deck-74",
+          "deck-50",
+          "deck-81",
+          "deck-22",
+          "deck-87",
+          "deck-59",
+          "deck-49",
+          "deck-92",
+          "deck-54",
+          "deck-33",
+          "deck-84",
+          "deck-34",
+          "deck-16",
+          "deck-36",
+          "deck-62",
+          "deck-37",
+          "deck-89",
+          "deck-47",
+          "deck-3",
+          "deck-58",
+          "deck-88",
+          "deck-15",
+          "deck-91",
+          "deck-2",
+          "deck-72",
+          "deck-76"
+        ],
+        "graveyard": [],
+        "exile": [],
+        "opponents": [],
+        "ceased": [],
+        "board": [
+          {
+            "id": "deck-67",
+            "card": "Island",
+            "tapped": true
+          },
+          {
+            "id": "deck-77",
+            "card": "Mirrodin's Core",
+            "tapped": true
+          },
+          {
+            "id": "deck-41",
+            "card": "Patchwork Crawler",
+            "tapped": false
+          }
+        ],
+        "floatingExpires": [],
+        "life": 40
+      },
+      {
+        "turn": 3,
+        "event": "untap",
+        "sources": [
+          {
+            "id": "deck-67",
+            "types": [
+              "Basic",
+              "Land"
+            ],
+            "subtypes": [
+              "Island"
+            ],
+            "modes": [
+              {
+                "tap": true,
+                "cost": "",
+                "outputs": [
+                  [
+                    "U"
+                  ]
+                ]
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-77",
+            "types": [
+              "Land"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-41",
+            "types": [
+              "Creature"
+            ],
+            "subtypes": [
+              "Zombie",
+              "Horror"
+            ],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          }
+        ]
+      },
+      {
+        "turn": 3,
+        "event": "draw",
+        "card": "Feral Ghoul",
+        "id": "deck-19",
+        "reason": "natural"
+      },
+      {
+        "turn": 3,
+        "event": "land",
+        "id": "deck-96",
+        "card": "Tendo Ice Bridge",
+        "tapped": false,
+        "unknown": false
+      },
+      {
+        "turn": 3,
+        "event": "turn-end",
+        "hand": [
+          "Thran Dynamo",
+          "Fell Stinger",
+          "Headless Rider",
+          "Graf Reaver",
+          "Jarl of the Forsaken",
+          "Feral Ghoul"
+        ],
+        "handIds": [
+          "deck-55",
+          "deck-18",
+          "deck-26",
+          "deck-23",
+          "deck-30",
+          "deck-19"
+        ],
+        "library": [
+          "deck-25",
+          "deck-45",
+          "deck-93",
+          "deck-40",
+          "deck-31",
+          "deck-38",
+          "deck-90",
+          "deck-70",
+          "deck-94",
+          "deck-4",
+          "deck-29",
+          "deck-1",
+          "deck-5",
+          "deck-53",
+          "deck-82",
+          "deck-71",
+          "deck-73",
+          "deck-85",
+          "deck-39",
+          "deck-11",
+          "deck-14",
+          "deck-24",
+          "deck-21",
+          "deck-61",
+          "deck-69",
+          "deck-68",
+          "deck-98",
+          "deck-64",
+          "deck-97",
+          "deck-83",
+          "deck-48",
+          "deck-43",
+          "deck-75",
+          "deck-20",
+          "deck-6",
+          "deck-60",
+          "deck-66",
+          "deck-42",
+          "deck-56",
+          "deck-78",
+          "deck-80",
+          "deck-79",
+          "deck-10",
+          "deck-32",
+          "deck-65",
+          "deck-57",
+          "deck-17",
+          "deck-27",
+          "deck-35",
+          "deck-95",
+          "deck-28",
+          "deck-52",
+          "deck-9",
+          "deck-51",
+          "deck-0",
+          "deck-12",
+          "deck-8",
+          "deck-86",
+          "deck-7",
+          "deck-44",
+          "deck-13",
+          "deck-63",
+          "deck-46",
+          "deck-74",
+          "deck-50",
+          "deck-81",
+          "deck-22",
+          "deck-87",
+          "deck-59",
+          "deck-49",
+          "deck-92",
+          "deck-54",
+          "deck-33",
+          "deck-84",
+          "deck-34",
+          "deck-16",
+          "deck-36",
+          "deck-62",
+          "deck-37",
+          "deck-89",
+          "deck-47",
+          "deck-3",
+          "deck-58",
+          "deck-88",
+          "deck-15",
+          "deck-91",
+          "deck-2",
+          "deck-72",
+          "deck-76"
+        ],
+        "graveyard": [],
+        "exile": [],
+        "opponents": [],
+        "ceased": [],
+        "board": [
+          {
+            "id": "deck-67",
+            "card": "Island",
+            "tapped": false
+          },
+          {
+            "id": "deck-77",
+            "card": "Mirrodin's Core",
+            "tapped": false
+          },
+          {
+            "id": "deck-41",
+            "card": "Patchwork Crawler",
+            "tapped": false
+          },
+          {
+            "id": "deck-96",
+            "card": "Tendo Ice Bridge",
+            "tapped": false
+          }
+        ],
+        "floatingExpires": [],
+        "life": 40
+      },
+      {
+        "turn": 4,
+        "event": "untap",
+        "sources": [
+          {
+            "id": "deck-67",
+            "types": [
+              "Basic",
+              "Land"
+            ],
+            "subtypes": [
+              "Island"
+            ],
+            "modes": [
+              {
+                "tap": true,
+                "cost": "",
+                "outputs": [
+                  [
+                    "U"
+                  ]
+                ]
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-77",
+            "types": [
+              "Land"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-41",
+            "types": [
+              "Creature"
+            ],
+            "subtypes": [
+              "Zombie",
+              "Horror"
+            ],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-96",
+            "types": [
+              "Land"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          }
+        ]
+      },
+      {
+        "turn": 4,
+        "event": "draw",
+        "card": "Gutless Ghoul",
+        "id": "deck-25",
+        "reason": "natural"
+      },
+      {
+        "turn": 4,
+        "event": "turn-end",
+        "hand": [
+          "Thran Dynamo",
+          "Fell Stinger",
+          "Headless Rider",
+          "Graf Reaver",
+          "Jarl of the Forsaken",
+          "Feral Ghoul",
+          "Gutless Ghoul"
+        ],
+        "handIds": [
+          "deck-55",
+          "deck-18",
+          "deck-26",
+          "deck-23",
+          "deck-30",
+          "deck-19",
+          "deck-25"
+        ],
+        "library": [
+          "deck-45",
+          "deck-93",
+          "deck-40",
+          "deck-31",
+          "deck-38",
+          "deck-90",
+          "deck-70",
+          "deck-94",
+          "deck-4",
+          "deck-29",
+          "deck-1",
+          "deck-5",
+          "deck-53",
+          "deck-82",
+          "deck-71",
+          "deck-73",
+          "deck-85",
+          "deck-39",
+          "deck-11",
+          "deck-14",
+          "deck-24",
+          "deck-21",
+          "deck-61",
+          "deck-69",
+          "deck-68",
+          "deck-98",
+          "deck-64",
+          "deck-97",
+          "deck-83",
+          "deck-48",
+          "deck-43",
+          "deck-75",
+          "deck-20",
+          "deck-6",
+          "deck-60",
+          "deck-66",
+          "deck-42",
+          "deck-56",
+          "deck-78",
+          "deck-80",
+          "deck-79",
+          "deck-10",
+          "deck-32",
+          "deck-65",
+          "deck-57",
+          "deck-17",
+          "deck-27",
+          "deck-35",
+          "deck-95",
+          "deck-28",
+          "deck-52",
+          "deck-9",
+          "deck-51",
+          "deck-0",
+          "deck-12",
+          "deck-8",
+          "deck-86",
+          "deck-7",
+          "deck-44",
+          "deck-13",
+          "deck-63",
+          "deck-46",
+          "deck-74",
+          "deck-50",
+          "deck-81",
+          "deck-22",
+          "deck-87",
+          "deck-59",
+          "deck-49",
+          "deck-92",
+          "deck-54",
+          "deck-33",
+          "deck-84",
+          "deck-34",
+          "deck-16",
+          "deck-36",
+          "deck-62",
+          "deck-37",
+          "deck-89",
+          "deck-47",
+          "deck-3",
+          "deck-58",
+          "deck-88",
+          "deck-15",
+          "deck-91",
+          "deck-2",
+          "deck-72",
+          "deck-76"
+        ],
+        "graveyard": [],
+        "exile": [],
+        "opponents": [],
+        "ceased": [],
+        "board": [
+          {
+            "id": "deck-67",
+            "card": "Island",
+            "tapped": false
+          },
+          {
+            "id": "deck-77",
+            "card": "Mirrodin's Core",
+            "tapped": false
+          },
+          {
+            "id": "deck-41",
+            "card": "Patchwork Crawler",
+            "tapped": false
+          },
+          {
+            "id": "deck-96",
+            "card": "Tendo Ice Bridge",
+            "tapped": false
+          }
+        ],
+        "floatingExpires": [],
+        "life": 40
+      },
+      {
+        "turn": 5,
+        "event": "untap",
+        "sources": [
+          {
+            "id": "deck-67",
+            "types": [
+              "Basic",
+              "Land"
+            ],
+            "subtypes": [
+              "Island"
+            ],
+            "modes": [
+              {
+                "tap": true,
+                "cost": "",
+                "outputs": [
+                  [
+                    "U"
+                  ]
+                ]
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-77",
+            "types": [
+              "Land"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-41",
+            "types": [
+              "Creature"
+            ],
+            "subtypes": [
+              "Zombie",
+              "Horror"
+            ],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-96",
+            "types": [
+              "Land"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          }
+        ]
+      },
+      {
+        "turn": 5,
+        "event": "draw",
+        "card": "Repository Skaab",
+        "id": "deck-45",
+        "reason": "natural"
+      },
+      {
+        "turn": 5,
+        "event": "cleanup-discard",
+        "id": "deck-45",
+        "card": "Repository Skaab"
+      },
+      {
+        "turn": 5,
+        "event": "turn-end",
+        "hand": [
+          "Thran Dynamo",
+          "Fell Stinger",
+          "Headless Rider",
+          "Graf Reaver",
+          "Jarl of the Forsaken",
+          "Feral Ghoul",
+          "Gutless Ghoul"
+        ],
+        "handIds": [
+          "deck-55",
+          "deck-18",
+          "deck-26",
+          "deck-23",
+          "deck-30",
+          "deck-19",
+          "deck-25"
+        ],
+        "library": [
+          "deck-93",
+          "deck-40",
+          "deck-31",
+          "deck-38",
+          "deck-90",
+          "deck-70",
+          "deck-94",
+          "deck-4",
+          "deck-29",
+          "deck-1",
+          "deck-5",
+          "deck-53",
+          "deck-82",
+          "deck-71",
+          "deck-73",
+          "deck-85",
+          "deck-39",
+          "deck-11",
+          "deck-14",
+          "deck-24",
+          "deck-21",
+          "deck-61",
+          "deck-69",
+          "deck-68",
+          "deck-98",
+          "deck-64",
+          "deck-97",
+          "deck-83",
+          "deck-48",
+          "deck-43",
+          "deck-75",
+          "deck-20",
+          "deck-6",
+          "deck-60",
+          "deck-66",
+          "deck-42",
+          "deck-56",
+          "deck-78",
+          "deck-80",
+          "deck-79",
+          "deck-10",
+          "deck-32",
+          "deck-65",
+          "deck-57",
+          "deck-17",
+          "deck-27",
+          "deck-35",
+          "deck-95",
+          "deck-28",
+          "deck-52",
+          "deck-9",
+          "deck-51",
+          "deck-0",
+          "deck-12",
+          "deck-8",
+          "deck-86",
+          "deck-7",
+          "deck-44",
+          "deck-13",
+          "deck-63",
+          "deck-46",
+          "deck-74",
+          "deck-50",
+          "deck-81",
+          "deck-22",
+          "deck-87",
+          "deck-59",
+          "deck-49",
+          "deck-92",
+          "deck-54",
+          "deck-33",
+          "deck-84",
+          "deck-34",
+          "deck-16",
+          "deck-36",
+          "deck-62",
+          "deck-37",
+          "deck-89",
+          "deck-47",
+          "deck-3",
+          "deck-58",
+          "deck-88",
+          "deck-15",
+          "deck-91",
+          "deck-2",
+          "deck-72",
+          "deck-76"
+        ],
+        "graveyard": [
+          "deck-45"
+        ],
+        "exile": [],
+        "opponents": [],
+        "ceased": [],
+        "board": [
+          {
+            "id": "deck-67",
+            "card": "Island",
+            "tapped": false
+          },
+          {
+            "id": "deck-77",
+            "card": "Mirrodin's Core",
+            "tapped": false
+          },
+          {
+            "id": "deck-41",
+            "card": "Patchwork Crawler",
+            "tapped": false
+          },
+          {
+            "id": "deck-96",
+            "card": "Tendo Ice Bridge",
+            "tapped": false
+          }
+        ],
+        "floatingExpires": [],
+        "life": 40
+      },
+      {
+        "turn": 6,
+        "event": "untap",
+        "sources": [
+          {
+            "id": "deck-67",
+            "types": [
+              "Basic",
+              "Land"
+            ],
+            "subtypes": [
+              "Island"
+            ],
+            "modes": [
+              {
+                "tap": true,
+                "cost": "",
+                "outputs": [
+                  [
+                    "U"
+                  ]
+                ]
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-77",
+            "types": [
+              "Land"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-41",
+            "types": [
+              "Creature"
+            ],
+            "subtypes": [
+              "Zombie",
+              "Horror"
+            ],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-96",
+            "types": [
+              "Land"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          }
+        ]
+      },
+      {
+        "turn": 6,
+        "event": "draw",
+        "card": "Swamp",
+        "id": "deck-93",
+        "reason": "natural"
+      },
+      {
+        "turn": 6,
+        "event": "land",
+        "id": "deck-93",
+        "card": "Swamp",
+        "tapped": false,
+        "unknown": false
+      },
+      {
+        "turn": 6,
+        "event": "decision",
+        "policy": "development",
+        "chosen": "deck-55",
+        "kind": "cast",
+        "reason": "develop usable mana",
+        "commanderPayable": true,
+        "setupBudgetUsed": 1,
+        "alternatives": [
+          {
+            "id": "commander",
+            "kind": "cast",
+            "reason": "deploy commander"
+          },
+          {
+            "id": "deck-23",
+            "kind": "cast",
+            "reason": "deploy native creature"
+          },
+          {
+            "id": "deck-18",
+            "kind": "cast",
+            "reason": "deploy native creature"
+          },
+          {
+            "id": "deck-19",
+            "kind": "cast",
+            "reason": "deploy native creature"
+          }
+        ]
+      },
+      {
+        "turn": 6,
+        "event": "mana-activation",
+        "card": "Island",
+        "kind": "activation",
+        "source": "deck-67",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "cost": "",
+          "outputs": [
+            [
+              "U"
+            ]
+          ]
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-67:0:0",
+            "type": "U",
+            "source": "deck-67",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 6,
+        "event": "mana-activation",
+        "card": "Mirrodin's Core",
+        "kind": "activation",
+        "source": "deck-77",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "sacrifice": false,
+          "cost": "",
+          "outputs": [
+            [
+              "C"
+            ]
+          ],
+          "restriction": "none",
+          "life": 0,
+          "minLands": 0
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-77:0:0",
+            "type": "C",
+            "source": "deck-77",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 6,
+        "event": "mana-activation",
+        "card": "Tendo Ice Bridge",
+        "kind": "activation",
+        "source": "deck-96",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "sacrifice": false,
+          "cost": "",
+          "outputs": [
+            [
+              "C"
+            ]
+          ],
+          "restriction": "none",
+          "life": 0,
+          "minLands": 0
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-96:0:0",
+            "type": "C",
+            "source": "deck-96",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 6,
+        "event": "mana-activation",
+        "card": "Swamp",
+        "kind": "activation",
+        "source": "deck-93",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "cost": "",
+          "outputs": [
+            [
+              "B"
+            ]
+          ]
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-93:0:0",
+            "type": "B",
+            "source": "deck-93",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 6,
+        "event": "cast-paid",
+        "id": "deck-55",
+        "card": "Thran Dynamo",
+        "origin": "hand",
+        "kind": "payment",
+        "label": "spell",
+        "cost": "{4}",
+        "reduction": 0,
+        "context": {
+          "kind": "spell",
+          "types": [
+            "Artifact"
+          ],
+          "subtypes": [],
+          "commander": false
+        },
+        "spent": [
+          {
+            "id": "deck-93:0:0",
+            "type": "B",
+            "source": "deck-93",
+            "restriction": "none",
+            "paidFor": "*"
+          },
+          {
+            "id": "deck-77:0:0",
+            "type": "C",
+            "source": "deck-77",
+            "restriction": "none",
+            "paidFor": "*"
+          },
+          {
+            "id": "deck-96:0:0",
+            "type": "C",
+            "source": "deck-96",
+            "restriction": "none",
+            "paidFor": "*"
+          },
+          {
+            "id": "deck-67:0:0",
+            "type": "U",
+            "source": "deck-67",
+            "restriction": "none",
+            "paidFor": "*"
+          }
+        ]
+      },
+      {
+        "turn": 6,
+        "event": "permanent-resolved",
+        "id": "deck-55",
+        "card": "Thran Dynamo",
+        "tapped": false,
+        "effects": {
+          "manaUnknown": [],
+          "accessUnknown": [],
+          "other": "other Oracle effects unmodeled"
+        }
+      },
+      {
+        "turn": 6,
+        "event": "turn-end",
+        "hand": [
+          "Fell Stinger",
+          "Headless Rider",
+          "Graf Reaver",
+          "Jarl of the Forsaken",
+          "Feral Ghoul",
+          "Gutless Ghoul"
+        ],
+        "handIds": [
+          "deck-18",
+          "deck-26",
+          "deck-23",
+          "deck-30",
+          "deck-19",
+          "deck-25"
+        ],
+        "library": [
+          "deck-40",
+          "deck-31",
+          "deck-38",
+          "deck-90",
+          "deck-70",
+          "deck-94",
+          "deck-4",
+          "deck-29",
+          "deck-1",
+          "deck-5",
+          "deck-53",
+          "deck-82",
+          "deck-71",
+          "deck-73",
+          "deck-85",
+          "deck-39",
+          "deck-11",
+          "deck-14",
+          "deck-24",
+          "deck-21",
+          "deck-61",
+          "deck-69",
+          "deck-68",
+          "deck-98",
+          "deck-64",
+          "deck-97",
+          "deck-83",
+          "deck-48",
+          "deck-43",
+          "deck-75",
+          "deck-20",
+          "deck-6",
+          "deck-60",
+          "deck-66",
+          "deck-42",
+          "deck-56",
+          "deck-78",
+          "deck-80",
+          "deck-79",
+          "deck-10",
+          "deck-32",
+          "deck-65",
+          "deck-57",
+          "deck-17",
+          "deck-27",
+          "deck-35",
+          "deck-95",
+          "deck-28",
+          "deck-52",
+          "deck-9",
+          "deck-51",
+          "deck-0",
+          "deck-12",
+          "deck-8",
+          "deck-86",
+          "deck-7",
+          "deck-44",
+          "deck-13",
+          "deck-63",
+          "deck-46",
+          "deck-74",
+          "deck-50",
+          "deck-81",
+          "deck-22",
+          "deck-87",
+          "deck-59",
+          "deck-49",
+          "deck-92",
+          "deck-54",
+          "deck-33",
+          "deck-84",
+          "deck-34",
+          "deck-16",
+          "deck-36",
+          "deck-62",
+          "deck-37",
+          "deck-89",
+          "deck-47",
+          "deck-3",
+          "deck-58",
+          "deck-88",
+          "deck-15",
+          "deck-91",
+          "deck-2",
+          "deck-72",
+          "deck-76"
+        ],
+        "graveyard": [
+          "deck-45"
+        ],
+        "exile": [],
+        "opponents": [],
+        "ceased": [],
+        "board": [
+          {
+            "id": "deck-67",
+            "card": "Island",
+            "tapped": true
+          },
+          {
+            "id": "deck-77",
+            "card": "Mirrodin's Core",
+            "tapped": true
+          },
+          {
+            "id": "deck-41",
+            "card": "Patchwork Crawler",
+            "tapped": false
+          },
+          {
+            "id": "deck-96",
+            "card": "Tendo Ice Bridge",
+            "tapped": true
+          },
+          {
+            "id": "deck-93",
+            "card": "Swamp",
+            "tapped": true
+          },
+          {
+            "id": "deck-55",
+            "card": "Thran Dynamo",
+            "tapped": false
+          }
+        ],
+        "floatingExpires": [],
+        "life": 40
+      },
+      {
+        "turn": 7,
+        "event": "untap",
+        "sources": [
+          {
+            "id": "deck-67",
+            "types": [
+              "Basic",
+              "Land"
+            ],
+            "subtypes": [
+              "Island"
+            ],
+            "modes": [
+              {
+                "tap": true,
+                "cost": "",
+                "outputs": [
+                  [
+                    "U"
+                  ]
+                ]
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-77",
+            "types": [
+              "Land"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-41",
+            "types": [
+              "Creature"
+            ],
+            "subtypes": [
+              "Zombie",
+              "Horror"
+            ],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-96",
+            "types": [
+              "Land"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-93",
+            "types": [
+              "Basic",
+              "Land"
+            ],
+            "subtypes": [
+              "Swamp"
+            ],
+            "modes": [
+              {
+                "tap": true,
+                "cost": "",
+                "outputs": [
+                  [
+                    "B"
+                  ]
+                ]
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-55",
+            "types": [
+              "Artifact"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C",
+                    "C",
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          }
+        ]
+      },
+      {
+        "turn": 7,
+        "event": "draw",
+        "card": "Overcharged Amalgam",
+        "id": "deck-40",
+        "reason": "natural"
+      },
+      {
+        "turn": 7,
+        "event": "decision",
+        "policy": "development",
+        "chosen": "commander",
+        "kind": "cast",
+        "reason": "take the payable commander after one setup action",
+        "commanderPayable": true,
+        "setupBudgetUsed": 1,
+        "alternatives": [
+          {
+            "id": "deck-23",
+            "kind": "cast",
+            "reason": "deploy native creature"
+          },
+          {
+            "id": "deck-18",
+            "kind": "cast",
+            "reason": "deploy native creature"
+          },
+          {
+            "id": "deck-19",
+            "kind": "cast",
+            "reason": "deploy native creature"
+          },
+          {
+            "id": "deck-25",
+            "kind": "cast",
+            "reason": "deploy native creature"
+          }
+        ]
+      },
+      {
+        "turn": 7,
+        "event": "mana-activation",
+        "card": "Island",
+        "kind": "activation",
+        "source": "deck-67",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "cost": "",
+          "outputs": [
+            [
+              "U"
+            ]
+          ]
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-67:0:0",
+            "type": "U",
+            "source": "deck-67",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 7,
+        "event": "mana-activation",
+        "card": "Mirrodin's Core",
+        "kind": "activation",
+        "source": "deck-77",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "sacrifice": false,
+          "cost": "",
+          "outputs": [
+            [
+              "C"
+            ]
+          ],
+          "restriction": "none",
+          "life": 0,
+          "minLands": 0
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-77:0:0",
+            "type": "C",
+            "source": "deck-77",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 7,
+        "event": "mana-activation",
+        "card": "Tendo Ice Bridge",
+        "kind": "activation",
+        "source": "deck-96",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "sacrifice": false,
+          "cost": "",
+          "outputs": [
+            [
+              "C"
+            ]
+          ],
+          "restriction": "none",
+          "life": 0,
+          "minLands": 0
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-96:0:0",
+            "type": "C",
+            "source": "deck-96",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 7,
+        "event": "mana-activation",
+        "card": "Swamp",
+        "kind": "activation",
+        "source": "deck-93",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "cost": "",
+          "outputs": [
+            [
+              "B"
+            ]
+          ]
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-93:0:0",
+            "type": "B",
+            "source": "deck-93",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 7,
+        "event": "cast-paid",
+        "id": "commander",
+        "card": "Wilhelt, the Rotcleaver",
+        "origin": "command",
+        "kind": "payment",
+        "label": "spell",
+        "cost": "{2}{U}{B}",
+        "reduction": 0,
+        "context": {
+          "kind": "spell",
+          "types": [
+            "Legendary",
+            "Creature"
+          ],
+          "subtypes": [
+            "Zombie",
+            "Warrior"
+          ],
+          "commander": true
+        },
+        "spent": [
+          {
+            "id": "deck-67:0:0",
+            "type": "U",
+            "source": "deck-67",
+            "restriction": "none",
+            "paidFor": "U"
+          },
+          {
+            "id": "deck-93:0:0",
+            "type": "B",
+            "source": "deck-93",
+            "restriction": "none",
+            "paidFor": "B"
+          },
+          {
+            "id": "deck-77:0:0",
+            "type": "C",
+            "source": "deck-77",
+            "restriction": "none",
+            "paidFor": "*"
+          },
+          {
+            "id": "deck-96:0:0",
+            "type": "C",
+            "source": "deck-96",
+            "restriction": "none",
+            "paidFor": "*"
+          }
+        ]
+      },
+      {
+        "turn": 7,
+        "event": "permanent-resolved",
+        "id": "commander",
+        "card": "Wilhelt, the Rotcleaver",
+        "tapped": false,
+        "effects": {
+          "manaUnknown": [],
+          "accessUnknown": [
+            {
+              "line": "At the beginning of your end step, you may sacrifice a Zombie. If you do, draw a card.",
+              "reason": "unsupported access prerequisites/effect"
+            }
+          ],
+          "other": "other Oracle effects unmodeled"
+        }
+      },
+      {
+        "turn": 7,
+        "event": "turn-end",
+        "hand": [
+          "Fell Stinger",
+          "Headless Rider",
+          "Graf Reaver",
+          "Jarl of the Forsaken",
+          "Feral Ghoul",
+          "Gutless Ghoul",
+          "Overcharged Amalgam"
+        ],
+        "handIds": [
+          "deck-18",
+          "deck-26",
+          "deck-23",
+          "deck-30",
+          "deck-19",
+          "deck-25",
+          "deck-40"
+        ],
+        "library": [
+          "deck-31",
+          "deck-38",
+          "deck-90",
+          "deck-70",
+          "deck-94",
+          "deck-4",
+          "deck-29",
+          "deck-1",
+          "deck-5",
+          "deck-53",
+          "deck-82",
+          "deck-71",
+          "deck-73",
+          "deck-85",
+          "deck-39",
+          "deck-11",
+          "deck-14",
+          "deck-24",
+          "deck-21",
+          "deck-61",
+          "deck-69",
+          "deck-68",
+          "deck-98",
+          "deck-64",
+          "deck-97",
+          "deck-83",
+          "deck-48",
+          "deck-43",
+          "deck-75",
+          "deck-20",
+          "deck-6",
+          "deck-60",
+          "deck-66",
+          "deck-42",
+          "deck-56",
+          "deck-78",
+          "deck-80",
+          "deck-79",
+          "deck-10",
+          "deck-32",
+          "deck-65",
+          "deck-57",
+          "deck-17",
+          "deck-27",
+          "deck-35",
+          "deck-95",
+          "deck-28",
+          "deck-52",
+          "deck-9",
+          "deck-51",
+          "deck-0",
+          "deck-12",
+          "deck-8",
+          "deck-86",
+          "deck-7",
+          "deck-44",
+          "deck-13",
+          "deck-63",
+          "deck-46",
+          "deck-74",
+          "deck-50",
+          "deck-81",
+          "deck-22",
+          "deck-87",
+          "deck-59",
+          "deck-49",
+          "deck-92",
+          "deck-54",
+          "deck-33",
+          "deck-84",
+          "deck-34",
+          "deck-16",
+          "deck-36",
+          "deck-62",
+          "deck-37",
+          "deck-89",
+          "deck-47",
+          "deck-3",
+          "deck-58",
+          "deck-88",
+          "deck-15",
+          "deck-91",
+          "deck-2",
+          "deck-72",
+          "deck-76"
+        ],
+        "graveyard": [
+          "deck-45"
+        ],
+        "exile": [],
+        "opponents": [],
+        "ceased": [],
+        "board": [
+          {
+            "id": "deck-67",
+            "card": "Island",
+            "tapped": true
+          },
+          {
+            "id": "deck-77",
+            "card": "Mirrodin's Core",
+            "tapped": true
+          },
+          {
+            "id": "deck-41",
+            "card": "Patchwork Crawler",
+            "tapped": false
+          },
+          {
+            "id": "deck-96",
+            "card": "Tendo Ice Bridge",
+            "tapped": true
+          },
+          {
+            "id": "deck-93",
+            "card": "Swamp",
+            "tapped": true
+          },
+          {
+            "id": "deck-55",
+            "card": "Thran Dynamo",
+            "tapped": false
+          },
+          {
+            "id": "commander",
+            "card": "Wilhelt, the Rotcleaver",
+            "tapped": false
+          }
+        ],
+        "floatingExpires": [],
+        "life": 40
+      },
+      {
+        "turn": 8,
+        "event": "untap",
+        "sources": [
+          {
+            "id": "deck-67",
+            "types": [
+              "Basic",
+              "Land"
+            ],
+            "subtypes": [
+              "Island"
+            ],
+            "modes": [
+              {
+                "tap": true,
+                "cost": "",
+                "outputs": [
+                  [
+                    "U"
+                  ]
+                ]
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-77",
+            "types": [
+              "Land"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-41",
+            "types": [
+              "Creature"
+            ],
+            "subtypes": [
+              "Zombie",
+              "Horror"
+            ],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-96",
+            "types": [
+              "Land"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-93",
+            "types": [
+              "Basic",
+              "Land"
+            ],
+            "subtypes": [
+              "Swamp"
+            ],
+            "modes": [
+              {
+                "tap": true,
+                "cost": "",
+                "outputs": [
+                  [
+                    "B"
+                  ]
+                ]
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-55",
+            "types": [
+              "Artifact"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C",
+                    "C",
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "commander",
+            "types": [
+              "Legendary",
+              "Creature"
+            ],
+            "subtypes": [
+              "Zombie",
+              "Warrior"
+            ],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          }
+        ]
+      },
+      {
+        "turn": 8,
+        "event": "draw",
+        "card": "Jason Bright, Glowing Prophet",
+        "id": "deck-31",
+        "reason": "natural"
+      },
+      {
+        "turn": 8,
+        "event": "decision",
+        "policy": "development",
+        "chosen": "deck-23",
+        "kind": "cast",
+        "reason": "deploy native creature",
+        "commanderPayable": false,
+        "setupBudgetUsed": 1,
+        "alternatives": [
+          {
+            "id": "deck-18",
+            "kind": "cast",
+            "reason": "deploy native creature"
+          },
+          {
+            "id": "deck-19",
+            "kind": "cast",
+            "reason": "deploy native creature"
+          },
+          {
+            "id": "deck-25",
+            "kind": "cast",
+            "reason": "deploy native creature"
+          },
+          {
+            "id": "deck-26",
+            "kind": "cast",
+            "reason": "deploy native creature"
+          }
+        ]
+      },
+      {
+        "turn": 8,
+        "event": "mana-activation",
+        "card": "Island",
+        "kind": "activation",
+        "source": "deck-67",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "cost": "",
+          "outputs": [
+            [
+              "U"
+            ]
+          ]
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-67:0:0",
+            "type": "U",
+            "source": "deck-67",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 8,
+        "event": "mana-activation",
+        "card": "Mirrodin's Core",
+        "kind": "activation",
+        "source": "deck-77",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "sacrifice": false,
+          "cost": "",
+          "outputs": [
+            [
+              "C"
+            ]
+          ],
+          "restriction": "none",
+          "life": 0,
+          "minLands": 0
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-77:0:0",
+            "type": "C",
+            "source": "deck-77",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 8,
+        "event": "mana-activation",
+        "card": "Tendo Ice Bridge",
+        "kind": "activation",
+        "source": "deck-96",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "sacrifice": false,
+          "cost": "",
+          "outputs": [
+            [
+              "C"
+            ]
+          ],
+          "restriction": "none",
+          "life": 0,
+          "minLands": 0
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-96:0:0",
+            "type": "C",
+            "source": "deck-96",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 8,
+        "event": "mana-activation",
+        "card": "Swamp",
+        "kind": "activation",
+        "source": "deck-93",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "cost": "",
+          "outputs": [
+            [
+              "B"
+            ]
+          ]
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-93:0:0",
+            "type": "B",
+            "source": "deck-93",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 8,
+        "event": "cast-paid",
+        "id": "deck-23",
+        "card": "Graf Reaver",
+        "origin": "hand",
+        "kind": "payment",
+        "label": "spell",
+        "cost": "{1}{B}",
+        "reduction": 0,
+        "context": {
+          "kind": "spell",
+          "types": [
+            "Creature"
+          ],
+          "subtypes": [
+            "Zombie",
+            "Warrior"
+          ],
+          "commander": false
+        },
+        "spent": [
+          {
+            "id": "deck-93:0:0",
+            "type": "B",
+            "source": "deck-93",
+            "restriction": "none",
+            "paidFor": "B"
+          },
+          {
+            "id": "deck-67:0:0",
+            "type": "U",
+            "source": "deck-67",
+            "restriction": "none",
+            "paidFor": "*"
+          }
+        ]
+      },
+      {
+        "turn": 8,
+        "event": "permanent-resolved",
+        "id": "deck-23",
+        "card": "Graf Reaver",
+        "tapped": false,
+        "effects": {
+          "manaUnknown": [],
+          "accessUnknown": [],
+          "other": "other Oracle effects unmodeled"
+        }
+      },
+      {
+        "turn": 8,
+        "event": "turn-end",
+        "hand": [
+          "Fell Stinger",
+          "Headless Rider",
+          "Jarl of the Forsaken",
+          "Feral Ghoul",
+          "Gutless Ghoul",
+          "Overcharged Amalgam",
+          "Jason Bright, Glowing Prophet"
+        ],
+        "handIds": [
+          "deck-18",
+          "deck-26",
+          "deck-30",
+          "deck-19",
+          "deck-25",
+          "deck-40",
+          "deck-31"
+        ],
+        "library": [
+          "deck-38",
+          "deck-90",
+          "deck-70",
+          "deck-94",
+          "deck-4",
+          "deck-29",
+          "deck-1",
+          "deck-5",
+          "deck-53",
+          "deck-82",
+          "deck-71",
+          "deck-73",
+          "deck-85",
+          "deck-39",
+          "deck-11",
+          "deck-14",
+          "deck-24",
+          "deck-21",
+          "deck-61",
+          "deck-69",
+          "deck-68",
+          "deck-98",
+          "deck-64",
+          "deck-97",
+          "deck-83",
+          "deck-48",
+          "deck-43",
+          "deck-75",
+          "deck-20",
+          "deck-6",
+          "deck-60",
+          "deck-66",
+          "deck-42",
+          "deck-56",
+          "deck-78",
+          "deck-80",
+          "deck-79",
+          "deck-10",
+          "deck-32",
+          "deck-65",
+          "deck-57",
+          "deck-17",
+          "deck-27",
+          "deck-35",
+          "deck-95",
+          "deck-28",
+          "deck-52",
+          "deck-9",
+          "deck-51",
+          "deck-0",
+          "deck-12",
+          "deck-8",
+          "deck-86",
+          "deck-7",
+          "deck-44",
+          "deck-13",
+          "deck-63",
+          "deck-46",
+          "deck-74",
+          "deck-50",
+          "deck-81",
+          "deck-22",
+          "deck-87",
+          "deck-59",
+          "deck-49",
+          "deck-92",
+          "deck-54",
+          "deck-33",
+          "deck-84",
+          "deck-34",
+          "deck-16",
+          "deck-36",
+          "deck-62",
+          "deck-37",
+          "deck-89",
+          "deck-47",
+          "deck-3",
+          "deck-58",
+          "deck-88",
+          "deck-15",
+          "deck-91",
+          "deck-2",
+          "deck-72",
+          "deck-76"
+        ],
+        "graveyard": [
+          "deck-45"
+        ],
+        "exile": [],
+        "opponents": [],
+        "ceased": [],
+        "board": [
+          {
+            "id": "deck-67",
+            "card": "Island",
+            "tapped": true
+          },
+          {
+            "id": "deck-77",
+            "card": "Mirrodin's Core",
+            "tapped": true
+          },
+          {
+            "id": "deck-41",
+            "card": "Patchwork Crawler",
+            "tapped": false
+          },
+          {
+            "id": "deck-96",
+            "card": "Tendo Ice Bridge",
+            "tapped": true
+          },
+          {
+            "id": "deck-93",
+            "card": "Swamp",
+            "tapped": true
+          },
+          {
+            "id": "deck-55",
+            "card": "Thran Dynamo",
+            "tapped": false
+          },
+          {
+            "id": "commander",
+            "card": "Wilhelt, the Rotcleaver",
+            "tapped": false
+          },
+          {
+            "id": "deck-23",
+            "card": "Graf Reaver",
+            "tapped": false
+          }
+        ],
+        "floatingExpires": [
+          {
+            "id": "deck-77:0:0",
+            "type": "C",
+            "source": "deck-77",
+            "restriction": "none"
+          },
+          {
+            "id": "deck-96:0:0",
+            "type": "C",
+            "source": "deck-96",
+            "restriction": "none"
+          }
+        ],
+        "life": 40
+      }
+    ]
+  },
+  "audit": {
+    "valid": true,
+    "errors": [],
+    "resourceAudit": true,
+    "zoneAudit": true
+  }
+}

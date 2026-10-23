@@ -1,0 +1,13 @@
+{
+  "interpretation": "Stipulated draw order for a resource-ledger regression, not reliability or earliest-combo evidence. Copying and loop execution remain unknown.",
+  "opening": ["Forest", "Plains", "Mountain", "Arcane Signet", "Mind Stone", "Annie Joins Up", "Spawn-Gang Commander"],
+  "draws": ["Island", "Wastes", "Wastes"],
+  "actions": {
+    "1": [{"type":"land","card":"Forest"}],
+    "2": [{"type":"land","card":"Plains"},{"type":"cast","card":"Arcane Signet"}],
+    "3": [{"type":"land","card":"Mountain"},{"type":"cast","card":"Mind Stone"}],
+    "4": [{"type":"land","card":"Island"},{"type":"cast","card":"Annie Joins Up"}],
+    "5": [{"type":"land","card":"Wastes"},{"type":"cast","card":"Ulalek, Fused Atrocity"}],
+    "6": [{"type":"land","card":"Wastes"},{"type":"cast","card":"Spawn-Gang Commander","requireOptional":true}]
+  }
+}

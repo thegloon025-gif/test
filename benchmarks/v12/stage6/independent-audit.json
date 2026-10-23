@@ -1,0 +1,27 @@
+{
+  "auditorSHA256": "b7efa36c39fded88a3843bfd5be8dfa85f8cc4e0b6e41a8c7a64c49390d0577d",
+  "exact100CardExports": 8,
+  "selectedPrintingChecks": 1100,
+  "challengerSafeguardAudits": 6,
+  "persistedVectors": 3192,
+  "inRunResourceZoneStackOutletAudits": 3192,
+  "inRunDeterministicReplays": 3192,
+  "representativeReceiptsReauditedAndReplayed": 8,
+  "terminalCounts": {
+    "training": {
+      "completed-t8": 456
+    },
+    "holdout": {
+      "completed-t8": 2684,
+      "conditional-lethal": 30,
+      "unsupported-rule-unknown": 22
+    }
+  },
+  "pairedComparisonsRecomputed": 12,
+  "allFixedPoliciesPresent": true,
+  "seedsDisjointFromStage5": true,
+  "cachesUnchanged": true,
+  "stage1Through5ArchivesUnchanged": true,
+  "productionSelectionAndLauncherUnchanged": true,
+  "runtimeMs": 2052
+}

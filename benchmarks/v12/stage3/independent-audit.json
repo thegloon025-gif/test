@@ -1,0 +1,208 @@
+{
+  "sourceBaseCommit": "3ece65b376ffaa2f6b940a757f2b5b1a3758467c",
+  "auditorSHA256": "bcab107958c18248ba5d6762a308288eb1bcc0fa7902fe8a00c2b61b6fb4633e",
+  "catalogSHA256": "6add2c5dd20809fd787438d3c8825f8dd21a74e7d3fc429f83c7a9a091045f6c",
+  "exactExportAudits": 205,
+  "selectedPrintingRecordChecks": 3200,
+  "representativeResourceAndZoneAudits": 50,
+  "compressedRunVectorsAudited": 1944,
+  "originalStage1TraceHashesMatched": 160,
+  "originalStage2SampleTracesMatched": 15,
+  "minimumPrice": 101.56,
+  "maximumPrice": 187.84,
+  "allWithin191": true,
+  "all100SingletonLegal": true,
+  "allBracketInventoryGatesPassed": true,
+  "compression": [
+    {
+      "file": "ulalek-b3-before-runs.json.gz",
+      "originalSHA256": "037b196b8ee31bb6d68cfa77a1fed794b56fd635228be56bee43ebbcb0689348",
+      "gzipSHA256": "dca76ee04112a3f1d7ae798648ce2610598e17c9a81a8b6290ebcadbe2eb3ce6",
+      "originalBytes": 3058282,
+      "gzipBytes": 206913
+    },
+    {
+      "file": "ulalek-b3-repair-01-runs.json.gz",
+      "originalSHA256": "ddaa4fb174dc1682dd4e5345a2978c31c710deb9f08b48fec1d81c8dc400b39e",
+      "gzipSHA256": "8add6acb6d4d0b7f0c78655f3af9faef6699763abba6c792eb55ae20454fabc8",
+      "originalBytes": 3055572,
+      "gzipBytes": 205676
+    },
+    {
+      "file": "ulalek-b3-repair-03-runs.json.gz",
+      "originalSHA256": "5260e9e6418635525800d87c0795bff1e754d65e6ef74df8134a1539de60d28e",
+      "gzipSHA256": "4745005b01fc48cd2be5d7d55d19f241d432a954a5371db7d7d04ab692addf1f",
+      "originalBytes": 3080136,
+      "gzipBytes": 206874
+    },
+    {
+      "file": "ulalek-b3-repair-04-runs.json.gz",
+      "originalSHA256": "938438b7f4358202c25c0dbf5f214fe5c06e76439314ac64cd9c3ba35c4a1daa",
+      "gzipSHA256": "0345e1d4c2c863b65137d7d8f3230af196ab520e7fc6b47eabd6c2da0665649c",
+      "originalBytes": 3078331,
+      "gzipBytes": 206816
+    },
+    {
+      "file": "ulalek-b3-repair-11-runs.json.gz",
+      "originalSHA256": "7ed7d6a7d0ddd6a8db8d8e49bccc96462e384968192873e9425a96fcc4d01b6d",
+      "gzipSHA256": "a1c43f7715c2595e53b6667de45a000db3c29361002a899c8dd4f8e109dbe6de",
+      "originalBytes": 3074636,
+      "gzipBytes": 206142
+    },
+    {
+      "file": "ulalek-b3-repair-13-runs.json.gz",
+      "originalSHA256": "a4c69d1432da2fdf31720798e42b02366b95a9c2c6043d730728034f1e9a1884",
+      "gzipSHA256": "42e25f312552d82ed99ee472d1058db3f7ec8dbf3fe96ea51389807bc77efa2a",
+      "originalBytes": 3096317,
+      "gzipBytes": 206537
+    },
+    {
+      "file": "ulalek-b3-repair-14-runs.json.gz",
+      "originalSHA256": "23cbb850feb051a1307f80da71028f2601a7fd547623d78f60b6cf21b968fd72",
+      "gzipSHA256": "2aa2c5312cfdb59884d74766dd110fe6f03807c11fd0132bd960821bba471576",
+      "originalBytes": 3094512,
+      "gzipBytes": 206480
+    },
+    {
+      "file": "ulalek-b4-before-runs.json.gz",
+      "originalSHA256": "fc8abbbeb2c3113db013956820d0b0719c2b1c9b8a0a020672734ec91b25b62d",
+      "gzipSHA256": "31eee4627921169e183cc6e15bbd4ca653d3377e46976960e00b935a192283f4",
+      "originalBytes": 3035333,
+      "gzipBytes": 224966
+    },
+    {
+      "file": "ulalek-b4-repair-01-runs.json.gz",
+      "originalSHA256": "1ed3869ff1b513b6bb324659823b745e0a741d5fe5838efdd300064d38f80d14",
+      "gzipSHA256": "533211c8bef1b7cc627f8f685776fad5ecad70fd864fda282edb6edb3ca8c92d",
+      "originalBytes": 3016124,
+      "gzipBytes": 223129
+    },
+    {
+      "file": "ulalek-b4-repair-02-runs.json.gz",
+      "originalSHA256": "b7a7b102ba0a21654d1cff6bdce02e5df7bc3b3dd4f7b1bb1379501a4e8f0b27",
+      "gzipSHA256": "cc55f93315ae001a48960f3eb61620c8a2e6fac5a3b6df4027db95867c664476",
+      "originalBytes": 3050639,
+      "gzipBytes": 224461
+    },
+    {
+      "file": "ulalek-b4-repair-03-runs.json.gz",
+      "originalSHA256": "080da21a2381153b2c6bdf5110c1a9a84fc7199d2435c42ff0852a8c8ca01b6c",
+      "gzipSHA256": "5595690e8a45982d76ed520cdba7027c24623824a14025e088eb5093a241da55",
+      "originalBytes": 3017243,
+      "gzipBytes": 229516
+    },
+    {
+      "file": "ulalek-b4-repair-04-runs.json.gz",
+      "originalSHA256": "867bfe84a4d60f4eb05992e5f5d1207ab56ed45fff8487356fd8098c2bfca018",
+      "gzipSHA256": "70f6f712f0b9ad725ec9dbafad516605db067c70ef29946acd3cfe77aafdf8f9",
+      "originalBytes": 3015640,
+      "gzipBytes": 227946
+    },
+    {
+      "file": "ulalek-b4-repair-13-runs.json.gz",
+      "originalSHA256": "14da6d06415116b76bd1dfae5bb9b6bc84f8a565ca0f28b2743d3c793a45b929",
+      "gzipSHA256": "dcabe10adcb894f662d00cc233fdc58e10ae0b8f43880f6c7c4141af3a679962",
+      "originalBytes": 3032633,
+      "gzipBytes": 224137
+    },
+    {
+      "file": "ulalek-b4-repair-14-runs.json.gz",
+      "originalSHA256": "84227a4c44eb1c500ea337fb15efb67d4d34297e16f07b173168aa601c9fa499",
+      "gzipSHA256": "32b01915ef14f9d1fffe766f1f6188044295e20f8638d1f0f95ab7e40a1629b5",
+      "originalBytes": 3031033,
+      "gzipBytes": 222588
+    },
+    {
+      "file": "wilhelt-b3-before-runs.json.gz",
+      "originalSHA256": "82ba7e116239ce66cbf640fccdd8a096ce8146a4dd9629bb25971e6aae219788",
+      "gzipSHA256": "e95e7a9164af10b867139285f48a6aa79dd236d9ade00d3374ca1b4cc34934d0",
+      "originalBytes": 2399656,
+      "gzipBytes": 110766
+    },
+    {
+      "file": "wilhelt-b3-repair-01-runs.json.gz",
+      "originalSHA256": "6f09c41ac9fa58bbefe452cf0d782858d4f2a22c166a0aede17939026393805e",
+      "gzipSHA256": "1f8812222981c45c3510100410f4c00339b35e2e44b86094bae0d250575c0e86",
+      "originalBytes": 2547603,
+      "gzipBytes": 116953
+    },
+    {
+      "file": "wilhelt-b3-repair-02-runs.json.gz",
+      "originalSHA256": "b1dd8bc29d0627d16e38b73450bcb6d021189407363de47c362e5d59710b2bd4",
+      "gzipSHA256": "4ccc8e43f3db11e5bd021508df6c2b89724a9c3a7218b49217434750db5af920",
+      "originalBytes": 2522609,
+      "gzipBytes": 118893
+    },
+    {
+      "file": "wilhelt-b3-repair-03-runs.json.gz",
+      "originalSHA256": "2a88f86443a99b62998bc92967b27fa728faf2501dfd9f2e690aef6feab1aea6",
+      "gzipSHA256": "d68ab35cb893cd0e0310d499ab68c0667025697e97e405cb5b22b7ec51ae345e",
+      "originalBytes": 2604288,
+      "gzipBytes": 134406
+    },
+    {
+      "file": "wilhelt-b3-repair-04-runs.json.gz",
+      "originalSHA256": "ac5aef4e1e7122f522367bdb33cb2ad0047ec2bfce7ef74995b62681e7129836",
+      "gzipSHA256": "f99dd7600aaf96fc64ba3c5527a9df5f677e39d843ad105e68293a8abfc6c937",
+      "originalBytes": 2483668,
+      "gzipBytes": 110796
+    },
+    {
+      "file": "wilhelt-b3-repair-06-runs.json.gz",
+      "originalSHA256": "b17d7ba1014535afd4625d7dccc9f609aae74fba5070413ba0621528a0ddde5b",
+      "gzipSHA256": "9deb4bd812aec89d6e1b67fa4a92881ef782fb956e1463a0d73e08ba1c71b2f8",
+      "originalBytes": 2579322,
+      "gzipBytes": 126602
+    },
+    {
+      "file": "wilhelt-b3-repair-14-runs.json.gz",
+      "originalSHA256": "8ad85ba26a9784544e5db21061f92d1023aed01bfc9e4eed18b09668a9479315",
+      "gzipSHA256": "d7bf6a1c1b0a0f54cad07c86155da5b84a3687aa6bdce423b544df2ebc4c1bcb",
+      "originalBytes": 2570787,
+      "gzipBytes": 124826
+    },
+    {
+      "file": "yuriko-b3-before-runs.json.gz",
+      "originalSHA256": "fd9bc26eb3a8ee942645defe5b2adb2b2f2f39b9e49354e19fb66dbc802a3f13",
+      "gzipSHA256": "95b4adf944427b485039248337ad90ca7e4c8c9022831e6fe22d32b7e1084354",
+      "originalBytes": 2396862,
+      "gzipBytes": 109883
+    },
+    {
+      "file": "yuriko-b3-repair-01-runs.json.gz",
+      "originalSHA256": "44f00e8f64570984bc761481fb8c18c823f030f896b3400c2011e40577bbc3d0",
+      "gzipSHA256": "f64a65c254c88257f969b35d92c7f421ccd54db4c9bab1e2507acaf468016c9b",
+      "originalBytes": 2562011,
+      "gzipBytes": 128602
+    },
+    {
+      "file": "yuriko-b3-repair-08-runs.json.gz",
+      "originalSHA256": "287db9b96dcdab41adcd94426d72fa336c0150872a04816e8998422a9d9feba6",
+      "gzipSHA256": "bf7de372ce341214edf2918f2e7c4877e13bc4cc03def739d382190c3a1c5825",
+      "originalBytes": 2559132,
+      "gzipBytes": 126721
+    },
+    {
+      "file": "zada-b3-before-runs.json.gz",
+      "originalSHA256": "2ecb6933cb5186a9c840e3fb22fcdb3bbcfed77191c76c4769fcd51b405cab47",
+      "gzipSHA256": "5be68f3b5a83eb8dc9f1376d194e1bc3639f43456782b7b0d2ef0045dab26328",
+      "originalBytes": 2369820,
+      "gzipBytes": 106951
+    },
+    {
+      "file": "zada-b3-repair-01-runs.json.gz",
+      "originalSHA256": "7473626224bd50c67ba410ed53467aa348bb0431cbf81fa5e5443659bf102b7d",
+      "gzipSHA256": "cd771c9cde4c17ce6c1a2858ef2c9bf36fb31bf9cd08c6db6769ef142991d97d",
+      "originalBytes": 2545170,
+      "gzipBytes": 140776
+    },
+    {
+      "file": "zada-b3-repair-07-runs.json.gz",
+      "originalSHA256": "2e1090f626c512c2bf12d54b8cd23273e9e0c6545c5772de726cc097347a6bbd",
+      "gzipSHA256": "c2a550da55d25f4fddcafafd1622d5c6f90ae0511218070c291602add0e49173",
+      "originalBytes": 2539428,
+      "gzipBytes": 135608
+    }
+  ],
+  "runtimeMs": 2677
+}

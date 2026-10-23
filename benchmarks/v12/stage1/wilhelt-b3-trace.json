@@ -1,0 +1,2148 @@
+{
+  "schemaVersion": 1,
+  "evaluator": "deployment-stage1-v1",
+  "seed": "gameplay-stage1-2026-10-22:0",
+  "turns": 8,
+  "order": [
+    11,
+    44,
+    73,
+    25,
+    43,
+    26,
+    4,
+    35,
+    76,
+    30,
+    28,
+    42,
+    59,
+    74,
+    66,
+    7,
+    97,
+    63,
+    41,
+    19,
+    79,
+    55,
+    27,
+    61,
+    38,
+    52,
+    33,
+    1,
+    29,
+    8,
+    13,
+    54,
+    12,
+    16,
+    48,
+    23,
+    50,
+    22,
+    77,
+    69,
+    84,
+    78,
+    67,
+    92,
+    34,
+    45,
+    21,
+    60,
+    53,
+    88,
+    68,
+    15,
+    2,
+    47,
+    20,
+    75,
+    70,
+    82,
+    85,
+    39,
+    9,
+    81,
+    49,
+    91,
+    36,
+    95,
+    89,
+    64,
+    58,
+    3,
+    86,
+    98,
+    32,
+    40,
+    96,
+    83,
+    18,
+    65,
+    14,
+    10,
+    80,
+    57,
+    17,
+    56,
+    93,
+    94,
+    90,
+    71,
+    0,
+    72,
+    62,
+    5,
+    51,
+    31,
+    37,
+    46,
+    6,
+    87,
+    24
+  ],
+  "commander": "Wilhelt, the Rotcleaver",
+  "assumptions": {
+    "opening": 7,
+    "mulligan": "none",
+    "drawOnTurnOne": true,
+    "naturalDrawsPerTurn": 1,
+    "landDropsPerTurn": 1,
+    "phases": "one precombat main phase; floating mana expires each turn",
+    "opponents": "none",
+    "commanderTaxPriorCasts": 0,
+    "policy": "untapped land first; affordable ramp, commander, then cheapest permanent; not optimal play",
+    "optionalPayment": "reserved before any cast/entry token trigger resolves",
+    "rankingIntegration": false
+  },
+  "stats": {
+    "casts": [],
+    "optionalPayments": [],
+    "manaSearches": 164,
+    "manaStates": 0,
+    "boundHits": 0
+  },
+  "unknown": [
+    {
+      "card": "Abattoir Ghoul",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Accursed Centaur",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Accursed Horde",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Arcane Signet",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Arcanis the Omnipotent",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Archghoul of Thraben",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Archivist",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Boneyard Desecrator",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Boneyard Scourge",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Brain Gorgers",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Carrion Feeder",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Cemetery Reaper",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Corpse Augur",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Corpse Blockade",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Curator's Ward",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Dauthi Ghoul",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Diregraf Captain",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Dreadmalkin",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Fell Stinger",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Feral Ghoul",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Gavony Unhallowed",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Giant's Boulder",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Gnawing Zombie",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Graf Reaver",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Grimgrin, Corpse-Born // Grimgrin, Corpse-Born",
+      "reasons": [
+        "alternate faces/transform/craft not evaluated; front face only",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Gutless Ghoul",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Headless Rider",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Hithlain Rope",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Hungry Ghoul",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Insight Engine",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Jarl of the Forsaken",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Jason Bright, Glowing Prophet",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Liliana's Standard Bearer",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Midnight Reaper",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Mind Stone",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Mindleech Ghoul",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Murderous Rider // Swift End",
+      "reasons": [
+        "alternate faces/transform/craft not evaluated; front face only",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "My Precious // Allure of Power",
+      "reasons": [
+        "alternate faces/transform/craft not evaluated; front face only",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Nantuko Husk",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Necrosavant",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Overcharged Amalgam",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Patchwork Crawler",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Phyrexian Ghoul",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Plague Belcher",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Ragamuffyn",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Repository Skaab",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Sedraxis Alchemist",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Sepulcher Ghoul",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Sidisi, Regent of the Mire",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Silumgar Scavenger",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Skull Skaab",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Sol Ring",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Stronghold Assassin",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Tablet of Compleation",
+      "reasons": [
+        "unsupported mana condition: {T}: Add {C}. Activate only if this artifact has two or more oil counters on it.",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "The Soul Stone",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Thran Dynamo",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Tomb Tyrant",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Undead Augur",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Undercity Necrolisk",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Vengeful Dead",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Vesper Ghoul",
+      "reasons": [
+        "unsupported activation cost: {T}, Pay 1 life: Add one mana of any color.",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Voracious Null",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Wight",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Command Tower",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Exotic Orchard",
+      "reasons": [
+        "unsupported mana production: {T}: Add one mana of any color that a land an opponent controls could produce.",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Island",
+      "reasons": [
+        "unsupported activation cost: ({T}: Add {U}.)",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Mirrodin's Core",
+      "reasons": [
+        "unsupported activation cost: {T}, Remove a charge counter from this land: Add one mana of any color.",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "River of Tears",
+      "reasons": [
+        "unsupported mana condition: {T}: Add {U}. If you played a land this turn, add {B} instead.",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Rootwater Depths",
+      "reasons": [
+        "unsupported mana condition: {T}: Add {U} or {B}. This land doesn't untap during your next untap step.",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Spire of Industry",
+      "reasons": [
+        "unsupported activation cost: {T}, Pay 1 life: Add one mana of any color. Activate only if you control an artifact.",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Swamp",
+      "reasons": [
+        "unsupported activation cost: ({T}: Add {B}.)",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Tendo Ice Bridge",
+      "reasons": [
+        "unsupported activation cost: {T}, Remove a charge counter from this land: Add one mana of any color.",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "The Grey Havens",
+      "reasons": [
+        "unsupported mana production: {T}: Add one mana of any color among legendary creature cards in your graveyard.",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Waterveil Cavern",
+      "reasons": [
+        "unsupported mana condition: {T}: Add {U} or {B}. This land doesn't untap during your next untap step.",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Wilhelt, the Rotcleaver",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    }
+  ],
+  "trace": [
+    {
+      "turn": 0,
+      "event": "opening",
+      "hand": [
+        {
+          "id": "deck-11",
+          "card": "Cemetery Reaper"
+        },
+        {
+          "id": "deck-44",
+          "card": "Ragamuffyn"
+        },
+        {
+          "id": "deck-73",
+          "card": "Island"
+        },
+        {
+          "id": "deck-25",
+          "card": "Gutless Ghoul"
+        },
+        {
+          "id": "deck-43",
+          "card": "Plague Belcher"
+        },
+        {
+          "id": "deck-26",
+          "card": "Headless Rider"
+        },
+        {
+          "id": "deck-4",
+          "card": "Arcanis the Omnipotent"
+        }
+      ]
+    },
+    {
+      "turn": 1,
+      "event": "untap",
+      "sources": []
+    },
+    {
+      "turn": 1,
+      "event": "draw",
+      "card": "Mindleech Ghoul",
+      "id": "deck-35"
+    },
+    {
+      "turn": 1,
+      "event": "land",
+      "card": "Island",
+      "id": "deck-73",
+      "tapped": false,
+      "unknown": false
+    },
+    {
+      "turn": 1,
+      "event": "remaining-card",
+      "card": "Cemetery Reaper",
+      "id": "deck-11",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 1,
+      "event": "remaining-card",
+      "card": "Ragamuffyn",
+      "id": "deck-44",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 1,
+      "event": "remaining-card",
+      "card": "Gutless Ghoul",
+      "id": "deck-25",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 1,
+      "event": "remaining-card",
+      "card": "Plague Belcher",
+      "id": "deck-43",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 1,
+      "event": "remaining-card",
+      "card": "Headless Rider",
+      "id": "deck-26",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 1,
+      "event": "remaining-card",
+      "card": "Arcanis the Omnipotent",
+      "id": "deck-4",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 1,
+      "event": "remaining-card",
+      "card": "Mindleech Ghoul",
+      "id": "deck-35",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 1,
+      "event": "remaining-card",
+      "card": "Wilhelt, the Rotcleaver",
+      "id": "commander",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 1,
+      "event": "turn-end",
+      "hand": [
+        "Cemetery Reaper",
+        "Ragamuffyn",
+        "Gutless Ghoul",
+        "Plague Belcher",
+        "Headless Rider",
+        "Arcanis the Omnipotent",
+        "Mindleech Ghoul"
+      ],
+      "board": [
+        {
+          "id": "deck-73",
+          "card": "Island",
+          "tapped": false
+        }
+      ],
+      "floatingExpires": [],
+      "life": 40
+    },
+    {
+      "turn": 2,
+      "event": "untap",
+      "sources": [
+        {
+          "id": "deck-73",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        }
+      ]
+    },
+    {
+      "turn": 2,
+      "event": "draw",
+      "card": "Island",
+      "id": "deck-76"
+    },
+    {
+      "turn": 2,
+      "event": "land",
+      "card": "Island",
+      "id": "deck-76",
+      "tapped": false,
+      "unknown": false
+    },
+    {
+      "turn": 2,
+      "event": "remaining-card",
+      "card": "Cemetery Reaper",
+      "id": "deck-11",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 2,
+      "event": "remaining-card",
+      "card": "Ragamuffyn",
+      "id": "deck-44",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 2,
+      "event": "remaining-card",
+      "card": "Gutless Ghoul",
+      "id": "deck-25",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 2,
+      "event": "remaining-card",
+      "card": "Plague Belcher",
+      "id": "deck-43",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 2,
+      "event": "remaining-card",
+      "card": "Headless Rider",
+      "id": "deck-26",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 2,
+      "event": "remaining-card",
+      "card": "Arcanis the Omnipotent",
+      "id": "deck-4",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 2,
+      "event": "remaining-card",
+      "card": "Mindleech Ghoul",
+      "id": "deck-35",
+      "status": "blocked",
+      "reason": "required colored or true-colorless type unavailable",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 2,
+      "event": "remaining-card",
+      "card": "Wilhelt, the Rotcleaver",
+      "id": "commander",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 2,
+      "event": "turn-end",
+      "hand": [
+        "Cemetery Reaper",
+        "Ragamuffyn",
+        "Gutless Ghoul",
+        "Plague Belcher",
+        "Headless Rider",
+        "Arcanis the Omnipotent",
+        "Mindleech Ghoul"
+      ],
+      "board": [
+        {
+          "id": "deck-73",
+          "card": "Island",
+          "tapped": false
+        },
+        {
+          "id": "deck-76",
+          "card": "Island",
+          "tapped": false
+        }
+      ],
+      "floatingExpires": [],
+      "life": 40
+    },
+    {
+      "turn": 3,
+      "event": "untap",
+      "sources": [
+        {
+          "id": "deck-73",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-76",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        }
+      ]
+    },
+    {
+      "turn": 3,
+      "event": "draw",
+      "card": "Jarl of the Forsaken",
+      "id": "deck-30"
+    },
+    {
+      "turn": 3,
+      "event": "remaining-card",
+      "card": "Cemetery Reaper",
+      "id": "deck-11",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 3,
+      "event": "remaining-card",
+      "card": "Ragamuffyn",
+      "id": "deck-44",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 3,
+      "event": "remaining-card",
+      "card": "Gutless Ghoul",
+      "id": "deck-25",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 3,
+      "event": "remaining-card",
+      "card": "Plague Belcher",
+      "id": "deck-43",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 3,
+      "event": "remaining-card",
+      "card": "Headless Rider",
+      "id": "deck-26",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 3,
+      "event": "remaining-card",
+      "card": "Arcanis the Omnipotent",
+      "id": "deck-4",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 3,
+      "event": "remaining-card",
+      "card": "Mindleech Ghoul",
+      "id": "deck-35",
+      "status": "blocked",
+      "reason": "required colored or true-colorless type unavailable",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 3,
+      "event": "remaining-card",
+      "card": "Jarl of the Forsaken",
+      "id": "deck-30",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 3,
+      "event": "remaining-card",
+      "card": "Wilhelt, the Rotcleaver",
+      "id": "commander",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 3,
+      "event": "turn-end",
+      "hand": [
+        "Cemetery Reaper",
+        "Ragamuffyn",
+        "Gutless Ghoul",
+        "Plague Belcher",
+        "Headless Rider",
+        "Arcanis the Omnipotent",
+        "Mindleech Ghoul",
+        "Jarl of the Forsaken"
+      ],
+      "board": [
+        {
+          "id": "deck-73",
+          "card": "Island",
+          "tapped": false
+        },
+        {
+          "id": "deck-76",
+          "card": "Island",
+          "tapped": false
+        }
+      ],
+      "floatingExpires": [],
+      "life": 40
+    },
+    {
+      "turn": 4,
+      "event": "untap",
+      "sources": [
+        {
+          "id": "deck-73",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-76",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        }
+      ]
+    },
+    {
+      "turn": 4,
+      "event": "draw",
+      "card": "Hungry Ghoul",
+      "id": "deck-28"
+    },
+    {
+      "turn": 4,
+      "event": "remaining-card",
+      "card": "Cemetery Reaper",
+      "id": "deck-11",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 4,
+      "event": "remaining-card",
+      "card": "Ragamuffyn",
+      "id": "deck-44",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 4,
+      "event": "remaining-card",
+      "card": "Gutless Ghoul",
+      "id": "deck-25",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 4,
+      "event": "remaining-card",
+      "card": "Plague Belcher",
+      "id": "deck-43",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 4,
+      "event": "remaining-card",
+      "card": "Headless Rider",
+      "id": "deck-26",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 4,
+      "event": "remaining-card",
+      "card": "Arcanis the Omnipotent",
+      "id": "deck-4",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 4,
+      "event": "remaining-card",
+      "card": "Mindleech Ghoul",
+      "id": "deck-35",
+      "status": "blocked",
+      "reason": "required colored or true-colorless type unavailable",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 4,
+      "event": "remaining-card",
+      "card": "Jarl of the Forsaken",
+      "id": "deck-30",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 4,
+      "event": "remaining-card",
+      "card": "Hungry Ghoul",
+      "id": "deck-28",
+      "status": "blocked",
+      "reason": "required colored or true-colorless type unavailable",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 4,
+      "event": "remaining-card",
+      "card": "Wilhelt, the Rotcleaver",
+      "id": "commander",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 4,
+      "event": "turn-end",
+      "hand": [
+        "Cemetery Reaper",
+        "Ragamuffyn",
+        "Gutless Ghoul",
+        "Plague Belcher",
+        "Headless Rider",
+        "Arcanis the Omnipotent",
+        "Mindleech Ghoul",
+        "Jarl of the Forsaken",
+        "Hungry Ghoul"
+      ],
+      "board": [
+        {
+          "id": "deck-73",
+          "card": "Island",
+          "tapped": false
+        },
+        {
+          "id": "deck-76",
+          "card": "Island",
+          "tapped": false
+        }
+      ],
+      "floatingExpires": [],
+      "life": 40
+    },
+    {
+      "turn": 5,
+      "event": "untap",
+      "sources": [
+        {
+          "id": "deck-73",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-76",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        }
+      ]
+    },
+    {
+      "turn": 5,
+      "event": "draw",
+      "card": "Phyrexian Ghoul",
+      "id": "deck-42"
+    },
+    {
+      "turn": 5,
+      "event": "remaining-card",
+      "card": "Cemetery Reaper",
+      "id": "deck-11",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 5,
+      "event": "remaining-card",
+      "card": "Ragamuffyn",
+      "id": "deck-44",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 5,
+      "event": "remaining-card",
+      "card": "Gutless Ghoul",
+      "id": "deck-25",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 5,
+      "event": "remaining-card",
+      "card": "Plague Belcher",
+      "id": "deck-43",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 5,
+      "event": "remaining-card",
+      "card": "Headless Rider",
+      "id": "deck-26",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 5,
+      "event": "remaining-card",
+      "card": "Arcanis the Omnipotent",
+      "id": "deck-4",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 5,
+      "event": "remaining-card",
+      "card": "Mindleech Ghoul",
+      "id": "deck-35",
+      "status": "blocked",
+      "reason": "required colored or true-colorless type unavailable",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 5,
+      "event": "remaining-card",
+      "card": "Jarl of the Forsaken",
+      "id": "deck-30",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 5,
+      "event": "remaining-card",
+      "card": "Hungry Ghoul",
+      "id": "deck-28",
+      "status": "blocked",
+      "reason": "required colored or true-colorless type unavailable",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 5,
+      "event": "remaining-card",
+      "card": "Phyrexian Ghoul",
+      "id": "deck-42",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 5,
+      "event": "remaining-card",
+      "card": "Wilhelt, the Rotcleaver",
+      "id": "commander",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 5,
+      "event": "turn-end",
+      "hand": [
+        "Cemetery Reaper",
+        "Ragamuffyn",
+        "Gutless Ghoul",
+        "Plague Belcher",
+        "Headless Rider",
+        "Arcanis the Omnipotent",
+        "Mindleech Ghoul",
+        "Jarl of the Forsaken",
+        "Hungry Ghoul",
+        "Phyrexian Ghoul"
+      ],
+      "board": [
+        {
+          "id": "deck-73",
+          "card": "Island",
+          "tapped": false
+        },
+        {
+          "id": "deck-76",
+          "card": "Island",
+          "tapped": false
+        }
+      ],
+      "floatingExpires": [],
+      "life": 40
+    },
+    {
+      "turn": 6,
+      "event": "untap",
+      "sources": [
+        {
+          "id": "deck-73",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-76",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        }
+      ]
+    },
+    {
+      "turn": 6,
+      "event": "draw",
+      "card": "Vengeful Dead",
+      "id": "deck-59"
+    },
+    {
+      "turn": 6,
+      "event": "remaining-card",
+      "card": "Cemetery Reaper",
+      "id": "deck-11",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 6,
+      "event": "remaining-card",
+      "card": "Ragamuffyn",
+      "id": "deck-44",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 6,
+      "event": "remaining-card",
+      "card": "Gutless Ghoul",
+      "id": "deck-25",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 6,
+      "event": "remaining-card",
+      "card": "Plague Belcher",
+      "id": "deck-43",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 6,
+      "event": "remaining-card",
+      "card": "Headless Rider",
+      "id": "deck-26",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 6,
+      "event": "remaining-card",
+      "card": "Arcanis the Omnipotent",
+      "id": "deck-4",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 6,
+      "event": "remaining-card",
+      "card": "Mindleech Ghoul",
+      "id": "deck-35",
+      "status": "blocked",
+      "reason": "required colored or true-colorless type unavailable",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 6,
+      "event": "remaining-card",
+      "card": "Jarl of the Forsaken",
+      "id": "deck-30",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 6,
+      "event": "remaining-card",
+      "card": "Hungry Ghoul",
+      "id": "deck-28",
+      "status": "blocked",
+      "reason": "required colored or true-colorless type unavailable",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 6,
+      "event": "remaining-card",
+      "card": "Phyrexian Ghoul",
+      "id": "deck-42",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 6,
+      "event": "remaining-card",
+      "card": "Vengeful Dead",
+      "id": "deck-59",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 6,
+      "event": "remaining-card",
+      "card": "Wilhelt, the Rotcleaver",
+      "id": "commander",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 6,
+      "event": "turn-end",
+      "hand": [
+        "Cemetery Reaper",
+        "Ragamuffyn",
+        "Gutless Ghoul",
+        "Plague Belcher",
+        "Headless Rider",
+        "Arcanis the Omnipotent",
+        "Mindleech Ghoul",
+        "Jarl of the Forsaken",
+        "Hungry Ghoul",
+        "Phyrexian Ghoul",
+        "Vengeful Dead"
+      ],
+      "board": [
+        {
+          "id": "deck-73",
+          "card": "Island",
+          "tapped": false
+        },
+        {
+          "id": "deck-76",
+          "card": "Island",
+          "tapped": false
+        }
+      ],
+      "floatingExpires": [],
+      "life": 40
+    },
+    {
+      "turn": 7,
+      "event": "untap",
+      "sources": [
+        {
+          "id": "deck-73",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-76",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        }
+      ]
+    },
+    {
+      "turn": 7,
+      "event": "draw",
+      "card": "Island",
+      "id": "deck-74"
+    },
+    {
+      "turn": 7,
+      "event": "land",
+      "card": "Island",
+      "id": "deck-74",
+      "tapped": false,
+      "unknown": false
+    },
+    {
+      "turn": 7,
+      "event": "remaining-card",
+      "card": "Cemetery Reaper",
+      "id": "deck-11",
+      "status": "blocked",
+      "reason": "required colored or true-colorless type unavailable",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 7,
+      "event": "remaining-card",
+      "card": "Ragamuffyn",
+      "id": "deck-44",
+      "status": "blocked",
+      "reason": "required colored or true-colorless type unavailable",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 7,
+      "event": "remaining-card",
+      "card": "Gutless Ghoul",
+      "id": "deck-25",
+      "status": "blocked",
+      "reason": "required colored or true-colorless type unavailable",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 7,
+      "event": "remaining-card",
+      "card": "Plague Belcher",
+      "id": "deck-43",
+      "status": "blocked",
+      "reason": "required colored or true-colorless type unavailable",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 7,
+      "event": "remaining-card",
+      "card": "Headless Rider",
+      "id": "deck-26",
+      "status": "blocked",
+      "reason": "required colored or true-colorless type unavailable",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 7,
+      "event": "remaining-card",
+      "card": "Arcanis the Omnipotent",
+      "id": "deck-4",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 7,
+      "event": "remaining-card",
+      "card": "Mindleech Ghoul",
+      "id": "deck-35",
+      "status": "blocked",
+      "reason": "required colored or true-colorless type unavailable",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 7,
+      "event": "remaining-card",
+      "card": "Jarl of the Forsaken",
+      "id": "deck-30",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 7,
+      "event": "remaining-card",
+      "card": "Hungry Ghoul",
+      "id": "deck-28",
+      "status": "blocked",
+      "reason": "required colored or true-colorless type unavailable",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 7,
+      "event": "remaining-card",
+      "card": "Phyrexian Ghoul",
+      "id": "deck-42",
+      "status": "blocked",
+      "reason": "required colored or true-colorless type unavailable",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 7,
+      "event": "remaining-card",
+      "card": "Vengeful Dead",
+      "id": "deck-59",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 7,
+      "event": "remaining-card",
+      "card": "Wilhelt, the Rotcleaver",
+      "id": "commander",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 7,
+      "event": "turn-end",
+      "hand": [
+        "Cemetery Reaper",
+        "Ragamuffyn",
+        "Gutless Ghoul",
+        "Plague Belcher",
+        "Headless Rider",
+        "Arcanis the Omnipotent",
+        "Mindleech Ghoul",
+        "Jarl of the Forsaken",
+        "Hungry Ghoul",
+        "Phyrexian Ghoul",
+        "Vengeful Dead"
+      ],
+      "board": [
+        {
+          "id": "deck-73",
+          "card": "Island",
+          "tapped": false
+        },
+        {
+          "id": "deck-76",
+          "card": "Island",
+          "tapped": false
+        },
+        {
+          "id": "deck-74",
+          "card": "Island",
+          "tapped": false
+        }
+      ],
+      "floatingExpires": [],
+      "life": 40
+    },
+    {
+      "turn": 8,
+      "event": "untap",
+      "sources": [
+        {
+          "id": "deck-73",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-76",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-74",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        }
+      ]
+    },
+    {
+      "turn": 8,
+      "event": "draw",
+      "card": "Island",
+      "id": "deck-66"
+    },
+    {
+      "turn": 8,
+      "event": "land",
+      "card": "Island",
+      "id": "deck-66",
+      "tapped": false,
+      "unknown": false
+    },
+    {
+      "turn": 8,
+      "event": "remaining-card",
+      "card": "Cemetery Reaper",
+      "id": "deck-11",
+      "status": "blocked",
+      "reason": "required colored or true-colorless type unavailable",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 8,
+      "event": "remaining-card",
+      "card": "Ragamuffyn",
+      "id": "deck-44",
+      "status": "blocked",
+      "reason": "required colored or true-colorless type unavailable",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 8,
+      "event": "remaining-card",
+      "card": "Gutless Ghoul",
+      "id": "deck-25",
+      "status": "blocked",
+      "reason": "required colored or true-colorless type unavailable",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 8,
+      "event": "remaining-card",
+      "card": "Plague Belcher",
+      "id": "deck-43",
+      "status": "blocked",
+      "reason": "required colored or true-colorless type unavailable",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 8,
+      "event": "remaining-card",
+      "card": "Headless Rider",
+      "id": "deck-26",
+      "status": "blocked",
+      "reason": "required colored or true-colorless type unavailable",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 8,
+      "event": "remaining-card",
+      "card": "Arcanis the Omnipotent",
+      "id": "deck-4",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 8,
+      "event": "remaining-card",
+      "card": "Mindleech Ghoul",
+      "id": "deck-35",
+      "status": "blocked",
+      "reason": "required colored or true-colorless type unavailable",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 8,
+      "event": "remaining-card",
+      "card": "Jarl of the Forsaken",
+      "id": "deck-30",
+      "status": "blocked",
+      "reason": "required colored or true-colorless type unavailable",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 8,
+      "event": "remaining-card",
+      "card": "Hungry Ghoul",
+      "id": "deck-28",
+      "status": "blocked",
+      "reason": "required colored or true-colorless type unavailable",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 8,
+      "event": "remaining-card",
+      "card": "Phyrexian Ghoul",
+      "id": "deck-42",
+      "status": "blocked",
+      "reason": "required colored or true-colorless type unavailable",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 8,
+      "event": "remaining-card",
+      "card": "Vengeful Dead",
+      "id": "deck-59",
+      "status": "blocked",
+      "reason": "required colored or true-colorless type unavailable",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 8,
+      "event": "remaining-card",
+      "card": "Wilhelt, the Rotcleaver",
+      "id": "commander",
+      "status": "blocked",
+      "reason": "required colored or true-colorless type unavailable",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 8,
+      "event": "turn-end",
+      "hand": [
+        "Cemetery Reaper",
+        "Ragamuffyn",
+        "Gutless Ghoul",
+        "Plague Belcher",
+        "Headless Rider",
+        "Arcanis the Omnipotent",
+        "Mindleech Ghoul",
+        "Jarl of the Forsaken",
+        "Hungry Ghoul",
+        "Phyrexian Ghoul",
+        "Vengeful Dead"
+      ],
+      "board": [
+        {
+          "id": "deck-73",
+          "card": "Island",
+          "tapped": false
+        },
+        {
+          "id": "deck-76",
+          "card": "Island",
+          "tapped": false
+        },
+        {
+          "id": "deck-74",
+          "card": "Island",
+          "tapped": false
+        },
+        {
+          "id": "deck-66",
+          "card": "Island",
+          "tapped": false
+        }
+      ],
+      "floatingExpires": [],
+      "life": 40
+    }
+  ],
+  "ledgerAudit": {
+    "valid": true,
+    "errors": []
+  }
+}

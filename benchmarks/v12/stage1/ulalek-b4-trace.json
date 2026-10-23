@@ -1,0 +1,4041 @@
+{
+  "schemaVersion": 1,
+  "evaluator": "deployment-stage1-v1",
+  "seed": "gameplay-stage1-2026-10-22:0",
+  "turns": 8,
+  "order": [
+    11,
+    44,
+    73,
+    25,
+    43,
+    26,
+    4,
+    35,
+    76,
+    30,
+    28,
+    42,
+    59,
+    74,
+    66,
+    7,
+    97,
+    63,
+    41,
+    19,
+    79,
+    55,
+    27,
+    61,
+    38,
+    52,
+    33,
+    1,
+    29,
+    8,
+    13,
+    54,
+    12,
+    16,
+    48,
+    23,
+    50,
+    22,
+    77,
+    69,
+    84,
+    78,
+    67,
+    92,
+    34,
+    45,
+    21,
+    60,
+    53,
+    88,
+    68,
+    15,
+    2,
+    47,
+    20,
+    75,
+    70,
+    82,
+    85,
+    39,
+    9,
+    81,
+    49,
+    91,
+    36,
+    95,
+    89,
+    64,
+    58,
+    3,
+    86,
+    98,
+    32,
+    40,
+    96,
+    83,
+    18,
+    65,
+    14,
+    10,
+    80,
+    57,
+    17,
+    56,
+    93,
+    94,
+    90,
+    71,
+    0,
+    72,
+    62,
+    5,
+    51,
+    31,
+    37,
+    46,
+    6,
+    87,
+    24
+  ],
+  "commander": "Ulalek, Fused Atrocity",
+  "assumptions": {
+    "opening": 7,
+    "mulligan": "none",
+    "drawOnTurnOne": true,
+    "naturalDrawsPerTurn": 1,
+    "landDropsPerTurn": 1,
+    "phases": "one precombat main phase; floating mana expires each turn",
+    "opponents": "none",
+    "commanderTaxPriorCasts": 0,
+    "policy": "untapped land first; affordable ramp, commander, then cheapest permanent; not optimal play",
+    "optionalPayment": "reserved before any cast/entry token trigger resolves",
+    "rankingIntegration": false
+  },
+  "stats": {
+    "casts": [
+      {
+        "turn": 2,
+        "card": "Hedron Crawler",
+        "commander": false
+      },
+      {
+        "turn": 3,
+        "card": "Solar Transformer",
+        "commander": false
+      },
+      {
+        "turn": 4,
+        "card": "Millikin",
+        "commander": false
+      },
+      {
+        "turn": 5,
+        "card": "Sol Ring",
+        "commander": false
+      },
+      {
+        "turn": 5,
+        "card": "Ulalek, Fused Atrocity",
+        "commander": true
+      },
+      {
+        "turn": 6,
+        "card": "Kozilek's Unsealing",
+        "commander": false
+      },
+      {
+        "turn": 7,
+        "card": "Echoes of Eternity",
+        "commander": false
+      },
+      {
+        "turn": 8,
+        "card": "Oblivion Sower",
+        "commander": false
+      }
+    ],
+    "optionalPayments": [
+      {
+        "turn": 8,
+        "card": "Oblivion Sower",
+        "cost": "{C}{C}"
+      }
+    ],
+    "manaSearches": 142,
+    "manaStates": 341,
+    "boundHits": 0
+  },
+  "unknown": [
+    {
+      "card": "Annie Joins Up",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Arcane Signet",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Archivist",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Basalt Monolith",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Chittering Dispatcher",
+      "reasons": [
+        "unsupported activation cost: When this creature leaves the battlefield, create a 0/1 colorless Eldrazi Spawn creature token with \"Sacrifice this token: Add {C}.\"",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Curator's Ward",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Deathless Behemoth",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Deranged Assistant",
+      "reasons": [
+        "unsupported activation cost: {T}, Mill a card: Add {C}. (Activate only as an instant. To mill a card, put the top card of your library into your graveyard.)",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Devourer of Destiny",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Drowner of Hope",
+      "reasons": [
+        "unsupported activation cost: When this creature enters, create two 1/1 colorless Eldrazi Scion creature tokens. They have \"Sacrifice this token: Add {C}.\"",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Drownyard Lurker",
+      "reasons": [
+        "unsupported activation cost: When you cast or cycle Drownyard Lurker, create a 0/1 colorless Eldrazi Spawn creature token with \"Sacrifice this token: Add {C}.\"",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Echoes of Eternity",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Eladamri, Korvecdal",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Eldrazi Linebreaker",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Eldrazi Ravager",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Eldrazi Repurposer",
+      "reasons": [
+        "unsupported activation cost: When you cast this spell and when this creature dies, create a 0/1 colorless Eldrazi Spawn creature token with \"Sacrifice this token: Add {C}.\"",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Eldritch Immunity",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Emrakul's Influence",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Endbringer",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Fanatic of Rhonas",
+      "reasons": [
+        "unsupported activation cost: Ferocious — {T}: Add {G}{G}{G}{G}. Activate only if you control a creature with power 4 or greater.",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Giant's Boulder",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Gideon Blackblade",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Glaring Fleshraker",
+      "reasons": [
+        "unsupported activation cost: Whenever you cast a colorless spell, create a 0/1 colorless Eldrazi Spawn creature token with \"Sacrifice this token: Add {C}.\"",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Great Forest Druid",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Guardian Idol",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Hedron Crawler",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Kozilek, the Great Distortion",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Kozilek's Pathfinder",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Kozilek's Unsealing",
+      "reasons": [
+        "unsupported activation cost: Whenever you cast a creature spell with mana value 4, 5, or 6, create two 0/1 colorless Eldrazi Spawn creature tokens with \"Sacrifice this token: Add {C}.\"",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Magus of the Library",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Millikin",
+      "reasons": [
+        "unsupported activation cost: {T}, Mill a card: Add {C}. (Activate only as an instant. To mill a card, put the top card of your library into your graveyard.)",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Mind Stone",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Mutated Cultist",
+      "reasons": [
+        "unsupported cost reduction: When you cast this spell, remove all counters from up to one target permanent or opponent. The next spell you cast this turn costs {1} less to cast for each counter removed this way.",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Mystic Forge",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Nightshade Dryad",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Oblivion Sower",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Ornithopter of Paradise",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Parting Thoughts",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Rapacious One",
+      "reasons": [
+        "unsupported activation cost: Whenever this creature deals combat damage to a player, create that many 0/1 colorless Eldrazi Spawn creature tokens. They have \"Sacrifice this token: Add {C}.\"",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Sea Scryer",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Shared Roots",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Sire of Stagnation",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Sol Ring",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Solar Transformer",
+      "reasons": [
+        "unsupported activation cost: {T}, Pay {E}: Add one mana of any color.",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Sowing Mycospawn",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Spawn-Gang Commander",
+      "reasons": [
+        "unsupported activation cost: When you cast this spell, create three 0/1 colorless Eldrazi Spawn creature tokens with \"Sacrifice this token: Add {C}.\"",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Spawnbed Protector",
+      "reasons": [
+        "unsupported activation cost: At the beginning of your end step, return up to one target Eldrazi creature card from your graveyard to your hand. Create two 1/1 colorless Eldrazi Scion creature tokens with \"Sacrifice this token: Add {C}.\"",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Strionic Resonator",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Tablet of Compleation",
+      "reasons": [
+        "unsupported mana condition: {T}: Add {C}. Activate only if this artifact has two or more oil counters on it.",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Talisman of Curiosity",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Talisman of Impulse",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Talisman of Resilience",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "The Enigma Jewel // Locus of Enlightenment",
+      "reasons": [
+        "alternate faces/transform/craft not evaluated; front face only",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Three Steps Ahead",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Ugin, the Ineffable",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Ulamog, the Infinite Gyre",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Ulamog's Despoiler",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Ulamog's Nullifier",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Void Grafter",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Warped Tusker",
+      "reasons": [
+        "unsupported activation cost: When you cast or cycle Warped Tusker, create a 0/1 colorless Eldrazi Spawn creature token with \"Sacrifice this token: Add {C}.\"",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "World Breaker",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Writhing Chrysalis",
+      "reasons": [
+        "unsupported activation cost: When you cast this spell, create two 0/1 colorless Eldrazi Spawn creature tokens with \"Sacrifice this token: Add {C}.\"",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Zhulodok, Void Gorger",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Adarkar Wastes",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Battlefield Forge",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Brushland",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Caves of Koilos",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Command Tower",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Dark Fortress",
+      "reasons": [
+        "unsupported mana condition: {T}: Add {B} or {R}. Activate only if this land entered this turn or if you control a basic land.",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Exotic Orchard",
+      "reasons": [
+        "unsupported mana production: {T}: Add one mana of any color that a land an opponent controls could produce.",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Fire-Lit Thicket",
+      "reasons": [
+        "unsupported mana production: {R/G}, {T}: Add {R}{R}, {R}{G}, or {G}{G}.",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Flooded Grove",
+      "reasons": [
+        "unsupported mana production: {G/U}, {T}: Add {G}{G}, {G}{U}, or {U}{U}.",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Forest",
+      "reasons": [
+        "unsupported activation cost: ({T}: Add {G}.)",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Gathering Place",
+      "reasons": [
+        "unsupported mana condition: {T}: Add {G} or {W}. Activate only if this land entered this turn or if you control a basic land.",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Gleaming Bastion",
+      "reasons": [
+        "unsupported mana condition: {T}: Add {W} or {U}. Activate only if this land entered this turn or if you control a basic land.",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Hidden Lair",
+      "reasons": [
+        "unsupported mana condition: {T}: Add {U} or {B}. Activate only if this land entered this turn or if you control a basic land.",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Island",
+      "reasons": [
+        "unsupported activation cost: ({T}: Add {U}.)",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Karplusan Forest",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Llanowar Wastes",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Mountain",
+      "reasons": [
+        "unsupported activation cost: ({T}: Add {R}.)",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Path of Ancestry",
+      "reasons": [
+        "mana-spend scry not resolved",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Plains",
+      "reasons": [
+        "unsupported activation cost: ({T}: Add {W}.)",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Reflecting Pool",
+      "reasons": [
+        "unsupported mana production: {T}: Add one mana of any type that a land you control could produce.",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Shivan Reef",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Sulfurous Springs",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Swamp",
+      "reasons": [
+        "unsupported activation cost: ({T}: Add {B}.)",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Training Compound",
+      "reasons": [
+        "unsupported mana condition: {T}: Add {R} or {G}. Activate only if this land entered this turn or if you control a basic land.",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Twilight Mire",
+      "reasons": [
+        "unsupported mana production: {B/G}, {T}: Add {B}{B}, {B}{G}, or {G}{G}.",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Underground River",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Urza's Cave",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Wastes",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Wooded Bastion",
+      "reasons": [
+        "unsupported mana production: {G/W}, {T}: Add {G}{G}, {G}{W}, or {W}{W}.",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Yavimaya Coast",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Ulalek, Fused Atrocity",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    }
+  ],
+  "trace": [
+    {
+      "turn": 0,
+      "event": "opening",
+      "hand": [
+        {
+          "id": "deck-11",
+          "card": "Echoes of Eternity"
+        },
+        {
+          "id": "deck-44",
+          "card": "Sowing Mycospawn"
+        },
+        {
+          "id": "deck-73",
+          "card": "Gathering Place"
+        },
+        {
+          "id": "deck-25",
+          "card": "Hedron Crawler"
+        },
+        {
+          "id": "deck-43",
+          "card": "Solar Transformer"
+        },
+        {
+          "id": "deck-26",
+          "card": "Kozilek, the Great Distortion"
+        },
+        {
+          "id": "deck-4",
+          "card": "Chittering Dispatcher"
+        }
+      ]
+    },
+    {
+      "turn": 1,
+      "event": "untap",
+      "sources": []
+    },
+    {
+      "turn": 1,
+      "event": "draw",
+      "card": "Oblivion Sower",
+      "id": "deck-35"
+    },
+    {
+      "turn": 1,
+      "event": "land",
+      "card": "Gathering Place",
+      "id": "deck-73",
+      "tapped": false,
+      "unknown": false
+    },
+    {
+      "turn": 1,
+      "event": "remaining-card",
+      "card": "Echoes of Eternity",
+      "id": "deck-11",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 1,
+      "event": "remaining-card",
+      "card": "Sowing Mycospawn",
+      "id": "deck-44",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 1,
+      "event": "remaining-card",
+      "card": "Hedron Crawler",
+      "id": "deck-25",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 1,
+      "event": "remaining-card",
+      "card": "Solar Transformer",
+      "id": "deck-43",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 1,
+      "event": "remaining-card",
+      "card": "Kozilek, the Great Distortion",
+      "id": "deck-26",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 1,
+      "event": "remaining-card",
+      "card": "Chittering Dispatcher",
+      "id": "deck-4",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 1,
+      "event": "remaining-card",
+      "card": "Oblivion Sower",
+      "id": "deck-35",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 1,
+      "event": "remaining-card",
+      "card": "Ulalek, Fused Atrocity",
+      "id": "commander",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 1,
+      "event": "turn-end",
+      "hand": [
+        "Echoes of Eternity",
+        "Sowing Mycospawn",
+        "Hedron Crawler",
+        "Solar Transformer",
+        "Kozilek, the Great Distortion",
+        "Chittering Dispatcher",
+        "Oblivion Sower"
+      ],
+      "board": [
+        {
+          "id": "deck-73",
+          "card": "Gathering Place",
+          "tapped": false
+        }
+      ],
+      "floatingExpires": [],
+      "life": 40
+    },
+    {
+      "turn": 2,
+      "event": "untap",
+      "sources": [
+        {
+          "id": "deck-73",
+          "types": [
+            "Land"
+          ],
+          "subtypes": [],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        }
+      ]
+    },
+    {
+      "turn": 2,
+      "event": "draw",
+      "card": "Island",
+      "id": "deck-76"
+    },
+    {
+      "turn": 2,
+      "event": "land",
+      "card": "Island",
+      "id": "deck-76",
+      "tapped": false,
+      "unknown": false
+    },
+    {
+      "turn": 2,
+      "event": "mana-activation",
+      "card": "Gathering Place",
+      "kind": "activation",
+      "source": "deck-73",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "sacrifice": false,
+        "cost": "",
+        "outputs": [
+          [
+            "C"
+          ]
+        ],
+        "restriction": "none",
+        "life": 0,
+        "minLands": 0
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-73:0:0",
+          "type": "C",
+          "source": "deck-73",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 2,
+      "event": "mana-activation",
+      "card": "Island",
+      "kind": "activation",
+      "source": "deck-76",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "cost": "",
+        "outputs": [
+          [
+            "U"
+          ]
+        ]
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-76:0:0",
+          "type": "U",
+          "source": "deck-76",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 2,
+      "event": "cast-paid",
+      "card": "Hedron Crawler",
+      "id": "deck-25",
+      "kind": "payment",
+      "label": "spell",
+      "cost": "{2}",
+      "reduction": 0,
+      "context": {
+        "kind": "spell",
+        "types": [
+          "Artifact",
+          "Creature"
+        ],
+        "subtypes": [
+          "Construct"
+        ],
+        "commander": false
+      },
+      "spent": [
+        {
+          "id": "deck-73:0:0",
+          "type": "C",
+          "source": "deck-73",
+          "restriction": "none",
+          "paidFor": "*"
+        },
+        {
+          "id": "deck-76:0:0",
+          "type": "U",
+          "source": "deck-76",
+          "restriction": "none",
+          "paidFor": "*"
+        }
+      ]
+    },
+    {
+      "turn": 2,
+      "event": "permanent-resolved",
+      "card": "Hedron Crawler",
+      "id": "deck-25",
+      "tapped": false,
+      "effects": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "turn": 2,
+      "event": "remaining-card",
+      "card": "Echoes of Eternity",
+      "id": "deck-11",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 2,
+      "event": "remaining-card",
+      "card": "Sowing Mycospawn",
+      "id": "deck-44",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 2,
+      "event": "remaining-card",
+      "card": "Solar Transformer",
+      "id": "deck-43",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 2,
+      "event": "remaining-card",
+      "card": "Kozilek, the Great Distortion",
+      "id": "deck-26",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 2,
+      "event": "remaining-card",
+      "card": "Chittering Dispatcher",
+      "id": "deck-4",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 2,
+      "event": "remaining-card",
+      "card": "Oblivion Sower",
+      "id": "deck-35",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 2,
+      "event": "remaining-card",
+      "card": "Ulalek, Fused Atrocity",
+      "id": "commander",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 2,
+      "event": "turn-end",
+      "hand": [
+        "Echoes of Eternity",
+        "Sowing Mycospawn",
+        "Solar Transformer",
+        "Kozilek, the Great Distortion",
+        "Chittering Dispatcher",
+        "Oblivion Sower"
+      ],
+      "board": [
+        {
+          "id": "deck-73",
+          "card": "Gathering Place",
+          "tapped": true
+        },
+        {
+          "id": "deck-76",
+          "card": "Island",
+          "tapped": true
+        },
+        {
+          "id": "deck-25",
+          "card": "Hedron Crawler",
+          "tapped": false
+        }
+      ],
+      "floatingExpires": [],
+      "life": 40
+    },
+    {
+      "turn": 3,
+      "event": "untap",
+      "sources": [
+        {
+          "id": "deck-73",
+          "types": [
+            "Land"
+          ],
+          "subtypes": [],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-76",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-25",
+          "types": [
+            "Artifact",
+            "Creature"
+          ],
+          "subtypes": [
+            "Construct"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        }
+      ]
+    },
+    {
+      "turn": 3,
+      "event": "draw",
+      "card": "Millikin",
+      "id": "deck-30"
+    },
+    {
+      "turn": 3,
+      "event": "mana-activation",
+      "card": "Gathering Place",
+      "kind": "activation",
+      "source": "deck-73",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "sacrifice": false,
+        "cost": "",
+        "outputs": [
+          [
+            "C"
+          ]
+        ],
+        "restriction": "none",
+        "life": 0,
+        "minLands": 0
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-73:0:0",
+          "type": "C",
+          "source": "deck-73",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 3,
+      "event": "mana-activation",
+      "card": "Island",
+      "kind": "activation",
+      "source": "deck-76",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "cost": "",
+        "outputs": [
+          [
+            "U"
+          ]
+        ]
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-76:0:0",
+          "type": "U",
+          "source": "deck-76",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 3,
+      "event": "cast-paid",
+      "card": "Solar Transformer",
+      "id": "deck-43",
+      "kind": "payment",
+      "label": "spell",
+      "cost": "{2}",
+      "reduction": 0,
+      "context": {
+        "kind": "spell",
+        "types": [
+          "Artifact"
+        ],
+        "subtypes": [],
+        "commander": false
+      },
+      "spent": [
+        {
+          "id": "deck-73:0:0",
+          "type": "C",
+          "source": "deck-73",
+          "restriction": "none",
+          "paidFor": "*"
+        },
+        {
+          "id": "deck-76:0:0",
+          "type": "U",
+          "source": "deck-76",
+          "restriction": "none",
+          "paidFor": "*"
+        }
+      ]
+    },
+    {
+      "turn": 3,
+      "event": "permanent-resolved",
+      "card": "Solar Transformer",
+      "id": "deck-43",
+      "tapped": true,
+      "effects": [
+        "unsupported activation cost: {T}, Pay {E}: Add one mana of any color.",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "turn": 3,
+      "event": "remaining-card",
+      "card": "Echoes of Eternity",
+      "id": "deck-11",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 3,
+      "event": "remaining-card",
+      "card": "Sowing Mycospawn",
+      "id": "deck-44",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 3,
+      "event": "remaining-card",
+      "card": "Kozilek, the Great Distortion",
+      "id": "deck-26",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 3,
+      "event": "remaining-card",
+      "card": "Chittering Dispatcher",
+      "id": "deck-4",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 3,
+      "event": "remaining-card",
+      "card": "Oblivion Sower",
+      "id": "deck-35",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 3,
+      "event": "remaining-card",
+      "card": "Millikin",
+      "id": "deck-30",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 3,
+      "event": "remaining-card",
+      "card": "Ulalek, Fused Atrocity",
+      "id": "commander",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 3,
+      "event": "turn-end",
+      "hand": [
+        "Echoes of Eternity",
+        "Sowing Mycospawn",
+        "Kozilek, the Great Distortion",
+        "Chittering Dispatcher",
+        "Oblivion Sower",
+        "Millikin"
+      ],
+      "board": [
+        {
+          "id": "deck-73",
+          "card": "Gathering Place",
+          "tapped": true
+        },
+        {
+          "id": "deck-76",
+          "card": "Island",
+          "tapped": true
+        },
+        {
+          "id": "deck-25",
+          "card": "Hedron Crawler",
+          "tapped": false
+        },
+        {
+          "id": "deck-43",
+          "card": "Solar Transformer",
+          "tapped": true
+        }
+      ],
+      "floatingExpires": [],
+      "life": 40
+    },
+    {
+      "turn": 4,
+      "event": "untap",
+      "sources": [
+        {
+          "id": "deck-73",
+          "types": [
+            "Land"
+          ],
+          "subtypes": [],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-76",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-25",
+          "types": [
+            "Artifact",
+            "Creature"
+          ],
+          "subtypes": [
+            "Construct"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-43",
+          "types": [
+            "Artifact"
+          ],
+          "subtypes": [],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        }
+      ]
+    },
+    {
+      "turn": 4,
+      "event": "draw",
+      "card": "Kozilek's Unsealing",
+      "id": "deck-28"
+    },
+    {
+      "turn": 4,
+      "event": "mana-activation",
+      "card": "Gathering Place",
+      "kind": "activation",
+      "source": "deck-73",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "sacrifice": false,
+        "cost": "",
+        "outputs": [
+          [
+            "C"
+          ]
+        ],
+        "restriction": "none",
+        "life": 0,
+        "minLands": 0
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-73:0:0",
+          "type": "C",
+          "source": "deck-73",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 4,
+      "event": "mana-activation",
+      "card": "Island",
+      "kind": "activation",
+      "source": "deck-76",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "cost": "",
+        "outputs": [
+          [
+            "U"
+          ]
+        ]
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-76:0:0",
+          "type": "U",
+          "source": "deck-76",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 4,
+      "event": "cast-paid",
+      "card": "Millikin",
+      "id": "deck-30",
+      "kind": "payment",
+      "label": "spell",
+      "cost": "{2}",
+      "reduction": 0,
+      "context": {
+        "kind": "spell",
+        "types": [
+          "Artifact",
+          "Creature"
+        ],
+        "subtypes": [
+          "Construct"
+        ],
+        "commander": false
+      },
+      "spent": [
+        {
+          "id": "deck-73:0:0",
+          "type": "C",
+          "source": "deck-73",
+          "restriction": "none",
+          "paidFor": "*"
+        },
+        {
+          "id": "deck-76:0:0",
+          "type": "U",
+          "source": "deck-76",
+          "restriction": "none",
+          "paidFor": "*"
+        }
+      ]
+    },
+    {
+      "turn": 4,
+      "event": "permanent-resolved",
+      "card": "Millikin",
+      "id": "deck-30",
+      "tapped": false,
+      "effects": [
+        "unsupported activation cost: {T}, Mill a card: Add {C}. (Activate only as an instant. To mill a card, put the top card of your library into your graveyard.)",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "turn": 4,
+      "event": "remaining-card",
+      "card": "Echoes of Eternity",
+      "id": "deck-11",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 4,
+      "event": "remaining-card",
+      "card": "Sowing Mycospawn",
+      "id": "deck-44",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 4,
+      "event": "remaining-card",
+      "card": "Kozilek, the Great Distortion",
+      "id": "deck-26",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 4,
+      "event": "remaining-card",
+      "card": "Chittering Dispatcher",
+      "id": "deck-4",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 4,
+      "event": "remaining-card",
+      "card": "Oblivion Sower",
+      "id": "deck-35",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 4,
+      "event": "remaining-card",
+      "card": "Kozilek's Unsealing",
+      "id": "deck-28",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 4,
+      "event": "remaining-card",
+      "card": "Ulalek, Fused Atrocity",
+      "id": "commander",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 4,
+      "event": "turn-end",
+      "hand": [
+        "Echoes of Eternity",
+        "Sowing Mycospawn",
+        "Kozilek, the Great Distortion",
+        "Chittering Dispatcher",
+        "Oblivion Sower",
+        "Kozilek's Unsealing"
+      ],
+      "board": [
+        {
+          "id": "deck-73",
+          "card": "Gathering Place",
+          "tapped": true
+        },
+        {
+          "id": "deck-76",
+          "card": "Island",
+          "tapped": true
+        },
+        {
+          "id": "deck-25",
+          "card": "Hedron Crawler",
+          "tapped": false
+        },
+        {
+          "id": "deck-43",
+          "card": "Solar Transformer",
+          "tapped": false
+        },
+        {
+          "id": "deck-30",
+          "card": "Millikin",
+          "tapped": false
+        }
+      ],
+      "floatingExpires": [],
+      "life": 40
+    },
+    {
+      "turn": 5,
+      "event": "untap",
+      "sources": [
+        {
+          "id": "deck-73",
+          "types": [
+            "Land"
+          ],
+          "subtypes": [],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-76",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-25",
+          "types": [
+            "Artifact",
+            "Creature"
+          ],
+          "subtypes": [
+            "Construct"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-43",
+          "types": [
+            "Artifact"
+          ],
+          "subtypes": [],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-30",
+          "types": [
+            "Artifact",
+            "Creature"
+          ],
+          "subtypes": [
+            "Construct"
+          ],
+          "modes": [],
+          "tapped": false,
+          "sick": false
+        }
+      ]
+    },
+    {
+      "turn": 5,
+      "event": "draw",
+      "card": "Sol Ring",
+      "id": "deck-42"
+    },
+    {
+      "turn": 5,
+      "event": "mana-activation",
+      "card": "Gathering Place",
+      "kind": "activation",
+      "source": "deck-73",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "sacrifice": false,
+        "cost": "",
+        "outputs": [
+          [
+            "C"
+          ]
+        ],
+        "restriction": "none",
+        "life": 0,
+        "minLands": 0
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-73:0:0",
+          "type": "C",
+          "source": "deck-73",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 5,
+      "event": "cast-paid",
+      "card": "Sol Ring",
+      "id": "deck-42",
+      "kind": "payment",
+      "label": "spell",
+      "cost": "{1}",
+      "reduction": 0,
+      "context": {
+        "kind": "spell",
+        "types": [
+          "Artifact"
+        ],
+        "subtypes": [],
+        "commander": false
+      },
+      "spent": [
+        {
+          "id": "deck-73:0:0",
+          "type": "C",
+          "source": "deck-73",
+          "restriction": "none",
+          "paidFor": "*"
+        }
+      ]
+    },
+    {
+      "turn": 5,
+      "event": "permanent-resolved",
+      "card": "Sol Ring",
+      "id": "deck-42",
+      "tapped": false,
+      "effects": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "turn": 5,
+      "event": "mana-activation",
+      "card": "Island",
+      "kind": "activation",
+      "source": "deck-76",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "cost": "",
+        "outputs": [
+          [
+            "U"
+          ]
+        ]
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-76:0:0",
+          "type": "U",
+          "source": "deck-76",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 5,
+      "event": "mana-activation",
+      "card": "Hedron Crawler",
+      "kind": "activation",
+      "source": "deck-25",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "sacrifice": false,
+        "cost": "",
+        "outputs": [
+          [
+            "C"
+          ]
+        ],
+        "restriction": "none",
+        "life": 0,
+        "minLands": 0
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-25:0:0",
+          "type": "C",
+          "source": "deck-25",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 5,
+      "event": "mana-activation",
+      "card": "Solar Transformer",
+      "kind": "activation",
+      "source": "deck-43",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "sacrifice": false,
+        "cost": "",
+        "outputs": [
+          [
+            "C"
+          ]
+        ],
+        "restriction": "none",
+        "life": 0,
+        "minLands": 0
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-43:0:0",
+          "type": "C",
+          "source": "deck-43",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 5,
+      "event": "mana-activation",
+      "card": "Sol Ring",
+      "kind": "activation",
+      "source": "deck-42",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "sacrifice": false,
+        "cost": "",
+        "outputs": [
+          [
+            "C",
+            "C"
+          ]
+        ],
+        "restriction": "none",
+        "life": 0,
+        "minLands": 0
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-42:0:0",
+          "type": "C",
+          "source": "deck-42",
+          "restriction": "none"
+        },
+        {
+          "id": "deck-42:0:1",
+          "type": "C",
+          "source": "deck-42",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 5,
+      "event": "cast-paid",
+      "card": "Ulalek, Fused Atrocity",
+      "id": "commander",
+      "kind": "payment",
+      "label": "spell",
+      "cost": "{C/W}{C/U}{C/B}{C/R}{C/G}",
+      "reduction": 0,
+      "context": {
+        "kind": "spell",
+        "types": [
+          "Legendary",
+          "Creature"
+        ],
+        "subtypes": [
+          "Eldrazi"
+        ],
+        "commander": true
+      },
+      "spent": [
+        {
+          "id": "deck-25:0:0",
+          "type": "C",
+          "source": "deck-25",
+          "restriction": "none",
+          "paidFor": "C/W"
+        },
+        {
+          "id": "deck-43:0:0",
+          "type": "C",
+          "source": "deck-43",
+          "restriction": "none",
+          "paidFor": "C/B"
+        },
+        {
+          "id": "deck-42:0:0",
+          "type": "C",
+          "source": "deck-42",
+          "restriction": "none",
+          "paidFor": "C/R"
+        },
+        {
+          "id": "deck-42:0:1",
+          "type": "C",
+          "source": "deck-42",
+          "restriction": "none",
+          "paidFor": "C/G"
+        },
+        {
+          "id": "deck-76:0:0",
+          "type": "U",
+          "source": "deck-76",
+          "restriction": "none",
+          "paidFor": "C/U"
+        }
+      ]
+    },
+    {
+      "turn": 5,
+      "event": "permanent-resolved",
+      "card": "Ulalek, Fused Atrocity",
+      "id": "commander",
+      "tapped": false,
+      "effects": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "turn": 5,
+      "event": "remaining-card",
+      "card": "Echoes of Eternity",
+      "id": "deck-11",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": {
+        "status": "blocked",
+        "reason": "insufficient total mana even before color/restriction checks"
+      }
+    },
+    {
+      "turn": 5,
+      "event": "remaining-card",
+      "card": "Sowing Mycospawn",
+      "id": "deck-44",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": {
+        "status": "blocked",
+        "reason": "insufficient total mana even before color/restriction checks"
+      }
+    },
+    {
+      "turn": 5,
+      "event": "remaining-card",
+      "card": "Kozilek, the Great Distortion",
+      "id": "deck-26",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": {
+        "status": "blocked",
+        "reason": "insufficient total mana even before color/restriction checks"
+      }
+    },
+    {
+      "turn": 5,
+      "event": "remaining-card",
+      "card": "Chittering Dispatcher",
+      "id": "deck-4",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": {
+        "status": "blocked",
+        "reason": "insufficient total mana even before color/restriction checks"
+      }
+    },
+    {
+      "turn": 5,
+      "event": "remaining-card",
+      "card": "Oblivion Sower",
+      "id": "deck-35",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": {
+        "status": "blocked",
+        "reason": "insufficient total mana even before color/restriction checks"
+      }
+    },
+    {
+      "turn": 5,
+      "event": "remaining-card",
+      "card": "Kozilek's Unsealing",
+      "id": "deck-28",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 5,
+      "event": "turn-end",
+      "hand": [
+        "Echoes of Eternity",
+        "Sowing Mycospawn",
+        "Kozilek, the Great Distortion",
+        "Chittering Dispatcher",
+        "Oblivion Sower",
+        "Kozilek's Unsealing"
+      ],
+      "board": [
+        {
+          "id": "deck-73",
+          "card": "Gathering Place",
+          "tapped": true
+        },
+        {
+          "id": "deck-76",
+          "card": "Island",
+          "tapped": true
+        },
+        {
+          "id": "deck-25",
+          "card": "Hedron Crawler",
+          "tapped": true
+        },
+        {
+          "id": "deck-43",
+          "card": "Solar Transformer",
+          "tapped": true
+        },
+        {
+          "id": "deck-30",
+          "card": "Millikin",
+          "tapped": false
+        },
+        {
+          "id": "deck-42",
+          "card": "Sol Ring",
+          "tapped": true
+        },
+        {
+          "id": "commander",
+          "card": "Ulalek, Fused Atrocity",
+          "tapped": false
+        }
+      ],
+      "floatingExpires": [],
+      "life": 40
+    },
+    {
+      "turn": 6,
+      "event": "untap",
+      "sources": [
+        {
+          "id": "deck-73",
+          "types": [
+            "Land"
+          ],
+          "subtypes": [],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-76",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-25",
+          "types": [
+            "Artifact",
+            "Creature"
+          ],
+          "subtypes": [
+            "Construct"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-43",
+          "types": [
+            "Artifact"
+          ],
+          "subtypes": [],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-30",
+          "types": [
+            "Artifact",
+            "Creature"
+          ],
+          "subtypes": [
+            "Construct"
+          ],
+          "modes": [],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-42",
+          "types": [
+            "Artifact"
+          ],
+          "subtypes": [],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "C",
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "commander",
+          "types": [
+            "Legendary",
+            "Creature"
+          ],
+          "subtypes": [
+            "Eldrazi"
+          ],
+          "modes": [],
+          "tapped": false,
+          "sick": false
+        }
+      ]
+    },
+    {
+      "turn": 6,
+      "event": "draw",
+      "card": "Warped Tusker",
+      "id": "deck-59"
+    },
+    {
+      "turn": 6,
+      "event": "mana-activation",
+      "card": "Gathering Place",
+      "kind": "activation",
+      "source": "deck-73",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "sacrifice": false,
+        "cost": "",
+        "outputs": [
+          [
+            "C"
+          ]
+        ],
+        "restriction": "none",
+        "life": 0,
+        "minLands": 0
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-73:0:0",
+          "type": "C",
+          "source": "deck-73",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 6,
+      "event": "mana-activation",
+      "card": "Island",
+      "kind": "activation",
+      "source": "deck-76",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "cost": "",
+        "outputs": [
+          [
+            "U"
+          ]
+        ]
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-76:0:0",
+          "type": "U",
+          "source": "deck-76",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 6,
+      "event": "mana-activation",
+      "card": "Hedron Crawler",
+      "kind": "activation",
+      "source": "deck-25",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "sacrifice": false,
+        "cost": "",
+        "outputs": [
+          [
+            "C"
+          ]
+        ],
+        "restriction": "none",
+        "life": 0,
+        "minLands": 0
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-25:0:0",
+          "type": "C",
+          "source": "deck-25",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 6,
+      "event": "cast-paid",
+      "card": "Kozilek's Unsealing",
+      "id": "deck-28",
+      "kind": "payment",
+      "label": "spell",
+      "cost": "{2}{U}",
+      "reduction": 0,
+      "context": {
+        "kind": "spell",
+        "types": [
+          "Enchantment"
+        ],
+        "subtypes": [],
+        "commander": false
+      },
+      "spent": [
+        {
+          "id": "deck-76:0:0",
+          "type": "U",
+          "source": "deck-76",
+          "restriction": "none",
+          "paidFor": "U"
+        },
+        {
+          "id": "deck-73:0:0",
+          "type": "C",
+          "source": "deck-73",
+          "restriction": "none",
+          "paidFor": "*"
+        },
+        {
+          "id": "deck-25:0:0",
+          "type": "C",
+          "source": "deck-25",
+          "restriction": "none",
+          "paidFor": "*"
+        }
+      ]
+    },
+    {
+      "turn": 6,
+      "event": "permanent-resolved",
+      "card": "Kozilek's Unsealing",
+      "id": "deck-28",
+      "tapped": false,
+      "effects": [
+        "unsupported activation cost: Whenever you cast a creature spell with mana value 4, 5, or 6, create two 0/1 colorless Eldrazi Spawn creature tokens with \"Sacrifice this token: Add {C}.\"",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "turn": 6,
+      "event": "remaining-card",
+      "card": "Echoes of Eternity",
+      "id": "deck-11",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": {
+        "status": "blocked",
+        "reason": "insufficient total mana even before color/restriction checks"
+      }
+    },
+    {
+      "turn": 6,
+      "event": "remaining-card",
+      "card": "Sowing Mycospawn",
+      "id": "deck-44",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": {
+        "status": "blocked",
+        "reason": "insufficient total mana even before color/restriction checks"
+      }
+    },
+    {
+      "turn": 6,
+      "event": "remaining-card",
+      "card": "Kozilek, the Great Distortion",
+      "id": "deck-26",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": {
+        "status": "blocked",
+        "reason": "insufficient total mana even before color/restriction checks"
+      }
+    },
+    {
+      "turn": 6,
+      "event": "remaining-card",
+      "card": "Chittering Dispatcher",
+      "id": "deck-4",
+      "status": "blocked",
+      "reason": "required colored or true-colorless type unavailable",
+      "states": 0,
+      "optional": {
+        "status": "blocked",
+        "reason": "insufficient total mana even before color/restriction checks"
+      }
+    },
+    {
+      "turn": 6,
+      "event": "remaining-card",
+      "card": "Oblivion Sower",
+      "id": "deck-35",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": {
+        "status": "blocked",
+        "reason": "insufficient total mana even before color/restriction checks"
+      }
+    },
+    {
+      "turn": 6,
+      "event": "remaining-card",
+      "card": "Warped Tusker",
+      "id": "deck-59",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": {
+        "status": "blocked",
+        "reason": "insufficient total mana even before color/restriction checks"
+      }
+    },
+    {
+      "turn": 6,
+      "event": "turn-end",
+      "hand": [
+        "Echoes of Eternity",
+        "Sowing Mycospawn",
+        "Kozilek, the Great Distortion",
+        "Chittering Dispatcher",
+        "Oblivion Sower",
+        "Warped Tusker"
+      ],
+      "board": [
+        {
+          "id": "deck-73",
+          "card": "Gathering Place",
+          "tapped": true
+        },
+        {
+          "id": "deck-76",
+          "card": "Island",
+          "tapped": true
+        },
+        {
+          "id": "deck-25",
+          "card": "Hedron Crawler",
+          "tapped": true
+        },
+        {
+          "id": "deck-43",
+          "card": "Solar Transformer",
+          "tapped": false
+        },
+        {
+          "id": "deck-30",
+          "card": "Millikin",
+          "tapped": false
+        },
+        {
+          "id": "deck-42",
+          "card": "Sol Ring",
+          "tapped": false
+        },
+        {
+          "id": "commander",
+          "card": "Ulalek, Fused Atrocity",
+          "tapped": false
+        },
+        {
+          "id": "deck-28",
+          "card": "Kozilek's Unsealing",
+          "tapped": false
+        }
+      ],
+      "floatingExpires": [],
+      "life": 40
+    },
+    {
+      "turn": 7,
+      "event": "untap",
+      "sources": [
+        {
+          "id": "deck-73",
+          "types": [
+            "Land"
+          ],
+          "subtypes": [],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-76",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-25",
+          "types": [
+            "Artifact",
+            "Creature"
+          ],
+          "subtypes": [
+            "Construct"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-43",
+          "types": [
+            "Artifact"
+          ],
+          "subtypes": [],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-30",
+          "types": [
+            "Artifact",
+            "Creature"
+          ],
+          "subtypes": [
+            "Construct"
+          ],
+          "modes": [],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-42",
+          "types": [
+            "Artifact"
+          ],
+          "subtypes": [],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "C",
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "commander",
+          "types": [
+            "Legendary",
+            "Creature"
+          ],
+          "subtypes": [
+            "Eldrazi"
+          ],
+          "modes": [],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-28",
+          "types": [
+            "Enchantment"
+          ],
+          "subtypes": [],
+          "modes": [],
+          "tapped": false,
+          "sick": false
+        }
+      ]
+    },
+    {
+      "turn": 7,
+      "event": "draw",
+      "card": "Gleaming Bastion",
+      "id": "deck-74"
+    },
+    {
+      "turn": 7,
+      "event": "land",
+      "card": "Gleaming Bastion",
+      "id": "deck-74",
+      "tapped": false,
+      "unknown": false
+    },
+    {
+      "turn": 7,
+      "event": "mana-activation",
+      "card": "Gathering Place",
+      "kind": "activation",
+      "source": "deck-73",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "sacrifice": false,
+        "cost": "",
+        "outputs": [
+          [
+            "C"
+          ]
+        ],
+        "restriction": "none",
+        "life": 0,
+        "minLands": 0
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-73:0:0",
+          "type": "C",
+          "source": "deck-73",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 7,
+      "event": "mana-activation",
+      "card": "Island",
+      "kind": "activation",
+      "source": "deck-76",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "cost": "",
+        "outputs": [
+          [
+            "U"
+          ]
+        ]
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-76:0:0",
+          "type": "U",
+          "source": "deck-76",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 7,
+      "event": "mana-activation",
+      "card": "Hedron Crawler",
+      "kind": "activation",
+      "source": "deck-25",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "sacrifice": false,
+        "cost": "",
+        "outputs": [
+          [
+            "C"
+          ]
+        ],
+        "restriction": "none",
+        "life": 0,
+        "minLands": 0
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-25:0:0",
+          "type": "C",
+          "source": "deck-25",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 7,
+      "event": "mana-activation",
+      "card": "Solar Transformer",
+      "kind": "activation",
+      "source": "deck-43",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "sacrifice": false,
+        "cost": "",
+        "outputs": [
+          [
+            "C"
+          ]
+        ],
+        "restriction": "none",
+        "life": 0,
+        "minLands": 0
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-43:0:0",
+          "type": "C",
+          "source": "deck-43",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 7,
+      "event": "mana-activation",
+      "card": "Sol Ring",
+      "kind": "activation",
+      "source": "deck-42",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "sacrifice": false,
+        "cost": "",
+        "outputs": [
+          [
+            "C",
+            "C"
+          ]
+        ],
+        "restriction": "none",
+        "life": 0,
+        "minLands": 0
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-42:0:0",
+          "type": "C",
+          "source": "deck-42",
+          "restriction": "none"
+        },
+        {
+          "id": "deck-42:0:1",
+          "type": "C",
+          "source": "deck-42",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 7,
+      "event": "cast-paid",
+      "card": "Echoes of Eternity",
+      "id": "deck-11",
+      "kind": "payment",
+      "label": "spell",
+      "cost": "{3}{C}{C}{C}",
+      "reduction": 0,
+      "context": {
+        "kind": "spell",
+        "types": [
+          "Kindred",
+          "Enchantment"
+        ],
+        "subtypes": [
+          "Eldrazi"
+        ],
+        "commander": false
+      },
+      "spent": [
+        {
+          "id": "deck-73:0:0",
+          "type": "C",
+          "source": "deck-73",
+          "restriction": "none",
+          "paidFor": "C"
+        },
+        {
+          "id": "deck-25:0:0",
+          "type": "C",
+          "source": "deck-25",
+          "restriction": "none",
+          "paidFor": "C"
+        },
+        {
+          "id": "deck-43:0:0",
+          "type": "C",
+          "source": "deck-43",
+          "restriction": "none",
+          "paidFor": "C"
+        },
+        {
+          "id": "deck-76:0:0",
+          "type": "U",
+          "source": "deck-76",
+          "restriction": "none",
+          "paidFor": "*"
+        },
+        {
+          "id": "deck-42:0:0",
+          "type": "C",
+          "source": "deck-42",
+          "restriction": "none",
+          "paidFor": "*"
+        },
+        {
+          "id": "deck-42:0:1",
+          "type": "C",
+          "source": "deck-42",
+          "restriction": "none",
+          "paidFor": "*"
+        }
+      ]
+    },
+    {
+      "turn": 7,
+      "event": "cast-trigger-pending",
+      "source": "commander",
+      "cost": "{C}{C}"
+    },
+    {
+      "turn": 7,
+      "event": "optional-trigger-declined",
+      "source": "commander",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "policy": "pay before resolving token triggers; no token credit in advance"
+    },
+    {
+      "turn": 7,
+      "event": "permanent-resolved",
+      "card": "Echoes of Eternity",
+      "id": "deck-11",
+      "tapped": false,
+      "effects": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "turn": 7,
+      "event": "remaining-card",
+      "card": "Sowing Mycospawn",
+      "id": "deck-44",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": {
+        "status": "blocked",
+        "reason": "insufficient total mana even before color/restriction checks"
+      }
+    },
+    {
+      "turn": 7,
+      "event": "remaining-card",
+      "card": "Kozilek, the Great Distortion",
+      "id": "deck-26",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": {
+        "status": "blocked",
+        "reason": "insufficient total mana even before color/restriction checks"
+      }
+    },
+    {
+      "turn": 7,
+      "event": "remaining-card",
+      "card": "Chittering Dispatcher",
+      "id": "deck-4",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": {
+        "status": "blocked",
+        "reason": "insufficient total mana even before color/restriction checks"
+      }
+    },
+    {
+      "turn": 7,
+      "event": "remaining-card",
+      "card": "Oblivion Sower",
+      "id": "deck-35",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": {
+        "status": "blocked",
+        "reason": "insufficient total mana even before color/restriction checks"
+      }
+    },
+    {
+      "turn": 7,
+      "event": "remaining-card",
+      "card": "Warped Tusker",
+      "id": "deck-59",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": {
+        "status": "blocked",
+        "reason": "insufficient total mana even before color/restriction checks"
+      }
+    },
+    {
+      "turn": 7,
+      "event": "turn-end",
+      "hand": [
+        "Sowing Mycospawn",
+        "Kozilek, the Great Distortion",
+        "Chittering Dispatcher",
+        "Oblivion Sower",
+        "Warped Tusker"
+      ],
+      "board": [
+        {
+          "id": "deck-73",
+          "card": "Gathering Place",
+          "tapped": true
+        },
+        {
+          "id": "deck-76",
+          "card": "Island",
+          "tapped": true
+        },
+        {
+          "id": "deck-25",
+          "card": "Hedron Crawler",
+          "tapped": true
+        },
+        {
+          "id": "deck-43",
+          "card": "Solar Transformer",
+          "tapped": true
+        },
+        {
+          "id": "deck-30",
+          "card": "Millikin",
+          "tapped": false
+        },
+        {
+          "id": "deck-42",
+          "card": "Sol Ring",
+          "tapped": true
+        },
+        {
+          "id": "commander",
+          "card": "Ulalek, Fused Atrocity",
+          "tapped": false
+        },
+        {
+          "id": "deck-28",
+          "card": "Kozilek's Unsealing",
+          "tapped": false
+        },
+        {
+          "id": "deck-74",
+          "card": "Gleaming Bastion",
+          "tapped": false
+        },
+        {
+          "id": "deck-11",
+          "card": "Echoes of Eternity",
+          "tapped": false
+        }
+      ],
+      "floatingExpires": [],
+      "life": 40
+    },
+    {
+      "turn": 8,
+      "event": "untap",
+      "sources": [
+        {
+          "id": "deck-73",
+          "types": [
+            "Land"
+          ],
+          "subtypes": [],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-76",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-25",
+          "types": [
+            "Artifact",
+            "Creature"
+          ],
+          "subtypes": [
+            "Construct"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-43",
+          "types": [
+            "Artifact"
+          ],
+          "subtypes": [],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-30",
+          "types": [
+            "Artifact",
+            "Creature"
+          ],
+          "subtypes": [
+            "Construct"
+          ],
+          "modes": [],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-42",
+          "types": [
+            "Artifact"
+          ],
+          "subtypes": [],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "C",
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "commander",
+          "types": [
+            "Legendary",
+            "Creature"
+          ],
+          "subtypes": [
+            "Eldrazi"
+          ],
+          "modes": [],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-28",
+          "types": [
+            "Enchantment"
+          ],
+          "subtypes": [],
+          "modes": [],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-74",
+          "types": [
+            "Land"
+          ],
+          "subtypes": [],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-11",
+          "types": [
+            "Kindred",
+            "Enchantment"
+          ],
+          "subtypes": [
+            "Eldrazi"
+          ],
+          "modes": [],
+          "tapped": false,
+          "sick": false
+        }
+      ]
+    },
+    {
+      "turn": 8,
+      "event": "draw",
+      "card": "Caves of Koilos",
+      "id": "deck-66"
+    },
+    {
+      "turn": 8,
+      "event": "land",
+      "card": "Caves of Koilos",
+      "id": "deck-66",
+      "tapped": false,
+      "unknown": false
+    },
+    {
+      "turn": 8,
+      "event": "mana-activation",
+      "card": "Gathering Place",
+      "kind": "activation",
+      "source": "deck-73",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "sacrifice": false,
+        "cost": "",
+        "outputs": [
+          [
+            "C"
+          ]
+        ],
+        "restriction": "none",
+        "life": 0,
+        "minLands": 0
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-73:0:0",
+          "type": "C",
+          "source": "deck-73",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 8,
+      "event": "mana-activation",
+      "card": "Island",
+      "kind": "activation",
+      "source": "deck-76",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "cost": "",
+        "outputs": [
+          [
+            "U"
+          ]
+        ]
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-76:0:0",
+          "type": "U",
+          "source": "deck-76",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 8,
+      "event": "mana-activation",
+      "card": "Hedron Crawler",
+      "kind": "activation",
+      "source": "deck-25",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "sacrifice": false,
+        "cost": "",
+        "outputs": [
+          [
+            "C"
+          ]
+        ],
+        "restriction": "none",
+        "life": 0,
+        "minLands": 0
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-25:0:0",
+          "type": "C",
+          "source": "deck-25",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 8,
+      "event": "mana-activation",
+      "card": "Solar Transformer",
+      "kind": "activation",
+      "source": "deck-43",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "sacrifice": false,
+        "cost": "",
+        "outputs": [
+          [
+            "C"
+          ]
+        ],
+        "restriction": "none",
+        "life": 0,
+        "minLands": 0
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-43:0:0",
+          "type": "C",
+          "source": "deck-43",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 8,
+      "event": "mana-activation",
+      "card": "Sol Ring",
+      "kind": "activation",
+      "source": "deck-42",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "sacrifice": false,
+        "cost": "",
+        "outputs": [
+          [
+            "C",
+            "C"
+          ]
+        ],
+        "restriction": "none",
+        "life": 0,
+        "minLands": 0
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-42:0:0",
+          "type": "C",
+          "source": "deck-42",
+          "restriction": "none"
+        },
+        {
+          "id": "deck-42:0:1",
+          "type": "C",
+          "source": "deck-42",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 8,
+      "event": "cast-paid",
+      "card": "Oblivion Sower",
+      "id": "deck-35",
+      "kind": "payment",
+      "label": "spell",
+      "cost": "{6}",
+      "reduction": 0,
+      "context": {
+        "kind": "spell",
+        "types": [
+          "Creature"
+        ],
+        "subtypes": [
+          "Eldrazi"
+        ],
+        "commander": false
+      },
+      "spent": [
+        {
+          "id": "deck-73:0:0",
+          "type": "C",
+          "source": "deck-73",
+          "restriction": "none",
+          "paidFor": "*"
+        },
+        {
+          "id": "deck-76:0:0",
+          "type": "U",
+          "source": "deck-76",
+          "restriction": "none",
+          "paidFor": "*"
+        },
+        {
+          "id": "deck-25:0:0",
+          "type": "C",
+          "source": "deck-25",
+          "restriction": "none",
+          "paidFor": "*"
+        },
+        {
+          "id": "deck-43:0:0",
+          "type": "C",
+          "source": "deck-43",
+          "restriction": "none",
+          "paidFor": "*"
+        },
+        {
+          "id": "deck-42:0:0",
+          "type": "C",
+          "source": "deck-42",
+          "restriction": "none",
+          "paidFor": "*"
+        },
+        {
+          "id": "deck-42:0:1",
+          "type": "C",
+          "source": "deck-42",
+          "restriction": "none",
+          "paidFor": "*"
+        }
+      ]
+    },
+    {
+      "turn": 8,
+      "event": "cast-trigger-pending",
+      "source": "commander",
+      "cost": "{C}{C}"
+    },
+    {
+      "turn": 8,
+      "event": "mana-activation",
+      "card": "Gleaming Bastion",
+      "kind": "activation",
+      "source": "deck-74",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "sacrifice": false,
+        "cost": "",
+        "outputs": [
+          [
+            "C"
+          ]
+        ],
+        "restriction": "none",
+        "life": 0,
+        "minLands": 0
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-74:0:0",
+          "type": "C",
+          "source": "deck-74",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 8,
+      "event": "mana-activation",
+      "card": "Caves of Koilos",
+      "kind": "activation",
+      "source": "deck-66",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "sacrifice": false,
+        "cost": "",
+        "outputs": [
+          [
+            "C"
+          ]
+        ],
+        "restriction": "none",
+        "life": 0,
+        "minLands": 0
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-66:0:0",
+          "type": "C",
+          "source": "deck-66",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 8,
+      "event": "optional-trigger-paid",
+      "card": "Oblivion Sower",
+      "kind": "payment",
+      "label": "cast-trigger:commander",
+      "cost": "{C}{C}",
+      "reduction": 0,
+      "context": {
+        "kind": "ability",
+        "abilityType": "triggered",
+        "types": [
+          "Legendary",
+          "Creature"
+        ]
+      },
+      "spent": [
+        {
+          "id": "deck-74:0:0",
+          "type": "C",
+          "source": "deck-74",
+          "restriction": "none",
+          "paidFor": "C"
+        },
+        {
+          "id": "deck-66:0:0",
+          "type": "C",
+          "source": "deck-66",
+          "restriction": "none",
+          "paidFor": "C"
+        }
+      ],
+      "effect": "unknown: copying effects not simulated"
+    },
+    {
+      "turn": 8,
+      "event": "permanent-resolved",
+      "card": "Oblivion Sower",
+      "id": "deck-35",
+      "tapped": false,
+      "effects": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "turn": 8,
+      "event": "remaining-card",
+      "card": "Sowing Mycospawn",
+      "id": "deck-44",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": {
+        "status": "blocked",
+        "reason": "insufficient total mana even before color/restriction checks"
+      }
+    },
+    {
+      "turn": 8,
+      "event": "remaining-card",
+      "card": "Kozilek, the Great Distortion",
+      "id": "deck-26",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": {
+        "status": "blocked",
+        "reason": "insufficient total mana even before color/restriction checks"
+      }
+    },
+    {
+      "turn": 8,
+      "event": "remaining-card",
+      "card": "Chittering Dispatcher",
+      "id": "deck-4",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": {
+        "status": "blocked",
+        "reason": "insufficient total mana even before color/restriction checks"
+      }
+    },
+    {
+      "turn": 8,
+      "event": "remaining-card",
+      "card": "Warped Tusker",
+      "id": "deck-59",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": {
+        "status": "blocked",
+        "reason": "insufficient total mana even before color/restriction checks"
+      }
+    },
+    {
+      "turn": 8,
+      "event": "turn-end",
+      "hand": [
+        "Sowing Mycospawn",
+        "Kozilek, the Great Distortion",
+        "Chittering Dispatcher",
+        "Warped Tusker"
+      ],
+      "board": [
+        {
+          "id": "deck-73",
+          "card": "Gathering Place",
+          "tapped": true
+        },
+        {
+          "id": "deck-76",
+          "card": "Island",
+          "tapped": true
+        },
+        {
+          "id": "deck-25",
+          "card": "Hedron Crawler",
+          "tapped": true
+        },
+        {
+          "id": "deck-43",
+          "card": "Solar Transformer",
+          "tapped": true
+        },
+        {
+          "id": "deck-30",
+          "card": "Millikin",
+          "tapped": false
+        },
+        {
+          "id": "deck-42",
+          "card": "Sol Ring",
+          "tapped": true
+        },
+        {
+          "id": "commander",
+          "card": "Ulalek, Fused Atrocity",
+          "tapped": false
+        },
+        {
+          "id": "deck-28",
+          "card": "Kozilek's Unsealing",
+          "tapped": false
+        },
+        {
+          "id": "deck-74",
+          "card": "Gleaming Bastion",
+          "tapped": true
+        },
+        {
+          "id": "deck-11",
+          "card": "Echoes of Eternity",
+          "tapped": false
+        },
+        {
+          "id": "deck-66",
+          "card": "Caves of Koilos",
+          "tapped": true
+        },
+        {
+          "id": "deck-35",
+          "card": "Oblivion Sower",
+          "tapped": false
+        }
+      ],
+      "floatingExpires": [],
+      "life": 40
+    }
+  ],
+  "ledgerAudit": {
+    "valid": true,
+    "errors": []
+  }
+}

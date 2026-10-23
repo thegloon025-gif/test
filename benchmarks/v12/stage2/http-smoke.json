@@ -1,0 +1,22 @@
+{
+  "isolatedCopy": true,
+  "version": "1.1.5",
+  "catalogCount": 32197,
+  "assets": [
+    {
+      "path": "/",
+      "status": 200
+    },
+    {
+      "path": "/app.js",
+      "status": 200
+    },
+    {
+      "path": "/style.css",
+      "status": 200
+    }
+  ],
+  "cachedCommanderLookup": true,
+  "networkResearch": false,
+  "windowsLauncher": "byte preservation checked separately; BAT not executed on Linux"
+}

@@ -1,0 +1,1510 @@
+{
+  "count": 100,
+  "price": 134.47,
+  "unused": 56.53,
+  "withinBudget": true,
+  "singleton": true,
+  "colorLegal": true,
+  "selectedPrintings": [
+    {
+      "id": "a7043fbd-1dfd-42cf-be4b-cc343d0949e5",
+      "name": "Yuriko, the Tiger's Shadow",
+      "price": 2.47,
+      "printing": {
+        "set": "plst",
+        "setName": "The List",
+        "collectorNumber": "C18-52",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "f24efc60-fdac-4a5d-bcbc-784ec5ae6d96",
+      "name": "Aerial Doombot",
+      "price": 0.06,
+      "printing": {
+        "set": "msh",
+        "setName": "Marvel Super Heroes",
+        "collectorNumber": "43",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "0bc7f093-bef0-4f1a-852c-4b75ebf54838",
+      "name": "Arcane Signet",
+      "price": 0.38,
+      "printing": {
+        "set": "c20",
+        "setName": "Commander 2020",
+        "collectorNumber": "237",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "6191a7eb-04b5-47e6-a31f-43f9aa91d4d7",
+      "name": "Artificer's Assistant",
+      "price": 0.16,
+      "printing": {
+        "set": "plst",
+        "setName": "The List",
+        "collectorNumber": "DOM-44",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "784c039d-a9b2-4b22-a937-c8f7b475e96a",
+      "name": "Ascendant Spirit",
+      "price": 0.28,
+      "printing": {
+        "set": "khm",
+        "setName": "Kaldheim",
+        "collectorNumber": "43",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "73cd8461-7930-4e2d-9a14-4d10db91e93e",
+      "name": "Aven Envoy",
+      "price": 0.07,
+      "printing": {
+        "set": "lgn",
+        "setName": "Legions",
+        "collectorNumber": "30",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "6f6e0abb-18d0-4a15-9b21-0a72542998ac",
+      "name": "Azra Smokeshaper",
+      "price": 0.08,
+      "printing": {
+        "set": "mh1",
+        "setName": "Modern Horizons",
+        "collectorNumber": "79",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "7f6ddfa2-31ba-4cb7-83e7-1f099e3e8dc3",
+      "name": "Brass Gnat",
+      "price": 0.07,
+      "printing": {
+        "set": "tsp",
+        "setName": "Time Spiral",
+        "collectorNumber": "249",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "86fd8f95-0f1c-42c0-a63e-567c59ce89c4",
+      "name": "Caller of Gales",
+      "price": 0.04,
+      "printing": {
+        "set": "plst",
+        "setName": "The List",
+        "collectorNumber": "CN2-103",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "5d950fd4-8956-4b1a-ab0f-ab31bcffce4e",
+      "name": "Callous Inspector",
+      "price": 0.13,
+      "printing": {
+        "set": "tla",
+        "setName": "Avatar: The Last Airbender",
+        "collectorNumber": "89",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "283433cb-9466-4b40-8af9-30934654d43b",
+      "name": "Cloud Sprite",
+      "price": 0.05,
+      "printing": {
+        "set": "10e",
+        "setName": "Tenth Edition",
+        "collectorNumber": "75",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "b019cc20-d32d-4cdf-80cc-eafb3f78db88",
+      "name": "Conch Horn",
+      "price": 2.63,
+      "printing": {
+        "set": "fem",
+        "setName": "Fallen Empires",
+        "collectorNumber": "83",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "edd531b9-f615-4399-8c8c-1c5e18c4acbf",
+      "name": "Delver of Secrets // Insectile Aberration",
+      "price": 0.34,
+      "printing": {
+        "set": "mid",
+        "setName": "Innistrad: Midnight Hunt",
+        "collectorNumber": "47",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "a7b12df9-fddd-4cd4-8c09-d54a47867ab6",
+      "name": "Diresight",
+      "price": 0.12,
+      "printing": {
+        "set": "blb",
+        "setName": "Bloomburrow",
+        "collectorNumber": "91",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "d377b28f-c887-4937-9f14-74484b612551",
+      "name": "Dokuchi Silencer",
+      "price": 0.13,
+      "printing": {
+        "set": "neo",
+        "setName": "Kamigawa: Neon Dynasty",
+        "collectorNumber": "95",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "118cf682-a532-42e9-8d91-6ce6f0d31ace",
+      "name": "Dreadmalkin",
+      "price": 0.07,
+      "printing": {
+        "set": "war",
+        "setName": "War of the Spark",
+        "collectorNumber": "87",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "a1cec8e8-cf3c-42a4-b625-ca0cd148664e",
+      "name": "Dream Beavers",
+      "price": 0.23,
+      "printing": {
+        "set": "tmt",
+        "setName": "Teenage Mutant Ninja Turtles",
+        "collectorNumber": "62",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "dbe8ad46-d862-4ff6-bf17-238fb8341075",
+      "name": "Drifter il-Dal",
+      "price": 0.05,
+      "printing": {
+        "set": "tsr",
+        "setName": "Time Spiral Remastered",
+        "collectorNumber": "65",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "689f8696-dd13-4e1e-bdbc-3794c524f423",
+      "name": "Duskwalker",
+      "price": 0.03,
+      "printing": {
+        "set": "inv",
+        "setName": "Invasion",
+        "collectorNumber": "104",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "3e254cae-6e14-4a40-bc02-7ca23750bb26",
+      "name": "Etherium Pteramander",
+      "price": 0.09,
+      "printing": {
+        "set": "mh3",
+        "setName": "Modern Horizons 3",
+        "collectorNumber": "92",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "553c2006-e123-406e-ab4a-1d1f67c7468c",
+      "name": "Eye Collector",
+      "price": 0.04,
+      "printing": {
+        "set": "eld",
+        "setName": "Throne of Eldraine",
+        "collectorNumber": "86",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "b2e65e8b-5f08-4cc2-ab1d-00f8903dbea2",
+      "name": "Faerie Seer",
+      "price": 0.47,
+      "printing": {
+        "set": "j22",
+        "setName": "Jumpstart 2022",
+        "collectorNumber": "295",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "109f7a7d-dc08-4c8f-8065-93c620a9194e",
+      "name": "Faerie Squadron",
+      "price": 0.06,
+      "printing": {
+        "set": "inv",
+        "setName": "Invasion",
+        "collectorNumber": "58",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "d5482ccf-7c3f-45b8-aaa8-8f6686fe584d",
+      "name": "Fledgling Osprey",
+      "price": 0.08,
+      "printing": {
+        "set": "uds",
+        "setName": "Urza's Destiny",
+        "collectorNumber": "33",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "9148f2cb-5594-463c-a21b-a67706ec46d1",
+      "name": "Flitterwing Nuisance",
+      "price": 0.46,
+      "printing": {
+        "set": "ecl",
+        "setName": "Lorwyn Eclipsed",
+        "collectorNumber": "48",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "c04d4fd4-e5aa-431d-824b-8bc94245f103",
+      "name": "Fugitive Droid",
+      "price": 0.17,
+      "printing": {
+        "set": "tmt",
+        "setName": "Teenage Mutant Ninja Turtles",
+        "collectorNumber": "40",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "80433c2c-5196-42e0-b9fa-d7b12783f5fd",
+      "name": "Giant's Boulder",
+      "price": 0.42,
+      "printing": {
+        "set": "hob",
+        "setName": "The Hobbit",
+        "collectorNumber": "173",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "064a2f4a-ff3f-4622-8727-24b22965416d",
+      "name": "H.E.R.B.I.E., Lovable Robot",
+      "price": 0.62,
+      "printing": {
+        "set": "msc",
+        "setName": "Marvel Super Heroes Commander",
+        "collectorNumber": "106",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "eb154ebb-d02f-405a-a557-3d5ec7648c42",
+      "name": "Harrier Strix",
+      "price": 0.21,
+      "printing": {
+        "set": "otj",
+        "setName": "Outlaws of Thunder Junction",
+        "collectorNumber": "52",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "d6273621-c36c-491b-85ca-37445ed30097",
+      "name": "Illvoi Galeblade",
+      "price": 0.08,
+      "printing": {
+        "set": "eoe",
+        "setName": "Edge of Eternities",
+        "collectorNumber": "58",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "67a025eb-6e65-435c-becb-b51085175292",
+      "name": "Lantern Bearer // Lanterns' Lift",
+      "price": 0.09,
+      "printing": {
+        "set": "inr",
+        "setName": "Innistrad Remastered",
+        "collectorNumber": "72",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "d8a04142-1d28-4c2e-b2d5-da88b2199678",
+      "name": "Locthwain Gargoyle",
+      "price": 0.06,
+      "printing": {
+        "set": "eld",
+        "setName": "Throne of Eldraine",
+        "collectorNumber": "225",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "1803850e-9499-4bf7-a4d9-6bf655cbe87d",
+      "name": "Mausoleum Wanderer",
+      "price": 0.39,
+      "printing": {
+        "set": "inr",
+        "setName": "Innistrad Remastered",
+        "collectorNumber": "74",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "be8b9bef-a98d-40a8-bedd-d78f1f08f93b",
+      "name": "Merfolk Windrobber",
+      "price": 0.12,
+      "printing": {
+        "set": "znr",
+        "setName": "Zendikar Rising",
+        "collectorNumber": "70",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "c97361b5-af16-4a7b-af85-a429dbaf4ad2",
+      "name": "Mind Stone",
+      "price": 0.17,
+      "printing": {
+        "set": "c18",
+        "setName": "Commander 2018",
+        "collectorNumber": "210",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "87ccb151-a948-4e5a-878b-0d46c921a2b7",
+      "name": "Mistway Spy",
+      "price": 0.05,
+      "printing": {
+        "set": "mkm",
+        "setName": "Murders at Karlov Manor",
+        "collectorNumber": "65",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "0d64d150-1716-4da4-9cfe-ee7749b89918",
+      "name": "Network Disruptor",
+      "price": 0.07,
+      "printing": {
+        "set": "j25",
+        "setName": "Foundations Jumpstart",
+        "collectorNumber": "334",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "f93dbe17-71d1-4542-96ff-81ac6da9513f",
+      "name": "Notion Rain",
+      "price": 0.09,
+      "printing": {
+        "set": "grn",
+        "setName": "Guilds of Ravnica",
+        "collectorNumber": "193",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "3a940dfa-a026-4969-8981-ef90cdfbe9ef",
+      "name": "Ornithopter of Paradise",
+      "price": 0.31,
+      "printing": {
+        "set": "mh2",
+        "setName": "Modern Horizons 2",
+        "collectorNumber": "430",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "58ed1294-ba7d-43a1-b988-8d78d9fa0e3e",
+      "name": "Phyrexian Battleflies",
+      "price": 0.06,
+      "printing": {
+        "set": "inv",
+        "setName": "Invasion",
+        "collectorNumber": "114",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "4f14bf38-13ec-461d-8a1b-340843b5d95d",
+      "name": "Planar Atlas",
+      "price": 0.35,
+      "printing": {
+        "set": "plst",
+        "setName": "The List",
+        "collectorNumber": "J22-51",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "04669a6f-6299-465b-a26e-6cae37cdc081",
+      "name": "Plumecreed Escort",
+      "price": 0.14,
+      "printing": {
+        "set": "blb",
+        "setName": "Bloomburrow",
+        "collectorNumber": "65",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "00187de2-bc48-4137-97d8-a9a0fafc76c1",
+      "name": "Pteramander",
+      "price": 0.05,
+      "printing": {
+        "set": "rvr",
+        "setName": "Ravnica Remastered",
+        "collectorNumber": "54",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "b1412eda-e3a4-41b2-932e-795a0ba0f7f8",
+      "name": "PuPu UFO",
+      "price": 0.27,
+      "printing": {
+        "set": "fin",
+        "setName": "Final Fantasy",
+        "collectorNumber": "266",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "302c0400-043d-42fa-abbb-488e520116ba",
+      "name": "Rampart Crawler",
+      "price": 0.04,
+      "printing": {
+        "set": "mmq",
+        "setName": "Mercadian Masques",
+        "collectorNumber": "156",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "ee2ca311-7639-436d-8ecb-d2aad075f25f",
+      "name": "Rattlechains",
+      "price": 0.17,
+      "printing": {
+        "set": "voc",
+        "setName": "Crimson Vow Commander",
+        "collectorNumber": "110",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "47d52cd7-d72f-455f-aad3-70f08d54691f",
+      "name": "Risky Research",
+      "price": 0.09,
+      "printing": {
+        "set": "spm",
+        "setName": "Marvel's Spider-Man",
+        "collectorNumber": "62",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "f60234e4-9b53-47a5-a21a-82c80b5af072",
+      "name": "Rowan's Grim Search",
+      "price": 0.21,
+      "printing": {
+        "set": "woe",
+        "setName": "Wilds of Eldraine",
+        "collectorNumber": "104",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "4da64806-8a1d-4926-a168-695df43309cf",
+      "name": "Silver Raven",
+      "price": 0.1,
+      "printing": {
+        "set": "afr",
+        "setName": "Adventures in the Forgotten Realms",
+        "collectorNumber": "74",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "59c7496b-19a2-478b-b28f-6f153c2458ae",
+      "name": "Siren Stormtamer",
+      "price": 0.51,
+      "printing": {
+        "set": "xln",
+        "setName": "Ixalan",
+        "collectorNumber": "79",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "6ad8011d-3471-4369-9d68-b264cc027487",
+      "name": "Sol Ring",
+      "price": 0.68,
+      "printing": {
+        "set": "c16",
+        "setName": "Commander 2016",
+        "collectorNumber": "272",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "a8fdbcdf-479d-4582-9ad5-9fbd4c740c29",
+      "name": "Spectral Sailor",
+      "price": 0.12,
+      "printing": {
+        "set": "voc",
+        "setName": "Crimson Vow Commander",
+        "collectorNumber": "114",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "7db31623-5dea-4165-8593-fbac568bf5b4",
+      "name": "Spellgyre",
+      "price": 0.17,
+      "printing": {
+        "set": "blb",
+        "setName": "Bloomburrow",
+        "collectorNumber": "72",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "53599f89-1598-4d3d-8aa7-75b397b258eb",
+      "name": "Spindrift Drake",
+      "price": 0.06,
+      "printing": {
+        "set": "sth",
+        "setName": "Stronghold",
+        "collectorNumber": "44",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "11c7662f-e688-40a6-98fd-6ae89d231b44",
+      "name": "Staff of Compleation",
+      "price": 4.69,
+      "printing": {
+        "set": "tdc",
+        "setName": "Tarkir: Dragonstorm Commander",
+        "collectorNumber": "326",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "aed2d938-125d-49b4-93ac-202b7a37fcc2",
+      "name": "Stirge",
+      "price": 0.13,
+      "printing": {
+        "set": "clb",
+        "setName": "Commander Legends: Battle for Baldur's Gate",
+        "collectorNumber": "150",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "e7c200a9-4793-44c8-ba8d-6298dc83bbac",
+      "name": "Stronghold Confessor",
+      "price": 0.04,
+      "printing": {
+        "set": "dom",
+        "setName": "Dominaria",
+        "collectorNumber": "105",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "3aa83ed2-f48b-4ce6-a614-2c54ddf50538",
+      "name": "The One Ring",
+      "price": 98.06,
+      "printing": {
+        "set": "ltr",
+        "setName": "The Lord of the Rings: Tales of Middle-earth",
+        "collectorNumber": "246",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "9a640695-fc17-4ccc-ac88-ce48b6c6ad53",
+      "name": "Thought Nibbler",
+      "price": 0.05,
+      "printing": {
+        "set": "ody",
+        "setName": "Odyssey",
+        "collectorNumber": "107",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "98636623-bbc6-4935-a2bb-2234691eb6d8",
+      "name": "Thousand-Faced Shadow",
+      "price": 1.13,
+      "printing": {
+        "set": "pneo",
+        "setName": "Kamigawa: Neon Dynasty Promos",
+        "collectorNumber": "86p",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "a699c663-8131-4045-9265-a83e86609374",
+      "name": "Thran Dynamo",
+      "price": 2.11,
+      "printing": {
+        "set": "msc",
+        "setName": "Marvel Super Heroes Commander",
+        "collectorNumber": "290",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "282dfeaa-6243-4f92-838a-5cb54fa85184",
+      "name": "Three Steps Ahead",
+      "price": 3.6,
+      "printing": {
+        "set": "mar",
+        "setName": "Marvel Universe",
+        "collectorNumber": "62",
+        "language": "en",
+        "border": "borderless",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "da66f1db-0fde-4112-ae8e-0e63fc686835",
+      "name": "Vampire Bats",
+      "price": 0.06,
+      "printing": {
+        "set": "ddd",
+        "setName": "Duel Decks: Garruk vs. Liliana",
+        "collectorNumber": "35",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "11f77158-0240-4882-94a4-6bd6b3d94bcc",
+      "name": "Zephyr Sprite",
+      "price": 0.08,
+      "printing": {
+        "set": "m10",
+        "setName": "Magic 2010",
+        "collectorNumber": "82",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "0895c9b7-ae7d-4bb3-af17-3b75deb50a25",
+      "name": "Command Tower",
+      "price": 0.18,
+      "printing": {
+        "set": "cmm",
+        "setName": "Commander Masters",
+        "collectorNumber": "420",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "27b047e3-0d41-45e2-98e9-9391d7923a1e",
+      "name": "Exotic Orchard",
+      "price": 0.16,
+      "printing": {
+        "set": "ncc",
+        "setName": "New Capenna Commander",
+        "collectorNumber": "400",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "b2c6aa39-2d2a-459c-a555-fb48ba993373",
+      "name": "Island",
+      "price": 0,
+      "printing": {
+        "set": "eld",
+        "setName": "Throne of Eldraine",
+        "collectorNumber": "255",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "b2c6aa39-2d2a-459c-a555-fb48ba993373",
+      "name": "Island",
+      "price": 0,
+      "printing": {
+        "set": "eld",
+        "setName": "Throne of Eldraine",
+        "collectorNumber": "255",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "b2c6aa39-2d2a-459c-a555-fb48ba993373",
+      "name": "Island",
+      "price": 0,
+      "printing": {
+        "set": "eld",
+        "setName": "Throne of Eldraine",
+        "collectorNumber": "255",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "b2c6aa39-2d2a-459c-a555-fb48ba993373",
+      "name": "Island",
+      "price": 0,
+      "printing": {
+        "set": "eld",
+        "setName": "Throne of Eldraine",
+        "collectorNumber": "255",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "b2c6aa39-2d2a-459c-a555-fb48ba993373",
+      "name": "Island",
+      "price": 0,
+      "printing": {
+        "set": "eld",
+        "setName": "Throne of Eldraine",
+        "collectorNumber": "255",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "b2c6aa39-2d2a-459c-a555-fb48ba993373",
+      "name": "Island",
+      "price": 0,
+      "printing": {
+        "set": "eld",
+        "setName": "Throne of Eldraine",
+        "collectorNumber": "255",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "b2c6aa39-2d2a-459c-a555-fb48ba993373",
+      "name": "Island",
+      "price": 0,
+      "printing": {
+        "set": "eld",
+        "setName": "Throne of Eldraine",
+        "collectorNumber": "255",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "b2c6aa39-2d2a-459c-a555-fb48ba993373",
+      "name": "Island",
+      "price": 0,
+      "printing": {
+        "set": "eld",
+        "setName": "Throne of Eldraine",
+        "collectorNumber": "255",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "b2c6aa39-2d2a-459c-a555-fb48ba993373",
+      "name": "Island",
+      "price": 0,
+      "printing": {
+        "set": "eld",
+        "setName": "Throne of Eldraine",
+        "collectorNumber": "255",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "b2c6aa39-2d2a-459c-a555-fb48ba993373",
+      "name": "Island",
+      "price": 0,
+      "printing": {
+        "set": "eld",
+        "setName": "Throne of Eldraine",
+        "collectorNumber": "255",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "b2c6aa39-2d2a-459c-a555-fb48ba993373",
+      "name": "Island",
+      "price": 0,
+      "printing": {
+        "set": "eld",
+        "setName": "Throne of Eldraine",
+        "collectorNumber": "255",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "b2c6aa39-2d2a-459c-a555-fb48ba993373",
+      "name": "Island",
+      "price": 0,
+      "printing": {
+        "set": "eld",
+        "setName": "Throne of Eldraine",
+        "collectorNumber": "255",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "b2c6aa39-2d2a-459c-a555-fb48ba993373",
+      "name": "Island",
+      "price": 0,
+      "printing": {
+        "set": "eld",
+        "setName": "Throne of Eldraine",
+        "collectorNumber": "255",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "ea53adbe-3f9a-4847-87c7-723ac2789918",
+      "name": "Mirrodin's Core",
+      "price": 0.19,
+      "printing": {
+        "set": "cns",
+        "setName": "Conspiracy",
+        "collectorNumber": "208",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "8a83d284-75a0-4901-b7d9-c4b7586ee327",
+      "name": "River of Tears",
+      "price": 0.18,
+      "printing": {
+        "set": "brc",
+        "setName": "The Brothers' War Commander",
+        "collectorNumber": "197",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "2d28c83a-7415-4eb0-95a6-6245f2169d17",
+      "name": "Rootwater Depths",
+      "price": 0.2,
+      "printing": {
+        "set": "plst",
+        "setName": "The List",
+        "collectorNumber": "TMP-323",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "55a519b4-61cb-448a-875b-4d6dbe00580f",
+      "name": "Spire of Industry",
+      "price": 0.21,
+      "printing": {
+        "set": "drc",
+        "setName": "Aetherdrift Commander",
+        "collectorNumber": "172",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "56719f6a-1a6c-4c0a-8d21-18f7d7350b68",
+      "name": "Swamp",
+      "price": 0,
+      "printing": {
+        "set": "jmp",
+        "setName": "Jumpstart",
+        "collectorNumber": "59",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "56719f6a-1a6c-4c0a-8d21-18f7d7350b68",
+      "name": "Swamp",
+      "price": 0,
+      "printing": {
+        "set": "jmp",
+        "setName": "Jumpstart",
+        "collectorNumber": "59",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "56719f6a-1a6c-4c0a-8d21-18f7d7350b68",
+      "name": "Swamp",
+      "price": 0,
+      "printing": {
+        "set": "jmp",
+        "setName": "Jumpstart",
+        "collectorNumber": "59",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "56719f6a-1a6c-4c0a-8d21-18f7d7350b68",
+      "name": "Swamp",
+      "price": 0,
+      "printing": {
+        "set": "jmp",
+        "setName": "Jumpstart",
+        "collectorNumber": "59",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "56719f6a-1a6c-4c0a-8d21-18f7d7350b68",
+      "name": "Swamp",
+      "price": 0,
+      "printing": {
+        "set": "jmp",
+        "setName": "Jumpstart",
+        "collectorNumber": "59",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "56719f6a-1a6c-4c0a-8d21-18f7d7350b68",
+      "name": "Swamp",
+      "price": 0,
+      "printing": {
+        "set": "jmp",
+        "setName": "Jumpstart",
+        "collectorNumber": "59",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "56719f6a-1a6c-4c0a-8d21-18f7d7350b68",
+      "name": "Swamp",
+      "price": 0,
+      "printing": {
+        "set": "jmp",
+        "setName": "Jumpstart",
+        "collectorNumber": "59",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "56719f6a-1a6c-4c0a-8d21-18f7d7350b68",
+      "name": "Swamp",
+      "price": 0,
+      "printing": {
+        "set": "jmp",
+        "setName": "Jumpstart",
+        "collectorNumber": "59",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "56719f6a-1a6c-4c0a-8d21-18f7d7350b68",
+      "name": "Swamp",
+      "price": 0,
+      "printing": {
+        "set": "jmp",
+        "setName": "Jumpstart",
+        "collectorNumber": "59",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "56719f6a-1a6c-4c0a-8d21-18f7d7350b68",
+      "name": "Swamp",
+      "price": 0,
+      "printing": {
+        "set": "jmp",
+        "setName": "Jumpstart",
+        "collectorNumber": "59",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "56719f6a-1a6c-4c0a-8d21-18f7d7350b68",
+      "name": "Swamp",
+      "price": 0,
+      "printing": {
+        "set": "jmp",
+        "setName": "Jumpstart",
+        "collectorNumber": "59",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "56719f6a-1a6c-4c0a-8d21-18f7d7350b68",
+      "name": "Swamp",
+      "price": 0,
+      "printing": {
+        "set": "jmp",
+        "setName": "Jumpstart",
+        "collectorNumber": "59",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "56719f6a-1a6c-4c0a-8d21-18f7d7350b68",
+      "name": "Swamp",
+      "price": 0,
+      "printing": {
+        "set": "jmp",
+        "setName": "Jumpstart",
+        "collectorNumber": "59",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "9e006a4b-8dde-4416-8cb4-8401562d0fd5",
+      "name": "Tendo Ice Bridge",
+      "price": 0.22,
+      "printing": {
+        "set": "m3c",
+        "setName": "Modern Horizons 3 Commander",
+        "collectorNumber": "393",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "a1a9695e-073b-4a65-b3ec-2cfddc23202a",
+      "name": "The Grey Havens",
+      "price": 0.16,
+      "printing": {
+        "set": "ltr",
+        "setName": "The Lord of the Rings: Tales of Middle-earth",
+        "collectorNumber": "255",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "3debfa0d-9945-4a85-a714-7c3d3d74de4e",
+      "name": "Waterveil Cavern",
+      "price": 0.13,
+      "printing": {
+        "set": "chk",
+        "setName": "Champions of Kamigawa",
+        "collectorNumber": "286",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "f25351e3-539b-4bbc-b92d-6480acf4d722",
+      "name": "City of Brass",
+      "price": 8.43,
+      "printing": {
+        "set": "tmc",
+        "setName": "Teenage Mutant Ninja Turtles Eternal",
+        "collectorNumber": "62",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    }
+  ]
+}

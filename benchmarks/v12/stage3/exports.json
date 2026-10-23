@@ -1,0 +1,258 @@
+{
+  "pricing": "Exact frozen selected-record Scryfall EUR estimates, owned basics; not verified Cardmarket EN NM",
+  "budget": 191,
+  "productionSelectionChanged": false,
+  "decks": [
+    {
+      "slug": "ulalek-b3",
+      "before": {
+        "export": "ulalek-b3-before.txt",
+        "audit": "ulalek-b3-before-audit.json",
+        "count": 100,
+        "price": 174.24,
+        "unused": 16.76,
+        "withinBudget": true,
+        "singleton": true,
+        "colorLegal": true
+      },
+      "evaluatedRepairs": [
+        {
+          "id": "repair-01",
+          "export": "proposals/ulalek-b3-repair-01.txt",
+          "audit": "ulalek-b3-repair-01-audit.json",
+          "price": 182.52,
+          "unused": 8.48,
+          "status": "inconclusive-tradeoffs"
+        },
+        {
+          "id": "repair-03",
+          "export": "proposals/ulalek-b3-repair-03.txt",
+          "audit": "ulalek-b3-repair-03-audit.json",
+          "price": 184.22,
+          "unused": 6.78,
+          "status": "inconclusive-tradeoffs"
+        },
+        {
+          "id": "repair-04",
+          "export": "proposals/ulalek-b3-repair-04.txt",
+          "audit": "ulalek-b3-repair-04-audit.json",
+          "price": 186.84,
+          "unused": 4.16,
+          "status": "inconclusive-tradeoffs"
+        },
+        {
+          "id": "repair-11",
+          "export": "proposals/ulalek-b3-repair-11.txt",
+          "audit": "ulalek-b3-repair-11-audit.json",
+          "price": 179.3,
+          "unused": 11.7,
+          "status": "inconclusive-tradeoffs"
+        },
+        {
+          "id": "repair-13",
+          "export": "proposals/ulalek-b3-repair-13.txt",
+          "audit": "ulalek-b3-repair-13-audit.json",
+          "price": 181,
+          "unused": 10,
+          "status": "inconclusive-tradeoffs"
+        },
+        {
+          "id": "repair-14",
+          "export": "proposals/ulalek-b3-repair-14.txt",
+          "audit": "ulalek-b3-repair-14-audit.json",
+          "price": 183.62,
+          "unused": 7.38,
+          "status": "inconclusive-tradeoffs"
+        }
+      ]
+    },
+    {
+      "slug": "ulalek-b4",
+      "before": {
+        "export": "ulalek-b4-before.txt",
+        "audit": "ulalek-b4-before-audit.json",
+        "count": 100,
+        "price": 173.88,
+        "unused": 17.12,
+        "withinBudget": true,
+        "singleton": true,
+        "colorLegal": true
+      },
+      "evaluatedRepairs": [
+        {
+          "id": "repair-01",
+          "export": "proposals/ulalek-b4-repair-01.txt",
+          "audit": "ulalek-b4-repair-01-audit.json",
+          "price": 182.31,
+          "unused": 8.69,
+          "status": "inconclusive-tradeoffs"
+        },
+        {
+          "id": "repair-02",
+          "export": "proposals/ulalek-b4-repair-02.txt",
+          "audit": "ulalek-b4-repair-02-audit.json",
+          "price": 176.5,
+          "unused": 14.5,
+          "status": "inconclusive-tradeoffs"
+        },
+        {
+          "id": "repair-03",
+          "export": "proposals/ulalek-b4-repair-03.txt",
+          "audit": "ulalek-b4-repair-03-audit.json",
+          "price": 184.01,
+          "unused": 6.99,
+          "status": "inconclusive-tradeoffs"
+        },
+        {
+          "id": "repair-04",
+          "export": "proposals/ulalek-b4-repair-04.txt",
+          "audit": "ulalek-b4-repair-04-audit.json",
+          "price": 186.63,
+          "unused": 4.37,
+          "status": "inconclusive-tradeoffs"
+        },
+        {
+          "id": "repair-13",
+          "export": "proposals/ulalek-b4-repair-13.txt",
+          "audit": "ulalek-b4-repair-13-audit.json",
+          "price": 180.79,
+          "unused": 10.21,
+          "status": "inconclusive-tradeoffs"
+        },
+        {
+          "id": "repair-14",
+          "export": "proposals/ulalek-b4-repair-14.txt",
+          "audit": "ulalek-b4-repair-14-audit.json",
+          "price": 183.41,
+          "unused": 7.59,
+          "status": "inconclusive-tradeoffs"
+        }
+      ]
+    },
+    {
+      "slug": "yuriko-b3",
+      "before": {
+        "export": "yuriko-b3-before.txt",
+        "audit": "yuriko-b3-before-audit.json",
+        "count": 100,
+        "price": 126.04,
+        "unused": 64.96,
+        "withinBudget": true,
+        "singleton": true,
+        "colorLegal": true
+      },
+      "evaluatedRepairs": [
+        {
+          "id": "repair-01",
+          "export": "proposals/yuriko-b3-repair-01.txt",
+          "audit": "yuriko-b3-repair-01-audit.json",
+          "price": 134.47,
+          "unused": 56.53,
+          "status": "abstain-native-coverage"
+        },
+        {
+          "id": "repair-08",
+          "export": "proposals/yuriko-b3-repair-08.txt",
+          "audit": "yuriko-b3-repair-08-audit.json",
+          "price": 131.25,
+          "unused": 59.75,
+          "status": "abstain-native-coverage"
+        }
+      ]
+    },
+    {
+      "slug": "wilhelt-b3",
+      "before": {
+        "export": "wilhelt-b3-before.txt",
+        "audit": "wilhelt-b3-before-audit.json",
+        "count": 100,
+        "price": 102.06,
+        "unused": 88.94,
+        "withinBudget": true,
+        "singleton": true,
+        "colorLegal": true
+      },
+      "evaluatedRepairs": [
+        {
+          "id": "repair-01",
+          "export": "proposals/wilhelt-b3-repair-01.txt",
+          "audit": "wilhelt-b3-repair-01-audit.json",
+          "price": 110.49,
+          "unused": 80.51,
+          "status": "abstain-native-coverage"
+        },
+        {
+          "id": "repair-02",
+          "export": "proposals/wilhelt-b3-repair-02.txt",
+          "audit": "wilhelt-b3-repair-02-audit.json",
+          "price": 151.38,
+          "unused": 39.62,
+          "status": "abstain-native-coverage"
+        },
+        {
+          "id": "repair-03",
+          "export": "proposals/wilhelt-b3-repair-03.txt",
+          "audit": "wilhelt-b3-repair-03-audit.json",
+          "price": 110.16,
+          "unused": 80.84,
+          "status": "abstain-native-coverage"
+        },
+        {
+          "id": "repair-04",
+          "export": "proposals/wilhelt-b3-repair-04.txt",
+          "audit": "wilhelt-b3-repair-04-audit.json",
+          "price": 151.35,
+          "unused": 39.65,
+          "status": "abstain-native-coverage"
+        },
+        {
+          "id": "repair-06",
+          "export": "proposals/wilhelt-b3-repair-06.txt",
+          "audit": "wilhelt-b3-repair-06-audit.json",
+          "price": 110.32,
+          "unused": 80.68,
+          "status": "abstain-native-coverage"
+        },
+        {
+          "id": "repair-14",
+          "export": "proposals/wilhelt-b3-repair-14.txt",
+          "audit": "wilhelt-b3-repair-14-audit.json",
+          "price": 101.63,
+          "unused": 89.37,
+          "status": "abstain-native-coverage"
+        }
+      ]
+    },
+    {
+      "slug": "zada-b3",
+      "before": {
+        "export": "zada-b3-before.txt",
+        "audit": "zada-b3-before-audit.json",
+        "count": 100,
+        "price": 158.68,
+        "unused": 32.32,
+        "withinBudget": true,
+        "singleton": true,
+        "colorLegal": true
+      },
+      "evaluatedRepairs": [
+        {
+          "id": "repair-01",
+          "export": "proposals/zada-b3-repair-01.txt",
+          "audit": "zada-b3-repair-01-audit.json",
+          "price": 166.99,
+          "unused": 24.01,
+          "status": "abstain-native-coverage"
+        },
+        {
+          "id": "repair-07",
+          "export": "proposals/zada-b3-repair-07.txt",
+          "audit": "zada-b3-repair-07-audit.json",
+          "price": 163.77,
+          "unused": 27.23,
+          "status": "abstain-native-coverage"
+        }
+      ]
+    }
+  ]
+}

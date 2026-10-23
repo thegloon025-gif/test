@@ -1,0 +1,3581 @@
+{
+  "schemaVersion": 1,
+  "evaluator": "deployment-stage1-v1",
+  "seed": "gameplay-stage1-2026-10-22:0",
+  "turns": 8,
+  "order": [
+    11,
+    44,
+    73,
+    25,
+    43,
+    26,
+    4,
+    35,
+    76,
+    30,
+    28,
+    42,
+    59,
+    74,
+    66,
+    7,
+    97,
+    63,
+    41,
+    19,
+    79,
+    55,
+    27,
+    61,
+    38,
+    52,
+    33,
+    1,
+    29,
+    8,
+    13,
+    54,
+    12,
+    16,
+    48,
+    23,
+    50,
+    22,
+    77,
+    69,
+    84,
+    78,
+    67,
+    92,
+    34,
+    45,
+    21,
+    60,
+    53,
+    88,
+    68,
+    15,
+    2,
+    47,
+    20,
+    75,
+    70,
+    82,
+    85,
+    39,
+    9,
+    81,
+    49,
+    91,
+    36,
+    95,
+    89,
+    64,
+    58,
+    3,
+    86,
+    98,
+    32,
+    40,
+    96,
+    83,
+    18,
+    65,
+    14,
+    10,
+    80,
+    57,
+    17,
+    56,
+    93,
+    94,
+    90,
+    71,
+    0,
+    72,
+    62,
+    5,
+    51,
+    31,
+    37,
+    46,
+    6,
+    87,
+    24
+  ],
+  "commander": "Zada, Hedron Grinder",
+  "assumptions": {
+    "opening": 7,
+    "mulligan": "none",
+    "drawOnTurnOne": true,
+    "naturalDrawsPerTurn": 1,
+    "landDropsPerTurn": 1,
+    "phases": "one precombat main phase; floating mana expires each turn",
+    "opponents": "none",
+    "commanderTaxPriorCasts": 0,
+    "policy": "untapped land first; affordable ramp, commander, then cheapest permanent; not optimal play",
+    "optionalPayment": "reserved before any cast/entry token trigger resolves",
+    "rankingIntegration": false
+  },
+  "stats": {
+    "casts": [
+      {
+        "turn": 2,
+        "card": "Manakin",
+        "commander": false
+      },
+      {
+        "turn": 3,
+        "card": "Plague Myr",
+        "commander": false
+      },
+      {
+        "turn": 4,
+        "card": "Zada, Hedron Grinder",
+        "commander": true
+      },
+      {
+        "turn": 5,
+        "card": "Millikin",
+        "commander": false
+      },
+      {
+        "turn": 6,
+        "card": "Molten-Core Maestro",
+        "commander": false
+      },
+      {
+        "turn": 6,
+        "card": "Walking Atlas",
+        "commander": false
+      },
+      {
+        "turn": 7,
+        "card": "Slobad, Goblin Tinkerer",
+        "commander": false
+      },
+      {
+        "turn": 7,
+        "card": "Smoldering Egg // Ashmouth Dragon",
+        "commander": false
+      },
+      {
+        "turn": 8,
+        "card": "Soul Separator",
+        "commander": false
+      }
+    ],
+    "optionalPayments": [],
+    "manaSearches": 118,
+    "manaStates": 262,
+    "boundHits": 0
+  },
+  "unknown": [
+    {
+      "card": "Ancestors' Aid",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Arcane Signet",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Avarice Amulet",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Blood Petal Celebrant",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Bottled Cloister",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Bumbleflower's Sharepot",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Cunning Maneuver",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Dino DNA",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Eldrazi Confluence",
+      "reasons": [
+        "unsupported activation cost: • Create a 1/1 colorless Eldrazi Scion creature token with \"Sacrifice this token: Add {C}.\"",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Eldritch Immunity",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Embermouth Sentinel",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Endbringer",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Endrider Catalyzer",
+      "reasons": [
+        "unsupported activation cost: Max speed — {T}: Add {R}{R}.",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Fugitive Codebreaker",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Giant's Boulder",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Goblin Firebomb",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Greasewrench Goblin",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "H.E.R.B.I.E., Lovable Robot",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Harmonic Prodigy",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Hedron Crawler",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Humble Defector",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Innocent Bystander",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Iron Myr",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Kiln Fiend",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Krark, the Thumbless",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Manakin",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Millikin",
+      "reasons": [
+        "unsupported activation cost: {T}, Mill a card: Add {C}. (Activate only as an instant. To mill a card, put the top card of your library into your graveyard.)",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Minecart Daredevil // Ride the Rails",
+      "reasons": [
+        "alternate faces/transform/craft not evaluated; front face only"
+      ]
+    },
+    {
+      "card": "Molten-Core Maestro",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Myr Convert",
+      "reasons": [
+        "unsupported activation cost: {T}, Pay 2 life: Add one mana of any color.",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Mystic Forge",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Obsessive Astronomer",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Ornithopter of Paradise",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Page, Loose Leaf",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Pendant of Prosperity",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Plague Myr",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Prismari Pianist",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Prompto Argentum",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "PuPu UFO",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Reckless Lackey",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Reckless Ransacking",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Rimrock Knight // Boulder Rush",
+      "reasons": [
+        "alternate faces/transform/craft not evaluated; front face only",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Slobad, Goblin Tinkerer",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Smoldering Egg // Ashmouth Dragon",
+      "reasons": [
+        "alternate faces/transform/craft not evaluated; front face only",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Soul Separator",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Sudden Breakthrough",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Sunset Strikemaster",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Sword of Body and Mind",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Terrapact Intimidator",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "The One Ring",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Thermo-Alchemist",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Thran Dynamo",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Thunderdrum Soloist",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Ticket Tortoise",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Troop of Ponies",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Twinferno",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Universal Solvent",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Vindictive Flamestoker",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Voldaren Epicure",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Walking Atlas",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Young Pyromancer",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Zhao, the Moon Slayer",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Zookeeper Mechan",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Barbarian Ring",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Command Tower",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Exotic Orchard",
+      "reasons": [
+        "unsupported mana production: {T}: Add one mana of any color that a land an opponent controls could produce.",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Fogwell's Gym",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Mirrodin's Core",
+      "reasons": [
+        "unsupported activation cost: {T}, Remove a charge counter from this land: Add one mana of any color.",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Mountain",
+      "reasons": [
+        "unsupported activation cost: ({T}: Add {R}.)",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Spire of Industry",
+      "reasons": [
+        "unsupported activation cost: {T}, Pay 1 life: Add one mana of any color. Activate only if you control an artifact.",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Tendo Ice Bridge",
+      "reasons": [
+        "unsupported activation cost: {T}, Remove a charge counter from this land: Add one mana of any color.",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "The Grey Havens",
+      "reasons": [
+        "unsupported mana production: {T}: Add one mana of any color among legendary creature cards in your graveyard.",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Zada, Hedron Grinder",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    }
+  ],
+  "trace": [
+    {
+      "turn": 0,
+      "event": "opening",
+      "hand": [
+        {
+          "id": "deck-11",
+          "card": "Endbringer"
+        },
+        {
+          "id": "deck-44",
+          "card": "Soul Separator"
+        },
+        {
+          "id": "deck-73",
+          "card": "Mountain"
+        },
+        {
+          "id": "deck-25",
+          "card": "Manakin"
+        },
+        {
+          "id": "deck-43",
+          "card": "Smoldering Egg // Ashmouth Dragon"
+        },
+        {
+          "id": "deck-26",
+          "card": "Millikin"
+        },
+        {
+          "id": "deck-4",
+          "card": "Bottled Cloister"
+        }
+      ]
+    },
+    {
+      "turn": 1,
+      "event": "untap",
+      "sources": []
+    },
+    {
+      "turn": 1,
+      "event": "draw",
+      "card": "Plague Myr",
+      "id": "deck-35"
+    },
+    {
+      "turn": 1,
+      "event": "land",
+      "card": "Mountain",
+      "id": "deck-73",
+      "tapped": false,
+      "unknown": false
+    },
+    {
+      "turn": 1,
+      "event": "remaining-card",
+      "card": "Endbringer",
+      "id": "deck-11",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 1,
+      "event": "remaining-card",
+      "card": "Soul Separator",
+      "id": "deck-44",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 1,
+      "event": "remaining-card",
+      "card": "Manakin",
+      "id": "deck-25",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 1,
+      "event": "remaining-card",
+      "card": "Smoldering Egg // Ashmouth Dragon",
+      "id": "deck-43",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 1,
+      "event": "remaining-card",
+      "card": "Millikin",
+      "id": "deck-26",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 1,
+      "event": "remaining-card",
+      "card": "Bottled Cloister",
+      "id": "deck-4",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 1,
+      "event": "remaining-card",
+      "card": "Plague Myr",
+      "id": "deck-35",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 1,
+      "event": "remaining-card",
+      "card": "Zada, Hedron Grinder",
+      "id": "commander",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 1,
+      "event": "turn-end",
+      "hand": [
+        "Endbringer",
+        "Soul Separator",
+        "Manakin",
+        "Smoldering Egg // Ashmouth Dragon",
+        "Millikin",
+        "Bottled Cloister",
+        "Plague Myr"
+      ],
+      "board": [
+        {
+          "id": "deck-73",
+          "card": "Mountain",
+          "tapped": false
+        }
+      ],
+      "floatingExpires": [],
+      "life": 40
+    },
+    {
+      "turn": 2,
+      "event": "untap",
+      "sources": [
+        {
+          "id": "deck-73",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Mountain"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "R"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        }
+      ]
+    },
+    {
+      "turn": 2,
+      "event": "draw",
+      "card": "Mountain",
+      "id": "deck-76"
+    },
+    {
+      "turn": 2,
+      "event": "land",
+      "card": "Mountain",
+      "id": "deck-76",
+      "tapped": false,
+      "unknown": false
+    },
+    {
+      "turn": 2,
+      "event": "mana-activation",
+      "card": "Mountain",
+      "kind": "activation",
+      "source": "deck-73",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "cost": "",
+        "outputs": [
+          [
+            "R"
+          ]
+        ]
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-73:0:0",
+          "type": "R",
+          "source": "deck-73",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 2,
+      "event": "mana-activation",
+      "card": "Mountain",
+      "kind": "activation",
+      "source": "deck-76",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "cost": "",
+        "outputs": [
+          [
+            "R"
+          ]
+        ]
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-76:0:0",
+          "type": "R",
+          "source": "deck-76",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 2,
+      "event": "cast-paid",
+      "card": "Manakin",
+      "id": "deck-25",
+      "kind": "payment",
+      "label": "spell",
+      "cost": "{2}",
+      "reduction": 0,
+      "context": {
+        "kind": "spell",
+        "types": [
+          "Artifact",
+          "Creature"
+        ],
+        "subtypes": [
+          "Construct"
+        ],
+        "commander": false
+      },
+      "spent": [
+        {
+          "id": "deck-73:0:0",
+          "type": "R",
+          "source": "deck-73",
+          "restriction": "none",
+          "paidFor": "*"
+        },
+        {
+          "id": "deck-76:0:0",
+          "type": "R",
+          "source": "deck-76",
+          "restriction": "none",
+          "paidFor": "*"
+        }
+      ]
+    },
+    {
+      "turn": 2,
+      "event": "permanent-resolved",
+      "card": "Manakin",
+      "id": "deck-25",
+      "tapped": false,
+      "effects": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "turn": 2,
+      "event": "remaining-card",
+      "card": "Endbringer",
+      "id": "deck-11",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 2,
+      "event": "remaining-card",
+      "card": "Soul Separator",
+      "id": "deck-44",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 2,
+      "event": "remaining-card",
+      "card": "Smoldering Egg // Ashmouth Dragon",
+      "id": "deck-43",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 2,
+      "event": "remaining-card",
+      "card": "Millikin",
+      "id": "deck-26",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 2,
+      "event": "remaining-card",
+      "card": "Bottled Cloister",
+      "id": "deck-4",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 2,
+      "event": "remaining-card",
+      "card": "Plague Myr",
+      "id": "deck-35",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 2,
+      "event": "remaining-card",
+      "card": "Zada, Hedron Grinder",
+      "id": "commander",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 2,
+      "event": "turn-end",
+      "hand": [
+        "Endbringer",
+        "Soul Separator",
+        "Smoldering Egg // Ashmouth Dragon",
+        "Millikin",
+        "Bottled Cloister",
+        "Plague Myr"
+      ],
+      "board": [
+        {
+          "id": "deck-73",
+          "card": "Mountain",
+          "tapped": true
+        },
+        {
+          "id": "deck-76",
+          "card": "Mountain",
+          "tapped": true
+        },
+        {
+          "id": "deck-25",
+          "card": "Manakin",
+          "tapped": false
+        }
+      ],
+      "floatingExpires": [],
+      "life": 40
+    },
+    {
+      "turn": 3,
+      "event": "untap",
+      "sources": [
+        {
+          "id": "deck-73",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Mountain"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "R"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-76",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Mountain"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "R"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-25",
+          "types": [
+            "Artifact",
+            "Creature"
+          ],
+          "subtypes": [
+            "Construct"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        }
+      ]
+    },
+    {
+      "turn": 3,
+      "event": "draw",
+      "card": "Mystic Forge",
+      "id": "deck-30"
+    },
+    {
+      "turn": 3,
+      "event": "mana-activation",
+      "card": "Mountain",
+      "kind": "activation",
+      "source": "deck-73",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "cost": "",
+        "outputs": [
+          [
+            "R"
+          ]
+        ]
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-73:0:0",
+          "type": "R",
+          "source": "deck-73",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 3,
+      "event": "mana-activation",
+      "card": "Mountain",
+      "kind": "activation",
+      "source": "deck-76",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "cost": "",
+        "outputs": [
+          [
+            "R"
+          ]
+        ]
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-76:0:0",
+          "type": "R",
+          "source": "deck-76",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 3,
+      "event": "cast-paid",
+      "card": "Plague Myr",
+      "id": "deck-35",
+      "kind": "payment",
+      "label": "spell",
+      "cost": "{2}",
+      "reduction": 0,
+      "context": {
+        "kind": "spell",
+        "types": [
+          "Artifact",
+          "Creature"
+        ],
+        "subtypes": [
+          "Phyrexian",
+          "Myr"
+        ],
+        "commander": false
+      },
+      "spent": [
+        {
+          "id": "deck-73:0:0",
+          "type": "R",
+          "source": "deck-73",
+          "restriction": "none",
+          "paidFor": "*"
+        },
+        {
+          "id": "deck-76:0:0",
+          "type": "R",
+          "source": "deck-76",
+          "restriction": "none",
+          "paidFor": "*"
+        }
+      ]
+    },
+    {
+      "turn": 3,
+      "event": "permanent-resolved",
+      "card": "Plague Myr",
+      "id": "deck-35",
+      "tapped": false,
+      "effects": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "turn": 3,
+      "event": "remaining-card",
+      "card": "Endbringer",
+      "id": "deck-11",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 3,
+      "event": "remaining-card",
+      "card": "Soul Separator",
+      "id": "deck-44",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 3,
+      "event": "remaining-card",
+      "card": "Smoldering Egg // Ashmouth Dragon",
+      "id": "deck-43",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 3,
+      "event": "remaining-card",
+      "card": "Millikin",
+      "id": "deck-26",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 3,
+      "event": "remaining-card",
+      "card": "Bottled Cloister",
+      "id": "deck-4",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 3,
+      "event": "remaining-card",
+      "card": "Mystic Forge",
+      "id": "deck-30",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 3,
+      "event": "remaining-card",
+      "card": "Zada, Hedron Grinder",
+      "id": "commander",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 3,
+      "event": "turn-end",
+      "hand": [
+        "Endbringer",
+        "Soul Separator",
+        "Smoldering Egg // Ashmouth Dragon",
+        "Millikin",
+        "Bottled Cloister",
+        "Mystic Forge"
+      ],
+      "board": [
+        {
+          "id": "deck-73",
+          "card": "Mountain",
+          "tapped": true
+        },
+        {
+          "id": "deck-76",
+          "card": "Mountain",
+          "tapped": true
+        },
+        {
+          "id": "deck-25",
+          "card": "Manakin",
+          "tapped": false
+        },
+        {
+          "id": "deck-35",
+          "card": "Plague Myr",
+          "tapped": false
+        }
+      ],
+      "floatingExpires": [],
+      "life": 40
+    },
+    {
+      "turn": 4,
+      "event": "untap",
+      "sources": [
+        {
+          "id": "deck-73",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Mountain"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "R"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-76",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Mountain"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "R"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-25",
+          "types": [
+            "Artifact",
+            "Creature"
+          ],
+          "subtypes": [
+            "Construct"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-35",
+          "types": [
+            "Artifact",
+            "Creature"
+          ],
+          "subtypes": [
+            "Phyrexian",
+            "Myr"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        }
+      ]
+    },
+    {
+      "turn": 4,
+      "event": "draw",
+      "card": "Molten-Core Maestro",
+      "id": "deck-28"
+    },
+    {
+      "turn": 4,
+      "event": "mana-activation",
+      "card": "Mountain",
+      "kind": "activation",
+      "source": "deck-73",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "cost": "",
+        "outputs": [
+          [
+            "R"
+          ]
+        ]
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-73:0:0",
+          "type": "R",
+          "source": "deck-73",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 4,
+      "event": "mana-activation",
+      "card": "Mountain",
+      "kind": "activation",
+      "source": "deck-76",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "cost": "",
+        "outputs": [
+          [
+            "R"
+          ]
+        ]
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-76:0:0",
+          "type": "R",
+          "source": "deck-76",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 4,
+      "event": "mana-activation",
+      "card": "Manakin",
+      "kind": "activation",
+      "source": "deck-25",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "sacrifice": false,
+        "cost": "",
+        "outputs": [
+          [
+            "C"
+          ]
+        ],
+        "restriction": "none",
+        "life": 0,
+        "minLands": 0
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-25:0:0",
+          "type": "C",
+          "source": "deck-25",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 4,
+      "event": "mana-activation",
+      "card": "Plague Myr",
+      "kind": "activation",
+      "source": "deck-35",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "sacrifice": false,
+        "cost": "",
+        "outputs": [
+          [
+            "C"
+          ]
+        ],
+        "restriction": "none",
+        "life": 0,
+        "minLands": 0
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-35:0:0",
+          "type": "C",
+          "source": "deck-35",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 4,
+      "event": "cast-paid",
+      "card": "Zada, Hedron Grinder",
+      "id": "commander",
+      "kind": "payment",
+      "label": "spell",
+      "cost": "{3}{R}",
+      "reduction": 0,
+      "context": {
+        "kind": "spell",
+        "types": [
+          "Legendary",
+          "Creature"
+        ],
+        "subtypes": [
+          "Goblin",
+          "Ally"
+        ],
+        "commander": true
+      },
+      "spent": [
+        {
+          "id": "deck-73:0:0",
+          "type": "R",
+          "source": "deck-73",
+          "restriction": "none",
+          "paidFor": "R"
+        },
+        {
+          "id": "deck-76:0:0",
+          "type": "R",
+          "source": "deck-76",
+          "restriction": "none",
+          "paidFor": "*"
+        },
+        {
+          "id": "deck-25:0:0",
+          "type": "C",
+          "source": "deck-25",
+          "restriction": "none",
+          "paidFor": "*"
+        },
+        {
+          "id": "deck-35:0:0",
+          "type": "C",
+          "source": "deck-35",
+          "restriction": "none",
+          "paidFor": "*"
+        }
+      ]
+    },
+    {
+      "turn": 4,
+      "event": "permanent-resolved",
+      "card": "Zada, Hedron Grinder",
+      "id": "commander",
+      "tapped": false,
+      "effects": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "turn": 4,
+      "event": "remaining-card",
+      "card": "Endbringer",
+      "id": "deck-11",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 4,
+      "event": "remaining-card",
+      "card": "Soul Separator",
+      "id": "deck-44",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 4,
+      "event": "remaining-card",
+      "card": "Smoldering Egg // Ashmouth Dragon",
+      "id": "deck-43",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 4,
+      "event": "remaining-card",
+      "card": "Millikin",
+      "id": "deck-26",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 4,
+      "event": "remaining-card",
+      "card": "Bottled Cloister",
+      "id": "deck-4",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 4,
+      "event": "remaining-card",
+      "card": "Mystic Forge",
+      "id": "deck-30",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 4,
+      "event": "remaining-card",
+      "card": "Molten-Core Maestro",
+      "id": "deck-28",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 4,
+      "event": "turn-end",
+      "hand": [
+        "Endbringer",
+        "Soul Separator",
+        "Smoldering Egg // Ashmouth Dragon",
+        "Millikin",
+        "Bottled Cloister",
+        "Mystic Forge",
+        "Molten-Core Maestro"
+      ],
+      "board": [
+        {
+          "id": "deck-73",
+          "card": "Mountain",
+          "tapped": true
+        },
+        {
+          "id": "deck-76",
+          "card": "Mountain",
+          "tapped": true
+        },
+        {
+          "id": "deck-25",
+          "card": "Manakin",
+          "tapped": true
+        },
+        {
+          "id": "deck-35",
+          "card": "Plague Myr",
+          "tapped": true
+        },
+        {
+          "id": "commander",
+          "card": "Zada, Hedron Grinder",
+          "tapped": false
+        }
+      ],
+      "floatingExpires": [],
+      "life": 40
+    },
+    {
+      "turn": 5,
+      "event": "untap",
+      "sources": [
+        {
+          "id": "deck-73",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Mountain"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "R"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-76",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Mountain"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "R"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-25",
+          "types": [
+            "Artifact",
+            "Creature"
+          ],
+          "subtypes": [
+            "Construct"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-35",
+          "types": [
+            "Artifact",
+            "Creature"
+          ],
+          "subtypes": [
+            "Phyrexian",
+            "Myr"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "commander",
+          "types": [
+            "Legendary",
+            "Creature"
+          ],
+          "subtypes": [
+            "Goblin",
+            "Ally"
+          ],
+          "modes": [],
+          "tapped": false,
+          "sick": false
+        }
+      ]
+    },
+    {
+      "turn": 5,
+      "event": "draw",
+      "card": "Slobad, Goblin Tinkerer",
+      "id": "deck-42"
+    },
+    {
+      "turn": 5,
+      "event": "mana-activation",
+      "card": "Mountain",
+      "kind": "activation",
+      "source": "deck-73",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "cost": "",
+        "outputs": [
+          [
+            "R"
+          ]
+        ]
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-73:0:0",
+          "type": "R",
+          "source": "deck-73",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 5,
+      "event": "mana-activation",
+      "card": "Mountain",
+      "kind": "activation",
+      "source": "deck-76",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "cost": "",
+        "outputs": [
+          [
+            "R"
+          ]
+        ]
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-76:0:0",
+          "type": "R",
+          "source": "deck-76",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 5,
+      "event": "cast-paid",
+      "card": "Millikin",
+      "id": "deck-26",
+      "kind": "payment",
+      "label": "spell",
+      "cost": "{2}",
+      "reduction": 0,
+      "context": {
+        "kind": "spell",
+        "types": [
+          "Artifact",
+          "Creature"
+        ],
+        "subtypes": [
+          "Construct"
+        ],
+        "commander": false
+      },
+      "spent": [
+        {
+          "id": "deck-73:0:0",
+          "type": "R",
+          "source": "deck-73",
+          "restriction": "none",
+          "paidFor": "*"
+        },
+        {
+          "id": "deck-76:0:0",
+          "type": "R",
+          "source": "deck-76",
+          "restriction": "none",
+          "paidFor": "*"
+        }
+      ]
+    },
+    {
+      "turn": 5,
+      "event": "permanent-resolved",
+      "card": "Millikin",
+      "id": "deck-26",
+      "tapped": false,
+      "effects": [
+        "unsupported activation cost: {T}, Mill a card: Add {C}. (Activate only as an instant. To mill a card, put the top card of your library into your graveyard.)",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "turn": 5,
+      "event": "remaining-card",
+      "card": "Endbringer",
+      "id": "deck-11",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 5,
+      "event": "remaining-card",
+      "card": "Soul Separator",
+      "id": "deck-44",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 5,
+      "event": "remaining-card",
+      "card": "Smoldering Egg // Ashmouth Dragon",
+      "id": "deck-43",
+      "status": "blocked",
+      "reason": "required colored or true-colorless type unavailable",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 5,
+      "event": "remaining-card",
+      "card": "Bottled Cloister",
+      "id": "deck-4",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 5,
+      "event": "remaining-card",
+      "card": "Mystic Forge",
+      "id": "deck-30",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 5,
+      "event": "remaining-card",
+      "card": "Molten-Core Maestro",
+      "id": "deck-28",
+      "status": "blocked",
+      "reason": "required colored or true-colorless type unavailable",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 5,
+      "event": "remaining-card",
+      "card": "Slobad, Goblin Tinkerer",
+      "id": "deck-42",
+      "status": "blocked",
+      "reason": "required colored or true-colorless type unavailable",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 5,
+      "event": "turn-end",
+      "hand": [
+        "Endbringer",
+        "Soul Separator",
+        "Smoldering Egg // Ashmouth Dragon",
+        "Bottled Cloister",
+        "Mystic Forge",
+        "Molten-Core Maestro",
+        "Slobad, Goblin Tinkerer"
+      ],
+      "board": [
+        {
+          "id": "deck-73",
+          "card": "Mountain",
+          "tapped": true
+        },
+        {
+          "id": "deck-76",
+          "card": "Mountain",
+          "tapped": true
+        },
+        {
+          "id": "deck-25",
+          "card": "Manakin",
+          "tapped": false
+        },
+        {
+          "id": "deck-35",
+          "card": "Plague Myr",
+          "tapped": false
+        },
+        {
+          "id": "commander",
+          "card": "Zada, Hedron Grinder",
+          "tapped": false
+        },
+        {
+          "id": "deck-26",
+          "card": "Millikin",
+          "tapped": false
+        }
+      ],
+      "floatingExpires": [],
+      "life": 40
+    },
+    {
+      "turn": 6,
+      "event": "untap",
+      "sources": [
+        {
+          "id": "deck-73",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Mountain"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "R"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-76",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Mountain"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "R"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-25",
+          "types": [
+            "Artifact",
+            "Creature"
+          ],
+          "subtypes": [
+            "Construct"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-35",
+          "types": [
+            "Artifact",
+            "Creature"
+          ],
+          "subtypes": [
+            "Phyrexian",
+            "Myr"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "commander",
+          "types": [
+            "Legendary",
+            "Creature"
+          ],
+          "subtypes": [
+            "Goblin",
+            "Ally"
+          ],
+          "modes": [],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-26",
+          "types": [
+            "Artifact",
+            "Creature"
+          ],
+          "subtypes": [
+            "Construct"
+          ],
+          "modes": [],
+          "tapped": false,
+          "sick": false
+        }
+      ]
+    },
+    {
+      "turn": 6,
+      "event": "draw",
+      "card": "Walking Atlas",
+      "id": "deck-59"
+    },
+    {
+      "turn": 6,
+      "event": "mana-activation",
+      "card": "Mountain",
+      "kind": "activation",
+      "source": "deck-73",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "cost": "",
+        "outputs": [
+          [
+            "R"
+          ]
+        ]
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-73:0:0",
+          "type": "R",
+          "source": "deck-73",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 6,
+      "event": "mana-activation",
+      "card": "Mountain",
+      "kind": "activation",
+      "source": "deck-76",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "cost": "",
+        "outputs": [
+          [
+            "R"
+          ]
+        ]
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-76:0:0",
+          "type": "R",
+          "source": "deck-76",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 6,
+      "event": "cast-paid",
+      "card": "Molten-Core Maestro",
+      "id": "deck-28",
+      "kind": "payment",
+      "label": "spell",
+      "cost": "{1}{R}",
+      "reduction": 0,
+      "context": {
+        "kind": "spell",
+        "types": [
+          "Creature"
+        ],
+        "subtypes": [
+          "Goblin",
+          "Bard"
+        ],
+        "commander": false
+      },
+      "spent": [
+        {
+          "id": "deck-73:0:0",
+          "type": "R",
+          "source": "deck-73",
+          "restriction": "none",
+          "paidFor": "R"
+        },
+        {
+          "id": "deck-76:0:0",
+          "type": "R",
+          "source": "deck-76",
+          "restriction": "none",
+          "paidFor": "*"
+        }
+      ]
+    },
+    {
+      "turn": 6,
+      "event": "permanent-resolved",
+      "card": "Molten-Core Maestro",
+      "id": "deck-28",
+      "tapped": false,
+      "effects": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "turn": 6,
+      "event": "mana-activation",
+      "card": "Manakin",
+      "kind": "activation",
+      "source": "deck-25",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "sacrifice": false,
+        "cost": "",
+        "outputs": [
+          [
+            "C"
+          ]
+        ],
+        "restriction": "none",
+        "life": 0,
+        "minLands": 0
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-25:0:0",
+          "type": "C",
+          "source": "deck-25",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 6,
+      "event": "mana-activation",
+      "card": "Plague Myr",
+      "kind": "activation",
+      "source": "deck-35",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "sacrifice": false,
+        "cost": "",
+        "outputs": [
+          [
+            "C"
+          ]
+        ],
+        "restriction": "none",
+        "life": 0,
+        "minLands": 0
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-35:0:0",
+          "type": "C",
+          "source": "deck-35",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 6,
+      "event": "cast-paid",
+      "card": "Walking Atlas",
+      "id": "deck-59",
+      "kind": "payment",
+      "label": "spell",
+      "cost": "{2}",
+      "reduction": 0,
+      "context": {
+        "kind": "spell",
+        "types": [
+          "Artifact",
+          "Creature"
+        ],
+        "subtypes": [
+          "Construct"
+        ],
+        "commander": false
+      },
+      "spent": [
+        {
+          "id": "deck-25:0:0",
+          "type": "C",
+          "source": "deck-25",
+          "restriction": "none",
+          "paidFor": "*"
+        },
+        {
+          "id": "deck-35:0:0",
+          "type": "C",
+          "source": "deck-35",
+          "restriction": "none",
+          "paidFor": "*"
+        }
+      ]
+    },
+    {
+      "turn": 6,
+      "event": "permanent-resolved",
+      "card": "Walking Atlas",
+      "id": "deck-59",
+      "tapped": false,
+      "effects": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "turn": 6,
+      "event": "remaining-card",
+      "card": "Endbringer",
+      "id": "deck-11",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 6,
+      "event": "remaining-card",
+      "card": "Soul Separator",
+      "id": "deck-44",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 6,
+      "event": "remaining-card",
+      "card": "Smoldering Egg // Ashmouth Dragon",
+      "id": "deck-43",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 6,
+      "event": "remaining-card",
+      "card": "Bottled Cloister",
+      "id": "deck-4",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 6,
+      "event": "remaining-card",
+      "card": "Mystic Forge",
+      "id": "deck-30",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 6,
+      "event": "remaining-card",
+      "card": "Slobad, Goblin Tinkerer",
+      "id": "deck-42",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 6,
+      "event": "turn-end",
+      "hand": [
+        "Endbringer",
+        "Soul Separator",
+        "Smoldering Egg // Ashmouth Dragon",
+        "Bottled Cloister",
+        "Mystic Forge",
+        "Slobad, Goblin Tinkerer"
+      ],
+      "board": [
+        {
+          "id": "deck-73",
+          "card": "Mountain",
+          "tapped": true
+        },
+        {
+          "id": "deck-76",
+          "card": "Mountain",
+          "tapped": true
+        },
+        {
+          "id": "deck-25",
+          "card": "Manakin",
+          "tapped": true
+        },
+        {
+          "id": "deck-35",
+          "card": "Plague Myr",
+          "tapped": true
+        },
+        {
+          "id": "commander",
+          "card": "Zada, Hedron Grinder",
+          "tapped": false
+        },
+        {
+          "id": "deck-26",
+          "card": "Millikin",
+          "tapped": false
+        },
+        {
+          "id": "deck-28",
+          "card": "Molten-Core Maestro",
+          "tapped": false
+        },
+        {
+          "id": "deck-59",
+          "card": "Walking Atlas",
+          "tapped": false
+        }
+      ],
+      "floatingExpires": [],
+      "life": 40
+    },
+    {
+      "turn": 7,
+      "event": "untap",
+      "sources": [
+        {
+          "id": "deck-73",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Mountain"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "R"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-76",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Mountain"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "R"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-25",
+          "types": [
+            "Artifact",
+            "Creature"
+          ],
+          "subtypes": [
+            "Construct"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-35",
+          "types": [
+            "Artifact",
+            "Creature"
+          ],
+          "subtypes": [
+            "Phyrexian",
+            "Myr"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "commander",
+          "types": [
+            "Legendary",
+            "Creature"
+          ],
+          "subtypes": [
+            "Goblin",
+            "Ally"
+          ],
+          "modes": [],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-26",
+          "types": [
+            "Artifact",
+            "Creature"
+          ],
+          "subtypes": [
+            "Construct"
+          ],
+          "modes": [],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-28",
+          "types": [
+            "Creature"
+          ],
+          "subtypes": [
+            "Goblin",
+            "Bard"
+          ],
+          "modes": [],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-59",
+          "types": [
+            "Artifact",
+            "Creature"
+          ],
+          "subtypes": [
+            "Construct"
+          ],
+          "modes": [],
+          "tapped": false,
+          "sick": false
+        }
+      ]
+    },
+    {
+      "turn": 7,
+      "event": "draw",
+      "card": "Mountain",
+      "id": "deck-74"
+    },
+    {
+      "turn": 7,
+      "event": "land",
+      "card": "Mountain",
+      "id": "deck-74",
+      "tapped": false,
+      "unknown": false
+    },
+    {
+      "turn": 7,
+      "event": "mana-activation",
+      "card": "Mountain",
+      "kind": "activation",
+      "source": "deck-73",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "cost": "",
+        "outputs": [
+          [
+            "R"
+          ]
+        ]
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-73:0:0",
+          "type": "R",
+          "source": "deck-73",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 7,
+      "event": "mana-activation",
+      "card": "Mountain",
+      "kind": "activation",
+      "source": "deck-76",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "cost": "",
+        "outputs": [
+          [
+            "R"
+          ]
+        ]
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-76:0:0",
+          "type": "R",
+          "source": "deck-76",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 7,
+      "event": "cast-paid",
+      "card": "Slobad, Goblin Tinkerer",
+      "id": "deck-42",
+      "kind": "payment",
+      "label": "spell",
+      "cost": "{1}{R}",
+      "reduction": 0,
+      "context": {
+        "kind": "spell",
+        "types": [
+          "Legendary",
+          "Creature"
+        ],
+        "subtypes": [
+          "Goblin",
+          "Artificer"
+        ],
+        "commander": false
+      },
+      "spent": [
+        {
+          "id": "deck-73:0:0",
+          "type": "R",
+          "source": "deck-73",
+          "restriction": "none",
+          "paidFor": "R"
+        },
+        {
+          "id": "deck-76:0:0",
+          "type": "R",
+          "source": "deck-76",
+          "restriction": "none",
+          "paidFor": "*"
+        }
+      ]
+    },
+    {
+      "turn": 7,
+      "event": "permanent-resolved",
+      "card": "Slobad, Goblin Tinkerer",
+      "id": "deck-42",
+      "tapped": false,
+      "effects": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "turn": 7,
+      "event": "mana-activation",
+      "card": "Manakin",
+      "kind": "activation",
+      "source": "deck-25",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "sacrifice": false,
+        "cost": "",
+        "outputs": [
+          [
+            "C"
+          ]
+        ],
+        "restriction": "none",
+        "life": 0,
+        "minLands": 0
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-25:0:0",
+          "type": "C",
+          "source": "deck-25",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 7,
+      "event": "mana-activation",
+      "card": "Plague Myr",
+      "kind": "activation",
+      "source": "deck-35",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "sacrifice": false,
+        "cost": "",
+        "outputs": [
+          [
+            "C"
+          ]
+        ],
+        "restriction": "none",
+        "life": 0,
+        "minLands": 0
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-35:0:0",
+          "type": "C",
+          "source": "deck-35",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 7,
+      "event": "mana-activation",
+      "card": "Mountain",
+      "kind": "activation",
+      "source": "deck-74",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "cost": "",
+        "outputs": [
+          [
+            "R"
+          ]
+        ]
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-74:0:0",
+          "type": "R",
+          "source": "deck-74",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 7,
+      "event": "cast-paid",
+      "card": "Smoldering Egg // Ashmouth Dragon",
+      "id": "deck-43",
+      "kind": "payment",
+      "label": "spell",
+      "cost": "{1}{R}",
+      "reduction": 0,
+      "context": {
+        "kind": "spell",
+        "types": [
+          "Creature"
+        ],
+        "subtypes": [
+          "Dragon",
+          "Egg"
+        ],
+        "commander": false
+      },
+      "spent": [
+        {
+          "id": "deck-74:0:0",
+          "type": "R",
+          "source": "deck-74",
+          "restriction": "none",
+          "paidFor": "R"
+        },
+        {
+          "id": "deck-25:0:0",
+          "type": "C",
+          "source": "deck-25",
+          "restriction": "none",
+          "paidFor": "*"
+        }
+      ]
+    },
+    {
+      "turn": 7,
+      "event": "permanent-resolved",
+      "card": "Smoldering Egg // Ashmouth Dragon",
+      "id": "deck-43",
+      "tapped": false,
+      "effects": [
+        "alternate faces/transform/craft not evaluated; front face only",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "turn": 7,
+      "event": "remaining-card",
+      "card": "Endbringer",
+      "id": "deck-11",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 7,
+      "event": "remaining-card",
+      "card": "Soul Separator",
+      "id": "deck-44",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 7,
+      "event": "remaining-card",
+      "card": "Bottled Cloister",
+      "id": "deck-4",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 7,
+      "event": "remaining-card",
+      "card": "Mystic Forge",
+      "id": "deck-30",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 7,
+      "event": "turn-end",
+      "hand": [
+        "Endbringer",
+        "Soul Separator",
+        "Bottled Cloister",
+        "Mystic Forge"
+      ],
+      "board": [
+        {
+          "id": "deck-73",
+          "card": "Mountain",
+          "tapped": true
+        },
+        {
+          "id": "deck-76",
+          "card": "Mountain",
+          "tapped": true
+        },
+        {
+          "id": "deck-25",
+          "card": "Manakin",
+          "tapped": true
+        },
+        {
+          "id": "deck-35",
+          "card": "Plague Myr",
+          "tapped": true
+        },
+        {
+          "id": "commander",
+          "card": "Zada, Hedron Grinder",
+          "tapped": false
+        },
+        {
+          "id": "deck-26",
+          "card": "Millikin",
+          "tapped": false
+        },
+        {
+          "id": "deck-28",
+          "card": "Molten-Core Maestro",
+          "tapped": false
+        },
+        {
+          "id": "deck-59",
+          "card": "Walking Atlas",
+          "tapped": false
+        },
+        {
+          "id": "deck-74",
+          "card": "Mountain",
+          "tapped": true
+        },
+        {
+          "id": "deck-42",
+          "card": "Slobad, Goblin Tinkerer",
+          "tapped": false
+        },
+        {
+          "id": "deck-43",
+          "card": "Smoldering Egg // Ashmouth Dragon",
+          "tapped": false
+        }
+      ],
+      "floatingExpires": [
+        {
+          "id": "deck-35:0:0",
+          "type": "C",
+          "source": "deck-35",
+          "restriction": "none"
+        }
+      ],
+      "life": 40
+    },
+    {
+      "turn": 8,
+      "event": "untap",
+      "sources": [
+        {
+          "id": "deck-73",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Mountain"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "R"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-76",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Mountain"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "R"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-25",
+          "types": [
+            "Artifact",
+            "Creature"
+          ],
+          "subtypes": [
+            "Construct"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-35",
+          "types": [
+            "Artifact",
+            "Creature"
+          ],
+          "subtypes": [
+            "Phyrexian",
+            "Myr"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "commander",
+          "types": [
+            "Legendary",
+            "Creature"
+          ],
+          "subtypes": [
+            "Goblin",
+            "Ally"
+          ],
+          "modes": [],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-26",
+          "types": [
+            "Artifact",
+            "Creature"
+          ],
+          "subtypes": [
+            "Construct"
+          ],
+          "modes": [],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-28",
+          "types": [
+            "Creature"
+          ],
+          "subtypes": [
+            "Goblin",
+            "Bard"
+          ],
+          "modes": [],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-59",
+          "types": [
+            "Artifact",
+            "Creature"
+          ],
+          "subtypes": [
+            "Construct"
+          ],
+          "modes": [],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-74",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Mountain"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "R"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-42",
+          "types": [
+            "Legendary",
+            "Creature"
+          ],
+          "subtypes": [
+            "Goblin",
+            "Artificer"
+          ],
+          "modes": [],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-43",
+          "types": [
+            "Creature"
+          ],
+          "subtypes": [
+            "Dragon",
+            "Egg"
+          ],
+          "modes": [],
+          "tapped": false,
+          "sick": false
+        }
+      ]
+    },
+    {
+      "turn": 8,
+      "event": "draw",
+      "card": "Fogwell's Gym",
+      "id": "deck-66"
+    },
+    {
+      "turn": 8,
+      "event": "land",
+      "card": "Fogwell's Gym",
+      "id": "deck-66",
+      "tapped": false,
+      "unknown": false
+    },
+    {
+      "turn": 8,
+      "event": "mana-activation",
+      "card": "Mountain",
+      "kind": "activation",
+      "source": "deck-73",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "cost": "",
+        "outputs": [
+          [
+            "R"
+          ]
+        ]
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-73:0:0",
+          "type": "R",
+          "source": "deck-73",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 8,
+      "event": "mana-activation",
+      "card": "Mountain",
+      "kind": "activation",
+      "source": "deck-76",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "cost": "",
+        "outputs": [
+          [
+            "R"
+          ]
+        ]
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-76:0:0",
+          "type": "R",
+          "source": "deck-76",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 8,
+      "event": "mana-activation",
+      "card": "Manakin",
+      "kind": "activation",
+      "source": "deck-25",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "sacrifice": false,
+        "cost": "",
+        "outputs": [
+          [
+            "C"
+          ]
+        ],
+        "restriction": "none",
+        "life": 0,
+        "minLands": 0
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-25:0:0",
+          "type": "C",
+          "source": "deck-25",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 8,
+      "event": "cast-paid",
+      "card": "Soul Separator",
+      "id": "deck-44",
+      "kind": "payment",
+      "label": "spell",
+      "cost": "{3}",
+      "reduction": 0,
+      "context": {
+        "kind": "spell",
+        "types": [
+          "Artifact"
+        ],
+        "subtypes": [],
+        "commander": false
+      },
+      "spent": [
+        {
+          "id": "deck-73:0:0",
+          "type": "R",
+          "source": "deck-73",
+          "restriction": "none",
+          "paidFor": "*"
+        },
+        {
+          "id": "deck-76:0:0",
+          "type": "R",
+          "source": "deck-76",
+          "restriction": "none",
+          "paidFor": "*"
+        },
+        {
+          "id": "deck-25:0:0",
+          "type": "C",
+          "source": "deck-25",
+          "restriction": "none",
+          "paidFor": "*"
+        }
+      ]
+    },
+    {
+      "turn": 8,
+      "event": "permanent-resolved",
+      "card": "Soul Separator",
+      "id": "deck-44",
+      "tapped": false,
+      "effects": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "turn": 8,
+      "event": "remaining-card",
+      "card": "Endbringer",
+      "id": "deck-11",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 8,
+      "event": "remaining-card",
+      "card": "Bottled Cloister",
+      "id": "deck-4",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 8,
+      "event": "remaining-card",
+      "card": "Mystic Forge",
+      "id": "deck-30",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 8,
+      "event": "turn-end",
+      "hand": [
+        "Endbringer",
+        "Bottled Cloister",
+        "Mystic Forge"
+      ],
+      "board": [
+        {
+          "id": "deck-73",
+          "card": "Mountain",
+          "tapped": true
+        },
+        {
+          "id": "deck-76",
+          "card": "Mountain",
+          "tapped": true
+        },
+        {
+          "id": "deck-25",
+          "card": "Manakin",
+          "tapped": true
+        },
+        {
+          "id": "deck-35",
+          "card": "Plague Myr",
+          "tapped": false
+        },
+        {
+          "id": "commander",
+          "card": "Zada, Hedron Grinder",
+          "tapped": false
+        },
+        {
+          "id": "deck-26",
+          "card": "Millikin",
+          "tapped": false
+        },
+        {
+          "id": "deck-28",
+          "card": "Molten-Core Maestro",
+          "tapped": false
+        },
+        {
+          "id": "deck-59",
+          "card": "Walking Atlas",
+          "tapped": false
+        },
+        {
+          "id": "deck-74",
+          "card": "Mountain",
+          "tapped": false
+        },
+        {
+          "id": "deck-42",
+          "card": "Slobad, Goblin Tinkerer",
+          "tapped": false
+        },
+        {
+          "id": "deck-43",
+          "card": "Smoldering Egg // Ashmouth Dragon",
+          "tapped": false
+        },
+        {
+          "id": "deck-66",
+          "card": "Fogwell's Gym",
+          "tapped": false
+        },
+        {
+          "id": "deck-44",
+          "card": "Soul Separator",
+          "tapped": false
+        }
+      ],
+      "floatingExpires": [],
+      "life": 40
+    }
+  ],
+  "ledgerAudit": {
+    "valid": true,
+    "errors": []
+  }
+}

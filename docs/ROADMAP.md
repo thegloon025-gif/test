@@ -1,6 +1,32 @@
 # CommanderOracle Independent — development roadmap
 
-Last revised: 2026-10-22. Local, deterministic Commander generator: **no paid AI API** is needed to build a deck.
+Last revised: 2026-10-23. Local, deterministic Commander generator: **no paid AI API** is needed to build a deck.
+
+## v1.2 Gameplay Intelligence (draft PR #4, no release)
+
+- [x] Stage 0: freeze user-observed B3/B4 external measurements without overwriting their historical meaning.
+- [x] Stage 1 foundation: independent bounded turns 1–8 resource ledger, actual seeded hands/draws, land/ramp timing, exact mana/restrictions/fees, sickness, separate optional cast-trigger payments and post-resolution token resources.
+- [x] Reproducible execution traces, independent receipt audit, unknown mechanics and search bounds; fixed-cache Ulalek B3/B4, Yuriko, Wilhelt and Zada validation. No ranking integration or version change.
+- [x] Stage 2: execute supported draw/activated/entry/cast access, scry/surveil and top casting in actual card zones; audit movement and exact fees/prerequisites.
+- [x] Compare three deterministic pilots, conservative free mulligans, optimized payment search and common-seed card-flow/deployment observations with unknowns and sampling uncertainty. Keep ranking unchanged.
+- [ ] Expand hand-reviewed tutor, conditional source, alternate-face, combat/ninjutsu, target-copy and sacrifice/death coverage before claiming complete strategy execution or reliable combos.
+- [x] Stage 3 foundation: bounded shadow-only full-deck repairs, common-card-identity coupling, all fixed pilots, separate holdout seeds, audited payment/zone traces and exact-printing exports. Preserve native engines and incomplete-strategy abstention; production selection stays unchanged.
+- [x] Stage 4 foundation: opt-in supported own-stack native copying/multiplication, cascade, tutor destinations and resolved Spawn/Scion, with independent event/zone/resource replay. Keep incomplete native strategies and bounded outcomes unknown; no production integration.
+- [x] Stage 5: proof-backed native stack compression/continuation and narrowly verified damage outlets; conditional execution and remaining unknowns stay separate from real-game power.
+- [x] Stage 6: genuinely new source/Oracle-backed complete shadow challengers, coordinated support, terminal-aware paired evidence, all fixed pilots, fresh holdouts and independent selected-printing/resource/zone/stack/outlet audits. See `GAMEPLAY_STAGE6.md` and the Stage 6 validation report.
+- [x] Stage 7 foundation: opt-in typed disruption checkpoints, real command-zone tax/recasts, supported survivors/protection and separate recovery receipts; unknown death/recursion/replacement/targeting rules abstain.
+- [x] State-aware supported tutor alternative with actual inventory, exact payment projections and independent positive receipts; preserve legacy default and production selection.
+- [x] Stage 7 bounded lower-setup cast-access hypotheses, fresh paired control/disruption/tutor cohorts and explicit supported tradeoff/Pareto views. See `GAMEPLAY_STAGE7.md` and Stage 7 validation before any trial decision.
+- [x] Stage 8 foundation: actual deployed-state intervention opportunities, matched-prefix conditional recovery, narrow simultaneous death/LKI/SBA/end-step sacrifice and independent audits, with unconditional exposure and unknown/censored response separated.
+- [x] Stage 9 bounded checkpoint: exact creature-sacrifice life/scry costs and death access, two coherent Wilhelt shadow packages, fixed-pilot complete-deck recovery comparisons and explicit product/review gate. See `GAMEPLAY_STAGE9.md` and Stage 9 validation; this does not authorize production integration.
+- [ ] Production gate: demonstrate coherent complete-deck improvements beyond one commander, externally assess shortlisted lists and review the core separately from evidence archives. Stop further broad simulator expansion if the bounded Stage 9 result does not justify it.
+- [ ] Product priority after Stage 9 no-go: improve permitted Wilhelt source coverage and generator discovery/recognition of contextual death access versus redundant bodies; manually benchmark coherent complete exports and complete release-readiness review. Pause broad simulator expansion and further tutor-policy tuning. Preserve missing combat/ninjutsu, sacrifice/death and targeted-copy abstention; see `GAMEPLAY_STAGE8.md` and Stage 8 validation. Do not tune to the DeckCheck three-turn hypothetical or treat recasting as full recovery.
+- [ ] Stage 6 follow-up: retain production selection; prospectively test earlier supported access and tutor-target/follow-up planning, then manually evaluate shortlisted complete decks. Do not promote a partial-model improvement or a higher spend to a power claim.
+- [ ] Stage 3 integration decision: expand native mechanics/pilot coverage, larger prospective holdouts and external evaluation before explicitly reviewing any production feedback hook. See `GAMEPLAY_STAGE3.md` and the Stage 3 validation report.
+
+See [Stage 1 model](GAMEPLAY_STAGE1.md) and [validation](../benchmarks/v12/stage1-VALIDATION.md). Existing PR #2 deployment probes remain unchanged; this stricter foundation is separate.
+
+Stage 2 model and local commands: [GAMEPLAY_STAGE2.md](GAMEPLAY_STAGE2.md). Fixed-deck evidence, limitations and the Stage 3 proposal: [validation](../benchmarks/v12/stage2-VALIDATION.md).
 
 ## Pod combo rules and v1.2 execution groundwork
 
@@ -113,3 +139,7 @@ The user has now supplied a 32,197-record Scryfall catalog and cached community/
 - [ ] Calibrate tiered EN NM estimate against diverse verified per-card quotes before calling it predictive.
 - [ ] External real-Scryfall budget and EDHCheck/EDHPowerLevel validation after user refreshes printing provenance.
 - [ ] Build durable saved-deck history and in-app guided strategy-preserving upgrade flow.
+
+### Stage 5 native execution (development, version unchanged)
+
+Structural stack compression/continuation and narrowly audited outlet execution remain opt-in shadow tools. Resolve remaining expansion bounds, unknown native interactions and fixed-pilot limitations before a separately reviewed production integration. Pod High-Power timing/reliability policy remains deferred. See `GAMEPLAY_STAGE5.md` and `../benchmarks/v12/stage5-VALIDATION.md` for actual outcomes and limitations.

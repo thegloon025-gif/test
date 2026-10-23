@@ -1,3 +1,60 @@
+## Unreleased draft PR #4 — Stage 8 opportunities and death events
+
+## Unreleased — Stage 9 generalized deck-quality checkpoint
+
+- Add opt-in, exactly paid creature-sacrifice life/scry abilities and Dark Prophecy death access using actual costs, last-known sources, zones, stack ordering and independent receipt audits. Default execution and production deck selection stay unchanged.
+- Add bounded Wilhelt sacrifice/access and resilient-access shadow packages, fresh fixed-pilot comparisons, exact selected-printing exports and a release/maintainability decision report. See `docs/GAMEPLAY_STAGE9.md` and `benchmarks/v12/stage9-VALIDATION.md`. Version remains 1.1.5; no external power claim or release.
+
+- Add explicit state-conditioned intervention checkpoints and exact matched-prefix recovery observations; retain unconditional opportunity frequency and censoring separately.
+- Add strict last-known simultaneous-death triggers, supported Zombie/Spawn/Scion resources, end-step Zombie sacrifice/draw, copied-legend deaths and independent event/zone/resource audits.
+- Record real tutor inventories; fix state-aware projections after consumed mana sources. Preserve legacy defaults, production selection, version 1.1.5 and local/Windows behavior.
+- See `docs/GAMEPLAY_STAGE8.md` and `benchmarks/v12/stage8-VALIDATION.md` for actual evidence and incomplete strategy coverage. No external-power or production-promotion claim.
+
+## Unreleased development — Stage 7 (version remains 1.1.5)
+
+- Add opt-in, shadow-only empty-stack disruption checkpoints with explicitly scoped destroy/exile, survivors, commander-zone choices, cumulative real tax and separate mana/recast/native/access/outlet observations. Unsupported relevant rules suspend as unknown; no universal recovery grade.
+- Add a state-aware alternative to supported tutor targeting, using actual inventory and exact current/next-untap positive payment receipts, legal destinations and supported tactical channels; preserve legacy default and independently audit actual/positive projected resource and zone receipts.
+- Explore bounded source-backed cast-draw packages with existing construction safeguards; compare fixed complete decks, all three pilots, explicit disruption/no-event controls and disjoint prospective samples. Publish tradeoff/Pareto views separately from strict diagnostics. Production selection and official policy remain unchanged.
+- Preserve Stage 1–6 artifacts and separately frozen human observations; Stage 7 model/Windows commands: `docs/GAMEPLAY_STAGE7.md`, actual validation: `benchmarks/v12/stage7-VALIDATION.md`. No merge, release, spending reward or external-score optimization.
+
+## Unreleased development — Stage 6 (version remains 1.1.5)
+
+- Discover new source/Oracle-backed complete shadow challengers with bounded coordinated access, mana, tutor/follow-up, land and answer packages through existing investment safeguards. Production generation and candidate selection remain unchanged.
+- Separate observed T8 completion, supported conditional lethal, model loss and runtime/search unknowns; preserve missing future observations and interval-valued unknown outcomes.
+- Freeze complete candidates, all fixed pilots/decisions and disjoint samples before prospective comparisons; add exact-printing exports, independent persisted audits, prefix engine-value diagnostics and an explicit integration-readiness screen. See `docs/GAMEPLAY_STAGE6.md` and `benchmarks/v12/stage6-VALIDATION.md` for actual results and limitations.
+
+## Unreleased — draft PR #4 Native strategy execution
+
+## Unreleased development — Stage 5 (version remains 1.1.5)
+
+- Opt-in exact native stack sharing, proof-backed no-op batching and audited bounded continuation; remaining bounds stay unknown, with no infinite inference.
+- Narrow Fleshraker and Spawn-Gang player-damage execution, reserved Eldrazi sacrifice costs, independent outlet/life audits and four fixed decision policies.
+- Prospective shadow comparisons and historical bound/Zhulodok diagnostics remain separate; production construction/selection, frozen data and previous measurements are preserved. See `docs/GAMEPLAY_STAGE5.md` and `benchmarks/v12/stage5-VALIDATION.md`.
+
+- Add an opt-in bounded own-stack evaluator for supported Ulalek payments, additive trigger multiplication, copies versus casts, cascade, native tutors, post-resolution tokens and card access. Preserve default model, production construction/selection and version 1.1.5.
+- Independently replay stack/zone/resource receipts and reconcile actual native counters. Partial copy expansion stops as a suspended unknown, without fabricated resources, combo execution or wins.
+- Add controlled and real-card native sequences, repeat frozen shadow comparisons under larger disjoint cohorts and preserve unfamiliar-strategy abstention. See `docs/GAMEPLAY_STAGE4.md` and `benchmarks/v12/stage4-VALIDATION.md`. No release or external power claim.
+
+## Unreleased — draft PR #4 Gameplay-aware shadow optimization
+
+- Add offline, bounded complete-deck shadow experiments around the existing atomic investment infrastructure; preserve production construction, selection and version 1.1.5.
+- Couple changed decks by common card identity, compare three fixed pilots with disjoint training/holdout inputs, audit actual resource/zone receipts, and retain paired uncertainty and unsupported-native abstention.
+- Diagnose pre-action payments, optional-trigger competition, supported access and cross-pilot delays separately from post-action exhaustion; protect native engines, source spines, combo commitments, true-colorless, conditional high-output mana and exact selected-record budgets.
+- Export complete proposed decks, exact-printing audits and readable decisions. Methodology: `docs/GAMEPLAY_STAGE3.md`; fixed-cache results and remaining risks: `benchmarks/v12/stage3-VALIDATION.md`. No production recommendation or fresh external power claim.
+
+## Unreleased — draft PR #4 Stateful access and strategy-aware deployment
+
+- Add actual library/hand/stack/battlefield/graveyard/exile/control-transfer state for supported draw, activated draw, entry/cast triggers, selection and paid top casting. Preserve prerequisites, sickness, restrictions, life, effect order and late land drops; unsupported effects remain unknown.
+- Add commander-first, development and native pilots plus an explicit one-free mulligan policy. Report turn-by-turn mana, card-flow accounting, supported native engine deployment/readiness/use, large-body payment availability and missed-play causes.
+- Optimize optional exact payment search through equivalent-order removal and safe optimistic feasibility pruning. Retain Stage 1 defaults and frozen trace hashes; do not replace unknowns with guessed results.
+- Independently audit both resource receipts and card zones/effect budgets. Add controlled regressions and fixed-deck, common-seed comparisons with uncertainty and concrete traces. No generation/ranking change, price reward, release, version bump or fresh external-power claim.
+
+## Unreleased — draft PR #4 Gameplay Intelligence Stage 1
+
+- Add a separate deterministic turns 1–8 deployment foundation with opening hands, actual draws, land drops, tapped entry, ramp casting, creature sickness and explicit commander tax inputs. Keep construction, ranking, version, standard/pod policy and historical external benchmarks unchanged.
+- Account for exact colored/generic/hybrid/true-colorless payments, source activation fees and restrictions, distinct mana units, generic reductions, temporary mana and supported post-resolution Spawn/Scion resources. Reserve optional cast-trigger costs separately; no advance trigger credit.
+- Produce reproducible payment/deployment/blocked-action traces, bounded-search unknowns and an independent resource receipt audit. Add regression tests, read-only Windows-compatible trace/benchmark tools and fixed-cache five-deck validation. Unmodeled draw/combat/copy/loop mechanics are not successes or power estimates.
+
 ## Unreleased — combo execution requirements and fixed-cache B3/B4 benchmark
 
 - Preserve standard combo gates and record the requested Pod High-Power rules separately as v1.2 requirements. Cached loop data does not establish reliable timing; no pod profile or pod-approved export is silently enabled.

@@ -1,0 +1,2422 @@
+[
+  {
+    "file": "fixture-01.json.gz",
+    "sha256": "5a82ed530f8ea6d2f7f454a1d0c58737716bcacd05174b910dc76353f9b921ba",
+    "script": {
+      "1": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Sol Ring"
+        }
+      ],
+      "2": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        }
+      ],
+      "3": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Ulalek, Fused Atrocity"
+        }
+      ],
+      "4": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Ulalek, Fused Atrocity"
+        }
+      ],
+      "5": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Ulalek, Fused Atrocity"
+        }
+      ],
+      "6": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Kozilek's Channeler"
+        }
+      ]
+    },
+    "spec": {
+      "tutorPolicy": "legacy",
+      "disruptions": [
+        {
+          "id": "interrupt",
+          "turn": 4,
+          "scope": "commander",
+          "effect": "exile",
+          "commanderDestination": "command"
+        }
+      ]
+    },
+    "recovery": [
+      {
+        "id": "interrupt",
+        "spec": {
+          "id": "interrupt",
+          "turn": 4,
+          "scope": "commander",
+          "effect": "exile",
+          "commanderDestination": "command"
+        },
+        "status": "applied",
+        "unknown": [],
+        "removed": [
+          {
+            "id": "commander",
+            "card": "Ulalek, Fused Atrocity",
+            "types": [
+              "Legendary",
+              "Creature"
+            ],
+            "destination": "command"
+          }
+        ],
+        "survivors": [],
+        "beforeMana": {
+          "generic": 5,
+          "C": 5,
+          "unknown": false,
+          "copyCC": "paid"
+        },
+        "afterMana": {
+          "generic": 5,
+          "C": 5,
+          "unknown": false,
+          "copyCC": "paid"
+        },
+        "manaRestored": {
+          "status": "observed",
+          "turn": 4,
+          "ownTurnsAfterEvent": 0
+        },
+        "commanderRecast": {
+          "status": "observed",
+          "turn": 5,
+          "ownTurnsAfterEvent": 1
+        },
+        "firstNativeOrAccess": {
+          "status": "observed",
+          "turn": 6,
+          "ownTurnsAfterEvent": 2
+        },
+        "firstExecutedOutlet": {
+          "status": "censored-by-t8"
+        },
+        "conditionalLethal": null,
+        "obtained": [
+          {
+            "turn": 5,
+            "card": "Wastes",
+            "found": null,
+            "event": "draw"
+          },
+          {
+            "turn": 6,
+            "card": "Wastes",
+            "found": null,
+            "event": "draw"
+          },
+          {
+            "turn": 7,
+            "card": "Wastes",
+            "found": null,
+            "event": "draw"
+          },
+          {
+            "turn": 8,
+            "card": "Wastes",
+            "found": null,
+            "event": "draw"
+          }
+        ],
+        "limitations": "Unanswered injected event at after-draw/before-land. Mana restored = pre-action supported generic and C maxima both reach pre-event snapshot (independent maxima). Actual damage is a supported outlet event, not proof of an unavoidable win threat; combat/response outcomes unknown."
+      }
+    ]
+  },
+  {
+    "file": "fixture-02.json.gz",
+    "sha256": "c6d95e4f2bb8262d3288b12e521fe9b347279bc83e620ef0cc5db81f3df06e5a",
+    "script": {
+      "1": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Sol Ring"
+        }
+      ],
+      "2": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        }
+      ],
+      "3": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Ulalek, Fused Atrocity"
+        }
+      ],
+      "4": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Ulalek, Fused Atrocity"
+        }
+      ],
+      "5": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Ulalek, Fused Atrocity"
+        }
+      ],
+      "6": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Ulalek, Fused Atrocity"
+        }
+      ],
+      "7": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Ulalek, Fused Atrocity"
+        }
+      ],
+      "8": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Kozilek's Channeler"
+        }
+      ]
+    },
+    "spec": {
+      "tutorPolicy": "legacy",
+      "disruptions": [
+        {
+          "id": "interrupt",
+          "turn": 4,
+          "scope": "commander-and-mana",
+          "effect": "exile",
+          "commanderDestination": "command"
+        }
+      ]
+    },
+    "recovery": [
+      {
+        "id": "interrupt",
+        "spec": {
+          "id": "interrupt",
+          "turn": 4,
+          "scope": "commander-and-mana",
+          "effect": "exile",
+          "commanderDestination": "command"
+        },
+        "status": "applied",
+        "unknown": [],
+        "removed": [
+          {
+            "id": "deck-0",
+            "card": "Sol Ring",
+            "types": [
+              "Artifact"
+            ],
+            "destination": "exile"
+          },
+          {
+            "id": "commander",
+            "card": "Ulalek, Fused Atrocity",
+            "types": [
+              "Legendary",
+              "Creature"
+            ],
+            "destination": "command"
+          }
+        ],
+        "survivors": [],
+        "beforeMana": {
+          "generic": 5,
+          "C": 5,
+          "unknown": false,
+          "copyCC": "paid"
+        },
+        "afterMana": {
+          "generic": 3,
+          "C": 3,
+          "unknown": false,
+          "copyCC": "paid"
+        },
+        "manaRestored": {
+          "status": "observed",
+          "turn": 6,
+          "ownTurnsAfterEvent": 2
+        },
+        "commanderRecast": {
+          "status": "observed",
+          "turn": 7,
+          "ownTurnsAfterEvent": 3
+        },
+        "firstNativeOrAccess": {
+          "status": "observed",
+          "turn": 8,
+          "ownTurnsAfterEvent": 4
+        },
+        "firstExecutedOutlet": {
+          "status": "censored-by-t8"
+        },
+        "conditionalLethal": null,
+        "obtained": [
+          {
+            "turn": 5,
+            "card": "Wastes",
+            "found": null,
+            "event": "draw"
+          },
+          {
+            "turn": 6,
+            "card": "Wastes",
+            "found": null,
+            "event": "draw"
+          },
+          {
+            "turn": 7,
+            "card": "Wastes",
+            "found": null,
+            "event": "draw"
+          },
+          {
+            "turn": 8,
+            "card": "Wastes",
+            "found": null,
+            "event": "draw"
+          }
+        ],
+        "limitations": "Unanswered injected event at after-draw/before-land. Mana restored = pre-action supported generic and C maxima both reach pre-event snapshot (independent maxima). Actual damage is a supported outlet event, not proof of an unavoidable win threat; combat/response outcomes unknown."
+      }
+    ]
+  },
+  {
+    "file": "fixture-03.json.gz",
+    "sha256": "dc2a68b362584d50f6e5654980341edcb5ed18a40e069e51a4725a5c09d406fe",
+    "script": {
+      "1": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Sol Ring"
+        }
+      ],
+      "2": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        }
+      ],
+      "3": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Ulalek, Fused Atrocity"
+        }
+      ],
+      "4": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Ulalek, Fused Atrocity"
+        }
+      ],
+      "5": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Ulalek, Fused Atrocity"
+        }
+      ],
+      "6": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Kozilek's Channeler"
+        }
+      ]
+    },
+    "spec": {
+      "tutorPolicy": "legacy",
+      "disruptions": [
+        {
+          "id": "interrupt",
+          "turn": 4,
+          "scope": "commander",
+          "effect": "exile",
+          "commanderDestination": "remain"
+        }
+      ]
+    },
+    "recovery": [
+      {
+        "id": "interrupt",
+        "spec": {
+          "id": "interrupt",
+          "turn": 4,
+          "scope": "commander",
+          "effect": "exile",
+          "commanderDestination": "remain"
+        },
+        "status": "applied",
+        "unknown": [],
+        "removed": [
+          {
+            "id": "commander",
+            "card": "Ulalek, Fused Atrocity",
+            "types": [
+              "Legendary",
+              "Creature"
+            ],
+            "destination": "exile"
+          }
+        ],
+        "survivors": [],
+        "beforeMana": {
+          "generic": 5,
+          "C": 5,
+          "unknown": false,
+          "copyCC": "paid"
+        },
+        "afterMana": {
+          "generic": 5,
+          "C": 5,
+          "unknown": false,
+          "copyCC": "paid"
+        },
+        "manaRestored": {
+          "status": "observed",
+          "turn": 4,
+          "ownTurnsAfterEvent": 0
+        },
+        "commanderRecast": {
+          "status": "censored-by-t8"
+        },
+        "firstNativeOrAccess": {
+          "status": "censored-by-t8"
+        },
+        "firstExecutedOutlet": {
+          "status": "censored-by-t8"
+        },
+        "conditionalLethal": null,
+        "obtained": [
+          {
+            "turn": 5,
+            "card": "Wastes",
+            "found": null,
+            "event": "draw"
+          },
+          {
+            "turn": 6,
+            "card": "Wastes",
+            "found": null,
+            "event": "draw"
+          },
+          {
+            "turn": 7,
+            "card": "Wastes",
+            "found": null,
+            "event": "draw"
+          },
+          {
+            "turn": 8,
+            "card": "Wastes",
+            "found": null,
+            "event": "draw"
+          }
+        ],
+        "limitations": "Unanswered injected event at after-draw/before-land. Mana restored = pre-action supported generic and C maxima both reach pre-event snapshot (independent maxima). Actual damage is a supported outlet event, not proof of an unavoidable win threat; combat/response outcomes unknown."
+      }
+    ]
+  },
+  {
+    "file": "fixture-04.json.gz",
+    "sha256": "b4264f923ca678b6cf04373233b4caed807d9fa1c88887e5d4c743308d3dde39",
+    "script": {
+      "1": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Sol Ring"
+        }
+      ],
+      "2": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Darksteel Myr"
+        }
+      ],
+      "3": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Ulalek, Fused Atrocity"
+        }
+      ]
+    },
+    "spec": {
+      "tutorPolicy": "legacy",
+      "disruptions": [
+        {
+          "id": "interrupt",
+          "turn": 4,
+          "scope": "creatures",
+          "effect": "destroy",
+          "commanderDestination": "command"
+        }
+      ]
+    },
+    "recovery": [
+      {
+        "id": "interrupt",
+        "spec": {
+          "id": "interrupt",
+          "turn": 4,
+          "scope": "creatures",
+          "effect": "destroy",
+          "commanderDestination": "command"
+        },
+        "status": "applied",
+        "unknown": [],
+        "removed": [
+          {
+            "id": "commander",
+            "card": "Ulalek, Fused Atrocity",
+            "types": [
+              "Legendary",
+              "Creature"
+            ],
+            "destination": "command"
+          }
+        ],
+        "survivors": [
+          {
+            "id": "deck-1",
+            "reason": "indestructible"
+          }
+        ],
+        "beforeMana": {
+          "generic": 5,
+          "C": 5,
+          "unknown": false,
+          "copyCC": "paid"
+        },
+        "afterMana": {
+          "generic": 5,
+          "C": 5,
+          "unknown": false,
+          "copyCC": "paid"
+        },
+        "manaRestored": {
+          "status": "observed",
+          "turn": 4,
+          "ownTurnsAfterEvent": 0
+        },
+        "commanderRecast": {
+          "status": "censored-by-t8"
+        },
+        "firstNativeOrAccess": {
+          "status": "censored-by-t8"
+        },
+        "firstExecutedOutlet": {
+          "status": "censored-by-t8"
+        },
+        "conditionalLethal": null,
+        "obtained": [
+          {
+            "turn": 5,
+            "card": "Wastes",
+            "found": null,
+            "event": "draw"
+          },
+          {
+            "turn": 6,
+            "card": "Wastes",
+            "found": null,
+            "event": "draw"
+          },
+          {
+            "turn": 7,
+            "card": "Wastes",
+            "found": null,
+            "event": "draw"
+          },
+          {
+            "turn": 8,
+            "card": "Wastes",
+            "found": null,
+            "event": "draw"
+          }
+        ],
+        "limitations": "Unanswered injected event at after-draw/before-land. Mana restored = pre-action supported generic and C maxima both reach pre-event snapshot (independent maxima). Actual damage is a supported outlet event, not proof of an unavoidable win threat; combat/response outcomes unknown."
+      }
+    ]
+  },
+  {
+    "file": "fixture-05.json.gz",
+    "sha256": "7b18f67be66cd922f737a8637584d2f3796ef888e19842787c7d569c7351305f",
+    "script": {
+      "1": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Sol Ring"
+        }
+      ],
+      "2": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Darksteel Myr"
+        }
+      ],
+      "3": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Ulalek, Fused Atrocity"
+        }
+      ]
+    },
+    "spec": {
+      "tutorPolicy": "legacy",
+      "disruptions": [
+        {
+          "id": "interrupt",
+          "turn": 4,
+          "scope": "creatures",
+          "effect": "exile",
+          "commanderDestination": "command"
+        }
+      ]
+    },
+    "recovery": [
+      {
+        "id": "interrupt",
+        "spec": {
+          "id": "interrupt",
+          "turn": 4,
+          "scope": "creatures",
+          "effect": "exile",
+          "commanderDestination": "command"
+        },
+        "status": "applied",
+        "unknown": [],
+        "removed": [
+          {
+            "id": "deck-1",
+            "card": "Darksteel Myr",
+            "types": [
+              "Artifact",
+              "Creature"
+            ],
+            "destination": "exile"
+          },
+          {
+            "id": "commander",
+            "card": "Ulalek, Fused Atrocity",
+            "types": [
+              "Legendary",
+              "Creature"
+            ],
+            "destination": "command"
+          }
+        ],
+        "survivors": [],
+        "beforeMana": {
+          "generic": 5,
+          "C": 5,
+          "unknown": false,
+          "copyCC": "paid"
+        },
+        "afterMana": {
+          "generic": 5,
+          "C": 5,
+          "unknown": false,
+          "copyCC": "paid"
+        },
+        "manaRestored": {
+          "status": "observed",
+          "turn": 4,
+          "ownTurnsAfterEvent": 0
+        },
+        "commanderRecast": {
+          "status": "censored-by-t8"
+        },
+        "firstNativeOrAccess": {
+          "status": "censored-by-t8"
+        },
+        "firstExecutedOutlet": {
+          "status": "censored-by-t8"
+        },
+        "conditionalLethal": null,
+        "obtained": [
+          {
+            "turn": 5,
+            "card": "Wastes",
+            "found": null,
+            "event": "draw"
+          },
+          {
+            "turn": 6,
+            "card": "Wastes",
+            "found": null,
+            "event": "draw"
+          },
+          {
+            "turn": 7,
+            "card": "Wastes",
+            "found": null,
+            "event": "draw"
+          },
+          {
+            "turn": 8,
+            "card": "Wastes",
+            "found": null,
+            "event": "draw"
+          }
+        ],
+        "limitations": "Unanswered injected event at after-draw/before-land. Mana restored = pre-action supported generic and C maxima both reach pre-event snapshot (independent maxima). Actual damage is a supported outlet event, not proof of an unavoidable win threat; combat/response outcomes unknown."
+      }
+    ]
+  },
+  {
+    "file": "fixture-06.json.gz",
+    "sha256": "09b82c54d7bbb1f85e3e7ecd4e521257c66d0ccd35affa04c91ee12ec7766099",
+    "script": {
+      "1": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Sol Ring"
+        }
+      ],
+      "2": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Darksteel Myr"
+        }
+      ],
+      "3": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Ulalek, Fused Atrocity"
+        }
+      ]
+    },
+    "spec": {
+      "tutorPolicy": "legacy",
+      "disruptions": [
+        {
+          "id": "interrupt",
+          "turn": 4,
+          "scope": "nonland-types",
+          "effect": "exile",
+          "commanderDestination": "command",
+          "types": [
+            "Artifact"
+          ]
+        }
+      ]
+    },
+    "recovery": [
+      {
+        "id": "interrupt",
+        "spec": {
+          "id": "interrupt",
+          "turn": 4,
+          "scope": "nonland-types",
+          "effect": "exile",
+          "commanderDestination": "command",
+          "types": [
+            "Artifact"
+          ]
+        },
+        "status": "applied",
+        "unknown": [],
+        "removed": [
+          {
+            "id": "deck-0",
+            "card": "Sol Ring",
+            "types": [
+              "Artifact"
+            ],
+            "destination": "exile"
+          },
+          {
+            "id": "deck-1",
+            "card": "Darksteel Myr",
+            "types": [
+              "Artifact",
+              "Creature"
+            ],
+            "destination": "exile"
+          }
+        ],
+        "survivors": [],
+        "beforeMana": {
+          "generic": 5,
+          "C": 5,
+          "unknown": false,
+          "copyCC": "paid"
+        },
+        "afterMana": {
+          "generic": 3,
+          "C": 3,
+          "unknown": false,
+          "copyCC": "paid"
+        },
+        "manaRestored": {
+          "status": "censored-by-t8"
+        },
+        "commanderRecast": {
+          "status": "not-applicable"
+        },
+        "firstNativeOrAccess": {
+          "status": "censored-by-t8"
+        },
+        "firstExecutedOutlet": {
+          "status": "censored-by-t8"
+        },
+        "conditionalLethal": null,
+        "obtained": [
+          {
+            "turn": 5,
+            "card": "Wastes",
+            "found": null,
+            "event": "draw"
+          },
+          {
+            "turn": 6,
+            "card": "Wastes",
+            "found": null,
+            "event": "draw"
+          },
+          {
+            "turn": 7,
+            "card": "Wastes",
+            "found": null,
+            "event": "draw"
+          },
+          {
+            "turn": 8,
+            "card": "Wastes",
+            "found": null,
+            "event": "draw"
+          }
+        ],
+        "limitations": "Unanswered injected event at after-draw/before-land. Mana restored = pre-action supported generic and C maxima both reach pre-event snapshot (independent maxima). Actual damage is a supported outlet event, not proof of an unavoidable win threat; combat/response outcomes unknown."
+      }
+    ]
+  },
+  {
+    "file": "fixture-07.json.gz",
+    "sha256": "0a91cfac5aefef1bda807fe07c16a9c99faba9603cc81fd4503a335e9cac3b40",
+    "script": {
+      "1": [
+        {
+          "type": "land",
+          "card": "Swamp"
+        },
+        {
+          "type": "cast",
+          "card": "Sol Ring"
+        }
+      ],
+      "2": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Sifter of Skulls"
+        }
+      ],
+      "3": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Ulalek, Fused Atrocity"
+        }
+      ]
+    },
+    "spec": {
+      "tutorPolicy": "legacy",
+      "disruptions": [
+        {
+          "id": "interrupt",
+          "turn": 4,
+          "scope": "creatures",
+          "effect": "destroy",
+          "commanderDestination": "command"
+        }
+      ]
+    },
+    "recovery": [
+      {
+        "id": "interrupt",
+        "spec": {
+          "id": "interrupt",
+          "turn": 4,
+          "scope": "creatures",
+          "effect": "destroy",
+          "commanderDestination": "command"
+        },
+        "status": "unknown",
+        "unknown": [
+          {
+            "card": "Sifter of Skulls",
+            "clause": "Whenever another nontoken creature you control dies, create a 1/1 colorless Eldrazi Scion creature token with \"Sacrifice this token: Add {C}.\""
+          }
+        ],
+        "removed": [],
+        "survivors": [],
+        "beforeMana": {
+          "generic": 5,
+          "C": 4,
+          "unknown": false,
+          "copyCC": "paid"
+        },
+        "afterMana": null,
+        "manaRestored": {
+          "status": "unknown"
+        },
+        "commanderRecast": {
+          "status": "unknown"
+        },
+        "firstNativeOrAccess": {
+          "status": "unknown"
+        },
+        "firstExecutedOutlet": {
+          "status": "unknown"
+        },
+        "conditionalLethal": null,
+        "obtained": [],
+        "limitations": "Unanswered injected event at after-draw/before-land. Mana restored = pre-action supported generic and C maxima both reach pre-event snapshot (independent maxima). Actual damage is a supported outlet event, not proof of an unavoidable win threat; combat/response outcomes unknown."
+      }
+    ]
+  },
+  {
+    "file": "fixture-08.json.gz",
+    "sha256": "401ba174c765f7d7aa680ff9af7a6f94441ce7e42e9169a07343d0aacd4beb97",
+    "script": {
+      "1": [
+        {
+          "type": "land",
+          "card": "Forest"
+        },
+        {
+          "type": "cast",
+          "card": "Sol Ring"
+        }
+      ],
+      "2": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Nest Invader"
+        }
+      ],
+      "3": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Ulalek, Fused Atrocity"
+        }
+      ]
+    },
+    "spec": {
+      "tutorPolicy": "legacy",
+      "disruptions": [
+        {
+          "id": "interrupt",
+          "turn": 3,
+          "scope": "creatures",
+          "effect": "exile",
+          "commanderDestination": "command"
+        }
+      ]
+    },
+    "recovery": [
+      {
+        "id": "interrupt",
+        "spec": {
+          "id": "interrupt",
+          "turn": 3,
+          "scope": "creatures",
+          "effect": "exile",
+          "commanderDestination": "command"
+        },
+        "status": "applied",
+        "unknown": [],
+        "removed": [
+          {
+            "id": "deck-2",
+            "card": "Nest Invader",
+            "types": [
+              "Creature"
+            ],
+            "destination": "exile"
+          },
+          {
+            "id": "token-0",
+            "card": "Eldrazi Spawn",
+            "types": [
+              "Token",
+              "Creature"
+            ],
+            "destination": "ceased"
+          }
+        ],
+        "survivors": [],
+        "beforeMana": {
+          "generic": 5,
+          "C": 4,
+          "unknown": false,
+          "copyCC": "paid"
+        },
+        "afterMana": {
+          "generic": 4,
+          "C": 3,
+          "unknown": false,
+          "copyCC": "paid"
+        },
+        "manaRestored": {
+          "status": "observed",
+          "turn": 4,
+          "ownTurnsAfterEvent": 1
+        },
+        "commanderRecast": {
+          "status": "not-applicable"
+        },
+        "firstNativeOrAccess": {
+          "status": "censored-by-t8"
+        },
+        "firstExecutedOutlet": {
+          "status": "censored-by-t8"
+        },
+        "conditionalLethal": null,
+        "obtained": [
+          {
+            "turn": 4,
+            "card": "Wastes",
+            "found": null,
+            "event": "draw"
+          },
+          {
+            "turn": 5,
+            "card": "Wastes",
+            "found": null,
+            "event": "draw"
+          },
+          {
+            "turn": 6,
+            "card": "Wastes",
+            "found": null,
+            "event": "draw"
+          },
+          {
+            "turn": 7,
+            "card": "Wastes",
+            "found": null,
+            "event": "draw"
+          },
+          {
+            "turn": 8,
+            "card": "Wastes",
+            "found": null,
+            "event": "draw"
+          }
+        ],
+        "limitations": "Unanswered injected event at after-draw/before-land. Mana restored = pre-action supported generic and C maxima both reach pre-event snapshot (independent maxima). Actual damage is a supported outlet event, not proof of an unavoidable win threat; combat/response outcomes unknown."
+      }
+    ]
+  },
+  {
+    "file": "fixture-09.json.gz",
+    "sha256": "8e5e3f589e69fdc1b223c11561a9d31c017febe9aff8f223d5f791b9ac4e2b6d",
+    "script": {
+      "1": [
+        {
+          "type": "land",
+          "card": "Forest"
+        },
+        {
+          "type": "cast",
+          "card": "Sol Ring"
+        }
+      ],
+      "2": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Hedron Archive"
+        }
+      ],
+      "3": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Zhulodok, Void Gorger"
+        }
+      ],
+      "4": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Fierce Empath"
+        }
+      ],
+      "5": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Conduit of Ruin"
+        }
+      ]
+    },
+    "spec": {
+      "tutorPolicy": "legacy",
+      "disruptions": []
+    },
+    "recovery": []
+  },
+  {
+    "file": "fixture-10.json.gz",
+    "sha256": "8ae6f089fbf1125129ee9f649d98729ec646414c967dd245436aecf768179d0c",
+    "script": {
+      "1": [
+        {
+          "type": "land",
+          "card": "Forest"
+        },
+        {
+          "type": "cast",
+          "card": "Sol Ring"
+        }
+      ],
+      "2": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Hedron Archive"
+        }
+      ],
+      "3": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Zhulodok, Void Gorger"
+        }
+      ],
+      "4": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Fierce Empath"
+        }
+      ],
+      "5": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Bane of Bala Ged"
+        }
+      ]
+    },
+    "spec": {
+      "tutorPolicy": "state-aware",
+      "disruptions": []
+    },
+    "recovery": []
+  },
+  {
+    "file": "fixture-11.json.gz",
+    "sha256": "c4bbc6ea064b4a79ee1330bc0e8a7d6be46ed6d9bb8b6e72db7dd080b47ade66",
+    "script": {
+      "1": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Sol Ring"
+        }
+      ],
+      "2": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        }
+      ],
+      "3": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Ulalek, Fused Atrocity"
+        }
+      ],
+      "4": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Ulalek, Fused Atrocity"
+        }
+      ],
+      "5": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Ulalek, Fused Atrocity"
+        }
+      ],
+      "6": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Kozilek's Channeler"
+        }
+      ]
+    },
+    "spec": {
+      "tutorPolicy": "legacy",
+      "disruptions": []
+    },
+    "recovery": []
+  },
+  {
+    "file": "fixture-12.json.gz",
+    "sha256": "c7a79be02400d866cc8e1fed6e2eda9ab7d997a9cc094155a848695f220a8aba",
+    "script": {
+      "1": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Sol Ring"
+        }
+      ],
+      "2": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Thran Dynamo"
+        },
+        {
+          "type": "cast",
+          "card": "Worn Powerstone"
+        }
+      ],
+      "3": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Darksteel Forge"
+        }
+      ],
+      "4": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Mystic Forge"
+        },
+        {
+          "type": "cast",
+          "card": "Hedron Archive"
+        },
+        {
+          "type": "cast",
+          "card": "Ulalek, Fused Atrocity"
+        }
+      ],
+      "5": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Kozilek's Channeler",
+          "origin": "library"
+        }
+      ]
+    },
+    "spec": {
+      "tutorPolicy": "legacy",
+      "disruptions": [
+        {
+          "id": "interrupt",
+          "turn": 5,
+          "scope": "nonland-types",
+          "effect": "destroy",
+          "commanderDestination": "command",
+          "types": [
+            "Artifact"
+          ]
+        }
+      ]
+    },
+    "recovery": [
+      {
+        "id": "interrupt",
+        "spec": {
+          "id": "interrupt",
+          "turn": 5,
+          "scope": "nonland-types",
+          "effect": "destroy",
+          "commanderDestination": "command",
+          "types": [
+            "Artifact"
+          ]
+        },
+        "status": "not-applicable",
+        "unknown": [],
+        "removed": [],
+        "survivors": [
+          {
+            "id": "deck-1",
+            "reason": "indestructible"
+          },
+          {
+            "id": "deck-2",
+            "reason": "indestructible"
+          },
+          {
+            "id": "deck-3",
+            "reason": "indestructible"
+          },
+          {
+            "id": "deck-4",
+            "reason": "indestructible"
+          },
+          {
+            "id": "deck-5",
+            "reason": "indestructible"
+          },
+          {
+            "id": "deck-6",
+            "reason": "indestructible"
+          }
+        ],
+        "beforeMana": {
+          "generic": 13,
+          "C": 13,
+          "unknown": false,
+          "copyCC": "paid"
+        },
+        "afterMana": {
+          "generic": 13,
+          "C": 13,
+          "unknown": false,
+          "copyCC": "paid"
+        },
+        "manaRestored": {
+          "status": "not-applicable"
+        },
+        "commanderRecast": {
+          "status": "not-applicable"
+        },
+        "firstNativeOrAccess": {
+          "status": "not-applicable"
+        },
+        "firstExecutedOutlet": {
+          "status": "not-applicable"
+        },
+        "conditionalLethal": null,
+        "obtained": [
+          {
+            "turn": 6,
+            "card": "Wastes",
+            "found": null,
+            "event": "draw"
+          },
+          {
+            "turn": 7,
+            "card": "Wastes",
+            "found": null,
+            "event": "draw"
+          },
+          {
+            "turn": 8,
+            "card": "Wastes",
+            "found": null,
+            "event": "draw"
+          }
+        ],
+        "limitations": "Unanswered injected event at after-draw/before-land. Mana restored = pre-action supported generic and C maxima both reach pre-event snapshot (independent maxima). Actual damage is a supported outlet event, not proof of an unavoidable win threat; combat/response outcomes unknown."
+      }
+    ]
+  },
+  {
+    "file": "fixture-13.json.gz",
+    "sha256": "c8465c7eda6eee9f41985266bfb4282d66b3385557f92bba08fb5cfa83553a0c",
+    "script": {
+      "1": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Sol Ring"
+        }
+      ],
+      "2": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Thran Dynamo"
+        },
+        {
+          "type": "cast",
+          "card": "Worn Powerstone"
+        }
+      ],
+      "3": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Basalt Monolith"
+        }
+      ],
+      "4": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Mystic Forge"
+        },
+        {
+          "type": "cast",
+          "card": "Hedron Archive"
+        },
+        {
+          "type": "cast",
+          "card": "Ulalek, Fused Atrocity"
+        }
+      ],
+      "5": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Kozilek's Channeler",
+          "origin": "library"
+        }
+      ]
+    },
+    "spec": {
+      "tutorPolicy": "legacy",
+      "disruptions": [
+        {
+          "id": "interrupt",
+          "turn": 5,
+          "scope": "nonland-types",
+          "effect": "destroy",
+          "commanderDestination": "command",
+          "types": [
+            "Artifact"
+          ]
+        }
+      ]
+    },
+    "recovery": [
+      {
+        "id": "interrupt",
+        "spec": {
+          "id": "interrupt",
+          "turn": 5,
+          "scope": "nonland-types",
+          "effect": "destroy",
+          "commanderDestination": "command",
+          "types": [
+            "Artifact"
+          ]
+        },
+        "status": "applied",
+        "unknown": [],
+        "removed": [
+          {
+            "id": "deck-1",
+            "card": "Sol Ring",
+            "types": [
+              "Artifact"
+            ],
+            "destination": "graveyard"
+          },
+          {
+            "id": "deck-2",
+            "card": "Thran Dynamo",
+            "types": [
+              "Artifact"
+            ],
+            "destination": "graveyard"
+          },
+          {
+            "id": "deck-3",
+            "card": "Worn Powerstone",
+            "types": [
+              "Artifact"
+            ],
+            "destination": "graveyard"
+          },
+          {
+            "id": "deck-4",
+            "card": "Basalt Monolith",
+            "types": [
+              "Artifact"
+            ],
+            "destination": "graveyard"
+          },
+          {
+            "id": "deck-5",
+            "card": "Mystic Forge",
+            "types": [
+              "Artifact"
+            ],
+            "destination": "graveyard"
+          },
+          {
+            "id": "deck-6",
+            "card": "Hedron Archive",
+            "types": [
+              "Artifact"
+            ],
+            "destination": "graveyard"
+          }
+        ],
+        "survivors": [],
+        "beforeMana": {
+          "generic": 13,
+          "C": 13,
+          "unknown": false,
+          "copyCC": "paid"
+        },
+        "afterMana": {
+          "generic": 4,
+          "C": 4,
+          "unknown": false,
+          "copyCC": "paid"
+        },
+        "manaRestored": {
+          "status": "censored-by-t8"
+        },
+        "commanderRecast": {
+          "status": "not-applicable"
+        },
+        "firstNativeOrAccess": {
+          "status": "censored-by-t8"
+        },
+        "firstExecutedOutlet": {
+          "status": "censored-by-t8"
+        },
+        "conditionalLethal": null,
+        "obtained": [
+          {
+            "turn": 6,
+            "card": "Kozilek's Channeler",
+            "found": null,
+            "event": "draw"
+          },
+          {
+            "turn": 7,
+            "card": "Wastes",
+            "found": null,
+            "event": "draw"
+          },
+          {
+            "turn": 8,
+            "card": "Wastes",
+            "found": null,
+            "event": "draw"
+          }
+        ],
+        "limitations": "Unanswered injected event at after-draw/before-land. Mana restored = pre-action supported generic and C maxima both reach pre-event snapshot (independent maxima). Actual damage is a supported outlet event, not proof of an unavoidable win threat; combat/response outcomes unknown."
+      }
+    ]
+  },
+  {
+    "file": "fixture-14.json.gz",
+    "sha256": "d824aaad9c005c37610d5155cd7c5b4d71fb03ec6177b39a465c6c5e089fe8bc",
+    "script": {
+      "1": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Sol Ring"
+        }
+      ],
+      "2": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        }
+      ],
+      "3": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Ulalek, Fused Atrocity"
+        }
+      ],
+      "4": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Ulalek, Fused Atrocity"
+        }
+      ],
+      "5": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Ulalek, Fused Atrocity"
+        }
+      ],
+      "6": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Kozilek's Channeler"
+        }
+      ]
+    },
+    "spec": {
+      "tutorPolicy": "legacy",
+      "disruptions": [
+        {
+          "id": "interrupt",
+          "turn": 4,
+          "scope": "engine",
+          "effect": "exile",
+          "commanderDestination": "command",
+          "card": "Mystic Forge"
+        }
+      ]
+    },
+    "recovery": [
+      {
+        "id": "interrupt",
+        "spec": {
+          "id": "interrupt",
+          "turn": 4,
+          "scope": "engine",
+          "effect": "exile",
+          "commanderDestination": "command",
+          "card": "Mystic Forge"
+        },
+        "status": "not-applicable",
+        "unknown": [],
+        "removed": [],
+        "survivors": [],
+        "beforeMana": {
+          "generic": 5,
+          "C": 5,
+          "unknown": false,
+          "copyCC": "paid"
+        },
+        "afterMana": {
+          "generic": 5,
+          "C": 5,
+          "unknown": false,
+          "copyCC": "paid"
+        },
+        "manaRestored": {
+          "status": "not-applicable"
+        },
+        "commanderRecast": {
+          "status": "not-applicable"
+        },
+        "firstNativeOrAccess": {
+          "status": "not-applicable"
+        },
+        "firstExecutedOutlet": {
+          "status": "not-applicable"
+        },
+        "conditionalLethal": null,
+        "obtained": [
+          {
+            "turn": 5,
+            "card": "Wastes",
+            "found": null,
+            "event": "draw"
+          },
+          {
+            "turn": 6,
+            "card": "Wastes",
+            "found": null,
+            "event": "draw"
+          },
+          {
+            "turn": 7,
+            "card": "Wastes",
+            "found": null,
+            "event": "draw"
+          },
+          {
+            "turn": 8,
+            "card": "Wastes",
+            "found": null,
+            "event": "draw"
+          }
+        ],
+        "limitations": "Unanswered injected event at after-draw/before-land. Mana restored = pre-action supported generic and C maxima both reach pre-event snapshot (independent maxima). Actual damage is a supported outlet event, not proof of an unavoidable win threat; combat/response outcomes unknown."
+      }
+    ]
+  },
+  {
+    "file": "fixture-15.json.gz",
+    "sha256": "5a82ed530f8ea6d2f7f454a1d0c58737716bcacd05174b910dc76353f9b921ba",
+    "script": {
+      "1": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Sol Ring"
+        }
+      ],
+      "2": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        }
+      ],
+      "3": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Ulalek, Fused Atrocity"
+        }
+      ],
+      "4": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Ulalek, Fused Atrocity"
+        }
+      ],
+      "5": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Ulalek, Fused Atrocity"
+        }
+      ],
+      "6": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Kozilek's Channeler"
+        }
+      ]
+    },
+    "spec": {
+      "tutorPolicy": "legacy",
+      "disruptions": [
+        {
+          "id": "interrupt",
+          "turn": 4,
+          "scope": "commander",
+          "effect": "exile",
+          "commanderDestination": "command"
+        }
+      ]
+    },
+    "recovery": [
+      {
+        "id": "interrupt",
+        "spec": {
+          "id": "interrupt",
+          "turn": 4,
+          "scope": "commander",
+          "effect": "exile",
+          "commanderDestination": "command"
+        },
+        "status": "applied",
+        "unknown": [],
+        "removed": [
+          {
+            "id": "commander",
+            "card": "Ulalek, Fused Atrocity",
+            "types": [
+              "Legendary",
+              "Creature"
+            ],
+            "destination": "command"
+          }
+        ],
+        "survivors": [],
+        "beforeMana": {
+          "generic": 5,
+          "C": 5,
+          "unknown": false,
+          "copyCC": "paid"
+        },
+        "afterMana": {
+          "generic": 5,
+          "C": 5,
+          "unknown": false,
+          "copyCC": "paid"
+        },
+        "manaRestored": {
+          "status": "observed",
+          "turn": 4,
+          "ownTurnsAfterEvent": 0
+        },
+        "commanderRecast": {
+          "status": "observed",
+          "turn": 5,
+          "ownTurnsAfterEvent": 1
+        },
+        "firstNativeOrAccess": {
+          "status": "observed",
+          "turn": 6,
+          "ownTurnsAfterEvent": 2
+        },
+        "firstExecutedOutlet": {
+          "status": "censored-by-t8"
+        },
+        "conditionalLethal": null,
+        "obtained": [
+          {
+            "turn": 5,
+            "card": "Wastes",
+            "found": null,
+            "event": "draw"
+          },
+          {
+            "turn": 6,
+            "card": "Wastes",
+            "found": null,
+            "event": "draw"
+          },
+          {
+            "turn": 7,
+            "card": "Wastes",
+            "found": null,
+            "event": "draw"
+          },
+          {
+            "turn": 8,
+            "card": "Wastes",
+            "found": null,
+            "event": "draw"
+          }
+        ],
+        "limitations": "Unanswered injected event at after-draw/before-land. Mana restored = pre-action supported generic and C maxima both reach pre-event snapshot (independent maxima). Actual damage is a supported outlet event, not proof of an unavoidable win threat; combat/response outcomes unknown."
+      }
+    ]
+  },
+  {
+    "file": "fixture-16.json.gz",
+    "sha256": "75db49b2f7850be15155ceebb1ea601c87d6435d26a630ae32231e92880c9504",
+    "script": {
+      "1": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Sol Ring"
+        }
+      ],
+      "2": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        }
+      ],
+      "3": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Ulalek, Fused Atrocity"
+        }
+      ],
+      "4": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Ulalek, Fused Atrocity"
+        }
+      ],
+      "5": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Ulalek, Fused Atrocity"
+        }
+      ],
+      "6": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Ulalek, Fused Atrocity"
+        }
+      ],
+      "7": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Ulalek, Fused Atrocity"
+        }
+      ],
+      "8": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Kozilek's Channeler"
+        }
+      ]
+    },
+    "spec": {
+      "tutorPolicy": "legacy",
+      "disruptions": [
+        {
+          "id": "interrupt",
+          "turn": 4,
+          "scope": "commander",
+          "effect": "exile",
+          "commanderDestination": "command"
+        },
+        {
+          "id": "second",
+          "turn": 6,
+          "scope": "commander",
+          "effect": "exile",
+          "commanderDestination": "command"
+        }
+      ]
+    },
+    "recovery": [
+      {
+        "id": "interrupt",
+        "spec": {
+          "id": "interrupt",
+          "turn": 4,
+          "scope": "commander",
+          "effect": "exile",
+          "commanderDestination": "command"
+        },
+        "status": "applied",
+        "unknown": [],
+        "removed": [
+          {
+            "id": "commander",
+            "card": "Ulalek, Fused Atrocity",
+            "types": [
+              "Legendary",
+              "Creature"
+            ],
+            "destination": "command"
+          }
+        ],
+        "survivors": [],
+        "beforeMana": {
+          "generic": 5,
+          "C": 5,
+          "unknown": false,
+          "copyCC": "paid"
+        },
+        "afterMana": {
+          "generic": 5,
+          "C": 5,
+          "unknown": false,
+          "copyCC": "paid"
+        },
+        "manaRestored": {
+          "status": "observed",
+          "turn": 4,
+          "ownTurnsAfterEvent": 0
+        },
+        "commanderRecast": {
+          "status": "observed",
+          "turn": 5,
+          "ownTurnsAfterEvent": 1
+        },
+        "firstNativeOrAccess": {
+          "status": "censored-by-next-event"
+        },
+        "firstExecutedOutlet": {
+          "status": "censored-by-next-event"
+        },
+        "conditionalLethal": null,
+        "obtained": [
+          {
+            "turn": 5,
+            "card": "Wastes",
+            "found": null,
+            "event": "draw"
+          },
+          {
+            "turn": 6,
+            "card": "Wastes",
+            "found": null,
+            "event": "draw"
+          }
+        ],
+        "limitations": "Unanswered injected event at after-draw/before-land. Mana restored = pre-action supported generic and C maxima both reach pre-event snapshot (independent maxima). Actual damage is a supported outlet event, not proof of an unavoidable win threat; combat/response outcomes unknown."
+      },
+      {
+        "id": "second",
+        "spec": {
+          "id": "second",
+          "turn": 6,
+          "scope": "commander",
+          "effect": "exile",
+          "commanderDestination": "command"
+        },
+        "status": "applied",
+        "unknown": [],
+        "removed": [
+          {
+            "id": "commander",
+            "card": "Ulalek, Fused Atrocity",
+            "types": [
+              "Legendary",
+              "Creature"
+            ],
+            "destination": "command"
+          }
+        ],
+        "survivors": [],
+        "beforeMana": {
+          "generic": 7,
+          "C": 7,
+          "unknown": false,
+          "copyCC": "paid"
+        },
+        "afterMana": {
+          "generic": 7,
+          "C": 7,
+          "unknown": false,
+          "copyCC": "paid"
+        },
+        "manaRestored": {
+          "status": "observed",
+          "turn": 6,
+          "ownTurnsAfterEvent": 0
+        },
+        "commanderRecast": {
+          "status": "observed",
+          "turn": 7,
+          "ownTurnsAfterEvent": 1
+        },
+        "firstNativeOrAccess": {
+          "status": "observed",
+          "turn": 8,
+          "ownTurnsAfterEvent": 2
+        },
+        "firstExecutedOutlet": {
+          "status": "censored-by-t8"
+        },
+        "conditionalLethal": null,
+        "obtained": [
+          {
+            "turn": 7,
+            "card": "Wastes",
+            "found": null,
+            "event": "draw"
+          },
+          {
+            "turn": 8,
+            "card": "Wastes",
+            "found": null,
+            "event": "draw"
+          }
+        ],
+        "limitations": "Unanswered injected event at after-draw/before-land. Mana restored = pre-action supported generic and C maxima both reach pre-event snapshot (independent maxima). Actual damage is a supported outlet event, not proof of an unavoidable win threat; combat/response outcomes unknown."
+      }
+    ]
+  },
+  {
+    "file": "fixture-17.json.gz",
+    "sha256": "754b6b98df57cb81249f9fb244d83cf3220f9966bba9d0b731236d489e0a8d0c",
+    "script": {
+      "1": [
+        {
+          "type": "land",
+          "card": "Forest"
+        },
+        {
+          "type": "cast",
+          "card": "Sol Ring"
+        }
+      ],
+      "2": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Mystic Forge"
+        }
+      ],
+      "3": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Ulalek, Fused Atrocity"
+        }
+      ],
+      "4": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Up the Beanstalk"
+        }
+      ],
+      "5": [
+        {
+          "type": "land",
+          "card": "Wastes"
+        },
+        {
+          "type": "cast",
+          "card": "Kozilek's Channeler"
+        }
+      ]
+    },
+    "spec": {
+      "tutorPolicy": "legacy",
+      "disruptions": [
+        {
+          "id": "interrupt",
+          "turn": 3,
+          "scope": "engine",
+          "effect": "exile",
+          "commanderDestination": "command",
+          "card": "Mystic Forge"
+        }
+      ]
+    },
+    "recovery": [
+      {
+        "id": "interrupt",
+        "spec": {
+          "id": "interrupt",
+          "turn": 3,
+          "scope": "engine",
+          "effect": "exile",
+          "commanderDestination": "command",
+          "card": "Mystic Forge"
+        },
+        "status": "applied",
+        "unknown": [],
+        "removed": [
+          {
+            "id": "deck-3",
+            "card": "Mystic Forge",
+            "types": [
+              "Artifact"
+            ],
+            "destination": "exile"
+          }
+        ],
+        "survivors": [],
+        "beforeMana": {
+          "generic": 4,
+          "C": 3,
+          "unknown": false,
+          "copyCC": "paid"
+        },
+        "afterMana": {
+          "generic": 4,
+          "C": 3,
+          "unknown": false,
+          "copyCC": "paid"
+        },
+        "manaRestored": {
+          "status": "observed",
+          "turn": 3,
+          "ownTurnsAfterEvent": 0
+        },
+        "commanderRecast": {
+          "status": "not-applicable"
+        },
+        "firstNativeOrAccess": {
+          "status": "observed",
+          "turn": 4,
+          "ownTurnsAfterEvent": 1
+        },
+        "firstExecutedOutlet": {
+          "status": "censored-by-t8"
+        },
+        "conditionalLethal": null,
+        "obtained": [
+          {
+            "turn": 4,
+            "card": "Wastes",
+            "found": null,
+            "event": "draw"
+          },
+          {
+            "turn": 4,
+            "card": "Wastes",
+            "found": null,
+            "event": "access-draw"
+          },
+          {
+            "turn": 5,
+            "card": "Wastes",
+            "found": null,
+            "event": "draw"
+          },
+          {
+            "turn": 5,
+            "card": "Wastes",
+            "found": null,
+            "event": "access-draw"
+          },
+          {
+            "turn": 5,
+            "card": "Wastes",
+            "found": null,
+            "event": "access-draw"
+          },
+          {
+            "turn": 6,
+            "card": "Wastes",
+            "found": null,
+            "event": "draw"
+          },
+          {
+            "turn": 7,
+            "card": "Wastes",
+            "found": null,
+            "event": "draw"
+          },
+          {
+            "turn": 8,
+            "card": "Wastes",
+            "found": null,
+            "event": "draw"
+          }
+        ],
+        "limitations": "Unanswered injected event at after-draw/before-land. Mana restored = pre-action supported generic and C maxima both reach pre-event snapshot (independent maxima). Actual damage is a supported outlet event, not proof of an unavoidable win threat; combat/response outcomes unknown."
+      }
+    ]
+  }
+]

@@ -1,0 +1,172 @@
+[
+  {
+    "deck": "ulalek-b3-original",
+    "priceEUR": 174.24,
+    "unusedEUR": 16.76,
+    "export": "ulalek-b3-original.txt",
+    "exactPrintingAudit": "ulalek-b3-original-audit.json",
+    "incoming": "\u2014",
+    "outgoing": "\u2014",
+    "nativeVerdict": "original / coverage check"
+  },
+  {
+    "deck": "ulalek-b3-repair-01",
+    "priceEUR": 182.52,
+    "unusedEUR": 8.48,
+    "export": "ulalek-b3-repair-01.txt",
+    "exactPrintingAudit": "ulalek-b3-repair-01-audit.json",
+    "incoming": "City of Brass",
+    "outgoing": "Temple of Malady",
+    "nativeVerdict": "inconclusive-tradeoffs"
+  },
+  {
+    "deck": "ulalek-b3-repair-03",
+    "priceEUR": 184.22,
+    "unusedEUR": 6.78,
+    "export": "ulalek-b3-repair-03.txt",
+    "exactPrintingAudit": "ulalek-b3-repair-03-audit.json",
+    "incoming": "Up the Beanstalk, City of Brass",
+    "outgoing": "Gideon Blackblade, Temple of Malady",
+    "nativeVerdict": "abstain-search-bound"
+  },
+  {
+    "deck": "ulalek-b3-repair-04",
+    "priceEUR": 186.84,
+    "unusedEUR": 4.16,
+    "export": "ulalek-b3-repair-04.txt",
+    "exactPrintingAudit": "ulalek-b3-repair-04-audit.json",
+    "incoming": "Birds of Paradise, Up the Beanstalk, City of Brass",
+    "outgoing": "Arcane Signet, Gideon Blackblade, Temple of Malady",
+    "nativeVerdict": "abstain-search-bound"
+  },
+  {
+    "deck": "ulalek-b3-repair-11",
+    "priceEUR": 179.3,
+    "unusedEUR": 11.7,
+    "export": "ulalek-b3-repair-11.txt",
+    "exactPrintingAudit": "ulalek-b3-repair-11-audit.json",
+    "incoming": "Forbidden Orchard",
+    "outgoing": "Temple of Malady",
+    "nativeVerdict": "inconclusive-tradeoffs"
+  },
+  {
+    "deck": "ulalek-b3-repair-13",
+    "priceEUR": 181,
+    "unusedEUR": 10,
+    "export": "ulalek-b3-repair-13.txt",
+    "exactPrintingAudit": "ulalek-b3-repair-13-audit.json",
+    "incoming": "Up the Beanstalk, Forbidden Orchard",
+    "outgoing": "Gideon Blackblade, Temple of Malady",
+    "nativeVerdict": "abstain-search-bound"
+  },
+  {
+    "deck": "ulalek-b3-repair-14",
+    "priceEUR": 183.62,
+    "unusedEUR": 7.38,
+    "export": "ulalek-b3-repair-14.txt",
+    "exactPrintingAudit": "ulalek-b3-repair-14-audit.json",
+    "incoming": "Birds of Paradise, Up the Beanstalk, Forbidden Orchard",
+    "outgoing": "Arcane Signet, Gideon Blackblade, Temple of Malady",
+    "nativeVerdict": "abstain-search-bound"
+  },
+  {
+    "deck": "ulalek-b4-original",
+    "priceEUR": 173.88,
+    "unusedEUR": 17.12,
+    "export": "ulalek-b4-original.txt",
+    "exactPrintingAudit": "ulalek-b4-original-audit.json",
+    "incoming": "\u2014",
+    "outgoing": "\u2014",
+    "nativeVerdict": "original / coverage check"
+  },
+  {
+    "deck": "ulalek-b4-repair-01",
+    "priceEUR": 182.31,
+    "unusedEUR": 8.69,
+    "export": "ulalek-b4-repair-01.txt",
+    "exactPrintingAudit": "ulalek-b4-repair-01-audit.json",
+    "incoming": "City of Brass",
+    "outgoing": "Forest",
+    "nativeVerdict": "abstain-search-bound"
+  },
+  {
+    "deck": "ulalek-b4-repair-02",
+    "priceEUR": 176.5,
+    "unusedEUR": 14.5,
+    "export": "ulalek-b4-repair-02.txt",
+    "exactPrintingAudit": "ulalek-b4-repair-02-audit.json",
+    "incoming": "Birds of Paradise",
+    "outgoing": "Arcane Signet",
+    "nativeVerdict": "abstain-search-bound"
+  },
+  {
+    "deck": "ulalek-b4-repair-03",
+    "priceEUR": 184.01,
+    "unusedEUR": 6.99,
+    "export": "ulalek-b4-repair-03.txt",
+    "exactPrintingAudit": "ulalek-b4-repair-03-audit.json",
+    "incoming": "Up the Beanstalk, City of Brass",
+    "outgoing": "Gideon Blackblade, Forest",
+    "nativeVerdict": "abstain-search-bound"
+  },
+  {
+    "deck": "ulalek-b4-repair-04",
+    "priceEUR": 186.63,
+    "unusedEUR": 4.37,
+    "export": "ulalek-b4-repair-04.txt",
+    "exactPrintingAudit": "ulalek-b4-repair-04-audit.json",
+    "incoming": "Birds of Paradise, Up the Beanstalk, City of Brass",
+    "outgoing": "Arcane Signet, Gideon Blackblade, Forest",
+    "nativeVerdict": "abstain-search-bound"
+  },
+  {
+    "deck": "ulalek-b4-repair-13",
+    "priceEUR": 180.79,
+    "unusedEUR": 10.21,
+    "export": "ulalek-b4-repair-13.txt",
+    "exactPrintingAudit": "ulalek-b4-repair-13-audit.json",
+    "incoming": "Up the Beanstalk, Forbidden Orchard",
+    "outgoing": "Gideon Blackblade, Forest",
+    "nativeVerdict": "abstain-search-bound"
+  },
+  {
+    "deck": "ulalek-b4-repair-14",
+    "priceEUR": 183.41,
+    "unusedEUR": 7.59,
+    "export": "ulalek-b4-repair-14.txt",
+    "exactPrintingAudit": "ulalek-b4-repair-14-audit.json",
+    "incoming": "Birds of Paradise, Up the Beanstalk, Forbidden Orchard",
+    "outgoing": "Arcane Signet, Gideon Blackblade, Forest",
+    "nativeVerdict": "abstain-search-bound"
+  },
+  {
+    "deck": "yuriko-b3-original",
+    "priceEUR": 126.04,
+    "unusedEUR": 64.96,
+    "export": "yuriko-b3-original.txt",
+    "exactPrintingAudit": "yuriko-b3-original-audit.json",
+    "incoming": "\u2014",
+    "outgoing": "\u2014",
+    "nativeVerdict": "original / coverage check"
+  },
+  {
+    "deck": "wilhelt-b3-original",
+    "priceEUR": 102.06,
+    "unusedEUR": 88.94,
+    "export": "wilhelt-b3-original.txt",
+    "exactPrintingAudit": "wilhelt-b3-original-audit.json",
+    "incoming": "\u2014",
+    "outgoing": "\u2014",
+    "nativeVerdict": "original / coverage check"
+  },
+  {
+    "deck": "zada-b3-original",
+    "priceEUR": 158.68,
+    "unusedEUR": 32.32,
+    "export": "zada-b3-original.txt",
+    "exactPrintingAudit": "zada-b3-original-audit.json",
+    "incoming": "\u2014",
+    "outgoing": "\u2014",
+    "nativeVerdict": "original / coverage check"
+  }
+]

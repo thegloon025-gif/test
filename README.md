@@ -1,3 +1,23 @@
+### Draft PR #4 — Opportunity-conditioned native recovery
+
+Stage 8 adds opt-in deployed-state checkpoints, supported simultaneous death/sacrifice/end-step execution and independently audited recovery observations. It measures real opportunities separately from scripted fixtures and retains unfamiliar-strategy abstention. Production selection and version 1.1.5 remain unchanged. See [model and Windows commands](docs/GAMEPLAY_STAGE8.md) and [actual results and decision gate](benchmarks/v12/stage8-VALIDATION.md).
+
+### Draft PR #4 — Native strategy execution
+
+Stage 4 adds an opt-in supported own-stack model for native copying, multiplication, cascade, tutors and resolved token resources. Exact payments and stack/zone receipts are independently audited; bounds and unimplemented mechanics remain unknown. Production selection and version 1.1.5 stay unchanged. See [model and local commands](docs/GAMEPLAY_STAGE4.md) and [validation](benchmarks/v12/stage4-VALIDATION.md).
+
+### Draft PR #4 — Gameplay-aware shadow experiments
+
+Stage 3 adds an offline comparison of complete coordinated repairs using common card identities, three fixed pilots and holdout seeds. Exact payments, zones, selected printings and budgets are audited; unsupported native strategies force abstention. Production construction and selection remain unchanged. See [method and Windows commands](docs/GAMEPLAY_STAGE3.md) and [validation](benchmarks/v12/stage3-VALIDATION.md). Version remains 1.1.5; no external power improvement is claimed.
+
+### Draft PR #4 — Stateful access and deployment policies
+
+Stage 2 now resolves supported draws, selections, entry/cast triggers and paid top-library access into actual card zones. Three deterministic pilots and an opt-in conservative free mulligan expose sequencing tradeoffs. Exact mana and card movements are independently audited; optimized payment search keeps unknowns explicit. Deck construction, selection and version 1.1.5 remain unchanged. See [model and Windows commands](docs/GAMEPLAY_STAGE2.md) and [fixed-deck comparisons](benchmarks/v12/stage2-VALIDATION.md).
+
+### Draft PR #4 — Gameplay Intelligence Stage 1
+
+An independent deterministic turn-by-turn mana/deployment evaluator now produces auditable turns 1–8 traces. It tracks source activations, fees, restrictions, tapped lands, creature sickness, separate Ulalek payments and resource-trigger resolution. Unsupported mechanics remain unknown. It does not change deck selection or version 1.1.5. See [model and Windows commands](docs/GAMEPLAY_STAGE1.md) and [validation](benchmarks/v12/stage1-VALIDATION.md). Frozen external scores remain historical observations.
+
 ### Unreleased PR #2 — combo execution review
 
 Generated decks now include an expandable **Combo execution requirements** disclosure: named quantities, commander participation, starting zones/states, mana and resource instructions, alternate-face setup and published outcomes. Inventory matches remain unverified execution; infinite mana or tokens still need a usable win outlet. Reliable combo timing stays unknown.
@@ -676,3 +696,9 @@ Card information and price estimates from [Scryfall](https://scryfall.com). Magi
 ## Benchmark provenance
 
 `benchmarks/ulalek-v01-user.txt` is the actual first Ulalek €191 / Bracket 3 exported list provided by the user. It is **not** a trusted strong deck, not a generator preset, and is only saved so we can compare real changes after rerunning v0.3 with the user's local database.
+
+Stage 5 developer-only native execution: [supported mechanics and offline reproduction](docs/GAMEPLAY_STAGE5.md), [validation](benchmarks/v12/stage5-VALIDATION.md). Production selection and app version remain unchanged.
+
+Stage 6 developer-only construction experiments: [model, terminal contract and Windows reproduction](docs/GAMEPLAY_STAGE6.md), [new complete-deck challengers and validation](benchmarks/v12/stage6-VALIDATION.md). Shadow only; production ranking and version 1.1.5 remain unchanged.
+
+Stage 7 opt-in recovery/tutor experiments: [supported semantics and offline Windows commands](docs/GAMEPLAY_STAGE7.md), [validation and remaining integration decision](benchmarks/v12/stage7-VALIDATION.md). Typed disruption, actual tax, positive payment receipts and tradeoffs remain shadow-only; default generation is unchanged.

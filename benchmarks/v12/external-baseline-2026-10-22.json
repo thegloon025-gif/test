@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "label": "Ulalek v1.2 external-score starting baseline",
+  "recorded_on": "2026-10-22",
+  "evidence": "User-provided screenshots of third-party evaluator reports; historical observational measurements only.",
+  "source_branch": "codex/coherent-package-investment",
+  "source_commit": "c9829e0a39a41cb6d8fa0336c9d28cba40b5bf2a",
+  "budget_eur": 191,
+  "pricing": "Scryfall eligible-printing EUR estimates, owned basics, shipping excluded; not verified EN NM Cardmarket offers",
+  "research": "Frozen cached experiment: 32,197 catalog records, 29 community source lists, recorded Spellbook library",
+  "catalog_sha256": "6add2c5dd20809fd787438d3c8825f8dd21a74e7d3fc429f83c7a9a091045f6c",
+  "context": "Compared outputs are not identical decklists, actual match outcomes, calibrated probabilities or official bracket certifications. Evaluators have different methods.",
+  "source_report": "benchmarks/pod-combo-VALIDATION.md",
+  "benchmark_decks": [
+    {
+      "id": "ulalek-b3-high-pr2",
+      "commander": "Ulalek, Fused Atrocity",
+      "generation_target": "High B3, existing standard policy",
+      "estimated_price_eur": 174.24,
+      "export": "benchmarks/pod-combo/ulalek-b3.txt",
+      "ratings": {
+        "edhcheck": {
+          "power": 5.7,
+          "bracket_estimate": 2,
+          "speed": 5.6,
+          "consistency": 6.6,
+          "saltiness": 2.2
+        },
+        "edhpowerlevel": {
+          "power": 5.33,
+          "bracket_estimate": 2,
+          "efficiency": 4.64,
+          "average_playability_percent": 56.5,
+          "tipping_point": 4,
+          "impact": 508.49,
+          "score_1000": 437
+        }
+      }
+    },
+    {
+      "id": "ulalek-b4-optimized-pr2",
+      "commander": "Ulalek, Fused Atrocity",
+      "generation_target": "B4 Optimized, existing standard policy",
+      "estimated_price_eur": 173.88,
+      "export": "benchmarks/pod-combo/ulalek-b4.txt",
+      "ratings": {
+        "edhcheck": {
+          "power": 5.6,
+          "bracket_estimate": 2,
+          "speed": 6,
+          "consistency": 6.5,
+          "saltiness": 2.4
+        },
+        "edhpowerlevel": {
+          "power": 5.48,
+          "bracket_estimate": 4,
+          "efficiency": 4.91,
+          "average_playability_percent": 60.4,
+          "tipping_point": 4,
+          "impact": 509.8,
+          "score_1000": 444
+        }
+      }
+    }
+  ],
+  "required_interpretation": [
+    "Retain as immutable historical observation; never overwrite based on regenerated decks.",
+    "Third-party scores are not equivalent to game win rates or authoritative bracket classifications.",
+    "Do not infer gameplay improvement solely from estimated price, internal scalar or a single evaluator.",
+    "For fresh comparisons retain a unique source commit, data hashes, pricing mode, generation target, full deck exports and independent ratings."
+  ]
+}

@@ -1,0 +1,7596 @@
+{
+  "key": "7e50891a2bf611cfab5fe4fa22313f10d9c541f01aad59db15f8a056391ce8e7",
+  "audit": {
+    "valid": true,
+    "errors": [],
+    "resourceAudit": true,
+    "zoneAudit": true
+  },
+  "summary": {
+    "seed": "gameplay-shadow-2026-10-22:holdout:0",
+    "policy": "commander-first",
+    "metrics": {
+      "modelSurvival": 1,
+      "commanderByT5": 0,
+      "commanderByT8": 0,
+      "commanderTempo": 0,
+      "netAccess": -1,
+      "realizedDraws": 0,
+      "topCasts": 0,
+      "optionalPayments": null,
+      "supportedEngineUses": 0,
+      "observedLargeNativeCasts": 0
+    },
+    "commanderTurn": null,
+    "coverage": {
+      "cardsWithSupportedAccess": 5,
+      "cardsWithUnmodeledAccess": 12,
+      "unmodeledAccessClauses": 12
+    },
+    "unknown": [
+      {
+        "card": "Archghoul of Thraben",
+        "access": [
+          {
+            "line": "Whenever this creature or another Zombie you control dies, look at the top card of your library. If it's a Zombie card, you may reveal it and put it into your hand. If you don't put the card into your hand, you may put it into your graveyard.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      },
+      {
+        "card": "Corpse Augur",
+        "access": [
+          {
+            "line": "When this creature dies, you draw X cards and you lose X life, where X is the number of creature cards in target player's graveyard.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      },
+      {
+        "card": "Curator's Ward",
+        "access": [
+          {
+            "line": "When enchanted permanent leaves the battlefield, if it was historic, draw two cards.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      },
+      {
+        "card": "Fell Stinger",
+        "access": [
+          {
+            "line": "When this creature exploits a creature, target player draws two cards and loses 2 life.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      },
+      {
+        "card": "Grimgrin, Corpse-Born // Grimgrin, Corpse-Born",
+        "access": [],
+        "other": [
+          "alternate faces/transform/craft not evaluated; front face only"
+        ]
+      },
+      {
+        "card": "Insight Engine",
+        "access": [
+          {
+            "line": "{2}, {T}: Put a charge counter on this artifact, then draw a card for each charge counter on it.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      },
+      {
+        "card": "Jason Bright, Glowing Prophet",
+        "access": [
+          {
+            "line": "Whenever a Zombie or Mutant you control dies, if its power was different from its base power, draw a card.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      },
+      {
+        "card": "Liliana's Standard Bearer",
+        "access": [
+          {
+            "line": "When this creature enters, draw X cards, where X is the number of creatures that died under your control this turn.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      },
+      {
+        "card": "Midnight Reaper",
+        "access": [
+          {
+            "line": "Whenever a nontoken creature you control dies, this creature deals 1 damage to you and you draw a card.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      },
+      {
+        "card": "Murderous Rider // Swift End",
+        "access": [],
+        "other": [
+          "alternate faces/transform/craft not evaluated; front face only"
+        ]
+      },
+      {
+        "card": "My Precious // Allure of Power",
+        "access": [],
+        "other": [
+          "alternate faces/transform/craft not evaluated; front face only"
+        ]
+      },
+      {
+        "card": "Ragamuffyn",
+        "access": [
+          {
+            "line": "Hellbent — {T}, Sacrifice a creature or land: Draw a card. Activate only if you have no cards in hand.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      },
+      {
+        "card": "Undead Augur",
+        "access": [
+          {
+            "line": "Whenever this creature or another Zombie you control dies, you draw a card and lose 1 life.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      },
+      {
+        "card": "Vesper Ghoul",
+        "access": [],
+        "other": [
+          "unsupported activation cost: {T}, Pay 1 life: Add one mana of any color."
+        ]
+      },
+      {
+        "card": "Exotic Orchard",
+        "access": [],
+        "other": [
+          "unsupported mana production: {T}: Add one mana of any color that a land an opponent controls could produce."
+        ]
+      },
+      {
+        "card": "Island",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {U}.)"
+        ]
+      },
+      {
+        "card": "Island",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {U}.)"
+        ]
+      },
+      {
+        "card": "Island",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {U}.)"
+        ]
+      },
+      {
+        "card": "Island",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {U}.)"
+        ]
+      },
+      {
+        "card": "Island",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {U}.)"
+        ]
+      },
+      {
+        "card": "Island",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {U}.)"
+        ]
+      },
+      {
+        "card": "Island",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {U}.)"
+        ]
+      },
+      {
+        "card": "Island",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {U}.)"
+        ]
+      },
+      {
+        "card": "Island",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {U}.)"
+        ]
+      },
+      {
+        "card": "Island",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {U}.)"
+        ]
+      },
+      {
+        "card": "Island",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {U}.)"
+        ]
+      },
+      {
+        "card": "Island",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {U}.)"
+        ]
+      },
+      {
+        "card": "Mirrodin's Core",
+        "access": [],
+        "other": [
+          "unsupported activation cost: {T}, Remove a charge counter from this land: Add one mana of any color."
+        ]
+      },
+      {
+        "card": "River of Tears",
+        "access": [],
+        "other": [
+          "unsupported mana condition: {T}: Add {U}. If you played a land this turn, add {B} instead."
+        ]
+      },
+      {
+        "card": "Rootwater Depths",
+        "access": [],
+        "other": [
+          "unsupported mana condition: {T}: Add {U} or {B}. This land doesn't untap during your next untap step."
+        ]
+      },
+      {
+        "card": "Spire of Industry",
+        "access": [],
+        "other": [
+          "unsupported activation cost: {T}, Pay 1 life: Add one mana of any color. Activate only if you control an artifact."
+        ]
+      },
+      {
+        "card": "Swamp",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {B}.)"
+        ]
+      },
+      {
+        "card": "Swamp",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {B}.)"
+        ]
+      },
+      {
+        "card": "Swamp",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {B}.)"
+        ]
+      },
+      {
+        "card": "Swamp",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {B}.)"
+        ]
+      },
+      {
+        "card": "Swamp",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {B}.)"
+        ]
+      },
+      {
+        "card": "Swamp",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {B}.)"
+        ]
+      },
+      {
+        "card": "Swamp",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {B}.)"
+        ]
+      },
+      {
+        "card": "Swamp",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {B}.)"
+        ]
+      },
+      {
+        "card": "Swamp",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {B}.)"
+        ]
+      },
+      {
+        "card": "Swamp",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {B}.)"
+        ]
+      },
+      {
+        "card": "Swamp",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {B}.)"
+        ]
+      },
+      {
+        "card": "Swamp",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {B}.)"
+        ]
+      },
+      {
+        "card": "Swamp",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {B}.)"
+        ]
+      },
+      {
+        "card": "Swamp",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {B}.)"
+        ]
+      },
+      {
+        "card": "Swamp",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {B}.)"
+        ]
+      },
+      {
+        "card": "Tendo Ice Bridge",
+        "access": [],
+        "other": [
+          "unsupported activation cost: {T}, Remove a charge counter from this land: Add one mana of any color."
+        ]
+      },
+      {
+        "card": "The Grey Havens",
+        "access": [],
+        "other": [
+          "unsupported mana production: {T}: Add one mana of any color among legendary creature cards in your graveyard."
+        ]
+      },
+      {
+        "card": "Waterveil Cavern",
+        "access": [],
+        "other": [
+          "unsupported mana condition: {T}: Add {U} or {B}. This land doesn't untap during your next untap step."
+        ]
+      },
+      {
+        "card": "Mana Vault",
+        "access": [
+          {
+            "line": "At the beginning of your draw step, if this artifact is tapped, it deals 1 damage to you.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      },
+      {
+        "card": "Wilhelt, the Rotcleaver",
+        "access": [
+          {
+            "line": "At the beginning of your end step, you may sacrifice a Zombie. If you do, draw a card.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      }
+    ],
+    "boundHits": 0,
+    "actionBoundHits": 0,
+    "lost": false,
+    "diagnostics": [
+      {
+        "turn": 1,
+        "commander": {
+          "id": "commander",
+          "card": "Wilhelt, the Rotcleaver",
+          "cost": "{2}{U}{B}",
+          "reduction": 0,
+          "context": {
+            "kind": "spell",
+            "types": [
+              "Legendary",
+              "Creature"
+            ],
+            "subtypes": [
+              "Zombie",
+              "Warrior"
+            ],
+            "commander": true
+          },
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks",
+          "jointStatus": "blocked",
+          "triggerCosts": [],
+          "diagnosis": {
+            "kind": "supported-mana-shortfall",
+            "counterfactual": true
+          }
+        },
+        "hand": [
+          {
+            "id": "deck-97",
+            "card": "Charcoal Diamond",
+            "cost": "{2}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Artifact"
+              ],
+              "subtypes": [],
+              "commander": false
+            },
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks",
+            "jointStatus": "blocked",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "supported-mana-shortfall",
+              "counterfactual": true
+            }
+          },
+          {
+            "id": "deck-17",
+            "card": "Dreadmalkin",
+            "cost": "{B}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Creature"
+              ],
+              "subtypes": [
+                "Zombie",
+                "Cat"
+              ],
+              "commander": false
+            },
+            "status": "paid",
+            "reason": null,
+            "jointStatus": "paid",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "payable-before-actions"
+            }
+          },
+          {
+            "id": "deck-28",
+            "card": "Insight Engine",
+            "cost": "{2}{U}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Artifact"
+              ],
+              "subtypes": [],
+              "commander": false
+            },
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks",
+            "jointStatus": "blocked",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "supported-mana-shortfall",
+              "counterfactual": true
+            }
+          },
+          {
+            "id": "deck-40",
+            "card": "Patchwork Crawler",
+            "cost": "{1}{U}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Creature"
+              ],
+              "subtypes": [
+                "Zombie",
+                "Horror"
+              ],
+              "commander": false
+            },
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks",
+            "jointStatus": "blocked",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "supported-mana-shortfall",
+              "counterfactual": true
+            }
+          },
+          {
+            "id": "deck-18",
+            "card": "Fell Stinger",
+            "cost": "{2}{B}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Creature"
+              ],
+              "subtypes": [
+                "Zombie",
+                "Scorpion"
+              ],
+              "commander": false
+            },
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks",
+            "jointStatus": "blocked",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "supported-mana-shortfall",
+              "counterfactual": true
+            }
+          },
+          {
+            "id": "deck-39",
+            "card": "Overcharged Amalgam",
+            "cost": "{2}{U}{U}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Creature"
+              ],
+              "subtypes": [
+                "Zombie",
+                "Horror"
+              ],
+              "commander": false
+            },
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks",
+            "jointStatus": "blocked",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "supported-mana-shortfall",
+              "counterfactual": true
+            }
+          }
+        ],
+        "engines": []
+      },
+      {
+        "turn": 2,
+        "commander": {
+          "id": "commander",
+          "card": "Wilhelt, the Rotcleaver",
+          "cost": "{2}{U}{B}",
+          "reduction": 0,
+          "context": {
+            "kind": "spell",
+            "types": [
+              "Legendary",
+              "Creature"
+            ],
+            "subtypes": [
+              "Zombie",
+              "Warrior"
+            ],
+            "commander": true
+          },
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks",
+          "jointStatus": "blocked",
+          "triggerCosts": [],
+          "diagnosis": {
+            "kind": "supported-mana-shortfall",
+            "counterfactual": true
+          }
+        },
+        "hand": [
+          {
+            "id": "deck-97",
+            "card": "Charcoal Diamond",
+            "cost": "{2}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Artifact"
+              ],
+              "subtypes": [],
+              "commander": false
+            },
+            "status": "paid",
+            "reason": null,
+            "jointStatus": "paid",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "payable-before-actions"
+            }
+          },
+          {
+            "id": "deck-28",
+            "card": "Insight Engine",
+            "cost": "{2}{U}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Artifact"
+              ],
+              "subtypes": [],
+              "commander": false
+            },
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks",
+            "jointStatus": "blocked",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "supported-mana-shortfall",
+              "counterfactual": true
+            }
+          },
+          {
+            "id": "deck-40",
+            "card": "Patchwork Crawler",
+            "cost": "{1}{U}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Creature"
+              ],
+              "subtypes": [
+                "Zombie",
+                "Horror"
+              ],
+              "commander": false
+            },
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable",
+            "jointStatus": "blocked",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "colored-payment-constraint",
+              "counterfactual": true
+            }
+          },
+          {
+            "id": "deck-18",
+            "card": "Fell Stinger",
+            "cost": "{2}{B}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Creature"
+              ],
+              "subtypes": [
+                "Zombie",
+                "Scorpion"
+              ],
+              "commander": false
+            },
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks",
+            "jointStatus": "blocked",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "supported-mana-shortfall",
+              "counterfactual": true
+            }
+          },
+          {
+            "id": "deck-39",
+            "card": "Overcharged Amalgam",
+            "cost": "{2}{U}{U}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Creature"
+              ],
+              "subtypes": [
+                "Zombie",
+                "Horror"
+              ],
+              "commander": false
+            },
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks",
+            "jointStatus": "blocked",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "supported-mana-shortfall",
+              "counterfactual": true
+            }
+          },
+          {
+            "id": "deck-47",
+            "card": "Sidisi, Regent of the Mire",
+            "cost": "{1}{B}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Legendary",
+                "Creature"
+              ],
+              "subtypes": [
+                "Zombie",
+                "Snake",
+                "Warlock"
+              ],
+              "commander": false
+            },
+            "status": "paid",
+            "reason": null,
+            "jointStatus": "paid",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "payable-before-actions"
+            }
+          }
+        ],
+        "engines": []
+      },
+      {
+        "turn": 3,
+        "commander": {
+          "id": "commander",
+          "card": "Wilhelt, the Rotcleaver",
+          "cost": "{2}{U}{B}",
+          "reduction": 0,
+          "context": {
+            "kind": "spell",
+            "types": [
+              "Legendary",
+              "Creature"
+            ],
+            "subtypes": [
+              "Zombie",
+              "Warrior"
+            ],
+            "commander": true
+          },
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks",
+          "jointStatus": "blocked",
+          "triggerCosts": [],
+          "diagnosis": {
+            "kind": "supported-mana-shortfall",
+            "counterfactual": true
+          }
+        },
+        "hand": [
+          {
+            "id": "deck-28",
+            "card": "Insight Engine",
+            "cost": "{2}{U}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Artifact"
+              ],
+              "subtypes": [],
+              "commander": false
+            },
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks",
+            "jointStatus": "blocked",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "supported-mana-shortfall",
+              "counterfactual": true
+            }
+          },
+          {
+            "id": "deck-40",
+            "card": "Patchwork Crawler",
+            "cost": "{1}{U}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Creature"
+              ],
+              "subtypes": [
+                "Zombie",
+                "Horror"
+              ],
+              "commander": false
+            },
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable",
+            "jointStatus": "blocked",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "colored-payment-constraint",
+              "counterfactual": true
+            }
+          },
+          {
+            "id": "deck-18",
+            "card": "Fell Stinger",
+            "cost": "{2}{B}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Creature"
+              ],
+              "subtypes": [
+                "Zombie",
+                "Scorpion"
+              ],
+              "commander": false
+            },
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks",
+            "jointStatus": "blocked",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "supported-mana-shortfall",
+              "counterfactual": true
+            }
+          },
+          {
+            "id": "deck-39",
+            "card": "Overcharged Amalgam",
+            "cost": "{2}{U}{U}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Creature"
+              ],
+              "subtypes": [
+                "Zombie",
+                "Horror"
+              ],
+              "commander": false
+            },
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks",
+            "jointStatus": "blocked",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "supported-mana-shortfall",
+              "counterfactual": true
+            }
+          },
+          {
+            "id": "deck-47",
+            "card": "Sidisi, Regent of the Mire",
+            "cost": "{1}{B}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Legendary",
+                "Creature"
+              ],
+              "subtypes": [
+                "Zombie",
+                "Snake",
+                "Warlock"
+              ],
+              "commander": false
+            },
+            "status": "paid",
+            "reason": null,
+            "jointStatus": "paid",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "payable-before-actions"
+            }
+          },
+          {
+            "id": "deck-26",
+            "card": "Headless Rider",
+            "cost": "{2}{B}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Creature"
+              ],
+              "subtypes": [
+                "Zombie"
+              ],
+              "commander": false
+            },
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks",
+            "jointStatus": "blocked",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "supported-mana-shortfall",
+              "counterfactual": true
+            }
+          }
+        ],
+        "engines": []
+      },
+      {
+        "turn": 4,
+        "commander": {
+          "id": "commander",
+          "card": "Wilhelt, the Rotcleaver",
+          "cost": "{2}{U}{B}",
+          "reduction": 0,
+          "context": {
+            "kind": "spell",
+            "types": [
+              "Legendary",
+              "Creature"
+            ],
+            "subtypes": [
+              "Zombie",
+              "Warrior"
+            ],
+            "commander": true
+          },
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks",
+          "jointStatus": "blocked",
+          "triggerCosts": [],
+          "diagnosis": {
+            "kind": "supported-mana-shortfall",
+            "counterfactual": true
+          }
+        },
+        "hand": [
+          {
+            "id": "deck-28",
+            "card": "Insight Engine",
+            "cost": "{2}{U}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Artifact"
+              ],
+              "subtypes": [],
+              "commander": false
+            },
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks",
+            "jointStatus": "blocked",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "supported-mana-shortfall",
+              "counterfactual": true
+            }
+          },
+          {
+            "id": "deck-40",
+            "card": "Patchwork Crawler",
+            "cost": "{1}{U}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Creature"
+              ],
+              "subtypes": [
+                "Zombie",
+                "Horror"
+              ],
+              "commander": false
+            },
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable",
+            "jointStatus": "blocked",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "colored-payment-constraint",
+              "counterfactual": true
+            }
+          },
+          {
+            "id": "deck-18",
+            "card": "Fell Stinger",
+            "cost": "{2}{B}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Creature"
+              ],
+              "subtypes": [
+                "Zombie",
+                "Scorpion"
+              ],
+              "commander": false
+            },
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks",
+            "jointStatus": "blocked",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "supported-mana-shortfall",
+              "counterfactual": true
+            }
+          },
+          {
+            "id": "deck-39",
+            "card": "Overcharged Amalgam",
+            "cost": "{2}{U}{U}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Creature"
+              ],
+              "subtypes": [
+                "Zombie",
+                "Horror"
+              ],
+              "commander": false
+            },
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks",
+            "jointStatus": "blocked",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "supported-mana-shortfall",
+              "counterfactual": true
+            }
+          },
+          {
+            "id": "deck-26",
+            "card": "Headless Rider",
+            "cost": "{2}{B}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Creature"
+              ],
+              "subtypes": [
+                "Zombie"
+              ],
+              "commander": false
+            },
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks",
+            "jointStatus": "blocked",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "supported-mana-shortfall",
+              "counterfactual": true
+            }
+          },
+          {
+            "id": "deck-25",
+            "card": "Gutless Ghoul",
+            "cost": "{2}{B}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Snow",
+                "Creature"
+              ],
+              "subtypes": [
+                "Zombie"
+              ],
+              "commander": false
+            },
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks",
+            "jointStatus": "blocked",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "supported-mana-shortfall",
+              "counterfactual": true
+            }
+          }
+        ],
+        "engines": []
+      },
+      {
+        "turn": 5,
+        "commander": {
+          "id": "commander",
+          "card": "Wilhelt, the Rotcleaver",
+          "cost": "{2}{U}{B}",
+          "reduction": 0,
+          "context": {
+            "kind": "spell",
+            "types": [
+              "Legendary",
+              "Creature"
+            ],
+            "subtypes": [
+              "Zombie",
+              "Warrior"
+            ],
+            "commander": true
+          },
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks",
+          "jointStatus": "blocked",
+          "triggerCosts": [],
+          "diagnosis": {
+            "kind": "supported-mana-shortfall",
+            "counterfactual": true
+          }
+        },
+        "hand": [
+          {
+            "id": "deck-28",
+            "card": "Insight Engine",
+            "cost": "{2}{U}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Artifact"
+              ],
+              "subtypes": [],
+              "commander": false
+            },
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks",
+            "jointStatus": "blocked",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "supported-mana-shortfall",
+              "counterfactual": true
+            }
+          },
+          {
+            "id": "deck-40",
+            "card": "Patchwork Crawler",
+            "cost": "{1}{U}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Creature"
+              ],
+              "subtypes": [
+                "Zombie",
+                "Horror"
+              ],
+              "commander": false
+            },
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable",
+            "jointStatus": "blocked",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "colored-payment-constraint",
+              "counterfactual": true
+            }
+          },
+          {
+            "id": "deck-18",
+            "card": "Fell Stinger",
+            "cost": "{2}{B}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Creature"
+              ],
+              "subtypes": [
+                "Zombie",
+                "Scorpion"
+              ],
+              "commander": false
+            },
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks",
+            "jointStatus": "blocked",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "supported-mana-shortfall",
+              "counterfactual": true
+            }
+          },
+          {
+            "id": "deck-39",
+            "card": "Overcharged Amalgam",
+            "cost": "{2}{U}{U}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Creature"
+              ],
+              "subtypes": [
+                "Zombie",
+                "Horror"
+              ],
+              "commander": false
+            },
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks",
+            "jointStatus": "blocked",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "supported-mana-shortfall",
+              "counterfactual": true
+            }
+          },
+          {
+            "id": "deck-26",
+            "card": "Headless Rider",
+            "cost": "{2}{B}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Creature"
+              ],
+              "subtypes": [
+                "Zombie"
+              ],
+              "commander": false
+            },
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks",
+            "jointStatus": "blocked",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "supported-mana-shortfall",
+              "counterfactual": true
+            }
+          },
+          {
+            "id": "deck-25",
+            "card": "Gutless Ghoul",
+            "cost": "{2}{B}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Snow",
+                "Creature"
+              ],
+              "subtypes": [
+                "Zombie"
+              ],
+              "commander": false
+            },
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks",
+            "jointStatus": "blocked",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "supported-mana-shortfall",
+              "counterfactual": true
+            }
+          },
+          {
+            "id": "deck-5",
+            "card": "Archghoul of Thraben",
+            "cost": "{2}{B}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Creature"
+              ],
+              "subtypes": [
+                "Zombie",
+                "Cleric"
+              ],
+              "commander": false
+            },
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks",
+            "jointStatus": "blocked",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "supported-mana-shortfall",
+              "counterfactual": true
+            }
+          }
+        ],
+        "engines": []
+      },
+      {
+        "turn": 6,
+        "commander": {
+          "id": "commander",
+          "card": "Wilhelt, the Rotcleaver",
+          "cost": "{2}{U}{B}",
+          "reduction": 0,
+          "context": {
+            "kind": "spell",
+            "types": [
+              "Legendary",
+              "Creature"
+            ],
+            "subtypes": [
+              "Zombie",
+              "Warrior"
+            ],
+            "commander": true
+          },
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks",
+          "jointStatus": "blocked",
+          "triggerCosts": [],
+          "diagnosis": {
+            "kind": "supported-mana-shortfall",
+            "counterfactual": true
+          }
+        },
+        "hand": [
+          {
+            "id": "deck-28",
+            "card": "Insight Engine",
+            "cost": "{2}{U}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Artifact"
+              ],
+              "subtypes": [],
+              "commander": false
+            },
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks",
+            "jointStatus": "blocked",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "supported-mana-shortfall",
+              "counterfactual": true
+            }
+          },
+          {
+            "id": "deck-40",
+            "card": "Patchwork Crawler",
+            "cost": "{1}{U}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Creature"
+              ],
+              "subtypes": [
+                "Zombie",
+                "Horror"
+              ],
+              "commander": false
+            },
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable",
+            "jointStatus": "blocked",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "colored-payment-constraint",
+              "counterfactual": true
+            }
+          },
+          {
+            "id": "deck-18",
+            "card": "Fell Stinger",
+            "cost": "{2}{B}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Creature"
+              ],
+              "subtypes": [
+                "Zombie",
+                "Scorpion"
+              ],
+              "commander": false
+            },
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks",
+            "jointStatus": "blocked",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "supported-mana-shortfall",
+              "counterfactual": true
+            }
+          },
+          {
+            "id": "deck-39",
+            "card": "Overcharged Amalgam",
+            "cost": "{2}{U}{U}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Creature"
+              ],
+              "subtypes": [
+                "Zombie",
+                "Horror"
+              ],
+              "commander": false
+            },
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks",
+            "jointStatus": "blocked",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "supported-mana-shortfall",
+              "counterfactual": true
+            }
+          },
+          {
+            "id": "deck-26",
+            "card": "Headless Rider",
+            "cost": "{2}{B}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Creature"
+              ],
+              "subtypes": [
+                "Zombie"
+              ],
+              "commander": false
+            },
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks",
+            "jointStatus": "blocked",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "supported-mana-shortfall",
+              "counterfactual": true
+            }
+          },
+          {
+            "id": "deck-25",
+            "card": "Gutless Ghoul",
+            "cost": "{2}{B}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Snow",
+                "Creature"
+              ],
+              "subtypes": [
+                "Zombie"
+              ],
+              "commander": false
+            },
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks",
+            "jointStatus": "blocked",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "supported-mana-shortfall",
+              "counterfactual": true
+            }
+          },
+          {
+            "id": "deck-5",
+            "card": "Archghoul of Thraben",
+            "cost": "{2}{B}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Creature"
+              ],
+              "subtypes": [
+                "Zombie",
+                "Cleric"
+              ],
+              "commander": false
+            },
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks",
+            "jointStatus": "blocked",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "supported-mana-shortfall",
+              "counterfactual": true
+            }
+          },
+          {
+            "id": "deck-2",
+            "card": "Accursed Horde",
+            "cost": "{3}{B}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Creature"
+              ],
+              "subtypes": [
+                "Zombie"
+              ],
+              "commander": false
+            },
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks",
+            "jointStatus": "blocked",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "supported-mana-shortfall",
+              "counterfactual": true
+            }
+          }
+        ],
+        "engines": []
+      },
+      {
+        "turn": 7,
+        "commander": {
+          "id": "commander",
+          "card": "Wilhelt, the Rotcleaver",
+          "cost": "{2}{U}{B}",
+          "reduction": 0,
+          "context": {
+            "kind": "spell",
+            "types": [
+              "Legendary",
+              "Creature"
+            ],
+            "subtypes": [
+              "Zombie",
+              "Warrior"
+            ],
+            "commander": true
+          },
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks",
+          "jointStatus": "blocked",
+          "triggerCosts": [],
+          "diagnosis": {
+            "kind": "supported-mana-shortfall",
+            "counterfactual": true
+          }
+        },
+        "hand": [
+          {
+            "id": "deck-40",
+            "card": "Patchwork Crawler",
+            "cost": "{1}{U}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Creature"
+              ],
+              "subtypes": [
+                "Zombie",
+                "Horror"
+              ],
+              "commander": false
+            },
+            "status": "paid",
+            "reason": null,
+            "jointStatus": "paid",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "payable-before-actions"
+            }
+          },
+          {
+            "id": "deck-18",
+            "card": "Fell Stinger",
+            "cost": "{2}{B}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Creature"
+              ],
+              "subtypes": [
+                "Zombie",
+                "Scorpion"
+              ],
+              "commander": false
+            },
+            "status": "paid",
+            "reason": null,
+            "jointStatus": "paid",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "payable-before-actions"
+            }
+          },
+          {
+            "id": "deck-39",
+            "card": "Overcharged Amalgam",
+            "cost": "{2}{U}{U}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Creature"
+              ],
+              "subtypes": [
+                "Zombie",
+                "Horror"
+              ],
+              "commander": false
+            },
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks",
+            "jointStatus": "blocked",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "supported-mana-shortfall",
+              "counterfactual": true
+            }
+          },
+          {
+            "id": "deck-26",
+            "card": "Headless Rider",
+            "cost": "{2}{B}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Creature"
+              ],
+              "subtypes": [
+                "Zombie"
+              ],
+              "commander": false
+            },
+            "status": "paid",
+            "reason": null,
+            "jointStatus": "paid",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "payable-before-actions"
+            }
+          },
+          {
+            "id": "deck-25",
+            "card": "Gutless Ghoul",
+            "cost": "{2}{B}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Snow",
+                "Creature"
+              ],
+              "subtypes": [
+                "Zombie"
+              ],
+              "commander": false
+            },
+            "status": "paid",
+            "reason": null,
+            "jointStatus": "paid",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "payable-before-actions"
+            }
+          },
+          {
+            "id": "deck-5",
+            "card": "Archghoul of Thraben",
+            "cost": "{2}{B}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Creature"
+              ],
+              "subtypes": [
+                "Zombie",
+                "Cleric"
+              ],
+              "commander": false
+            },
+            "status": "paid",
+            "reason": null,
+            "jointStatus": "paid",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "payable-before-actions"
+            }
+          },
+          {
+            "id": "deck-2",
+            "card": "Accursed Horde",
+            "cost": "{3}{B}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Creature"
+              ],
+              "subtypes": [
+                "Zombie"
+              ],
+              "commander": false
+            },
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks",
+            "jointStatus": "blocked",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "supported-mana-shortfall",
+              "counterfactual": true
+            }
+          }
+        ],
+        "engines": []
+      },
+      {
+        "turn": 8,
+        "commander": {
+          "id": "commander",
+          "card": "Wilhelt, the Rotcleaver",
+          "cost": "{2}{U}{B}",
+          "reduction": 0,
+          "context": {
+            "kind": "spell",
+            "types": [
+              "Legendary",
+              "Creature"
+            ],
+            "subtypes": [
+              "Zombie",
+              "Warrior"
+            ],
+            "commander": true
+          },
+          "status": "blocked",
+          "reason": "insufficient total mana even before color/restriction checks",
+          "jointStatus": "blocked",
+          "triggerCosts": [],
+          "diagnosis": {
+            "kind": "supported-mana-shortfall",
+            "counterfactual": true
+          }
+        },
+        "hand": [
+          {
+            "id": "deck-18",
+            "card": "Fell Stinger",
+            "cost": "{2}{B}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Creature"
+              ],
+              "subtypes": [
+                "Zombie",
+                "Scorpion"
+              ],
+              "commander": false
+            },
+            "status": "paid",
+            "reason": null,
+            "jointStatus": "paid",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "payable-before-actions"
+            }
+          },
+          {
+            "id": "deck-39",
+            "card": "Overcharged Amalgam",
+            "cost": "{2}{U}{U}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Creature"
+              ],
+              "subtypes": [
+                "Zombie",
+                "Horror"
+              ],
+              "commander": false
+            },
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks",
+            "jointStatus": "blocked",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "supported-mana-shortfall",
+              "counterfactual": true
+            }
+          },
+          {
+            "id": "deck-26",
+            "card": "Headless Rider",
+            "cost": "{2}{B}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Creature"
+              ],
+              "subtypes": [
+                "Zombie"
+              ],
+              "commander": false
+            },
+            "status": "paid",
+            "reason": null,
+            "jointStatus": "paid",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "payable-before-actions"
+            }
+          },
+          {
+            "id": "deck-25",
+            "card": "Gutless Ghoul",
+            "cost": "{2}{B}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Snow",
+                "Creature"
+              ],
+              "subtypes": [
+                "Zombie"
+              ],
+              "commander": false
+            },
+            "status": "paid",
+            "reason": null,
+            "jointStatus": "paid",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "payable-before-actions"
+            }
+          },
+          {
+            "id": "deck-5",
+            "card": "Archghoul of Thraben",
+            "cost": "{2}{B}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Creature"
+              ],
+              "subtypes": [
+                "Zombie",
+                "Cleric"
+              ],
+              "commander": false
+            },
+            "status": "paid",
+            "reason": null,
+            "jointStatus": "paid",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "payable-before-actions"
+            }
+          },
+          {
+            "id": "deck-2",
+            "card": "Accursed Horde",
+            "cost": "{3}{B}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Creature"
+              ],
+              "subtypes": [
+                "Zombie"
+              ],
+              "commander": false
+            },
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks",
+            "jointStatus": "blocked",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "supported-mana-shortfall",
+              "counterfactual": true
+            }
+          },
+          {
+            "id": "deck-41",
+            "card": "Phyrexian Ghoul",
+            "cost": "{2}{B}",
+            "reduction": 0,
+            "context": {
+              "kind": "spell",
+              "types": [
+                "Creature"
+              ],
+              "subtypes": [
+                "Phyrexian",
+                "Zombie"
+              ],
+              "commander": false
+            },
+            "status": "paid",
+            "reason": null,
+            "jointStatus": "paid",
+            "triggerCosts": [],
+            "diagnosis": {
+              "kind": "payable-before-actions"
+            }
+          }
+        ],
+        "engines": []
+      }
+    ],
+    "postActionExhaustion": [
+      {
+        "turn": 2,
+        "card": "Sidisi, Regent of the Mire",
+        "kind": "post-action-resources-spent",
+        "commanderPayable": false
+      },
+      {
+        "turn": 7,
+        "card": "Fell Stinger",
+        "kind": "post-action-resources-spent",
+        "commanderPayable": false
+      },
+      {
+        "turn": 7,
+        "card": "Headless Rider",
+        "kind": "post-action-resources-spent",
+        "commanderPayable": false
+      },
+      {
+        "turn": 7,
+        "card": "Gutless Ghoul",
+        "kind": "post-action-resources-spent",
+        "commanderPayable": false
+      },
+      {
+        "turn": 7,
+        "card": "Archghoul of Thraben",
+        "kind": "post-action-resources-spent",
+        "commanderPayable": false
+      },
+      {
+        "turn": 8,
+        "card": "Headless Rider",
+        "kind": "post-action-resources-spent",
+        "commanderPayable": false
+      },
+      {
+        "turn": 8,
+        "card": "Gutless Ghoul",
+        "kind": "post-action-resources-spent",
+        "commanderPayable": false
+      },
+      {
+        "turn": 8,
+        "card": "Archghoul of Thraben",
+        "kind": "post-action-resources-spent",
+        "commanderPayable": false
+      },
+      {
+        "turn": 8,
+        "card": "Phyrexian Ghoul",
+        "kind": "post-action-resources-spent",
+        "commanderPayable": false
+      }
+    ],
+    "decisions": [
+      {
+        "turn": 1,
+        "event": "decision",
+        "policy": "commander-first",
+        "chosen": "deck-17",
+        "kind": "cast",
+        "reason": "deploy native creature",
+        "commanderPayable": false,
+        "setupBudgetUsed": 0,
+        "alternatives": []
+      },
+      {
+        "turn": 2,
+        "event": "decision",
+        "policy": "commander-first",
+        "chosen": "deck-97",
+        "kind": "cast",
+        "reason": "develop usable mana",
+        "commanderPayable": false,
+        "setupBudgetUsed": 0,
+        "alternatives": [
+          {
+            "id": "deck-47",
+            "kind": "cast",
+            "reason": "deploy native creature"
+          }
+        ]
+      },
+      {
+        "turn": 3,
+        "event": "decision",
+        "policy": "commander-first",
+        "chosen": "deck-47",
+        "kind": "cast",
+        "reason": "deploy native creature",
+        "commanderPayable": false,
+        "setupBudgetUsed": 0,
+        "alternatives": []
+      },
+      {
+        "turn": 7,
+        "event": "decision",
+        "policy": "commander-first",
+        "chosen": "deck-40",
+        "kind": "cast",
+        "reason": "deploy native creature",
+        "commanderPayable": false,
+        "setupBudgetUsed": 0,
+        "alternatives": [
+          {
+            "id": "deck-18",
+            "kind": "cast",
+            "reason": "deploy native creature"
+          },
+          {
+            "id": "deck-25",
+            "kind": "cast",
+            "reason": "deploy native creature"
+          },
+          {
+            "id": "deck-26",
+            "kind": "cast",
+            "reason": "deploy native creature"
+          },
+          {
+            "id": "deck-5",
+            "kind": "cast",
+            "reason": "deploy native creature"
+          }
+        ]
+      },
+      {
+        "turn": 8,
+        "event": "decision",
+        "policy": "commander-first",
+        "chosen": "deck-18",
+        "kind": "cast",
+        "reason": "deploy native creature",
+        "commanderPayable": false,
+        "setupBudgetUsed": 0,
+        "alternatives": [
+          {
+            "id": "deck-25",
+            "kind": "cast",
+            "reason": "deploy native creature"
+          },
+          {
+            "id": "deck-26",
+            "kind": "cast",
+            "reason": "deploy native creature"
+          },
+          {
+            "id": "deck-41",
+            "kind": "cast",
+            "reason": "deploy native creature"
+          },
+          {
+            "id": "deck-5",
+            "kind": "cast",
+            "reason": "deploy native creature"
+          }
+        ]
+      }
+    ],
+    "turns": [
+      {
+        "turn": 1,
+        "commander": false,
+        "hand": 6,
+        "netAccess": 0,
+        "draws": 0,
+        "topCasts": 0,
+        "manaBefore": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "blocked"
+        },
+        "manaAfter": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "blocked"
+        },
+        "engines": [],
+        "threats": []
+      },
+      {
+        "turn": 2,
+        "commander": false,
+        "hand": 5,
+        "netAccess": 0,
+        "draws": 0,
+        "topCasts": 0,
+        "manaBefore": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "blocked"
+        },
+        "manaAfter": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "blocked"
+        },
+        "engines": [],
+        "threats": []
+      },
+      {
+        "turn": 3,
+        "commander": false,
+        "hand": 5,
+        "netAccess": 0,
+        "draws": 0,
+        "topCasts": 0,
+        "manaBefore": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "blocked"
+        },
+        "manaAfter": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "blocked"
+        },
+        "engines": [],
+        "threats": []
+      },
+      {
+        "turn": 4,
+        "commander": false,
+        "hand": 6,
+        "netAccess": 0,
+        "draws": 0,
+        "topCasts": 0,
+        "manaBefore": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "blocked"
+        },
+        "manaAfter": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "blocked"
+        },
+        "engines": [],
+        "threats": []
+      },
+      {
+        "turn": 5,
+        "commander": false,
+        "hand": 7,
+        "netAccess": 0,
+        "draws": 0,
+        "topCasts": 0,
+        "manaBefore": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "blocked"
+        },
+        "manaAfter": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "blocked"
+        },
+        "engines": [],
+        "threats": []
+      },
+      {
+        "turn": 6,
+        "commander": false,
+        "hand": 7,
+        "netAccess": -1,
+        "draws": 0,
+        "topCasts": 0,
+        "manaBefore": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "blocked"
+        },
+        "manaAfter": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "blocked"
+        },
+        "engines": [],
+        "threats": []
+      },
+      {
+        "turn": 7,
+        "commander": false,
+        "hand": 6,
+        "netAccess": -1,
+        "draws": 0,
+        "topCasts": 0,
+        "manaBefore": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 3,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "blocked"
+        },
+        "manaAfter": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "blocked"
+        },
+        "engines": [],
+        "threats": []
+      },
+      {
+        "turn": 8,
+        "commander": false,
+        "hand": 6,
+        "netAccess": -1,
+        "draws": 0,
+        "topCasts": 0,
+        "manaBefore": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 3,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "blocked"
+        },
+        "manaAfter": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "blocked"
+        },
+        "engines": [],
+        "threats": []
+      }
+    ],
+    "casts": [
+      {
+        "turn": 1,
+        "id": "deck-17",
+        "card": "Dreadmalkin",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 2,
+        "id": "deck-97",
+        "card": "Charcoal Diamond",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 3,
+        "id": "deck-47",
+        "card": "Sidisi, Regent of the Mire",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 7,
+        "id": "deck-40",
+        "card": "Patchwork Crawler",
+        "commander": false,
+        "origin": "hand"
+      },
+      {
+        "turn": 8,
+        "id": "deck-18",
+        "card": "Fell Stinger",
+        "commander": false,
+        "origin": "hand"
+      }
+    ],
+    "optionalPayments": []
+  },
+  "run": {
+    "schemaVersion": 2,
+    "evaluator": "gameplay-stage2-v1",
+    "seed": "gameplay-shadow-2026-10-22:holdout:0",
+    "turns": 8,
+    "policy": "commander-first",
+    "mulligan": "none",
+    "order": [
+      97,
+      17,
+      77,
+      28,
+      40,
+      82,
+      18,
+      39,
+      47,
+      26,
+      25,
+      5,
+      2,
+      67,
+      41,
+      29,
+      83,
+      45,
+      36,
+      37,
+      54,
+      51,
+      70,
+      23,
+      6,
+      60,
+      58,
+      33,
+      66,
+      81,
+      22,
+      8,
+      59,
+      79,
+      86,
+      62,
+      64,
+      0,
+      34,
+      44,
+      61,
+      11,
+      21,
+      93,
+      91,
+      87,
+      12,
+      14,
+      38,
+      32,
+      78,
+      80,
+      10,
+      31,
+      42,
+      71,
+      48,
+      24,
+      19,
+      63,
+      13,
+      7,
+      72,
+      90,
+      9,
+      55,
+      3,
+      50,
+      92,
+      76,
+      68,
+      85,
+      74,
+      30,
+      96,
+      89,
+      52,
+      98,
+      15,
+      94,
+      35,
+      20,
+      49,
+      27,
+      75,
+      56,
+      57,
+      46,
+      16,
+      1,
+      4,
+      53,
+      69,
+      84,
+      73,
+      43,
+      65,
+      88,
+      95
+    ],
+    "initialOpening": [
+      {
+        "id": "deck-97",
+        "card": "Charcoal Diamond"
+      },
+      {
+        "id": "deck-17",
+        "card": "Dreadmalkin"
+      },
+      {
+        "id": "deck-77",
+        "card": "Rootwater Depths"
+      },
+      {
+        "id": "deck-28",
+        "card": "Insight Engine"
+      },
+      {
+        "id": "deck-40",
+        "card": "Patchwork Crawler"
+      },
+      {
+        "id": "deck-82",
+        "card": "Swamp"
+      },
+      {
+        "id": "deck-18",
+        "card": "Fell Stinger"
+      }
+    ],
+    "commander": "Wilhelt, the Rotcleaver",
+    "nativeTypes": [
+      "Zombie"
+    ],
+    "chosenType": "Zombie",
+    "stats": {
+      "casts": [
+        {
+          "turn": 1,
+          "id": "deck-17",
+          "card": "Dreadmalkin",
+          "commander": false,
+          "origin": "hand"
+        },
+        {
+          "turn": 2,
+          "id": "deck-97",
+          "card": "Charcoal Diamond",
+          "commander": false,
+          "origin": "hand"
+        },
+        {
+          "turn": 3,
+          "id": "deck-47",
+          "card": "Sidisi, Regent of the Mire",
+          "commander": false,
+          "origin": "hand"
+        },
+        {
+          "turn": 7,
+          "id": "deck-40",
+          "card": "Patchwork Crawler",
+          "commander": false,
+          "origin": "hand"
+        },
+        {
+          "turn": 8,
+          "id": "deck-18",
+          "card": "Fell Stinger",
+          "commander": false,
+          "origin": "hand"
+        }
+      ],
+      "commanderDeploymentTurn": null,
+      "setupBeforePayableCommander": 0,
+      "optionalPayments": [],
+      "effectDraws": 0,
+      "naturalDraws": 8,
+      "accessDiscards": 0,
+      "cleanupDiscards": 1,
+      "returnedToTop": 0,
+      "topCasts": 0,
+      "accessSacrifices": 0,
+      "accessSpells": 0,
+      "activations": 0,
+      "selections": 0,
+      "manaStates": 282,
+      "manaSearches": 154,
+      "boundHits": 0,
+      "actionBoundHits": 0,
+      "usedEngines": [],
+      "mulligans": 0
+    },
+    "observations": [
+      {
+        "turn": 1,
+        "commanderDeployed": false,
+        "manaBeforeActions": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "blocked"
+        },
+        "manaRemaining": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "blocked"
+        },
+        "handSize": 6,
+        "accessibleCards": 8,
+        "netAccessibleCards": 0,
+        "naturalDraws": 1,
+        "effectDraws": 0,
+        "effectDiscards": 0,
+        "cleanupDiscards": 0,
+        "returnedToTop": 0,
+        "topCasts": 0,
+        "accessSpells": 0,
+        "accessSacrifices": 0,
+        "engines": [],
+        "threatsBeforeActions": [],
+        "threatAvailability": [],
+        "missed": [
+          {
+            "id": "deck-97",
+            "card": "Charcoal Diamond",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-28",
+            "card": "Insight Engine",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-40",
+            "card": "Patchwork Crawler",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-18",
+            "card": "Fell Stinger",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-39",
+            "card": "Overcharged Amalgam",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "commander",
+            "card": "Wilhelt, the Rotcleaver",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          }
+        ]
+      },
+      {
+        "turn": 2,
+        "commanderDeployed": false,
+        "manaBeforeActions": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "blocked"
+        },
+        "manaRemaining": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "blocked"
+        },
+        "handSize": 5,
+        "accessibleCards": 9,
+        "netAccessibleCards": 0,
+        "naturalDraws": 2,
+        "effectDraws": 0,
+        "effectDiscards": 0,
+        "cleanupDiscards": 0,
+        "returnedToTop": 0,
+        "topCasts": 0,
+        "accessSpells": 0,
+        "accessSacrifices": 0,
+        "engines": [],
+        "threatsBeforeActions": [],
+        "threatAvailability": [],
+        "missed": [
+          {
+            "id": "deck-28",
+            "card": "Insight Engine",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-40",
+            "card": "Patchwork Crawler",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-18",
+            "card": "Fell Stinger",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-39",
+            "card": "Overcharged Amalgam",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-47",
+            "card": "Sidisi, Regent of the Mire",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "commander",
+            "card": "Wilhelt, the Rotcleaver",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          }
+        ]
+      },
+      {
+        "turn": 3,
+        "commanderDeployed": false,
+        "manaBeforeActions": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "blocked"
+        },
+        "manaRemaining": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "blocked"
+        },
+        "handSize": 5,
+        "accessibleCards": 10,
+        "netAccessibleCards": 0,
+        "naturalDraws": 3,
+        "effectDraws": 0,
+        "effectDiscards": 0,
+        "cleanupDiscards": 0,
+        "returnedToTop": 0,
+        "topCasts": 0,
+        "accessSpells": 0,
+        "accessSacrifices": 0,
+        "engines": [],
+        "threatsBeforeActions": [],
+        "threatAvailability": [],
+        "missed": [
+          {
+            "id": "deck-28",
+            "card": "Insight Engine",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-40",
+            "card": "Patchwork Crawler",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-18",
+            "card": "Fell Stinger",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-39",
+            "card": "Overcharged Amalgam",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-26",
+            "card": "Headless Rider",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "commander",
+            "card": "Wilhelt, the Rotcleaver",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          }
+        ]
+      },
+      {
+        "turn": 4,
+        "commanderDeployed": false,
+        "manaBeforeActions": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "blocked"
+        },
+        "manaRemaining": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "blocked"
+        },
+        "handSize": 6,
+        "accessibleCards": 11,
+        "netAccessibleCards": 0,
+        "naturalDraws": 4,
+        "effectDraws": 0,
+        "effectDiscards": 0,
+        "cleanupDiscards": 0,
+        "returnedToTop": 0,
+        "topCasts": 0,
+        "accessSpells": 0,
+        "accessSacrifices": 0,
+        "engines": [],
+        "threatsBeforeActions": [],
+        "threatAvailability": [],
+        "missed": [
+          {
+            "id": "deck-28",
+            "card": "Insight Engine",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-40",
+            "card": "Patchwork Crawler",
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable"
+          },
+          {
+            "id": "deck-18",
+            "card": "Fell Stinger",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-39",
+            "card": "Overcharged Amalgam",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-26",
+            "card": "Headless Rider",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-25",
+            "card": "Gutless Ghoul",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "commander",
+            "card": "Wilhelt, the Rotcleaver",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          }
+        ]
+      },
+      {
+        "turn": 5,
+        "commanderDeployed": false,
+        "manaBeforeActions": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "blocked"
+        },
+        "manaRemaining": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "blocked"
+        },
+        "handSize": 7,
+        "accessibleCards": 12,
+        "netAccessibleCards": 0,
+        "naturalDraws": 5,
+        "effectDraws": 0,
+        "effectDiscards": 0,
+        "cleanupDiscards": 0,
+        "returnedToTop": 0,
+        "topCasts": 0,
+        "accessSpells": 0,
+        "accessSacrifices": 0,
+        "engines": [],
+        "threatsBeforeActions": [],
+        "threatAvailability": [],
+        "missed": [
+          {
+            "id": "deck-28",
+            "card": "Insight Engine",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-40",
+            "card": "Patchwork Crawler",
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable"
+          },
+          {
+            "id": "deck-18",
+            "card": "Fell Stinger",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-39",
+            "card": "Overcharged Amalgam",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-26",
+            "card": "Headless Rider",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-25",
+            "card": "Gutless Ghoul",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-5",
+            "card": "Archghoul of Thraben",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "commander",
+            "card": "Wilhelt, the Rotcleaver",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          }
+        ]
+      },
+      {
+        "turn": 6,
+        "commanderDeployed": false,
+        "manaBeforeActions": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "blocked"
+        },
+        "manaRemaining": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "blocked"
+        },
+        "handSize": 7,
+        "accessibleCards": 12,
+        "netAccessibleCards": -1,
+        "naturalDraws": 6,
+        "effectDraws": 0,
+        "effectDiscards": 0,
+        "cleanupDiscards": 1,
+        "returnedToTop": 0,
+        "topCasts": 0,
+        "accessSpells": 0,
+        "accessSacrifices": 0,
+        "engines": [],
+        "threatsBeforeActions": [],
+        "threatAvailability": [],
+        "missed": [
+          {
+            "id": "deck-28",
+            "card": "Insight Engine",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-40",
+            "card": "Patchwork Crawler",
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable"
+          },
+          {
+            "id": "deck-18",
+            "card": "Fell Stinger",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-39",
+            "card": "Overcharged Amalgam",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-26",
+            "card": "Headless Rider",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-25",
+            "card": "Gutless Ghoul",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-5",
+            "card": "Archghoul of Thraben",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-2",
+            "card": "Accursed Horde",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "commander",
+            "card": "Wilhelt, the Rotcleaver",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          }
+        ]
+      },
+      {
+        "turn": 7,
+        "commanderDeployed": false,
+        "manaBeforeActions": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 3,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "blocked"
+        },
+        "manaRemaining": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "blocked"
+        },
+        "handSize": 6,
+        "accessibleCards": 13,
+        "netAccessibleCards": -1,
+        "naturalDraws": 7,
+        "effectDraws": 0,
+        "effectDiscards": 0,
+        "cleanupDiscards": 1,
+        "returnedToTop": 0,
+        "topCasts": 0,
+        "accessSpells": 0,
+        "accessSacrifices": 0,
+        "engines": [],
+        "threatsBeforeActions": [],
+        "threatAvailability": [],
+        "missed": [
+          {
+            "id": "deck-18",
+            "card": "Fell Stinger",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-39",
+            "card": "Overcharged Amalgam",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-26",
+            "card": "Headless Rider",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-25",
+            "card": "Gutless Ghoul",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-5",
+            "card": "Archghoul of Thraben",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-2",
+            "card": "Accursed Horde",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "commander",
+            "card": "Wilhelt, the Rotcleaver",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          }
+        ]
+      },
+      {
+        "turn": 8,
+        "commanderDeployed": false,
+        "manaBeforeActions": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 3,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "blocked"
+        },
+        "manaRemaining": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "blocked"
+        },
+        "handSize": 6,
+        "accessibleCards": 14,
+        "netAccessibleCards": -1,
+        "naturalDraws": 8,
+        "effectDraws": 0,
+        "effectDiscards": 0,
+        "cleanupDiscards": 1,
+        "returnedToTop": 0,
+        "topCasts": 0,
+        "accessSpells": 0,
+        "accessSacrifices": 0,
+        "engines": [],
+        "threatsBeforeActions": [],
+        "threatAvailability": [],
+        "missed": [
+          {
+            "id": "deck-39",
+            "card": "Overcharged Amalgam",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-26",
+            "card": "Headless Rider",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-25",
+            "card": "Gutless Ghoul",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-5",
+            "card": "Archghoul of Thraben",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-2",
+            "card": "Accursed Horde",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-41",
+            "card": "Phyrexian Ghoul",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "commander",
+            "card": "Wilhelt, the Rotcleaver",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          }
+        ]
+      }
+    ],
+    "decked": false,
+    "lost": false,
+    "assumptions": {
+      "opening": 7,
+      "mulligan": "none",
+      "drawOnTurnOne": true,
+      "rankingIntegration": false,
+      "commanderTaxPriorCasts": 0,
+      "access": true,
+      "mainPhases": 1,
+      "maxActions": 24,
+      "maxManaStates": 4000,
+      "maxSetupActionsBeforePayableCommander": 1,
+      "sourcePayments": "optimized exact ledger",
+      "opponents": "three inert seats; no combat/interaction; supported control transfers leave our board",
+      "optionalPayment": "reserve before resolving resource/access triggers",
+      "threatDefinition": "native creature with printed power >=4 or printed MV >=5; payment availability, not win conversion; other threat/combat/copy outcomes unknown",
+      "otherRulesCoverage": "not quantified; parsed access is not complete Oracle/rules coverage"
+    },
+    "coverage": {
+      "cardsWithSupportedAccess": 5,
+      "cardsWithUnmodeledAccess": 12,
+      "unmodeledAccessClauses": 12
+    },
+    "unknown": [
+      {
+        "card": "Abattoir Ghoul",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Accursed Centaur",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Accursed Horde",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Arcane Signet",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Arcanis the Omnipotent",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Archghoul of Thraben",
+        "access": [
+          {
+            "line": "Whenever this creature or another Zombie you control dies, look at the top card of your library. If it's a Zombie card, you may reveal it and put it into your hand. If you don't put the card into your hand, you may put it into your graveyard.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      },
+      {
+        "card": "Archivist",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Boneyard Desecrator",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Boneyard Scourge",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Brain Gorgers",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Carrion Feeder",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Cemetery Reaper",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Corpse Augur",
+        "access": [
+          {
+            "line": "When this creature dies, you draw X cards and you lose X life, where X is the number of creature cards in target player's graveyard.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      },
+      {
+        "card": "Corpse Blockade",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Curator's Ward",
+        "access": [
+          {
+            "line": "When enchanted permanent leaves the battlefield, if it was historic, draw two cards.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      },
+      {
+        "card": "Dauthi Ghoul",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Diregraf Captain",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Dreadmalkin",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Fell Stinger",
+        "access": [
+          {
+            "line": "When this creature exploits a creature, target player draws two cards and loses 2 life.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      },
+      {
+        "card": "Feral Ghoul",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Gavony Unhallowed",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Giant's Boulder",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Gnawing Zombie",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Graf Reaver",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Grimgrin, Corpse-Born // Grimgrin, Corpse-Born",
+        "access": [],
+        "other": [
+          "alternate faces/transform/craft not evaluated; front face only"
+        ]
+      },
+      {
+        "card": "Gutless Ghoul",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Headless Rider",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Hungry Ghoul",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Insight Engine",
+        "access": [
+          {
+            "line": "{2}, {T}: Put a charge counter on this artifact, then draw a card for each charge counter on it.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      },
+      {
+        "card": "Jarl of the Forsaken",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Jason Bright, Glowing Prophet",
+        "access": [
+          {
+            "line": "Whenever a Zombie or Mutant you control dies, if its power was different from its base power, draw a card.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      },
+      {
+        "card": "Liliana's Standard Bearer",
+        "access": [
+          {
+            "line": "When this creature enters, draw X cards, where X is the number of creatures that died under your control this turn.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      },
+      {
+        "card": "Midnight Reaper",
+        "access": [
+          {
+            "line": "Whenever a nontoken creature you control dies, this creature deals 1 damage to you and you draw a card.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      },
+      {
+        "card": "Mind Stone",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Mindleech Ghoul",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Murderous Rider // Swift End",
+        "access": [],
+        "other": [
+          "alternate faces/transform/craft not evaluated; front face only"
+        ]
+      },
+      {
+        "card": "My Precious // Allure of Power",
+        "access": [],
+        "other": [
+          "alternate faces/transform/craft not evaluated; front face only"
+        ]
+      },
+      {
+        "card": "Nantuko Husk",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Necrosavant",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Overcharged Amalgam",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Patchwork Crawler",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Phyrexian Ghoul",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Plague Belcher",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Ragamuffyn",
+        "access": [
+          {
+            "line": "Hellbent — {T}, Sacrifice a creature or land: Draw a card. Activate only if you have no cards in hand.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      },
+      {
+        "card": "Repository Skaab",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Sedraxis Alchemist",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Sepulcher Ghoul",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Sidisi, Regent of the Mire",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Silumgar Scavenger",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Skull Skaab",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Sol Ring",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Stronghold Assassin",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "The Soul Stone",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Thran Dynamo",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Tomb Tyrant",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Undead Augur",
+        "access": [
+          {
+            "line": "Whenever this creature or another Zombie you control dies, you draw a card and lose 1 life.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      },
+      {
+        "card": "Undercity Necrolisk",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Vengeful Dead",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Vesper Ghoul",
+        "access": [],
+        "other": [
+          "unsupported activation cost: {T}, Pay 1 life: Add one mana of any color."
+        ]
+      },
+      {
+        "card": "Voracious Null",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Wight",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Command Tower",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Exotic Orchard",
+        "access": [],
+        "other": [
+          "unsupported mana production: {T}: Add one mana of any color that a land an opponent controls could produce."
+        ]
+      },
+      {
+        "card": "Island",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {U}.)"
+        ]
+      },
+      {
+        "card": "Island",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {U}.)"
+        ]
+      },
+      {
+        "card": "Island",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {U}.)"
+        ]
+      },
+      {
+        "card": "Island",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {U}.)"
+        ]
+      },
+      {
+        "card": "Island",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {U}.)"
+        ]
+      },
+      {
+        "card": "Island",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {U}.)"
+        ]
+      },
+      {
+        "card": "Island",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {U}.)"
+        ]
+      },
+      {
+        "card": "Island",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {U}.)"
+        ]
+      },
+      {
+        "card": "Island",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {U}.)"
+        ]
+      },
+      {
+        "card": "Island",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {U}.)"
+        ]
+      },
+      {
+        "card": "Island",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {U}.)"
+        ]
+      },
+      {
+        "card": "Island",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {U}.)"
+        ]
+      },
+      {
+        "card": "Mirrodin's Core",
+        "access": [],
+        "other": [
+          "unsupported activation cost: {T}, Remove a charge counter from this land: Add one mana of any color."
+        ]
+      },
+      {
+        "card": "River of Tears",
+        "access": [],
+        "other": [
+          "unsupported mana condition: {T}: Add {U}. If you played a land this turn, add {B} instead."
+        ]
+      },
+      {
+        "card": "Rootwater Depths",
+        "access": [],
+        "other": [
+          "unsupported mana condition: {T}: Add {U} or {B}. This land doesn't untap during your next untap step."
+        ]
+      },
+      {
+        "card": "Spire of Industry",
+        "access": [],
+        "other": [
+          "unsupported activation cost: {T}, Pay 1 life: Add one mana of any color. Activate only if you control an artifact."
+        ]
+      },
+      {
+        "card": "Swamp",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {B}.)"
+        ]
+      },
+      {
+        "card": "Swamp",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {B}.)"
+        ]
+      },
+      {
+        "card": "Swamp",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {B}.)"
+        ]
+      },
+      {
+        "card": "Swamp",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {B}.)"
+        ]
+      },
+      {
+        "card": "Swamp",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {B}.)"
+        ]
+      },
+      {
+        "card": "Swamp",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {B}.)"
+        ]
+      },
+      {
+        "card": "Swamp",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {B}.)"
+        ]
+      },
+      {
+        "card": "Swamp",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {B}.)"
+        ]
+      },
+      {
+        "card": "Swamp",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {B}.)"
+        ]
+      },
+      {
+        "card": "Swamp",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {B}.)"
+        ]
+      },
+      {
+        "card": "Swamp",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {B}.)"
+        ]
+      },
+      {
+        "card": "Swamp",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {B}.)"
+        ]
+      },
+      {
+        "card": "Swamp",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {B}.)"
+        ]
+      },
+      {
+        "card": "Swamp",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {B}.)"
+        ]
+      },
+      {
+        "card": "Swamp",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {B}.)"
+        ]
+      },
+      {
+        "card": "Tendo Ice Bridge",
+        "access": [],
+        "other": [
+          "unsupported activation cost: {T}, Remove a charge counter from this land: Add one mana of any color."
+        ]
+      },
+      {
+        "card": "The Grey Havens",
+        "access": [],
+        "other": [
+          "unsupported mana production: {T}: Add one mana of any color among legendary creature cards in your graveyard."
+        ]
+      },
+      {
+        "card": "Waterveil Cavern",
+        "access": [],
+        "other": [
+          "unsupported mana condition: {T}: Add {U} or {B}. This land doesn't untap during your next untap step."
+        ]
+      },
+      {
+        "card": "Charcoal Diamond",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Mana Vault",
+        "access": [
+          {
+            "line": "At the beginning of your draw step, if this artifact is tapped, it deals 1 damage to you.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      },
+      {
+        "card": "Wilhelt, the Rotcleaver",
+        "access": [
+          {
+            "line": "At the beginning of your end step, you may sacrifice a Zombie. If you do, draw a card.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      }
+    ],
+    "trace": [
+      {
+        "turn": 0,
+        "event": "opening",
+        "hand": [
+          {
+            "id": "deck-97",
+            "card": "Charcoal Diamond"
+          },
+          {
+            "id": "deck-17",
+            "card": "Dreadmalkin"
+          },
+          {
+            "id": "deck-77",
+            "card": "Rootwater Depths"
+          },
+          {
+            "id": "deck-28",
+            "card": "Insight Engine"
+          },
+          {
+            "id": "deck-40",
+            "card": "Patchwork Crawler"
+          },
+          {
+            "id": "deck-82",
+            "card": "Swamp"
+          },
+          {
+            "id": "deck-18",
+            "card": "Fell Stinger"
+          }
+        ]
+      },
+      {
+        "turn": 1,
+        "event": "untap",
+        "sources": []
+      },
+      {
+        "turn": 1,
+        "event": "draw",
+        "card": "Overcharged Amalgam",
+        "id": "deck-39",
+        "reason": "natural"
+      },
+      {
+        "turn": 1,
+        "event": "land",
+        "id": "deck-82",
+        "card": "Swamp",
+        "tapped": false,
+        "unknown": false
+      },
+      {
+        "turn": 1,
+        "event": "decision",
+        "policy": "commander-first",
+        "chosen": "deck-17",
+        "kind": "cast",
+        "reason": "deploy native creature",
+        "commanderPayable": false,
+        "setupBudgetUsed": 0,
+        "alternatives": []
+      },
+      {
+        "turn": 1,
+        "event": "mana-activation",
+        "card": "Swamp",
+        "kind": "activation",
+        "source": "deck-82",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "cost": "",
+          "outputs": [
+            [
+              "B"
+            ]
+          ]
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-82:0:0",
+            "type": "B",
+            "source": "deck-82",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 1,
+        "event": "cast-paid",
+        "id": "deck-17",
+        "card": "Dreadmalkin",
+        "origin": "hand",
+        "kind": "payment",
+        "label": "spell",
+        "cost": "{B}",
+        "reduction": 0,
+        "context": {
+          "kind": "spell",
+          "types": [
+            "Creature"
+          ],
+          "subtypes": [
+            "Zombie",
+            "Cat"
+          ],
+          "commander": false
+        },
+        "spent": [
+          {
+            "id": "deck-82:0:0",
+            "type": "B",
+            "source": "deck-82",
+            "restriction": "none",
+            "paidFor": "B"
+          }
+        ]
+      },
+      {
+        "turn": 1,
+        "event": "permanent-resolved",
+        "id": "deck-17",
+        "card": "Dreadmalkin",
+        "tapped": false,
+        "effects": {
+          "manaUnknown": [],
+          "accessUnknown": [],
+          "other": "other Oracle effects unmodeled"
+        }
+      },
+      {
+        "turn": 1,
+        "event": "turn-end",
+        "hand": [
+          "Charcoal Diamond",
+          "Rootwater Depths",
+          "Insight Engine",
+          "Patchwork Crawler",
+          "Fell Stinger",
+          "Overcharged Amalgam"
+        ],
+        "handIds": [
+          "deck-97",
+          "deck-77",
+          "deck-28",
+          "deck-40",
+          "deck-18",
+          "deck-39"
+        ],
+        "library": [
+          "deck-47",
+          "deck-26",
+          "deck-25",
+          "deck-5",
+          "deck-2",
+          "deck-67",
+          "deck-41",
+          "deck-29",
+          "deck-83",
+          "deck-45",
+          "deck-36",
+          "deck-37",
+          "deck-54",
+          "deck-51",
+          "deck-70",
+          "deck-23",
+          "deck-6",
+          "deck-60",
+          "deck-58",
+          "deck-33",
+          "deck-66",
+          "deck-81",
+          "deck-22",
+          "deck-8",
+          "deck-59",
+          "deck-79",
+          "deck-86",
+          "deck-62",
+          "deck-64",
+          "deck-0",
+          "deck-34",
+          "deck-44",
+          "deck-61",
+          "deck-11",
+          "deck-21",
+          "deck-93",
+          "deck-91",
+          "deck-87",
+          "deck-12",
+          "deck-14",
+          "deck-38",
+          "deck-32",
+          "deck-78",
+          "deck-80",
+          "deck-10",
+          "deck-31",
+          "deck-42",
+          "deck-71",
+          "deck-48",
+          "deck-24",
+          "deck-19",
+          "deck-63",
+          "deck-13",
+          "deck-7",
+          "deck-72",
+          "deck-90",
+          "deck-9",
+          "deck-55",
+          "deck-3",
+          "deck-50",
+          "deck-92",
+          "deck-76",
+          "deck-68",
+          "deck-85",
+          "deck-74",
+          "deck-30",
+          "deck-96",
+          "deck-89",
+          "deck-52",
+          "deck-98",
+          "deck-15",
+          "deck-94",
+          "deck-35",
+          "deck-20",
+          "deck-49",
+          "deck-27",
+          "deck-75",
+          "deck-56",
+          "deck-57",
+          "deck-46",
+          "deck-16",
+          "deck-1",
+          "deck-4",
+          "deck-53",
+          "deck-69",
+          "deck-84",
+          "deck-73",
+          "deck-43",
+          "deck-65",
+          "deck-88",
+          "deck-95"
+        ],
+        "graveyard": [],
+        "exile": [],
+        "opponents": [],
+        "ceased": [],
+        "board": [
+          {
+            "id": "deck-82",
+            "card": "Swamp",
+            "tapped": true
+          },
+          {
+            "id": "deck-17",
+            "card": "Dreadmalkin",
+            "tapped": false
+          }
+        ],
+        "floatingExpires": [],
+        "life": 40
+      },
+      {
+        "turn": 2,
+        "event": "untap",
+        "sources": [
+          {
+            "id": "deck-82",
+            "types": [
+              "Basic",
+              "Land"
+            ],
+            "subtypes": [
+              "Swamp"
+            ],
+            "modes": [
+              {
+                "tap": true,
+                "cost": "",
+                "outputs": [
+                  [
+                    "B"
+                  ]
+                ]
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-17",
+            "types": [
+              "Creature"
+            ],
+            "subtypes": [
+              "Zombie",
+              "Cat"
+            ],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          }
+        ]
+      },
+      {
+        "turn": 2,
+        "event": "draw",
+        "card": "Sidisi, Regent of the Mire",
+        "id": "deck-47",
+        "reason": "natural"
+      },
+      {
+        "turn": 2,
+        "event": "land",
+        "id": "deck-77",
+        "card": "Rootwater Depths",
+        "tapped": false,
+        "unknown": false
+      },
+      {
+        "turn": 2,
+        "event": "decision",
+        "policy": "commander-first",
+        "chosen": "deck-97",
+        "kind": "cast",
+        "reason": "develop usable mana",
+        "commanderPayable": false,
+        "setupBudgetUsed": 0,
+        "alternatives": [
+          {
+            "id": "deck-47",
+            "kind": "cast",
+            "reason": "deploy native creature"
+          }
+        ]
+      },
+      {
+        "turn": 2,
+        "event": "mana-activation",
+        "card": "Swamp",
+        "kind": "activation",
+        "source": "deck-82",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "cost": "",
+          "outputs": [
+            [
+              "B"
+            ]
+          ]
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-82:0:0",
+            "type": "B",
+            "source": "deck-82",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 2,
+        "event": "mana-activation",
+        "card": "Rootwater Depths",
+        "kind": "activation",
+        "source": "deck-77",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "sacrifice": false,
+          "cost": "",
+          "outputs": [
+            [
+              "C"
+            ]
+          ],
+          "restriction": "none",
+          "life": 0,
+          "minLands": 0
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-77:0:0",
+            "type": "C",
+            "source": "deck-77",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 2,
+        "event": "cast-paid",
+        "id": "deck-97",
+        "card": "Charcoal Diamond",
+        "origin": "hand",
+        "kind": "payment",
+        "label": "spell",
+        "cost": "{2}",
+        "reduction": 0,
+        "context": {
+          "kind": "spell",
+          "types": [
+            "Artifact"
+          ],
+          "subtypes": [],
+          "commander": false
+        },
+        "spent": [
+          {
+            "id": "deck-82:0:0",
+            "type": "B",
+            "source": "deck-82",
+            "restriction": "none",
+            "paidFor": "*"
+          },
+          {
+            "id": "deck-77:0:0",
+            "type": "C",
+            "source": "deck-77",
+            "restriction": "none",
+            "paidFor": "*"
+          }
+        ]
+      },
+      {
+        "turn": 2,
+        "event": "permanent-resolved",
+        "id": "deck-97",
+        "card": "Charcoal Diamond",
+        "tapped": true,
+        "effects": {
+          "manaUnknown": [],
+          "accessUnknown": [],
+          "other": "other Oracle effects unmodeled"
+        }
+      },
+      {
+        "turn": 2,
+        "event": "turn-end",
+        "hand": [
+          "Insight Engine",
+          "Patchwork Crawler",
+          "Fell Stinger",
+          "Overcharged Amalgam",
+          "Sidisi, Regent of the Mire"
+        ],
+        "handIds": [
+          "deck-28",
+          "deck-40",
+          "deck-18",
+          "deck-39",
+          "deck-47"
+        ],
+        "library": [
+          "deck-26",
+          "deck-25",
+          "deck-5",
+          "deck-2",
+          "deck-67",
+          "deck-41",
+          "deck-29",
+          "deck-83",
+          "deck-45",
+          "deck-36",
+          "deck-37",
+          "deck-54",
+          "deck-51",
+          "deck-70",
+          "deck-23",
+          "deck-6",
+          "deck-60",
+          "deck-58",
+          "deck-33",
+          "deck-66",
+          "deck-81",
+          "deck-22",
+          "deck-8",
+          "deck-59",
+          "deck-79",
+          "deck-86",
+          "deck-62",
+          "deck-64",
+          "deck-0",
+          "deck-34",
+          "deck-44",
+          "deck-61",
+          "deck-11",
+          "deck-21",
+          "deck-93",
+          "deck-91",
+          "deck-87",
+          "deck-12",
+          "deck-14",
+          "deck-38",
+          "deck-32",
+          "deck-78",
+          "deck-80",
+          "deck-10",
+          "deck-31",
+          "deck-42",
+          "deck-71",
+          "deck-48",
+          "deck-24",
+          "deck-19",
+          "deck-63",
+          "deck-13",
+          "deck-7",
+          "deck-72",
+          "deck-90",
+          "deck-9",
+          "deck-55",
+          "deck-3",
+          "deck-50",
+          "deck-92",
+          "deck-76",
+          "deck-68",
+          "deck-85",
+          "deck-74",
+          "deck-30",
+          "deck-96",
+          "deck-89",
+          "deck-52",
+          "deck-98",
+          "deck-15",
+          "deck-94",
+          "deck-35",
+          "deck-20",
+          "deck-49",
+          "deck-27",
+          "deck-75",
+          "deck-56",
+          "deck-57",
+          "deck-46",
+          "deck-16",
+          "deck-1",
+          "deck-4",
+          "deck-53",
+          "deck-69",
+          "deck-84",
+          "deck-73",
+          "deck-43",
+          "deck-65",
+          "deck-88",
+          "deck-95"
+        ],
+        "graveyard": [],
+        "exile": [],
+        "opponents": [],
+        "ceased": [],
+        "board": [
+          {
+            "id": "deck-82",
+            "card": "Swamp",
+            "tapped": true
+          },
+          {
+            "id": "deck-17",
+            "card": "Dreadmalkin",
+            "tapped": false
+          },
+          {
+            "id": "deck-77",
+            "card": "Rootwater Depths",
+            "tapped": true
+          },
+          {
+            "id": "deck-97",
+            "card": "Charcoal Diamond",
+            "tapped": true
+          }
+        ],
+        "floatingExpires": [],
+        "life": 40
+      },
+      {
+        "turn": 3,
+        "event": "untap",
+        "sources": [
+          {
+            "id": "deck-82",
+            "types": [
+              "Basic",
+              "Land"
+            ],
+            "subtypes": [
+              "Swamp"
+            ],
+            "modes": [
+              {
+                "tap": true,
+                "cost": "",
+                "outputs": [
+                  [
+                    "B"
+                  ]
+                ]
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-17",
+            "types": [
+              "Creature"
+            ],
+            "subtypes": [
+              "Zombie",
+              "Cat"
+            ],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-77",
+            "types": [
+              "Land"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": true,
+            "sick": false
+          },
+          {
+            "id": "deck-97",
+            "types": [
+              "Artifact"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "B"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          }
+        ]
+      },
+      {
+        "turn": 3,
+        "event": "draw",
+        "card": "Headless Rider",
+        "id": "deck-26",
+        "reason": "natural"
+      },
+      {
+        "turn": 3,
+        "event": "decision",
+        "policy": "commander-first",
+        "chosen": "deck-47",
+        "kind": "cast",
+        "reason": "deploy native creature",
+        "commanderPayable": false,
+        "setupBudgetUsed": 0,
+        "alternatives": []
+      },
+      {
+        "turn": 3,
+        "event": "mana-activation",
+        "card": "Swamp",
+        "kind": "activation",
+        "source": "deck-82",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "cost": "",
+          "outputs": [
+            [
+              "B"
+            ]
+          ]
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-82:0:0",
+            "type": "B",
+            "source": "deck-82",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 3,
+        "event": "mana-activation",
+        "card": "Charcoal Diamond",
+        "kind": "activation",
+        "source": "deck-97",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "sacrifice": false,
+          "cost": "",
+          "outputs": [
+            [
+              "B"
+            ]
+          ],
+          "restriction": "none",
+          "life": 0,
+          "minLands": 0
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-97:0:0",
+            "type": "B",
+            "source": "deck-97",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 3,
+        "event": "cast-paid",
+        "id": "deck-47",
+        "card": "Sidisi, Regent of the Mire",
+        "origin": "hand",
+        "kind": "payment",
+        "label": "spell",
+        "cost": "{1}{B}",
+        "reduction": 0,
+        "context": {
+          "kind": "spell",
+          "types": [
+            "Legendary",
+            "Creature"
+          ],
+          "subtypes": [
+            "Zombie",
+            "Snake",
+            "Warlock"
+          ],
+          "commander": false
+        },
+        "spent": [
+          {
+            "id": "deck-82:0:0",
+            "type": "B",
+            "source": "deck-82",
+            "restriction": "none",
+            "paidFor": "B"
+          },
+          {
+            "id": "deck-97:0:0",
+            "type": "B",
+            "source": "deck-97",
+            "restriction": "none",
+            "paidFor": "*"
+          }
+        ]
+      },
+      {
+        "turn": 3,
+        "event": "permanent-resolved",
+        "id": "deck-47",
+        "card": "Sidisi, Regent of the Mire",
+        "tapped": false,
+        "effects": {
+          "manaUnknown": [],
+          "accessUnknown": [],
+          "other": "other Oracle effects unmodeled"
+        }
+      },
+      {
+        "turn": 3,
+        "event": "turn-end",
+        "hand": [
+          "Insight Engine",
+          "Patchwork Crawler",
+          "Fell Stinger",
+          "Overcharged Amalgam",
+          "Headless Rider"
+        ],
+        "handIds": [
+          "deck-28",
+          "deck-40",
+          "deck-18",
+          "deck-39",
+          "deck-26"
+        ],
+        "library": [
+          "deck-25",
+          "deck-5",
+          "deck-2",
+          "deck-67",
+          "deck-41",
+          "deck-29",
+          "deck-83",
+          "deck-45",
+          "deck-36",
+          "deck-37",
+          "deck-54",
+          "deck-51",
+          "deck-70",
+          "deck-23",
+          "deck-6",
+          "deck-60",
+          "deck-58",
+          "deck-33",
+          "deck-66",
+          "deck-81",
+          "deck-22",
+          "deck-8",
+          "deck-59",
+          "deck-79",
+          "deck-86",
+          "deck-62",
+          "deck-64",
+          "deck-0",
+          "deck-34",
+          "deck-44",
+          "deck-61",
+          "deck-11",
+          "deck-21",
+          "deck-93",
+          "deck-91",
+          "deck-87",
+          "deck-12",
+          "deck-14",
+          "deck-38",
+          "deck-32",
+          "deck-78",
+          "deck-80",
+          "deck-10",
+          "deck-31",
+          "deck-42",
+          "deck-71",
+          "deck-48",
+          "deck-24",
+          "deck-19",
+          "deck-63",
+          "deck-13",
+          "deck-7",
+          "deck-72",
+          "deck-90",
+          "deck-9",
+          "deck-55",
+          "deck-3",
+          "deck-50",
+          "deck-92",
+          "deck-76",
+          "deck-68",
+          "deck-85",
+          "deck-74",
+          "deck-30",
+          "deck-96",
+          "deck-89",
+          "deck-52",
+          "deck-98",
+          "deck-15",
+          "deck-94",
+          "deck-35",
+          "deck-20",
+          "deck-49",
+          "deck-27",
+          "deck-75",
+          "deck-56",
+          "deck-57",
+          "deck-46",
+          "deck-16",
+          "deck-1",
+          "deck-4",
+          "deck-53",
+          "deck-69",
+          "deck-84",
+          "deck-73",
+          "deck-43",
+          "deck-65",
+          "deck-88",
+          "deck-95"
+        ],
+        "graveyard": [],
+        "exile": [],
+        "opponents": [],
+        "ceased": [],
+        "board": [
+          {
+            "id": "deck-82",
+            "card": "Swamp",
+            "tapped": true
+          },
+          {
+            "id": "deck-17",
+            "card": "Dreadmalkin",
+            "tapped": false
+          },
+          {
+            "id": "deck-77",
+            "card": "Rootwater Depths",
+            "tapped": true
+          },
+          {
+            "id": "deck-97",
+            "card": "Charcoal Diamond",
+            "tapped": true
+          },
+          {
+            "id": "deck-47",
+            "card": "Sidisi, Regent of the Mire",
+            "tapped": false
+          }
+        ],
+        "floatingExpires": [],
+        "life": 40
+      },
+      {
+        "turn": 4,
+        "event": "untap",
+        "sources": [
+          {
+            "id": "deck-82",
+            "types": [
+              "Basic",
+              "Land"
+            ],
+            "subtypes": [
+              "Swamp"
+            ],
+            "modes": [
+              {
+                "tap": true,
+                "cost": "",
+                "outputs": [
+                  [
+                    "B"
+                  ]
+                ]
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-17",
+            "types": [
+              "Creature"
+            ],
+            "subtypes": [
+              "Zombie",
+              "Cat"
+            ],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-77",
+            "types": [
+              "Land"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": true,
+            "sick": false
+          },
+          {
+            "id": "deck-97",
+            "types": [
+              "Artifact"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "B"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-47",
+            "types": [
+              "Legendary",
+              "Creature"
+            ],
+            "subtypes": [
+              "Zombie",
+              "Snake",
+              "Warlock"
+            ],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          }
+        ]
+      },
+      {
+        "turn": 4,
+        "event": "draw",
+        "card": "Gutless Ghoul",
+        "id": "deck-25",
+        "reason": "natural"
+      },
+      {
+        "turn": 4,
+        "event": "turn-end",
+        "hand": [
+          "Insight Engine",
+          "Patchwork Crawler",
+          "Fell Stinger",
+          "Overcharged Amalgam",
+          "Headless Rider",
+          "Gutless Ghoul"
+        ],
+        "handIds": [
+          "deck-28",
+          "deck-40",
+          "deck-18",
+          "deck-39",
+          "deck-26",
+          "deck-25"
+        ],
+        "library": [
+          "deck-5",
+          "deck-2",
+          "deck-67",
+          "deck-41",
+          "deck-29",
+          "deck-83",
+          "deck-45",
+          "deck-36",
+          "deck-37",
+          "deck-54",
+          "deck-51",
+          "deck-70",
+          "deck-23",
+          "deck-6",
+          "deck-60",
+          "deck-58",
+          "deck-33",
+          "deck-66",
+          "deck-81",
+          "deck-22",
+          "deck-8",
+          "deck-59",
+          "deck-79",
+          "deck-86",
+          "deck-62",
+          "deck-64",
+          "deck-0",
+          "deck-34",
+          "deck-44",
+          "deck-61",
+          "deck-11",
+          "deck-21",
+          "deck-93",
+          "deck-91",
+          "deck-87",
+          "deck-12",
+          "deck-14",
+          "deck-38",
+          "deck-32",
+          "deck-78",
+          "deck-80",
+          "deck-10",
+          "deck-31",
+          "deck-42",
+          "deck-71",
+          "deck-48",
+          "deck-24",
+          "deck-19",
+          "deck-63",
+          "deck-13",
+          "deck-7",
+          "deck-72",
+          "deck-90",
+          "deck-9",
+          "deck-55",
+          "deck-3",
+          "deck-50",
+          "deck-92",
+          "deck-76",
+          "deck-68",
+          "deck-85",
+          "deck-74",
+          "deck-30",
+          "deck-96",
+          "deck-89",
+          "deck-52",
+          "deck-98",
+          "deck-15",
+          "deck-94",
+          "deck-35",
+          "deck-20",
+          "deck-49",
+          "deck-27",
+          "deck-75",
+          "deck-56",
+          "deck-57",
+          "deck-46",
+          "deck-16",
+          "deck-1",
+          "deck-4",
+          "deck-53",
+          "deck-69",
+          "deck-84",
+          "deck-73",
+          "deck-43",
+          "deck-65",
+          "deck-88",
+          "deck-95"
+        ],
+        "graveyard": [],
+        "exile": [],
+        "opponents": [],
+        "ceased": [],
+        "board": [
+          {
+            "id": "deck-82",
+            "card": "Swamp",
+            "tapped": false
+          },
+          {
+            "id": "deck-17",
+            "card": "Dreadmalkin",
+            "tapped": false
+          },
+          {
+            "id": "deck-77",
+            "card": "Rootwater Depths",
+            "tapped": true
+          },
+          {
+            "id": "deck-97",
+            "card": "Charcoal Diamond",
+            "tapped": false
+          },
+          {
+            "id": "deck-47",
+            "card": "Sidisi, Regent of the Mire",
+            "tapped": false
+          }
+        ],
+        "floatingExpires": [],
+        "life": 40
+      },
+      {
+        "turn": 5,
+        "event": "untap",
+        "sources": [
+          {
+            "id": "deck-82",
+            "types": [
+              "Basic",
+              "Land"
+            ],
+            "subtypes": [
+              "Swamp"
+            ],
+            "modes": [
+              {
+                "tap": true,
+                "cost": "",
+                "outputs": [
+                  [
+                    "B"
+                  ]
+                ]
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-17",
+            "types": [
+              "Creature"
+            ],
+            "subtypes": [
+              "Zombie",
+              "Cat"
+            ],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-77",
+            "types": [
+              "Land"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": true,
+            "sick": false
+          },
+          {
+            "id": "deck-97",
+            "types": [
+              "Artifact"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "B"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-47",
+            "types": [
+              "Legendary",
+              "Creature"
+            ],
+            "subtypes": [
+              "Zombie",
+              "Snake",
+              "Warlock"
+            ],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          }
+        ]
+      },
+      {
+        "turn": 5,
+        "event": "draw",
+        "card": "Archghoul of Thraben",
+        "id": "deck-5",
+        "reason": "natural"
+      },
+      {
+        "turn": 5,
+        "event": "turn-end",
+        "hand": [
+          "Insight Engine",
+          "Patchwork Crawler",
+          "Fell Stinger",
+          "Overcharged Amalgam",
+          "Headless Rider",
+          "Gutless Ghoul",
+          "Archghoul of Thraben"
+        ],
+        "handIds": [
+          "deck-28",
+          "deck-40",
+          "deck-18",
+          "deck-39",
+          "deck-26",
+          "deck-25",
+          "deck-5"
+        ],
+        "library": [
+          "deck-2",
+          "deck-67",
+          "deck-41",
+          "deck-29",
+          "deck-83",
+          "deck-45",
+          "deck-36",
+          "deck-37",
+          "deck-54",
+          "deck-51",
+          "deck-70",
+          "deck-23",
+          "deck-6",
+          "deck-60",
+          "deck-58",
+          "deck-33",
+          "deck-66",
+          "deck-81",
+          "deck-22",
+          "deck-8",
+          "deck-59",
+          "deck-79",
+          "deck-86",
+          "deck-62",
+          "deck-64",
+          "deck-0",
+          "deck-34",
+          "deck-44",
+          "deck-61",
+          "deck-11",
+          "deck-21",
+          "deck-93",
+          "deck-91",
+          "deck-87",
+          "deck-12",
+          "deck-14",
+          "deck-38",
+          "deck-32",
+          "deck-78",
+          "deck-80",
+          "deck-10",
+          "deck-31",
+          "deck-42",
+          "deck-71",
+          "deck-48",
+          "deck-24",
+          "deck-19",
+          "deck-63",
+          "deck-13",
+          "deck-7",
+          "deck-72",
+          "deck-90",
+          "deck-9",
+          "deck-55",
+          "deck-3",
+          "deck-50",
+          "deck-92",
+          "deck-76",
+          "deck-68",
+          "deck-85",
+          "deck-74",
+          "deck-30",
+          "deck-96",
+          "deck-89",
+          "deck-52",
+          "deck-98",
+          "deck-15",
+          "deck-94",
+          "deck-35",
+          "deck-20",
+          "deck-49",
+          "deck-27",
+          "deck-75",
+          "deck-56",
+          "deck-57",
+          "deck-46",
+          "deck-16",
+          "deck-1",
+          "deck-4",
+          "deck-53",
+          "deck-69",
+          "deck-84",
+          "deck-73",
+          "deck-43",
+          "deck-65",
+          "deck-88",
+          "deck-95"
+        ],
+        "graveyard": [],
+        "exile": [],
+        "opponents": [],
+        "ceased": [],
+        "board": [
+          {
+            "id": "deck-82",
+            "card": "Swamp",
+            "tapped": false
+          },
+          {
+            "id": "deck-17",
+            "card": "Dreadmalkin",
+            "tapped": false
+          },
+          {
+            "id": "deck-77",
+            "card": "Rootwater Depths",
+            "tapped": true
+          },
+          {
+            "id": "deck-97",
+            "card": "Charcoal Diamond",
+            "tapped": false
+          },
+          {
+            "id": "deck-47",
+            "card": "Sidisi, Regent of the Mire",
+            "tapped": false
+          }
+        ],
+        "floatingExpires": [],
+        "life": 40
+      },
+      {
+        "turn": 6,
+        "event": "untap",
+        "sources": [
+          {
+            "id": "deck-82",
+            "types": [
+              "Basic",
+              "Land"
+            ],
+            "subtypes": [
+              "Swamp"
+            ],
+            "modes": [
+              {
+                "tap": true,
+                "cost": "",
+                "outputs": [
+                  [
+                    "B"
+                  ]
+                ]
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-17",
+            "types": [
+              "Creature"
+            ],
+            "subtypes": [
+              "Zombie",
+              "Cat"
+            ],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-77",
+            "types": [
+              "Land"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": true,
+            "sick": false
+          },
+          {
+            "id": "deck-97",
+            "types": [
+              "Artifact"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "B"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-47",
+            "types": [
+              "Legendary",
+              "Creature"
+            ],
+            "subtypes": [
+              "Zombie",
+              "Snake",
+              "Warlock"
+            ],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          }
+        ]
+      },
+      {
+        "turn": 6,
+        "event": "draw",
+        "card": "Accursed Horde",
+        "id": "deck-2",
+        "reason": "natural"
+      },
+      {
+        "turn": 6,
+        "event": "cleanup-discard",
+        "id": "deck-28",
+        "card": "Insight Engine"
+      },
+      {
+        "turn": 6,
+        "event": "turn-end",
+        "hand": [
+          "Patchwork Crawler",
+          "Fell Stinger",
+          "Overcharged Amalgam",
+          "Headless Rider",
+          "Gutless Ghoul",
+          "Archghoul of Thraben",
+          "Accursed Horde"
+        ],
+        "handIds": [
+          "deck-40",
+          "deck-18",
+          "deck-39",
+          "deck-26",
+          "deck-25",
+          "deck-5",
+          "deck-2"
+        ],
+        "library": [
+          "deck-67",
+          "deck-41",
+          "deck-29",
+          "deck-83",
+          "deck-45",
+          "deck-36",
+          "deck-37",
+          "deck-54",
+          "deck-51",
+          "deck-70",
+          "deck-23",
+          "deck-6",
+          "deck-60",
+          "deck-58",
+          "deck-33",
+          "deck-66",
+          "deck-81",
+          "deck-22",
+          "deck-8",
+          "deck-59",
+          "deck-79",
+          "deck-86",
+          "deck-62",
+          "deck-64",
+          "deck-0",
+          "deck-34",
+          "deck-44",
+          "deck-61",
+          "deck-11",
+          "deck-21",
+          "deck-93",
+          "deck-91",
+          "deck-87",
+          "deck-12",
+          "deck-14",
+          "deck-38",
+          "deck-32",
+          "deck-78",
+          "deck-80",
+          "deck-10",
+          "deck-31",
+          "deck-42",
+          "deck-71",
+          "deck-48",
+          "deck-24",
+          "deck-19",
+          "deck-63",
+          "deck-13",
+          "deck-7",
+          "deck-72",
+          "deck-90",
+          "deck-9",
+          "deck-55",
+          "deck-3",
+          "deck-50",
+          "deck-92",
+          "deck-76",
+          "deck-68",
+          "deck-85",
+          "deck-74",
+          "deck-30",
+          "deck-96",
+          "deck-89",
+          "deck-52",
+          "deck-98",
+          "deck-15",
+          "deck-94",
+          "deck-35",
+          "deck-20",
+          "deck-49",
+          "deck-27",
+          "deck-75",
+          "deck-56",
+          "deck-57",
+          "deck-46",
+          "deck-16",
+          "deck-1",
+          "deck-4",
+          "deck-53",
+          "deck-69",
+          "deck-84",
+          "deck-73",
+          "deck-43",
+          "deck-65",
+          "deck-88",
+          "deck-95"
+        ],
+        "graveyard": [
+          "deck-28"
+        ],
+        "exile": [],
+        "opponents": [],
+        "ceased": [],
+        "board": [
+          {
+            "id": "deck-82",
+            "card": "Swamp",
+            "tapped": false
+          },
+          {
+            "id": "deck-17",
+            "card": "Dreadmalkin",
+            "tapped": false
+          },
+          {
+            "id": "deck-77",
+            "card": "Rootwater Depths",
+            "tapped": true
+          },
+          {
+            "id": "deck-97",
+            "card": "Charcoal Diamond",
+            "tapped": false
+          },
+          {
+            "id": "deck-47",
+            "card": "Sidisi, Regent of the Mire",
+            "tapped": false
+          }
+        ],
+        "floatingExpires": [],
+        "life": 40
+      },
+      {
+        "turn": 7,
+        "event": "untap",
+        "sources": [
+          {
+            "id": "deck-82",
+            "types": [
+              "Basic",
+              "Land"
+            ],
+            "subtypes": [
+              "Swamp"
+            ],
+            "modes": [
+              {
+                "tap": true,
+                "cost": "",
+                "outputs": [
+                  [
+                    "B"
+                  ]
+                ]
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-17",
+            "types": [
+              "Creature"
+            ],
+            "subtypes": [
+              "Zombie",
+              "Cat"
+            ],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-77",
+            "types": [
+              "Land"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": true,
+            "sick": false
+          },
+          {
+            "id": "deck-97",
+            "types": [
+              "Artifact"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "B"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-47",
+            "types": [
+              "Legendary",
+              "Creature"
+            ],
+            "subtypes": [
+              "Zombie",
+              "Snake",
+              "Warlock"
+            ],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          }
+        ]
+      },
+      {
+        "turn": 7,
+        "event": "draw",
+        "card": "Island",
+        "id": "deck-67",
+        "reason": "natural"
+      },
+      {
+        "turn": 7,
+        "event": "land",
+        "id": "deck-67",
+        "card": "Island",
+        "tapped": false,
+        "unknown": false
+      },
+      {
+        "turn": 7,
+        "event": "decision",
+        "policy": "commander-first",
+        "chosen": "deck-40",
+        "kind": "cast",
+        "reason": "deploy native creature",
+        "commanderPayable": false,
+        "setupBudgetUsed": 0,
+        "alternatives": [
+          {
+            "id": "deck-18",
+            "kind": "cast",
+            "reason": "deploy native creature"
+          },
+          {
+            "id": "deck-25",
+            "kind": "cast",
+            "reason": "deploy native creature"
+          },
+          {
+            "id": "deck-26",
+            "kind": "cast",
+            "reason": "deploy native creature"
+          },
+          {
+            "id": "deck-5",
+            "kind": "cast",
+            "reason": "deploy native creature"
+          }
+        ]
+      },
+      {
+        "turn": 7,
+        "event": "mana-activation",
+        "card": "Swamp",
+        "kind": "activation",
+        "source": "deck-82",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "cost": "",
+          "outputs": [
+            [
+              "B"
+            ]
+          ]
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-82:0:0",
+            "type": "B",
+            "source": "deck-82",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 7,
+        "event": "mana-activation",
+        "card": "Charcoal Diamond",
+        "kind": "activation",
+        "source": "deck-97",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "sacrifice": false,
+          "cost": "",
+          "outputs": [
+            [
+              "B"
+            ]
+          ],
+          "restriction": "none",
+          "life": 0,
+          "minLands": 0
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-97:0:0",
+            "type": "B",
+            "source": "deck-97",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 7,
+        "event": "mana-activation",
+        "card": "Island",
+        "kind": "activation",
+        "source": "deck-67",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "cost": "",
+          "outputs": [
+            [
+              "U"
+            ]
+          ]
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-67:0:0",
+            "type": "U",
+            "source": "deck-67",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 7,
+        "event": "cast-paid",
+        "id": "deck-40",
+        "card": "Patchwork Crawler",
+        "origin": "hand",
+        "kind": "payment",
+        "label": "spell",
+        "cost": "{1}{U}",
+        "reduction": 0,
+        "context": {
+          "kind": "spell",
+          "types": [
+            "Creature"
+          ],
+          "subtypes": [
+            "Zombie",
+            "Horror"
+          ],
+          "commander": false
+        },
+        "spent": [
+          {
+            "id": "deck-67:0:0",
+            "type": "U",
+            "source": "deck-67",
+            "restriction": "none",
+            "paidFor": "U"
+          },
+          {
+            "id": "deck-82:0:0",
+            "type": "B",
+            "source": "deck-82",
+            "restriction": "none",
+            "paidFor": "*"
+          }
+        ]
+      },
+      {
+        "turn": 7,
+        "event": "permanent-resolved",
+        "id": "deck-40",
+        "card": "Patchwork Crawler",
+        "tapped": false,
+        "effects": {
+          "manaUnknown": [],
+          "accessUnknown": [],
+          "other": "other Oracle effects unmodeled"
+        }
+      },
+      {
+        "turn": 7,
+        "event": "turn-end",
+        "hand": [
+          "Fell Stinger",
+          "Overcharged Amalgam",
+          "Headless Rider",
+          "Gutless Ghoul",
+          "Archghoul of Thraben",
+          "Accursed Horde"
+        ],
+        "handIds": [
+          "deck-18",
+          "deck-39",
+          "deck-26",
+          "deck-25",
+          "deck-5",
+          "deck-2"
+        ],
+        "library": [
+          "deck-41",
+          "deck-29",
+          "deck-83",
+          "deck-45",
+          "deck-36",
+          "deck-37",
+          "deck-54",
+          "deck-51",
+          "deck-70",
+          "deck-23",
+          "deck-6",
+          "deck-60",
+          "deck-58",
+          "deck-33",
+          "deck-66",
+          "deck-81",
+          "deck-22",
+          "deck-8",
+          "deck-59",
+          "deck-79",
+          "deck-86",
+          "deck-62",
+          "deck-64",
+          "deck-0",
+          "deck-34",
+          "deck-44",
+          "deck-61",
+          "deck-11",
+          "deck-21",
+          "deck-93",
+          "deck-91",
+          "deck-87",
+          "deck-12",
+          "deck-14",
+          "deck-38",
+          "deck-32",
+          "deck-78",
+          "deck-80",
+          "deck-10",
+          "deck-31",
+          "deck-42",
+          "deck-71",
+          "deck-48",
+          "deck-24",
+          "deck-19",
+          "deck-63",
+          "deck-13",
+          "deck-7",
+          "deck-72",
+          "deck-90",
+          "deck-9",
+          "deck-55",
+          "deck-3",
+          "deck-50",
+          "deck-92",
+          "deck-76",
+          "deck-68",
+          "deck-85",
+          "deck-74",
+          "deck-30",
+          "deck-96",
+          "deck-89",
+          "deck-52",
+          "deck-98",
+          "deck-15",
+          "deck-94",
+          "deck-35",
+          "deck-20",
+          "deck-49",
+          "deck-27",
+          "deck-75",
+          "deck-56",
+          "deck-57",
+          "deck-46",
+          "deck-16",
+          "deck-1",
+          "deck-4",
+          "deck-53",
+          "deck-69",
+          "deck-84",
+          "deck-73",
+          "deck-43",
+          "deck-65",
+          "deck-88",
+          "deck-95"
+        ],
+        "graveyard": [
+          "deck-28"
+        ],
+        "exile": [],
+        "opponents": [],
+        "ceased": [],
+        "board": [
+          {
+            "id": "deck-82",
+            "card": "Swamp",
+            "tapped": true
+          },
+          {
+            "id": "deck-17",
+            "card": "Dreadmalkin",
+            "tapped": false
+          },
+          {
+            "id": "deck-77",
+            "card": "Rootwater Depths",
+            "tapped": true
+          },
+          {
+            "id": "deck-97",
+            "card": "Charcoal Diamond",
+            "tapped": true
+          },
+          {
+            "id": "deck-47",
+            "card": "Sidisi, Regent of the Mire",
+            "tapped": false
+          },
+          {
+            "id": "deck-67",
+            "card": "Island",
+            "tapped": true
+          },
+          {
+            "id": "deck-40",
+            "card": "Patchwork Crawler",
+            "tapped": false
+          }
+        ],
+        "floatingExpires": [
+          {
+            "id": "deck-97:0:0",
+            "type": "B",
+            "source": "deck-97",
+            "restriction": "none"
+          }
+        ],
+        "life": 40
+      },
+      {
+        "turn": 8,
+        "event": "untap",
+        "sources": [
+          {
+            "id": "deck-82",
+            "types": [
+              "Basic",
+              "Land"
+            ],
+            "subtypes": [
+              "Swamp"
+            ],
+            "modes": [
+              {
+                "tap": true,
+                "cost": "",
+                "outputs": [
+                  [
+                    "B"
+                  ]
+                ]
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-17",
+            "types": [
+              "Creature"
+            ],
+            "subtypes": [
+              "Zombie",
+              "Cat"
+            ],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-77",
+            "types": [
+              "Land"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": true,
+            "sick": false
+          },
+          {
+            "id": "deck-97",
+            "types": [
+              "Artifact"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "B"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-47",
+            "types": [
+              "Legendary",
+              "Creature"
+            ],
+            "subtypes": [
+              "Zombie",
+              "Snake",
+              "Warlock"
+            ],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-67",
+            "types": [
+              "Basic",
+              "Land"
+            ],
+            "subtypes": [
+              "Island"
+            ],
+            "modes": [
+              {
+                "tap": true,
+                "cost": "",
+                "outputs": [
+                  [
+                    "U"
+                  ]
+                ]
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-40",
+            "types": [
+              "Creature"
+            ],
+            "subtypes": [
+              "Zombie",
+              "Horror"
+            ],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          }
+        ]
+      },
+      {
+        "turn": 8,
+        "event": "draw",
+        "card": "Phyrexian Ghoul",
+        "id": "deck-41",
+        "reason": "natural"
+      },
+      {
+        "turn": 8,
+        "event": "decision",
+        "policy": "commander-first",
+        "chosen": "deck-18",
+        "kind": "cast",
+        "reason": "deploy native creature",
+        "commanderPayable": false,
+        "setupBudgetUsed": 0,
+        "alternatives": [
+          {
+            "id": "deck-25",
+            "kind": "cast",
+            "reason": "deploy native creature"
+          },
+          {
+            "id": "deck-26",
+            "kind": "cast",
+            "reason": "deploy native creature"
+          },
+          {
+            "id": "deck-41",
+            "kind": "cast",
+            "reason": "deploy native creature"
+          },
+          {
+            "id": "deck-5",
+            "kind": "cast",
+            "reason": "deploy native creature"
+          }
+        ]
+      },
+      {
+        "turn": 8,
+        "event": "mana-activation",
+        "card": "Swamp",
+        "kind": "activation",
+        "source": "deck-82",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "cost": "",
+          "outputs": [
+            [
+              "B"
+            ]
+          ]
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-82:0:0",
+            "type": "B",
+            "source": "deck-82",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 8,
+        "event": "mana-activation",
+        "card": "Charcoal Diamond",
+        "kind": "activation",
+        "source": "deck-97",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "sacrifice": false,
+          "cost": "",
+          "outputs": [
+            [
+              "B"
+            ]
+          ],
+          "restriction": "none",
+          "life": 0,
+          "minLands": 0
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-97:0:0",
+            "type": "B",
+            "source": "deck-97",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 8,
+        "event": "mana-activation",
+        "card": "Island",
+        "kind": "activation",
+        "source": "deck-67",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "cost": "",
+          "outputs": [
+            [
+              "U"
+            ]
+          ]
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-67:0:0",
+            "type": "U",
+            "source": "deck-67",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 8,
+        "event": "cast-paid",
+        "id": "deck-18",
+        "card": "Fell Stinger",
+        "origin": "hand",
+        "kind": "payment",
+        "label": "spell",
+        "cost": "{2}{B}",
+        "reduction": 0,
+        "context": {
+          "kind": "spell",
+          "types": [
+            "Creature"
+          ],
+          "subtypes": [
+            "Zombie",
+            "Scorpion"
+          ],
+          "commander": false
+        },
+        "spent": [
+          {
+            "id": "deck-82:0:0",
+            "type": "B",
+            "source": "deck-82",
+            "restriction": "none",
+            "paidFor": "B"
+          },
+          {
+            "id": "deck-97:0:0",
+            "type": "B",
+            "source": "deck-97",
+            "restriction": "none",
+            "paidFor": "*"
+          },
+          {
+            "id": "deck-67:0:0",
+            "type": "U",
+            "source": "deck-67",
+            "restriction": "none",
+            "paidFor": "*"
+          }
+        ]
+      },
+      {
+        "turn": 8,
+        "event": "permanent-resolved",
+        "id": "deck-18",
+        "card": "Fell Stinger",
+        "tapped": false,
+        "effects": {
+          "manaUnknown": [],
+          "accessUnknown": [
+            {
+              "line": "When this creature exploits a creature, target player draws two cards and loses 2 life.",
+              "reason": "unsupported access prerequisites/effect"
+            }
+          ],
+          "other": "other Oracle effects unmodeled"
+        }
+      },
+      {
+        "turn": 8,
+        "event": "turn-end",
+        "hand": [
+          "Overcharged Amalgam",
+          "Headless Rider",
+          "Gutless Ghoul",
+          "Archghoul of Thraben",
+          "Accursed Horde",
+          "Phyrexian Ghoul"
+        ],
+        "handIds": [
+          "deck-39",
+          "deck-26",
+          "deck-25",
+          "deck-5",
+          "deck-2",
+          "deck-41"
+        ],
+        "library": [
+          "deck-29",
+          "deck-83",
+          "deck-45",
+          "deck-36",
+          "deck-37",
+          "deck-54",
+          "deck-51",
+          "deck-70",
+          "deck-23",
+          "deck-6",
+          "deck-60",
+          "deck-58",
+          "deck-33",
+          "deck-66",
+          "deck-81",
+          "deck-22",
+          "deck-8",
+          "deck-59",
+          "deck-79",
+          "deck-86",
+          "deck-62",
+          "deck-64",
+          "deck-0",
+          "deck-34",
+          "deck-44",
+          "deck-61",
+          "deck-11",
+          "deck-21",
+          "deck-93",
+          "deck-91",
+          "deck-87",
+          "deck-12",
+          "deck-14",
+          "deck-38",
+          "deck-32",
+          "deck-78",
+          "deck-80",
+          "deck-10",
+          "deck-31",
+          "deck-42",
+          "deck-71",
+          "deck-48",
+          "deck-24",
+          "deck-19",
+          "deck-63",
+          "deck-13",
+          "deck-7",
+          "deck-72",
+          "deck-90",
+          "deck-9",
+          "deck-55",
+          "deck-3",
+          "deck-50",
+          "deck-92",
+          "deck-76",
+          "deck-68",
+          "deck-85",
+          "deck-74",
+          "deck-30",
+          "deck-96",
+          "deck-89",
+          "deck-52",
+          "deck-98",
+          "deck-15",
+          "deck-94",
+          "deck-35",
+          "deck-20",
+          "deck-49",
+          "deck-27",
+          "deck-75",
+          "deck-56",
+          "deck-57",
+          "deck-46",
+          "deck-16",
+          "deck-1",
+          "deck-4",
+          "deck-53",
+          "deck-69",
+          "deck-84",
+          "deck-73",
+          "deck-43",
+          "deck-65",
+          "deck-88",
+          "deck-95"
+        ],
+        "graveyard": [
+          "deck-28"
+        ],
+        "exile": [],
+        "opponents": [],
+        "ceased": [],
+        "board": [
+          {
+            "id": "deck-82",
+            "card": "Swamp",
+            "tapped": true
+          },
+          {
+            "id": "deck-17",
+            "card": "Dreadmalkin",
+            "tapped": false
+          },
+          {
+            "id": "deck-77",
+            "card": "Rootwater Depths",
+            "tapped": true
+          },
+          {
+            "id": "deck-97",
+            "card": "Charcoal Diamond",
+            "tapped": true
+          },
+          {
+            "id": "deck-47",
+            "card": "Sidisi, Regent of the Mire",
+            "tapped": false
+          },
+          {
+            "id": "deck-67",
+            "card": "Island",
+            "tapped": true
+          },
+          {
+            "id": "deck-40",
+            "card": "Patchwork Crawler",
+            "tapped": false
+          },
+          {
+            "id": "deck-18",
+            "card": "Fell Stinger",
+            "tapped": false
+          }
+        ],
+        "floatingExpires": [],
+        "life": 40
+      }
+    ]
+  }
+}

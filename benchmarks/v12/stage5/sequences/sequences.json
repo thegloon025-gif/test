@@ -1,0 +1,2902 @@
+{
+  "toolSHA256": "f6ec831dcde0b11dec61dfca185827db0ff585bcc5250d61e912e59e833511ec",
+  "catalogSHA256": "6add2c5dd20809fd787438d3c8825f8dd21a74e7d3fc429f83c7a9a091045f6c",
+  "interpretation": "Exact supported-subset events under stipulated resources/inert opponents, not real-game win rates, reliable combo turns or deck recommendations.",
+  "index": [
+    {
+      "id": "native-followup-lethal",
+      "file": "native-followup-lethal.json.gz",
+      "deck": "ulalek-b3-original",
+      "commanderTurn": 3,
+      "outlets": {
+        "initialLife": [
+          40,
+          40,
+          40
+        ],
+        "life": [
+          0,
+          0,
+          0
+        ],
+        "won": true,
+        "damageEvents": 120,
+        "totalDamage": 120,
+        "lethalTurn": 6
+      },
+      "native": {
+        "castsFromCascade": 0,
+        "spellCopies": 3,
+        "triggerCopies": 5,
+        "resolvedCopies": 3,
+        "cascades": 0,
+        "tutors": 0,
+        "tutorCardsToHand": 0,
+        "tutorCardsToTop": 0,
+        "tokens": 16,
+        "paidTriggers": 3,
+        "declinedTriggers": 0,
+        "multipliedTriggers": 0,
+        "boundHits": 0,
+        "unsupported": [],
+        "maxStack": 11,
+        "compressedDeclines": 0,
+        "compressedNoops": 0,
+        "continuations": 0,
+        "logicalPeak": 11,
+        "storagePeak": 11
+      },
+      "bounded": false,
+      "lost": false,
+      "turns": [
+        {
+          "turn": 1,
+          "event": "cast-paid",
+          "card": "Sol Ring"
+        },
+        {
+          "turn": 2,
+          "event": "cast-paid",
+          "card": "Thran Dynamo"
+        },
+        {
+          "turn": 2,
+          "event": "cast-paid",
+          "card": "Arcane Signet"
+        },
+        {
+          "turn": 3,
+          "event": "cast-paid",
+          "card": "Ulalek, Fused Atrocity"
+        },
+        {
+          "turn": 4,
+          "event": "cast-paid",
+          "card": "Glaring Fleshraker"
+        },
+        {
+          "turn": 4,
+          "event": "native-trigger-paid",
+          "source": "commander",
+          "ability": "stack-5"
+        },
+        {
+          "turn": 4,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-7"
+        },
+        {
+          "turn": 4,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-7"
+        },
+        {
+          "turn": 4,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-7"
+        },
+        {
+          "turn": 5,
+          "event": "cast-paid",
+          "card": "Spawn-Gang Commander"
+        },
+        {
+          "turn": 5,
+          "event": "native-trigger-paid",
+          "source": "commander",
+          "ability": "stack-9"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-18"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-18"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-18"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-17"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-17"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-17"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-20"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-20"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-20"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-19"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-19"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-19"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-26"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-26"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-26"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-25"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-25"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-25"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-24"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-24"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-24"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-23"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-23"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-23"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-22"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-22"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-22"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-21"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-21"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-21"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-28"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-28"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-28"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-27"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-27"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-27"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-30"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-30"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-30"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-29"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-29"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-29"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-32"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-32"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-32"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-31"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-31"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-31"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-38"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-38"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-38"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-37"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-37"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-37"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-36"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-36"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-36"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-35"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-35"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-35"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-34"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-34"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-34"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-33"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-33"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-33"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-40"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-40"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-40"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-39"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-39"
+        },
+        {
+          "turn": 5,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-39"
+        },
+        {
+          "turn": 6,
+          "event": "cast-paid",
+          "card": "Drowner of Hope"
+        },
+        {
+          "turn": 6,
+          "event": "native-trigger-paid",
+          "source": "commander",
+          "ability": "stack-42"
+        },
+        {
+          "turn": 6,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-49"
+        },
+        {
+          "turn": 6,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-49"
+        },
+        {
+          "turn": 6,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-49"
+        },
+        {
+          "turn": 6,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-48"
+        },
+        {
+          "turn": 6,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-48"
+        },
+        {
+          "turn": 6,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-48"
+        },
+        {
+          "turn": 6,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-51"
+        },
+        {
+          "turn": 6,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-51"
+        },
+        {
+          "turn": 6,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-51"
+        },
+        {
+          "turn": 6,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-50"
+        },
+        {
+          "turn": 6,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-50"
+        },
+        {
+          "turn": 6,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-50"
+        },
+        {
+          "turn": 6,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-54"
+        },
+        {
+          "turn": 6,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-54"
+        },
+        {
+          "turn": 6,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-54"
+        },
+        {
+          "turn": 6,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-53"
+        },
+        {
+          "turn": 6,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-53"
+        },
+        {
+          "turn": 6,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-53"
+        },
+        {
+          "turn": 6,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-58"
+        },
+        {
+          "turn": 6,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-58"
+        },
+        {
+          "turn": 6,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-58"
+        },
+        {
+          "turn": 6,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-57"
+        },
+        {
+          "turn": 6,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-57"
+        },
+        {
+          "turn": 6,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-57"
+        },
+        {
+          "turn": 6,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-56"
+        },
+        {
+          "turn": 6,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-56"
+        },
+        {
+          "turn": 6,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-56"
+        },
+        {
+          "turn": 6,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-55"
+        },
+        {
+          "turn": 6,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-55"
+        },
+        {
+          "turn": 6,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-55"
+        },
+        {
+          "turn": 6,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-60"
+        },
+        {
+          "turn": 6,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-60"
+        },
+        {
+          "turn": 6,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-60"
+        },
+        {
+          "turn": 6,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-59"
+        },
+        {
+          "turn": 6,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-59"
+        },
+        {
+          "turn": 6,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-59"
+        },
+        {
+          "turn": 6,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-62"
+        },
+        {
+          "turn": 6,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-62"
+        },
+        {
+          "turn": 6,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-62"
+        },
+        {
+          "turn": 6,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-61"
+        },
+        {
+          "turn": 6,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-61"
+        },
+        {
+          "turn": 6,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-61"
+        },
+        {
+          "turn": 6,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-65"
+        },
+        {
+          "turn": 6,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-65"
+        },
+        {
+          "turn": 6,
+          "event": "outlet-damage",
+          "source": "deck-23",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-65"
+        },
+        {
+          "turn": 6,
+          "event": "opponent-eliminated",
+          "target": 0,
+          "ability": "stack-65"
+        },
+        {
+          "turn": 6,
+          "event": "opponent-eliminated",
+          "target": 1,
+          "ability": "stack-65"
+        },
+        {
+          "turn": 6,
+          "event": "opponent-eliminated",
+          "target": 2,
+          "ability": "stack-65"
+        }
+      ]
+    },
+    {
+      "id": "generic-mana-line",
+      "file": "generic-mana-line.json.gz",
+      "deck": "ulalek-b3-original",
+      "commanderTurn": 3,
+      "outlets": {
+        "initialLife": [
+          40,
+          40,
+          40
+        ],
+        "life": [
+          40,
+          40,
+          40
+        ],
+        "won": false,
+        "damageEvents": 0,
+        "totalDamage": 0,
+        "lethalTurn": null
+      },
+      "native": {
+        "castsFromCascade": 0,
+        "spellCopies": 2,
+        "triggerCopies": 1,
+        "resolvedCopies": 2,
+        "cascades": 0,
+        "tutors": 0,
+        "tutorCardsToHand": 0,
+        "tutorCardsToTop": 0,
+        "tokens": 10,
+        "paidTriggers": 2,
+        "declinedTriggers": 0,
+        "multipliedTriggers": 0,
+        "boundHits": 0,
+        "unsupported": [],
+        "maxStack": 4,
+        "compressedDeclines": 0,
+        "compressedNoops": 0,
+        "continuations": 0,
+        "logicalPeak": 4,
+        "storagePeak": 4
+      },
+      "bounded": false,
+      "lost": false,
+      "turns": [
+        {
+          "turn": 1,
+          "event": "cast-paid",
+          "card": "Sol Ring"
+        },
+        {
+          "turn": 2,
+          "event": "cast-paid",
+          "card": "Thran Dynamo"
+        },
+        {
+          "turn": 2,
+          "event": "cast-paid",
+          "card": "Arcane Signet"
+        },
+        {
+          "turn": 3,
+          "event": "cast-paid",
+          "card": "Ulalek, Fused Atrocity"
+        },
+        {
+          "turn": 4,
+          "event": "cast-paid",
+          "card": "Mind Stone"
+        },
+        {
+          "turn": 5,
+          "event": "cast-paid",
+          "card": "Spawn-Gang Commander"
+        },
+        {
+          "turn": 5,
+          "event": "native-trigger-paid",
+          "source": "commander",
+          "ability": "stack-6"
+        },
+        {
+          "turn": 6,
+          "event": "cast-paid",
+          "card": "Drowner of Hope"
+        },
+        {
+          "turn": 6,
+          "event": "native-trigger-paid",
+          "source": "commander",
+          "ability": "stack-11"
+        }
+      ]
+    },
+    {
+      "id": "gang-paid-player-shots",
+      "file": "gang-paid-player-shots.json.gz",
+      "deck": "ulalek-b3-original",
+      "commanderTurn": 3,
+      "outlets": {
+        "initialLife": [
+          40,
+          40,
+          40
+        ],
+        "life": [
+          38,
+          38,
+          40
+        ],
+        "won": false,
+        "damageEvents": 2,
+        "totalDamage": 4,
+        "lethalTurn": null
+      },
+      "native": {
+        "castsFromCascade": 0,
+        "spellCopies": 2,
+        "triggerCopies": 1,
+        "resolvedCopies": 2,
+        "cascades": 0,
+        "tutors": 0,
+        "tutorCardsToHand": 0,
+        "tutorCardsToTop": 0,
+        "tokens": 10,
+        "paidTriggers": 2,
+        "declinedTriggers": 0,
+        "multipliedTriggers": 0,
+        "boundHits": 0,
+        "unsupported": [],
+        "maxStack": 4,
+        "compressedDeclines": 0,
+        "compressedNoops": 0,
+        "continuations": 0,
+        "logicalPeak": 4,
+        "storagePeak": 4
+      },
+      "bounded": false,
+      "lost": false,
+      "turns": [
+        {
+          "turn": 1,
+          "event": "cast-paid",
+          "card": "Sol Ring"
+        },
+        {
+          "turn": 2,
+          "event": "cast-paid",
+          "card": "Thran Dynamo"
+        },
+        {
+          "turn": 2,
+          "event": "cast-paid",
+          "card": "Arcane Signet"
+        },
+        {
+          "turn": 3,
+          "event": "cast-paid",
+          "card": "Ulalek, Fused Atrocity"
+        },
+        {
+          "turn": 4,
+          "event": "cast-paid",
+          "card": "Mind Stone"
+        },
+        {
+          "turn": 5,
+          "event": "cast-paid",
+          "card": "Spawn-Gang Commander"
+        },
+        {
+          "turn": 5,
+          "event": "native-trigger-paid",
+          "source": "commander",
+          "ability": "stack-6"
+        },
+        {
+          "turn": 6,
+          "event": "cast-paid",
+          "card": "Drowner of Hope"
+        },
+        {
+          "turn": 6,
+          "event": "native-trigger-paid",
+          "source": "commander",
+          "ability": "stack-11"
+        },
+        {
+          "turn": 7,
+          "event": "outlet-sacrifice",
+          "source": "copy-0",
+          "target": 0,
+          "victim": "token-0"
+        },
+        {
+          "turn": 7,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 0,
+          "amount": 2,
+          "ability": "stack-15"
+        },
+        {
+          "turn": 7,
+          "event": "outlet-sacrifice",
+          "source": "copy-0",
+          "target": 1,
+          "victim": "token-1"
+        },
+        {
+          "turn": 7,
+          "event": "outlet-damage",
+          "source": "copy-0",
+          "target": 1,
+          "amount": 2,
+          "ability": "stack-16"
+        }
+      ]
+    },
+    {
+      "id": "true-C-shortfall",
+      "file": "true-C-shortfall.json.gz",
+      "deck": "ulalek-b3-original",
+      "commanderTurn": 5,
+      "outlets": {
+        "initialLife": [
+          40,
+          40,
+          40
+        ],
+        "life": [
+          40,
+          40,
+          40
+        ],
+        "won": false,
+        "damageEvents": 0,
+        "totalDamage": 0,
+        "lethalTurn": null
+      },
+      "native": {
+        "castsFromCascade": 0,
+        "spellCopies": 0,
+        "triggerCopies": 0,
+        "resolvedCopies": 0,
+        "cascades": 0,
+        "tutors": 0,
+        "tutorCardsToHand": 0,
+        "tutorCardsToTop": 0,
+        "tokens": 0,
+        "paidTriggers": 0,
+        "declinedTriggers": 1,
+        "multipliedTriggers": 0,
+        "boundHits": 0,
+        "unsupported": [],
+        "maxStack": 2,
+        "compressedDeclines": 0,
+        "compressedNoops": 0,
+        "continuations": 0,
+        "logicalPeak": 2,
+        "storagePeak": 2
+      },
+      "bounded": false,
+      "lost": false,
+      "turns": [
+        {
+          "turn": 2,
+          "event": "cast-paid",
+          "card": "Arcane Signet"
+        },
+        {
+          "turn": 3,
+          "event": "cast-paid",
+          "card": "Mind Stone"
+        },
+        {
+          "turn": 5,
+          "event": "cast-paid",
+          "card": "Ulalek, Fused Atrocity"
+        },
+        {
+          "turn": 6,
+          "event": "cast-paid",
+          "card": "Endbringer"
+        }
+      ]
+    },
+    {
+      "id": "previous-loss-stage4",
+      "file": "previous-loss-stage4.json.gz",
+      "deck": "ulalek-b4-original",
+      "commanderTurn": 4,
+      "outlets": null,
+      "native": {
+        "castsFromCascade": 0,
+        "spellCopies": 79,
+        "triggerCopies": 114,
+        "resolvedCopies": 16,
+        "cascades": 0,
+        "tutors": 0,
+        "tutorCardsToHand": 0,
+        "tutorCardsToTop": 0,
+        "tokens": 34,
+        "paidTriggers": 8,
+        "declinedTriggers": 2,
+        "multipliedTriggers": 3,
+        "boundHits": 0,
+        "unsupported": [],
+        "maxStack": 126
+      },
+      "bounded": false,
+      "lost": true,
+      "turns": [
+        {
+          "turn": 2,
+          "event": "cast-paid",
+          "card": "Arcane Signet"
+        },
+        {
+          "turn": 3,
+          "event": "cast-paid",
+          "card": "Fanatic of Rhonas"
+        },
+        {
+          "turn": 3,
+          "event": "cast-paid",
+          "card": "Talisman of Resilience"
+        },
+        {
+          "turn": 4,
+          "event": "cast-paid",
+          "card": "Ulalek, Fused Atrocity"
+        },
+        {
+          "turn": 5,
+          "event": "cast-paid",
+          "card": "Guardian Idol"
+        },
+        {
+          "turn": 5,
+          "event": "cast-paid",
+          "card": "Kozilek's Unsealing"
+        },
+        {
+          "turn": 6,
+          "event": "cast-paid",
+          "card": "Ugin, the Ineffable"
+        },
+        {
+          "turn": 6,
+          "event": "cast-paid",
+          "card": "Glaring Fleshraker"
+        },
+        {
+          "turn": 7,
+          "event": "cast-paid",
+          "card": "Chittering Dispatcher"
+        },
+        {
+          "turn": 7,
+          "event": "native-trigger-paid",
+          "source": "commander",
+          "ability": "stack-10"
+        },
+        {
+          "turn": 7,
+          "event": "cast-paid",
+          "card": "Drownyard Lurker"
+        },
+        {
+          "turn": 7,
+          "event": "native-trigger-paid",
+          "source": "commander",
+          "ability": "stack-16"
+        },
+        {
+          "turn": 7,
+          "event": "cast-paid",
+          "card": "Giant's Boulder"
+        },
+        {
+          "turn": 7,
+          "event": "cast-paid",
+          "card": "Echoes of Eternity"
+        },
+        {
+          "turn": 8,
+          "event": "cast-paid",
+          "card": "World Breaker"
+        },
+        {
+          "turn": 8,
+          "event": "native-trigger-paid",
+          "source": "commander",
+          "ability": "stack-31"
+        },
+        {
+          "turn": 8,
+          "event": "native-trigger-paid",
+          "source": "commander",
+          "ability": "stack-41"
+        },
+        {
+          "turn": 8,
+          "event": "native-trigger-paid",
+          "source": "commander",
+          "ability": "stack-49"
+        },
+        {
+          "turn": 8,
+          "event": "native-trigger-paid",
+          "source": "commander",
+          "ability": "stack-65"
+        },
+        {
+          "turn": 8,
+          "event": "native-trigger-paid",
+          "source": "commander",
+          "ability": "stack-91"
+        },
+        {
+          "turn": 8,
+          "event": "native-trigger-paid",
+          "source": "commander",
+          "ability": "stack-131"
+        }
+      ]
+    },
+    {
+      "id": "previous-loss-stage5",
+      "file": "previous-loss-stage5.json.gz",
+      "deck": "ulalek-b4-original",
+      "commanderTurn": 4,
+      "outlets": {
+        "initialLife": [
+          40,
+          40,
+          40
+        ],
+        "life": [
+          0,
+          0,
+          0
+        ],
+        "won": true,
+        "damageEvents": 120,
+        "totalDamage": 120,
+        "lethalTurn": 8
+      },
+      "native": {
+        "castsFromCascade": 0,
+        "spellCopies": 22,
+        "triggerCopies": 57,
+        "resolvedCopies": 7,
+        "cascades": 0,
+        "tutors": 0,
+        "tutorCardsToHand": 0,
+        "tutorCardsToTop": 0,
+        "tokens": 16,
+        "paidTriggers": 6,
+        "declinedTriggers": 2,
+        "multipliedTriggers": 18,
+        "boundHits": 0,
+        "unsupported": [],
+        "maxStack": 59,
+        "compressedDeclines": 0,
+        "compressedNoops": 0,
+        "continuations": 0,
+        "logicalPeak": 59,
+        "storagePeak": 31
+      },
+      "bounded": false,
+      "lost": false,
+      "turns": [
+        {
+          "turn": 2,
+          "event": "cast-paid",
+          "card": "Arcane Signet"
+        },
+        {
+          "turn": 3,
+          "event": "cast-paid",
+          "card": "Fanatic of Rhonas"
+        },
+        {
+          "turn": 3,
+          "event": "cast-paid",
+          "card": "Talisman of Resilience"
+        },
+        {
+          "turn": 4,
+          "event": "cast-paid",
+          "card": "Ulalek, Fused Atrocity"
+        },
+        {
+          "turn": 5,
+          "event": "cast-paid",
+          "card": "Guardian Idol"
+        },
+        {
+          "turn": 5,
+          "event": "cast-paid",
+          "card": "Kozilek's Unsealing"
+        },
+        {
+          "turn": 6,
+          "event": "cast-paid",
+          "card": "Ugin, the Ineffable"
+        },
+        {
+          "turn": 6,
+          "event": "cast-paid",
+          "card": "Glaring Fleshraker"
+        },
+        {
+          "turn": 7,
+          "event": "cast-paid",
+          "card": "Chittering Dispatcher"
+        },
+        {
+          "turn": 7,
+          "event": "native-trigger-paid",
+          "source": "commander",
+          "ability": "stack-10"
+        },
+        {
+          "turn": 7,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-14"
+        },
+        {
+          "turn": 7,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-14"
+        },
+        {
+          "turn": 7,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-14"
+        },
+        {
+          "turn": 7,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-15"
+        },
+        {
+          "turn": 7,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-15"
+        },
+        {
+          "turn": 7,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-15"
+        },
+        {
+          "turn": 7,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-16"
+        },
+        {
+          "turn": 7,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-16"
+        },
+        {
+          "turn": 7,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-16"
+        },
+        {
+          "turn": 7,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-17"
+        },
+        {
+          "turn": 7,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-17"
+        },
+        {
+          "turn": 7,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-17"
+        },
+        {
+          "turn": 7,
+          "event": "cast-paid",
+          "card": "Drownyard Lurker"
+        },
+        {
+          "turn": 7,
+          "event": "native-trigger-paid",
+          "source": "commander",
+          "ability": "stack-20"
+        },
+        {
+          "turn": 7,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-25"
+        },
+        {
+          "turn": 7,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-25"
+        },
+        {
+          "turn": 7,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-25"
+        },
+        {
+          "turn": 7,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-26"
+        },
+        {
+          "turn": 7,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-26"
+        },
+        {
+          "turn": 7,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-26"
+        },
+        {
+          "turn": 7,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-27"
+        },
+        {
+          "turn": 7,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-27"
+        },
+        {
+          "turn": 7,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-27"
+        },
+        {
+          "turn": 7,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-28"
+        },
+        {
+          "turn": 7,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-28"
+        },
+        {
+          "turn": 7,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-28"
+        },
+        {
+          "turn": 7,
+          "event": "cast-paid",
+          "card": "Giant's Boulder"
+        },
+        {
+          "turn": 7,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-31"
+        },
+        {
+          "turn": 7,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-31"
+        },
+        {
+          "turn": 7,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-31"
+        },
+        {
+          "turn": 7,
+          "event": "cast-paid",
+          "card": "Echoes of Eternity"
+        },
+        {
+          "turn": 7,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-36"
+        },
+        {
+          "turn": 7,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-36"
+        },
+        {
+          "turn": 7,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-36"
+        },
+        {
+          "turn": 8,
+          "event": "cast-paid",
+          "card": "World Breaker"
+        },
+        {
+          "turn": 8,
+          "event": "native-trigger-paid",
+          "source": "commander",
+          "ability": "stack-41"
+        },
+        {
+          "turn": 8,
+          "event": "native-trigger-paid",
+          "source": "commander",
+          "ability": "stack-51"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-67"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-67"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-67"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-66"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-66"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-66"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-69"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-69"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-69"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-68"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-68"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-68"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-71"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-71"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-71"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-70"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-70"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-70"
+        },
+        {
+          "turn": 8,
+          "event": "native-trigger-paid",
+          "source": "commander",
+          "ability": "stack-59"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-94"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-94"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-94"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-93"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-93"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-93"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-96"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-96"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-96"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-95"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-95"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-95"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-98"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-98"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-98"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-97"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-97"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-97"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-101"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-101"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-101"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-100"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-100"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-100"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-103"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-103"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-103"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-102"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-102"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-102"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-105"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-105"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-105"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-104"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-104"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-104"
+        },
+        {
+          "turn": 8,
+          "event": "native-trigger-paid",
+          "source": "commander",
+          "ability": "stack-81"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-137"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-137"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-137"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-136"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-136"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-136"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-139"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-139"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-139"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-138"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-138"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-138"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-141"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-141"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-141"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-140"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-140"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-140"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-144"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-144"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-144"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-143"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-143"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-143"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-146"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-146"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-146"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-145"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-145"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-145"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-148"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-148"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-148"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 0,
+          "amount": 1,
+          "ability": "stack-147"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 1,
+          "amount": 1,
+          "ability": "stack-147"
+        },
+        {
+          "turn": 8,
+          "event": "outlet-damage",
+          "source": "deck-22",
+          "target": 2,
+          "amount": 1,
+          "ability": "stack-147"
+        },
+        {
+          "turn": 8,
+          "event": "opponent-eliminated",
+          "target": 0,
+          "ability": "stack-147"
+        },
+        {
+          "turn": 8,
+          "event": "opponent-eliminated",
+          "target": 1,
+          "ability": "stack-147"
+        },
+        {
+          "turn": 8,
+          "event": "opponent-eliminated",
+          "target": 2,
+          "ability": "stack-147"
+        }
+      ]
+    },
+    {
+      "id": "object-bound-stage4",
+      "file": "object-bound-stage4.json.gz",
+      "deck": "ulalek-b3-repair-03",
+      "commanderTurn": 3,
+      "outlets": null,
+      "native": {
+        "castsFromCascade": 0,
+        "spellCopies": 26,
+        "triggerCopies": 114,
+        "resolvedCopies": 11,
+        "cascades": 0,
+        "tutors": 2,
+        "tutorCardsToHand": 0,
+        "tutorCardsToTop": 2,
+        "tokens": 0,
+        "paidTriggers": 7,
+        "declinedTriggers": 0,
+        "multipliedTriggers": 8,
+        "boundHits": 1,
+        "unsupported": [],
+        "maxStack": 128
+      },
+      "bounded": true,
+      "lost": false,
+      "turns": [
+        {
+          "turn": 1,
+          "event": "cast-paid",
+          "card": "Sol Ring"
+        },
+        {
+          "turn": 2,
+          "event": "cast-paid",
+          "card": "Mystic Forge"
+        },
+        {
+          "turn": 3,
+          "event": "cast-paid",
+          "card": "Ulalek, Fused Atrocity"
+        },
+        {
+          "turn": 4,
+          "event": "cast-paid",
+          "card": "Propagator Drone"
+        },
+        {
+          "turn": 4,
+          "event": "native-trigger-paid",
+          "source": "commander",
+          "ability": "stack-6"
+        },
+        {
+          "turn": 5,
+          "event": "cast-paid",
+          "card": "Hedron Archive"
+        },
+        {
+          "turn": 6,
+          "event": "cast-paid",
+          "card": "Conduit of Ruin"
+        },
+        {
+          "turn": 6,
+          "event": "native-trigger-paid",
+          "source": "commander",
+          "ability": "stack-12"
+        },
+        {
+          "turn": 7,
+          "event": "cast-paid",
+          "card": "Echoes of Eternity"
+        },
+        {
+          "turn": 7,
+          "event": "native-trigger-paid",
+          "source": "commander",
+          "ability": "stack-18"
+        },
+        {
+          "turn": 8,
+          "event": "cast-paid",
+          "card": "Thran Dynamo"
+        },
+        {
+          "turn": 8,
+          "event": "cast-paid",
+          "card": "Kozilek, the Great Distortion"
+        },
+        {
+          "turn": 8,
+          "event": "native-trigger-paid",
+          "source": "commander",
+          "ability": "stack-34"
+        },
+        {
+          "turn": 8,
+          "event": "native-trigger-paid",
+          "source": "commander",
+          "ability": "stack-51"
+        },
+        {
+          "turn": 8,
+          "event": "native-trigger-paid",
+          "source": "commander",
+          "ability": "stack-70"
+        },
+        {
+          "turn": 8,
+          "event": "native-trigger-paid",
+          "source": "commander",
+          "ability": "stack-100"
+        },
+        {
+          "turn": 8,
+          "event": "native-bound"
+        }
+      ]
+    },
+    {
+      "id": "shared-stack-completion",
+      "file": "shared-stack-completion.json.gz",
+      "deck": "ulalek-b3-repair-03",
+      "commanderTurn": 3,
+      "outlets": {
+        "initialLife": [
+          40,
+          40,
+          40
+        ],
+        "life": [
+          40,
+          40,
+          40
+        ],
+        "won": false,
+        "damageEvents": 0,
+        "totalDamage": 0,
+        "lethalTurn": null
+      },
+      "native": {
+        "castsFromCascade": 0,
+        "spellCopies": 154,
+        "triggerCopies": 233,
+        "resolvedCopies": 154,
+        "cascades": 0,
+        "tutors": 2,
+        "tutorCardsToHand": 0,
+        "tutorCardsToTop": 2,
+        "tokens": 0,
+        "paidTriggers": 8,
+        "declinedTriggers": 34,
+        "multipliedTriggers": 8,
+        "boundHits": 0,
+        "unsupported": [],
+        "maxStack": 262,
+        "compressedDeclines": 24,
+        "compressedNoops": 86,
+        "continuations": 1,
+        "logicalPeak": 262,
+        "storagePeak": 113
+      },
+      "bounded": false,
+      "lost": false,
+      "turns": [
+        {
+          "turn": 1,
+          "event": "cast-paid",
+          "card": "Sol Ring"
+        },
+        {
+          "turn": 2,
+          "event": "cast-paid",
+          "card": "Mystic Forge"
+        },
+        {
+          "turn": 3,
+          "event": "cast-paid",
+          "card": "Ulalek, Fused Atrocity"
+        },
+        {
+          "turn": 4,
+          "event": "cast-paid",
+          "card": "Propagator Drone"
+        },
+        {
+          "turn": 4,
+          "event": "native-trigger-paid",
+          "source": "commander",
+          "ability": "stack-6"
+        },
+        {
+          "turn": 5,
+          "event": "cast-paid",
+          "card": "Hedron Archive"
+        },
+        {
+          "turn": 6,
+          "event": "cast-paid",
+          "card": "Conduit of Ruin"
+        },
+        {
+          "turn": 6,
+          "event": "native-trigger-paid",
+          "source": "commander",
+          "ability": "stack-12"
+        },
+        {
+          "turn": 7,
+          "event": "cast-paid",
+          "card": "Echoes of Eternity"
+        },
+        {
+          "turn": 7,
+          "event": "native-trigger-paid",
+          "source": "commander",
+          "ability": "stack-18"
+        },
+        {
+          "turn": 8,
+          "event": "cast-paid",
+          "card": "Thran Dynamo"
+        },
+        {
+          "turn": 8,
+          "event": "cast-paid",
+          "card": "Kozilek, the Great Distortion"
+        },
+        {
+          "turn": 8,
+          "event": "native-trigger-paid",
+          "source": "commander",
+          "ability": "stack-34"
+        },
+        {
+          "turn": 8,
+          "event": "native-trigger-paid",
+          "source": "commander",
+          "ability": "stack-51"
+        },
+        {
+          "turn": 8,
+          "event": "native-trigger-paid",
+          "source": "commander",
+          "ability": "stack-70"
+        },
+        {
+          "turn": 8,
+          "event": "native-trigger-paid",
+          "source": "commander",
+          "ability": "stack-100"
+        },
+        {
+          "turn": 8,
+          "event": "native-trigger-paid",
+          "source": "commander",
+          "ability": "stack-177"
+        }
+      ]
+    }
+  ]
+}

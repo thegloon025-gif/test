@@ -1,0 +1,5444 @@
+{
+  "catalogSHA256": "6add2c5dd20809fd787438d3c8825f8dd21a74e7d3fc429f83c7a9a091045f6c",
+  "exportSHA256": "25e98e63206c8dbf969f01cb5ff8935c487ffbb566a9a9e0801b80943e820333",
+  "estimatedPrice": 174.24,
+  "pricing": "Resolved current catalog Scryfall EUR estimates, owned basics; not verified EN NM offers",
+  "originalPrintingProvenance": "Unknown from plain text alone. Frozen benchmarking uses archived selected-printing ledgers instead.",
+  "stipulatedDraws": true,
+  "ledgerAudit": {
+    "valid": true,
+    "errors": []
+  },
+  "prices": [
+    {
+      "name": "Ulalek, Fused Atrocity",
+      "price": 0.46,
+      "printing": {
+        "set": "m3c",
+        "setName": "Modern Horizons 3 Commander",
+        "collectorNumber": "4",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Annie Joins Up",
+      "price": 0.89,
+      "printing": {
+        "set": "msc",
+        "setName": "Marvel Super Heroes Commander",
+        "collectorNumber": "281",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Arcane Signet",
+      "price": 0.38,
+      "printing": {
+        "set": "c20",
+        "setName": "Commander 2020",
+        "collectorNumber": "237",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Basking Broodscale",
+      "price": 0.21,
+      "printing": {
+        "set": "mh3",
+        "setName": "Modern Horizons 3",
+        "collectorNumber": "145",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Blisterpod",
+      "price": 0.11,
+      "printing": {
+        "set": "bfz",
+        "setName": "Battle for Zendikar",
+        "collectorNumber": "163",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Chittering Dispatcher",
+      "price": 0.43,
+      "printing": {
+        "set": "m3c",
+        "setName": "Modern Horizons 3 Commander",
+        "collectorNumber": "63",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Conduit of Ruin",
+      "price": 3.47,
+      "printing": {
+        "set": "bfz",
+        "setName": "Battle for Zendikar",
+        "collectorNumber": "4",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Deathless Behemoth",
+      "price": 0.09,
+      "printing": {
+        "set": "bfz",
+        "setName": "Battle for Zendikar",
+        "collectorNumber": "5",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Deepfathom Skulker",
+      "price": 0.24,
+      "printing": {
+        "set": "ogw",
+        "setName": "Oath of the Gatewatch",
+        "collectorNumber": "43",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Desolation Twin",
+      "price": 0.3,
+      "printing": {
+        "set": "bfz",
+        "setName": "Battle for Zendikar",
+        "collectorNumber": "6",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Devourer of Destiny",
+      "price": 1.28,
+      "printing": {
+        "set": "mh3",
+        "setName": "Modern Horizons 3",
+        "collectorNumber": "2",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Drowner of Hope",
+      "price": 0.19,
+      "printing": {
+        "set": "bfz",
+        "setName": "Battle for Zendikar",
+        "collectorNumber": "57",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Drownyard Lurker",
+      "price": 0.11,
+      "printing": {
+        "set": "mh3",
+        "setName": "Modern Horizons 3",
+        "collectorNumber": "3",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Echoes of Eternity",
+      "price": 0.74,
+      "printing": {
+        "set": "pmh3",
+        "setName": "Modern Horizons 3 Promos",
+        "collectorNumber": "4p",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Eldrazi Confluence",
+      "price": 11.95,
+      "printing": {
+        "set": "m3c",
+        "setName": "Modern Horizons 3 Commander",
+        "collectorNumber": "32",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Eldrazi Displacer",
+      "price": 0.6,
+      "printing": {
+        "set": "ogw",
+        "setName": "Oath of the Gatewatch",
+        "collectorNumber": "13",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Eldrazi Ravager",
+      "price": 0.12,
+      "printing": {
+        "set": "mh3",
+        "setName": "Modern Horizons 3",
+        "collectorNumber": "5",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Eldrazi Repurposer",
+      "price": 0.13,
+      "printing": {
+        "set": "mh3",
+        "setName": "Modern Horizons 3",
+        "collectorNumber": "150",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Eldritch Immunity",
+      "price": 4.74,
+      "printing": {
+        "set": "m3c",
+        "setName": "Modern Horizons 3 Commander",
+        "collectorNumber": "33",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Emrakul's Influence",
+      "price": 0.13,
+      "printing": {
+        "set": "emn",
+        "setName": "Eldritch Moon",
+        "collectorNumber": "157",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Emrakul's Messenger",
+      "price": 0.2,
+      "printing": {
+        "set": "mh3",
+        "setName": "Modern Horizons 3",
+        "collectorNumber": "61",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Endbringer",
+      "price": 0.25,
+      "printing": {
+        "set": "pogw",
+        "setName": "Oath of the Gatewatch Promos",
+        "collectorNumber": "3",
+        "language": "en",
+        "border": "black",
+        "finish": "foil",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Giant's Boulder",
+      "price": 0.42,
+      "printing": {
+        "set": "hob",
+        "setName": "The Hobbit",
+        "collectorNumber": "173",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Gideon Blackblade",
+      "price": 0.77,
+      "printing": {
+        "set": "war",
+        "setName": "War of the Spark",
+        "collectorNumber": "13",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Glaring Fleshraker",
+      "price": 0.78,
+      "printing": {
+        "set": "mh3",
+        "setName": "Modern Horizons 3",
+        "collectorNumber": "7",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Hedron Archive",
+      "price": 0.13,
+      "printing": {
+        "set": "fdc",
+        "setName": "Foundations Commander",
+        "collectorNumber": "262",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Hedron Crawler",
+      "price": 0.13,
+      "printing": {
+        "set": "ogw",
+        "setName": "Oath of the Gatewatch",
+        "collectorNumber": "164",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Idol of False Gods",
+      "price": 0.16,
+      "printing": {
+        "set": "mh3",
+        "setName": "Modern Horizons 3",
+        "collectorNumber": "210",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Kozilek, the Great Distortion",
+      "price": 4.51,
+      "printing": {
+        "set": "ogw",
+        "setName": "Oath of the Gatewatch",
+        "collectorNumber": "4",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Kozilek's Command",
+      "price": 6.97,
+      "printing": {
+        "set": "mh3",
+        "setName": "Modern Horizons 3",
+        "collectorNumber": "11",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Kozilek's Pathfinder",
+      "price": 0.11,
+      "printing": {
+        "set": "ogw",
+        "setName": "Oath of the Gatewatch",
+        "collectorNumber": "5",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Kozilek's Return",
+      "price": 0.59,
+      "printing": {
+        "set": "m3c",
+        "setName": "Modern Horizons 3 Commander",
+        "collectorNumber": "214",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Kozilek's Unsealing",
+      "price": 0.36,
+      "printing": {
+        "set": "mh3",
+        "setName": "Modern Horizons 3",
+        "collectorNumber": "65",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Millikin",
+      "price": 0.12,
+      "printing": {
+        "set": "dmr",
+        "setName": "Dominaria Remastered",
+        "collectorNumber": "231",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Mind Stone",
+      "price": 0.17,
+      "printing": {
+        "set": "c18",
+        "setName": "Commander 2018",
+        "collectorNumber": "210",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Mystic Forge",
+      "price": 1.9,
+      "printing": {
+        "set": "pm20",
+        "setName": "Core Set 2020 Promos",
+        "collectorNumber": "233p",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Nest Invader",
+      "price": 0.25,
+      "printing": {
+        "set": "pc2",
+        "setName": "Planechase 2012",
+        "collectorNumber": "69",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Oblivion Sower",
+      "price": 0.35,
+      "printing": {
+        "set": "m3c",
+        "setName": "Modern Horizons 3 Commander",
+        "collectorNumber": "158",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Palladium Myr",
+      "price": 0.31,
+      "printing": {
+        "set": "pw25",
+        "setName": "Wizards Play Network 2025",
+        "collectorNumber": "6",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Parting Thoughts",
+      "price": 0.31,
+      "printing": {
+        "set": "c16",
+        "setName": "Commander 2016",
+        "collectorNumber": "15",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Propagator Drone",
+      "price": 0.1,
+      "printing": {
+        "set": "mh3",
+        "setName": "Modern Horizons 3",
+        "collectorNumber": "167",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Rapacious One",
+      "price": 0.09,
+      "printing": {
+        "set": "cmm",
+        "setName": "Commander Masters",
+        "collectorNumber": "249",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Roaming Throne",
+      "price": 36.77,
+      "printing": {
+        "set": "mar",
+        "setName": "Marvel Universe",
+        "collectorNumber": "99",
+        "language": "en",
+        "border": "borderless",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Sifter of Skulls",
+      "price": 0.47,
+      "printing": {
+        "set": "ogw",
+        "setName": "Oath of the Gatewatch",
+        "collectorNumber": "77",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Sire of Stagnation",
+      "price": 1.07,
+      "printing": {
+        "set": "m3c",
+        "setName": "Modern Horizons 3 Commander",
+        "collectorNumber": "272",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Snapping Voidcraw",
+      "price": 0.09,
+      "printing": {
+        "set": "mh3",
+        "setName": "Modern Horizons 3",
+        "collectorNumber": "204",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Sol Ring",
+      "price": 0.68,
+      "printing": {
+        "set": "c16",
+        "setName": "Commander 2016",
+        "collectorNumber": "272",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Solar Transformer",
+      "price": 0.08,
+      "printing": {
+        "set": "mh3",
+        "setName": "Modern Horizons 3",
+        "collectorNumber": "211",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Spawn-Gang Commander",
+      "price": 0.14,
+      "printing": {
+        "set": "mh3",
+        "setName": "Modern Horizons 3",
+        "collectorNumber": "140",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Spawnbed Protector",
+      "price": 1.5,
+      "printing": {
+        "set": "m3c",
+        "setName": "Modern Horizons 3 Commander",
+        "collectorNumber": "36",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Strionic Resonator",
+      "price": 6.37,
+      "printing": {
+        "set": "a25",
+        "setName": "Masters 25",
+        "collectorNumber": "232",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Tablet of Compleation",
+      "price": 0.15,
+      "printing": {
+        "set": "one",
+        "setName": "Phyrexia: All Will Be One",
+        "collectorNumber": "245",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Talisman of Impulse",
+      "price": 0.33,
+      "printing": {
+        "set": "m3c",
+        "setName": "Modern Horizons 3 Commander",
+        "collectorNumber": "311",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Talisman of Resilience",
+      "price": 0.31,
+      "printing": {
+        "set": "m3c",
+        "setName": "Modern Horizons 3 Commander",
+        "collectorNumber": "314",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Thran Dynamo",
+      "price": 2.11,
+      "printing": {
+        "set": "msc",
+        "setName": "Marvel Super Heroes Commander",
+        "collectorNumber": "290",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Ulamog, the Infinite Gyre",
+      "price": 26.44,
+      "printing": {
+        "set": "roe",
+        "setName": "Rise of the Eldrazi",
+        "collectorNumber": "12",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Ulamog's Despoiler",
+      "price": 0.12,
+      "printing": {
+        "set": "bfz",
+        "setName": "Battle for Zendikar",
+        "collectorNumber": "16",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Ulamog's Nullifier",
+      "price": 0.1,
+      "printing": {
+        "set": "m3c",
+        "setName": "Modern Horizons 3 Commander",
+        "collectorNumber": "275",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Void Grafter",
+      "price": 0.17,
+      "printing": {
+        "set": "ogw",
+        "setName": "Oath of the Gatewatch",
+        "collectorNumber": "150",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Warped Tusker",
+      "price": 0.06,
+      "printing": {
+        "set": "mh3",
+        "setName": "Modern Horizons 3",
+        "collectorNumber": "16",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Wastescape Battlemage",
+      "price": 0.14,
+      "printing": {
+        "set": "mh3",
+        "setName": "Modern Horizons 3",
+        "collectorNumber": "17",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Writhing Chrysalis",
+      "price": 0.45,
+      "printing": {
+        "set": "mh3",
+        "setName": "Modern Horizons 3",
+        "collectorNumber": "208",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Zhulodok, Void Gorger",
+      "price": 41.27,
+      "printing": {
+        "set": "cmm",
+        "setName": "Commander Masters",
+        "collectorNumber": "704",
+        "language": "en",
+        "border": "black",
+        "finish": "foil",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Adarkar Wastes",
+      "price": 0.52,
+      "printing": {
+        "set": "blc",
+        "setName": "Bloomburrow Commander",
+        "collectorNumber": "291",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Battlefield Forge",
+      "price": 0.23,
+      "printing": {
+        "set": "frc",
+        "setName": "Reality Fracture Commander",
+        "collectorNumber": "65",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Bonders' Enclave",
+      "price": 0.25,
+      "printing": {
+        "set": "fdc",
+        "setName": "Foundations Commander",
+        "collectorNumber": "297",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Brushland",
+      "price": 0.82,
+      "printing": {
+        "set": "fic",
+        "setName": "Final Fantasy Commander",
+        "collectorNumber": "377",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Caves of Koilos",
+      "price": 0.42,
+      "printing": {
+        "set": "frc",
+        "setName": "Reality Fracture Commander",
+        "collectorNumber": "66",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Command Tower",
+      "price": 0.18,
+      "printing": {
+        "set": "cmm",
+        "setName": "Commander Masters",
+        "collectorNumber": "420",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Exotic Orchard",
+      "price": 0.16,
+      "printing": {
+        "set": "ncc",
+        "setName": "New Capenna Commander",
+        "collectorNumber": "400",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Forest",
+      "price": 0,
+      "printing": {
+        "set": "blb",
+        "setName": "Bloomburrow",
+        "collectorNumber": "280",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Forest",
+      "price": 0,
+      "printing": {
+        "set": "blb",
+        "setName": "Bloomburrow",
+        "collectorNumber": "280",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Island",
+      "price": 0,
+      "printing": {
+        "set": "eld",
+        "setName": "Throne of Eldraine",
+        "collectorNumber": "255",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Island",
+      "price": 0,
+      "printing": {
+        "set": "eld",
+        "setName": "Throne of Eldraine",
+        "collectorNumber": "255",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Karplusan Forest",
+      "price": 0.8,
+      "printing": {
+        "set": "drc",
+        "setName": "Aetherdrift Commander",
+        "collectorNumber": "163",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Llanowar Wastes",
+      "price": 1.03,
+      "printing": {
+        "set": "c20",
+        "setName": "Commander 2020",
+        "collectorNumber": "286",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Mountain",
+      "price": 0,
+      "printing": {
+        "set": "2ed",
+        "setName": "Unlimited Edition",
+        "collectorNumber": "298",
+        "language": "en",
+        "border": "white",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Mountain",
+      "price": 0,
+      "printing": {
+        "set": "2ed",
+        "setName": "Unlimited Edition",
+        "collectorNumber": "298",
+        "language": "en",
+        "border": "white",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Path of Ancestry",
+      "price": 0.1,
+      "printing": {
+        "set": "frc",
+        "setName": "Reality Fracture Commander",
+        "collectorNumber": "77",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Plains",
+      "price": 0,
+      "printing": {
+        "set": "cma",
+        "setName": "Commander Anthology",
+        "collectorNumber": "292",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Reliquary Tower",
+      "price": 1.49,
+      "printing": {
+        "set": "cmr",
+        "setName": "Commander Legends",
+        "collectorNumber": "488",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Ruins of Oran-Rief",
+      "price": 0.17,
+      "printing": {
+        "set": "ogw",
+        "setName": "Oath of the Gatewatch",
+        "collectorNumber": "176",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Shivan Reef",
+      "price": 0.26,
+      "printing": {
+        "set": "frc",
+        "setName": "Reality Fracture Commander",
+        "collectorNumber": "83",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Sulfurous Springs",
+      "price": 0.79,
+      "printing": {
+        "set": "frc",
+        "setName": "Reality Fracture Commander",
+        "collectorNumber": "85",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Swamp",
+      "price": 0,
+      "printing": {
+        "set": "jmp",
+        "setName": "Jumpstart",
+        "collectorNumber": "59",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Tectonic Edge",
+      "price": 0.29,
+      "printing": {
+        "set": "c14",
+        "setName": "Commander 2014",
+        "collectorNumber": "313",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Temple of Malady",
+      "price": 0.15,
+      "printing": {
+        "set": "fdn",
+        "setName": "Foundations",
+        "collectorNumber": "700",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Temple of Silence",
+      "price": 0.1,
+      "printing": {
+        "set": "m21",
+        "setName": "Core Set 2021",
+        "collectorNumber": "255",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Temple of the False God",
+      "price": 0.11,
+      "printing": {
+        "set": "onc",
+        "setName": "Phyrexia: All Will Be One Commander",
+        "collectorNumber": "172",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Tendo Ice Bridge",
+      "price": 0.22,
+      "printing": {
+        "set": "m3c",
+        "setName": "Modern Horizons 3 Commander",
+        "collectorNumber": "393",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Tomb of the Spirit Dragon",
+      "price": 0.27,
+      "printing": {
+        "set": "m3c",
+        "setName": "Modern Horizons 3 Commander",
+        "collectorNumber": "397",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Tranquil Landscape",
+      "price": 0.14,
+      "printing": {
+        "set": "mh3",
+        "setName": "Modern Horizons 3",
+        "collectorNumber": "231",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Twisted Landscape",
+      "price": 0.16,
+      "printing": {
+        "set": "mh3",
+        "setName": "Modern Horizons 3",
+        "collectorNumber": "232",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Underground River",
+      "price": 0.77,
+      "printing": {
+        "set": "frc",
+        "setName": "Reality Fracture Commander",
+        "collectorNumber": "87",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Wastes",
+      "price": 0,
+      "printing": {
+        "set": "plst",
+        "setName": "The List",
+        "collectorNumber": "OGW-183",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Wastes",
+      "price": 0,
+      "printing": {
+        "set": "plst",
+        "setName": "The List",
+        "collectorNumber": "OGW-183",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Wastes",
+      "price": 0,
+      "printing": {
+        "set": "plst",
+        "setName": "The List",
+        "collectorNumber": "OGW-183",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Wastes",
+      "price": 0,
+      "printing": {
+        "set": "plst",
+        "setName": "The List",
+        "collectorNumber": "OGW-183",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Wastes",
+      "price": 0,
+      "printing": {
+        "set": "plst",
+        "setName": "The List",
+        "collectorNumber": "OGW-183",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "name": "Yavimaya Coast",
+      "price": 0.44,
+      "printing": {
+        "set": "drc",
+        "setName": "Aetherdrift Commander",
+        "collectorNumber": "184",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    }
+  ],
+  "schemaVersion": 1,
+  "evaluator": "deployment-stage1-v1",
+  "seed": "scripted-reservation",
+  "turns": 8,
+  "order": [
+    69,
+    78,
+    75,
+    1,
+    33,
+    0,
+    47,
+    71,
+    93,
+    94,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    70,
+    72,
+    73,
+    74,
+    76,
+    77,
+    79,
+    80,
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89,
+    90,
+    91,
+    92,
+    95,
+    96,
+    97,
+    98
+  ],
+  "commander": "Ulalek, Fused Atrocity",
+  "assumptions": {
+    "opening": 7,
+    "mulligan": "none",
+    "drawOnTurnOne": true,
+    "naturalDrawsPerTurn": 1,
+    "landDropsPerTurn": 1,
+    "phases": "one precombat main phase; floating mana expires each turn",
+    "opponents": "none",
+    "commanderTaxPriorCasts": 0,
+    "policy": "explicit scripted schedule",
+    "optionalPayment": "reserved before any cast/entry token trigger resolves",
+    "rankingIntegration": false
+  },
+  "stats": {
+    "casts": [
+      {
+        "turn": 2,
+        "card": "Arcane Signet",
+        "commander": false
+      },
+      {
+        "turn": 3,
+        "card": "Mind Stone",
+        "commander": false
+      },
+      {
+        "turn": 4,
+        "card": "Annie Joins Up",
+        "commander": false
+      },
+      {
+        "turn": 5,
+        "card": "Ulalek, Fused Atrocity",
+        "commander": true
+      },
+      {
+        "turn": 6,
+        "card": "Spawn-Gang Commander",
+        "commander": false
+      }
+    ],
+    "optionalPayments": [
+      {
+        "turn": 6,
+        "card": "Spawn-Gang Commander",
+        "cost": "{C}{C}"
+      }
+    ],
+    "manaSearches": 50,
+    "manaStates": 3451,
+    "boundHits": 0
+  },
+  "unknown": [
+    {
+      "card": "Annie Joins Up",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Arcane Signet",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Basking Broodscale",
+      "reasons": [
+        "unsupported activation cost: Whenever one or more +1/+1 counters are put on this creature, you may create a 0/1 colorless Eldrazi Spawn creature token with \"Sacrifice this token: Add {C}.\"",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Blisterpod",
+      "reasons": [
+        "unsupported activation cost: When this creature dies, create a 1/1 colorless Eldrazi Scion creature token. It has \"Sacrifice this token: Add {C}.\"",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Chittering Dispatcher",
+      "reasons": [
+        "unsupported activation cost: When this creature leaves the battlefield, create a 0/1 colorless Eldrazi Spawn creature token with \"Sacrifice this token: Add {C}.\"",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Conduit of Ruin",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Deathless Behemoth",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Deepfathom Skulker",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Desolation Twin",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Devourer of Destiny",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Drowner of Hope",
+      "reasons": [
+        "unsupported activation cost: When this creature enters, create two 1/1 colorless Eldrazi Scion creature tokens. They have \"Sacrifice this token: Add {C}.\"",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Drownyard Lurker",
+      "reasons": [
+        "unsupported activation cost: When you cast or cycle Drownyard Lurker, create a 0/1 colorless Eldrazi Spawn creature token with \"Sacrifice this token: Add {C}.\"",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Echoes of Eternity",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Eldrazi Confluence",
+      "reasons": [
+        "unsupported activation cost: • Create a 1/1 colorless Eldrazi Scion creature token with \"Sacrifice this token: Add {C}.\"",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Eldrazi Displacer",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Eldrazi Ravager",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Eldrazi Repurposer",
+      "reasons": [
+        "unsupported activation cost: When you cast this spell and when this creature dies, create a 0/1 colorless Eldrazi Spawn creature token with \"Sacrifice this token: Add {C}.\"",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Eldritch Immunity",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Emrakul's Influence",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Emrakul's Messenger",
+      "reasons": [
+        "unsupported activation cost: Whenever you draw your second card each turn, create a 0/1 colorless Eldrazi Spawn creature token with \"Sacrifice this token: Add {C}.\"",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Endbringer",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Giant's Boulder",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Gideon Blackblade",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Glaring Fleshraker",
+      "reasons": [
+        "unsupported activation cost: Whenever you cast a colorless spell, create a 0/1 colorless Eldrazi Spawn creature token with \"Sacrifice this token: Add {C}.\"",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Hedron Archive",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Hedron Crawler",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Idol of False Gods",
+      "reasons": [
+        "unsupported activation cost: {1}{C}, {T}: Create a 0/1 colorless Eldrazi Spawn creature token with \"Sacrifice this token: Add {C}.\"",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Kozilek, the Great Distortion",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Kozilek's Command",
+      "reasons": [
+        "unsupported activation cost: • Target player creates X 0/1 colorless Eldrazi Spawn creature tokens with \"Sacrifice this token: Add {C}.\"",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Kozilek's Pathfinder",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Kozilek's Return",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Kozilek's Unsealing",
+      "reasons": [
+        "unsupported activation cost: Whenever you cast a creature spell with mana value 4, 5, or 6, create two 0/1 colorless Eldrazi Spawn creature tokens with \"Sacrifice this token: Add {C}.\"",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Millikin",
+      "reasons": [
+        "unsupported activation cost: {T}, Mill a card: Add {C}. (Activate only as an instant. To mill a card, put the top card of your library into your graveyard.)",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Mind Stone",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Mystic Forge",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Nest Invader",
+      "reasons": [
+        "unsupported activation cost: When this creature enters, create a 0/1 colorless Eldrazi Spawn creature token. It has \"Sacrifice this token: Add {C}.\"",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Oblivion Sower",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Palladium Myr",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Parting Thoughts",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Propagator Drone",
+      "reasons": [
+        "unsupported activation cost: {3}{G}: Create a 0/1 colorless Eldrazi Spawn creature token with \"Sacrifice this token: Add {C}.\"",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Rapacious One",
+      "reasons": [
+        "unsupported activation cost: Whenever this creature deals combat damage to a player, create that many 0/1 colorless Eldrazi Spawn creature tokens. They have \"Sacrifice this token: Add {C}.\"",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Roaming Throne",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Sifter of Skulls",
+      "reasons": [
+        "unsupported activation cost: Whenever another nontoken creature you control dies, create a 1/1 colorless Eldrazi Scion creature token. It has \"Sacrifice this token: Add {C}.\" ({C} represents colorless mana.)",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Sire of Stagnation",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Snapping Voidcraw",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Sol Ring",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Solar Transformer",
+      "reasons": [
+        "unsupported activation cost: {T}, Pay {E}: Add one mana of any color.",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Spawn-Gang Commander",
+      "reasons": [
+        "unsupported activation cost: When you cast this spell, create three 0/1 colorless Eldrazi Spawn creature tokens with \"Sacrifice this token: Add {C}.\"",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Spawnbed Protector",
+      "reasons": [
+        "unsupported activation cost: At the beginning of your end step, return up to one target Eldrazi creature card from your graveyard to your hand. Create two 1/1 colorless Eldrazi Scion creature tokens with \"Sacrifice this token: Add {C}.\"",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Strionic Resonator",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Tablet of Compleation",
+      "reasons": [
+        "unsupported mana condition: {T}: Add {C}. Activate only if this artifact has two or more oil counters on it.",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Talisman of Impulse",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Talisman of Resilience",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Thran Dynamo",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Ulamog, the Infinite Gyre",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Ulamog's Despoiler",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Ulamog's Nullifier",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Void Grafter",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Warped Tusker",
+      "reasons": [
+        "unsupported activation cost: When you cast or cycle Warped Tusker, create a 0/1 colorless Eldrazi Spawn creature token with \"Sacrifice this token: Add {C}.\"",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Wastescape Battlemage",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Writhing Chrysalis",
+      "reasons": [
+        "unsupported activation cost: When you cast this spell, create two 0/1 colorless Eldrazi Spawn creature tokens with \"Sacrifice this token: Add {C}.\"",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Zhulodok, Void Gorger",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Adarkar Wastes",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Battlefield Forge",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Bonders' Enclave",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Brushland",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Caves of Koilos",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Command Tower",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Exotic Orchard",
+      "reasons": [
+        "unsupported mana production: {T}: Add one mana of any color that a land an opponent controls could produce.",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Forest",
+      "reasons": [
+        "unsupported activation cost: ({T}: Add {G}.)",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Island",
+      "reasons": [
+        "unsupported activation cost: ({T}: Add {U}.)",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Karplusan Forest",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Llanowar Wastes",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Mountain",
+      "reasons": [
+        "unsupported activation cost: ({T}: Add {R}.)",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Path of Ancestry",
+      "reasons": [
+        "mana-spend scry not resolved",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Plains",
+      "reasons": [
+        "unsupported activation cost: ({T}: Add {W}.)",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Reliquary Tower",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Ruins of Oran-Rief",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Shivan Reef",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Sulfurous Springs",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Swamp",
+      "reasons": [
+        "unsupported activation cost: ({T}: Add {B}.)",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Tectonic Edge",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Temple of Malady",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Temple of Silence",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Temple of the False God",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Tendo Ice Bridge",
+      "reasons": [
+        "unsupported activation cost: {T}, Remove a charge counter from this land: Add one mana of any color.",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Tomb of the Spirit Dragon",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Tranquil Landscape",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Twisted Landscape",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Underground River",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Wastes",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Yavimaya Coast",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Ulalek, Fused Atrocity",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Eldrazi Spawn",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Eldrazi Spawn",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "card": "Eldrazi Spawn",
+      "reasons": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    }
+  ],
+  "trace": [
+    {
+      "turn": 0,
+      "event": "opening",
+      "hand": [
+        {
+          "id": "deck-69",
+          "card": "Forest"
+        },
+        {
+          "id": "deck-78",
+          "card": "Plains"
+        },
+        {
+          "id": "deck-75",
+          "card": "Mountain"
+        },
+        {
+          "id": "deck-1",
+          "card": "Arcane Signet"
+        },
+        {
+          "id": "deck-33",
+          "card": "Mind Stone"
+        },
+        {
+          "id": "deck-0",
+          "card": "Annie Joins Up"
+        },
+        {
+          "id": "deck-47",
+          "card": "Spawn-Gang Commander"
+        }
+      ]
+    },
+    {
+      "turn": 1,
+      "event": "untap",
+      "sources": []
+    },
+    {
+      "turn": 1,
+      "event": "draw",
+      "card": "Island",
+      "id": "deck-71"
+    },
+    {
+      "turn": 1,
+      "event": "land",
+      "card": "Forest",
+      "id": "deck-69",
+      "tapped": false,
+      "unknown": false
+    },
+    {
+      "turn": 1,
+      "event": "remaining-card",
+      "card": "Arcane Signet",
+      "id": "deck-1",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 1,
+      "event": "remaining-card",
+      "card": "Mind Stone",
+      "id": "deck-33",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 1,
+      "event": "remaining-card",
+      "card": "Annie Joins Up",
+      "id": "deck-0",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 1,
+      "event": "remaining-card",
+      "card": "Spawn-Gang Commander",
+      "id": "deck-47",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 1,
+      "event": "remaining-card",
+      "card": "Ulalek, Fused Atrocity",
+      "id": "commander",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 1,
+      "event": "turn-end",
+      "hand": [
+        "Plains",
+        "Mountain",
+        "Arcane Signet",
+        "Mind Stone",
+        "Annie Joins Up",
+        "Spawn-Gang Commander",
+        "Island"
+      ],
+      "board": [
+        {
+          "id": "deck-69",
+          "card": "Forest",
+          "tapped": false
+        }
+      ],
+      "floatingExpires": [],
+      "life": 40
+    },
+    {
+      "turn": 2,
+      "event": "untap",
+      "sources": [
+        {
+          "id": "deck-69",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Forest"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "G"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        }
+      ]
+    },
+    {
+      "turn": 2,
+      "event": "draw",
+      "card": "Wastes",
+      "id": "deck-93"
+    },
+    {
+      "turn": 2,
+      "event": "land",
+      "card": "Plains",
+      "id": "deck-78",
+      "tapped": false,
+      "unknown": false
+    },
+    {
+      "turn": 2,
+      "event": "mana-activation",
+      "card": "Forest",
+      "kind": "activation",
+      "source": "deck-69",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "cost": "",
+        "outputs": [
+          [
+            "G"
+          ]
+        ]
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-69:0:0",
+          "type": "G",
+          "source": "deck-69",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 2,
+      "event": "mana-activation",
+      "card": "Plains",
+      "kind": "activation",
+      "source": "deck-78",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "cost": "",
+        "outputs": [
+          [
+            "W"
+          ]
+        ]
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-78:0:0",
+          "type": "W",
+          "source": "deck-78",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 2,
+      "event": "cast-paid",
+      "card": "Arcane Signet",
+      "id": "deck-1",
+      "kind": "payment",
+      "label": "spell",
+      "cost": "{2}",
+      "reduction": 0,
+      "context": {
+        "kind": "spell",
+        "types": [
+          "Artifact"
+        ],
+        "subtypes": [],
+        "commander": false
+      },
+      "spent": [
+        {
+          "id": "deck-69:0:0",
+          "type": "G",
+          "source": "deck-69",
+          "restriction": "none",
+          "paidFor": "*"
+        },
+        {
+          "id": "deck-78:0:0",
+          "type": "W",
+          "source": "deck-78",
+          "restriction": "none",
+          "paidFor": "*"
+        }
+      ]
+    },
+    {
+      "turn": 2,
+      "event": "permanent-resolved",
+      "card": "Arcane Signet",
+      "id": "deck-1",
+      "tapped": false,
+      "effects": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "turn": 2,
+      "event": "remaining-card",
+      "card": "Mind Stone",
+      "id": "deck-33",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 2,
+      "event": "remaining-card",
+      "card": "Annie Joins Up",
+      "id": "deck-0",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 2,
+      "event": "remaining-card",
+      "card": "Spawn-Gang Commander",
+      "id": "deck-47",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 2,
+      "event": "remaining-card",
+      "card": "Ulalek, Fused Atrocity",
+      "id": "commander",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 2,
+      "event": "turn-end",
+      "hand": [
+        "Mountain",
+        "Mind Stone",
+        "Annie Joins Up",
+        "Spawn-Gang Commander",
+        "Island",
+        "Wastes"
+      ],
+      "board": [
+        {
+          "id": "deck-69",
+          "card": "Forest",
+          "tapped": true
+        },
+        {
+          "id": "deck-78",
+          "card": "Plains",
+          "tapped": true
+        },
+        {
+          "id": "deck-1",
+          "card": "Arcane Signet",
+          "tapped": false
+        }
+      ],
+      "floatingExpires": [],
+      "life": 40
+    },
+    {
+      "turn": 3,
+      "event": "untap",
+      "sources": [
+        {
+          "id": "deck-69",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Forest"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "G"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-78",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Plains"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "W"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-1",
+          "types": [
+            "Artifact"
+          ],
+          "subtypes": [],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "B"
+                ],
+                [
+                  "G"
+                ],
+                [
+                  "R"
+                ],
+                [
+                  "U"
+                ],
+                [
+                  "W"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        }
+      ]
+    },
+    {
+      "turn": 3,
+      "event": "draw",
+      "card": "Wastes",
+      "id": "deck-94"
+    },
+    {
+      "turn": 3,
+      "event": "land",
+      "card": "Mountain",
+      "id": "deck-75",
+      "tapped": false,
+      "unknown": false
+    },
+    {
+      "turn": 3,
+      "event": "mana-activation",
+      "card": "Forest",
+      "kind": "activation",
+      "source": "deck-69",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "cost": "",
+        "outputs": [
+          [
+            "G"
+          ]
+        ]
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-69:0:0",
+          "type": "G",
+          "source": "deck-69",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 3,
+      "event": "mana-activation",
+      "card": "Plains",
+      "kind": "activation",
+      "source": "deck-78",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "cost": "",
+        "outputs": [
+          [
+            "W"
+          ]
+        ]
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-78:0:0",
+          "type": "W",
+          "source": "deck-78",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 3,
+      "event": "cast-paid",
+      "card": "Mind Stone",
+      "id": "deck-33",
+      "kind": "payment",
+      "label": "spell",
+      "cost": "{2}",
+      "reduction": 0,
+      "context": {
+        "kind": "spell",
+        "types": [
+          "Artifact"
+        ],
+        "subtypes": [],
+        "commander": false
+      },
+      "spent": [
+        {
+          "id": "deck-69:0:0",
+          "type": "G",
+          "source": "deck-69",
+          "restriction": "none",
+          "paidFor": "*"
+        },
+        {
+          "id": "deck-78:0:0",
+          "type": "W",
+          "source": "deck-78",
+          "restriction": "none",
+          "paidFor": "*"
+        }
+      ]
+    },
+    {
+      "turn": 3,
+      "event": "permanent-resolved",
+      "card": "Mind Stone",
+      "id": "deck-33",
+      "tapped": false,
+      "effects": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "turn": 3,
+      "event": "remaining-card",
+      "card": "Annie Joins Up",
+      "id": "deck-0",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 3,
+      "event": "remaining-card",
+      "card": "Spawn-Gang Commander",
+      "id": "deck-47",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 3,
+      "event": "remaining-card",
+      "card": "Ulalek, Fused Atrocity",
+      "id": "commander",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 3,
+      "event": "turn-end",
+      "hand": [
+        "Annie Joins Up",
+        "Spawn-Gang Commander",
+        "Island",
+        "Wastes",
+        "Wastes"
+      ],
+      "board": [
+        {
+          "id": "deck-69",
+          "card": "Forest",
+          "tapped": true
+        },
+        {
+          "id": "deck-78",
+          "card": "Plains",
+          "tapped": true
+        },
+        {
+          "id": "deck-1",
+          "card": "Arcane Signet",
+          "tapped": false
+        },
+        {
+          "id": "deck-75",
+          "card": "Mountain",
+          "tapped": false
+        },
+        {
+          "id": "deck-33",
+          "card": "Mind Stone",
+          "tapped": false
+        }
+      ],
+      "floatingExpires": [],
+      "life": 40
+    },
+    {
+      "turn": 4,
+      "event": "untap",
+      "sources": [
+        {
+          "id": "deck-69",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Forest"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "G"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-78",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Plains"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "W"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-1",
+          "types": [
+            "Artifact"
+          ],
+          "subtypes": [],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "B"
+                ],
+                [
+                  "G"
+                ],
+                [
+                  "R"
+                ],
+                [
+                  "U"
+                ],
+                [
+                  "W"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-75",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Mountain"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "R"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-33",
+          "types": [
+            "Artifact"
+          ],
+          "subtypes": [],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        }
+      ]
+    },
+    {
+      "turn": 4,
+      "event": "draw",
+      "card": "Basking Broodscale",
+      "id": "deck-2"
+    },
+    {
+      "turn": 4,
+      "event": "land",
+      "card": "Island",
+      "id": "deck-71",
+      "tapped": false,
+      "unknown": false
+    },
+    {
+      "turn": 4,
+      "event": "mana-activation",
+      "card": "Forest",
+      "kind": "activation",
+      "source": "deck-69",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "cost": "",
+        "outputs": [
+          [
+            "G"
+          ]
+        ]
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-69:0:0",
+          "type": "G",
+          "source": "deck-69",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 4,
+      "event": "mana-activation",
+      "card": "Plains",
+      "kind": "activation",
+      "source": "deck-78",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "cost": "",
+        "outputs": [
+          [
+            "W"
+          ]
+        ]
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-78:0:0",
+          "type": "W",
+          "source": "deck-78",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 4,
+      "event": "mana-activation",
+      "card": "Arcane Signet",
+      "kind": "activation",
+      "source": "deck-1",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "sacrifice": false,
+        "cost": "",
+        "outputs": [
+          [
+            "B"
+          ],
+          [
+            "G"
+          ],
+          [
+            "R"
+          ],
+          [
+            "U"
+          ],
+          [
+            "W"
+          ]
+        ],
+        "restriction": "none",
+        "life": 0,
+        "minLands": 0
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-1:0:0",
+          "type": "B",
+          "source": "deck-1",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 4,
+      "event": "mana-activation",
+      "card": "Mountain",
+      "kind": "activation",
+      "source": "deck-75",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "cost": "",
+        "outputs": [
+          [
+            "R"
+          ]
+        ]
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-75:0:0",
+          "type": "R",
+          "source": "deck-75",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 4,
+      "event": "cast-paid",
+      "card": "Annie Joins Up",
+      "id": "deck-0",
+      "kind": "payment",
+      "label": "spell",
+      "cost": "{1}{R}{G}{W}",
+      "reduction": 0,
+      "context": {
+        "kind": "spell",
+        "types": [
+          "Legendary",
+          "Enchantment"
+        ],
+        "subtypes": [],
+        "commander": false
+      },
+      "spent": [
+        {
+          "id": "deck-75:0:0",
+          "type": "R",
+          "source": "deck-75",
+          "restriction": "none",
+          "paidFor": "R"
+        },
+        {
+          "id": "deck-69:0:0",
+          "type": "G",
+          "source": "deck-69",
+          "restriction": "none",
+          "paidFor": "G"
+        },
+        {
+          "id": "deck-78:0:0",
+          "type": "W",
+          "source": "deck-78",
+          "restriction": "none",
+          "paidFor": "W"
+        },
+        {
+          "id": "deck-1:0:0",
+          "type": "B",
+          "source": "deck-1",
+          "restriction": "none",
+          "paidFor": "*"
+        }
+      ]
+    },
+    {
+      "turn": 4,
+      "event": "permanent-resolved",
+      "card": "Annie Joins Up",
+      "id": "deck-0",
+      "tapped": false,
+      "effects": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "turn": 4,
+      "event": "remaining-card",
+      "card": "Spawn-Gang Commander",
+      "id": "deck-47",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 4,
+      "event": "remaining-card",
+      "card": "Basking Broodscale",
+      "id": "deck-2",
+      "status": "blocked",
+      "reason": "required colored or true-colorless type unavailable",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 4,
+      "event": "remaining-card",
+      "card": "Ulalek, Fused Atrocity",
+      "id": "commander",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": null
+    },
+    {
+      "turn": 4,
+      "event": "turn-end",
+      "hand": [
+        "Spawn-Gang Commander",
+        "Wastes",
+        "Wastes",
+        "Basking Broodscale"
+      ],
+      "board": [
+        {
+          "id": "deck-69",
+          "card": "Forest",
+          "tapped": true
+        },
+        {
+          "id": "deck-78",
+          "card": "Plains",
+          "tapped": true
+        },
+        {
+          "id": "deck-1",
+          "card": "Arcane Signet",
+          "tapped": true
+        },
+        {
+          "id": "deck-75",
+          "card": "Mountain",
+          "tapped": true
+        },
+        {
+          "id": "deck-33",
+          "card": "Mind Stone",
+          "tapped": false
+        },
+        {
+          "id": "deck-71",
+          "card": "Island",
+          "tapped": false
+        },
+        {
+          "id": "deck-0",
+          "card": "Annie Joins Up",
+          "tapped": false
+        }
+      ],
+      "floatingExpires": [],
+      "life": 40
+    },
+    {
+      "turn": 5,
+      "event": "untap",
+      "sources": [
+        {
+          "id": "deck-69",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Forest"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "G"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-78",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Plains"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "W"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-1",
+          "types": [
+            "Artifact"
+          ],
+          "subtypes": [],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "B"
+                ],
+                [
+                  "G"
+                ],
+                [
+                  "R"
+                ],
+                [
+                  "U"
+                ],
+                [
+                  "W"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-75",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Mountain"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "R"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-33",
+          "types": [
+            "Artifact"
+          ],
+          "subtypes": [],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-71",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-0",
+          "types": [
+            "Legendary",
+            "Enchantment"
+          ],
+          "subtypes": [],
+          "modes": [],
+          "tapped": false,
+          "sick": false
+        }
+      ]
+    },
+    {
+      "turn": 5,
+      "event": "draw",
+      "card": "Blisterpod",
+      "id": "deck-3"
+    },
+    {
+      "turn": 5,
+      "event": "land",
+      "card": "Wastes",
+      "id": "deck-93",
+      "tapped": false,
+      "unknown": false
+    },
+    {
+      "turn": 5,
+      "event": "mana-activation",
+      "card": "Forest",
+      "kind": "activation",
+      "source": "deck-69",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "cost": "",
+        "outputs": [
+          [
+            "G"
+          ]
+        ]
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-69:0:0",
+          "type": "G",
+          "source": "deck-69",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 5,
+      "event": "mana-activation",
+      "card": "Plains",
+      "kind": "activation",
+      "source": "deck-78",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "cost": "",
+        "outputs": [
+          [
+            "W"
+          ]
+        ]
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-78:0:0",
+          "type": "W",
+          "source": "deck-78",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 5,
+      "event": "mana-activation",
+      "card": "Arcane Signet",
+      "kind": "activation",
+      "source": "deck-1",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "sacrifice": false,
+        "cost": "",
+        "outputs": [
+          [
+            "B"
+          ],
+          [
+            "G"
+          ],
+          [
+            "R"
+          ],
+          [
+            "U"
+          ],
+          [
+            "W"
+          ]
+        ],
+        "restriction": "none",
+        "life": 0,
+        "minLands": 0
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-1:0:0",
+          "type": "B",
+          "source": "deck-1",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 5,
+      "event": "mana-activation",
+      "card": "Mountain",
+      "kind": "activation",
+      "source": "deck-75",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "cost": "",
+        "outputs": [
+          [
+            "R"
+          ]
+        ]
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-75:0:0",
+          "type": "R",
+          "source": "deck-75",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 5,
+      "event": "mana-activation",
+      "card": "Mind Stone",
+      "kind": "activation",
+      "source": "deck-33",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "sacrifice": false,
+        "cost": "",
+        "outputs": [
+          [
+            "C"
+          ]
+        ],
+        "restriction": "none",
+        "life": 0,
+        "minLands": 0
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-33:0:0",
+          "type": "C",
+          "source": "deck-33",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 5,
+      "event": "cast-paid",
+      "card": "Ulalek, Fused Atrocity",
+      "id": "commander",
+      "kind": "payment",
+      "label": "spell",
+      "cost": "{C/W}{C/U}{C/B}{C/R}{C/G}",
+      "reduction": 0,
+      "context": {
+        "kind": "spell",
+        "types": [
+          "Legendary",
+          "Creature"
+        ],
+        "subtypes": [
+          "Eldrazi"
+        ],
+        "commander": true
+      },
+      "spent": [
+        {
+          "id": "deck-33:0:0",
+          "type": "C",
+          "source": "deck-33",
+          "restriction": "none",
+          "paidFor": "C/U"
+        },
+        {
+          "id": "deck-78:0:0",
+          "type": "W",
+          "source": "deck-78",
+          "restriction": "none",
+          "paidFor": "C/W"
+        },
+        {
+          "id": "deck-1:0:0",
+          "type": "B",
+          "source": "deck-1",
+          "restriction": "none",
+          "paidFor": "C/B"
+        },
+        {
+          "id": "deck-75:0:0",
+          "type": "R",
+          "source": "deck-75",
+          "restriction": "none",
+          "paidFor": "C/R"
+        },
+        {
+          "id": "deck-69:0:0",
+          "type": "G",
+          "source": "deck-69",
+          "restriction": "none",
+          "paidFor": "C/G"
+        }
+      ]
+    },
+    {
+      "turn": 5,
+      "event": "permanent-resolved",
+      "card": "Ulalek, Fused Atrocity",
+      "id": "commander",
+      "tapped": false,
+      "effects": [
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "turn": 5,
+      "event": "remaining-card",
+      "card": "Spawn-Gang Commander",
+      "id": "deck-47",
+      "status": "blocked",
+      "reason": "insufficient total mana even before color/restriction checks",
+      "states": 0,
+      "optional": {
+        "status": "blocked",
+        "reason": "insufficient total mana even before color/restriction checks"
+      }
+    },
+    {
+      "turn": 5,
+      "event": "remaining-card",
+      "card": "Basking Broodscale",
+      "id": "deck-2",
+      "status": "blocked",
+      "reason": "required colored or true-colorless type unavailable",
+      "states": 0,
+      "optional": {
+        "status": "blocked",
+        "reason": "insufficient total mana even before color/restriction checks"
+      }
+    },
+    {
+      "turn": 5,
+      "event": "remaining-card",
+      "card": "Blisterpod",
+      "id": "deck-3",
+      "status": "blocked",
+      "reason": "required colored or true-colorless type unavailable",
+      "states": 0,
+      "optional": {
+        "status": "blocked",
+        "reason": "insufficient total mana even before color/restriction checks"
+      }
+    },
+    {
+      "turn": 5,
+      "event": "turn-end",
+      "hand": [
+        "Spawn-Gang Commander",
+        "Wastes",
+        "Basking Broodscale",
+        "Blisterpod"
+      ],
+      "board": [
+        {
+          "id": "deck-69",
+          "card": "Forest",
+          "tapped": true
+        },
+        {
+          "id": "deck-78",
+          "card": "Plains",
+          "tapped": true
+        },
+        {
+          "id": "deck-1",
+          "card": "Arcane Signet",
+          "tapped": true
+        },
+        {
+          "id": "deck-75",
+          "card": "Mountain",
+          "tapped": true
+        },
+        {
+          "id": "deck-33",
+          "card": "Mind Stone",
+          "tapped": true
+        },
+        {
+          "id": "deck-71",
+          "card": "Island",
+          "tapped": false
+        },
+        {
+          "id": "deck-0",
+          "card": "Annie Joins Up",
+          "tapped": false
+        },
+        {
+          "id": "deck-93",
+          "card": "Wastes",
+          "tapped": false
+        },
+        {
+          "id": "commander",
+          "card": "Ulalek, Fused Atrocity",
+          "tapped": false
+        }
+      ],
+      "floatingExpires": [],
+      "life": 40
+    },
+    {
+      "turn": 6,
+      "event": "untap",
+      "sources": [
+        {
+          "id": "deck-69",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Forest"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "G"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-78",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Plains"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "W"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-1",
+          "types": [
+            "Artifact"
+          ],
+          "subtypes": [],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "B"
+                ],
+                [
+                  "G"
+                ],
+                [
+                  "R"
+                ],
+                [
+                  "U"
+                ],
+                [
+                  "W"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-75",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Mountain"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "R"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-33",
+          "types": [
+            "Artifact"
+          ],
+          "subtypes": [],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-71",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-0",
+          "types": [
+            "Legendary",
+            "Enchantment"
+          ],
+          "subtypes": [],
+          "modes": [],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-93",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "commander",
+          "types": [
+            "Legendary",
+            "Creature"
+          ],
+          "subtypes": [
+            "Eldrazi"
+          ],
+          "modes": [],
+          "tapped": false,
+          "sick": false
+        }
+      ]
+    },
+    {
+      "turn": 6,
+      "event": "draw",
+      "card": "Chittering Dispatcher",
+      "id": "deck-4"
+    },
+    {
+      "turn": 6,
+      "event": "land",
+      "card": "Wastes",
+      "id": "deck-94",
+      "tapped": false,
+      "unknown": false
+    },
+    {
+      "turn": 6,
+      "event": "mana-activation",
+      "card": "Forest",
+      "kind": "activation",
+      "source": "deck-69",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "cost": "",
+        "outputs": [
+          [
+            "G"
+          ]
+        ]
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-69:0:0",
+          "type": "G",
+          "source": "deck-69",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 6,
+      "event": "mana-activation",
+      "card": "Plains",
+      "kind": "activation",
+      "source": "deck-78",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "cost": "",
+        "outputs": [
+          [
+            "W"
+          ]
+        ]
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-78:0:0",
+          "type": "W",
+          "source": "deck-78",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 6,
+      "event": "mana-activation",
+      "card": "Arcane Signet",
+      "kind": "activation",
+      "source": "deck-1",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "sacrifice": false,
+        "cost": "",
+        "outputs": [
+          [
+            "B"
+          ],
+          [
+            "G"
+          ],
+          [
+            "R"
+          ],
+          [
+            "U"
+          ],
+          [
+            "W"
+          ]
+        ],
+        "restriction": "none",
+        "life": 0,
+        "minLands": 0
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-1:0:0",
+          "type": "R",
+          "source": "deck-1",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 6,
+      "event": "mana-activation",
+      "card": "Mountain",
+      "kind": "activation",
+      "source": "deck-75",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "cost": "",
+        "outputs": [
+          [
+            "R"
+          ]
+        ]
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-75:0:0",
+          "type": "R",
+          "source": "deck-75",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 6,
+      "event": "mana-activation",
+      "card": "Mind Stone",
+      "kind": "activation",
+      "source": "deck-33",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "sacrifice": false,
+        "cost": "",
+        "outputs": [
+          [
+            "C"
+          ]
+        ],
+        "restriction": "none",
+        "life": 0,
+        "minLands": 0
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-33:0:0",
+          "type": "C",
+          "source": "deck-33",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 6,
+      "event": "cast-paid",
+      "card": "Spawn-Gang Commander",
+      "id": "deck-47",
+      "kind": "payment",
+      "label": "spell",
+      "cost": "{3}{R}{R}",
+      "reduction": 0,
+      "context": {
+        "kind": "spell",
+        "types": [
+          "Creature"
+        ],
+        "subtypes": [
+          "Eldrazi",
+          "Goblin"
+        ],
+        "commander": false
+      },
+      "spent": [
+        {
+          "id": "deck-1:0:0",
+          "type": "R",
+          "source": "deck-1",
+          "restriction": "none",
+          "paidFor": "R"
+        },
+        {
+          "id": "deck-75:0:0",
+          "type": "R",
+          "source": "deck-75",
+          "restriction": "none",
+          "paidFor": "R"
+        },
+        {
+          "id": "deck-69:0:0",
+          "type": "G",
+          "source": "deck-69",
+          "restriction": "none",
+          "paidFor": "*"
+        },
+        {
+          "id": "deck-78:0:0",
+          "type": "W",
+          "source": "deck-78",
+          "restriction": "none",
+          "paidFor": "*"
+        },
+        {
+          "id": "deck-33:0:0",
+          "type": "C",
+          "source": "deck-33",
+          "restriction": "none",
+          "paidFor": "*"
+        }
+      ]
+    },
+    {
+      "turn": 6,
+      "event": "cast-trigger-pending",
+      "source": "commander",
+      "cost": "{C}{C}"
+    },
+    {
+      "turn": 6,
+      "event": "token-trigger-pending",
+      "source": "deck-47",
+      "count": 3,
+      "availableNow": false
+    },
+    {
+      "turn": 6,
+      "event": "mana-activation",
+      "card": "Island",
+      "kind": "activation",
+      "source": "deck-71",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "cost": "",
+        "outputs": [
+          [
+            "U"
+          ]
+        ]
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-71:0:0",
+          "type": "U",
+          "source": "deck-71",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 6,
+      "event": "mana-activation",
+      "card": "Wastes",
+      "kind": "activation",
+      "source": "deck-93",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "sacrifice": false,
+        "cost": "",
+        "outputs": [
+          [
+            "C"
+          ]
+        ],
+        "restriction": "none",
+        "life": 0,
+        "minLands": 0
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-93:0:0",
+          "type": "C",
+          "source": "deck-93",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 6,
+      "event": "mana-activation",
+      "card": "Wastes",
+      "kind": "activation",
+      "source": "deck-94",
+      "mode": 0,
+      "ability": {
+        "tap": true,
+        "sacrifice": false,
+        "cost": "",
+        "outputs": [
+          [
+            "C"
+          ]
+        ],
+        "restriction": "none",
+        "life": 0,
+        "minLands": 0
+      },
+      "spent": [],
+      "produced": [
+        {
+          "id": "deck-94:0:0",
+          "type": "C",
+          "source": "deck-94",
+          "restriction": "none"
+        }
+      ],
+      "tap": true,
+      "sacrifice": false,
+      "life": 0
+    },
+    {
+      "turn": 6,
+      "event": "optional-trigger-paid",
+      "card": "Spawn-Gang Commander",
+      "kind": "payment",
+      "label": "cast-trigger:commander",
+      "cost": "{C}{C}",
+      "reduction": 0,
+      "context": {
+        "kind": "ability",
+        "abilityType": "triggered",
+        "types": [
+          "Legendary",
+          "Creature"
+        ]
+      },
+      "spent": [
+        {
+          "id": "deck-93:0:0",
+          "type": "C",
+          "source": "deck-93",
+          "restriction": "none",
+          "paidFor": "C"
+        },
+        {
+          "id": "deck-94:0:0",
+          "type": "C",
+          "source": "deck-94",
+          "restriction": "none",
+          "paidFor": "C"
+        }
+      ],
+      "effect": "unknown: copying effects not simulated"
+    },
+    {
+      "turn": 6,
+      "event": "trigger-resolved",
+      "source": "deck-47",
+      "phase": "cast",
+      "effect": "create 3 Spawn"
+    },
+    {
+      "turn": 6,
+      "event": "token-created",
+      "id": "token-0",
+      "card": {
+        "name": "Eldrazi Spawn",
+        "type_line": "Token Creature — Eldrazi Spawn",
+        "mana_cost": "",
+        "oracle_text": "Sacrifice this token: Add {C}."
+      }
+    },
+    {
+      "turn": 6,
+      "event": "token-created",
+      "id": "token-1",
+      "card": {
+        "name": "Eldrazi Spawn",
+        "type_line": "Token Creature — Eldrazi Spawn",
+        "mana_cost": "",
+        "oracle_text": "Sacrifice this token: Add {C}."
+      }
+    },
+    {
+      "turn": 6,
+      "event": "token-created",
+      "id": "token-2",
+      "card": {
+        "name": "Eldrazi Spawn",
+        "type_line": "Token Creature — Eldrazi Spawn",
+        "mana_cost": "",
+        "oracle_text": "Sacrifice this token: Add {C}."
+      }
+    },
+    {
+      "turn": 6,
+      "event": "permanent-resolved",
+      "card": "Spawn-Gang Commander",
+      "id": "deck-47",
+      "tapped": false,
+      "effects": [
+        "unsupported activation cost: When you cast this spell, create three 0/1 colorless Eldrazi Spawn creature tokens with \"Sacrifice this token: Add {C}.\"",
+        "other Oracle effects not simulated (including draw, copying, tutoring, combat and targets)"
+      ]
+    },
+    {
+      "turn": 6,
+      "event": "remaining-card",
+      "card": "Basking Broodscale",
+      "id": "deck-2",
+      "status": "blocked",
+      "reason": "required colored or true-colorless type unavailable",
+      "states": 0,
+      "optional": {
+        "status": "blocked",
+        "reason": "required colored or true-colorless type unavailable"
+      }
+    },
+    {
+      "turn": 6,
+      "event": "remaining-card",
+      "card": "Blisterpod",
+      "id": "deck-3",
+      "status": "blocked",
+      "reason": "required colored or true-colorless type unavailable",
+      "states": 0,
+      "optional": {
+        "status": "blocked",
+        "reason": "required colored or true-colorless type unavailable"
+      }
+    },
+    {
+      "turn": 6,
+      "event": "remaining-card",
+      "card": "Chittering Dispatcher",
+      "id": "deck-4",
+      "status": "blocked",
+      "reason": "required colored or true-colorless type unavailable",
+      "states": 0,
+      "optional": {
+        "status": "blocked",
+        "reason": "insufficient total mana even before color/restriction checks"
+      }
+    },
+    {
+      "turn": 6,
+      "event": "turn-end",
+      "hand": [
+        "Basking Broodscale",
+        "Blisterpod",
+        "Chittering Dispatcher"
+      ],
+      "board": [
+        {
+          "id": "deck-69",
+          "card": "Forest",
+          "tapped": true
+        },
+        {
+          "id": "deck-78",
+          "card": "Plains",
+          "tapped": true
+        },
+        {
+          "id": "deck-1",
+          "card": "Arcane Signet",
+          "tapped": true
+        },
+        {
+          "id": "deck-75",
+          "card": "Mountain",
+          "tapped": true
+        },
+        {
+          "id": "deck-33",
+          "card": "Mind Stone",
+          "tapped": true
+        },
+        {
+          "id": "deck-71",
+          "card": "Island",
+          "tapped": true
+        },
+        {
+          "id": "deck-0",
+          "card": "Annie Joins Up",
+          "tapped": false
+        },
+        {
+          "id": "deck-93",
+          "card": "Wastes",
+          "tapped": true
+        },
+        {
+          "id": "commander",
+          "card": "Ulalek, Fused Atrocity",
+          "tapped": false
+        },
+        {
+          "id": "deck-94",
+          "card": "Wastes",
+          "tapped": true
+        },
+        {
+          "id": "token-0",
+          "card": "Eldrazi Spawn",
+          "tapped": false
+        },
+        {
+          "id": "token-1",
+          "card": "Eldrazi Spawn",
+          "tapped": false
+        },
+        {
+          "id": "token-2",
+          "card": "Eldrazi Spawn",
+          "tapped": false
+        },
+        {
+          "id": "deck-47",
+          "card": "Spawn-Gang Commander",
+          "tapped": false
+        }
+      ],
+      "floatingExpires": [
+        {
+          "id": "deck-71:0:0",
+          "type": "U",
+          "source": "deck-71",
+          "restriction": "none"
+        }
+      ],
+      "life": 40
+    },
+    {
+      "turn": 7,
+      "event": "untap",
+      "sources": [
+        {
+          "id": "deck-69",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Forest"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "G"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-78",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Plains"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "W"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-1",
+          "types": [
+            "Artifact"
+          ],
+          "subtypes": [],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "B"
+                ],
+                [
+                  "G"
+                ],
+                [
+                  "R"
+                ],
+                [
+                  "U"
+                ],
+                [
+                  "W"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-75",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Mountain"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "R"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-33",
+          "types": [
+            "Artifact"
+          ],
+          "subtypes": [],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-71",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-0",
+          "types": [
+            "Legendary",
+            "Enchantment"
+          ],
+          "subtypes": [],
+          "modes": [],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-93",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "commander",
+          "types": [
+            "Legendary",
+            "Creature"
+          ],
+          "subtypes": [
+            "Eldrazi"
+          ],
+          "modes": [],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-94",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "token-0",
+          "types": [
+            "Token",
+            "Creature"
+          ],
+          "subtypes": [
+            "Eldrazi",
+            "Spawn"
+          ],
+          "modes": [
+            {
+              "tap": false,
+              "sacrifice": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "token-1",
+          "types": [
+            "Token",
+            "Creature"
+          ],
+          "subtypes": [
+            "Eldrazi",
+            "Spawn"
+          ],
+          "modes": [
+            {
+              "tap": false,
+              "sacrifice": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "token-2",
+          "types": [
+            "Token",
+            "Creature"
+          ],
+          "subtypes": [
+            "Eldrazi",
+            "Spawn"
+          ],
+          "modes": [
+            {
+              "tap": false,
+              "sacrifice": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-47",
+          "types": [
+            "Creature"
+          ],
+          "subtypes": [
+            "Eldrazi",
+            "Goblin"
+          ],
+          "modes": [],
+          "tapped": false,
+          "sick": false
+        }
+      ]
+    },
+    {
+      "turn": 7,
+      "event": "draw",
+      "card": "Conduit of Ruin",
+      "id": "deck-5"
+    },
+    {
+      "turn": 7,
+      "event": "remaining-card",
+      "card": "Basking Broodscale",
+      "id": "deck-2",
+      "status": "payable-but-not-selected",
+      "reason": "script/action bound or policy",
+      "states": 12,
+      "optional": {
+        "status": "paid"
+      }
+    },
+    {
+      "turn": 7,
+      "event": "remaining-card",
+      "card": "Blisterpod",
+      "id": "deck-3",
+      "status": "payable-but-not-selected",
+      "reason": "script/action bound or policy",
+      "states": 7,
+      "optional": {
+        "status": "paid"
+      }
+    },
+    {
+      "turn": 7,
+      "event": "remaining-card",
+      "card": "Chittering Dispatcher",
+      "id": "deck-4",
+      "status": "payable-but-not-selected",
+      "reason": "script/action bound or policy",
+      "states": 18,
+      "optional": {
+        "status": "paid"
+      }
+    },
+    {
+      "turn": 7,
+      "event": "remaining-card",
+      "card": "Conduit of Ruin",
+      "id": "deck-5",
+      "status": "payable-but-not-selected",
+      "reason": "script/action bound or policy",
+      "states": 436,
+      "optional": {
+        "status": "paid"
+      }
+    },
+    {
+      "turn": 7,
+      "event": "turn-end",
+      "hand": [
+        "Basking Broodscale",
+        "Blisterpod",
+        "Chittering Dispatcher",
+        "Conduit of Ruin"
+      ],
+      "board": [
+        {
+          "id": "deck-69",
+          "card": "Forest",
+          "tapped": false
+        },
+        {
+          "id": "deck-78",
+          "card": "Plains",
+          "tapped": false
+        },
+        {
+          "id": "deck-1",
+          "card": "Arcane Signet",
+          "tapped": false
+        },
+        {
+          "id": "deck-75",
+          "card": "Mountain",
+          "tapped": false
+        },
+        {
+          "id": "deck-33",
+          "card": "Mind Stone",
+          "tapped": false
+        },
+        {
+          "id": "deck-71",
+          "card": "Island",
+          "tapped": false
+        },
+        {
+          "id": "deck-0",
+          "card": "Annie Joins Up",
+          "tapped": false
+        },
+        {
+          "id": "deck-93",
+          "card": "Wastes",
+          "tapped": false
+        },
+        {
+          "id": "commander",
+          "card": "Ulalek, Fused Atrocity",
+          "tapped": false
+        },
+        {
+          "id": "deck-94",
+          "card": "Wastes",
+          "tapped": false
+        },
+        {
+          "id": "token-0",
+          "card": "Eldrazi Spawn",
+          "tapped": false
+        },
+        {
+          "id": "token-1",
+          "card": "Eldrazi Spawn",
+          "tapped": false
+        },
+        {
+          "id": "token-2",
+          "card": "Eldrazi Spawn",
+          "tapped": false
+        },
+        {
+          "id": "deck-47",
+          "card": "Spawn-Gang Commander",
+          "tapped": false
+        }
+      ],
+      "floatingExpires": [],
+      "life": 40
+    },
+    {
+      "turn": 8,
+      "event": "untap",
+      "sources": [
+        {
+          "id": "deck-69",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Forest"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "G"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-78",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Plains"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "W"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-1",
+          "types": [
+            "Artifact"
+          ],
+          "subtypes": [],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "B"
+                ],
+                [
+                  "G"
+                ],
+                [
+                  "R"
+                ],
+                [
+                  "U"
+                ],
+                [
+                  "W"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-75",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Mountain"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "R"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-33",
+          "types": [
+            "Artifact"
+          ],
+          "subtypes": [],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-71",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [
+            "Island"
+          ],
+          "modes": [
+            {
+              "tap": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "U"
+                ]
+              ]
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-0",
+          "types": [
+            "Legendary",
+            "Enchantment"
+          ],
+          "subtypes": [],
+          "modes": [],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-93",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "commander",
+          "types": [
+            "Legendary",
+            "Creature"
+          ],
+          "subtypes": [
+            "Eldrazi"
+          ],
+          "modes": [],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-94",
+          "types": [
+            "Basic",
+            "Land"
+          ],
+          "subtypes": [],
+          "modes": [
+            {
+              "tap": true,
+              "sacrifice": false,
+              "cost": "",
+              "outputs": [
+                [
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "token-0",
+          "types": [
+            "Token",
+            "Creature"
+          ],
+          "subtypes": [
+            "Eldrazi",
+            "Spawn"
+          ],
+          "modes": [
+            {
+              "tap": false,
+              "sacrifice": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "token-1",
+          "types": [
+            "Token",
+            "Creature"
+          ],
+          "subtypes": [
+            "Eldrazi",
+            "Spawn"
+          ],
+          "modes": [
+            {
+              "tap": false,
+              "sacrifice": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "token-2",
+          "types": [
+            "Token",
+            "Creature"
+          ],
+          "subtypes": [
+            "Eldrazi",
+            "Spawn"
+          ],
+          "modes": [
+            {
+              "tap": false,
+              "sacrifice": true,
+              "cost": "",
+              "outputs": [
+                [
+                  "C"
+                ]
+              ],
+              "restriction": "none",
+              "life": 0,
+              "minLands": 0
+            }
+          ],
+          "tapped": false,
+          "sick": false
+        },
+        {
+          "id": "deck-47",
+          "types": [
+            "Creature"
+          ],
+          "subtypes": [
+            "Eldrazi",
+            "Goblin"
+          ],
+          "modes": [],
+          "tapped": false,
+          "sick": false
+        }
+      ]
+    },
+    {
+      "turn": 8,
+      "event": "draw",
+      "card": "Deathless Behemoth",
+      "id": "deck-6"
+    },
+    {
+      "turn": 8,
+      "event": "remaining-card",
+      "card": "Basking Broodscale",
+      "id": "deck-2",
+      "status": "payable-but-not-selected",
+      "reason": "script/action bound or policy",
+      "states": 12,
+      "optional": {
+        "status": "paid"
+      }
+    },
+    {
+      "turn": 8,
+      "event": "remaining-card",
+      "card": "Blisterpod",
+      "id": "deck-3",
+      "status": "payable-but-not-selected",
+      "reason": "script/action bound or policy",
+      "states": 7,
+      "optional": {
+        "status": "paid"
+      }
+    },
+    {
+      "turn": 8,
+      "event": "remaining-card",
+      "card": "Chittering Dispatcher",
+      "id": "deck-4",
+      "status": "payable-but-not-selected",
+      "reason": "script/action bound or policy",
+      "states": 18,
+      "optional": {
+        "status": "paid"
+      }
+    },
+    {
+      "turn": 8,
+      "event": "remaining-card",
+      "card": "Conduit of Ruin",
+      "id": "deck-5",
+      "status": "payable-but-not-selected",
+      "reason": "script/action bound or policy",
+      "states": 436,
+      "optional": {
+        "status": "paid"
+      }
+    },
+    {
+      "turn": 8,
+      "event": "remaining-card",
+      "card": "Deathless Behemoth",
+      "id": "deck-6",
+      "status": "payable-but-not-selected",
+      "reason": "script/action bound or policy",
+      "states": 436,
+      "optional": {
+        "status": "paid"
+      }
+    },
+    {
+      "turn": 8,
+      "event": "turn-end",
+      "hand": [
+        "Basking Broodscale",
+        "Blisterpod",
+        "Chittering Dispatcher",
+        "Conduit of Ruin",
+        "Deathless Behemoth"
+      ],
+      "board": [
+        {
+          "id": "deck-69",
+          "card": "Forest",
+          "tapped": false
+        },
+        {
+          "id": "deck-78",
+          "card": "Plains",
+          "tapped": false
+        },
+        {
+          "id": "deck-1",
+          "card": "Arcane Signet",
+          "tapped": false
+        },
+        {
+          "id": "deck-75",
+          "card": "Mountain",
+          "tapped": false
+        },
+        {
+          "id": "deck-33",
+          "card": "Mind Stone",
+          "tapped": false
+        },
+        {
+          "id": "deck-71",
+          "card": "Island",
+          "tapped": false
+        },
+        {
+          "id": "deck-0",
+          "card": "Annie Joins Up",
+          "tapped": false
+        },
+        {
+          "id": "deck-93",
+          "card": "Wastes",
+          "tapped": false
+        },
+        {
+          "id": "commander",
+          "card": "Ulalek, Fused Atrocity",
+          "tapped": false
+        },
+        {
+          "id": "deck-94",
+          "card": "Wastes",
+          "tapped": false
+        },
+        {
+          "id": "token-0",
+          "card": "Eldrazi Spawn",
+          "tapped": false
+        },
+        {
+          "id": "token-1",
+          "card": "Eldrazi Spawn",
+          "tapped": false
+        },
+        {
+          "id": "token-2",
+          "card": "Eldrazi Spawn",
+          "tapped": false
+        },
+        {
+          "id": "deck-47",
+          "card": "Spawn-Gang Commander",
+          "tapped": false
+        }
+      ],
+      "floatingExpires": [],
+      "life": 40
+    }
+  ]
+}

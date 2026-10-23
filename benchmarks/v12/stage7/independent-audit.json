@@ -1,0 +1,33 @@
+{
+  "auditorSHA256": "7da3f597b47d69b380b489974e5e3b7d4b01e6feaf32789c7febba009584a0f2",
+  "exact100CardDecks": 9,
+  "selectedPrintingSlots": 900,
+  "newProposalSafeguardAudits": 2,
+  "auditedAndReplayedVectors": 5400,
+  "terminalStatuses": {
+    "training": {
+      "completed-t8": 911,
+      "conditional-lethal": 106,
+      "unsupported-rule-unknown": 63
+    },
+    "holdout": {
+      "completed-t8": 4077,
+      "unsupported-rule-unknown": 189,
+      "conditional-lethal": 54
+    }
+  },
+  "recoveryStatuses": {
+    "not-applicable": 1945,
+    "applied": 2303,
+    "unknown": 252
+  },
+  "pairedTablesRecomputed": 270,
+  "fixedSamplesReauditedAndReplayed": 12,
+  "controlledFixturesReauditedAndReplayed": 17,
+  "archivedStage6DefaultTracesMatched": 8,
+  "archivesStage1Through6AndHumanObservationsUnchanged": true,
+  "cachesAndProductionAndLauncherUnchanged": true,
+  "unknownNativeStrategiesAbstain": true,
+  "limits": "Shares narrow Oracle/type grammar with execution; independently replays actual/positive projected payments, zones and events. Does not certify planner optimality or diagnostic mana maxima.",
+  "runtimeMs": 5154
+}

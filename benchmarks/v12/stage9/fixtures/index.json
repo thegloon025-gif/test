@@ -1,0 +1,38 @@
+[
+  {
+    "file": "fixture-1.json.gz",
+    "sha256": "059bb3b69a9a335169e597b6482acfeaee3c4c6c565a5810bf372a6ca6554ca5"
+  },
+  {
+    "file": "fixture-2.json.gz",
+    "sha256": "c7708ca92229b76367e3a6d247f6dbcad2281b55c118922892ac45c9fa31c88e"
+  },
+  {
+    "file": "fixture-3.json.gz",
+    "sha256": "7b15acbb78f42be1089efae4a2cb5b0ca05b420dc8b46a60ba17c9d7eb4137b9"
+  },
+  {
+    "file": "fixture-4.json.gz",
+    "sha256": "41e5439ecf9254e0a7759f50829f9de2fba834a7ff31bc076fdf0fe162a731b7"
+  },
+  {
+    "file": "fixture-5.json.gz",
+    "sha256": "4c53b9f5c50edb13ddd53c0a85f448bbeb9109c044098b310731ef3628cdbaca"
+  },
+  {
+    "file": "fixture-6.json.gz",
+    "sha256": "ee1994205235281675ca098d9e5a48b23f6aaae1c109f6d0e0f2fbec9d762edf"
+  },
+  {
+    "file": "fixture-7.json.gz",
+    "sha256": "06213b67bafb7660ccd0d385daafab2db984169db41189aed32818b0027c88a6"
+  },
+  {
+    "file": "fixture-8.json.gz",
+    "sha256": "059bb3b69a9a335169e597b6482acfeaee3c4c6c565a5810bf372a6ca6554ca5"
+  },
+  {
+    "file": "fixture-9.json.gz",
+    "sha256": "f86357e8a49e295df35fbb7b64732f0b8d7581b676abdb83de26db64c06bfe94"
+  }
+]

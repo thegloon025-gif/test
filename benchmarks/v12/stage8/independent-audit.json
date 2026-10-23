@@ -1,0 +1,39 @@
+{
+  "auditorSHA256": "0a200e552ee25e0deb0e9d2fe8b26bc8c284ba54b454a924c17e650401f75d5d",
+  "completeDecks": 7,
+  "selectedPrintingSlots": 700,
+  "auditedAndReplayedVectors": 2976,
+  "pairedTablesRecomputed": 28,
+  "conditionalPanelsRecomputed": 120,
+  "firstOpportunitySamplesReauditedAndReplayed": 43,
+  "controlledFixturesReauditedAndReplayed": 19,
+  "descriptiveExamplesReauditedAndReplayed": 1,
+  "archivedStage6DefaultTracesMatched": 8,
+  "terminalStatuses": {
+    "training": {
+      "completed-t8": 708,
+      "unsupported-rule-unknown": 36
+    },
+    "holdout": {
+      "completed-t8": 2089,
+      "unsupported-rule-unknown": 141,
+      "conditional-lethal": 2
+    }
+  },
+  "opportunityStatuses": {
+    "training": {
+      "applied": 287,
+      "no-opportunity-before-horizon": 157,
+      "unknown": 36
+    },
+    "holdout": {
+      "applied": 833,
+      "no-opportunity-before-horizon": 466,
+      "unknown": 141
+    }
+  },
+  "preservedArchivesCachesProductionAndLauncher": true,
+  "unknownNativeStrategiesAbstain": true,
+  "limitations": "Shared narrow Oracle grammar; independent receipts, zones, resources and event/stack conservation. Replays do not prove optimal play or certify diagnostic mana maxima. Unpersisted full-run audits are asserted by the hashed benchmark runner; persisted samples are independently reaudited here.",
+  "runtimeMs": 6383
+}

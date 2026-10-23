@@ -1,0 +1,18 @@
+{
+  "version": "1.1.5",
+  "catalogCards": 32197,
+  "eligiblePrintingAudit": true,
+  "httpUI": 200,
+  "scripts": 1,
+  "generatedCommander": "9f6828e3-39d9-45d9-9bf1-0e3737a0321e",
+  "generatedCount": 100,
+  "generatedPrice": 174.24,
+  "budget": 191,
+  "exactSelectedRecords": "exact-selected-cards",
+  "hardBudgetPassed": true,
+  "cachedResearchOffline": true,
+  "disposableCopy": true,
+  "windowsLauncherUnchanged": true,
+  "windowsExecution": "not available on Linux",
+  "runtimeMs": 148199
+}

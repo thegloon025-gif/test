@@ -1,0 +1,394 @@
+/** Stage 2: bounded stateful access and deployment. Observational only. */
+import {deploymentOrder} from './gameplayDeployment.mjs';
+import {planManaPayments,parseManaCost} from './gameplayMana.mjs';
+import {cardModel,cardTypes,cardSubtypes,cardText,front,isLand,isCreature,isColorless,castContext} from './gameplayCards.mjs';
+import {accessModel,accessCondition,accessConditionStatus,knownPower,entryMatches,matchesCastFilter,topCastAllowed,printedManaValue} from './gameplayAccess.mjs';
+import {GAMEPLAY_POLICIES,choosePilotAction,strategyChannels,rampUseful} from './gameplayPilot.mjs';
+import {planFor} from './mechanics.mjs';
+import {planTypes} from './engineSupport.mjs';
+import {outletModel,createOutletLedger,safeOutletResource} from './gameplayOutlets.mjs';
+import {createNativeStack,nativeModel} from './gameplayNative.mjs';
+import {validateStage7,removalEvidence} from './gameplayRecovery.mjs';
+import {deathModel,deathUnknown,endStepVictim,tokenCard} from './gameplayDeath.mjs';
+import {creatureSacrificeModel,safeSacrificeVictims,sacrificeHasSupportedValue} from './gameplaySacrifice.mjs';
+import {chooseTutorTarget} from './gameplayTutor.mjs';
+
+export function evaluateGameplay({commander,cards,seed='gameplay-stage2-v1',turns=8,order,script,policy='native',mulligan='none',access=true,maxManaStates=4000,maxActions=24,onPreAction=null,nativeExecution=false,maxNativeSteps=192,maxNativeObjects=128,nativeTriggerOrder='copy-first',nativeStage5=false,nativeOutlets=true,nativeCompression=true,nativeContinuations=3,nativeDecisionPolicy='copy-first',opponentLife=[40,40,40],stage7=null,stage8=null,stage9=false}={}) {
+  if(!commander||!Array.isArray(cards)||cards.length<7||cards.length>99||!Number.isInteger(turns)||turns<1||turns>8||!GAMEPLAY_POLICIES.includes(policy)||!['none','one-free'].includes(mulligan)||!Number.isInteger(maxActions)||maxActions<1||maxActions>40||script&&mulligan!=='none')throw Error('Invalid Stage 2 bounds/options');
+  if(nativeStage5&&(!nativeExecution||typeof nativeCompression!=='boolean'||typeof nativeOutlets!=='boolean'||!['copy-first','resources-first','conservative','follow-up'].includes(nativeDecisionPolicy)))throw Error('Explicit native Stage 5 policy required');
+  if(typeof stage9!=='boolean'||stage9&&!stage8)throw Error('Stage 9 requires explicit Stage 8 state');
+  if(stage8&&Object.values(stage8.requirements||{}).some(v=>!['commander','target'].includes(v)))throw Error('Unknown Stage 8 opportunity requirement');
+  if(stage8&&(!stage7||!nativeStage5||stage8.conditioned!==true))throw Error('Stage 8 requires explicit conditioned experiment options and Stage 7');
+  stage7=validateStage7(stage7);if(stage7&&!nativeStage5)throw Error('Stage 7 requires native Stage 5');
+  let commandCasts=0,stage7Suspended=false;const checkpoints=[],fired=new Set(),pendingDeaths=[];let afterEvent=null;
+  const decision= nativeStage5?{order:nativeDecisionPolicy==='copy-first'?'copy-first':'resources-first',optional:['conservative','follow-up'].includes(nativeDecisionPolicy)?'conservative':'all',follow:nativeDecisionPolicy==='follow-up'}:null;
+  order??=deploymentOrder(cards,seed);
+  if(order.length!==cards.length||new Set(order).size!==cards.length||order.some(i=>!Number.isInteger(i)||i<0||i>=cards.length))throw Error('Order must be an exact permutation');
+  const models=new Map(), make=(card,id)=>{
+    if(!models.has(card))models.set(card,{model:cardModel(card,commander.color_identity||[]),access:accessModel(card)});
+    return {id,card,...models.get(card)};
+  };
+  const slots=cards.map((c,i)=>make(c,'deck-'+i)),command=make(commander,'commander');
+  const nativeTypes=planTypes(planFor(commander));if(!nativeTypes.length)nativeTypes.push(...cardSubtypes(commander));
+  const chosenType=[...nativeTypes].sort((a,b)=>cards.filter(c=>cardSubtypes(c).includes(b)).length-cards.filter(c=>cardSubtypes(c).includes(a)).length||a.localeCompare(b))[0]||'Creature';
+  let library=order.map(i=>slots[i]),hand=library.splice(0,7),board=[],graveyard=[],exile=[],opponents=[],ceased=[],pool=[],life=40,turn=0,creatureCasts=0,landPlayed=false,commanderCast=false,tokenId=0,decked=false,lost=false,lastTop=null;
+  let native=null,copyId=0,lastCreatureSacrifice=0;const sacrificeEvents=[];
+  const trace=[],observations=[],stats={casts:[],commanderDeploymentTurn:null,setupBeforePayableCommander:0,optionalPayments:[],effectDraws:0,naturalDraws:0,accessDiscards:0,cleanupDiscards:0,returnedToTop:0,topCasts:0,accessSacrifices:0,accessSpells:0,activations:0,selections:0,manaStates:0,manaSearches:0,boundHits:0,actionBoundHits:0,usedEngines:[],mulligans:0};
+  const emit=e=>trace.push({turn,...e}),context=()=>({hand,board,graveyard,chosenType}),pilotContext=()=>({policy,turn,turns,commander,board,hand,nativeTypes});
+  const outlets=nativeStage5?createOutletLedger(emit,opponentLife):null;
+  const finished=()=>lost||!!outlets?.won||stage7Suspended;
+  const opening=hand.map(s=>({id:s.id,card:s.card.name}));
+  if(mulligan==='one-free'&&(hand.filter(s=>isLand(s.card)).length<2||hand.filter(s=>isLand(s.card)).length>5)){
+    const previous=hand.map(s=>s.id);order=deploymentOrder(cards,seed+':free-mulligan:1');library=order.map(i=>slots[i]);hand=library.splice(0,7);stats.mulligans=1;
+    emit({event:'mulligan',reason:'outside two-to-five land keep window',returned:previous,redraw:hand.map(s=>s.id),paidBottom:0,order});
+  }
+  emit({event:'opening',hand:hand.map(s=>({id:s.id,card:s.card.name}))});
+  function active(){return board.filter(s=>!s.consumed);}
+  function toGrave(s){if(stage8&&isCreature(s.card)&&board.some(b=>b.id===s.id))pendingDeaths.push({lki:board.filter(b=>!b.consumed||b.id===s.id).map(b=>({...b})),victim:s});(s.token||s.spellCopy?ceased:graveyard).push(s);}
+  function flushDeaths(){for(const {lki,victim}of pendingDeaths.splice(0)){emit({event:'death-cost-observed',victim:victim.id,lki:lki.map(s=>s.id)});native.deaths(lki,[victim]);}}
+  function sourceState(){const landCount=active().filter(s=>isLand(s.card)).length;return {pool,life,sources:board.map(s=>({id:s.id,types:cardTypes(s.card),subtypes:cardSubtypes(s.card),modes:s.model.modes.filter(m=>!m.minLands||landCount>=m.minLands),tapped:s.tapped,consumed:s.consumed,sick:isCreature(s.card)&&s.since===turn&&!s.model.haste}))};}
+  function pay(state,payments,record=true){
+    let omitted=false;
+    if(stage8&&deathUnknown(active(),{additional:stage9}).length)state={...state,sources:state.sources.map(s=>({...s,modes:s.modes.filter(m=>{if(m.sacrifice&&s.types.includes('Creature')){omitted=true;return false;}return true;})}))};
+    let r=planManaPayments(state,payments,{maxStates:maxManaStates,optimized:true});
+    if(omitted&&r.status==='blocked')r={...r,status:'unknown',reason:'unsupported death/replacement prerequisites for creature mana sacrifice'};
+    if(record){stats.manaSearches++;stats.manaStates+=r.states;if(r.status==='unknown'&&r.reason.includes('bound'))stats.boundHits++;}return r;
+  }
+  function reductionFor(c){return active().flatMap(s=>s.model.reducers).reduce((n,r)=>n+((r.kind==='colorless'&&isColorless(c)||r.kind==='creatures'&&isCreature(c)||r.kind==='firstCreature'&&isCreature(c)&&!creatureCasts)?r.amount:0),0);}
+  function castPlan(slot,reserve=true,record=true,free=false){
+    const m=slot.model;if(stage8&&cardTypes(slot.card).includes('Legendary')&&active().some(b=>b.card.name===slot.card.name))return {status:'unknown',reason:'legend-rule deaths not supported',states:0};if((!m.permanent&&!m.ritualMana&&!(access&&slot.access.direct))||cardSubtypes(slot.card).includes('Aura'))return {status:'unknown',reason:'target/nonpermanent effects unsupported',states:0};
+    if(m.extraCost||m.cost==null||m.cost===''||!parseManaCost(m.cost)||active().some(s=>s.model.unknownTax))return {status:'unknown',reason:'unknown/unpayable base cost or battlefield tax',states:0};
+    if(/enters under the control of an opponent/i.test(cardText(slot.card)))return {status:'unknown',reason:'enters under opponent control',states:0};
+    const triggers=active().filter(s=>s.model.castPayment&&cardSubtypes(slot.card).includes(s.model.castPayment.subtype));
+    const payments=[{label:'spell',cost:free?'':m.cost+(stage7&&slot===command&&commandCasts?'{'+(2*commandCasts)+'}':''),reduction:free?0:reductionFor(slot.card),context:castContext(slot.card,slot===command)}];
+    if(reserve)for(const s of triggers)payments.push({label:'cast-trigger:'+s.id,cost:s.model.castPayment.cost,context:{kind:'ability',abilityType:'triggered',types:cardTypes(s.card)}});
+    return {...pay(sourceState(),payments,record),triggers};
+  }
+  function commit(r,onPayment){
+    pool=r.pool;life=r.life;
+    for(const receipt of r.receipts)if(receipt.kind==='activation'){
+      const s=board.find(s=>s.id===receipt.source);if(receipt.tap)s.tapped=true;if(receipt.sacrifice){s.consumed=true;toGrave(s);}
+      emit({event:'mana-activation',card:s.card.name,...receipt});
+    }else onPayment(receipt);
+    if(stage8)flushDeaths();
+  }
+  function useEngine(s,kind){if(!stats.usedEngines.some(e=>e.id===s.id&&e.kind===kind))stats.usedEngines.push({id:s.id,card:s.card.name,kind,turn});}
+  function selectionPriority(s){
+    if(isLand(s.card))return hand.filter(h=>isLand(h.card)).length===0&&active().filter(b=>isLand(b.card)).length<6?0:5;
+    if(rampUseful(s,pilotContext())&&turn<6)return 1;
+    if(s.access.triggers.length||s.access.abilities.length||s.access.top)return 2;
+    return cardSubtypes(s.card).some(t=>nativeTypes.includes(t))?3:4;
+  }
+  function worstHand(){return [...hand].sort((a,b)=>selectionPriority(b)-selectionPriority(a)||(printedManaValue(b.card)||0)-(printedManaValue(a.card)||0)||b.id.localeCompare(a.id))[0];}
+  function draw(count,reason,source){for(let i=0;i<count;i++){
+    const s=library.shift();if(!s){decked=true;lost=true;emit({event:'empty-draw',reason,source});break;}
+    hand.push(s);if(reason==='natural')stats.naturalDraws++;else stats.effectDraws++;
+    emit({event:reason==='natural'?'draw':'access-draw',card:s.card.name,id:s.id,reason,source});
+    native?.draw(s);
+  }}
+  function effects(effects,source,reason){
+    const before={draws:stats.effectDraws,selections:stats.selections,exile:exile.length};
+    emit({event:'access-resolving',source:source.id,reason,effects});
+    for(const e of effects){if(lost)break;
+      if(e.kind==='draw')draw(e.count,reason,source.id);
+      else if(stage9&&e.kind==='gainLife'){life+=e.count;emit({event:'life-gain',source:source.id,count:e.count});}
+      else if(e.kind==='loseLife'){life-=e.count;emit({event:'life-loss',source:source.id,count:e.count});if(life<=0){lost=true;emit({event:'model-loss',reason:'life exhausted'});}}
+      else if(e.kind==='giveAway'&&!source.consumed){source.consumed=true;opponents.push(source);emit({event:'give-away',id:source.id});}
+      else if(e.kind==='discard'||e.kind==='handTop')for(let i=0;i<e.count&&hand.length;i++){
+        const s=worstHand();hand.splice(hand.indexOf(s),1);if(e.kind==='discard'){graveyard.push(s);stats.accessDiscards++;}else{library.unshift(s);stats.returnedToTop++;}
+        emit({event:e.kind==='discard'?'discard':'hand-to-top',id:s.id,card:s.card.name,source:source.id});
+      }
+      else if(e.kind==='exileTop'){
+        const s=library.shift();if(s){exile.push(s);emit({event:'top-exiled',id:s.id,card:s.card.name,source:source.id});}
+      }else if(e.kind==='scry'||e.kind==='surveil'){
+        const looked=library.splice(0,e.count),ranked=[...looked].sort((a,b)=>selectionPriority(a)-selectionPriority(b)||looked.indexOf(a)-looked.indexOf(b));
+        const keep=ranked.filter(s=>selectionPriority(s)<5&&(printedManaValue(s.card)||0)<=Math.max(4,turn+2)),reject=ranked.filter(s=>!keep.includes(s));
+        library.unshift(...keep);if(e.kind==='scry')library.push(...reject);else graveyard.push(...reject);
+        if(looked.length)stats.selections++;emit({event:'selection',kind:e.kind,source:source.id,looked:looked.map(s=>s.id),keep:keep.map(s=>s.id),reject:reject.map(s=>s.id),destination:e.kind==='scry'?'bottom':'graveyard'});
+      }
+    }
+    emit({event:native&&lost?'access-aborted-loss':'access-resolved',source:source.id,reason});if(stats.effectDraws>before.draws||stats.selections>before.selections||exile.length>before.exile)useEngine(source,'access');
+  }
+  function triggerAccess(phase,eventSlot,origin){
+    if(!access)return;
+    const pending=active().flatMap(source=>source.access.triggers.filter(t=>t.phase===phase||phase==='entry'&&t.phase==='entrySelf'&&source.id===eventSlot.id).map(trigger=>({source,trigger})));
+    for(const {source,trigger:t}of pending){
+      if(t.condition&&accessConditionStatus(t.condition,context())==='unknown'||t.power&&knownPower(eventSlot,board)===null){emit({event:'access-trigger-unknown',source:source.id,phase,reason:'power modifiers/counters not modeled'});continue;}
+      const matches=t.phase==='cast'?matchesCastFilter(eventSlot.card,t.filter):t.phase==='entrySelf'?source.id===eventSlot.id&&accessCondition(t.condition,context()):entryMatches(t,source,eventSlot,context());
+      if(!matches)continue;
+      emit({event:'access-trigger-pending',source:source.id,phase,causedBy:eventSlot.id,origin});
+      effects(t.effects,source,'trigger:'+phase);
+    }
+  }
+  function spawn(slot,phase){for(const s of slot.model.spawn.filter(s=>s.phase===phase)){
+    emit({event:'trigger-resolved',source:slot.id,phase,effect:'create '+s.count+' '+s.subtype});
+    for(let i=0;i<s.count;i++){const card={name:'Eldrazi '+s.subtype,type_line:'Token Creature — Eldrazi '+s.subtype,mana_cost:'',power:s.subtype==='Spawn'?'0':'1',oracle_text:'Sacrifice this token: Add {C}.'},token={...make(card,'token-'+tokenId++),token:true,since:turn,tapped:false};board.push(token);emit({event:'token-created',id:token.id,card});triggerAccess('entry',token);}
+  }}
+  function cast(slot,origin='hand',requireOptional=false){
+    if(native)return castNative(slot,origin,requireOptional);
+    if(slot===command)origin='command';
+    let r=castPlan(slot,true),declined;if(r.status!=='paid'&&!requireOptional){declined=r;r=castPlan(slot,false);}if(r.status!=='paid')return r;
+    if(slot===command)commanderCast=true;else if(origin==='library'){if(library[0]!==slot)throw Error('Top changed before casting');library.shift();stats.topCasts++;}else hand.splice(hand.indexOf(slot),1);
+    commit(r,receipt=>{
+      if(receipt.label==='spell'){
+        emit({event:'cast-paid',id:slot.id,card:slot.card.name,origin,...receipt});
+        for(const s of r.triggers)emit({event:'cast-trigger-pending',source:s.id,cost:s.model.castPayment.cost});
+        if(receipt.reduction){let remaining=[...slot.model.cost.matchAll(/\{(\d+)\}/g)].reduce((n,m)=>n+Number(m[1]),0);for(const s of active()){
+          const amount=s.model.reducers.filter(r=>r.kind==='colorless'&&isColorless(slot.card)||r.kind==='creatures'&&isCreature(slot.card)||r.kind==='firstCreature'&&isCreature(slot.card)&&!creatureCasts).reduce((n,r)=>n+r.amount,0);
+          if(amount&&remaining){useEngine(s,'reduction');remaining=Math.max(0,remaining-amount);}
+        }}
+      }else{emit({event:'optional-trigger-paid',card:slot.card.name,...receipt,effect:'unknown: copying not simulated'});stats.optionalPayments.push({turn,card:slot.card.name,cost:receipt.cost});for(const s of r.triggers)useEngine(s,'cast-payment');}
+    });
+    if(declined)for(const s of r.triggers)emit({event:'optional-trigger-declined',source:s.id,status:declined.status,reason:declined.reason});
+    if(isCreature(slot.card))creatureCasts++;stats.casts.push({turn,id:slot.id,card:slot.card.name,commander:slot===command,origin});
+    triggerAccess('cast',slot,origin);spawn(slot,'cast');
+    if(lost){emit({event:'resolution-aborted',id:slot.id,reason:'model loss during cast triggers'});return r;}
+    if(slot.model.ritualMana){const produced=slot.model.ritualMana.map((type,n)=>({id:slot.id+':ritual:'+n,source:slot.id,type,restriction:'none'}));pool.push(...produced);emit({event:'ritual-resolved',source:slot.id,produced});graveyard.push(slot);}
+    else if(!slot.model.permanent){if(access&&slot.access.direct){effects(slot.access.direct,slot,'spell');stats.accessSpells++;}graveyard.push(slot);emit({event:'spell-resolved',id:slot.id});}
+    else{const s={...slot,since:turn,tapped:slot.model.tapped};board.push(s);if(slot===command)stats.commanderDeploymentTurn=turn;emit({event:'permanent-resolved',id:s.id,card:s.card.name,tapped:s.tapped,effects:{manaUnknown:s.model.unknown.filter(x=>!x.startsWith('other Oracle effects')),accessUnknown:s.access.unknown,other:'other Oracle effects unmodeled'}});spawn(s,'entry');triggerAccess('entry',s);}
+    return r;
+  }
+  function abilityPlan(s,i,record=true){const a=s.access.abilities[i];
+    if(stage8&&a?.sacrifice&&isCreature(s.card)&&deathUnknown(active(),{additional:stage9}).length)return {status:'unknown',reason:'unsupported death/replacement on sacrifice',states:0};
+    if(a&&accessConditionStatus(a.condition,context())==='unknown')return {status:'unknown',reason:'activation power prerequisite unknown: modifiers/counters',states:0};
+    if(!a||s.consumed||a.tap&&(s.tapped||isCreature(s.card)&&s.since===turn&&!s.model.haste)||a.once&&s.lastAccess===turn||!accessCondition(a.condition,context())||life<=a.life)return {status:'blocked',reason:'activation prerequisite: tappedness, sickness, condition, once/turn or life',states:0};
+    const state=sourceState();state.life-=a.life;if(a.tap||a.sacrifice)state.sources=state.sources.map(b=>b.id===s.id?{...b,modes:a.tap?[]:b.modes.filter(m=>!m.sacrifice)}:b);
+    return pay(state,[{label:'access:'+s.id,cost:a.cost,context:{kind:'ability',abilityType:'activated',types:cardTypes(s.card)}}],record);
+  }
+  function activate(s,i){const a=s.access.abilities[i],r=abilityPlan(s,i);if(r.status!=='paid')return r;
+    emit({event:'access-announced',source:s.id,abilityIndex:i});
+    // Mana fees first; then this ability's tap/sacrifice/life costs; effects last.
+    const paidLife=r.life;r.life+=a.life;commit(r,receipt=>emit({event:'activated-access-paid',source:s.id,abilityIndex:i,...receipt}));life=paidLife;
+    if(a.tap)s.tapped=true;if(a.sacrifice){s.consumed=true;toGrave(s);stats.accessSacrifices++;}s.lastAccess=turn;
+    emit({event:'access-costs',source:s.id,abilityIndex:i,tap:a.tap,sacrifice:a.sacrifice,life:a.life});stats.activations++;if(stage8)flushDeaths();if(native)native.activated(s,a.effects);else effects(a.effects,s,'activation');return r;
+  }
+  function outletPlan(source,victim,record=true){
+    if(stage8&&deathUnknown(active(),{additional:stage9}).length)return {status:'unknown',reason:'unsupported death/replacement on sacrifice',states:0};
+    const a=outletModel(source.card).sacrificeDamage;
+    if(!nativeStage5||!nativeOutlets||!a||source.consumed||!victim||victim.consumed||!active().some(s=>s.id===victim.id)||!cardSubtypes(victim.card).includes(a.subtype))return {status:'blocked',reason:'outlet source/sacrifice unavailable'};
+    // The reserved sacrifice has no mana modes: it cannot also fund the fee.
+    const state=sourceState();state.sources=state.sources.filter(s=>s.id!==victim.id);
+    return pay(state,[{label:'outlet:'+source.id,cost:a.cost,context:{kind:'ability',abilityType:'activated',types:cardTypes(source.card)}}],record);
+  }
+  function activateOutlet(source,victim,target){
+    if(!Number.isInteger(target)||target<0||target>2||outlets.life[target]<=0)return {status:'blocked',reason:'opponent target unavailable'};
+    const r=outletPlan(source,victim);if(r.status!=='paid')return r;
+    const a=outletModel(source.card).sacrificeDamage;
+    emit({event:'outlet-announced',source:source.id,victim:victim.id,target});
+    commit(r,receipt=>emit({event:'outlet-paid',source:source.id,victim:victim.id,target,...receipt}));
+    victim.consumed=true;toGrave(victim);emit({event:'outlet-sacrifice',source:source.id,victim:victim.id,target});if(stage8)flushDeaths();
+    native.activatedOutlet(source,a.damage,target);return r;
+  }
+  function creatureSacrificePlan(source,victim,index=0,record=true){
+    const ability=creatureSacrificeModel(source.card)[index];
+    if(!stage9||!ability||!active().some(s=>s.id===source.id)||!victim||!active().some(s=>s.id===victim.id)||!isCreature(victim.card)||victim.id==='commander')return {status:'blocked',reason:'creature sacrifice source/victim unavailable'};
+    if(deathUnknown(active(),{additional:true}).length)return {status:'unknown',reason:'unsupported death/replacement on creature sacrifice'};
+    const state=sourceState();state.sources=state.sources.filter(s=>s.id!==victim.id);
+    return pay(state,[{label:'creature-sacrifice:'+source.id,cost:ability.cost,context:{kind:'ability',abilityType:'activated',types:cardTypes(source.card)}}],record);
+  }
+  function activateCreatureSacrifice(source,victim,index=0){
+    const r=creatureSacrificePlan(source,victim,index);if(r.status!=='paid')return r;
+    const ability=creatureSacrificeModel(source.card)[index];emit({event:'creature-sacrifice-announced',source:source.id,victim:victim.id,abilityIndex:index});
+    commit(r,receipt=>emit({event:'creature-sacrifice-paid',source:source.id,victim:victim.id,abilityIndex:index,...receipt}));
+    victim.consumed=true;toGrave(victim);emit({event:'creature-sacrifice-cost',source:source.id,victim:victim.id,abilityIndex:index});flushDeaths();
+    lastCreatureSacrifice=turn;sacrificeEvents.push({turn,source:source.id,victim:victim.id});native.activatedSacrifice(source,ability.effects);return r;
+  }
+  function playLand(s){if(!s||!hand.includes(s)||!isLand(s.card)||landPlayed)return {status:'blocked',reason:'land unavailable/drop used'};landPlayed=true;hand.splice(hand.indexOf(s),1);const b={...s,since:turn,tapped:s.model.tapped};board.push(b);emit({event:'land',id:b.id,card:b.card.name,tapped:b.tapped,unknown:b.model.conditionalEntry});if(native){native.entry(b);native.drain();}else{spawn(b,'entry');triggerAccess('entry',b);}return {status:'played'};}
+  function chooseLand(){
+    const current=sourceState(),availableTypes=new Set(current.sources.filter(s=>!s.consumed).flatMap(s=>s.modes.flatMap(m=>m.outputs.flat())));
+    const targetCost=(!commanderCast?command.model.cost||'':'')+hand.filter(s=>!isLand(s.card)&&(printedManaValue(s.card)||0)<=4).map(s=>s.model.cost||'').join('');
+    const wanted=new Set([...targetCost.matchAll(/\{([WUBRGC])\}/g)].map(m=>m[1]).filter(t=>!availableTypes.has(t)));
+    const costKnown=!active().some(s=>s.model.unknownTax);
+    const candidates=hand.filter(s=>isLand(s.card)).map(s=>{
+      const landCount=active().filter(b=>isLand(b.card)).length+1;
+      const hypothetical={...current,sources:[...current.sources.map(source=>({...source,modes:board.find(b=>b.id===source.id).model.modes.filter(m=>!m.minLands||landCount>=m.minLands)})),{id:s.id,types:cardTypes(s.card),subtypes:cardSubtypes(s.card),modes:s.model.modes.filter(m=>!m.minLands||landCount>=m.minLands),tapped:s.model.tapped,sick:isCreature(s.card)&&!s.model.haste}]};
+      const enables=costKnown&&!commanderCast&&!command.model.extraCost&&parseManaCost(command.model.cost||'{X}')&&pay(hypothetical,[{cost:command.model.cost+(stage7&&commandCasts?'{'+(2*commandCasts)+'}':''),reduction:reductionFor(commander),context:castContext(commander,true)}],false).status==='paid';
+      const trigger=active().find(b=>b.id==='commander')?.model.castPayment;
+      const enablesFollowup=costKnown&&!!trigger&&hand.some(h=>h.model.permanent&&!h.model.extraCost&&!cardSubtypes(h.card).includes('Aura')&&parseManaCost(h.model.cost||'{X}')&&cardSubtypes(h.card).includes(trigger.subtype)&&pay(hypothetical,[{cost:h.model.cost,reduction:reductionFor(h.card),context:castContext(h.card)},{cost:trigger.cost,context:{kind:'ability',abilityType:'triggered'}}],false).status==='paid');
+      return {slot:s,enables:!!enables,enablesFollowup,fixes:s.model.modes.some(m=>m.outputs.some(o=>o.some(t=>wanted.has(t))))};
+    });
+    candidates.sort((a,b)=>Number(b.enables)-Number(a.enables)||Number(b.enablesFollowup)-Number(a.enablesFollowup)||Number(a.slot.model.tapped)-Number(b.slot.model.tapped)||Number(b.fixes)-Number(a.fixes)||b.slot.model.modes.length-a.slot.model.modes.length||a.slot.id.localeCompare(b.slot.id));
+    return candidates[0]?.slot;
+  }
+  function topChoice(){const providers=active().filter(s=>s.access.top&&s.access.lookTop);if(!access||!providers.length||!library.length)return null;
+    if(lastTop!==library[0].id){emit({event:'look-top',id:library[0].id,card:library[0].card.name,sources:providers.map(s=>s.id)});lastTop=library[0].id;}
+    const provider=providers.find(s=>topCastAllowed(library[0].card,s.access.top));return provider?{slot:library[0],provider}:null;
+  }
+  function candidates(){const top=topChoice(),casts=[...hand.filter(s=>!isLand(s.card)).map(slot=>({kind:'cast',slot,origin:'hand'})),...(!commanderCast?[{kind:'cast',slot:command,origin:'command',commander:true}]:[]),...(top?[{kind:'cast',slot:top.slot,origin:'library',provider:top.provider}]:[])];
+    const actions=casts.map(a=>({...a,plan:castPlan(a.slot,false)})).filter(a=>a.plan.status==='paid');
+    if(access)for(const s of active())for(let i=0;i<s.access.abilities.length;i++){
+      const ability=s.access.abilities[i];if(ability.effects.some(e=>e.kind==='exileTop')&&(!s.access.lookTop||!library[0]||top&&top.slot===library[0]&&castPlan(top.slot,false).status==='paid'))continue;
+      const plan=abilityPlan(s,i);if(plan.status==='paid')actions.push({kind:'activate',slot:s,abilityIndex:i,plan});
+    }
+    const ranked=choosePilotAction(actions,pilotContext()).filter(a=>a.rule.reason!=='remaining supported deployment'||!a.plan.receipts.some(r=>r.sacrifice));
+    if(decision?.follow){const grants=active().map(s=>nativeModel(s.card).cascadeGrant).filter(Boolean);
+      for(const a of ranked)if(a.kind==='cast'&&a.origin==='hand'&&isColorless(a.slot.card)&&grants.some(g=>printedManaValue(a.slot.card)>=g.minMV)){a.followup=true;a.rule={priority:-1,reason:'cast payable hand follow-up while cascade engine is active'};}
+      ranked.sort((a,b)=>Number(!!b.followup)-Number(!!a.followup));
+    }
+    if(nativeStage5&&nativeOutlets)for(const source of active().filter(s=>outletModel(s.card).sacrificeDamage)){
+      const victim=active().find(s=>safeOutletResource(s)&&outletPlan(source,s,false).status==='paid'),target=outlets.life.findIndex(n=>n>0);
+      if(victim&&target>=0){const a={kind:'outlet',slot:source,victim,target,rule:{reason:'convert spare resources through supported outlet'}};
+        if(outlets.life[target]<=2)ranked.unshift(a);else ranked.push(a);
+      }
+    }
+    if(stage9&&lastCreatureSacrifice!==turn)for(const source of active())for(let index=0;index<creatureSacrificeModel(source.card).length;index++){
+      const victim=safeSacrificeVictims(active()).find(v=>v.id!==source.id&&sacrificeHasSupportedValue(active(),v)&&creatureSacrificePlan(source,v,index,false).status==='paid');
+      if(victim){ranked.push({kind:'creature-sacrifice',slot:source,victim,abilityIndex:index,rule:{reason:'one supported sacrifice conversion after deployment'}});break;}
+    }
+    return ranked;
+  }
+  function manaObservation(){const state=sourceState(),commanderContext=castContext(commander,true),max={};
+    for(const type of ['generic','W','U','B','R','G','C']){
+      let lower=0,upper=16,unknown=false;
+      while(lower<upper){const n=Math.ceil((lower+upper)/2),cost=type==='generic'?`{${n}}`:`{${type}}`.repeat(n),r=pay(state,[{cost,context:commanderContext}],false);if(r.status==='unknown'){unknown=true;break;}if(r.status==='paid')lower=n;else upper=n-1;}
+      max[type]={payableAtLeast:lower,unknown,cap:16};
+    }
+    const copy=pay(state,[{cost:'{C}{C}',context:{kind:'ability',abilityType:'triggered'}}],false);
+    return {context:'independent maxima for commander spell; not simultaneous or additive',max,separateTriggeredCC:copy.status};
+  }
+  function threatObservation(){return hand.filter(s=>isCreature(s.card)&&cardSubtypes(s.card).some(t=>nativeTypes.includes(t))&&(Number(front(s.card).power)>=4||(printedManaValue(s.card)||0)>=5)).map(s=>({card:s.card.name,status:castPlan(s,false,false).status}));}
+  function channels(s){const rows=strategyChannels(s,nativeTypes);if(!native)return rows;const m=nativeModel(s.card);
+    for(const c of rows)if(c.kind==='copy'&&(m.castCopy||m.multiplier.length)||c.kind==='cascade'&&m.cascadeGrant)c.supported=true;
+    if(m.triggers.some(t=>t.kind==='tutor'))rows.push({kind:'tutor',native:true,supported:true});return rows;
+  }
+  function engineReadiness(s,channel){
+    if(!channel.supported)return 'unknown';const statuses=[];
+    if(native&&['copy','cascade','tutor'].includes(channel.kind)){const m=nativeModel(s.card);if(channel.kind==='tutor'||channel.kind==='copy'&&!m.castCopy)return 'unknown';
+      for(const h of hand)if(isColorless(h.card)&&(channel.kind!=='cascade'||printedManaValue(h.card)>=(m.cascadeGrant?.minMV||Infinity)))statuses.push(castPlan(h,false,false).status);
+      return statuses.includes('paid')?'ready':statuses.includes('unknown')?'unknown':'blocked';
+    }
+    if(channel.kind==='access'){
+      for(let i=0;i<s.access.abilities.length;i++)statuses.push(abilityPlan(s,i,false).status);
+      for(const t of s.access.triggers)if(t.phase!=='entrySelf')for(const h of hand){const ok=t.phase==='cast'?matchesCastFilter(h.card,t.filter):entryMatches(t,s,h,context());if(ok)statuses.push(castPlan(h,false,false).status);}
+      if(s.access.top){if(!s.access.lookTop)statuses.push('unknown');else if(library[0]&&topCastAllowed(library[0].card,s.access.top))statuses.push(castPlan(library[0],false,false).status);}
+    }else if(channel.kind==='reduction')for(const h of hand)if(/\{[1-9]\d*\}/.test(h.model.cost||'')&&s.model.reducers.some(r=>r.kind==='colorless'?isColorless(h.card):isCreature(h.card)))statuses.push(castPlan(h,false,false).status);
+    else if(channel.kind==='cast-payment')for(const h of hand)if(cardSubtypes(h.card).includes(s.model.castPayment.subtype))statuses.push(castPlan(h,true,false).status);
+    return statuses.includes('paid')?'ready':statuses.includes('unknown')?'unknown':'blocked';
+  }
+  function recordNativeFollowup(phase){
+    if(!nativeStage5||native?.blocked||finished())return;
+    const engines=active().filter(s=>nativeModel(s.card).cascadeGrant);
+    if(engines.length)emit({event:'native-followup-snapshot',phase,engines:engines.map(s=>s.id),horizonRemaining:turns-turn,hand:hand.filter(h=>!isLand(h.card)&&isColorless(h.card)&&engines.some(s=>printedManaValue(h.card)>=nativeModel(s.card).cascadeGrant.minMV)).map(h=>{const r=castPlan(h,false,false);return {id:h.id,card:h.card.name,status:r.status,reason:r.reason||null};})});
+  }
+  function castNative(slot,origin='hand',requireOptional=false,free=false,permission=null){
+    if(slot===command)origin='command';
+    if(requireOptional){const preview=castPlan(slot,true,true,free);if(preview.status!=='paid')return preview;}
+    const r=castPlan(slot,false,true,free);if(r.status!=='paid')return r;
+    if(slot===command){commanderCast=true;if(stage7)commandCasts++;}
+    else if(origin==='cascade'){const i=exile.indexOf(slot);if(i<0)throw Error('Cascade card not exiled');exile.splice(i,1);}
+    else if(origin==='library'){if(library.shift()!==slot)throw Error('Top changed');stats.topCasts++;}
+    else hand.splice(hand.indexOf(slot),1);
+    commit(r,receipt=>{emit({event:'cast-paid',id:slot.id,card:slot.card.name,origin,...receipt,...(free?{freeCast:true,permission}: {})});
+      if(receipt.reduction){let remaining=[...slot.model.cost.matchAll(/\{(\d+)\}/g)].reduce((n,m)=>n+Number(m[1]),0);for(const s of active()){
+        const amount=s.model.reducers.filter(r=>r.kind==='colorless'&&isColorless(slot.card)||r.kind==='creatures'&&isCreature(slot.card)||r.kind==='firstCreature'&&isCreature(slot.card)&&!creatureCasts).reduce((n,r)=>n+r.amount,0);
+        if(amount&&remaining){useEngine(s,'reduction');remaining=Math.max(0,remaining-amount);}
+      }}
+    });
+    if(isCreature(slot.card))creatureCasts++;stats.casts.push({turn,id:slot.id,card:slot.card.name,commander:slot===command,origin});
+    native.registerCast(slot,origin);if(origin!=='cascade')native.drain();return r;
+  }
+  function resolveNativeSpell(slot,origin){
+    if(slot.model.ritualMana){const produced=slot.model.ritualMana.map((type,n)=>({id:slot.id+':ritual:'+n,source:slot.id,type,restriction:'none'}));pool.push(...produced);toGrave(slot);emit({event:'ritual-resolved',source:slot.id,produced});}
+    else if(!slot.model.permanent){if(access&&slot.access.direct){effects(slot.access.direct,slot,'spell');if(lost)return false;stats.accessSpells++;}toGrave(slot);emit({event:slot.spellCopy?'copy-ceased':'spell-resolved',id:slot.id});}
+    else{const b={...slot,since:turn,tapped:slot.model.tapped};board.push(b);if(slot===command&&(!stage7||stats.commanderDeploymentTurn===null))stats.commanderDeploymentTurn=turn;emit({event:'permanent-resolved',id:b.id,card:b.card.name,tapped:b.tapped});native.entry(b);
+      if(cardTypes(b.card).includes('Legendary')){const same=active().filter(s=>cardTypes(s.card).includes('Legendary')&&s.card.name===b.card.name);if(same.length>1){const keep=same.find(s=>!s.spellCopy)||same[0];for(const s of same.filter(s=>s!==keep)){s.consumed=true;toGrave(s);emit({event:'native-legend-rule',id:s.id,keep:keep.id});if(stage8)flushDeaths();}}}
+    }
+  }
+  function manaSnapshot(){const observation=manaObservation();return {generic:observation.max.generic.payableAtLeast,C:observation.max.C.payableAtLeast,unknown:observation.max.generic.unknown||observation.max.C.unknown,copyCC:observation.separateTriggeredCC};}
+  function injectDisruptions(){for(const spec of stage7?.disruptions.filter(d=>!fired.has(d.id)&&(stage8?d.turn<=turn:d.turn===turn))||[]){
+    const lki=active().map(s=>({...s})),evidence=removalEvidence(lki,spec,{death:!!stage8,additionalDeaths:stage9});
+    if(stage8&&(!evidence.targets.length||stage8.requirements?.[spec.id]==='commander'&&!lki.some(s=>s.id==='commander')))continue;
+    fired.add(spec.id);
+    if(native.resolving||native.blocked){stage7Suspended=true;emit({event:'disruption-unknown',id:spec.id,reasons:[{reason:'stack not safely empty'}]});break;}
+    emit({event:'disruption-checkpoint',spec,mana:manaSnapshot(),board:active().map(s=>({id:s.id,card:s.card.name,types:cardTypes(s.card)}))});
+    if(evidence.unknown.length){emit({event:'disruption-unknown',id:spec.id,reasons:evidence.unknown});stage7Suspended=true;break;}
+    if(stage8&&spec.effect==='destroy')emit({event:'death-batch-start',experiment:spec.id,lki:lki.map(s=>s.id),victims:evidence.removed.filter(s=>isCreature(s.card)).map(s=>s.id)});
+    const removed=[];
+    // Every object leaves in the same event before command-zone choices or
+    // token state-based actions. Triggers look back at the complete old board.
+    for(const slot of evidence.removed){const destination=spec.effect==='destroy'?'graveyard':'exile';
+      board=board.filter(s=>s.id!==slot.id);(destination==='graveyard'?graveyard:exile).push(slot);emit({event:'disruption-move',id:slot.id,experiment:spec.id,from:'battlefield',to:destination,method:spec.effect});
+      removed.push({id:slot.id,card:slot.card.name,types:cardTypes(slot.card),destination:slot.id==='commander'&&spec.commanderDestination==='command'?'command':slot.token?'ceased':destination});
+      if(!stage8)finishRemoval(slot,destination,spec);
+    }
+    if(stage8)for(const slot of evidence.removed)finishRemoval(slot,spec.effect==='destroy'?'graveyard':'exile',spec);
+    if(stage8&&spec.effect==='destroy'){emit({event:'death-batch-complete',experiment:spec.id});native.deaths(lki,evidence.removed.filter(s=>isCreature(s.card)));native.drain();}
+    afterEvent=spec.id;emit({event:'disruption-complete',id:spec.id,removed,survivors:evidence.survivors,mana:manaSnapshot()});
+  }}
+  function finishRemoval(slot,destination,spec){const zone=destination==='graveyard'?graveyard:exile;
+    if(slot.id==='commander'&&spec.commanderDestination==='command'){zone.splice(zone.indexOf(slot),1);commanderCast=false;emit({event:'commander-zone',id:slot.id,from:destination,to:'command',experiment:spec.id,priorCommandCasts:commandCasts});}
+    else if(slot.token){zone.splice(zone.indexOf(slot),1);ceased.push(slot);emit({event:'disruption-token-ceased',id:slot.id,from:destination,experiment:spec.id});}
+  }
+  function tutorPreview(slot,destination){
+    const state=sourceState(),future={...state,pool:[],sources:state.sources.map(source=>{const b=board.find(s=>s.id===source.id);return {...source,tapped:b.model.noNaturalUntap?source.tapped:false,sick:false};})};
+    const triggers=active().filter(b=>nativeModel(b.card).ulalek&&cardSubtypes(slot.card).includes('Eldrazi'));
+    const payments=[{label:'tutor-projection',cost:slot.model.cost,reduction:reductionFor(slot.card),context:castContext(slot.card)}],joint=[...payments,...triggers.map(b=>({label:'tutor-trigger:'+b.id,cost:'{C}{C}',context:{kind:'ability',abilityType:'triggered',types:cardTypes(b.card)}}))];
+    const possible=!active().some(s=>s.model.unknownTax)&&slot.model.permanent&&!slot.model.extraCost&&!cardSubtypes(slot.card).includes('Aura')&&parseManaCost(slot.model.cost||'{X}');
+    const preview=(st,ps)=>possible?pay(st,ps,false):{status:'unknown',reason:'unsupported target casting prerequisites',states:0};
+    const nextReduction=active().flatMap(b=>b.model.reducers).reduce((n,r)=>n+((r.kind==='colorless'&&isColorless(slot.card)||['creatures','firstCreature'].includes(r.kind)&&isCreature(slot.card))?r.amount:0),0),nextPayments=payments.map(p=>({...p,reduction:nextReduction})),nextJoint=[...nextPayments,...joint.slice(1)];
+    const topAvailable=destination!=='top'||active().some(b=>b.access.lookTop&&b.access.top&&topCastAllowed(slot.card,b.access.top));
+    const inaccessible={status:'blocked',reason:'top destination not presently accessible',states:0};
+    return {now:topAvailable?preview(state,payments):inaccessible,next:preview(future,nextPayments),jointNow:topAvailable?preview(state,joint):inaccessible,jointNext:preview(future,nextJoint)};
+  }
+  if(nativeExecution){native=createNativeStack({emit,active,context,library,hand,exile,effects,useEngine,sourceState,lost:()=>lost,won:()=>!!outlets?.won,damage:(...args)=>outlets.damage(...args),
+    ...(stage7?.tutorPolicy==='state-aware'?{chooseTutor:(eligible,item)=>{const choice=chooseTutorTarget(eligible,{turn,turns,board:active(),hand,nativeTypes,commander,preview:s=>tutorPreview(s,item.effect.destination)});emit({event:'native-tutor-choice',ability:item.id,destination:item.effect.destination,...choice});return choice.chosen;}}:{}),
+    ...(stage8?{sacrificeEndStep:item=>{const victim=deathUnknown(active(),{additional:stage9}).length?null:endStepVictim(active(),stage8);emit({event:'end-step-choice',ability:item.id,source:item.source.id,victim:victim?.id||null,unknown:deathUnknown(active(),{additional:stage9})});if(!victim)return null;victim.consumed=true;toGrave(victim);emit({event:'end-step-sacrifice',ability:item.id,source:item.source.id,victim:victim.id});flushDeaths();return victim;}}:{}),
+    copySlot:s=>({...make(s.card,'copy-'+copyId++),spellCopy:true,token:s.model.permanent}),
+    resolveSpell:resolveNativeSpell,castCascade:(s,permission)=>castNative(s,'cascade',false,true,permission),
+    payOptional:(source,cost,item)=>{const r=pay(sourceState(),[{label:'cast-trigger:'+source.id,cost,context:{kind:'ability',abilityType:'triggered',types:cardTypes(source.card)}}]);if(r.status==='paid'){commit(r,receipt=>emit({event:'native-trigger-paid',ability:item.id,source:source.id,causedBy:item.cause.id,...receipt}));stats.optionalPayments.push({turn,card:item.cause.card.name,cost,copy:!!item.copyOf,ability:item.id});useEngine(source,'cast-payment');}return r;},
+    createTokens:(e,item)=>{for(let i=0;i<e.count;i++){const card=tokenCard(e),token={...make(card,'token-'+tokenId++),token:true,since:turn,tapped:false};board.push(token);emit({event:'token-created',id:token.id,card,ability:item.id});native.entry(token);}}
+  },{seed,chosenType,triggerOrder:decision?.order||nativeTriggerOrder,maxSteps:maxNativeSteps,maxObjects:maxNativeObjects,stage5:nativeStage5,enableOutlets:nativeOutlets,compression:nativeCompression,maxContinuations:nativeContinuations,optionalPolicy:decision?.optional||'all',stage8:!!stage8,stage9});stats.native=native.stats;}
+  for(turn=1;turn<=turns&&!finished()&&!native?.blocked;turn++){
+    native?.beginTurn();
+    pool=[];creatureCasts=0;landPlayed=false;lastTop=null;for(const s of active())if(!s.model.noNaturalUntap)s.tapped=false;
+    emit({event:'untap',sources:sourceState().sources});draw(1,'natural');native?.drain();if(finished())break;
+    if(stage7){injectDisruptions();if(stage7Suspended)break;}
+    if(!script){const land=chooseLand();if(land)playLand(land);}
+    const beforeMana=manaObservation(),threatsBeforeActions=threatObservation();let acts=0;
+    if(stage7)checkpoints.push({turn,afterEvent,mana:manaSnapshot()});
+    recordNativeFollowup('before-actions');
+    // A read-only diagnostic snapshot before spending action mana. Payment
+    // previews do not resolve effects or change the pilot/trace/statistics.
+    if(onPreAction){
+      const probe=slot=>{const r=castPlan(slot,false,false),joint=castPlan(slot,true,false);
+        return {id:slot.id,card:slot.card.name,cost:slot.model.cost,reduction:reductionFor(slot.card),context:castContext(slot.card,slot===command),status:r.status,reason:r.reason||null,jointStatus:joint.status,triggerCosts:(joint.triggers||[]).map(s=>s.model.castPayment.cost)};};
+      onPreAction(structuredClone({turn,state:sourceState(),commander:commanderCast?null:probe(command),hand:hand.filter(s=>!isLand(s.card)).map(probe),engines:active().flatMap(s=>channels(s).map(c=>({card:s.card.name,...c,ready:engineReadiness(s,c)})))}));
+    }
+    if(script){if((script[turn]||[]).length>maxActions)throw Error('Script action bound exceeded');for(const a of script[turn]||[]){
+      if(finished()||native?.blocked)break;const top=topChoice(),s=a.card===commander.name&&!commanderCast?command:a.origin==='library'?top?.slot:hand.find(s=>s.card.name===a.card);
+      const source=active().find(s=>s.card.name===a.card),r=a.type==='land'?playLand(s):a.type==='cast'&&s&&s.card.name===a.card?cast(s,a.origin||'hand',!!a.requireOptional):a.type==='activate'&&source?activate(source,a.abilityIndex||0):a.type==='sacrifice'&&source&&stage9?activateCreatureSacrifice(source,active().find(s=>s.id===a.sacrifice||s.card.name===a.sacrifice),a.abilityIndex||0):a.type==='outlet'&&source&&nativeStage5?activateOutlet(source,active().find(s=>s.id===a.sacrifice||s.card.name===a.sacrifice),a.target):{status:'unknown',reason:'unsupported action/source unavailable'};
+      if(stage8){injectDisruptions();if(stage7Suspended)break;}
+      recordNativeFollowup('after-script-action');
+      if(!['paid','played'].includes(r.status))emit({event:'action-failed',action:a,status:r.status,reason:r.reason});
+    }}else for(;acts<maxActions&&!finished()&&!native?.blocked;acts++){
+      if(!landPlayed){const lateLand=chooseLand();if(lateLand){emit({event:'decision',policy,chosen:lateLand.id,kind:'land',reason:'use an available land drop after access',alternatives:[]});playLand(lateLand);continue;}}
+      const options=candidates();if(!options.length)break;
+      const payableCommander=options.find(a=>a.commander),guarded=payableCommander&&stats.setupBeforePayableCommander>=1;
+      const a=guarded?{...payableCommander,rule:{reason:'take the payable commander after one setup action'}}:options[0];
+      if(payableCommander&&!a.commander)stats.setupBeforePayableCommander++;
+      emit({event:'decision',policy,chosen:a.slot.id,kind:a.kind,reason:a.rule.reason,commanderPayable:!!payableCommander,setupBudgetUsed:stats.setupBeforePayableCommander,alternatives:options.filter(x=>x.slot.id!==a.slot.id).slice(0,4).map(x=>({id:x.slot.id,kind:x.kind,reason:x.rule.reason}))});
+      if(a.kind==='cast'){cast(a.slot,a.origin);if(a.provider)useEngine(a.provider,'top-access');}else if(a.kind==='outlet')activateOutlet(a.slot,a.victim,a.target);else if(a.kind==='creature-sacrifice')activateCreatureSacrifice(a.slot,a.victim,a.abilityIndex);else activate(a.slot,a.abilityIndex);
+      if(stage8){injectDisruptions();if(stage7Suspended)break;}
+      recordNativeFollowup('after-action');
+    }
+    if(acts===maxActions&&(!nativeStage5||!finished()&&!native?.blocked)){stats.actionBoundHits++;emit({event:'action-bound',status:'unknown',limit:maxActions});}
+    if(stage8&&!finished()&&!native.blocked){emit({event:'end-step-begin'});native.endStep();}
+    const missed=[];for(const slot of [...hand.filter(s=>!isLand(s.card)),...(!commanderCast?[command]:[])]){const r=castPlan(slot,false);missed.push({id:slot.id,card:slot.card.name,status:r.status==='paid'?'payable-but-not-selected':r.status,reason:r.reason||'policy/action limit preserves resources'});}
+    for(const s of active())if(access)for(let i=0;i<s.access.abilities.length;i++){const r=abilityPlan(s,i);if(r.status!=='paid')missed.push({id:s.id,card:s.card.name,kind:'activation',status:r.status,reason:r.reason});}
+    const threats=threatObservation();
+    if(!(native&&(lost||nativeStage5&&outlets?.won))&&!(nativeStage5&&native?.blocked)&&!active().some(s=>/You have no maximum hand size\./i.test(cardText(s.card))))while(hand.length>7){const s=worstHand();hand.splice(hand.indexOf(s),1);graveyard.push(s);stats.cleanupDiscards++;emit({event:'cleanup-discard',id:s.id,card:s.card.name});}
+    const engines=active().flatMap(s=>channels(s).map(c=>({id:s.id,card:s.card.name,...c,readyNow:engineReadiness(s,c),used:stats.usedEngines.some(e=>e.id===s.id&&(['access','top-access'].includes(e.kind)?c.kind==='access':e.kind===c.kind))})));
+    const accessibleCards=hand.length+active().filter(s=>!s.token&&s.id!=='commander').length;
+    const observation={turn,commanderDeployed:active().some(s=>s.id==='commander'),manaBeforeActions:beforeMana,manaRemaining:manaObservation(),handSize:hand.length,accessibleCards,netAccessibleCards:accessibleCards-7-stats.naturalDraws,naturalDraws:stats.naturalDraws,effectDraws:stats.effectDraws,effectDiscards:stats.accessDiscards,cleanupDiscards:stats.cleanupDiscards,returnedToTop:stats.returnedToTop,topCasts:stats.topCasts,accessSpells:stats.accessSpells,accessSacrifices:stats.accessSacrifices,engines,threatsBeforeActions,threatAvailability:threats,missed};observations.push(observation);
+    emit({event:'turn-end',hand:hand.map(s=>s.card.name),handIds:hand.map(s=>s.id),library:library.map(s=>s.id),graveyard:graveyard.map(s=>s.id),exile:exile.map(s=>s.id),opponents:opponents.map(s=>s.id),ceased:ceased.map(s=>s.id),board:active().map(s=>({id:s.id,card:s.card.name,tapped:s.tapped})),floatingExpires:pool,life});
+  }
+  return {schemaVersion:native?4:2,evaluator:nativeStage5?'gameplay-native-v2':native?'gameplay-native-v1':'gameplay-stage2-v1',seed,turns,policy,mulligan,order,initialOpening:opening,commander:commander.name,nativeTypes,chosenType,stats,observations,decked,lost,
+    assumptions:{opening:7,mulligan,drawOnTurnOne:true,rankingIntegration:false,commanderTaxPriorCasts:0,access,mainPhases:1,maxActions,maxManaStates,maxSetupActionsBeforePayableCommander:1,sourcePayments:'optimized exact ledger',opponents:'three inert seats; no combat/interaction; supported control transfers leave our board',optionalPayment:native?'separate payment at trigger resolution under fixed '+(decision?.order||nativeTriggerOrder)+' ordering':'reserve before resolving resource/access triggers',threatDefinition:'native creature with printed power >=4 or printed MV >=5; payment availability, not win conversion; other threat/combat/copy outcomes unknown',otherRulesCoverage:'not quantified; parsed access is not complete Oracle/rules coverage'},
+    ...(stage9?{stage9:{creatureSacrifices:sacrificeEvents,automaticLimit:1,policy:'after ordinary deployment; tokens/simple creatures with actual supported death value; reserve end-step Zombie'}}:{}),
+    ...(stage8?{stage8:{...stage8,opportunities:trace.filter(e=>e.event==='native-tutor').map(e=>({turn:e.turn,ability:e.ability,destination:e.destination,found:e.found})),unreached:stage7.disruptions.filter(d=>!fired.has(d.id)).map(d=>d.id)}}:{}),
+    ...(stage7?{stage7:{...stage7,suspendedUnknown:stage7Suspended,commandCasts,checkpoints}}:{}),
+    ...(nativeStage5?{stage5:{outletsEnabled:nativeOutlets,decisionPolicy:nativeDecisionPolicy,compression:nativeCompression,maxContinuations:nativeContinuations,logicalStackCap:4096},outlets:{initialLife:opponentLife,life:outlets.life,won:outlets.won,damageEvents:outlets.events.length,totalDamage:outlets.events.reduce((n,e)=>n+e.amount,0),lethalTurn:outlets.won?trace.findLast(e=>e.event==='opponent-eliminated').turn:null}}:{}),
+    ...(native?{nativeExecution:{triggerOrder:decision?.order||nativeTriggerOrder,maxSteps:maxNativeSteps,maxObjects:maxNativeObjects,boundedUnknown:native.blocked,unknown:[...models.keys()].map(c=>({card:c.name,clauses:nativeModel(c).unknown.filter(l=>!(stage8&&deathModel(c,{additional:stage9}).recognized.includes(l))&&!(nativeStage5&&nativeOutlets&&outletModel(c).recognized.includes(l)))})).filter(c=>c.clauses.length)}}:{}),
+    coverage:{cardsWithSupportedAccess:[...models.values()].filter(m=>m.access.direct||m.access.abilities.length||m.access.triggers.length||m.access.top).length,cardsWithUnmodeledAccess:[...models.values()].filter(m=>m.access.unknown.length).length,unmodeledAccessClauses:[...models.values()].reduce((n,m)=>n+m.access.unknown.length,0)},
+    unknown:[...models].map(([card,m])=>({card:card.name,access:m.access.unknown,other:m.model.unknown.filter(s=>!s.startsWith('other Oracle effects'))})),trace};
+}

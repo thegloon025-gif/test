@@ -1,0 +1,50 @@
+{
+  "node": "v24.19.0",
+  "baseline": {
+    "command": "npm test",
+    "sourceCommit": "18ac63b",
+    "tests": 195,
+    "pass": 195,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "duration_ms": 121810.961896
+  },
+  "focused": {
+    "command": "node --test tests/gameplay-deployment.test.mjs",
+    "sourceCommit": "1747261",
+    "tests": 18,
+    "pass": 18,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "duration_ms": 166.341984
+  },
+  "full": {
+    "command": "npm test",
+    "sourceCommit": "1747261",
+    "tests": 213,
+    "pass": 213,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "duration_ms": 118681.787266
+  },
+  "preservation": {
+    "benchmarks/v12/external-baseline-2026-10-22.json": "9f7030d07c01ebce088e2462f5b78c75c364290c36d69e6e1007f621f543d63d",
+    "start-windows.bat": "3aac6ed95cc36cf5d816969d33df83c8835d34703cbe3df57cf026e745f9099d",
+    "package.json": "295cf3d6a4acfd87d0e7613e9da3ecdd4e5dbc4d022a82b76ce6e9663965005d",
+    "server.mjs": "5a8a855b1222253192c4a34c864a75d51f0c84f8f1503f3c6f3543cfcae1b45d",
+    "AGENTS.md": "91df93b8f16c7bfa535b4090748e73080e240dde4c2502510464f4bbd7c02161",
+    "CODEX_HANDOFF.md": "b54df2b0d39f51abefad44b892efa8ee02c7591ea0ffd398f9c0d60b4cf07940"
+  },
+  "originalCacheSHA256": {
+    "combo-library.json": "cbe8505b795ba34137f9b8d42dee1911e80213c55db0ed108a39c7a78fdfc2d1",
+    "cards.json": "6add2c5dd20809fd787438d3c8825f8dd21a74e7d3fc429f83c7a9a091045f6c",
+    "community-decks.json": "630dd24c667d308ddbca4e43f35a486f5d3f6cab4df9d3d2af8579e5226478eb",
+    "metadata.json": "7ca579e431b2abba90f7629d06b393899f3ab5da4981cdc2cfd15eb20174c0cd",
+    "spellbook-cache/3efe7c217ee49c71bfa4c88e4525f3886b1a6b0249110f8b10e5e2b5b503abb7.json": "4c656dad0887a3b035fcbbdc535ae237640655f5aa126da612eabd6b905e1ca8",
+    "spellbook-cache/92d2d2419a5fd5a05119dee5da2aad9c6292297d77d8dd7dd2a33cbab4adf915.json": "fb626498546a7f7eff5ae8fc52c585cb855068f44667efa93a23d2dbe10e032c",
+    "spellbook-cache/d94463ec988c2b6302962c89f24fae2a122b49c271d6ad91218e94dd9e1b93f4.json": "10154380c06143aae251ba9a9e33f70eb3f67d956c180d261c012c90b326faea"
+  }
+}

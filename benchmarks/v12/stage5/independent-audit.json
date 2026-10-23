@@ -1,0 +1,20 @@
+{
+  "auditorSHA256": "240dfe849508c07dcaa6e8f29fd5f559d94b5f8803075e0547e8d4b386ab8842",
+  "sourceCommit": "f000b75e64d107d74bb9669d483e698b1400e6d0",
+  "exact100CardExports": 17,
+  "selectedPrintingChecks": 2200,
+  "persistedVectors": 4248,
+  "boundedVectors": 32,
+  "modelLossVectors": 4,
+  "conditionalLethalVectors": 46,
+  "representativeResourceZoneStackOutletAudits": 13,
+  "historicalProblemCases": 51,
+  "oldStage1HashesMatched": 160,
+  "oldStage2FullTracesMatched": 15,
+  "oldStage4RepresentativeTracesAudited": 31,
+  "originalExecutionVectorsMatched": 576,
+  "originalObservationsSHA256": "b5c8858a63ca07d6ad3a08929fd4abdf4b91123198358b00268f833745d26ba0",
+  "archivesStage1Through4Unchanged": true,
+  "cachesAndProductionUnchanged": true,
+  "runtimeMs": 2787
+}

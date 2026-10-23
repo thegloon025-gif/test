@@ -1,0 +1,134 @@
+{
+  "toolSHA256": "74730e7b23b495377c85f70c10ad204a1fd88e11734d7b8de70dbb41e98a824a",
+  "modelFingerprint": "330b22a7d53a9372c2b09805ee8fc42094d20d15b706a13ddacf3f787223a2da",
+  "examples": [
+    {
+      "slug": "ulalek-b3",
+      "id": "repair-03",
+      "kind": "realized-access",
+      "seed": "gameplay-shadow-2026-10-22:holdout:6",
+      "policy": "native",
+      "selection": "First holdout with a resolved added access engine and extra draws, or first later-commander counterexample; illustrative only",
+      "files": [
+        "ulalek-b3-repair-03-realized-access-before.json",
+        "ulalek-b3-repair-03-realized-access-after.json"
+      ],
+      "metrics": [
+        {
+          "modelSurvival": 1,
+          "commanderByT5": 1,
+          "commanderByT8": 1,
+          "commanderTempo": 5,
+          "netAccess": 0,
+          "realizedDraws": 0,
+          "topCasts": 0,
+          "optionalPayments": 1,
+          "supportedEngineUses": 1,
+          "observedLargeNativeCasts": 2
+        },
+        {
+          "modelSurvival": 1,
+          "commanderByT5": 1,
+          "commanderByT8": 1,
+          "commanderTempo": 5,
+          "netAccess": 5,
+          "realizedDraws": 5,
+          "topCasts": 0,
+          "optionalPayments": 3,
+          "supportedEngineUses": 2,
+          "observedLargeNativeCasts": 3
+        }
+      ]
+    },
+    {
+      "slug": "ulalek-b4",
+      "id": "repair-03",
+      "kind": "realized-access",
+      "seed": "gameplay-shadow-2026-10-22:holdout:6",
+      "policy": "native",
+      "selection": "First holdout with a resolved added access engine and extra draws, or first later-commander counterexample; illustrative only",
+      "files": [
+        "ulalek-b4-repair-03-realized-access-before.json",
+        "ulalek-b4-repair-03-realized-access-after.json"
+      ],
+      "metrics": [
+        {
+          "modelSurvival": 1,
+          "commanderByT5": 1,
+          "commanderByT8": 1,
+          "commanderTempo": 5,
+          "netAccess": 0,
+          "realizedDraws": 0,
+          "topCasts": 0,
+          "optionalPayments": 3,
+          "supportedEngineUses": 1,
+          "observedLargeNativeCasts": 1
+        },
+        {
+          "modelSurvival": 1,
+          "commanderByT5": 1,
+          "commanderByT8": 1,
+          "commanderTempo": 5,
+          "netAccess": 2,
+          "realizedDraws": 2,
+          "topCasts": 0,
+          "optionalPayments": 3,
+          "supportedEngineUses": 2,
+          "observedLargeNativeCasts": 1
+        }
+      ]
+    },
+    {
+      "slug": "ulalek-b4",
+      "id": "repair-04",
+      "kind": "timing-regression",
+      "seed": "gameplay-shadow-2026-10-22:holdout:4",
+      "policy": "native",
+      "selection": "First holdout with a resolved added access engine and extra draws, or first later-commander counterexample; illustrative only",
+      "files": [
+        "ulalek-b4-repair-04-timing-regression-before.json",
+        "ulalek-b4-repair-04-timing-regression-after.json"
+      ],
+      "metrics": [
+        {
+          "modelSurvival": 1,
+          "commanderByT5": 0,
+          "commanderByT8": 1,
+          "commanderTempo": 1,
+          "netAccess": 0,
+          "realizedDraws": 1,
+          "topCasts": 0,
+          "optionalPayments": 0,
+          "supportedEngineUses": 2,
+          "observedLargeNativeCasts": 0
+        },
+        {
+          "modelSurvival": 1,
+          "commanderByT5": 0,
+          "commanderByT8": 0,
+          "commanderTempo": 0,
+          "netAccess": -1,
+          "realizedDraws": 1,
+          "topCasts": 0,
+          "optionalPayments": 0,
+          "supportedEngineUses": 2,
+          "observedLargeNativeCasts": 0
+        }
+      ]
+    }
+  ],
+  "evaluator": {
+    "evaluations": 6,
+    "hits": 0,
+    "evictions": 0,
+    "audits": 6,
+    "replays": 6,
+    "runtimeMs": 482.84521300000006,
+    "keyMs": 7.603182999999717,
+    "simulationMs": 294.77024799999936,
+    "auditMs": 16.350997000000007,
+    "replayMs": 159.32253300000002,
+    "summaryMs": 8.737990000000082,
+    "maxEntriesObserved": 6
+  }
+}

@@ -1,0 +1,6058 @@
+{
+  "seed": "gameplay-shadow-2026-10-22:holdout:9",
+  "policy": "development",
+  "audit": {
+    "valid": true,
+    "errors": [],
+    "resourceAudit": true,
+    "zoneAudit": true,
+    "stackAudit": true
+  },
+  "run": {
+    "schemaVersion": 4,
+    "evaluator": "gameplay-native-v1",
+    "seed": "gameplay-shadow-2026-10-22:holdout:9",
+    "turns": 8,
+    "policy": "development",
+    "mulligan": "none",
+    "order": [
+      58,
+      94,
+      79,
+      97,
+      28,
+      21,
+      40,
+      48,
+      47,
+      31,
+      80,
+      87,
+      8,
+      50,
+      62,
+      52,
+      25,
+      63,
+      26,
+      34,
+      1,
+      88,
+      54,
+      27,
+      74,
+      9,
+      24,
+      82,
+      37,
+      7,
+      90,
+      14,
+      98,
+      60,
+      15,
+      67,
+      38,
+      65,
+      71,
+      23,
+      75,
+      57,
+      35,
+      69,
+      19,
+      44,
+      12,
+      36,
+      56,
+      73,
+      86,
+      59,
+      20,
+      43,
+      45,
+      51,
+      72,
+      70,
+      18,
+      5,
+      4,
+      85,
+      32,
+      95,
+      53,
+      64,
+      42,
+      3,
+      13,
+      84,
+      6,
+      89,
+      33,
+      2,
+      30,
+      49,
+      81,
+      66,
+      0,
+      68,
+      41,
+      77,
+      46,
+      93,
+      17,
+      11,
+      92,
+      55,
+      61,
+      83,
+      91,
+      16,
+      10,
+      22,
+      29,
+      76,
+      78,
+      39,
+      96
+    ],
+    "initialOpening": [
+      {
+        "id": "deck-58",
+        "card": "Void Grafter"
+      },
+      {
+        "id": "deck-94",
+        "card": "Wastes"
+      },
+      {
+        "id": "deck-79",
+        "card": "Llanowar Wastes"
+      },
+      {
+        "id": "deck-97",
+        "card": "Wooded Bastion"
+      },
+      {
+        "id": "deck-28",
+        "card": "Kozilek's Unsealing"
+      },
+      {
+        "id": "deck-21",
+        "card": "Gideon Blackblade"
+      },
+      {
+        "id": "deck-40",
+        "card": "Shared Roots"
+      }
+    ],
+    "commander": "Ulalek, Fused Atrocity",
+    "nativeTypes": [
+      "Eldrazi"
+    ],
+    "chosenType": "Eldrazi",
+    "stats": {
+      "casts": [
+        {
+          "turn": 2,
+          "id": "deck-47",
+          "card": "Strionic Resonator",
+          "commander": false,
+          "origin": "hand"
+        },
+        {
+          "turn": 3,
+          "id": "deck-31",
+          "card": "Mind Stone",
+          "commander": false,
+          "origin": "hand"
+        },
+        {
+          "turn": 4,
+          "id": "deck-48",
+          "card": "Tablet of Compleation",
+          "commander": false,
+          "origin": "hand"
+        },
+        {
+          "turn": 5,
+          "id": "commander",
+          "card": "Ulalek, Fused Atrocity",
+          "commander": true,
+          "origin": "command"
+        },
+        {
+          "turn": 6,
+          "id": "deck-50",
+          "card": "Talisman of Impulse",
+          "commander": false,
+          "origin": "hand"
+        },
+        {
+          "turn": 7,
+          "id": "deck-62",
+          "card": "Zhulodok, Void Gorger",
+          "commander": false,
+          "origin": "hand"
+        }
+      ],
+      "commanderDeploymentTurn": 5,
+      "setupBeforePayableCommander": 0,
+      "optionalPayments": [],
+      "effectDraws": 1,
+      "naturalDraws": 8,
+      "accessDiscards": 0,
+      "cleanupDiscards": 0,
+      "returnedToTop": 0,
+      "topCasts": 0,
+      "accessSacrifices": 1,
+      "accessSpells": 0,
+      "activations": 1,
+      "selections": 0,
+      "manaStates": 328,
+      "manaSearches": 118,
+      "boundHits": 0,
+      "actionBoundHits": 0,
+      "usedEngines": [
+        {
+          "id": "deck-31",
+          "card": "Mind Stone",
+          "kind": "access",
+          "turn": 3
+        }
+      ],
+      "mulligans": 0,
+      "native": {
+        "castsFromCascade": 0,
+        "spellCopies": 0,
+        "triggerCopies": 0,
+        "resolvedCopies": 0,
+        "cascades": 0,
+        "tutors": 0,
+        "tutorCardsToHand": 0,
+        "tutorCardsToTop": 0,
+        "tokens": 0,
+        "paidTriggers": 0,
+        "declinedTriggers": 1,
+        "multipliedTriggers": 0,
+        "boundHits": 0,
+        "unsupported": [],
+        "maxStack": 2
+      }
+    },
+    "observations": [
+      {
+        "turn": 1,
+        "commanderDeployed": false,
+        "manaBeforeActions": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "blocked"
+        },
+        "manaRemaining": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "blocked"
+        },
+        "handSize": 7,
+        "accessibleCards": 8,
+        "netAccessibleCards": 0,
+        "naturalDraws": 1,
+        "effectDraws": 0,
+        "effectDiscards": 0,
+        "cleanupDiscards": 0,
+        "returnedToTop": 0,
+        "topCasts": 0,
+        "accessSpells": 0,
+        "accessSacrifices": 0,
+        "engines": [],
+        "threatsBeforeActions": [],
+        "threatAvailability": [],
+        "missed": [
+          {
+            "id": "deck-58",
+            "card": "Void Grafter",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-28",
+            "card": "Kozilek's Unsealing",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-21",
+            "card": "Gideon Blackblade",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-40",
+            "card": "Shared Roots",
+            "status": "unknown",
+            "reason": "target/nonpermanent effects unsupported"
+          },
+          {
+            "id": "deck-48",
+            "card": "Tablet of Compleation",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "commander",
+            "card": "Ulalek, Fused Atrocity",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          }
+        ]
+      },
+      {
+        "turn": 2,
+        "commanderDeployed": false,
+        "manaBeforeActions": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "paid"
+        },
+        "manaRemaining": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "blocked"
+        },
+        "handSize": 6,
+        "accessibleCards": 9,
+        "netAccessibleCards": 0,
+        "naturalDraws": 2,
+        "effectDraws": 0,
+        "effectDiscards": 0,
+        "cleanupDiscards": 0,
+        "returnedToTop": 0,
+        "topCasts": 0,
+        "accessSpells": 0,
+        "accessSacrifices": 0,
+        "engines": [
+          {
+            "id": "deck-47",
+            "card": "Strionic Resonator",
+            "kind": "copy",
+            "supported": false,
+            "native": true,
+            "readyNow": "unknown",
+            "used": false
+          }
+        ],
+        "threatsBeforeActions": [],
+        "threatAvailability": [],
+        "missed": [
+          {
+            "id": "deck-58",
+            "card": "Void Grafter",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-28",
+            "card": "Kozilek's Unsealing",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-21",
+            "card": "Gideon Blackblade",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-40",
+            "card": "Shared Roots",
+            "status": "unknown",
+            "reason": "target/nonpermanent effects unsupported"
+          },
+          {
+            "id": "deck-48",
+            "card": "Tablet of Compleation",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "commander",
+            "card": "Ulalek, Fused Atrocity",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          }
+        ]
+      },
+      {
+        "turn": 3,
+        "commanderDeployed": false,
+        "manaBeforeActions": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 3,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 3,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "paid"
+        },
+        "manaRemaining": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "blocked"
+        },
+        "handSize": 6,
+        "accessibleCards": 10,
+        "netAccessibleCards": 0,
+        "naturalDraws": 3,
+        "effectDraws": 1,
+        "effectDiscards": 0,
+        "cleanupDiscards": 0,
+        "returnedToTop": 0,
+        "topCasts": 0,
+        "accessSpells": 0,
+        "accessSacrifices": 1,
+        "engines": [
+          {
+            "id": "deck-47",
+            "card": "Strionic Resonator",
+            "kind": "copy",
+            "supported": false,
+            "native": true,
+            "readyNow": "unknown",
+            "used": false
+          }
+        ],
+        "threatsBeforeActions": [],
+        "threatAvailability": [],
+        "missed": [
+          {
+            "id": "deck-58",
+            "card": "Void Grafter",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-28",
+            "card": "Kozilek's Unsealing",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-21",
+            "card": "Gideon Blackblade",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-40",
+            "card": "Shared Roots",
+            "status": "unknown",
+            "reason": "target/nonpermanent effects unsupported"
+          },
+          {
+            "id": "deck-48",
+            "card": "Tablet of Compleation",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "commander",
+            "card": "Ulalek, Fused Atrocity",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          }
+        ]
+      },
+      {
+        "turn": 4,
+        "commanderDeployed": false,
+        "manaBeforeActions": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 4,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 3,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "paid"
+        },
+        "manaRemaining": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "blocked"
+        },
+        "handSize": 5,
+        "accessibleCards": 11,
+        "netAccessibleCards": 0,
+        "naturalDraws": 4,
+        "effectDraws": 1,
+        "effectDiscards": 0,
+        "cleanupDiscards": 0,
+        "returnedToTop": 0,
+        "topCasts": 0,
+        "accessSpells": 0,
+        "accessSacrifices": 1,
+        "engines": [
+          {
+            "id": "deck-47",
+            "card": "Strionic Resonator",
+            "kind": "copy",
+            "supported": false,
+            "native": true,
+            "readyNow": "unknown",
+            "used": false
+          }
+        ],
+        "threatsBeforeActions": [],
+        "threatAvailability": [],
+        "missed": [
+          {
+            "id": "deck-58",
+            "card": "Void Grafter",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-28",
+            "card": "Kozilek's Unsealing",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-21",
+            "card": "Gideon Blackblade",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-40",
+            "card": "Shared Roots",
+            "status": "unknown",
+            "reason": "target/nonpermanent effects unsupported"
+          },
+          {
+            "id": "commander",
+            "card": "Ulalek, Fused Atrocity",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          }
+        ]
+      },
+      {
+        "turn": 5,
+        "commanderDeployed": true,
+        "manaBeforeActions": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 5,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 3,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "paid"
+        },
+        "manaRemaining": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "blocked"
+        },
+        "handSize": 5,
+        "accessibleCards": 12,
+        "netAccessibleCards": 0,
+        "naturalDraws": 5,
+        "effectDraws": 1,
+        "effectDiscards": 0,
+        "cleanupDiscards": 0,
+        "returnedToTop": 0,
+        "topCasts": 0,
+        "accessSpells": 0,
+        "accessSacrifices": 1,
+        "engines": [
+          {
+            "id": "deck-47",
+            "card": "Strionic Resonator",
+            "kind": "copy",
+            "supported": false,
+            "native": true,
+            "readyNow": "unknown",
+            "used": false
+          },
+          {
+            "id": "commander",
+            "card": "Ulalek, Fused Atrocity",
+            "kind": "cast-payment",
+            "supported": true,
+            "native": true,
+            "readyNow": "blocked",
+            "used": false
+          },
+          {
+            "id": "commander",
+            "card": "Ulalek, Fused Atrocity",
+            "kind": "copy",
+            "supported": false,
+            "native": true,
+            "readyNow": "unknown",
+            "used": false
+          }
+        ],
+        "threatsBeforeActions": [
+          {
+            "card": "Devourer of Destiny",
+            "status": "blocked"
+          }
+        ],
+        "threatAvailability": [
+          {
+            "card": "Devourer of Destiny",
+            "status": "blocked"
+          }
+        ],
+        "missed": [
+          {
+            "id": "deck-58",
+            "card": "Void Grafter",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-28",
+            "card": "Kozilek's Unsealing",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-21",
+            "card": "Gideon Blackblade",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-40",
+            "card": "Shared Roots",
+            "status": "unknown",
+            "reason": "target/nonpermanent effects unsupported"
+          },
+          {
+            "id": "deck-8",
+            "card": "Devourer of Destiny",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          }
+        ]
+      },
+      {
+        "turn": 6,
+        "commanderDeployed": true,
+        "manaBeforeActions": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 5,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 3,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "paid"
+        },
+        "manaRemaining": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 4,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 1,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "paid"
+        },
+        "handSize": 5,
+        "accessibleCards": 13,
+        "netAccessibleCards": 0,
+        "naturalDraws": 6,
+        "effectDraws": 1,
+        "effectDiscards": 0,
+        "cleanupDiscards": 0,
+        "returnedToTop": 0,
+        "topCasts": 0,
+        "accessSpells": 0,
+        "accessSacrifices": 1,
+        "engines": [
+          {
+            "id": "deck-47",
+            "card": "Strionic Resonator",
+            "kind": "copy",
+            "supported": false,
+            "native": true,
+            "readyNow": "unknown",
+            "used": false
+          },
+          {
+            "id": "commander",
+            "card": "Ulalek, Fused Atrocity",
+            "kind": "cast-payment",
+            "supported": true,
+            "native": true,
+            "readyNow": "blocked",
+            "used": false
+          },
+          {
+            "id": "commander",
+            "card": "Ulalek, Fused Atrocity",
+            "kind": "copy",
+            "supported": false,
+            "native": true,
+            "readyNow": "unknown",
+            "used": false
+          }
+        ],
+        "threatsBeforeActions": [
+          {
+            "card": "Devourer of Destiny",
+            "status": "blocked"
+          }
+        ],
+        "threatAvailability": [
+          {
+            "card": "Devourer of Destiny",
+            "status": "blocked"
+          }
+        ],
+        "missed": [
+          {
+            "id": "deck-58",
+            "card": "Void Grafter",
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable"
+          },
+          {
+            "id": "deck-28",
+            "card": "Kozilek's Unsealing",
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable"
+          },
+          {
+            "id": "deck-21",
+            "card": "Gideon Blackblade",
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable"
+          },
+          {
+            "id": "deck-40",
+            "card": "Shared Roots",
+            "status": "unknown",
+            "reason": "target/nonpermanent effects unsupported"
+          },
+          {
+            "id": "deck-8",
+            "card": "Devourer of Destiny",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          }
+        ]
+      },
+      {
+        "turn": 7,
+        "commanderDeployed": true,
+        "manaBeforeActions": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 6,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 4,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "paid"
+        },
+        "manaRemaining": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "blocked"
+        },
+        "handSize": 5,
+        "accessibleCards": 14,
+        "netAccessibleCards": 0,
+        "naturalDraws": 7,
+        "effectDraws": 1,
+        "effectDiscards": 0,
+        "cleanupDiscards": 0,
+        "returnedToTop": 0,
+        "topCasts": 0,
+        "accessSpells": 0,
+        "accessSacrifices": 1,
+        "engines": [
+          {
+            "id": "deck-47",
+            "card": "Strionic Resonator",
+            "kind": "copy",
+            "supported": false,
+            "native": true,
+            "readyNow": "unknown",
+            "used": false
+          },
+          {
+            "id": "commander",
+            "card": "Ulalek, Fused Atrocity",
+            "kind": "cast-payment",
+            "supported": true,
+            "native": true,
+            "readyNow": "blocked",
+            "used": false
+          },
+          {
+            "id": "commander",
+            "card": "Ulalek, Fused Atrocity",
+            "kind": "copy",
+            "supported": false,
+            "native": true,
+            "readyNow": "unknown",
+            "used": false
+          },
+          {
+            "id": "deck-62",
+            "card": "Zhulodok, Void Gorger",
+            "kind": "cascade",
+            "supported": true,
+            "native": true,
+            "readyNow": "blocked",
+            "used": false
+          }
+        ],
+        "threatsBeforeActions": [
+          {
+            "card": "Devourer of Destiny",
+            "status": "blocked"
+          },
+          {
+            "card": "Zhulodok, Void Gorger",
+            "status": "paid"
+          }
+        ],
+        "threatAvailability": [
+          {
+            "card": "Devourer of Destiny",
+            "status": "blocked"
+          }
+        ],
+        "missed": [
+          {
+            "id": "deck-58",
+            "card": "Void Grafter",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-28",
+            "card": "Kozilek's Unsealing",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-21",
+            "card": "Gideon Blackblade",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-40",
+            "card": "Shared Roots",
+            "status": "unknown",
+            "reason": "target/nonpermanent effects unsupported"
+          },
+          {
+            "id": "deck-8",
+            "card": "Devourer of Destiny",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          }
+        ]
+      },
+      {
+        "turn": 8,
+        "commanderDeployed": true,
+        "manaBeforeActions": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 6,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 4,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "paid"
+        },
+        "manaRemaining": {
+          "context": "independent maxima for commander spell; not simultaneous or additive",
+          "max": {
+            "generic": {
+              "payableAtLeast": 6,
+              "unknown": false,
+              "cap": 16
+            },
+            "W": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "U": {
+              "payableAtLeast": 0,
+              "unknown": false,
+              "cap": 16
+            },
+            "B": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "R": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "G": {
+              "payableAtLeast": 2,
+              "unknown": false,
+              "cap": 16
+            },
+            "C": {
+              "payableAtLeast": 4,
+              "unknown": false,
+              "cap": 16
+            }
+          },
+          "separateTriggeredCC": "paid"
+        },
+        "handSize": 6,
+        "accessibleCards": 15,
+        "netAccessibleCards": 0,
+        "naturalDraws": 8,
+        "effectDraws": 1,
+        "effectDiscards": 0,
+        "cleanupDiscards": 0,
+        "returnedToTop": 0,
+        "topCasts": 0,
+        "accessSpells": 0,
+        "accessSacrifices": 1,
+        "engines": [
+          {
+            "id": "deck-47",
+            "card": "Strionic Resonator",
+            "kind": "copy",
+            "supported": false,
+            "native": true,
+            "readyNow": "unknown",
+            "used": false
+          },
+          {
+            "id": "commander",
+            "card": "Ulalek, Fused Atrocity",
+            "kind": "cast-payment",
+            "supported": true,
+            "native": true,
+            "readyNow": "blocked",
+            "used": false
+          },
+          {
+            "id": "commander",
+            "card": "Ulalek, Fused Atrocity",
+            "kind": "copy",
+            "supported": false,
+            "native": true,
+            "readyNow": "unknown",
+            "used": false
+          },
+          {
+            "id": "deck-62",
+            "card": "Zhulodok, Void Gorger",
+            "kind": "cascade",
+            "supported": true,
+            "native": true,
+            "readyNow": "blocked",
+            "used": false
+          }
+        ],
+        "threatsBeforeActions": [
+          {
+            "card": "Devourer of Destiny",
+            "status": "blocked"
+          }
+        ],
+        "threatAvailability": [
+          {
+            "card": "Devourer of Destiny",
+            "status": "blocked"
+          }
+        ],
+        "missed": [
+          {
+            "id": "deck-58",
+            "card": "Void Grafter",
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable"
+          },
+          {
+            "id": "deck-28",
+            "card": "Kozilek's Unsealing",
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable"
+          },
+          {
+            "id": "deck-21",
+            "card": "Gideon Blackblade",
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable"
+          },
+          {
+            "id": "deck-40",
+            "card": "Shared Roots",
+            "status": "unknown",
+            "reason": "target/nonpermanent effects unsupported"
+          },
+          {
+            "id": "deck-8",
+            "card": "Devourer of Destiny",
+            "status": "blocked",
+            "reason": "insufficient total mana even before color/restriction checks"
+          },
+          {
+            "id": "deck-52",
+            "card": "The Enigma Jewel // Locus of Enlightenment",
+            "status": "blocked",
+            "reason": "required colored or true-colorless type unavailable"
+          }
+        ]
+      }
+    ],
+    "decked": false,
+    "lost": false,
+    "assumptions": {
+      "opening": 7,
+      "mulligan": "none",
+      "drawOnTurnOne": true,
+      "rankingIntegration": false,
+      "commanderTaxPriorCasts": 0,
+      "access": true,
+      "mainPhases": 1,
+      "maxActions": 24,
+      "maxManaStates": 4000,
+      "maxSetupActionsBeforePayableCommander": 1,
+      "sourcePayments": "optimized exact ledger",
+      "opponents": "three inert seats; no combat/interaction; supported control transfers leave our board",
+      "optionalPayment": "separate payment at trigger resolution under fixed copy-first ordering",
+      "threatDefinition": "native creature with printed power >=4 or printed MV >=5; payment availability, not win conversion; other threat/combat/copy outcomes unknown",
+      "otherRulesCoverage": "not quantified; parsed access is not complete Oracle/rules coverage"
+    },
+    "nativeExecution": {
+      "triggerOrder": "copy-first",
+      "maxSteps": 192,
+      "maxObjects": 128,
+      "boundedUnknown": false,
+      "unknown": [
+        {
+          "card": "Annie Joins Up",
+          "clauses": [
+            "When Annie Joins Up enters, it deals 5 damage to target creature or planeswalker an opponent controls."
+          ]
+        },
+        {
+          "card": "Chittering Dispatcher",
+          "clauses": [
+            "When this creature leaves the battlefield, create a 0/1 colorless Eldrazi Spawn creature token with \"Sacrifice this token: Add {C}.\""
+          ]
+        },
+        {
+          "card": "Devourer of Destiny",
+          "clauses": [
+            "When you cast this spell, exile target permanent that's one or more colors."
+          ]
+        },
+        {
+          "card": "Drownyard Lurker",
+          "clauses": [
+            "When you cast or cycle Drownyard Lurker, create a 0/1 colorless Eldrazi Spawn creature token with \"Sacrifice this token: Add {C}.\""
+          ]
+        },
+        {
+          "card": "Eldrazi Linebreaker",
+          "clauses": [
+            "At the beginning of combat on your turn, target creature you control gains haste and gets +X/+0 until end of turn, where X is the number of Eldrazi you control."
+          ]
+        },
+        {
+          "card": "Eldrazi Repurposer",
+          "clauses": [
+            "Death branch not executed: When you cast this spell and when this creature dies, create a 0/1 colorless Eldrazi Spawn creature token with \"Sacrifice this token: Add {C}.\""
+          ]
+        },
+        {
+          "card": "Glaring Fleshraker",
+          "clauses": [
+            "Whenever another colorless creature you control enters, this creature deals 1 damage to each opponent."
+          ]
+        },
+        {
+          "card": "Mutated Cultist",
+          "clauses": [
+            "When you cast this spell, remove all counters from up to one target permanent or opponent. The next spell you cast this turn costs {1} less to cast for each counter removed this way."
+          ]
+        },
+        {
+          "card": "Oblivion Sower",
+          "clauses": [
+            "When you cast this spell, target opponent exiles the top four cards of their library, then you may put any number of land cards that player owns from exile onto the battlefield under your control."
+          ]
+        },
+        {
+          "card": "Rapacious One",
+          "clauses": [
+            "Whenever this creature deals combat damage to a player, create that many 0/1 colorless Eldrazi Spawn creature tokens. They have \"Sacrifice this token: Add {C}.\""
+          ]
+        },
+        {
+          "card": "Shared Roots",
+          "clauses": [
+            "Search your library for a basic land card, put it onto the battlefield tapped, then shuffle."
+          ]
+        },
+        {
+          "card": "Solar Transformer",
+          "clauses": [
+            "When this artifact enters, you get {E}{E}{E} ."
+          ]
+        },
+        {
+          "card": "Sowing Mycospawn",
+          "clauses": [
+            "When you cast this spell, search your library for a land card, put it onto the battlefield, then shuffle.",
+            "When you cast this spell, if it was kicked, exile target land."
+          ]
+        },
+        {
+          "card": "Spawnbed Protector",
+          "clauses": [
+            "At the beginning of your end step, return up to one target Eldrazi creature card from your graveyard to your hand. Create two 1/1 colorless Eldrazi Scion creature tokens with \"Sacrifice this token: Add {C}.\""
+          ]
+        },
+        {
+          "card": "Strionic Resonator",
+          "clauses": [
+            "{2}, {T}: Copy target triggered ability you control. You may choose new targets for the copy."
+          ]
+        },
+        {
+          "card": "Three Steps Ahead",
+          "clauses": [
+            "+ {3} — Create a token that's a copy of target artifact or creature you control."
+          ]
+        },
+        {
+          "card": "Ulamog, the Infinite Gyre",
+          "clauses": [
+            "When you cast this spell, destroy target permanent.",
+            "When Ulamog is put into a graveyard from anywhere, its owner shuffles their graveyard into their library."
+          ]
+        },
+        {
+          "card": "Ulamog's Nullifier",
+          "clauses": [
+            "When this creature enters, you may put two cards your opponents own from exile into their owners' graveyards. If you do, counter target spell."
+          ]
+        },
+        {
+          "card": "Void Grafter",
+          "clauses": [
+            "When this creature enters, another target creature you control gains hexproof until end of turn."
+          ]
+        },
+        {
+          "card": "Warped Tusker",
+          "clauses": [
+            "When you cast or cycle Warped Tusker, create a 0/1 colorless Eldrazi Spawn creature token with \"Sacrifice this token: Add {C}.\""
+          ]
+        },
+        {
+          "card": "World Breaker",
+          "clauses": [
+            "When you cast this spell, exile target artifact, enchantment, or land."
+          ]
+        },
+        {
+          "card": "Writhing Chrysalis",
+          "clauses": [
+            "Whenever you sacrifice another Eldrazi, put a +1/+1 counter on this creature."
+          ]
+        },
+        {
+          "card": "Urza's Cave",
+          "clauses": [
+            "{3}, {T}, Sacrifice this land: Search your library for a land card, put it onto the battlefield tapped, then shuffle."
+          ]
+        }
+      ]
+    },
+    "coverage": {
+      "cardsWithSupportedAccess": 9,
+      "cardsWithUnmodeledAccess": 11,
+      "unmodeledAccessClauses": 11
+    },
+    "unknown": [
+      {
+        "card": "Annie Joins Up",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Arcane Signet",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Archivist",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Basalt Monolith",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Chittering Dispatcher",
+        "access": [],
+        "other": [
+          "unsupported activation cost: When this creature leaves the battlefield, create a 0/1 colorless Eldrazi Spawn creature token with \"Sacrifice this token: Add {C}.\""
+        ]
+      },
+      {
+        "card": "Curator's Ward",
+        "access": [
+          {
+            "line": "When enchanted permanent leaves the battlefield, if it was historic, draw two cards.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      },
+      {
+        "card": "Deathless Behemoth",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Deranged Assistant",
+        "access": [],
+        "other": [
+          "unsupported activation cost: {T}, Mill a card: Add {C}. (Activate only as an instant. To mill a card, put the top card of your library into your graveyard.)"
+        ]
+      },
+      {
+        "card": "Devourer of Destiny",
+        "access": [
+          {
+            "line": "You may reveal this card from your opening hand. If you do, at the beginning of your first upkeep, look at the top four cards of your library. You may put one of those cards back on top of your library. Exile the rest.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      },
+      {
+        "card": "Drowner of Hope",
+        "access": [],
+        "other": [
+          "unsupported activation cost: When this creature enters, create two 1/1 colorless Eldrazi Scion creature tokens. They have \"Sacrifice this token: Add {C}.\""
+        ]
+      },
+      {
+        "card": "Drownyard Lurker",
+        "access": [],
+        "other": [
+          "unsupported activation cost: When you cast or cycle Drownyard Lurker, create a 0/1 colorless Eldrazi Spawn creature token with \"Sacrifice this token: Add {C}.\""
+        ]
+      },
+      {
+        "card": "Echoes of Eternity",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Eladamri, Korvecdal",
+        "access": [
+          {
+            "line": "{G}, {T}, Tap two untapped creatures you control: Reveal a card from your hand or the top card of your library. If you reveal a creature card this way, put it onto the battlefield. Activate only during your turn.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      },
+      {
+        "card": "Eldrazi Linebreaker",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Eldrazi Ravager",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Eldrazi Repurposer",
+        "access": [],
+        "other": [
+          "unsupported activation cost: When you cast this spell and when this creature dies, create a 0/1 colorless Eldrazi Spawn creature token with \"Sacrifice this token: Add {C}.\""
+        ]
+      },
+      {
+        "card": "Eldritch Immunity",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Emrakul's Influence",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Endbringer",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Fanatic of Rhonas",
+        "access": [],
+        "other": [
+          "unsupported activation cost: Ferocious — {T}: Add {G}{G}{G}{G}. Activate only if you control a creature with power 4 or greater."
+        ]
+      },
+      {
+        "card": "Giant's Boulder",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Gideon Blackblade",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Glaring Fleshraker",
+        "access": [],
+        "other": [
+          "unsupported activation cost: Whenever you cast a colorless spell, create a 0/1 colorless Eldrazi Spawn creature token with \"Sacrifice this token: Add {C}.\""
+        ]
+      },
+      {
+        "card": "Great Forest Druid",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Guardian Idol",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Hedron Crawler",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Kozilek, the Great Distortion",
+        "access": [
+          {
+            "line": "When you cast this spell, if you have fewer than seven cards in hand, draw cards equal to the difference.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      },
+      {
+        "card": "Kozilek's Pathfinder",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Kozilek's Unsealing",
+        "access": [],
+        "other": [
+          "unsupported activation cost: Whenever you cast a creature spell with mana value 4, 5, or 6, create two 0/1 colorless Eldrazi Spawn creature tokens with \"Sacrifice this token: Add {C}.\""
+        ]
+      },
+      {
+        "card": "Magus of the Library",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Millikin",
+        "access": [],
+        "other": [
+          "unsupported activation cost: {T}, Mill a card: Add {C}. (Activate only as an instant. To mill a card, put the top card of your library into your graveyard.)"
+        ]
+      },
+      {
+        "card": "Mind Stone",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Mutated Cultist",
+        "access": [],
+        "other": [
+          "unsupported cost reduction: When you cast this spell, remove all counters from up to one target permanent or opponent. The next spell you cast this turn costs {1} less to cast for each counter removed this way."
+        ]
+      },
+      {
+        "card": "Mystic Forge",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Nightshade Dryad",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Oblivion Sower",
+        "access": [
+          {
+            "line": "When you cast this spell, target opponent exiles the top four cards of their library, then you may put any number of land cards that player owns from exile onto the battlefield under your control.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      },
+      {
+        "card": "Ornithopter of Paradise",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Parting Thoughts",
+        "access": [
+          {
+            "line": "Destroy target creature. You draw X cards and you lose X life, where X is the number of counters on that creature.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      },
+      {
+        "card": "Rapacious One",
+        "access": [],
+        "other": [
+          "unsupported activation cost: Whenever this creature deals combat damage to a player, create that many 0/1 colorless Eldrazi Spawn creature tokens. They have \"Sacrifice this token: Add {C}.\""
+        ]
+      },
+      {
+        "card": "Sea Scryer",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Shared Roots",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Sire of Stagnation",
+        "access": [
+          {
+            "line": "Whenever a land an opponent controls enters, that player exiles the top two cards of their library and you draw two cards.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      },
+      {
+        "card": "Sol Ring",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Solar Transformer",
+        "access": [],
+        "other": [
+          "unsupported activation cost: {T}, Pay {E}: Add one mana of any color."
+        ]
+      },
+      {
+        "card": "Sowing Mycospawn",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Spawn-Gang Commander",
+        "access": [],
+        "other": [
+          "unsupported activation cost: When you cast this spell, create three 0/1 colorless Eldrazi Spawn creature tokens with \"Sacrifice this token: Add {C}.\""
+        ]
+      },
+      {
+        "card": "Spawnbed Protector",
+        "access": [],
+        "other": [
+          "unsupported activation cost: At the beginning of your end step, return up to one target Eldrazi creature card from your graveyard to your hand. Create two 1/1 colorless Eldrazi Scion creature tokens with \"Sacrifice this token: Add {C}.\""
+        ]
+      },
+      {
+        "card": "Strionic Resonator",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Tablet of Compleation",
+        "access": [
+          {
+            "line": "{1}, {T}: Draw a card. Activate only if this artifact has five or more oil counters on it.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": [
+          "unsupported mana condition: {T}: Add {C}. Activate only if this artifact has two or more oil counters on it."
+        ]
+      },
+      {
+        "card": "Talisman of Curiosity",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Talisman of Impulse",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Talisman of Resilience",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "The Enigma Jewel // Locus of Enlightenment",
+        "access": [],
+        "other": [
+          "alternate faces/transform/craft not evaluated; front face only"
+        ]
+      },
+      {
+        "card": "Three Steps Ahead",
+        "access": [
+          {
+            "line": "+ {2} — Draw two cards, then discard a card.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      },
+      {
+        "card": "Ugin, the Ineffable",
+        "access": [
+          {
+            "line": "+1: Exile the top card of your library face down and look at it. Create a 2/2 colorless Spirit creature token. When that token leaves the battlefield, put the exiled card into your hand.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": []
+      },
+      {
+        "card": "Ulamog, the Infinite Gyre",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Ulamog's Despoiler",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Ulamog's Nullifier",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Void Grafter",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Warped Tusker",
+        "access": [],
+        "other": [
+          "unsupported activation cost: When you cast or cycle Warped Tusker, create a 0/1 colorless Eldrazi Spawn creature token with \"Sacrifice this token: Add {C}.\""
+        ]
+      },
+      {
+        "card": "World Breaker",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Writhing Chrysalis",
+        "access": [],
+        "other": [
+          "unsupported activation cost: When you cast this spell, create two 0/1 colorless Eldrazi Spawn creature tokens with \"Sacrifice this token: Add {C}.\""
+        ]
+      },
+      {
+        "card": "Zhulodok, Void Gorger",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Adarkar Wastes",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Battlefield Forge",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Brushland",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Caves of Koilos",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Command Tower",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Dark Fortress",
+        "access": [],
+        "other": [
+          "unsupported mana condition: {T}: Add {B} or {R}. Activate only if this land entered this turn or if you control a basic land."
+        ]
+      },
+      {
+        "card": "Exotic Orchard",
+        "access": [],
+        "other": [
+          "unsupported mana production: {T}: Add one mana of any color that a land an opponent controls could produce."
+        ]
+      },
+      {
+        "card": "Fire-Lit Thicket",
+        "access": [],
+        "other": [
+          "unsupported mana production: {R/G}, {T}: Add {R}{R}, {R}{G}, or {G}{G}."
+        ]
+      },
+      {
+        "card": "Flooded Grove",
+        "access": [],
+        "other": [
+          "unsupported mana production: {G/U}, {T}: Add {G}{G}, {G}{U}, or {U}{U}."
+        ]
+      },
+      {
+        "card": "Forest",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {G}.)"
+        ]
+      },
+      {
+        "card": "Gathering Place",
+        "access": [],
+        "other": [
+          "unsupported mana condition: {T}: Add {G} or {W}. Activate only if this land entered this turn or if you control a basic land."
+        ]
+      },
+      {
+        "card": "Gleaming Bastion",
+        "access": [],
+        "other": [
+          "unsupported mana condition: {T}: Add {W} or {U}. Activate only if this land entered this turn or if you control a basic land."
+        ]
+      },
+      {
+        "card": "Hidden Lair",
+        "access": [],
+        "other": [
+          "unsupported mana condition: {T}: Add {U} or {B}. Activate only if this land entered this turn or if you control a basic land."
+        ]
+      },
+      {
+        "card": "Island",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {U}.)"
+        ]
+      },
+      {
+        "card": "Karplusan Forest",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Llanowar Wastes",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Mountain",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {R}.)"
+        ]
+      },
+      {
+        "card": "Path of Ancestry",
+        "access": [
+          {
+            "line": "{T}: Add one mana of any color in your commander's color identity. When that mana is spent to cast a creature spell that shares a creature type with your commander, scry 1.",
+            "reason": "unsupported access prerequisites/effect"
+          }
+        ],
+        "other": [
+          "mana-spend scry not resolved"
+        ]
+      },
+      {
+        "card": "Plains",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {W}.)"
+        ]
+      },
+      {
+        "card": "Reflecting Pool",
+        "access": [],
+        "other": [
+          "unsupported mana production: {T}: Add one mana of any type that a land you control could produce."
+        ]
+      },
+      {
+        "card": "Shivan Reef",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Sulfurous Springs",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Swamp",
+        "access": [],
+        "other": [
+          "unsupported activation cost: ({T}: Add {B}.)"
+        ]
+      },
+      {
+        "card": "Training Compound",
+        "access": [],
+        "other": [
+          "unsupported mana condition: {T}: Add {R} or {G}. Activate only if this land entered this turn or if you control a basic land."
+        ]
+      },
+      {
+        "card": "Twilight Mire",
+        "access": [],
+        "other": [
+          "unsupported mana production: {B/G}, {T}: Add {B}{B}, {B}{G}, or {G}{G}."
+        ]
+      },
+      {
+        "card": "Underground River",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Urza's Cave",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Wastes",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Wooded Bastion",
+        "access": [],
+        "other": [
+          "unsupported mana production: {G/W}, {T}: Add {G}{G}, {G}{W}, or {W}{W}."
+        ]
+      },
+      {
+        "card": "Yavimaya Coast",
+        "access": [],
+        "other": []
+      },
+      {
+        "card": "Ulalek, Fused Atrocity",
+        "access": [],
+        "other": []
+      }
+    ],
+    "trace": [
+      {
+        "turn": 0,
+        "event": "opening",
+        "hand": [
+          {
+            "id": "deck-58",
+            "card": "Void Grafter"
+          },
+          {
+            "id": "deck-94",
+            "card": "Wastes"
+          },
+          {
+            "id": "deck-79",
+            "card": "Llanowar Wastes"
+          },
+          {
+            "id": "deck-97",
+            "card": "Wooded Bastion"
+          },
+          {
+            "id": "deck-28",
+            "card": "Kozilek's Unsealing"
+          },
+          {
+            "id": "deck-21",
+            "card": "Gideon Blackblade"
+          },
+          {
+            "id": "deck-40",
+            "card": "Shared Roots"
+          }
+        ]
+      },
+      {
+        "turn": 1,
+        "event": "untap",
+        "sources": []
+      },
+      {
+        "turn": 1,
+        "event": "draw",
+        "card": "Tablet of Compleation",
+        "id": "deck-48",
+        "reason": "natural"
+      },
+      {
+        "turn": 1,
+        "event": "land",
+        "id": "deck-79",
+        "card": "Llanowar Wastes",
+        "tapped": false,
+        "unknown": false
+      },
+      {
+        "turn": 1,
+        "event": "turn-end",
+        "hand": [
+          "Void Grafter",
+          "Wastes",
+          "Wooded Bastion",
+          "Kozilek's Unsealing",
+          "Gideon Blackblade",
+          "Shared Roots",
+          "Tablet of Compleation"
+        ],
+        "handIds": [
+          "deck-58",
+          "deck-94",
+          "deck-97",
+          "deck-28",
+          "deck-21",
+          "deck-40",
+          "deck-48"
+        ],
+        "library": [
+          "deck-47",
+          "deck-31",
+          "deck-80",
+          "deck-87",
+          "deck-8",
+          "deck-50",
+          "deck-62",
+          "deck-52",
+          "deck-25",
+          "deck-63",
+          "deck-26",
+          "deck-34",
+          "deck-1",
+          "deck-88",
+          "deck-54",
+          "deck-27",
+          "deck-74",
+          "deck-9",
+          "deck-24",
+          "deck-82",
+          "deck-37",
+          "deck-7",
+          "deck-90",
+          "deck-14",
+          "deck-98",
+          "deck-60",
+          "deck-15",
+          "deck-67",
+          "deck-38",
+          "deck-65",
+          "deck-71",
+          "deck-23",
+          "deck-75",
+          "deck-57",
+          "deck-35",
+          "deck-69",
+          "deck-19",
+          "deck-44",
+          "deck-12",
+          "deck-36",
+          "deck-56",
+          "deck-73",
+          "deck-86",
+          "deck-59",
+          "deck-20",
+          "deck-43",
+          "deck-45",
+          "deck-51",
+          "deck-72",
+          "deck-70",
+          "deck-18",
+          "deck-5",
+          "deck-4",
+          "deck-85",
+          "deck-32",
+          "deck-95",
+          "deck-53",
+          "deck-64",
+          "deck-42",
+          "deck-3",
+          "deck-13",
+          "deck-84",
+          "deck-6",
+          "deck-89",
+          "deck-33",
+          "deck-2",
+          "deck-30",
+          "deck-49",
+          "deck-81",
+          "deck-66",
+          "deck-0",
+          "deck-68",
+          "deck-41",
+          "deck-77",
+          "deck-46",
+          "deck-93",
+          "deck-17",
+          "deck-11",
+          "deck-92",
+          "deck-55",
+          "deck-61",
+          "deck-83",
+          "deck-91",
+          "deck-16",
+          "deck-10",
+          "deck-22",
+          "deck-29",
+          "deck-76",
+          "deck-78",
+          "deck-39",
+          "deck-96"
+        ],
+        "graveyard": [],
+        "exile": [],
+        "opponents": [],
+        "ceased": [],
+        "board": [
+          {
+            "id": "deck-79",
+            "card": "Llanowar Wastes",
+            "tapped": false
+          }
+        ],
+        "floatingExpires": [],
+        "life": 40
+      },
+      {
+        "turn": 2,
+        "event": "untap",
+        "sources": [
+          {
+            "id": "deck-79",
+            "types": [
+              "Land"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              },
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "B"
+                  ],
+                  [
+                    "G"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 1,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          }
+        ]
+      },
+      {
+        "turn": 2,
+        "event": "draw",
+        "card": "Strionic Resonator",
+        "id": "deck-47",
+        "reason": "natural"
+      },
+      {
+        "turn": 2,
+        "event": "land",
+        "id": "deck-94",
+        "card": "Wastes",
+        "tapped": false,
+        "unknown": false
+      },
+      {
+        "turn": 2,
+        "event": "decision",
+        "policy": "development",
+        "chosen": "deck-47",
+        "kind": "cast",
+        "reason": "remaining supported deployment",
+        "commanderPayable": false,
+        "setupBudgetUsed": 0,
+        "alternatives": [
+          {
+            "id": "deck-48",
+            "kind": "cast",
+            "reason": "remaining supported deployment"
+          }
+        ]
+      },
+      {
+        "turn": 2,
+        "event": "mana-activation",
+        "card": "Llanowar Wastes",
+        "kind": "activation",
+        "source": "deck-79",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "sacrifice": false,
+          "cost": "",
+          "outputs": [
+            [
+              "C"
+            ]
+          ],
+          "restriction": "none",
+          "life": 0,
+          "minLands": 0
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-79:0:0",
+            "type": "C",
+            "source": "deck-79",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 2,
+        "event": "mana-activation",
+        "card": "Wastes",
+        "kind": "activation",
+        "source": "deck-94",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "sacrifice": false,
+          "cost": "",
+          "outputs": [
+            [
+              "C"
+            ]
+          ],
+          "restriction": "none",
+          "life": 0,
+          "minLands": 0
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-94:0:0",
+            "type": "C",
+            "source": "deck-94",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 2,
+        "event": "cast-paid",
+        "id": "deck-47",
+        "card": "Strionic Resonator",
+        "origin": "hand",
+        "kind": "payment",
+        "label": "spell",
+        "cost": "{2}",
+        "reduction": 0,
+        "context": {
+          "kind": "spell",
+          "types": [
+            "Artifact"
+          ],
+          "subtypes": [],
+          "commander": false
+        },
+        "spent": [
+          {
+            "id": "deck-79:0:0",
+            "type": "C",
+            "source": "deck-79",
+            "restriction": "none",
+            "paidFor": "*"
+          },
+          {
+            "id": "deck-94:0:0",
+            "type": "C",
+            "source": "deck-94",
+            "restriction": "none",
+            "paidFor": "*"
+          }
+        ]
+      },
+      {
+        "turn": 2,
+        "event": "stack-push",
+        "id": "stack-0",
+        "kind": "spell",
+        "source": "deck-47",
+        "copyOf": null,
+        "cause": null,
+        "zone": null,
+        "parent": null
+      },
+      {
+        "turn": 2,
+        "event": "stack-resolve-start",
+        "id": "stack-0"
+      },
+      {
+        "turn": 2,
+        "event": "permanent-resolved",
+        "id": "deck-47",
+        "card": "Strionic Resonator",
+        "tapped": false
+      },
+      {
+        "turn": 2,
+        "event": "stack-resolve-end",
+        "id": "stack-0"
+      },
+      {
+        "turn": 2,
+        "event": "turn-end",
+        "hand": [
+          "Void Grafter",
+          "Wooded Bastion",
+          "Kozilek's Unsealing",
+          "Gideon Blackblade",
+          "Shared Roots",
+          "Tablet of Compleation"
+        ],
+        "handIds": [
+          "deck-58",
+          "deck-97",
+          "deck-28",
+          "deck-21",
+          "deck-40",
+          "deck-48"
+        ],
+        "library": [
+          "deck-31",
+          "deck-80",
+          "deck-87",
+          "deck-8",
+          "deck-50",
+          "deck-62",
+          "deck-52",
+          "deck-25",
+          "deck-63",
+          "deck-26",
+          "deck-34",
+          "deck-1",
+          "deck-88",
+          "deck-54",
+          "deck-27",
+          "deck-74",
+          "deck-9",
+          "deck-24",
+          "deck-82",
+          "deck-37",
+          "deck-7",
+          "deck-90",
+          "deck-14",
+          "deck-98",
+          "deck-60",
+          "deck-15",
+          "deck-67",
+          "deck-38",
+          "deck-65",
+          "deck-71",
+          "deck-23",
+          "deck-75",
+          "deck-57",
+          "deck-35",
+          "deck-69",
+          "deck-19",
+          "deck-44",
+          "deck-12",
+          "deck-36",
+          "deck-56",
+          "deck-73",
+          "deck-86",
+          "deck-59",
+          "deck-20",
+          "deck-43",
+          "deck-45",
+          "deck-51",
+          "deck-72",
+          "deck-70",
+          "deck-18",
+          "deck-5",
+          "deck-4",
+          "deck-85",
+          "deck-32",
+          "deck-95",
+          "deck-53",
+          "deck-64",
+          "deck-42",
+          "deck-3",
+          "deck-13",
+          "deck-84",
+          "deck-6",
+          "deck-89",
+          "deck-33",
+          "deck-2",
+          "deck-30",
+          "deck-49",
+          "deck-81",
+          "deck-66",
+          "deck-0",
+          "deck-68",
+          "deck-41",
+          "deck-77",
+          "deck-46",
+          "deck-93",
+          "deck-17",
+          "deck-11",
+          "deck-92",
+          "deck-55",
+          "deck-61",
+          "deck-83",
+          "deck-91",
+          "deck-16",
+          "deck-10",
+          "deck-22",
+          "deck-29",
+          "deck-76",
+          "deck-78",
+          "deck-39",
+          "deck-96"
+        ],
+        "graveyard": [],
+        "exile": [],
+        "opponents": [],
+        "ceased": [],
+        "board": [
+          {
+            "id": "deck-79",
+            "card": "Llanowar Wastes",
+            "tapped": true
+          },
+          {
+            "id": "deck-94",
+            "card": "Wastes",
+            "tapped": true
+          },
+          {
+            "id": "deck-47",
+            "card": "Strionic Resonator",
+            "tapped": false
+          }
+        ],
+        "floatingExpires": [],
+        "life": 40
+      },
+      {
+        "turn": 3,
+        "event": "untap",
+        "sources": [
+          {
+            "id": "deck-79",
+            "types": [
+              "Land"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              },
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "B"
+                  ],
+                  [
+                    "G"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 1,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-94",
+            "types": [
+              "Basic",
+              "Land"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-47",
+            "types": [
+              "Artifact"
+            ],
+            "subtypes": [],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          }
+        ]
+      },
+      {
+        "turn": 3,
+        "event": "draw",
+        "card": "Mind Stone",
+        "id": "deck-31",
+        "reason": "natural"
+      },
+      {
+        "turn": 3,
+        "event": "land",
+        "id": "deck-97",
+        "card": "Wooded Bastion",
+        "tapped": false,
+        "unknown": false
+      },
+      {
+        "turn": 3,
+        "event": "decision",
+        "policy": "development",
+        "chosen": "deck-31",
+        "kind": "cast",
+        "reason": "develop usable mana",
+        "commanderPayable": false,
+        "setupBudgetUsed": 0,
+        "alternatives": [
+          {
+            "id": "deck-48",
+            "kind": "cast",
+            "reason": "remaining supported deployment"
+          }
+        ]
+      },
+      {
+        "turn": 3,
+        "event": "mana-activation",
+        "card": "Llanowar Wastes",
+        "kind": "activation",
+        "source": "deck-79",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "sacrifice": false,
+          "cost": "",
+          "outputs": [
+            [
+              "C"
+            ]
+          ],
+          "restriction": "none",
+          "life": 0,
+          "minLands": 0
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-79:0:0",
+            "type": "C",
+            "source": "deck-79",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 3,
+        "event": "mana-activation",
+        "card": "Wastes",
+        "kind": "activation",
+        "source": "deck-94",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "sacrifice": false,
+          "cost": "",
+          "outputs": [
+            [
+              "C"
+            ]
+          ],
+          "restriction": "none",
+          "life": 0,
+          "minLands": 0
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-94:0:0",
+            "type": "C",
+            "source": "deck-94",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 3,
+        "event": "cast-paid",
+        "id": "deck-31",
+        "card": "Mind Stone",
+        "origin": "hand",
+        "kind": "payment",
+        "label": "spell",
+        "cost": "{2}",
+        "reduction": 0,
+        "context": {
+          "kind": "spell",
+          "types": [
+            "Artifact"
+          ],
+          "subtypes": [],
+          "commander": false
+        },
+        "spent": [
+          {
+            "id": "deck-79:0:0",
+            "type": "C",
+            "source": "deck-79",
+            "restriction": "none",
+            "paidFor": "*"
+          },
+          {
+            "id": "deck-94:0:0",
+            "type": "C",
+            "source": "deck-94",
+            "restriction": "none",
+            "paidFor": "*"
+          }
+        ]
+      },
+      {
+        "turn": 3,
+        "event": "stack-push",
+        "id": "stack-1",
+        "kind": "spell",
+        "source": "deck-31",
+        "copyOf": null,
+        "cause": null,
+        "zone": null,
+        "parent": null
+      },
+      {
+        "turn": 3,
+        "event": "stack-resolve-start",
+        "id": "stack-1"
+      },
+      {
+        "turn": 3,
+        "event": "permanent-resolved",
+        "id": "deck-31",
+        "card": "Mind Stone",
+        "tapped": false
+      },
+      {
+        "turn": 3,
+        "event": "stack-resolve-end",
+        "id": "stack-1"
+      },
+      {
+        "turn": 3,
+        "event": "decision",
+        "policy": "development",
+        "chosen": "deck-31",
+        "kind": "activate",
+        "reason": "use spare mana for access",
+        "commanderPayable": false,
+        "setupBudgetUsed": 0,
+        "alternatives": [
+          {
+            "id": "deck-48",
+            "kind": "cast",
+            "reason": "remaining supported deployment"
+          }
+        ]
+      },
+      {
+        "turn": 3,
+        "event": "access-announced",
+        "source": "deck-31",
+        "abilityIndex": 0
+      },
+      {
+        "turn": 3,
+        "event": "mana-activation",
+        "card": "Wooded Bastion",
+        "kind": "activation",
+        "source": "deck-97",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "sacrifice": false,
+          "cost": "",
+          "outputs": [
+            [
+              "C"
+            ]
+          ],
+          "restriction": "none",
+          "life": 0,
+          "minLands": 0
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-97:0:0",
+            "type": "C",
+            "source": "deck-97",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 3,
+        "event": "activated-access-paid",
+        "source": "deck-31",
+        "abilityIndex": 0,
+        "kind": "payment",
+        "label": "access:deck-31",
+        "cost": "{1}",
+        "reduction": 0,
+        "context": {
+          "kind": "ability",
+          "abilityType": "activated",
+          "types": [
+            "Artifact"
+          ]
+        },
+        "spent": [
+          {
+            "id": "deck-97:0:0",
+            "type": "C",
+            "source": "deck-97",
+            "restriction": "none",
+            "paidFor": "*"
+          }
+        ]
+      },
+      {
+        "turn": 3,
+        "event": "access-costs",
+        "source": "deck-31",
+        "abilityIndex": 0,
+        "tap": true,
+        "sacrifice": true,
+        "life": 0
+      },
+      {
+        "turn": 3,
+        "event": "stack-push",
+        "id": "stack-2",
+        "kind": "ability",
+        "source": "deck-31",
+        "effect": {
+          "type": "activated-access",
+          "effects": [
+            {
+              "kind": "draw",
+              "count": 1
+            }
+          ]
+        },
+        "copyOf": null,
+        "cause": null,
+        "zone": "battlefield",
+        "parent": null
+      },
+      {
+        "turn": 3,
+        "event": "stack-resolve-start",
+        "id": "stack-2"
+      },
+      {
+        "turn": 3,
+        "event": "access-resolving",
+        "source": "deck-31",
+        "reason": "activation",
+        "effects": [
+          {
+            "kind": "draw",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "turn": 3,
+        "event": "access-draw",
+        "card": "Mountain",
+        "id": "deck-80",
+        "reason": "activation",
+        "source": "deck-31"
+      },
+      {
+        "turn": 3,
+        "event": "access-resolved",
+        "source": "deck-31",
+        "reason": "activation"
+      },
+      {
+        "turn": 3,
+        "event": "stack-resolve-end",
+        "id": "stack-2"
+      },
+      {
+        "turn": 3,
+        "event": "turn-end",
+        "hand": [
+          "Void Grafter",
+          "Kozilek's Unsealing",
+          "Gideon Blackblade",
+          "Shared Roots",
+          "Tablet of Compleation",
+          "Mountain"
+        ],
+        "handIds": [
+          "deck-58",
+          "deck-28",
+          "deck-21",
+          "deck-40",
+          "deck-48",
+          "deck-80"
+        ],
+        "library": [
+          "deck-87",
+          "deck-8",
+          "deck-50",
+          "deck-62",
+          "deck-52",
+          "deck-25",
+          "deck-63",
+          "deck-26",
+          "deck-34",
+          "deck-1",
+          "deck-88",
+          "deck-54",
+          "deck-27",
+          "deck-74",
+          "deck-9",
+          "deck-24",
+          "deck-82",
+          "deck-37",
+          "deck-7",
+          "deck-90",
+          "deck-14",
+          "deck-98",
+          "deck-60",
+          "deck-15",
+          "deck-67",
+          "deck-38",
+          "deck-65",
+          "deck-71",
+          "deck-23",
+          "deck-75",
+          "deck-57",
+          "deck-35",
+          "deck-69",
+          "deck-19",
+          "deck-44",
+          "deck-12",
+          "deck-36",
+          "deck-56",
+          "deck-73",
+          "deck-86",
+          "deck-59",
+          "deck-20",
+          "deck-43",
+          "deck-45",
+          "deck-51",
+          "deck-72",
+          "deck-70",
+          "deck-18",
+          "deck-5",
+          "deck-4",
+          "deck-85",
+          "deck-32",
+          "deck-95",
+          "deck-53",
+          "deck-64",
+          "deck-42",
+          "deck-3",
+          "deck-13",
+          "deck-84",
+          "deck-6",
+          "deck-89",
+          "deck-33",
+          "deck-2",
+          "deck-30",
+          "deck-49",
+          "deck-81",
+          "deck-66",
+          "deck-0",
+          "deck-68",
+          "deck-41",
+          "deck-77",
+          "deck-46",
+          "deck-93",
+          "deck-17",
+          "deck-11",
+          "deck-92",
+          "deck-55",
+          "deck-61",
+          "deck-83",
+          "deck-91",
+          "deck-16",
+          "deck-10",
+          "deck-22",
+          "deck-29",
+          "deck-76",
+          "deck-78",
+          "deck-39",
+          "deck-96"
+        ],
+        "graveyard": [
+          "deck-31"
+        ],
+        "exile": [],
+        "opponents": [],
+        "ceased": [],
+        "board": [
+          {
+            "id": "deck-79",
+            "card": "Llanowar Wastes",
+            "tapped": true
+          },
+          {
+            "id": "deck-94",
+            "card": "Wastes",
+            "tapped": true
+          },
+          {
+            "id": "deck-47",
+            "card": "Strionic Resonator",
+            "tapped": false
+          },
+          {
+            "id": "deck-97",
+            "card": "Wooded Bastion",
+            "tapped": true
+          }
+        ],
+        "floatingExpires": [],
+        "life": 40
+      },
+      {
+        "turn": 4,
+        "event": "untap",
+        "sources": [
+          {
+            "id": "deck-79",
+            "types": [
+              "Land"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              },
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "B"
+                  ],
+                  [
+                    "G"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 1,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-94",
+            "types": [
+              "Basic",
+              "Land"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-47",
+            "types": [
+              "Artifact"
+            ],
+            "subtypes": [],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-97",
+            "types": [
+              "Land"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-31",
+            "types": [
+              "Artifact"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": true,
+            "consumed": true,
+            "sick": false
+          }
+        ]
+      },
+      {
+        "turn": 4,
+        "event": "draw",
+        "card": "Swamp",
+        "id": "deck-87",
+        "reason": "natural"
+      },
+      {
+        "turn": 4,
+        "event": "land",
+        "id": "deck-80",
+        "card": "Mountain",
+        "tapped": false,
+        "unknown": false
+      },
+      {
+        "turn": 4,
+        "event": "decision",
+        "policy": "development",
+        "chosen": "deck-48",
+        "kind": "cast",
+        "reason": "remaining supported deployment",
+        "commanderPayable": false,
+        "setupBudgetUsed": 0,
+        "alternatives": []
+      },
+      {
+        "turn": 4,
+        "event": "mana-activation",
+        "card": "Llanowar Wastes",
+        "kind": "activation",
+        "source": "deck-79",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "sacrifice": false,
+          "cost": "",
+          "outputs": [
+            [
+              "C"
+            ]
+          ],
+          "restriction": "none",
+          "life": 0,
+          "minLands": 0
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-79:0:0",
+            "type": "C",
+            "source": "deck-79",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 4,
+        "event": "mana-activation",
+        "card": "Wastes",
+        "kind": "activation",
+        "source": "deck-94",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "sacrifice": false,
+          "cost": "",
+          "outputs": [
+            [
+              "C"
+            ]
+          ],
+          "restriction": "none",
+          "life": 0,
+          "minLands": 0
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-94:0:0",
+            "type": "C",
+            "source": "deck-94",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 4,
+        "event": "cast-paid",
+        "id": "deck-48",
+        "card": "Tablet of Compleation",
+        "origin": "hand",
+        "kind": "payment",
+        "label": "spell",
+        "cost": "{2}",
+        "reduction": 0,
+        "context": {
+          "kind": "spell",
+          "types": [
+            "Artifact"
+          ],
+          "subtypes": [],
+          "commander": false
+        },
+        "spent": [
+          {
+            "id": "deck-79:0:0",
+            "type": "C",
+            "source": "deck-79",
+            "restriction": "none",
+            "paidFor": "*"
+          },
+          {
+            "id": "deck-94:0:0",
+            "type": "C",
+            "source": "deck-94",
+            "restriction": "none",
+            "paidFor": "*"
+          }
+        ]
+      },
+      {
+        "turn": 4,
+        "event": "stack-push",
+        "id": "stack-3",
+        "kind": "spell",
+        "source": "deck-48",
+        "copyOf": null,
+        "cause": null,
+        "zone": null,
+        "parent": null
+      },
+      {
+        "turn": 4,
+        "event": "stack-resolve-start",
+        "id": "stack-3"
+      },
+      {
+        "turn": 4,
+        "event": "permanent-resolved",
+        "id": "deck-48",
+        "card": "Tablet of Compleation",
+        "tapped": false
+      },
+      {
+        "turn": 4,
+        "event": "stack-resolve-end",
+        "id": "stack-3"
+      },
+      {
+        "turn": 4,
+        "event": "turn-end",
+        "hand": [
+          "Void Grafter",
+          "Kozilek's Unsealing",
+          "Gideon Blackblade",
+          "Shared Roots",
+          "Swamp"
+        ],
+        "handIds": [
+          "deck-58",
+          "deck-28",
+          "deck-21",
+          "deck-40",
+          "deck-87"
+        ],
+        "library": [
+          "deck-8",
+          "deck-50",
+          "deck-62",
+          "deck-52",
+          "deck-25",
+          "deck-63",
+          "deck-26",
+          "deck-34",
+          "deck-1",
+          "deck-88",
+          "deck-54",
+          "deck-27",
+          "deck-74",
+          "deck-9",
+          "deck-24",
+          "deck-82",
+          "deck-37",
+          "deck-7",
+          "deck-90",
+          "deck-14",
+          "deck-98",
+          "deck-60",
+          "deck-15",
+          "deck-67",
+          "deck-38",
+          "deck-65",
+          "deck-71",
+          "deck-23",
+          "deck-75",
+          "deck-57",
+          "deck-35",
+          "deck-69",
+          "deck-19",
+          "deck-44",
+          "deck-12",
+          "deck-36",
+          "deck-56",
+          "deck-73",
+          "deck-86",
+          "deck-59",
+          "deck-20",
+          "deck-43",
+          "deck-45",
+          "deck-51",
+          "deck-72",
+          "deck-70",
+          "deck-18",
+          "deck-5",
+          "deck-4",
+          "deck-85",
+          "deck-32",
+          "deck-95",
+          "deck-53",
+          "deck-64",
+          "deck-42",
+          "deck-3",
+          "deck-13",
+          "deck-84",
+          "deck-6",
+          "deck-89",
+          "deck-33",
+          "deck-2",
+          "deck-30",
+          "deck-49",
+          "deck-81",
+          "deck-66",
+          "deck-0",
+          "deck-68",
+          "deck-41",
+          "deck-77",
+          "deck-46",
+          "deck-93",
+          "deck-17",
+          "deck-11",
+          "deck-92",
+          "deck-55",
+          "deck-61",
+          "deck-83",
+          "deck-91",
+          "deck-16",
+          "deck-10",
+          "deck-22",
+          "deck-29",
+          "deck-76",
+          "deck-78",
+          "deck-39",
+          "deck-96"
+        ],
+        "graveyard": [
+          "deck-31"
+        ],
+        "exile": [],
+        "opponents": [],
+        "ceased": [],
+        "board": [
+          {
+            "id": "deck-79",
+            "card": "Llanowar Wastes",
+            "tapped": true
+          },
+          {
+            "id": "deck-94",
+            "card": "Wastes",
+            "tapped": true
+          },
+          {
+            "id": "deck-47",
+            "card": "Strionic Resonator",
+            "tapped": false
+          },
+          {
+            "id": "deck-97",
+            "card": "Wooded Bastion",
+            "tapped": false
+          },
+          {
+            "id": "deck-80",
+            "card": "Mountain",
+            "tapped": false
+          },
+          {
+            "id": "deck-48",
+            "card": "Tablet of Compleation",
+            "tapped": false
+          }
+        ],
+        "floatingExpires": [],
+        "life": 40
+      },
+      {
+        "turn": 5,
+        "event": "untap",
+        "sources": [
+          {
+            "id": "deck-79",
+            "types": [
+              "Land"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              },
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "B"
+                  ],
+                  [
+                    "G"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 1,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-94",
+            "types": [
+              "Basic",
+              "Land"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-47",
+            "types": [
+              "Artifact"
+            ],
+            "subtypes": [],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-97",
+            "types": [
+              "Land"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-31",
+            "types": [
+              "Artifact"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": true,
+            "consumed": true,
+            "sick": false
+          },
+          {
+            "id": "deck-80",
+            "types": [
+              "Basic",
+              "Land"
+            ],
+            "subtypes": [
+              "Mountain"
+            ],
+            "modes": [
+              {
+                "tap": true,
+                "cost": "",
+                "outputs": [
+                  [
+                    "R"
+                  ]
+                ]
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-48",
+            "types": [
+              "Artifact"
+            ],
+            "subtypes": [],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          }
+        ]
+      },
+      {
+        "turn": 5,
+        "event": "draw",
+        "card": "Devourer of Destiny",
+        "id": "deck-8",
+        "reason": "natural"
+      },
+      {
+        "turn": 5,
+        "event": "land",
+        "id": "deck-87",
+        "card": "Swamp",
+        "tapped": false,
+        "unknown": false
+      },
+      {
+        "turn": 5,
+        "event": "decision",
+        "policy": "development",
+        "chosen": "commander",
+        "kind": "cast",
+        "reason": "deploy commander",
+        "commanderPayable": true,
+        "setupBudgetUsed": 0,
+        "alternatives": []
+      },
+      {
+        "turn": 5,
+        "event": "mana-activation",
+        "card": "Llanowar Wastes",
+        "kind": "activation",
+        "source": "deck-79",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "sacrifice": false,
+          "cost": "",
+          "outputs": [
+            [
+              "C"
+            ]
+          ],
+          "restriction": "none",
+          "life": 0,
+          "minLands": 0
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-79:0:0",
+            "type": "C",
+            "source": "deck-79",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 5,
+        "event": "mana-activation",
+        "card": "Wastes",
+        "kind": "activation",
+        "source": "deck-94",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "sacrifice": false,
+          "cost": "",
+          "outputs": [
+            [
+              "C"
+            ]
+          ],
+          "restriction": "none",
+          "life": 0,
+          "minLands": 0
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-94:0:0",
+            "type": "C",
+            "source": "deck-94",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 5,
+        "event": "mana-activation",
+        "card": "Wooded Bastion",
+        "kind": "activation",
+        "source": "deck-97",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "sacrifice": false,
+          "cost": "",
+          "outputs": [
+            [
+              "C"
+            ]
+          ],
+          "restriction": "none",
+          "life": 0,
+          "minLands": 0
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-97:0:0",
+            "type": "C",
+            "source": "deck-97",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 5,
+        "event": "mana-activation",
+        "card": "Mountain",
+        "kind": "activation",
+        "source": "deck-80",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "cost": "",
+          "outputs": [
+            [
+              "R"
+            ]
+          ]
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-80:0:0",
+            "type": "R",
+            "source": "deck-80",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 5,
+        "event": "mana-activation",
+        "card": "Swamp",
+        "kind": "activation",
+        "source": "deck-87",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "cost": "",
+          "outputs": [
+            [
+              "B"
+            ]
+          ]
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-87:0:0",
+            "type": "B",
+            "source": "deck-87",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 5,
+        "event": "cast-paid",
+        "id": "commander",
+        "card": "Ulalek, Fused Atrocity",
+        "origin": "command",
+        "kind": "payment",
+        "label": "spell",
+        "cost": "{C/W}{C/U}{C/B}{C/R}{C/G}",
+        "reduction": 0,
+        "context": {
+          "kind": "spell",
+          "types": [
+            "Legendary",
+            "Creature"
+          ],
+          "subtypes": [
+            "Eldrazi"
+          ],
+          "commander": true
+        },
+        "spent": [
+          {
+            "id": "deck-79:0:0",
+            "type": "C",
+            "source": "deck-79",
+            "restriction": "none",
+            "paidFor": "C/W"
+          },
+          {
+            "id": "deck-94:0:0",
+            "type": "C",
+            "source": "deck-94",
+            "restriction": "none",
+            "paidFor": "C/U"
+          },
+          {
+            "id": "deck-97:0:0",
+            "type": "C",
+            "source": "deck-97",
+            "restriction": "none",
+            "paidFor": "C/G"
+          },
+          {
+            "id": "deck-87:0:0",
+            "type": "B",
+            "source": "deck-87",
+            "restriction": "none",
+            "paidFor": "C/B"
+          },
+          {
+            "id": "deck-80:0:0",
+            "type": "R",
+            "source": "deck-80",
+            "restriction": "none",
+            "paidFor": "C/R"
+          }
+        ]
+      },
+      {
+        "turn": 5,
+        "event": "stack-push",
+        "id": "stack-4",
+        "kind": "spell",
+        "source": "commander",
+        "copyOf": null,
+        "cause": null,
+        "zone": null,
+        "parent": null
+      },
+      {
+        "turn": 5,
+        "event": "stack-resolve-start",
+        "id": "stack-4"
+      },
+      {
+        "turn": 5,
+        "event": "permanent-resolved",
+        "id": "commander",
+        "card": "Ulalek, Fused Atrocity",
+        "tapped": false
+      },
+      {
+        "turn": 5,
+        "event": "stack-resolve-end",
+        "id": "stack-4"
+      },
+      {
+        "turn": 5,
+        "event": "turn-end",
+        "hand": [
+          "Void Grafter",
+          "Kozilek's Unsealing",
+          "Gideon Blackblade",
+          "Shared Roots",
+          "Devourer of Destiny"
+        ],
+        "handIds": [
+          "deck-58",
+          "deck-28",
+          "deck-21",
+          "deck-40",
+          "deck-8"
+        ],
+        "library": [
+          "deck-50",
+          "deck-62",
+          "deck-52",
+          "deck-25",
+          "deck-63",
+          "deck-26",
+          "deck-34",
+          "deck-1",
+          "deck-88",
+          "deck-54",
+          "deck-27",
+          "deck-74",
+          "deck-9",
+          "deck-24",
+          "deck-82",
+          "deck-37",
+          "deck-7",
+          "deck-90",
+          "deck-14",
+          "deck-98",
+          "deck-60",
+          "deck-15",
+          "deck-67",
+          "deck-38",
+          "deck-65",
+          "deck-71",
+          "deck-23",
+          "deck-75",
+          "deck-57",
+          "deck-35",
+          "deck-69",
+          "deck-19",
+          "deck-44",
+          "deck-12",
+          "deck-36",
+          "deck-56",
+          "deck-73",
+          "deck-86",
+          "deck-59",
+          "deck-20",
+          "deck-43",
+          "deck-45",
+          "deck-51",
+          "deck-72",
+          "deck-70",
+          "deck-18",
+          "deck-5",
+          "deck-4",
+          "deck-85",
+          "deck-32",
+          "deck-95",
+          "deck-53",
+          "deck-64",
+          "deck-42",
+          "deck-3",
+          "deck-13",
+          "deck-84",
+          "deck-6",
+          "deck-89",
+          "deck-33",
+          "deck-2",
+          "deck-30",
+          "deck-49",
+          "deck-81",
+          "deck-66",
+          "deck-0",
+          "deck-68",
+          "deck-41",
+          "deck-77",
+          "deck-46",
+          "deck-93",
+          "deck-17",
+          "deck-11",
+          "deck-92",
+          "deck-55",
+          "deck-61",
+          "deck-83",
+          "deck-91",
+          "deck-16",
+          "deck-10",
+          "deck-22",
+          "deck-29",
+          "deck-76",
+          "deck-78",
+          "deck-39",
+          "deck-96"
+        ],
+        "graveyard": [
+          "deck-31"
+        ],
+        "exile": [],
+        "opponents": [],
+        "ceased": [],
+        "board": [
+          {
+            "id": "deck-79",
+            "card": "Llanowar Wastes",
+            "tapped": true
+          },
+          {
+            "id": "deck-94",
+            "card": "Wastes",
+            "tapped": true
+          },
+          {
+            "id": "deck-47",
+            "card": "Strionic Resonator",
+            "tapped": false
+          },
+          {
+            "id": "deck-97",
+            "card": "Wooded Bastion",
+            "tapped": true
+          },
+          {
+            "id": "deck-80",
+            "card": "Mountain",
+            "tapped": true
+          },
+          {
+            "id": "deck-48",
+            "card": "Tablet of Compleation",
+            "tapped": false
+          },
+          {
+            "id": "deck-87",
+            "card": "Swamp",
+            "tapped": true
+          },
+          {
+            "id": "commander",
+            "card": "Ulalek, Fused Atrocity",
+            "tapped": false
+          }
+        ],
+        "floatingExpires": [],
+        "life": 40
+      },
+      {
+        "turn": 6,
+        "event": "untap",
+        "sources": [
+          {
+            "id": "deck-79",
+            "types": [
+              "Land"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              },
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "B"
+                  ],
+                  [
+                    "G"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 1,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-94",
+            "types": [
+              "Basic",
+              "Land"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-47",
+            "types": [
+              "Artifact"
+            ],
+            "subtypes": [],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-97",
+            "types": [
+              "Land"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-31",
+            "types": [
+              "Artifact"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": true,
+            "consumed": true,
+            "sick": false
+          },
+          {
+            "id": "deck-80",
+            "types": [
+              "Basic",
+              "Land"
+            ],
+            "subtypes": [
+              "Mountain"
+            ],
+            "modes": [
+              {
+                "tap": true,
+                "cost": "",
+                "outputs": [
+                  [
+                    "R"
+                  ]
+                ]
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-48",
+            "types": [
+              "Artifact"
+            ],
+            "subtypes": [],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-87",
+            "types": [
+              "Basic",
+              "Land"
+            ],
+            "subtypes": [
+              "Swamp"
+            ],
+            "modes": [
+              {
+                "tap": true,
+                "cost": "",
+                "outputs": [
+                  [
+                    "B"
+                  ]
+                ]
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "commander",
+            "types": [
+              "Legendary",
+              "Creature"
+            ],
+            "subtypes": [
+              "Eldrazi"
+            ],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          }
+        ]
+      },
+      {
+        "turn": 6,
+        "event": "draw",
+        "card": "Talisman of Impulse",
+        "id": "deck-50",
+        "reason": "natural"
+      },
+      {
+        "turn": 6,
+        "event": "decision",
+        "policy": "development",
+        "chosen": "deck-50",
+        "kind": "cast",
+        "reason": "develop usable mana",
+        "commanderPayable": false,
+        "setupBudgetUsed": 0,
+        "alternatives": []
+      },
+      {
+        "turn": 6,
+        "event": "mana-activation",
+        "card": "Llanowar Wastes",
+        "kind": "activation",
+        "source": "deck-79",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "sacrifice": false,
+          "cost": "",
+          "outputs": [
+            [
+              "C"
+            ]
+          ],
+          "restriction": "none",
+          "life": 0,
+          "minLands": 0
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-79:0:0",
+            "type": "C",
+            "source": "deck-79",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 6,
+        "event": "mana-activation",
+        "card": "Wastes",
+        "kind": "activation",
+        "source": "deck-94",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "sacrifice": false,
+          "cost": "",
+          "outputs": [
+            [
+              "C"
+            ]
+          ],
+          "restriction": "none",
+          "life": 0,
+          "minLands": 0
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-94:0:0",
+            "type": "C",
+            "source": "deck-94",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 6,
+        "event": "cast-paid",
+        "id": "deck-50",
+        "card": "Talisman of Impulse",
+        "origin": "hand",
+        "kind": "payment",
+        "label": "spell",
+        "cost": "{2}",
+        "reduction": 0,
+        "context": {
+          "kind": "spell",
+          "types": [
+            "Artifact"
+          ],
+          "subtypes": [],
+          "commander": false
+        },
+        "spent": [
+          {
+            "id": "deck-79:0:0",
+            "type": "C",
+            "source": "deck-79",
+            "restriction": "none",
+            "paidFor": "*"
+          },
+          {
+            "id": "deck-94:0:0",
+            "type": "C",
+            "source": "deck-94",
+            "restriction": "none",
+            "paidFor": "*"
+          }
+        ]
+      },
+      {
+        "turn": 6,
+        "event": "stack-push",
+        "id": "stack-5",
+        "kind": "spell",
+        "source": "deck-50",
+        "copyOf": null,
+        "cause": null,
+        "zone": null,
+        "parent": null
+      },
+      {
+        "turn": 6,
+        "event": "stack-resolve-start",
+        "id": "stack-5"
+      },
+      {
+        "turn": 6,
+        "event": "permanent-resolved",
+        "id": "deck-50",
+        "card": "Talisman of Impulse",
+        "tapped": false
+      },
+      {
+        "turn": 6,
+        "event": "stack-resolve-end",
+        "id": "stack-5"
+      },
+      {
+        "turn": 6,
+        "event": "turn-end",
+        "hand": [
+          "Void Grafter",
+          "Kozilek's Unsealing",
+          "Gideon Blackblade",
+          "Shared Roots",
+          "Devourer of Destiny"
+        ],
+        "handIds": [
+          "deck-58",
+          "deck-28",
+          "deck-21",
+          "deck-40",
+          "deck-8"
+        ],
+        "library": [
+          "deck-62",
+          "deck-52",
+          "deck-25",
+          "deck-63",
+          "deck-26",
+          "deck-34",
+          "deck-1",
+          "deck-88",
+          "deck-54",
+          "deck-27",
+          "deck-74",
+          "deck-9",
+          "deck-24",
+          "deck-82",
+          "deck-37",
+          "deck-7",
+          "deck-90",
+          "deck-14",
+          "deck-98",
+          "deck-60",
+          "deck-15",
+          "deck-67",
+          "deck-38",
+          "deck-65",
+          "deck-71",
+          "deck-23",
+          "deck-75",
+          "deck-57",
+          "deck-35",
+          "deck-69",
+          "deck-19",
+          "deck-44",
+          "deck-12",
+          "deck-36",
+          "deck-56",
+          "deck-73",
+          "deck-86",
+          "deck-59",
+          "deck-20",
+          "deck-43",
+          "deck-45",
+          "deck-51",
+          "deck-72",
+          "deck-70",
+          "deck-18",
+          "deck-5",
+          "deck-4",
+          "deck-85",
+          "deck-32",
+          "deck-95",
+          "deck-53",
+          "deck-64",
+          "deck-42",
+          "deck-3",
+          "deck-13",
+          "deck-84",
+          "deck-6",
+          "deck-89",
+          "deck-33",
+          "deck-2",
+          "deck-30",
+          "deck-49",
+          "deck-81",
+          "deck-66",
+          "deck-0",
+          "deck-68",
+          "deck-41",
+          "deck-77",
+          "deck-46",
+          "deck-93",
+          "deck-17",
+          "deck-11",
+          "deck-92",
+          "deck-55",
+          "deck-61",
+          "deck-83",
+          "deck-91",
+          "deck-16",
+          "deck-10",
+          "deck-22",
+          "deck-29",
+          "deck-76",
+          "deck-78",
+          "deck-39",
+          "deck-96"
+        ],
+        "graveyard": [
+          "deck-31"
+        ],
+        "exile": [],
+        "opponents": [],
+        "ceased": [],
+        "board": [
+          {
+            "id": "deck-79",
+            "card": "Llanowar Wastes",
+            "tapped": true
+          },
+          {
+            "id": "deck-94",
+            "card": "Wastes",
+            "tapped": true
+          },
+          {
+            "id": "deck-47",
+            "card": "Strionic Resonator",
+            "tapped": false
+          },
+          {
+            "id": "deck-97",
+            "card": "Wooded Bastion",
+            "tapped": false
+          },
+          {
+            "id": "deck-80",
+            "card": "Mountain",
+            "tapped": false
+          },
+          {
+            "id": "deck-48",
+            "card": "Tablet of Compleation",
+            "tapped": false
+          },
+          {
+            "id": "deck-87",
+            "card": "Swamp",
+            "tapped": false
+          },
+          {
+            "id": "commander",
+            "card": "Ulalek, Fused Atrocity",
+            "tapped": false
+          },
+          {
+            "id": "deck-50",
+            "card": "Talisman of Impulse",
+            "tapped": false
+          }
+        ],
+        "floatingExpires": [],
+        "life": 40
+      },
+      {
+        "turn": 7,
+        "event": "untap",
+        "sources": [
+          {
+            "id": "deck-79",
+            "types": [
+              "Land"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              },
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "B"
+                  ],
+                  [
+                    "G"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 1,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-94",
+            "types": [
+              "Basic",
+              "Land"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-47",
+            "types": [
+              "Artifact"
+            ],
+            "subtypes": [],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-97",
+            "types": [
+              "Land"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-31",
+            "types": [
+              "Artifact"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": true,
+            "consumed": true,
+            "sick": false
+          },
+          {
+            "id": "deck-80",
+            "types": [
+              "Basic",
+              "Land"
+            ],
+            "subtypes": [
+              "Mountain"
+            ],
+            "modes": [
+              {
+                "tap": true,
+                "cost": "",
+                "outputs": [
+                  [
+                    "R"
+                  ]
+                ]
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-48",
+            "types": [
+              "Artifact"
+            ],
+            "subtypes": [],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-87",
+            "types": [
+              "Basic",
+              "Land"
+            ],
+            "subtypes": [
+              "Swamp"
+            ],
+            "modes": [
+              {
+                "tap": true,
+                "cost": "",
+                "outputs": [
+                  [
+                    "B"
+                  ]
+                ]
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "commander",
+            "types": [
+              "Legendary",
+              "Creature"
+            ],
+            "subtypes": [
+              "Eldrazi"
+            ],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-50",
+            "types": [
+              "Artifact"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              },
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "R"
+                  ],
+                  [
+                    "G"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 1,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          }
+        ]
+      },
+      {
+        "turn": 7,
+        "event": "draw",
+        "card": "Zhulodok, Void Gorger",
+        "id": "deck-62",
+        "reason": "natural"
+      },
+      {
+        "turn": 7,
+        "event": "decision",
+        "policy": "development",
+        "chosen": "deck-62",
+        "kind": "cast",
+        "reason": "deploy native creature",
+        "commanderPayable": false,
+        "setupBudgetUsed": 0,
+        "alternatives": []
+      },
+      {
+        "turn": 7,
+        "event": "mana-activation",
+        "card": "Llanowar Wastes",
+        "kind": "activation",
+        "source": "deck-79",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "sacrifice": false,
+          "cost": "",
+          "outputs": [
+            [
+              "C"
+            ]
+          ],
+          "restriction": "none",
+          "life": 0,
+          "minLands": 0
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-79:0:0",
+            "type": "C",
+            "source": "deck-79",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 7,
+        "event": "mana-activation",
+        "card": "Wastes",
+        "kind": "activation",
+        "source": "deck-94",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "sacrifice": false,
+          "cost": "",
+          "outputs": [
+            [
+              "C"
+            ]
+          ],
+          "restriction": "none",
+          "life": 0,
+          "minLands": 0
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-94:0:0",
+            "type": "C",
+            "source": "deck-94",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 7,
+        "event": "mana-activation",
+        "card": "Wooded Bastion",
+        "kind": "activation",
+        "source": "deck-97",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "sacrifice": false,
+          "cost": "",
+          "outputs": [
+            [
+              "C"
+            ]
+          ],
+          "restriction": "none",
+          "life": 0,
+          "minLands": 0
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-97:0:0",
+            "type": "C",
+            "source": "deck-97",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 7,
+        "event": "mana-activation",
+        "card": "Mountain",
+        "kind": "activation",
+        "source": "deck-80",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "cost": "",
+          "outputs": [
+            [
+              "R"
+            ]
+          ]
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-80:0:0",
+            "type": "R",
+            "source": "deck-80",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 7,
+        "event": "mana-activation",
+        "card": "Swamp",
+        "kind": "activation",
+        "source": "deck-87",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "cost": "",
+          "outputs": [
+            [
+              "B"
+            ]
+          ]
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-87:0:0",
+            "type": "B",
+            "source": "deck-87",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 7,
+        "event": "mana-activation",
+        "card": "Talisman of Impulse",
+        "kind": "activation",
+        "source": "deck-50",
+        "mode": 0,
+        "ability": {
+          "tap": true,
+          "sacrifice": false,
+          "cost": "",
+          "outputs": [
+            [
+              "C"
+            ]
+          ],
+          "restriction": "none",
+          "life": 0,
+          "minLands": 0
+        },
+        "spent": [],
+        "produced": [
+          {
+            "id": "deck-50:0:0",
+            "type": "C",
+            "source": "deck-50",
+            "restriction": "none"
+          }
+        ],
+        "tap": true,
+        "sacrifice": false,
+        "life": 0
+      },
+      {
+        "turn": 7,
+        "event": "cast-paid",
+        "id": "deck-62",
+        "card": "Zhulodok, Void Gorger",
+        "origin": "hand",
+        "kind": "payment",
+        "label": "spell",
+        "cost": "{5}{C}",
+        "reduction": 0,
+        "context": {
+          "kind": "spell",
+          "types": [
+            "Legendary",
+            "Creature"
+          ],
+          "subtypes": [
+            "Eldrazi"
+          ],
+          "commander": false
+        },
+        "spent": [
+          {
+            "id": "deck-79:0:0",
+            "type": "C",
+            "source": "deck-79",
+            "restriction": "none",
+            "paidFor": "C"
+          },
+          {
+            "id": "deck-87:0:0",
+            "type": "B",
+            "source": "deck-87",
+            "restriction": "none",
+            "paidFor": "*"
+          },
+          {
+            "id": "deck-94:0:0",
+            "type": "C",
+            "source": "deck-94",
+            "restriction": "none",
+            "paidFor": "*"
+          },
+          {
+            "id": "deck-97:0:0",
+            "type": "C",
+            "source": "deck-97",
+            "restriction": "none",
+            "paidFor": "*"
+          },
+          {
+            "id": "deck-50:0:0",
+            "type": "C",
+            "source": "deck-50",
+            "restriction": "none",
+            "paidFor": "*"
+          },
+          {
+            "id": "deck-80:0:0",
+            "type": "R",
+            "source": "deck-80",
+            "restriction": "none",
+            "paidFor": "*"
+          }
+        ]
+      },
+      {
+        "turn": 7,
+        "event": "stack-push",
+        "id": "stack-6",
+        "kind": "spell",
+        "source": "deck-62",
+        "copyOf": null,
+        "cause": null,
+        "zone": null,
+        "parent": null
+      },
+      {
+        "turn": 7,
+        "event": "native-triggered",
+        "id": "stack-7",
+        "source": "commander",
+        "zone": "battlefield",
+        "phase": "cast",
+        "cause": "deck-62",
+        "effect": {
+          "type": "ulalek",
+          "cost": "{C}{C}"
+        },
+        "instance": 0,
+        "multipliers": []
+      },
+      {
+        "turn": 7,
+        "event": "stack-push",
+        "id": "stack-7",
+        "kind": "ability",
+        "source": "commander",
+        "effect": {
+          "type": "ulalek",
+          "cost": "{C}{C}"
+        },
+        "copyOf": null,
+        "cause": "deck-62",
+        "zone": "battlefield",
+        "parent": null
+      },
+      {
+        "turn": 7,
+        "event": "stack-resolve-start",
+        "id": "stack-7"
+      },
+      {
+        "turn": 7,
+        "event": "native-trigger-declined",
+        "ability": "stack-7",
+        "source": "commander",
+        "status": "blocked",
+        "reason": "insufficient total mana even before color/restriction checks"
+      },
+      {
+        "turn": 7,
+        "event": "stack-resolve-end",
+        "id": "stack-7"
+      },
+      {
+        "turn": 7,
+        "event": "stack-resolve-start",
+        "id": "stack-6"
+      },
+      {
+        "turn": 7,
+        "event": "permanent-resolved",
+        "id": "deck-62",
+        "card": "Zhulodok, Void Gorger",
+        "tapped": false
+      },
+      {
+        "turn": 7,
+        "event": "stack-resolve-end",
+        "id": "stack-6"
+      },
+      {
+        "turn": 7,
+        "event": "turn-end",
+        "hand": [
+          "Void Grafter",
+          "Kozilek's Unsealing",
+          "Gideon Blackblade",
+          "Shared Roots",
+          "Devourer of Destiny"
+        ],
+        "handIds": [
+          "deck-58",
+          "deck-28",
+          "deck-21",
+          "deck-40",
+          "deck-8"
+        ],
+        "library": [
+          "deck-52",
+          "deck-25",
+          "deck-63",
+          "deck-26",
+          "deck-34",
+          "deck-1",
+          "deck-88",
+          "deck-54",
+          "deck-27",
+          "deck-74",
+          "deck-9",
+          "deck-24",
+          "deck-82",
+          "deck-37",
+          "deck-7",
+          "deck-90",
+          "deck-14",
+          "deck-98",
+          "deck-60",
+          "deck-15",
+          "deck-67",
+          "deck-38",
+          "deck-65",
+          "deck-71",
+          "deck-23",
+          "deck-75",
+          "deck-57",
+          "deck-35",
+          "deck-69",
+          "deck-19",
+          "deck-44",
+          "deck-12",
+          "deck-36",
+          "deck-56",
+          "deck-73",
+          "deck-86",
+          "deck-59",
+          "deck-20",
+          "deck-43",
+          "deck-45",
+          "deck-51",
+          "deck-72",
+          "deck-70",
+          "deck-18",
+          "deck-5",
+          "deck-4",
+          "deck-85",
+          "deck-32",
+          "deck-95",
+          "deck-53",
+          "deck-64",
+          "deck-42",
+          "deck-3",
+          "deck-13",
+          "deck-84",
+          "deck-6",
+          "deck-89",
+          "deck-33",
+          "deck-2",
+          "deck-30",
+          "deck-49",
+          "deck-81",
+          "deck-66",
+          "deck-0",
+          "deck-68",
+          "deck-41",
+          "deck-77",
+          "deck-46",
+          "deck-93",
+          "deck-17",
+          "deck-11",
+          "deck-92",
+          "deck-55",
+          "deck-61",
+          "deck-83",
+          "deck-91",
+          "deck-16",
+          "deck-10",
+          "deck-22",
+          "deck-29",
+          "deck-76",
+          "deck-78",
+          "deck-39",
+          "deck-96"
+        ],
+        "graveyard": [
+          "deck-31"
+        ],
+        "exile": [],
+        "opponents": [],
+        "ceased": [],
+        "board": [
+          {
+            "id": "deck-79",
+            "card": "Llanowar Wastes",
+            "tapped": true
+          },
+          {
+            "id": "deck-94",
+            "card": "Wastes",
+            "tapped": true
+          },
+          {
+            "id": "deck-47",
+            "card": "Strionic Resonator",
+            "tapped": false
+          },
+          {
+            "id": "deck-97",
+            "card": "Wooded Bastion",
+            "tapped": true
+          },
+          {
+            "id": "deck-80",
+            "card": "Mountain",
+            "tapped": true
+          },
+          {
+            "id": "deck-48",
+            "card": "Tablet of Compleation",
+            "tapped": false
+          },
+          {
+            "id": "deck-87",
+            "card": "Swamp",
+            "tapped": true
+          },
+          {
+            "id": "commander",
+            "card": "Ulalek, Fused Atrocity",
+            "tapped": false
+          },
+          {
+            "id": "deck-50",
+            "card": "Talisman of Impulse",
+            "tapped": true
+          },
+          {
+            "id": "deck-62",
+            "card": "Zhulodok, Void Gorger",
+            "tapped": false
+          }
+        ],
+        "floatingExpires": [],
+        "life": 40
+      },
+      {
+        "turn": 8,
+        "event": "untap",
+        "sources": [
+          {
+            "id": "deck-79",
+            "types": [
+              "Land"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              },
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "B"
+                  ],
+                  [
+                    "G"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 1,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-94",
+            "types": [
+              "Basic",
+              "Land"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-47",
+            "types": [
+              "Artifact"
+            ],
+            "subtypes": [],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-97",
+            "types": [
+              "Land"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-31",
+            "types": [
+              "Artifact"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              }
+            ],
+            "tapped": true,
+            "consumed": true,
+            "sick": false
+          },
+          {
+            "id": "deck-80",
+            "types": [
+              "Basic",
+              "Land"
+            ],
+            "subtypes": [
+              "Mountain"
+            ],
+            "modes": [
+              {
+                "tap": true,
+                "cost": "",
+                "outputs": [
+                  [
+                    "R"
+                  ]
+                ]
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-48",
+            "types": [
+              "Artifact"
+            ],
+            "subtypes": [],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-87",
+            "types": [
+              "Basic",
+              "Land"
+            ],
+            "subtypes": [
+              "Swamp"
+            ],
+            "modes": [
+              {
+                "tap": true,
+                "cost": "",
+                "outputs": [
+                  [
+                    "B"
+                  ]
+                ]
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "commander",
+            "types": [
+              "Legendary",
+              "Creature"
+            ],
+            "subtypes": [
+              "Eldrazi"
+            ],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-50",
+            "types": [
+              "Artifact"
+            ],
+            "subtypes": [],
+            "modes": [
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "C"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 0,
+                "minLands": 0
+              },
+              {
+                "tap": true,
+                "sacrifice": false,
+                "cost": "",
+                "outputs": [
+                  [
+                    "R"
+                  ],
+                  [
+                    "G"
+                  ]
+                ],
+                "restriction": "none",
+                "life": 1,
+                "minLands": 0
+              }
+            ],
+            "tapped": false,
+            "sick": false
+          },
+          {
+            "id": "deck-62",
+            "types": [
+              "Legendary",
+              "Creature"
+            ],
+            "subtypes": [
+              "Eldrazi"
+            ],
+            "modes": [],
+            "tapped": false,
+            "sick": false
+          }
+        ]
+      },
+      {
+        "turn": 8,
+        "event": "draw",
+        "card": "The Enigma Jewel // Locus of Enlightenment",
+        "id": "deck-52",
+        "reason": "natural"
+      },
+      {
+        "turn": 8,
+        "event": "turn-end",
+        "hand": [
+          "Void Grafter",
+          "Kozilek's Unsealing",
+          "Gideon Blackblade",
+          "Shared Roots",
+          "Devourer of Destiny",
+          "The Enigma Jewel // Locus of Enlightenment"
+        ],
+        "handIds": [
+          "deck-58",
+          "deck-28",
+          "deck-21",
+          "deck-40",
+          "deck-8",
+          "deck-52"
+        ],
+        "library": [
+          "deck-25",
+          "deck-63",
+          "deck-26",
+          "deck-34",
+          "deck-1",
+          "deck-88",
+          "deck-54",
+          "deck-27",
+          "deck-74",
+          "deck-9",
+          "deck-24",
+          "deck-82",
+          "deck-37",
+          "deck-7",
+          "deck-90",
+          "deck-14",
+          "deck-98",
+          "deck-60",
+          "deck-15",
+          "deck-67",
+          "deck-38",
+          "deck-65",
+          "deck-71",
+          "deck-23",
+          "deck-75",
+          "deck-57",
+          "deck-35",
+          "deck-69",
+          "deck-19",
+          "deck-44",
+          "deck-12",
+          "deck-36",
+          "deck-56",
+          "deck-73",
+          "deck-86",
+          "deck-59",
+          "deck-20",
+          "deck-43",
+          "deck-45",
+          "deck-51",
+          "deck-72",
+          "deck-70",
+          "deck-18",
+          "deck-5",
+          "deck-4",
+          "deck-85",
+          "deck-32",
+          "deck-95",
+          "deck-53",
+          "deck-64",
+          "deck-42",
+          "deck-3",
+          "deck-13",
+          "deck-84",
+          "deck-6",
+          "deck-89",
+          "deck-33",
+          "deck-2",
+          "deck-30",
+          "deck-49",
+          "deck-81",
+          "deck-66",
+          "deck-0",
+          "deck-68",
+          "deck-41",
+          "deck-77",
+          "deck-46",
+          "deck-93",
+          "deck-17",
+          "deck-11",
+          "deck-92",
+          "deck-55",
+          "deck-61",
+          "deck-83",
+          "deck-91",
+          "deck-16",
+          "deck-10",
+          "deck-22",
+          "deck-29",
+          "deck-76",
+          "deck-78",
+          "deck-39",
+          "deck-96"
+        ],
+        "graveyard": [
+          "deck-31"
+        ],
+        "exile": [],
+        "opponents": [],
+        "ceased": [],
+        "board": [
+          {
+            "id": "deck-79",
+            "card": "Llanowar Wastes",
+            "tapped": false
+          },
+          {
+            "id": "deck-94",
+            "card": "Wastes",
+            "tapped": false
+          },
+          {
+            "id": "deck-47",
+            "card": "Strionic Resonator",
+            "tapped": false
+          },
+          {
+            "id": "deck-97",
+            "card": "Wooded Bastion",
+            "tapped": false
+          },
+          {
+            "id": "deck-80",
+            "card": "Mountain",
+            "tapped": false
+          },
+          {
+            "id": "deck-48",
+            "card": "Tablet of Compleation",
+            "tapped": false
+          },
+          {
+            "id": "deck-87",
+            "card": "Swamp",
+            "tapped": false
+          },
+          {
+            "id": "commander",
+            "card": "Ulalek, Fused Atrocity",
+            "tapped": false
+          },
+          {
+            "id": "deck-50",
+            "card": "Talisman of Impulse",
+            "tapped": false
+          },
+          {
+            "id": "deck-62",
+            "card": "Zhulodok, Void Gorger",
+            "tapped": false
+          }
+        ],
+        "floatingExpires": [],
+        "life": 40
+      }
+    ]
+  }
+}
