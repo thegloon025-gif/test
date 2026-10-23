@@ -1,0 +1,41 @@
+{
+  "snapshot": "Before Stage 9 implementation; Stage 8 head. GitHub reported PR totals; category counts from every paginated file. No automatic split, rewrite or deletion performed.",
+  "pullRequests": {
+    "2": {
+      "url": "https://github.com/thegloon025-gif/test/pull/2",
+      "head": "c9829e0a39a41cb6d8fa0336c9d28cba40b5bf2a",
+      "base": "main",
+      "state": "open",
+      "draft": true,
+      "files": 91,
+      "additions": 250439,
+      "deletions": 35,
+      "commits": 5,
+      "fileCategories": {
+        "docs-config": 5,
+        "evidence": 69,
+        "core": 7,
+        "tests": 4,
+        "tools": 6
+      }
+    },
+    "4": {
+      "url": "https://github.com/thegloon025-gif/test/pull/4",
+      "head": "89353e70bd51dfb2e4477cb0c2eb33db2bc8db98",
+      "base": "codex/coherent-package-investment",
+      "state": "open",
+      "draft": true,
+      "files": 780,
+      "additions": 1608958,
+      "deletions": 7,
+      "commits": 31,
+      "fileCategories": {
+        "docs-config": 12,
+        "evidence": 710,
+        "core": 21,
+        "tests": 8,
+        "tools": 29
+      }
+    }
+  }
+}

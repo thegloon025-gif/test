@@ -1,0 +1,32 @@
+{
+  "node": "v24.19.0",
+  "baseline": "Stage 8 frozen 339/339; final run includes all baseline tests",
+  "full": {
+    "command": "npm test",
+    "tests": 349,
+    "pass": 349,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "duration_ms": 72615.950913
+  },
+  "focused": {
+    "command": "node --test tests/gameplay-stage9.test.mjs tests/gameplay-stage8.test.mjs",
+    "tests": 28,
+    "pass": 28,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "duration_ms": 725.691294
+  },
+  "newFixtures": {
+    "command": "STAGE9_FIXTURE_DIR=benchmarks/v12/stage9/fixtures node --test tests/gameplay-stage9.test.mjs",
+    "tests": 10,
+    "pass": 10,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "duration_ms": 381.1365
+  },
+  "limitations": "Linux; native Windows and interactive browser checks unavailable. Initial wipe fixture condition fixed before final run."
+}

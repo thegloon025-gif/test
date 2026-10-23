@@ -1,0 +1,18 @@
+{
+  "registered": "2026-10-23; before Stage 9 fresh cohort outcomes",
+  "goal": "Bounded product checkpoint; shadow only. No production selection, external power claim or force-spending.",
+  "samples": {"training": 4, "holdout": 16, "namespace": "gameplay-quality-stage9-v1-2026-10-23"},
+  "policies": ["commander-first", "development", "native"],
+  "scenarios": ["control", "commander", "engine", "wipe"],
+  "decisions": "conservative optional payments, state-aware tutors fixed throughout; no tutor-policy optimization",
+  "assumptions": "Opening seven, no mulligan, T1 draw, T8 horizon, three inert forty-life opponents. Stage 8 actual-state checkpoints. Engine exile targets shared Undead Augur after deployment; wipe waits for commander. Unknown relevant rules abstain. No inserted cards, forced opening or scripted cohort.",
+  "coupling": "commonIdentityOrder: independent hash priority per canonical card identity and occurrence. Common cards retain relative order; additions are not forced into cut slots. Membership and downstream shuffles still alter absolute hands/events.",
+  "analysis": "All fixed policies and both partitions retained. Paired terminal incidence keeps unknown identification bounds; T3/T5/T7 nonterminal metrics use disclosed mutually observed subsets. Prefix death/draw/sacrifice counts are descriptive, not unknown-imputed complete outcomes. Report opportunity incidence separately from matched-prefix conditional +2 turn recovery, including censoring. Bootstrap intervals describe this sampled model, with no universal score or post-hoc pilot winner.",
+  "decisionGate": "No production promotion from a partial native model. Require credible coherent benefits beyond one commander without hard-gate loss and without material known regressions. If not established, stop expanding simulation solely to increase counts and shift to generator/source quality, manual external comparisons and release review.",
+  "scope": "Wilhelt original and two declared semantic packages, Ulalek B3/B4 original plus Stage 6 C1/C2 control regressions; Yuriko/Zada control and native abstention. Small sample is deliberately bounded, not a powered universal deck-strength study.",
+  "watch": ["Grim Haruspex", "Dark Prophecy", "Kindred Discovery", "Phyrexian Arena", "Viscera Seer", "Diregraf Ghoul", "Dimir Signet"],
+  "recipes": [
+    {"id": "sacrifice-access", "add": ["Grim Haruspex", "Viscera Seer", "Diregraf Ghoul"], "remove": ["Abattoir Ghoul", "Accursed Horde", "Boneyard Desecrator"], "rationale": "Replace redundant bodies/expensive conditional sacrifice with actual nontoken death access, a zero-mana reusable scry outlet and early expendable Zombie. Loss of Horde's activated combat protection is a real unmodeled tradeoff. Protect existing supported death/access/native sources and every standard package gate."},
+    {"id": "resilient-access", "add": ["Dark Prophecy", "Kindred Discovery", "Dimir Signet"], "remove": ["Boneyard Desecrator", "Brain Gorgers", "Gavony Unhallowed"], "rationale": "Enchantment death and tribal-entry access remain after creature wipes, plus paid filtering/fixing rock. Trade bodies and combat/counter/discard effects for access redundancy. BBB/3UU setup, life costs and loss of creatures are actual risks; no claim of free reliable draw or recursion."}
+  ]
+}

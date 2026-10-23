@@ -1,0 +1,40 @@
+{
+  "auditorSHA256": "8d9385ae15b46bac8aa65a0229402a418f3acd99660730ef2bd2320eb25123c2",
+  "completeDecks": 9,
+  "selectedPrintingSlots": 900,
+  "auditedAndReplayedVectors": 1080,
+  "pairedTablesRecomputed": 20,
+  "opportunityPanelsRecomputed": 54,
+  "firstOpportunitySamplesReauditedAndReplayed": 6,
+  "controlledFixturesReauditedAndReplayed": 9,
+  "controlledActualCatalogOutcomeMatches": 9,
+  "archivedStage6DefaultTracesMatched": 8,
+  "ulalekOptInTraceMatches": 24,
+  "terminalStatuses": {
+    "training": {
+      "completed-t8": 189,
+      "unsupported-rule-unknown": 27
+    },
+    "holdout": {
+      "completed-t8": 768,
+      "conditional-lethal": 1,
+      "unsupported-rule-unknown": 95
+    }
+  },
+  "opportunityStatuses": {
+    "training": {
+      "no-opportunity-before-horizon": 48,
+      "applied": 33,
+      "unknown": 27
+    },
+    "holdout": {
+      "unknown": 95,
+      "no-opportunity-before-horizon": 156,
+      "applied": 181
+    }
+  },
+  "preservedArchivesCachesProductionAndLauncher": true,
+  "unknownNativeStrategiesAbstain": true,
+  "limitations": "Grammar is shared; independent resource/zone/stack/death/life receipts are not a full rules proof or optimal pilot proof. Every cohort run is audited/replayed by the hashed runner; saved first receipts are separately reaudited here.",
+  "runtimeMs": 2860
+}

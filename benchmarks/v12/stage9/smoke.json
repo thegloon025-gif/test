@@ -1,0 +1,45 @@
+{
+  "checks": [
+    {
+      "path": "/",
+      "status": 200
+    },
+    {
+      "path": "/app.js",
+      "status": 200
+    },
+    {
+      "path": "/style.css",
+      "status": 200
+    },
+    {
+      "path": "/api/status",
+      "status": 200,
+      "version": "1.1.5",
+      "catalog": 32197
+    }
+  ],
+  "generate": {
+    "status": 200,
+    "runtimeMs": 31399,
+    "price": 102.06,
+    "totalCards": 100,
+    "selectedCandidate": "local:engine",
+    "exactAudit": {
+      "count": 100,
+      "total": 102.06,
+      "withinBudget": true,
+      "agreesWithGenerator": true,
+      "provenance": "exact-selected-cards",
+      "anomalies": []
+    }
+  },
+  "initialRejectedInput": {
+    "status": 400,
+    "reason": "Smoke client initially sent scryfall-eur; server correctly requires scryfall_eur."
+  },
+  "disposableCache": true,
+  "originalCacheUnchanged": true,
+  "nativeWindows": "not available on Linux; unchanged launcher checked",
+  "interactiveBrowser": "not available; no browser connector installed. HTTP markup/script/style/API verified, not an interactive browser test."
+}

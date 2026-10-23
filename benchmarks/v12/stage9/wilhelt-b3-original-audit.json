@@ -1,0 +1,3313 @@
+{
+  "cards": [
+    {
+      "card": "Wilhelt, the Rotcleaver",
+      "price": 9.36,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "mic",
+        "setName": "Midnight Hunt Commander",
+        "collectorNumber": "2",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Wilhelt%2C+the+Rotcleaver&language=1&minCondition=2"
+    },
+    {
+      "card": "Abattoir Ghoul",
+      "price": 0.14,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "ddq",
+        "setName": "Duel Decks: Blessed vs. Cursed",
+        "collectorNumber": "50",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Abattoir+Ghoul&language=1&minCondition=2"
+    },
+    {
+      "card": "Accursed Centaur",
+      "price": 0.06,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "ons",
+        "setName": "Onslaught",
+        "collectorNumber": "123",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Accursed+Centaur&language=1&minCondition=2"
+    },
+    {
+      "card": "Accursed Horde",
+      "price": 0.12,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "gn2",
+        "setName": "Game Night 2019",
+        "collectorNumber": "26",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Accursed+Horde&language=1&minCondition=2"
+    },
+    {
+      "card": "Arcane Signet",
+      "price": 0.38,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "c20",
+        "setName": "Commander 2020",
+        "collectorNumber": "237",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Arcane+Signet&language=1&minCondition=2"
+    },
+    {
+      "card": "Arcanis the Omnipotent",
+      "price": 0.22,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "dmr",
+        "setName": "Dominaria Remastered",
+        "collectorNumber": "39",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Arcanis+the+Omnipotent&language=1&minCondition=2"
+    },
+    {
+      "card": "Archghoul of Thraben",
+      "price": 0.12,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "vow",
+        "setName": "Innistrad: Crimson Vow",
+        "collectorNumber": "93",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Archghoul+of+Thraben&language=1&minCondition=2"
+    },
+    {
+      "card": "Archivist",
+      "price": 0.26,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "9ed",
+        "setName": "Ninth Edition",
+        "collectorNumber": "60",
+        "language": "en",
+        "border": "white",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Archivist&language=1&minCondition=2"
+    },
+    {
+      "card": "Boneyard Desecrator",
+      "price": 0.13,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "otj",
+        "setName": "Outlaws of Thunder Junction",
+        "collectorNumber": "81",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Boneyard+Desecrator&language=1&minCondition=2"
+    },
+    {
+      "card": "Boneyard Scourge",
+      "price": 5.47,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "c17",
+        "setName": "Commander 2017",
+        "collectorNumber": "15",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Boneyard+Scourge&language=1&minCondition=2"
+    },
+    {
+      "card": "Brain Gorgers",
+      "price": 0.16,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "plc",
+        "setName": "Planar Chaos",
+        "collectorNumber": "65",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Brain+Gorgers&language=1&minCondition=2"
+    },
+    {
+      "card": "Carrion Feeder",
+      "price": 2.59,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "fdc",
+        "setName": "Foundations Commander",
+        "collectorNumber": "88",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Carrion+Feeder&language=1&minCondition=2"
+    },
+    {
+      "card": "Cemetery Reaper",
+      "price": 0.26,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "drc",
+        "setName": "Aetherdrift Commander",
+        "collectorNumber": "87",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Cemetery+Reaper&language=1&minCondition=2"
+    },
+    {
+      "card": "Corpse Augur",
+      "price": 0.11,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "plst",
+        "setName": "The List",
+        "collectorNumber": "C15-17",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Corpse+Augur&language=1&minCondition=2"
+    },
+    {
+      "card": "Corpse Blockade",
+      "price": 0.08,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "gtc",
+        "setName": "Gatecrash",
+        "collectorNumber": "60",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Corpse+Blockade&language=1&minCondition=2"
+    },
+    {
+      "card": "Curator's Ward",
+      "price": 0.3,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "dom",
+        "setName": "Dominaria",
+        "collectorNumber": "49",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Curator%27s+Ward&language=1&minCondition=2"
+    },
+    {
+      "card": "Dauthi Ghoul",
+      "price": 0.55,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "tmp",
+        "setName": "Tempest",
+        "collectorNumber": "121",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Dauthi+Ghoul&language=1&minCondition=2"
+    },
+    {
+      "card": "Diregraf Captain",
+      "price": 0.23,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "ddq",
+        "setName": "Duel Decks: Blessed vs. Cursed",
+        "collectorNumber": "68",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Diregraf+Captain&language=1&minCondition=2"
+    },
+    {
+      "card": "Dreadmalkin",
+      "price": 0.07,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "war",
+        "setName": "War of the Spark",
+        "collectorNumber": "87",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Dreadmalkin&language=1&minCondition=2"
+    },
+    {
+      "card": "Fell Stinger",
+      "price": 0.15,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "plst",
+        "setName": "The List",
+        "collectorNumber": "VOW-112",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Fell+Stinger&language=1&minCondition=2"
+    },
+    {
+      "card": "Feral Ghoul",
+      "price": 1.21,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "pip",
+        "setName": "Fallout",
+        "collectorNumber": "44",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Feral+Ghoul&language=1&minCondition=2"
+    },
+    {
+      "card": "Gavony Unhallowed",
+      "price": 0.06,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "gn3",
+        "setName": "Game Night: Free-for-All",
+        "collectorNumber": "51",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Gavony+Unhallowed&language=1&minCondition=2"
+    },
+    {
+      "card": "Giant's Boulder",
+      "price": 0.42,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "hob",
+        "setName": "The Hobbit",
+        "collectorNumber": "173",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Giant%27s+Boulder&language=1&minCondition=2"
+    },
+    {
+      "card": "Gnawing Zombie",
+      "price": 0.04,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "m14",
+        "setName": "Magic 2014",
+        "collectorNumber": "99",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Gnawing+Zombie&language=1&minCondition=2"
+    },
+    {
+      "card": "Graf Reaver",
+      "price": 0.14,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "vow",
+        "setName": "Innistrad: Crimson Vow",
+        "collectorNumber": "115",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Graf+Reaver&language=1&minCondition=2"
+    },
+    {
+      "card": "Grimgrin, Corpse-Born",
+      "price": 10.77,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "sld",
+        "setName": "Secret Lair Drop",
+        "collectorNumber": "1461",
+        "language": "en",
+        "border": "borderless",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Grimgrin%2C+Corpse-Born&language=1&minCondition=2"
+    },
+    {
+      "card": "Gutless Ghoul",
+      "price": 0.13,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "csp",
+        "setName": "Coldsnap",
+        "collectorNumber": "60",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Gutless+Ghoul&language=1&minCondition=2"
+    },
+    {
+      "card": "Headless Rider",
+      "price": 1.36,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "fdc",
+        "setName": "Foundations Commander",
+        "collectorNumber": "106",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Headless+Rider&language=1&minCondition=2"
+    },
+    {
+      "card": "Hithlain Rope",
+      "price": 0.47,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "ltc",
+        "setName": "Tales of Middle-earth Commander",
+        "collectorNumber": "76",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Hithlain+Rope&language=1&minCondition=2"
+    },
+    {
+      "card": "Hungry Ghoul",
+      "price": 0.13,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "fdn",
+        "setName": "Foundations",
+        "collectorNumber": "62",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Hungry+Ghoul&language=1&minCondition=2"
+    },
+    {
+      "card": "Insight Engine",
+      "price": 2.2,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "eoc",
+        "setName": "Edge of Eternities Commander",
+        "collectorNumber": "6",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Insight+Engine&language=1&minCondition=2"
+    },
+    {
+      "card": "Jarl of the Forsaken",
+      "price": 0.03,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "khm",
+        "setName": "Kaldheim",
+        "collectorNumber": "100",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Jarl+of+the+Forsaken&language=1&minCondition=2"
+    },
+    {
+      "card": "Jason Bright, Glowing Prophet",
+      "price": 0.77,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "pip",
+        "setName": "Fallout",
+        "collectorNumber": "32",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Jason+Bright%2C+Glowing+Prophet&language=1&minCondition=2"
+    },
+    {
+      "card": "Liliana's Standard Bearer",
+      "price": 0.24,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "m21",
+        "setName": "Core Set 2021",
+        "collectorNumber": "110",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Liliana%27s+Standard+Bearer&language=1&minCondition=2"
+    },
+    {
+      "card": "Midnight Reaper",
+      "price": 0.17,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "fdc",
+        "setName": "Foundations Commander",
+        "collectorNumber": "114",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Midnight+Reaper&language=1&minCondition=2"
+    },
+    {
+      "card": "Mind Stone",
+      "price": 0.17,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "c18",
+        "setName": "Commander 2018",
+        "collectorNumber": "210",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Mind+Stone&language=1&minCondition=2"
+    },
+    {
+      "card": "Mindleech Ghoul",
+      "price": 0.1,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "vow",
+        "setName": "Innistrad: Crimson Vow",
+        "collectorNumber": "122",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Mindleech+Ghoul&language=1&minCondition=2"
+    },
+    {
+      "card": "Murderous Rider // Swift End",
+      "price": 0.24,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "plst",
+        "setName": "The List",
+        "collectorNumber": "ELD-97",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Murderous+Rider+%2F%2F+Swift+End&language=1&minCondition=2"
+    },
+    {
+      "card": "My Precious // Allure of Power",
+      "price": 1.46,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "hob",
+        "setName": "The Hobbit",
+        "collectorNumber": "176",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=My+Precious+%2F%2F+Allure+of+Power&language=1&minCondition=2"
+    },
+    {
+      "card": "Nantuko Husk",
+      "price": 0.09,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "ori",
+        "setName": "Magic Origins",
+        "collectorNumber": "109",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Nantuko+Husk&language=1&minCondition=2"
+    },
+    {
+      "card": "Necrosavant",
+      "price": 0.02,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "dmr",
+        "setName": "Dominaria Remastered",
+        "collectorNumber": "93",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Necrosavant&language=1&minCondition=2"
+    },
+    {
+      "card": "Overcharged Amalgam",
+      "price": 0.42,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "clb",
+        "setName": "Commander Legends: Battle for Baldur's Gate",
+        "collectorNumber": "729",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Overcharged+Amalgam&language=1&minCondition=2"
+    },
+    {
+      "card": "Patchwork Crawler",
+      "price": 0.16,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "vow",
+        "setName": "Innistrad: Crimson Vow",
+        "collectorNumber": "72",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Patchwork+Crawler&language=1&minCondition=2"
+    },
+    {
+      "card": "Phyrexian Ghoul",
+      "price": 0.06,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "a25",
+        "setName": "Masters 25",
+        "collectorNumber": "100",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Phyrexian+Ghoul&language=1&minCondition=2"
+    },
+    {
+      "card": "Plague Belcher",
+      "price": 0.41,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "drc",
+        "setName": "Aetherdrift Commander",
+        "collectorNumber": "97",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Plague+Belcher&language=1&minCondition=2"
+    },
+    {
+      "card": "Ragamuffyn",
+      "price": 0.11,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "dis",
+        "setName": "Dissension",
+        "collectorNumber": "51",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Ragamuffyn&language=1&minCondition=2"
+    },
+    {
+      "card": "Repository Skaab",
+      "price": 0.12,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "vow",
+        "setName": "Innistrad: Crimson Vow",
+        "collectorNumber": "73",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Repository+Skaab&language=1&minCondition=2"
+    },
+    {
+      "card": "Sedraxis Alchemist",
+      "price": 0.18,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "con",
+        "setName": "Conflux",
+        "collectorNumber": "54",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Sedraxis+Alchemist&language=1&minCondition=2"
+    },
+    {
+      "card": "Sepulcher Ghoul",
+      "price": 0.09,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "afr",
+        "setName": "Adventures in the Forgotten Realms",
+        "collectorNumber": "118",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Sepulcher+Ghoul&language=1&minCondition=2"
+    },
+    {
+      "card": "Sidisi, Regent of the Mire",
+      "price": 0.29,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "tdm",
+        "setName": "Tarkir: Dragonstorm",
+        "collectorNumber": "92",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Sidisi%2C+Regent+of+the+Mire&language=1&minCondition=2"
+    },
+    {
+      "card": "Silumgar Scavenger",
+      "price": 0.08,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "2xm",
+        "setName": "Double Masters",
+        "collectorNumber": "105",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Silumgar+Scavenger&language=1&minCondition=2"
+    },
+    {
+      "card": "Skull Skaab",
+      "price": 0.08,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "vow",
+        "setName": "Innistrad: Crimson Vow",
+        "collectorNumber": "248",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Skull+Skaab&language=1&minCondition=2"
+    },
+    {
+      "card": "Sol Ring",
+      "price": 0.68,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "c16",
+        "setName": "Commander 2016",
+        "collectorNumber": "272",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Sol+Ring&language=1&minCondition=2"
+    },
+    {
+      "card": "Stronghold Assassin",
+      "price": 1.39,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "7ed",
+        "setName": "Seventh Edition",
+        "collectorNumber": "166",
+        "language": "en",
+        "border": "white",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Stronghold+Assassin&language=1&minCondition=2"
+    },
+    {
+      "card": "Tablet of Compleation",
+      "price": 0.15,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "one",
+        "setName": "Phyrexia: All Will Be One",
+        "collectorNumber": "245",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Tablet+of+Compleation&language=1&minCondition=2"
+    },
+    {
+      "card": "The Soul Stone",
+      "price": 50,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "spm",
+        "setName": "Marvel's Spider-Man",
+        "collectorNumber": "242",
+        "language": "en",
+        "border": "borderless",
+        "finish": "foil",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=The+Soul+Stone&language=1&minCondition=2"
+    },
+    {
+      "card": "Thran Dynamo",
+      "price": 2.11,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "msc",
+        "setName": "Marvel Super Heroes Commander",
+        "collectorNumber": "290",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Thran+Dynamo&language=1&minCondition=2"
+    },
+    {
+      "card": "Tomb Tyrant",
+      "price": 2.48,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "mic",
+        "setName": "Midnight Hunt Commander",
+        "collectorNumber": "23",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Tomb+Tyrant&language=1&minCondition=2"
+    },
+    {
+      "card": "Undead Augur",
+      "price": 0.2,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "drc",
+        "setName": "Aetherdrift Commander",
+        "collectorNumber": "100",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Undead+Augur&language=1&minCondition=2"
+    },
+    {
+      "card": "Undercity Necrolisk",
+      "price": 0.04,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "grn",
+        "setName": "Guilds of Ravnica",
+        "collectorNumber": "87",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Undercity+Necrolisk&language=1&minCondition=2"
+    },
+    {
+      "card": "Vengeful Dead",
+      "price": 0.21,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "fdc",
+        "setName": "Foundations Commander",
+        "collectorNumber": "132",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Vengeful+Dead&language=1&minCondition=2"
+    },
+    {
+      "card": "Vesper Ghoul",
+      "price": 0.12,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "dis",
+        "setName": "Dissension",
+        "collectorNumber": "57",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Vesper+Ghoul&language=1&minCondition=2"
+    },
+    {
+      "card": "Voracious Null",
+      "price": 0.05,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "bfz",
+        "setName": "Battle for Zendikar",
+        "collectorNumber": "125",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Voracious+Null&language=1&minCondition=2"
+    },
+    {
+      "card": "Wight",
+      "price": 0.02,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "pafr",
+        "setName": "Adventures in the Forgotten Realms Promos",
+        "collectorNumber": "127a",
+        "language": "en",
+        "border": "black",
+        "finish": "foil",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Wight&language=1&minCondition=2"
+    },
+    {
+      "card": "Command Tower",
+      "price": 0.18,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "cmm",
+        "setName": "Commander Masters",
+        "collectorNumber": "420",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Command+Tower&language=1&minCondition=2"
+    },
+    {
+      "card": "Exotic Orchard",
+      "price": 0.16,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "ncc",
+        "setName": "New Capenna Commander",
+        "collectorNumber": "400",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Exotic+Orchard&language=1&minCondition=2"
+    },
+    {
+      "card": "Island",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "eld",
+        "setName": "Throne of Eldraine",
+        "collectorNumber": "255",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Island&language=1&minCondition=2"
+    },
+    {
+      "card": "Island",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "eld",
+        "setName": "Throne of Eldraine",
+        "collectorNumber": "255",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Island&language=1&minCondition=2"
+    },
+    {
+      "card": "Island",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "eld",
+        "setName": "Throne of Eldraine",
+        "collectorNumber": "255",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Island&language=1&minCondition=2"
+    },
+    {
+      "card": "Island",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "eld",
+        "setName": "Throne of Eldraine",
+        "collectorNumber": "255",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Island&language=1&minCondition=2"
+    },
+    {
+      "card": "Island",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "eld",
+        "setName": "Throne of Eldraine",
+        "collectorNumber": "255",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Island&language=1&minCondition=2"
+    },
+    {
+      "card": "Island",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "eld",
+        "setName": "Throne of Eldraine",
+        "collectorNumber": "255",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Island&language=1&minCondition=2"
+    },
+    {
+      "card": "Island",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "eld",
+        "setName": "Throne of Eldraine",
+        "collectorNumber": "255",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Island&language=1&minCondition=2"
+    },
+    {
+      "card": "Island",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "eld",
+        "setName": "Throne of Eldraine",
+        "collectorNumber": "255",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Island&language=1&minCondition=2"
+    },
+    {
+      "card": "Island",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "eld",
+        "setName": "Throne of Eldraine",
+        "collectorNumber": "255",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Island&language=1&minCondition=2"
+    },
+    {
+      "card": "Island",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "eld",
+        "setName": "Throne of Eldraine",
+        "collectorNumber": "255",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Island&language=1&minCondition=2"
+    },
+    {
+      "card": "Island",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "eld",
+        "setName": "Throne of Eldraine",
+        "collectorNumber": "255",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Island&language=1&minCondition=2"
+    },
+    {
+      "card": "Island",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "eld",
+        "setName": "Throne of Eldraine",
+        "collectorNumber": "255",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Island&language=1&minCondition=2"
+    },
+    {
+      "card": "Mirrodin's Core",
+      "price": 0.19,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "cns",
+        "setName": "Conspiracy",
+        "collectorNumber": "208",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Mirrodin%27s+Core&language=1&minCondition=2"
+    },
+    {
+      "card": "River of Tears",
+      "price": 0.18,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "brc",
+        "setName": "The Brothers' War Commander",
+        "collectorNumber": "197",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=River+of+Tears&language=1&minCondition=2"
+    },
+    {
+      "card": "Rootwater Depths",
+      "price": 0.2,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "plst",
+        "setName": "The List",
+        "collectorNumber": "TMP-323",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Rootwater+Depths&language=1&minCondition=2"
+    },
+    {
+      "card": "Spire of Industry",
+      "price": 0.21,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "drc",
+        "setName": "Aetherdrift Commander",
+        "collectorNumber": "172",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Spire+of+Industry&language=1&minCondition=2"
+    },
+    {
+      "card": "Swamp",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "jmp",
+        "setName": "Jumpstart",
+        "collectorNumber": "59",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Swamp&language=1&minCondition=2"
+    },
+    {
+      "card": "Swamp",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "jmp",
+        "setName": "Jumpstart",
+        "collectorNumber": "59",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Swamp&language=1&minCondition=2"
+    },
+    {
+      "card": "Swamp",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "jmp",
+        "setName": "Jumpstart",
+        "collectorNumber": "59",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Swamp&language=1&minCondition=2"
+    },
+    {
+      "card": "Swamp",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "jmp",
+        "setName": "Jumpstart",
+        "collectorNumber": "59",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Swamp&language=1&minCondition=2"
+    },
+    {
+      "card": "Swamp",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "jmp",
+        "setName": "Jumpstart",
+        "collectorNumber": "59",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Swamp&language=1&minCondition=2"
+    },
+    {
+      "card": "Swamp",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "jmp",
+        "setName": "Jumpstart",
+        "collectorNumber": "59",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Swamp&language=1&minCondition=2"
+    },
+    {
+      "card": "Swamp",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "jmp",
+        "setName": "Jumpstart",
+        "collectorNumber": "59",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Swamp&language=1&minCondition=2"
+    },
+    {
+      "card": "Swamp",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "jmp",
+        "setName": "Jumpstart",
+        "collectorNumber": "59",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Swamp&language=1&minCondition=2"
+    },
+    {
+      "card": "Swamp",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "jmp",
+        "setName": "Jumpstart",
+        "collectorNumber": "59",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Swamp&language=1&minCondition=2"
+    },
+    {
+      "card": "Swamp",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "jmp",
+        "setName": "Jumpstart",
+        "collectorNumber": "59",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Swamp&language=1&minCondition=2"
+    },
+    {
+      "card": "Swamp",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "jmp",
+        "setName": "Jumpstart",
+        "collectorNumber": "59",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Swamp&language=1&minCondition=2"
+    },
+    {
+      "card": "Swamp",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "jmp",
+        "setName": "Jumpstart",
+        "collectorNumber": "59",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Swamp&language=1&minCondition=2"
+    },
+    {
+      "card": "Swamp",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "jmp",
+        "setName": "Jumpstart",
+        "collectorNumber": "59",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Swamp&language=1&minCondition=2"
+    },
+    {
+      "card": "Swamp",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "jmp",
+        "setName": "Jumpstart",
+        "collectorNumber": "59",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Swamp&language=1&minCondition=2"
+    },
+    {
+      "card": "Swamp",
+      "price": 0,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "jmp",
+        "setName": "Jumpstart",
+        "collectorNumber": "59",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Swamp&language=1&minCondition=2"
+    },
+    {
+      "card": "Tendo Ice Bridge",
+      "price": 0.22,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "m3c",
+        "setName": "Modern Horizons 3 Commander",
+        "collectorNumber": "393",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Tendo+Ice+Bridge&language=1&minCondition=2"
+    },
+    {
+      "card": "The Grey Havens",
+      "price": 0.16,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "ltr",
+        "setName": "The Lord of the Rings: Tales of Middle-earth",
+        "collectorNumber": "255",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=The+Grey+Havens&language=1&minCondition=2"
+    },
+    {
+      "card": "Waterveil Cavern",
+      "price": 0.13,
+      "unpriced": false,
+      "issue": null,
+      "baseEur": null,
+      "printing": {
+        "set": "chk",
+        "setName": "Champions of Kamigawa",
+        "collectorNumber": "286",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "cardmarketUrl": "https://www.cardmarket.com/en/Magic/Products/Search?searchQuery=Waterveil+Cavern&language=1&minCondition=2"
+    }
+  ],
+  "total": 102.06,
+  "count": 100,
+  "missing": [],
+  "agreesWithGenerator": true,
+  "withinBudget": true,
+  "provenance": "exact-selected-cards",
+  "anomalies": [],
+  "selectedPrintings": [
+    {
+      "id": "eada96a1-4964-4ad0-b0e3-2df08d6ae188",
+      "name": "Wilhelt, the Rotcleaver",
+      "price": 9.36,
+      "printing": {
+        "set": "mic",
+        "setName": "Midnight Hunt Commander",
+        "collectorNumber": "2",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "2b211adb-de44-4468-b65d-907a09aa7e9d",
+      "name": "Abattoir Ghoul",
+      "price": 0.14,
+      "printing": {
+        "set": "ddq",
+        "setName": "Duel Decks: Blessed vs. Cursed",
+        "collectorNumber": "50",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "b1e6921e-e460-4e58-82b0-d98ee31c279d",
+      "name": "Accursed Centaur",
+      "price": 0.06,
+      "printing": {
+        "set": "ons",
+        "setName": "Onslaught",
+        "collectorNumber": "123",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "8f3cba20-e7a4-47f4-8bce-90168ce9cc5c",
+      "name": "Accursed Horde",
+      "price": 0.12,
+      "printing": {
+        "set": "gn2",
+        "setName": "Game Night 2019",
+        "collectorNumber": "26",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "0bc7f093-bef0-4f1a-852c-4b75ebf54838",
+      "name": "Arcane Signet",
+      "price": 0.38,
+      "printing": {
+        "set": "c20",
+        "setName": "Commander 2020",
+        "collectorNumber": "237",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "8a7183cc-161c-444d-a889-a17519c8061b",
+      "name": "Arcanis the Omnipotent",
+      "price": 0.22,
+      "printing": {
+        "set": "dmr",
+        "setName": "Dominaria Remastered",
+        "collectorNumber": "39",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "575ffeb4-6d12-4f69-bcc9-15db325daac1",
+      "name": "Archghoul of Thraben",
+      "price": 0.12,
+      "printing": {
+        "set": "vow",
+        "setName": "Innistrad: Crimson Vow",
+        "collectorNumber": "93",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "d137586f-83b0-40af-8100-443460b07ac0",
+      "name": "Archivist",
+      "price": 0.26,
+      "printing": {
+        "set": "9ed",
+        "setName": "Ninth Edition",
+        "collectorNumber": "60",
+        "language": "en",
+        "border": "white",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "c3adc698-a0c5-4c82-8347-536745c9e928",
+      "name": "Boneyard Desecrator",
+      "price": 0.13,
+      "printing": {
+        "set": "otj",
+        "setName": "Outlaws of Thunder Junction",
+        "collectorNumber": "81",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "eef40ab2-9e17-4e8d-9e58-1a82ab871b5b",
+      "name": "Boneyard Scourge",
+      "price": 5.47,
+      "printing": {
+        "set": "c17",
+        "setName": "Commander 2017",
+        "collectorNumber": "15",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "3b9369ae-8827-45d1-af85-c777cde8e1bc",
+      "name": "Brain Gorgers",
+      "price": 0.16,
+      "printing": {
+        "set": "plc",
+        "setName": "Planar Chaos",
+        "collectorNumber": "65",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "a1cc5e37-b09a-4b7f-afd5-77c1c35aa425",
+      "name": "Carrion Feeder",
+      "price": 2.59,
+      "printing": {
+        "set": "fdc",
+        "setName": "Foundations Commander",
+        "collectorNumber": "88",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "70fa209f-5e79-44de-81ce-1d8d0d8c1006",
+      "name": "Cemetery Reaper",
+      "price": 0.26,
+      "printing": {
+        "set": "drc",
+        "setName": "Aetherdrift Commander",
+        "collectorNumber": "87",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "06eb43af-637a-4f73-8071-a7036d4c8c3d",
+      "name": "Corpse Augur",
+      "price": 0.11,
+      "printing": {
+        "set": "plst",
+        "setName": "The List",
+        "collectorNumber": "C15-17",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "5cb2e859-7737-4b25-a6be-b72e7b5bfada",
+      "name": "Corpse Blockade",
+      "price": 0.08,
+      "printing": {
+        "set": "gtc",
+        "setName": "Gatecrash",
+        "collectorNumber": "60",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "a89ad91e-2bc2-45f4-b32c-fb2b67a2019e",
+      "name": "Curator's Ward",
+      "price": 0.3,
+      "printing": {
+        "set": "dom",
+        "setName": "Dominaria",
+        "collectorNumber": "49",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "5bf39f9e-4f06-4637-b0fc-5d21b926f6f4",
+      "name": "Dauthi Ghoul",
+      "price": 0.55,
+      "printing": {
+        "set": "tmp",
+        "setName": "Tempest",
+        "collectorNumber": "121",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "70de24d9-c585-4bf6-ac2c-c5b4b7aa298c",
+      "name": "Diregraf Captain",
+      "price": 0.23,
+      "printing": {
+        "set": "ddq",
+        "setName": "Duel Decks: Blessed vs. Cursed",
+        "collectorNumber": "68",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "118cf682-a532-42e9-8d91-6ce6f0d31ace",
+      "name": "Dreadmalkin",
+      "price": 0.07,
+      "printing": {
+        "set": "war",
+        "setName": "War of the Spark",
+        "collectorNumber": "87",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "18dd694f-e239-4603-85fd-b34b028ff6a4",
+      "name": "Fell Stinger",
+      "price": 0.15,
+      "printing": {
+        "set": "plst",
+        "setName": "The List",
+        "collectorNumber": "VOW-112",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "284db94d-e583-4355-89fd-6c0906f9d17e",
+      "name": "Feral Ghoul",
+      "price": 1.21,
+      "printing": {
+        "set": "pip",
+        "setName": "Fallout",
+        "collectorNumber": "44",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "95ccb4a6-6e45-4c00-b7c6-25384022c02f",
+      "name": "Gavony Unhallowed",
+      "price": 0.06,
+      "printing": {
+        "set": "gn3",
+        "setName": "Game Night: Free-for-All",
+        "collectorNumber": "51",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "80433c2c-5196-42e0-b9fa-d7b12783f5fd",
+      "name": "Giant's Boulder",
+      "price": 0.42,
+      "printing": {
+        "set": "hob",
+        "setName": "The Hobbit",
+        "collectorNumber": "173",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "7979c1e6-6bc5-4b8c-82b0-2770e67ba898",
+      "name": "Gnawing Zombie",
+      "price": 0.04,
+      "printing": {
+        "set": "m14",
+        "setName": "Magic 2014",
+        "collectorNumber": "99",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "8bd41805-5903-4f3f-927e-2391f0ab9478",
+      "name": "Graf Reaver",
+      "price": 0.14,
+      "printing": {
+        "set": "vow",
+        "setName": "Innistrad: Crimson Vow",
+        "collectorNumber": "115",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "fe388da5-9197-4d07-be7f-c49fcdf56dfa",
+      "name": "Grimgrin, Corpse-Born // Grimgrin, Corpse-Born",
+      "price": 10.77,
+      "printing": {
+        "set": "sld",
+        "setName": "Secret Lair Drop",
+        "collectorNumber": "1461",
+        "language": "en",
+        "border": "borderless",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "5ebc166d-98c5-4ab7-9610-bc5bcd231d80",
+      "name": "Gutless Ghoul",
+      "price": 0.13,
+      "printing": {
+        "set": "csp",
+        "setName": "Coldsnap",
+        "collectorNumber": "60",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "d4fdacd7-3101-44e2-a880-dde7326137a4",
+      "name": "Headless Rider",
+      "price": 1.36,
+      "printing": {
+        "set": "fdc",
+        "setName": "Foundations Commander",
+        "collectorNumber": "106",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "76dfa5c2-1ea6-4f89-9903-26998636845e",
+      "name": "Hithlain Rope",
+      "price": 0.47,
+      "printing": {
+        "set": "ltc",
+        "setName": "Tales of Middle-earth Commander",
+        "collectorNumber": "76",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "4a7a55a3-568c-4c31-9460-5b94dc0121d8",
+      "name": "Hungry Ghoul",
+      "price": 0.13,
+      "printing": {
+        "set": "fdn",
+        "setName": "Foundations",
+        "collectorNumber": "62",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "83409a22-10de-4d51-90a3-e0579ca8cbea",
+      "name": "Insight Engine",
+      "price": 2.2,
+      "printing": {
+        "set": "eoc",
+        "setName": "Edge of Eternities Commander",
+        "collectorNumber": "6",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "294c1fed-9473-4fbe-b10e-71a7a432b98d",
+      "name": "Jarl of the Forsaken",
+      "price": 0.03,
+      "printing": {
+        "set": "khm",
+        "setName": "Kaldheim",
+        "collectorNumber": "100",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "5c4f1f94-9916-49aa-956a-c1c6b299b24f",
+      "name": "Jason Bright, Glowing Prophet",
+      "price": 0.77,
+      "printing": {
+        "set": "pip",
+        "setName": "Fallout",
+        "collectorNumber": "32",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "7b600c0e-5ad2-48a2-a147-346ca78c8629",
+      "name": "Liliana's Standard Bearer",
+      "price": 0.24,
+      "printing": {
+        "set": "m21",
+        "setName": "Core Set 2021",
+        "collectorNumber": "110",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "e8c7566d-7cc0-48af-a986-83223ec7e06c",
+      "name": "Midnight Reaper",
+      "price": 0.17,
+      "printing": {
+        "set": "fdc",
+        "setName": "Foundations Commander",
+        "collectorNumber": "114",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "c97361b5-af16-4a7b-af85-a429dbaf4ad2",
+      "name": "Mind Stone",
+      "price": 0.17,
+      "printing": {
+        "set": "c18",
+        "setName": "Commander 2018",
+        "collectorNumber": "210",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "e0f47fe2-9e97-400e-98c1-a80ca8be66f3",
+      "name": "Mindleech Ghoul",
+      "price": 0.1,
+      "printing": {
+        "set": "vow",
+        "setName": "Innistrad: Crimson Vow",
+        "collectorNumber": "122",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "1080c5b5-6651-4c6a-93e6-099fbe389e26",
+      "name": "Murderous Rider // Swift End",
+      "price": 0.24,
+      "printing": {
+        "set": "plst",
+        "setName": "The List",
+        "collectorNumber": "ELD-97",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "2e728381-6db0-4c66-883d-82d718fef833",
+      "name": "My Precious // Allure of Power",
+      "price": 1.46,
+      "printing": {
+        "set": "hob",
+        "setName": "The Hobbit",
+        "collectorNumber": "176",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "0dcefc00-9425-43e3-bd47-1e34fff8b0e2",
+      "name": "Nantuko Husk",
+      "price": 0.09,
+      "printing": {
+        "set": "ori",
+        "setName": "Magic Origins",
+        "collectorNumber": "109",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "6732a587-e3cc-4c30-9267-f8949dd8724a",
+      "name": "Necrosavant",
+      "price": 0.02,
+      "printing": {
+        "set": "dmr",
+        "setName": "Dominaria Remastered",
+        "collectorNumber": "93",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "d4838305-5392-42b2-81d1-9b9da71b20b1",
+      "name": "Overcharged Amalgam",
+      "price": 0.42,
+      "printing": {
+        "set": "clb",
+        "setName": "Commander Legends: Battle for Baldur's Gate",
+        "collectorNumber": "729",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "74cbe86b-cc8c-4a5f-93c3-f4eaced50393",
+      "name": "Patchwork Crawler",
+      "price": 0.16,
+      "printing": {
+        "set": "vow",
+        "setName": "Innistrad: Crimson Vow",
+        "collectorNumber": "72",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "748c2723-dc59-4aa7-9667-d4679448c8b6",
+      "name": "Phyrexian Ghoul",
+      "price": 0.06,
+      "printing": {
+        "set": "a25",
+        "setName": "Masters 25",
+        "collectorNumber": "100",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "f086a82d-8dbe-4d02-a076-03789704e9d4",
+      "name": "Plague Belcher",
+      "price": 0.41,
+      "printing": {
+        "set": "drc",
+        "setName": "Aetherdrift Commander",
+        "collectorNumber": "97",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "20d09deb-6b78-4aa9-93c2-81385e0091a9",
+      "name": "Ragamuffyn",
+      "price": 0.11,
+      "printing": {
+        "set": "dis",
+        "setName": "Dissension",
+        "collectorNumber": "51",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "7932ddef-b274-4f56-be7f-72e82d17fc59",
+      "name": "Repository Skaab",
+      "price": 0.12,
+      "printing": {
+        "set": "vow",
+        "setName": "Innistrad: Crimson Vow",
+        "collectorNumber": "73",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "56f3f1b4-c36a-41f3-95a1-45e9d7e74cf9",
+      "name": "Sedraxis Alchemist",
+      "price": 0.18,
+      "printing": {
+        "set": "con",
+        "setName": "Conflux",
+        "collectorNumber": "54",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "04936cc9-c915-4182-b84a-3491d26be548",
+      "name": "Sepulcher Ghoul",
+      "price": 0.09,
+      "printing": {
+        "set": "afr",
+        "setName": "Adventures in the Forgotten Realms",
+        "collectorNumber": "118",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "72074972-418d-4dce-83cf-ce8cf310fc42",
+      "name": "Sidisi, Regent of the Mire",
+      "price": 0.29,
+      "printing": {
+        "set": "tdm",
+        "setName": "Tarkir: Dragonstorm",
+        "collectorNumber": "92",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "ce068b46-9301-42fb-9db1-9c0da5275d89",
+      "name": "Silumgar Scavenger",
+      "price": 0.08,
+      "printing": {
+        "set": "2xm",
+        "setName": "Double Masters",
+        "collectorNumber": "105",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "c73839bf-7500-4fd4-aa2b-e2e2e157784d",
+      "name": "Skull Skaab",
+      "price": 0.08,
+      "printing": {
+        "set": "vow",
+        "setName": "Innistrad: Crimson Vow",
+        "collectorNumber": "248",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "6ad8011d-3471-4369-9d68-b264cc027487",
+      "name": "Sol Ring",
+      "price": 0.68,
+      "printing": {
+        "set": "c16",
+        "setName": "Commander 2016",
+        "collectorNumber": "272",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "35826db0-b6ff-47b5-be16-c5b878d9e842",
+      "name": "Stronghold Assassin",
+      "price": 1.39,
+      "printing": {
+        "set": "7ed",
+        "setName": "Seventh Edition",
+        "collectorNumber": "166",
+        "language": "en",
+        "border": "white",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "6eca2ac9-16ba-4a11-b6ee-3caf2d7d8254",
+      "name": "Tablet of Compleation",
+      "price": 0.15,
+      "printing": {
+        "set": "one",
+        "setName": "Phyrexia: All Will Be One",
+        "collectorNumber": "245",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "92cfba68-12f6-4f97-9187-0f6a39656a0f",
+      "name": "The Soul Stone",
+      "price": 50,
+      "printing": {
+        "set": "spm",
+        "setName": "Marvel's Spider-Man",
+        "collectorNumber": "242",
+        "language": "en",
+        "border": "borderless",
+        "finish": "foil",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "a699c663-8131-4045-9265-a83e86609374",
+      "name": "Thran Dynamo",
+      "price": 2.11,
+      "printing": {
+        "set": "msc",
+        "setName": "Marvel Super Heroes Commander",
+        "collectorNumber": "290",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "0fb2c61a-9e74-4ee2-810a-b77a3b45f446",
+      "name": "Tomb Tyrant",
+      "price": 2.48,
+      "printing": {
+        "set": "mic",
+        "setName": "Midnight Hunt Commander",
+        "collectorNumber": "23",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "c26887e1-27f4-4550-921b-53460e43c079",
+      "name": "Undead Augur",
+      "price": 0.2,
+      "printing": {
+        "set": "drc",
+        "setName": "Aetherdrift Commander",
+        "collectorNumber": "100",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "b3418d92-81de-4575-b8da-563be6b31b91",
+      "name": "Undercity Necrolisk",
+      "price": 0.04,
+      "printing": {
+        "set": "grn",
+        "setName": "Guilds of Ravnica",
+        "collectorNumber": "87",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "277c8ee9-0157-4e45-96ad-1b67716955ee",
+      "name": "Vengeful Dead",
+      "price": 0.21,
+      "printing": {
+        "set": "fdc",
+        "setName": "Foundations Commander",
+        "collectorNumber": "132",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "c45562ce-5d1a-4ad4-82f8-92199520ae87",
+      "name": "Vesper Ghoul",
+      "price": 0.12,
+      "printing": {
+        "set": "dis",
+        "setName": "Dissension",
+        "collectorNumber": "57",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "0f92daf5-520d-472a-a835-e6680a92fdab",
+      "name": "Voracious Null",
+      "price": 0.05,
+      "printing": {
+        "set": "bfz",
+        "setName": "Battle for Zendikar",
+        "collectorNumber": "125",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "0a07a676-890f-49a2-9a2d-17d7b1dc6868",
+      "name": "Wight",
+      "price": 0.02,
+      "printing": {
+        "set": "pafr",
+        "setName": "Adventures in the Forgotten Realms Promos",
+        "collectorNumber": "127a",
+        "language": "en",
+        "border": "black",
+        "finish": "foil",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "0895c9b7-ae7d-4bb3-af17-3b75deb50a25",
+      "name": "Command Tower",
+      "price": 0.18,
+      "printing": {
+        "set": "cmm",
+        "setName": "Commander Masters",
+        "collectorNumber": "420",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "27b047e3-0d41-45e2-98e9-9391d7923a1e",
+      "name": "Exotic Orchard",
+      "price": 0.16,
+      "printing": {
+        "set": "ncc",
+        "setName": "New Capenna Commander",
+        "collectorNumber": "400",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "b2c6aa39-2d2a-459c-a555-fb48ba993373",
+      "name": "Island",
+      "price": 0,
+      "printing": {
+        "set": "eld",
+        "setName": "Throne of Eldraine",
+        "collectorNumber": "255",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "b2c6aa39-2d2a-459c-a555-fb48ba993373",
+      "name": "Island",
+      "price": 0,
+      "printing": {
+        "set": "eld",
+        "setName": "Throne of Eldraine",
+        "collectorNumber": "255",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "b2c6aa39-2d2a-459c-a555-fb48ba993373",
+      "name": "Island",
+      "price": 0,
+      "printing": {
+        "set": "eld",
+        "setName": "Throne of Eldraine",
+        "collectorNumber": "255",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "b2c6aa39-2d2a-459c-a555-fb48ba993373",
+      "name": "Island",
+      "price": 0,
+      "printing": {
+        "set": "eld",
+        "setName": "Throne of Eldraine",
+        "collectorNumber": "255",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "b2c6aa39-2d2a-459c-a555-fb48ba993373",
+      "name": "Island",
+      "price": 0,
+      "printing": {
+        "set": "eld",
+        "setName": "Throne of Eldraine",
+        "collectorNumber": "255",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "b2c6aa39-2d2a-459c-a555-fb48ba993373",
+      "name": "Island",
+      "price": 0,
+      "printing": {
+        "set": "eld",
+        "setName": "Throne of Eldraine",
+        "collectorNumber": "255",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "b2c6aa39-2d2a-459c-a555-fb48ba993373",
+      "name": "Island",
+      "price": 0,
+      "printing": {
+        "set": "eld",
+        "setName": "Throne of Eldraine",
+        "collectorNumber": "255",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "b2c6aa39-2d2a-459c-a555-fb48ba993373",
+      "name": "Island",
+      "price": 0,
+      "printing": {
+        "set": "eld",
+        "setName": "Throne of Eldraine",
+        "collectorNumber": "255",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "b2c6aa39-2d2a-459c-a555-fb48ba993373",
+      "name": "Island",
+      "price": 0,
+      "printing": {
+        "set": "eld",
+        "setName": "Throne of Eldraine",
+        "collectorNumber": "255",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "b2c6aa39-2d2a-459c-a555-fb48ba993373",
+      "name": "Island",
+      "price": 0,
+      "printing": {
+        "set": "eld",
+        "setName": "Throne of Eldraine",
+        "collectorNumber": "255",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "b2c6aa39-2d2a-459c-a555-fb48ba993373",
+      "name": "Island",
+      "price": 0,
+      "printing": {
+        "set": "eld",
+        "setName": "Throne of Eldraine",
+        "collectorNumber": "255",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "b2c6aa39-2d2a-459c-a555-fb48ba993373",
+      "name": "Island",
+      "price": 0,
+      "printing": {
+        "set": "eld",
+        "setName": "Throne of Eldraine",
+        "collectorNumber": "255",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "ea53adbe-3f9a-4847-87c7-723ac2789918",
+      "name": "Mirrodin's Core",
+      "price": 0.19,
+      "printing": {
+        "set": "cns",
+        "setName": "Conspiracy",
+        "collectorNumber": "208",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "8a83d284-75a0-4901-b7d9-c4b7586ee327",
+      "name": "River of Tears",
+      "price": 0.18,
+      "printing": {
+        "set": "brc",
+        "setName": "The Brothers' War Commander",
+        "collectorNumber": "197",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "2d28c83a-7415-4eb0-95a6-6245f2169d17",
+      "name": "Rootwater Depths",
+      "price": 0.2,
+      "printing": {
+        "set": "plst",
+        "setName": "The List",
+        "collectorNumber": "TMP-323",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "55a519b4-61cb-448a-875b-4d6dbe00580f",
+      "name": "Spire of Industry",
+      "price": 0.21,
+      "printing": {
+        "set": "drc",
+        "setName": "Aetherdrift Commander",
+        "collectorNumber": "172",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "56719f6a-1a6c-4c0a-8d21-18f7d7350b68",
+      "name": "Swamp",
+      "price": 0,
+      "printing": {
+        "set": "jmp",
+        "setName": "Jumpstart",
+        "collectorNumber": "59",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "56719f6a-1a6c-4c0a-8d21-18f7d7350b68",
+      "name": "Swamp",
+      "price": 0,
+      "printing": {
+        "set": "jmp",
+        "setName": "Jumpstart",
+        "collectorNumber": "59",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "56719f6a-1a6c-4c0a-8d21-18f7d7350b68",
+      "name": "Swamp",
+      "price": 0,
+      "printing": {
+        "set": "jmp",
+        "setName": "Jumpstart",
+        "collectorNumber": "59",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "56719f6a-1a6c-4c0a-8d21-18f7d7350b68",
+      "name": "Swamp",
+      "price": 0,
+      "printing": {
+        "set": "jmp",
+        "setName": "Jumpstart",
+        "collectorNumber": "59",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "56719f6a-1a6c-4c0a-8d21-18f7d7350b68",
+      "name": "Swamp",
+      "price": 0,
+      "printing": {
+        "set": "jmp",
+        "setName": "Jumpstart",
+        "collectorNumber": "59",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "56719f6a-1a6c-4c0a-8d21-18f7d7350b68",
+      "name": "Swamp",
+      "price": 0,
+      "printing": {
+        "set": "jmp",
+        "setName": "Jumpstart",
+        "collectorNumber": "59",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "56719f6a-1a6c-4c0a-8d21-18f7d7350b68",
+      "name": "Swamp",
+      "price": 0,
+      "printing": {
+        "set": "jmp",
+        "setName": "Jumpstart",
+        "collectorNumber": "59",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "56719f6a-1a6c-4c0a-8d21-18f7d7350b68",
+      "name": "Swamp",
+      "price": 0,
+      "printing": {
+        "set": "jmp",
+        "setName": "Jumpstart",
+        "collectorNumber": "59",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "56719f6a-1a6c-4c0a-8d21-18f7d7350b68",
+      "name": "Swamp",
+      "price": 0,
+      "printing": {
+        "set": "jmp",
+        "setName": "Jumpstart",
+        "collectorNumber": "59",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "56719f6a-1a6c-4c0a-8d21-18f7d7350b68",
+      "name": "Swamp",
+      "price": 0,
+      "printing": {
+        "set": "jmp",
+        "setName": "Jumpstart",
+        "collectorNumber": "59",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "56719f6a-1a6c-4c0a-8d21-18f7d7350b68",
+      "name": "Swamp",
+      "price": 0,
+      "printing": {
+        "set": "jmp",
+        "setName": "Jumpstart",
+        "collectorNumber": "59",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "56719f6a-1a6c-4c0a-8d21-18f7d7350b68",
+      "name": "Swamp",
+      "price": 0,
+      "printing": {
+        "set": "jmp",
+        "setName": "Jumpstart",
+        "collectorNumber": "59",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "56719f6a-1a6c-4c0a-8d21-18f7d7350b68",
+      "name": "Swamp",
+      "price": 0,
+      "printing": {
+        "set": "jmp",
+        "setName": "Jumpstart",
+        "collectorNumber": "59",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "56719f6a-1a6c-4c0a-8d21-18f7d7350b68",
+      "name": "Swamp",
+      "price": 0,
+      "printing": {
+        "set": "jmp",
+        "setName": "Jumpstart",
+        "collectorNumber": "59",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "56719f6a-1a6c-4c0a-8d21-18f7d7350b68",
+      "name": "Swamp",
+      "price": 0,
+      "printing": {
+        "set": "jmp",
+        "setName": "Jumpstart",
+        "collectorNumber": "59",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "9e006a4b-8dde-4416-8cb4-8401562d0fd5",
+      "name": "Tendo Ice Bridge",
+      "price": 0.22,
+      "printing": {
+        "set": "m3c",
+        "setName": "Modern Horizons 3 Commander",
+        "collectorNumber": "393",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "a1a9695e-073b-4a65-b3ec-2cfddc23202a",
+      "name": "The Grey Havens",
+      "price": 0.16,
+      "printing": {
+        "set": "ltr",
+        "setName": "The Lord of the Rings: Tales of Middle-earth",
+        "collectorNumber": "255",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    },
+    {
+      "id": "3debfa0d-9945-4a85-a714-7c3d3d74de4e",
+      "name": "Waterveil Cavern",
+      "price": 0.13,
+      "printing": {
+        "set": "chk",
+        "setName": "Champions of Kamigawa",
+        "collectorNumber": "286",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      }
+    }
+  ]
+}

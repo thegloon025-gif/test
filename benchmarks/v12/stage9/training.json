@@ -1,0 +1,9 @@
+{
+  "reportFile": "training-report.json.gz",
+  "reportSHA256": "c4377054f069b97198d969e3cdbc50f0a1e1c4cf5cf4488ec8c4886e8d2c0540",
+  "uncompressedSHA256": "dba7cd3da32bf9267f48ae5eefc4bb8b94cad8328b811c68c6c8780ad35026ec",
+  "runs": 216,
+  "audited": 216,
+  "replayed": 216,
+  "runtimeMs": 9269
+}
