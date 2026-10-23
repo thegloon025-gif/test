@@ -1,0 +1,102 @@
+{
+  "discoverySHA256": "bddbda6ef2d5815b4fbb5d20c507d693a7f19cc03bcb64abb4701a29817fb478",
+  "vectors": 1080,
+  "vectorSHA256": "87aa5b28a512ab6ae8c0e11cb11389f9eb1786e601a0100584c9a2afd1a81b74",
+  "audited": 1080,
+  "replayed": 1080,
+  "profile": {
+    "simulationMs": 28407.24279899999,
+    "auditMs": 7028.172439999863,
+    "replayMs": 29029.12810099993,
+    "summaryMs": 390.0809629999583
+  },
+  "samples": [
+    {
+      "deck": "ulalek-b4-challenger-2",
+      "file": "ulalek-b4-challenger-2-legacy-control.json.gz",
+      "scenario": "control",
+      "tutorPolicy": "legacy",
+      "sha256": "de9b2baac1f8b4b862a68ed8bb10a995ee5fed6562f131dc41cb23a7f35e95f9"
+    },
+    {
+      "deck": "ulalek-b4-challenger-2",
+      "file": "ulalek-b4-challenger-2-legacy-commander-exile.json.gz",
+      "scenario": "commander-exile",
+      "tutorPolicy": "legacy",
+      "sha256": "9fddac7e70488eebfc8bb0d991e478f9e8aff097f587d827673a7c38d89c49d0"
+    },
+    {
+      "deck": "ulalek-b4-challenger-2",
+      "file": "ulalek-b4-challenger-2-legacy-creature-destroy.json.gz",
+      "scenario": "creature-destroy",
+      "tutorPolicy": "legacy",
+      "sha256": "39924afa409b8232f909b928adef32ebd075c532b3b8c2968d91fbfd74f2aca5"
+    },
+    {
+      "deck": "ulalek-b4-challenger-2",
+      "file": "ulalek-b4-challenger-2-legacy-artifact-exile.json.gz",
+      "scenario": "artifact-exile",
+      "tutorPolicy": "legacy",
+      "sha256": "77e4d08aeb2121c3a17b2442cdcf3c98e32f7eb9325706c12c889492372883a3"
+    },
+    {
+      "deck": "ulalek-b4-challenger-2",
+      "file": "ulalek-b4-challenger-2-legacy-compound-exile.json.gz",
+      "scenario": "compound-exile",
+      "tutorPolicy": "legacy",
+      "sha256": "84f36ff89a40a2d3df72681f9ba517618ed173cb32527eb672c998101e38e5a0"
+    },
+    {
+      "deck": "ulalek-b4-challenger-2",
+      "file": "ulalek-b4-challenger-2-legacy-engine-exile.json.gz",
+      "scenario": "engine-exile",
+      "tutorPolicy": "legacy",
+      "sha256": "48b709f4a97e71ed7f276be3697e9458b243c382409e5a6204532a8227bcc436"
+    },
+    {
+      "deck": "ulalek-b4-challenger-2",
+      "file": "ulalek-b4-challenger-2-state-aware-control.json.gz",
+      "scenario": "control",
+      "tutorPolicy": "state-aware",
+      "sha256": "5c7b7a57e5809f52d37e72ad222bb3bfabf12c4b92a43a8735e14897b2c86e02"
+    },
+    {
+      "deck": "ulalek-b4-challenger-2",
+      "file": "ulalek-b4-challenger-2-state-aware-commander-exile.json.gz",
+      "scenario": "commander-exile",
+      "tutorPolicy": "state-aware",
+      "sha256": "96b602696cac806878b546120824dba626cef181b0d82a5183741a893cafc517"
+    },
+    {
+      "deck": "ulalek-b4-challenger-2",
+      "file": "ulalek-b4-challenger-2-state-aware-creature-destroy.json.gz",
+      "scenario": "creature-destroy",
+      "tutorPolicy": "state-aware",
+      "sha256": "db8fecb6bdfda898ec7365ab3b0b2a84d020b4248c0737cdf279b578fdf131fa"
+    },
+    {
+      "deck": "ulalek-b4-challenger-2",
+      "file": "ulalek-b4-challenger-2-state-aware-artifact-exile.json.gz",
+      "scenario": "artifact-exile",
+      "tutorPolicy": "state-aware",
+      "sha256": "170fa77a0bc1ebfa6663f87f061b53c51b2f543f71ba7b9693edc72eb6fc88f2"
+    },
+    {
+      "deck": "ulalek-b4-challenger-2",
+      "file": "ulalek-b4-challenger-2-state-aware-compound-exile.json.gz",
+      "scenario": "compound-exile",
+      "tutorPolicy": "state-aware",
+      "sha256": "627777bf8bbffca1c97e7ed3a7be3f9d2e4bd438d1d550a6439940e9b4fac104"
+    },
+    {
+      "deck": "ulalek-b4-challenger-2",
+      "file": "ulalek-b4-challenger-2-state-aware-engine-exile.json.gz",
+      "scenario": "engine-exile",
+      "tutorPolicy": "state-aware",
+      "sha256": "f6f4f29b8fdcab83954860b8fb0abcaf6a62501dbf8c90b1fcb563e47031c11d"
+    }
+  ],
+  "runtimeMs": 67635,
+  "comparisonsFile": "training-comparisons.json.gz",
+  "comparisonsSHA256": "c116483e71034a6c0be65c02d2db291efe97103fb3fd4d56e38c14f9a178952c"
+}

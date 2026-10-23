@@ -12,7 +12,7 @@ Each specification requires `id`, `turn`, `effect:'destroy'|'exile'`, `commander
 - `creatures`: all modeled creature permanents, preserving unaffected artifacts/enchantments/lands (artifact creatures are creatures).
 - `nonland-types`: specified union of Artifact/Creature/Enchantment/Planeswalker, excluding lands.
 - `commander-and-mana`: commander plus nonland parsed mana/reduction permanents and explicit Add/cost-reduction text, including quoted Spawn/Scion mana text on token producers. It therefore removes some indirect-ramp/native outlet permanents too. This compound hypothesis is not attributed to one generic sweeper.
-- `engine`: all modeled battlefield instances of the specified exact card name. If absent, the event is not applicable.
+- `engine`: all modeled battlefield instances of the specified exact card name. If absent, the event is not applicable. A wholly indestructible target set also has no actual removal; its supported survivors distinguish it from an absent target.
 
 The injection records checkpoint state, exact affected physical identities/types, survivors and actual graveyard/exile moves. An owned commander may then move from graveyard/exile to command under the explicit choice; leaving it there does not create a free recast. Tokens first enter the destination zone, then cease. Real command-zone casts accumulate tax +2 each; spell/trigger copies do not. Existing generic reductions apply to generic tax where legal, and recasts pay actual exact costs. New commander instances untap/get summoning sickness normally. Hand/library, lands, life and other survivors are preserved.
 
@@ -24,7 +24,7 @@ Intrinsic `Indestructible` and exact `Artifacts you control have indestructible.
 
 `commanderRecast`, `firstNativeOrAccess`, `firstExecutedOutlet` and conditional table lethal are separate. Native/access is a paid copy-trigger or supported card draw/tutor/cascade receipt; actual resolved copies and damage must be checked as well. Recasting alone is not strategy recovery. Damage to one inert seat is not a game-winning threat; combat/response win-threat availability remains unknown. No universal recovery grade or “three-turn recovery” claim follows.
 
-Not reached, not applicable, unsupported unknown, terminal-before-evidence and censoring by T8/next event remain separate. No missing turn is imputed as a loss or zero. The ordinary terminal contract also marks interrupted unknown runs unknown and leaves T8 null. Unparsed static mechanics remain disclosed even for a completed supported-model run.
+Not reached, no actual removal (not applicable, including fully preserved targets), unsupported unknown, terminal-before-evidence and censoring by T8/next event remain separate. No missing turn is imputed as a loss or zero. The ordinary terminal contract also marks interrupted unknown runs unknown and leaves T8 null. Unparsed static mechanics remain disclosed even for a completed supported-model run.
 
 ## State-aware supported tutors
 

@@ -1,0 +1,17 @@
+{
+  "discoverySHA256": "bddbda6ef2d5815b4fbb5d20c507d693a7f19cc03bcb64abb4701a29817fb478",
+  "vectors": 4320,
+  "vectorSHA256": "e3c48242a05a7ae289545c289f70af22680a42218ed51e0f31100805ed6ed7d0",
+  "audited": 4320,
+  "replayed": 4320,
+  "profile": {
+    "simulationMs": 103059.09634400059,
+    "auditMs": 23638.478095000282,
+    "replayMs": 105959.70021499976,
+    "summaryMs": 1341.2492519999078
+  },
+  "samples": [],
+  "runtimeMs": 238441,
+  "comparisonsFile": "holdout-comparisons.json.gz",
+  "comparisonsSHA256": "27c873d1ac188fd8f7f14c5b9d776fa9d915a1e831f00c7e39af727a18652eab"
+}

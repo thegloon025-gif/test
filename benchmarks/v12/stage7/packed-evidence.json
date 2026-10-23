@@ -1,0 +1,26 @@
+{
+  "packerSHA256": "af47652ae23a43bd21b28bd6b9466a908882cc8919acb76bcbea0b675e6019c8",
+  "entries": [
+    {
+      "file": "training-comparisons.json.gz",
+      "bytes": 20754,
+      "expandedBytes": 1415937,
+      "sha256": "c116483e71034a6c0be65c02d2db291efe97103fb3fd4d56e38c14f9a178952c",
+      "expandedSHA256": "d89f9fb971adc55d2e3c9a37e7b1a5a6ed38c829202e47b661505015d8148295"
+    },
+    {
+      "file": "holdout-comparisons.json.gz",
+      "bytes": 30154,
+      "expandedBytes": 1492567,
+      "sha256": "27c873d1ac188fd8f7f14c5b9d776fa9d915a1e831f00c7e39af727a18652eab",
+      "expandedSHA256": "4f7e5b7738cf637976b5d0de126ca4244a442c305f9b70bed8dec6ca818183a4"
+    },
+    {
+      "file": "analysis.json.gz",
+      "bytes": 20294,
+      "expandedBytes": 1038809,
+      "sha256": "09253c4817fe746bdeef372c6d44c78cb8a838e193b485cfd870b786b73619fe",
+      "expandedSHA256": "25d56e0ed435ec008e25c6cd968f9706af80084921132d08d8da67001296c98d"
+    }
+  ]
+}
