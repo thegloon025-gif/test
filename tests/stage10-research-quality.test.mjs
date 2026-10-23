@@ -94,3 +94,7 @@ test('provider Retry-After/auth denial blocks other scopes without sleeping or i
  noteSpellbookResponse({status:403,headers:new Map()},args);await assert.rejects(waitForSpellbook(args),/403/);
  clock+=60000;noteSpellbookResponse({status:429,headers:new Map([['retry-after','259200']])},args);clock+=86400000;await assert.rejects(waitForSpellbook(args),/429/);clock+=172800000;await waitForSpellbook(args);
 });
+
+test('browser cache age includes generation time after the research read',()=>{
+ const text=researchSummary({commanderLookup:{status:'checked',variants:1,total:null,fetchedAt:'2026-10-24T00:00:00.000Z',cacheAgeMs:0}},{now:()=>Date.parse('2026-10-24T00:02:00.000Z')}).join('\n');assert.match(text,/120000|2 min old/);
+});

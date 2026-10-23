@@ -1,6 +1,6 @@
 /** Text-only research disclosures shared with tests; no source HTML is rendered. */
-export function researchSummary(a){
- const d=a.discovery||{},lines=[],age=r=>Number.isFinite(r.cacheAgeMs)?Math.floor(r.cacheAgeMs/60000)+' min old':'age unknown';
+export function researchSummary(a,{now=()=>Date.now()}={}){
+ const d=a.discovery||{},lines=[],age=r=>{const stamp=Date.parse(r.fetchedAt),elapsed=Number.isFinite(stamp)&&now()>=stamp?now()-stamp:null;const ms=elapsed===null?r.cacheAgeMs:Math.max(elapsed,r.cacheAgeMs||0);return Number.isFinite(ms)?Math.floor(ms/60000)+' min old':'age unknown';};
  lines.push('Archidekt: '+(d.status||'not-attempted')+' · '+(a.matchingSaved??'unknown')+' saved bracket-matched sources · '+(d.added||0)+' newly saved · '+(d.unknownBracket??'unknown')+' unlabeled previews excluded'+(d.truncated?' · bounded/truncated':'')+' · '+age(d));
  for(const source of d.structuralExamples||[])lines.push('Research source screening: '+source.title+' · structure '+(source.score??'unknown')+' / 100 · early ramp '+(source.earlyRamp??'unknown')+' (heuristic, not power).');
  for(const [label,r]of [['Commander-containing Spellbook candidates',a.commanderLookup],['Other color-compatible Spellbook candidates',a.colorLookup]]){
