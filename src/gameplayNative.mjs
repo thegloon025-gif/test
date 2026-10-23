@@ -1,4 +1,5 @@
 /** Strict native Oracle grammar and bounded own-stack execution. No ranking. */
+import {deathModel,deathMatches} from './gameplayDeath.mjs';
 import {createHash} from 'node:crypto';
 import {CompactNativeStack,colorlessUpperBound} from './gameplayNativeStack.mjs';
 import {outletModel} from './gameplayOutlets.mjs';
@@ -36,7 +37,7 @@ export function triggerMultipliers(source,zone,board,chosenType){const out=[];
  for(const b of board){const model=nativeModel(b.card);for(const kind of model.multiplier){const types=cardSubtypes(source.card),chosen=types.includes(chosenType)||/This creature is the chosen type in addition to its other types\./.test(cardText(source.card));
   if(kind==='legendary-creature'&&zone==='battlefield'&&isCreature(source.card)&&cardTypes(source.card).includes('Legendary')||kind==='chosen-creature'&&zone==='battlefield'&&b.id!==source.id&&isCreature(source.card)&&chosen||kind==='colorless'&&isColorless(source.card)&&(zone==='stack'||b.id!==source.id))out.push({source:b.id,kind});
  }}return out;}
-export function createNativeStack(host,{seed,chosenType,triggerOrder='copy-first',maxSteps=192,maxObjects=128,stage5=false,enableOutlets=true,compression=true,maxContinuations=3,optionalPolicy='all'}={}){
+export function createNativeStack(host,{seed,chosenType,triggerOrder='copy-first',maxSteps=192,maxObjects=128,stage5=false,enableOutlets=true,compression=true,maxContinuations=3,optionalPolicy='all',stage8=false}={}){
  if(!['copy-first','resources-first'].includes(triggerOrder)||!Number.isInteger(maxSteps)||maxSteps<1||maxSteps>512||!Number.isInteger(maxObjects)||maxObjects<2||maxObjects>256)throw Error('Invalid native bounds');
  if(!Number.isInteger(maxContinuations)||maxContinuations<0||maxContinuations>3||!['all','conservative'].includes(optionalPolicy))throw Error('Invalid Stage 5 policy/bound');
  const stack=stage5&&compression?new CompactNativeStack():[],pending=[],modelMemo=new WeakMap();let serial=0,resolving=null,steps=0,shuffle=0,draws=0,blocked=false,continuations=0;
@@ -48,7 +49,7 @@ export function createNativeStack(host,{seed,chosenType,triggerOrder='copy-first
  function atCapacity(item){return stage5?stack.length+pending.length>=4096||size()+pending.length>=maxObjects&&!stack.canMerge?.(item):stack.length+pending.length>=maxObjects;}
  function bound(){if(blocked)return;blocked=true;stats.boundHits++;emit({event:'native-bound',status:'unknown',stack:stack.map(s=>s.id),pending:pending.map(s=>s.id),resolving:resolving?.id||null,maxSteps,maxObjects,...(stage5?{storage:size(),logical:stack.length,continuations}: {})});}
  function push(item){if(atCapacity(item)){bound();return;}stack.push(item);stats.maxStack=Math.max(stats.maxStack,stack.length);if(stage5){stats.logicalPeak=Math.max(stats.logicalPeak,stack.length);stats.storagePeak=Math.max(stats.storagePeak,size());}emit({event:'stack-push',id:item.id,kind:item.kind,source:item.source?.id||item.slot?.id,effect:item.effect,copyOf:item.copyOf||null,cause:item.cause?.id||null,zone:item.sourceZone||null,parent:resolving?.id||null});}
- function trigger(source,zone,effect,cause,phase){const multipliers=triggerMultipliers(source,zone,host.active(),chosenType),count=1+multipliers.length;
+ function trigger(source,zone,effect,cause,phase,lki=host.active()){const multipliers=triggerMultipliers(source,zone,lki,chosenType),count=1+multipliers.length;
   for(let i=0;i<count;i++){const item={id:'stack-'+serial++,kind:'ability',source,sourceZone:zone,effect,cause,phase};pending.push(item);emit({event:'native-triggered',id:item.id,source:source.id,zone,phase,cause:cause?.id||null,effect,instance:i,multipliers});}
   stats.multipliedTriggers+=multipliers.length;for(const m of multipliers){const s=host.active().find(s=>s.id===m.source);if(s)host.useEngine?.(s,'copy');}if(stage5?(size()+pending.length>maxObjects||stack.length+pending.length>4096):stack.length+pending.length>maxObjects)bound();
  }
@@ -84,6 +85,7 @@ export function createNativeStack(host,{seed,chosenType,triggerOrder='copy-first
   const bottom=nativeShuffle(revealed,seed,'cascade:'+shuffle++);for(const s of bottom){host.exile.splice(host.exile.indexOf(s),1);host.library.push(s);}emit({event:'cascade-bottom',ability:item.id,ids:bottom.map(s=>s.id)});
  }
  function tutor(item){const eligible=host.library.filter(s=>tutorMatches(s.card,item.effect.filter)).sort((a,b)=>printedManaValue(a.card)-printedManaValue(b.card)||singletonName(a.card).localeCompare(singletonName(b.card))),chosen=host.chooseTutor?.(eligible,item),found=host.chooseTutor?eligible.find(s=>s.id===chosen):eligible[0];
+  if(stage8)emit({event:'tutor-opportunity',ability:item.id,destination:item.effect.destination,eligible:eligible.map(s=>s.id),chosen:found?.id||null});
   if(found)host.library.splice(host.library.indexOf(found),1);const reordered=nativeShuffle(host.library,seed,'tutor:'+shuffle++);host.library.splice(0,host.library.length,...reordered);
   if(found){(item.effect.destination==='hand'?host.hand:host.library).unshift(found);stats[item.effect.destination==='hand'?'tutorCardsToHand':'tutorCardsToTop']++;}emit({event:'native-tutor',ability:item.id,source:item.source.id,found:found?.id||null,destination:item.effect.destination,order:reordered.map(s=>s.id)});stats.tutors++;return !!found;
  }
@@ -100,6 +102,7 @@ export function createNativeStack(host,{seed,chosenType,triggerOrder='copy-first
    const t=e.trigger;if(t.phase==='entry'&&t.singleton&&!entryMatches(t,item.source,item.cause,host.context())){emit({event:'native-intervening-if-failed',ability:item.id});return;}
    host.effects(t.effects,item.source,'native-trigger');
   }else if(e.type==='opponent-damage'||e.type==='activated-outlet')host.damage(item.source.id,e.count,e.target,item.id);
+  else if(e.type==='end-step-sacrifice'){const victim=host.sacrificeEndStep(item);if(victim)host.effects([{kind:'draw',count:1}],item.source,'end-step-sacrifice');}
   else if(e.type==='activated-access')host.effects(e.effects,item.source,'activation');
  }
  function drain(){flush();while(stack.length&&!blocked&&!host.lost()&&!host.won?.()){
@@ -117,5 +120,8 @@ export function createNativeStack(host,{seed,chosenType,triggerOrder='copy-first
    if(++steps>maxSteps){if(stage5&&continuations<maxContinuations){emit({event:'native-continuation',index:++continuations,steps:maxSteps,stack:stack.map(s=>s.id),pending:pending.map(s=>s.id),storage:size()});stats.continuations++;steps=1;}else{bound();break;}}
    const item=stack.pop();resolving=item;emit({event:'stack-resolve-start',id:item.id});resolve(item);emit({event:blocked?'stack-resolve-suspended':host.lost()?'stack-resolve-aborted-loss':'stack-resolve-end',id:item.id});if(blocked||host.lost()||host.won?.())break;resolving=null;flush();
   }}
- return {stats,registerCast,drain,entry(slot){accessTriggers('entry',slot);nativeTriggers('entry',slot);},draw(slot){if(++draws===2)nativeTriggers('secondDraw',slot);},beginTurn(){steps=0;draws=0;continuations=0;},activated(source,effects){push({id:'stack-'+serial++,kind:'ability',source,sourceZone:'battlefield',effect:{type:'activated-access',effects}});drain();},activatedOutlet(source,count,target){push({id:'stack-'+serial++,kind:'ability',source,sourceZone:'battlefield',effect:{type:'activated-outlet',count,target}});drain();},get blocked(){return blocked;},get resolving(){return resolving;},unknown};
+ return {stats,registerCast,drain,
+  deaths(lki,victims){if(!stage8)return;for(const source of lki)for(const t of deathModel(source.card).triggers)for(const victim of victims)if(deathMatches(source,victim,t.filter))trigger(source,'battlefield',t.effect,victim,'death',lki);},
+  endStep(){if(!stage8)return;for(const s of host.active())if(deathModel(s.card).endStep)trigger(s,'battlefield',{type:'end-step-sacrifice'},s,'endStep');drain();},
+  entry(slot){accessTriggers('entry',slot);nativeTriggers('entry',slot);},draw(slot){if(++draws===2)nativeTriggers('secondDraw',slot);},beginTurn(){steps=0;draws=0;continuations=0;},activated(source,effects){push({id:'stack-'+serial++,kind:'ability',source,sourceZone:'battlefield',effect:{type:'activated-access',effects}});drain();},activatedOutlet(source,count,target){push({id:'stack-'+serial++,kind:'ability',source,sourceZone:'battlefield',effect:{type:'activated-outlet',count,target}});drain();},get blocked(){return blocked;},get resolving(){return resolving;},unknown};
 }

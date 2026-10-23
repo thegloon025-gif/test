@@ -1,3 +1,10 @@
+## Unreleased draft PR #4 — Stage 8 opportunities and death events
+
+- Add explicit state-conditioned intervention checkpoints and exact matched-prefix recovery observations; retain unconditional opportunity frequency and censoring separately.
+- Add strict last-known simultaneous-death triggers, supported Zombie/Spawn/Scion resources, end-step Zombie sacrifice/draw, copied-legend deaths and independent event/zone/resource audits.
+- Record real tutor inventories; fix state-aware projections after consumed mana sources. Preserve legacy defaults, production selection, version 1.1.5 and local/Windows behavior.
+- See `docs/GAMEPLAY_STAGE8.md` and `benchmarks/v12/stage8-VALIDATION.md` for actual evidence and incomplete strategy coverage. No external-power or production-promotion claim.
+
 ## Unreleased development — Stage 7 (version remains 1.1.5)
 
 - Add opt-in, shadow-only empty-stack disruption checkpoints with explicitly scoped destroy/exile, survivors, commander-zone choices, cumulative real tax and separate mana/recast/native/access/outlet observations. Unsupported relevant rules suspend as unknown; no universal recovery grade.

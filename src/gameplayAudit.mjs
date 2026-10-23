@@ -32,6 +32,7 @@ export function auditDeploymentTrace(result, commander, cards) {
   for (const e of result.trace) {
     turn = e.turn;
     if(e.event==='native-tutor-choice'){for(const reason of auditTutorPlans(e,{board,pool,life,turn,definitions,commander,creatureCasts}))error(e.event,reason);}
+    else if(e.event==='end-step-sacrifice'){if(!result.stage8||!board.has(e.victim))error(e.event,'unavailable sacrifice');board.delete(e.victim);}
     else if(e.event==='disruption-move'){if(!result.stage7||!board.has(e.id))error(e.event,'unavailable disruption source');board.delete(e.id);}
     else if(e.event==='copy-created'&&result.schemaVersion===4){const card=definitions.get(e.original);if(!card||definitions.has(e.id))error(e.event,'invalid copy definition');else definitions.set(e.id,card);
     }else if(e.event==='native-legend-rule'&&result.schemaVersion===4)board.delete(e.id);
