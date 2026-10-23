@@ -169,6 +169,7 @@ const server=http.createServer(async(req,res)=>{
    if(automaticResearch){deck.automaticResearch=automaticResearch;
     if(automaticResearch.discovery?.status==='unavailable')deck.warnings.push('Automatic Archidekt research unavailable; built from saved sources/local fallback: '+automaticResearch.discovery.error);
     if(automaticResearch.combos?.status==='unavailable')deck.warnings.push('Automatic Spellbook source check unavailable; retained previously cached combos: '+automaticResearch.combos.error);
+    if(automaticResearch.commanderLookup?.status==='unavailable')deck.warnings.push('Commander-specific Spellbook research unavailable; retained saved combo library/local fallback: '+automaticResearch.commanderLookup.error);
     if(automaticResearch.discovery?.status==='busy')deck.warnings.push('Archidekt research was busy; built from previously saved community sources.');
    }
    // Validate the FINAL exported list, not just intermediate construction costs.
