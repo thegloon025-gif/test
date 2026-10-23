@@ -1,0 +1,44 @@
+{
+  "node": "24.19.0",
+  "platform": "Linux",
+  "runs": [
+    {
+      "label": "baseline full",
+      "tests": 321,
+      "pass": 321,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "duration_ms": 124828.533642
+    },
+    {
+      "label": "final full",
+      "tests": 339,
+      "pass": 339,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "duration_ms": 142064.663067
+    },
+    {
+      "label": "final gameplay focused",
+      "tests": 144,
+      "pass": 144,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "duration_ms": 7060.995259
+    },
+    {
+      "label": "new Stage 8 fixtures",
+      "tests": 18,
+      "pass": 18,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "duration_ms": 1606.27382
+    }
+  ],
+  "nativeWindowsExecution": "not available",
+  "browserInteraction": "not performed; HTTP page and script smoke only"
+}

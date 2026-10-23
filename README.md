@@ -1,3 +1,7 @@
+### Draft PR #4 — Opportunity-conditioned native recovery
+
+Stage 8 adds opt-in deployed-state checkpoints, supported simultaneous death/sacrifice/end-step execution and independently audited recovery observations. It measures real opportunities separately from scripted fixtures and retains unfamiliar-strategy abstention. Production selection and version 1.1.5 remain unchanged. See [model and Windows commands](docs/GAMEPLAY_STAGE8.md) and [actual results and decision gate](benchmarks/v12/stage8-VALIDATION.md).
+
 ### Draft PR #4 — Native strategy execution
 
 Stage 4 adds an opt-in supported own-stack model for native copying, multiplication, cascade, tutors and resolved token resources. Exact payments and stack/zone receipts are independently audited; bounds and unimplemented mechanics remain unknown. Production selection and version 1.1.5 stay unchanged. See [model and local commands](docs/GAMEPLAY_STAGE4.md) and [validation](benchmarks/v12/stage4-VALIDATION.md).

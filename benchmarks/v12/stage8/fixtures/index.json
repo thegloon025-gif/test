@@ -1,0 +1,78 @@
+[
+  {
+    "file": "fixture-1.json.gz",
+    "sha256": "50d9a10314a08300d9961e9383e94034ce8730502c331be7e4936ab03d72dc6b"
+  },
+  {
+    "file": "fixture-2.json.gz",
+    "sha256": "95f027bf56ac91d1e852d9ee2716b264311099893119dcc8654fe9f0d773f9e8"
+  },
+  {
+    "file": "fixture-3.json.gz",
+    "sha256": "3402d20fce9cffd4ea389144852843135df8e3e402badf19c1476b7813e993d0"
+  },
+  {
+    "file": "fixture-4.json.gz",
+    "sha256": "82a669b4fa7c3fede3ceef1d0f14c04ff65c0c3c708c50913ee70f495ef9116d"
+  },
+  {
+    "file": "fixture-5.json.gz",
+    "sha256": "ccd3eac0cb75af43de2de3bab23beb79a0a688c0a74959a70e37f50c1896f59d"
+  },
+  {
+    "file": "fixture-6.json.gz",
+    "sha256": "4f969530f9cc62b1b91a64d8e8554a5161c096b83f26d28b1ecc76d8d211b043"
+  },
+  {
+    "file": "fixture-7.json.gz",
+    "sha256": "50d9a10314a08300d9961e9383e94034ce8730502c331be7e4936ab03d72dc6b"
+  },
+  {
+    "file": "fixture-8.json.gz",
+    "sha256": "29a79cbd562c61b2c2690a368b25c946080a3943a7c30a3724d2123d10725323"
+  },
+  {
+    "file": "fixture-9.json.gz",
+    "sha256": "8fdef4ee5201c101cc565278ee1771cbd6fc3293b5ce21b9810857401e3397f4"
+  },
+  {
+    "file": "fixture-10.json.gz",
+    "sha256": "b2f889617e55cd81c5cc7d24f50ef9cf1f0ad9d8d5cbd88d923f9615eb1eba6f"
+  },
+  {
+    "file": "fixture-11.json.gz",
+    "sha256": "29a79cbd562c61b2c2690a368b25c946080a3943a7c30a3724d2123d10725323"
+  },
+  {
+    "file": "fixture-12.json.gz",
+    "sha256": "95f027bf56ac91d1e852d9ee2716b264311099893119dcc8654fe9f0d773f9e8"
+  },
+  {
+    "file": "fixture-13.json.gz",
+    "sha256": "9346b0fa43e4e89722aec17a9107114ec40163b5d8ba51e77bdfaa5e8b536954"
+  },
+  {
+    "file": "fixture-14.json.gz",
+    "sha256": "c931595845a2c65001bb3ea5a3be9db0ddb97ea5953398998c12e2d03f246993"
+  },
+  {
+    "file": "fixture-15.json.gz",
+    "sha256": "7dfb9efa02a772fcf1218c55027c4dcb275fa75f8a503d4d128eea935875afb6"
+  },
+  {
+    "file": "fixture-16.json.gz",
+    "sha256": "554c49d13d12b39a710bc7c9bc856d8f6055347b9fcf873fcf109be788569b61"
+  },
+  {
+    "file": "fixture-17.json.gz",
+    "sha256": "51424237098cc11e83fbd20e12c95da3ad3e1cccdaf077516a3c4b7aa12f5b45"
+  },
+  {
+    "file": "fixture-18.json.gz",
+    "sha256": "b0ae6031f087ed1a006d342e9479bd4815d9860731c9fcca74dd96d2bc30ab4f"
+  },
+  {
+    "file": "fixture-19.json.gz",
+    "sha256": "0823a335add1decfbd4119a1fa6814c9bb48ffc4acb544158af940cb143f204b"
+  }
+]
