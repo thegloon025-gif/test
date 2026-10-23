@@ -22,7 +22,7 @@ for(const deck of decks){const {commander,cards}=records(deck),primary=!/^(yurik
     if(scenario==='control'&&tutorPolicy==='state-aware')control=run;
     if(spec){const pair=opportunityPair(control,run);pairs.push({deck:deck.name,policy,seed,scenario,...pair});}
     const interesting=run.trace.some(e=>e.event==='tutor-opportunity')?'tutor':scenario!=='control'&&run.trace.some(e=>e.event==='disruption-complete')?scenario:null,key=deck.name+'|'+interesting;
-    if(interesting&&!sampleKeys.has(key)&&samples.length<16){sampleKeys.add(key);const file=phase+'-sample-'+samples.length+'.json.gz',bytes=gzipSync(JSON.stringify({run,audit,deck:deck.name,options:{...opts,commander:undefined,cards:undefined,onPreAction:undefined}}),{level:9});await writeFile(out+'/'+file,bytes);samples.push({file,sha256:sha(bytes),deck:deck.name,scenario,policy,seed,tutorPolicy});}
+    if(interesting&&!sampleKeys.has(key)&&samples.filter(s=>s.deck===deck.name).length<5){sampleKeys.add(key);const file=phase+'-sample-'+samples.length+'.json.gz',bytes=gzipSync(JSON.stringify({run,audit,deck:deck.name,options:{...opts,commander:undefined,cards:undefined,onPreAction:undefined}}),{level:9});await writeFile(out+'/'+file,bytes);samples.push({file,sha256:sha(bytes),deck:deck.name,scenario,policy,seed,tutorPolicy});}
    }
   }
  }

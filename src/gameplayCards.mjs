@@ -7,7 +7,7 @@ export const cardSubtypes = c => (front(c).type_line || '').split('—')[1]?.tri
 export const cardText = c => front(c).oracle_text || '';
 export const isCreature = c => cardTypes(c).includes('Creature');
 export const isLand = c => cardTypes(c).includes('Land');
-export const isColorless = c => /\bDevoid\b/.test(cardText(c)) || !/[WUBRG]/.test(front(c).mana_cost || '');
+export const isColorless = c => /\bDevoid\b/.test(cardText(c)) || (Array.isArray(front(c).colors) ? front(c).colors.length===0 : !/[WUBRG]/.test(front(c).mana_cost || ''));
 export const castContext = (c, commander = false) => ({kind: 'spell', types: cardTypes(c), subtypes: cardSubtypes(c), commander});
 const escape = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const counts = {a: 1, an: 1, one: 1, two: 2, three: 3, four: 4};

@@ -18,8 +18,8 @@ export function deathModel(card){
    filter={another:true,nontoken:true};effect={type:'tokens',count:1,power:'1',toughness:'1',subtype:'Scion'};
   }else if(line==='Whenever this creature or another nontoken creature you control dies, you may create a 0/1 colorless Eldrazi Spawn creature token. It has "Sacrifice this token: Add {C}."'){
    filter={selfOrNontoken:true};effect={type:'tokens',count:1,power:'0',toughness:'1',subtype:'Spawn'};
-  }else if(line==='At the beginning of your end step, you may sacrifice a Zombie. If you do, draw a card.')endStep=true;
-  if(effect){triggers.push({filter,effect});recognized.push(line);}else if(endStep&&line.startsWith('At the beginning'))recognized.push(line);
+  }else if(line==='At the beginning of your end step, you may sacrifice a Zombie. If you do, draw a card.'){endStep=true;recognized.push(line);}
+  if(effect){triggers.push({filter,effect});recognized.push(line);}
  }
  return {triggers,endStep,recognized};
 }

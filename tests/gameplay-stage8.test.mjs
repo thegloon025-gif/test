@@ -63,3 +63,15 @@ test('a copied legendary permanent dying to the legend rule reports death before
  const zhul=c('Zhulodok, Void Gorger','{5}{C}','Legendary Creature — Eldrazi','Colorless spells you cast from your hand with mana value 7 or greater have "Cascade, cascade."'),setup=[ring,zhul,...Array(7).fill(wastes)],actions={1:[land(),cast(ring)],2:[land()],3:[land(),cast(ulalek)],4:[land()],5:[land()],6:[land(),cast(zhul)]};
  const {r}=run(setup,actions,[],{commander:ulalek});const i=r.trace.findIndex(e=>e.event==='native-legend-rule');assert.ok(i>=0);assert.equal(r.trace[i+1].event,'death-cost-observed');assert.equal(r.trace[i+1].victim,r.trace[i].id);
 });
+test('supported end-step grammar cannot swallow a subsequent unsupported death/recursion clause',()=>{
+ const card={...wilhelt,oracle_text:wilhelt.oracle_text+'\nAt the beginning of your end step, return target Zombie card from your graveyard to your hand.'},model=deathModel(card);assert.equal(model.recognized.length,2);assert.ok(removalEvidence([{id:'commander',card}],spec(),{death:true}).unknown.some(e=>/return target/.test(e.clause)));
+});
+test('independent checkpoint audit enforces the registered commander opportunity prerequisite',()=>{
+ const {r,cards}=run(first,script,[spec('engine',{card:ghoul.name,effect:'exile',turn:2})]);const bad=structuredClone(r);bad.stage8.requirements={intervention:'commander'};assert.equal(auditGameplayTrace(bad,wilhelt,cards).valid,false);
+});
+test('a black Zombie token with no mana cost is not a colorless Fleshraker damage event',()=>{
+ const flesh=c('Glaring Fleshraker','{2}{C}','Creature — Eldrazi Drone','Whenever you cast a colorless spell, create a 0/1 colorless Eldrazi Spawn creature token with "Sacrifice this token: Add {C}."\nWhenever another colorless creature you control enters, this creature deals 1 damage to each opponent.'),setup=[swamp,island,ring,flesh,ghoul,swamp,wastes],actions={1:[land(swamp),cast(ring)],2:[land(island),cast(flesh)],3:[land(swamp),cast(ghoul)],4:[land(),cast(wilhelt)]};const {r}=run(setup,actions,[spec('engine',{card:ghoul.name})]);assert.ok(r.trace.some(e=>e.event==='token-created'&&e.card.colors?.includes('B')));assert.equal(r.outlets.totalDamage,0);
+});
+test('Wilhelt really recasts after a wipe and recovers end-step access from the LKI-created Zombie',()=>{
+ const actions={...script,5:[land(),cast(wilhelt)]},{r}=run(first,actions,[spec()]);const recast=r.trace.filter(e=>e.event==='cast-paid'&&e.id==='commander');assert.equal(recast.length,2);assert.equal(recast[1].cost,'{2}{U}{B}{2}');assert.equal(recast[1].turn,5);assert.ok(r.trace.some(e=>e.turn===5&&e.event==='end-step-sacrifice'));assert.ok(r.trace.some(e=>e.turn===5&&e.event==='access-draw'&&e.reason==='end-step-sacrifice'));assert.equal(r.stats.effectDraws,3);assert.equal(summarizeRecovery(r)[0].commanderRecast.turn,5);
+});

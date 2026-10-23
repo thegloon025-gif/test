@@ -67,3 +67,16 @@ unchanged. Final Stage 8 outputs are a same-sample correctness reanalysis,
 **not an untouched blind holdout**. No favorable preflight outcome is retained
 as independent evidence. Unsupported creature-mana sacrifice prerequisites
 remain unknown when filtered supported sources cannot pay, not impossible.
+
+A final implementation review also tightened exact end-step recognition (a
+supported clause cannot mask a later unsupported clause) and independent
+checkpoint prerequisite validation. Persisted first-opportunity receipts are
+bounded to five per deck per partition so early Ulalek samples cannot exhaust
+the archive before Wilhelt. The cohort is recomputed with these guards; the
+registered seeds, deck/pilot policies and decision criteria remain the same.
+
+The review also caught zero-mana-cost colored tokens being inferred colorless.
+Explicit Oracle/Scryfall colors now take precedence over a missing mana cost;
+a black Zombie/Fleshraker real-card fixture proves no false damage is credited.
+Final source fingerprints and cohorts use this correction. Earlier preflight
+files are not mixed with final evidence or presented as additional samples.

@@ -70,7 +70,7 @@ export function auditNativeGameplayTrace(result,commander,cards){
   }else
   if(e.event==='disruption-checkpoint'){
    const spec=result.stage7?.disruptions.find(d=>d.id===e.spec.id);if(!spec||!same(spec,e.spec)||(result.stage8?turn<spec.turn:turn!==spec.turn)||stack.length||current||effectFrame)fail('invalid interruption checkpoint');
-   const proof=removalEvidence([...board.values()],e.spec,{death:!!result.stage8});disruption={spec:e.spec,proof,moved:new Set(),commandPending:null,tokens:new Set()};
+   const proof=removalEvidence([...board.values()],e.spec,{death:!!result.stage8});if(result.stage8&&(!proof.targets.length||result.stage8.requirements?.[e.spec.id]==='commander'&&!board.has('commander')))fail('opportunity prerequisites not present');disruption={spec:e.spec,proof,moved:new Set(),commandPending:null,tokens:new Set()};
   }else if(e.event==='disruption-unknown'){
    if(!result.stage7?.suspendedUnknown||!disruption?.proof.unknown.length||!same(e.reasons,disruption.proof.unknown))fail('unjustified disruption unknown');
   }else if(e.event==='disruption-move'){
