@@ -69,6 +69,8 @@ an existing same-name legendary permanent is unknown; native copied-legend
 state-based deaths are supported. Yuriko/ninjutsu/combat and Zada targeted-copy
 abstain. Wilhelt has useful supported events but still full-strategy abstention.
 
+Explicit card colors take precedence over an absent mana cost: black Zombie tokens cannot create colorless-entry damage.
+
 Auditors share strict Oracle grammar but independently reconstruct zones, costs,
 LKI identity batches, commander moves, triggers, stack order, token budgets,
 resolved draw/life receipts and resource conservation. Positive tutor projections
@@ -90,11 +92,15 @@ node --test tests/gameplay-stage8.test.mjs
 Remove-Item Env:STAGE8_FIXTURE_DIR
 node tools/benchmark-opportunity-gameplay.mjs data $stage8Output training
 node tools/benchmark-opportunity-gameplay.mjs data $stage8Output holdout
+node tools/extract-opportunity-example.mjs data $stage8Output
 node tools/audit-opportunity-gameplay.mjs data $stage8Output
 node tools/summarize-opportunity-gameplay.mjs $stage8Output
+node tools/pack-opportunity-evidence.mjs $stage8Output
 ```
 
 Use unchanged `start-windows.bat` for the app and check version 1.1.5 and a legal
 100-card budget-audited export. Linux validation does not certify native Windows
 execution or interactive browser behavior. Shadow benchmarks never replace the
 application's chosen deck. Historical external evaluations remain unchanged.
+
+Phase indexes retain lossless hash-checked gzip reports; summary and audit tools accept both forms. The benchmark still refuses to overwrite them. The extra natural-recovery illustration is explicitly post-hoc, chosen from an existing registered vector; it adds no statistical sample or promotion evidence.
