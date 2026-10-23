@@ -1,0 +1,10 @@
+{
+  "query": "https://backend.commanderspellbook.com/variants/?q=identity%3C%3DC%20legal%3Acommander%20cards%3C%3D3&limit=2",
+  "status": 200,
+  "total": null,
+  "results": 2,
+  "identities": [
+    "C",
+    "C"
+  ]
+}

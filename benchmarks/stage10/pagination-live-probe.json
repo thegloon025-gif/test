@@ -1,0 +1,30 @@
+{
+  "scope": "commander-card",
+  "commander": "Ghave, Guru of Spores",
+  "variants": 80,
+  "total": null,
+  "truncated": true,
+  "partial": false,
+  "pages": 2,
+  "query": "card=\"Ghave, Guru of Spores\" legal:commander",
+  "endpoint": "https://backend.commanderspellbook.com/variants/",
+  "fetchedAt": "2026-10-23T23:25:02.113Z",
+  "cacheAgeMs": 2,
+  "fromCache": false,
+  "stale": false,
+  "networkStatus": "completed",
+  "error": null,
+  "malformed": 0,
+  "excluded": 0,
+  "requests": [
+    {
+      "url": "https://backend.commanderspellbook.com/variants/?q=card%3D%22Ghave%2C+Guru+of+Spores%22+legal%3Acommander&limit=40&offset=0",
+      "status": 200
+    },
+    {
+      "url": "https://backend.commanderspellbook.com/variants/?q=card%3D%22Ghave%2C+Guru+of+Spores%22+legal%3Acommander&limit=40&offset=40",
+      "status": 200
+    }
+  ],
+  "purpose": "Two-page nullable-total live probe only; no generated deck or power inference"
+}

@@ -1,0 +1,855 @@
+{
+  "wilhelt-b3": {
+    "selected": "local:engine",
+    "generated": 7,
+    "complete": 7,
+    "distinct": 7,
+    "source": null,
+    "sourceSpells": 0,
+    "sourceLands": 0,
+    "comparison": [
+      {
+        "id": "local:engine",
+        "price": 102.06,
+        "legacyScalar": 168.82,
+        "selection": {
+          "reason": "selected",
+          "selectedGains": [],
+          "selectedLosses": [],
+          "selectedScore": 168.82,
+          "executionDominatedBy": []
+        },
+        "capabilities": {
+          "strategy_cascade": 0,
+          "strategy_castCopy": 0,
+          "strategy_passiveTriggerCopy": 0,
+          "strategy_activatedTriggerCopy": 0,
+          "strategy_costReduction": 0,
+          "strategy_tutor": 0,
+          "topAccessEngines": 0,
+          "threatPower": 2,
+          "threatProtection": 0,
+          "independentDraw": 3,
+          "freeDraw": 2,
+          "scalableDraw": 1,
+          "fastMana": 4,
+          "repeatableMana": 8,
+          "fixing": 1,
+          "trueColorless": 0,
+          "burstMana": 0,
+          "flow": 3,
+          "supportedEngines": 3,
+          "copySupport": 0,
+          "answers": 8,
+          "shields": 2,
+          "wideShields": 0,
+          "threats": 1,
+          "annihilator": 0,
+          "castAnswers": 0
+        },
+        "infrastructure": [],
+        "drawEngines": [
+          {
+            "card": "Archivist",
+            "trigger": false,
+            "topAccess": false,
+            "independent": 1,
+            "support": 0
+          },
+          {
+            "card": "Arcanis the Omnipotent",
+            "trigger": false,
+            "topAccess": false,
+            "independent": 1,
+            "support": 0
+          },
+          {
+            "card": "Insight Engine",
+            "trigger": false,
+            "topAccess": false,
+            "independent": 1,
+            "support": 0
+          }
+        ]
+      },
+      {
+        "id": "source:archidekt:2298582",
+        "price": 186.47,
+        "legacyScalar": 168.5,
+        "selection": {
+          "reason": "incomparable surviving strategies; legacy scalar tie-break",
+          "selectedGains": [
+            "independentDraw",
+            "freeDraw",
+            "scalableDraw",
+            "repeatableMana",
+            "flow",
+            "supportedEngines"
+          ],
+          "selectedLosses": [
+            "strategy_tutor",
+            "threatPower",
+            "fastMana",
+            "threats"
+          ],
+          "selectedScore": 168.82,
+          "executionDominatedBy": []
+        },
+        "capabilities": {
+          "strategy_cascade": 0,
+          "strategy_castCopy": 0,
+          "strategy_passiveTriggerCopy": 0,
+          "strategy_activatedTriggerCopy": 0,
+          "strategy_costReduction": 0,
+          "strategy_tutor": 1,
+          "topAccessEngines": 0,
+          "threatPower": 6,
+          "threatProtection": 0,
+          "independentDraw": 0,
+          "freeDraw": 0,
+          "scalableDraw": 0,
+          "fastMana": 5,
+          "repeatableMana": 7,
+          "fixing": 1,
+          "trueColorless": 0,
+          "burstMana": 0,
+          "flow": 0,
+          "supportedEngines": 0,
+          "copySupport": 0,
+          "answers": 8,
+          "shields": 2,
+          "wideShields": 0,
+          "threats": 2,
+          "annihilator": 0,
+          "castAnswers": 0
+        },
+        "infrastructure": [
+          {
+            "card": "Sidisi, Undead Vizier",
+            "kind": "tutor",
+            "units": 1,
+            "support": 51
+          }
+        ],
+        "drawEngines": []
+      },
+      {
+        "id": "source:archidekt:3838228",
+        "price": 160.38,
+        "legacyScalar": 166.7,
+        "selection": {
+          "reason": "incomparable surviving strategies; legacy scalar tie-break",
+          "selectedGains": [
+            "independentDraw",
+            "freeDraw",
+            "scalableDraw",
+            "repeatableMana",
+            "flow",
+            "supportedEngines",
+            "answers"
+          ],
+          "selectedLosses": [
+            "strategy_costReduction",
+            "strategy_tutor",
+            "threatPower",
+            "burstMana",
+            "threats"
+          ],
+          "selectedScore": 168.82,
+          "executionDominatedBy": []
+        },
+        "capabilities": {
+          "strategy_cascade": 0,
+          "strategy_castCopy": 0,
+          "strategy_passiveTriggerCopy": 0,
+          "strategy_activatedTriggerCopy": 0,
+          "strategy_costReduction": 1,
+          "strategy_tutor": 1,
+          "topAccessEngines": 0,
+          "threatPower": 10,
+          "threatProtection": 0,
+          "independentDraw": 0,
+          "freeDraw": 0,
+          "scalableDraw": 0,
+          "fastMana": 4,
+          "repeatableMana": 6,
+          "fixing": 1,
+          "trueColorless": 0,
+          "burstMana": 3,
+          "flow": 0,
+          "supportedEngines": 1,
+          "copySupport": 0,
+          "answers": 7,
+          "shields": 2,
+          "wideShields": 0,
+          "threats": 3,
+          "annihilator": 0,
+          "castAnswers": 0
+        },
+        "infrastructure": [
+          {
+            "card": "Sidisi, Undead Vizier",
+            "kind": "tutor",
+            "units": 1,
+            "support": 48
+          },
+          {
+            "card": "Undead Warchief",
+            "kind": "costReduction",
+            "units": 1,
+            "support": 26
+          }
+        ],
+        "drawEngines": []
+      },
+      {
+        "id": "source:archidekt:24423895",
+        "price": 136.78,
+        "legacyScalar": 166.41,
+        "selection": {
+          "reason": "incomparable surviving strategies; legacy scalar tie-break",
+          "selectedGains": [
+            "independentDraw",
+            "freeDraw",
+            "scalableDraw",
+            "repeatableMana",
+            "flow",
+            "supportedEngines"
+          ],
+          "selectedLosses": [
+            "threatPower",
+            "fastMana",
+            "burstMana",
+            "threats"
+          ],
+          "selectedScore": 168.82,
+          "executionDominatedBy": []
+        },
+        "capabilities": {
+          "strategy_cascade": 0,
+          "strategy_castCopy": 0,
+          "strategy_passiveTriggerCopy": 0,
+          "strategy_activatedTriggerCopy": 0,
+          "strategy_costReduction": 0,
+          "strategy_tutor": 0,
+          "topAccessEngines": 0,
+          "threatPower": 13,
+          "threatProtection": 0,
+          "independentDraw": 0,
+          "freeDraw": 0,
+          "scalableDraw": 0,
+          "fastMana": 5,
+          "repeatableMana": 7,
+          "fixing": 1,
+          "trueColorless": 0,
+          "burstMana": 3,
+          "flow": 0,
+          "supportedEngines": 0,
+          "copySupport": 0,
+          "answers": 8,
+          "shields": 2,
+          "wideShields": 0,
+          "threats": 4,
+          "annihilator": 0,
+          "castAnswers": 0
+        },
+        "infrastructure": [],
+        "drawEngines": []
+      },
+      {
+        "id": "local:threats",
+        "price": 143.17,
+        "legacyScalar": 165.82,
+        "selection": {
+          "reason": "functional frontier elimination",
+          "selectedGains": [
+            "independentDraw",
+            "freeDraw",
+            "scalableDraw",
+            "fastMana",
+            "repeatableMana",
+            "fixing",
+            "flow",
+            "supportedEngines"
+          ],
+          "selectedLosses": [],
+          "selectedScore": 168.82,
+          "executionDominatedBy": []
+        },
+        "capabilities": {
+          "strategy_cascade": 0,
+          "strategy_castCopy": 0,
+          "strategy_passiveTriggerCopy": 0,
+          "strategy_activatedTriggerCopy": 0,
+          "strategy_costReduction": 0,
+          "strategy_tutor": 0,
+          "topAccessEngines": 0,
+          "threatPower": 2,
+          "threatProtection": 0,
+          "independentDraw": 0,
+          "freeDraw": 0,
+          "scalableDraw": 0,
+          "fastMana": 2,
+          "repeatableMana": 2,
+          "fixing": 0,
+          "trueColorless": 0,
+          "burstMana": 0,
+          "flow": 0,
+          "supportedEngines": 0,
+          "copySupport": 0,
+          "answers": 8,
+          "shields": 2,
+          "wideShields": 0,
+          "threats": 1,
+          "annihilator": 0,
+          "castAnswers": 0
+        },
+        "infrastructure": [],
+        "drawEngines": []
+      },
+      {
+        "id": "local:resilience",
+        "price": 122.72,
+        "legacyScalar": 163,
+        "selection": {
+          "reason": "functional frontier elimination",
+          "selectedGains": [
+            "independentDraw",
+            "freeDraw",
+            "scalableDraw",
+            "fastMana",
+            "repeatableMana",
+            "fixing",
+            "flow",
+            "supportedEngines"
+          ],
+          "selectedLosses": [],
+          "selectedScore": 168.82,
+          "executionDominatedBy": []
+        },
+        "capabilities": {
+          "strategy_cascade": 0,
+          "strategy_castCopy": 0,
+          "strategy_passiveTriggerCopy": 0,
+          "strategy_activatedTriggerCopy": 0,
+          "strategy_costReduction": 0,
+          "strategy_tutor": 0,
+          "topAccessEngines": 0,
+          "threatPower": 2,
+          "threatProtection": 0,
+          "independentDraw": 0,
+          "freeDraw": 0,
+          "scalableDraw": 0,
+          "fastMana": 2,
+          "repeatableMana": 2,
+          "fixing": 0,
+          "trueColorless": 0,
+          "burstMana": 0,
+          "flow": 0,
+          "supportedEngines": 0,
+          "copySupport": 0,
+          "answers": 8,
+          "shields": 2,
+          "wideShields": 0,
+          "threats": 1,
+          "annihilator": 0,
+          "castAnswers": 0
+        },
+        "infrastructure": [],
+        "drawEngines": []
+      },
+      {
+        "id": "local:tempo",
+        "price": 107.51,
+        "legacyScalar": 144.4,
+        "selection": {
+          "reason": "functional frontier elimination",
+          "selectedGains": [
+            "independentDraw",
+            "freeDraw",
+            "scalableDraw",
+            "fastMana",
+            "repeatableMana",
+            "fixing",
+            "flow",
+            "supportedEngines"
+          ],
+          "selectedLosses": [],
+          "selectedScore": 168.82,
+          "executionDominatedBy": []
+        },
+        "capabilities": {
+          "strategy_cascade": 0,
+          "strategy_castCopy": 0,
+          "strategy_passiveTriggerCopy": 0,
+          "strategy_activatedTriggerCopy": 0,
+          "strategy_costReduction": 0,
+          "strategy_tutor": 0,
+          "topAccessEngines": 0,
+          "threatPower": 2,
+          "threatProtection": 0,
+          "independentDraw": 0,
+          "freeDraw": 0,
+          "scalableDraw": 0,
+          "fastMana": 3,
+          "repeatableMana": 3,
+          "fixing": 0,
+          "trueColorless": 0,
+          "burstMana": 0,
+          "flow": 0,
+          "supportedEngines": 0,
+          "copySupport": 0,
+          "answers": 8,
+          "shields": 2,
+          "wideShields": 0,
+          "threats": 1,
+          "annihilator": 0,
+          "castAnswers": 0
+        },
+        "infrastructure": [],
+        "drawEngines": []
+      }
+    ]
+  },
+  "wilhelt-b4": {
+    "selected": "source:archidekt:24246712",
+    "generated": 7,
+    "complete": 7,
+    "distinct": 7,
+    "source": "archidekt:24246712",
+    "sourceSpells": 21,
+    "sourceLands": 35,
+    "comparison": [
+      {
+        "id": "source:archidekt:24246712",
+        "price": 181.8,
+        "legacyScalar": 171.64,
+        "selection": {
+          "reason": "selected",
+          "selectedGains": [],
+          "selectedLosses": [],
+          "selectedScore": 171.64,
+          "executionDominatedBy": []
+        },
+        "capabilities": {
+          "strategy_cascade": 0,
+          "strategy_castCopy": 0,
+          "strategy_passiveTriggerCopy": 0,
+          "strategy_activatedTriggerCopy": 0,
+          "strategy_costReduction": 0,
+          "strategy_tutor": 1,
+          "topAccessEngines": 0,
+          "threatPower": 11,
+          "threatProtection": 0,
+          "independentDraw": 2,
+          "freeDraw": 2,
+          "scalableDraw": 0,
+          "fastMana": 7,
+          "repeatableMana": 19,
+          "fixing": 1,
+          "trueColorless": 0,
+          "burstMana": 0,
+          "flow": 2,
+          "supportedEngines": 2,
+          "copySupport": 0,
+          "answers": 8,
+          "shields": 3,
+          "wideShields": 0,
+          "threats": 3,
+          "annihilator": 0,
+          "castAnswers": 0
+        },
+        "infrastructure": [
+          {
+            "card": "Sidisi, Undead Vizier",
+            "kind": "tutor",
+            "units": 1,
+            "support": 45
+          }
+        ],
+        "drawEngines": [
+          {
+            "card": "Archivist",
+            "trigger": false,
+            "topAccess": false,
+            "independent": 1,
+            "support": 0
+          },
+          {
+            "card": "Arcanis the Omnipotent",
+            "trigger": false,
+            "topAccess": false,
+            "independent": 1,
+            "support": 0
+          }
+        ]
+      },
+      {
+        "id": "local:engine",
+        "price": 97.59,
+        "legacyScalar": 176.5,
+        "selection": {
+          "reason": "functional frontier elimination",
+          "selectedGains": [
+            "strategy_tutor",
+            "threatPower",
+            "independentDraw",
+            "freeDraw",
+            "fastMana",
+            "repeatableMana",
+            "flow",
+            "supportedEngines",
+            "threats"
+          ],
+          "selectedLosses": [
+            "fixing"
+          ],
+          "selectedScore": 171.64,
+          "executionDominatedBy": []
+        },
+        "capabilities": {
+          "strategy_cascade": 0,
+          "strategy_castCopy": 0,
+          "strategy_passiveTriggerCopy": 0,
+          "strategy_activatedTriggerCopy": 0,
+          "strategy_costReduction": 0,
+          "strategy_tutor": 0,
+          "topAccessEngines": 0,
+          "threatPower": 2,
+          "threatProtection": 0,
+          "independentDraw": 0,
+          "freeDraw": 0,
+          "scalableDraw": 0,
+          "fastMana": 4,
+          "repeatableMana": 4,
+          "fixing": 2,
+          "trueColorless": 0,
+          "burstMana": 0,
+          "flow": 0,
+          "supportedEngines": 0,
+          "copySupport": 0,
+          "answers": 8,
+          "shields": 3,
+          "wideShields": 0,
+          "threats": 1,
+          "annihilator": 0,
+          "castAnswers": 0
+        },
+        "infrastructure": [],
+        "drawEngines": []
+      },
+      {
+        "id": "local:threats",
+        "price": 143.18,
+        "legacyScalar": 167.02,
+        "selection": {
+          "reason": "functional frontier elimination",
+          "selectedGains": [
+            "strategy_tutor",
+            "threatPower",
+            "independentDraw",
+            "freeDraw",
+            "fastMana",
+            "repeatableMana",
+            "fixing",
+            "flow",
+            "supportedEngines",
+            "threats"
+          ],
+          "selectedLosses": [],
+          "selectedScore": 171.64,
+          "executionDominatedBy": []
+        },
+        "capabilities": {
+          "strategy_cascade": 0,
+          "strategy_castCopy": 0,
+          "strategy_passiveTriggerCopy": 0,
+          "strategy_activatedTriggerCopy": 0,
+          "strategy_costReduction": 0,
+          "strategy_tutor": 0,
+          "topAccessEngines": 0,
+          "threatPower": 2,
+          "threatProtection": 0,
+          "independentDraw": 0,
+          "freeDraw": 0,
+          "scalableDraw": 0,
+          "fastMana": 3,
+          "repeatableMana": 3,
+          "fixing": 0,
+          "trueColorless": 0,
+          "burstMana": 0,
+          "flow": 0,
+          "supportedEngines": 0,
+          "copySupport": 0,
+          "answers": 8,
+          "shields": 3,
+          "wideShields": 0,
+          "threats": 1,
+          "annihilator": 0,
+          "castAnswers": 0
+        },
+        "infrastructure": [],
+        "drawEngines": []
+      },
+      {
+        "id": "source:archidekt:3276096",
+        "price": 171.18,
+        "legacyScalar": 162.32,
+        "selection": {
+          "reason": "functional frontier elimination",
+          "selectedGains": [
+            "threatPower",
+            "independentDraw",
+            "freeDraw",
+            "fastMana",
+            "repeatableMana",
+            "flow",
+            "supportedEngines",
+            "threats"
+          ],
+          "selectedLosses": [],
+          "selectedScore": 171.64,
+          "executionDominatedBy": []
+        },
+        "capabilities": {
+          "strategy_cascade": 0,
+          "strategy_castCopy": 0,
+          "strategy_passiveTriggerCopy": 0,
+          "strategy_activatedTriggerCopy": 0,
+          "strategy_costReduction": 0,
+          "strategy_tutor": 1,
+          "topAccessEngines": 0,
+          "threatPower": 6,
+          "threatProtection": 0,
+          "independentDraw": 0,
+          "freeDraw": 0,
+          "scalableDraw": 0,
+          "fastMana": 5,
+          "repeatableMana": 6,
+          "fixing": 1,
+          "trueColorless": 0,
+          "burstMana": 0,
+          "flow": 0,
+          "supportedEngines": 0,
+          "copySupport": 0,
+          "answers": 8,
+          "shields": 3,
+          "wideShields": 0,
+          "threats": 2,
+          "annihilator": 0,
+          "castAnswers": 0
+        },
+        "infrastructure": [
+          {
+            "card": "Sidisi, Undead Vizier",
+            "kind": "tutor",
+            "units": 1,
+            "support": 49
+          }
+        ],
+        "drawEngines": []
+      },
+      {
+        "id": "source:archidekt:6212325",
+        "price": 172.29,
+        "legacyScalar": 161.48,
+        "selection": {
+          "reason": "incomparable surviving strategies; legacy scalar tie-break",
+          "selectedGains": [
+            "threatPower",
+            "fastMana",
+            "repeatableMana"
+          ],
+          "selectedLosses": [
+            "strategy_costReduction",
+            "independentDraw",
+            "scalableDraw",
+            "fixing",
+            "flow",
+            "supportedEngines"
+          ],
+          "selectedScore": 171.64,
+          "executionDominatedBy": []
+        },
+        "capabilities": {
+          "strategy_cascade": 0,
+          "strategy_castCopy": 0,
+          "strategy_passiveTriggerCopy": 0,
+          "strategy_activatedTriggerCopy": 0,
+          "strategy_costReduction": 1,
+          "strategy_tutor": 1,
+          "topAccessEngines": 0,
+          "threatPower": 10,
+          "threatProtection": 0,
+          "independentDraw": 4,
+          "freeDraw": 2,
+          "scalableDraw": 1,
+          "fastMana": 6,
+          "repeatableMana": 13,
+          "fixing": 2,
+          "trueColorless": 0,
+          "burstMana": 0,
+          "flow": 4,
+          "supportedEngines": 5,
+          "copySupport": 0,
+          "answers": 8,
+          "shields": 3,
+          "wideShields": 0,
+          "threats": 3,
+          "annihilator": 0,
+          "castAnswers": 0
+        },
+        "infrastructure": [
+          {
+            "card": "Sidisi, Undead Vizier",
+            "kind": "tutor",
+            "units": 1,
+            "support": 46
+          },
+          {
+            "card": "Undead Warchief",
+            "kind": "costReduction",
+            "units": 1,
+            "support": 27
+          }
+        ],
+        "drawEngines": [
+          {
+            "card": "Archivist",
+            "trigger": false,
+            "topAccess": false,
+            "independent": 1,
+            "support": 0
+          },
+          {
+            "card": "Arcanis the Omnipotent",
+            "trigger": false,
+            "topAccess": false,
+            "independent": 1,
+            "support": 0
+          },
+          {
+            "card": "Insight Engine",
+            "trigger": false,
+            "topAccess": false,
+            "independent": 1,
+            "support": 0
+          },
+          {
+            "card": "Aether Syphon",
+            "trigger": false,
+            "topAccess": false,
+            "independent": 1,
+            "support": 0
+          }
+        ]
+      },
+      {
+        "id": "local:resilience",
+        "price": 122.67,
+        "legacyScalar": 161.2,
+        "selection": {
+          "reason": "functional frontier elimination",
+          "selectedGains": [
+            "strategy_tutor",
+            "threatPower",
+            "independentDraw",
+            "freeDraw",
+            "fastMana",
+            "repeatableMana",
+            "fixing",
+            "flow",
+            "supportedEngines",
+            "threats"
+          ],
+          "selectedLosses": [],
+          "selectedScore": 171.64,
+          "executionDominatedBy": []
+        },
+        "capabilities": {
+          "strategy_cascade": 0,
+          "strategy_castCopy": 0,
+          "strategy_passiveTriggerCopy": 0,
+          "strategy_activatedTriggerCopy": 0,
+          "strategy_costReduction": 0,
+          "strategy_tutor": 0,
+          "topAccessEngines": 0,
+          "threatPower": 2,
+          "threatProtection": 0,
+          "independentDraw": 0,
+          "freeDraw": 0,
+          "scalableDraw": 0,
+          "fastMana": 2,
+          "repeatableMana": 2,
+          "fixing": 0,
+          "trueColorless": 0,
+          "burstMana": 0,
+          "flow": 0,
+          "supportedEngines": 0,
+          "copySupport": 0,
+          "answers": 8,
+          "shields": 3,
+          "wideShields": 0,
+          "threats": 1,
+          "annihilator": 0,
+          "castAnswers": 0
+        },
+        "infrastructure": [],
+        "drawEngines": []
+      },
+      {
+        "id": "local:tempo",
+        "price": 97.17,
+        "legacyScalar": 144.4,
+        "selection": {
+          "reason": "functional frontier elimination",
+          "selectedGains": [
+            "strategy_tutor",
+            "threatPower",
+            "independentDraw",
+            "freeDraw",
+            "fastMana",
+            "repeatableMana",
+            "fixing",
+            "flow",
+            "supportedEngines",
+            "threats"
+          ],
+          "selectedLosses": [],
+          "selectedScore": 171.64,
+          "executionDominatedBy": []
+        },
+        "capabilities": {
+          "strategy_cascade": 0,
+          "strategy_castCopy": 0,
+          "strategy_passiveTriggerCopy": 0,
+          "strategy_activatedTriggerCopy": 0,
+          "strategy_costReduction": 0,
+          "strategy_tutor": 0,
+          "topAccessEngines": 0,
+          "threatPower": 2,
+          "threatProtection": 0,
+          "independentDraw": 0,
+          "freeDraw": 0,
+          "scalableDraw": 0,
+          "fastMana": 3,
+          "repeatableMana": 3,
+          "fixing": 0,
+          "trueColorless": 0,
+          "burstMana": 0,
+          "flow": 0,
+          "supportedEngines": 0,
+          "copySupport": 0,
+          "answers": 8,
+          "shields": 3,
+          "wideShields": 0,
+          "threats": 1,
+          "annihilator": 0,
+          "castAnswers": 0
+        },
+        "infrastructure": [],
+        "drawEngines": []
+      }
+    ]
+  }
+}

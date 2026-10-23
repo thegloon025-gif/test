@@ -1,0 +1,14 @@
+{
+  "browser": "Chromium headless with Playwright",
+  "controlledGenerationResponses": true,
+  "externalNetworkBlockedInBrowser": true,
+  "serverCatalogAndSearch": "real disposable-cache server",
+  "checks": [
+    "Default Research & Generate exposes independent candidates with zero Archidekt sources",
+    "100-card Archidekt clipboard export identifies commander",
+    "Stale cache date/age and independent unavailable channel remain visible"
+  ],
+  "pageErrors": [],
+  "requests": 2,
+  "limitations": "Generation responses are explicitly controlled research fixtures wrapped around an actual audited API deck. Separate HTTP test covers real local generation. Native Windows BAT not executed."
+}
