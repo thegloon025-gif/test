@@ -8,7 +8,7 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {oracleId,legalFor,priceOf} from './cards.mjs';
 import {satisfyTemplates} from './comboTemplates.mjs';
-import {waitForSpellbook,boundedSpellbookJSON} from './spellbookTransport.mjs';
+import {waitForSpellbook,boundedSpellbookJSON,noteSpellbookResponse} from './spellbookTransport.mjs';
 const HERE=path.dirname(fileURLToPath(import.meta.url));
 const CACHE=path.join(HERE,'..','data','spellbook-cache');
 const ENDPOINT='https://backend.commanderspellbook.com/find-my-combos';
@@ -119,8 +119,9 @@ export async function fetchSpellbookForDeck(deck,catalog,{fetcher=fetch,now=()=>
  const key=createHash('sha256').update(JSON.stringify(request)).digest('hex');
  const filename=path.join(cacheDir,key+'.json');
  if(!forceRefresh){try{const saved=JSON.parse(await readFile(filename,'utf8'));if(saved.stamp&&now()-saved.stamp<DAY){const parsed=normalizeFindResponse(saved.response);await onVerifiedResponse(parsed,{fetchedAt:new Date(saved.stamp).toISOString(),fromCache:true});return {...annotateCombos(parsed,deck,catalog),fromCache:true,fetchedAt:new Date(saved.stamp).toISOString()};}}catch(e){if(e.code!=='ENOENT')throw e;}}
- await waitForSpellbook({now,minGapMs});
+ await waitForSpellbook({fetcher,now,minGapMs});
  const response=await fetcher(ENDPOINT,{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json','User-Agent':'CommanderOracleIndependent/0.8'},body:JSON.stringify(request),redirect:'manual',signal:AbortSignal.timeout(25000)});
+ noteSpellbookResponse(response,{fetcher,now});
  if(response.status===429)throw Error('Commander Spellbook is rate-limiting requests; wait and retry.');
  if(response.status===400||response.status===422){
   // Spellbook includes field-specific validation errors in its response body.

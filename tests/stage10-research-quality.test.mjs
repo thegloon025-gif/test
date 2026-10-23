@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {mkdtemp,rm,readFile,writeFile,readdir} from 'node:fs/promises';
 import os from 'node:os';import path from 'node:path';
 import {lookupCommanderVariants,lookupColorVariants,commanderVariantQuery,colorVariantQuery} from '../src/commanderComboResearch.mjs';
-import {boundedSpellbookJSON} from '../src/spellbookTransport.mjs';
+import {boundedSpellbookJSON,waitForSpellbook,noteSpellbookResponse} from '../src/spellbookTransport.mjs';
 import {fetchSpellbookForDeck} from '../src/combos.mjs';
 import {recordSpellbookVariants,readComboLibrary} from '../src/comboLibrary.mjs';
 import {researchForGeneration} from '../src/researchFlow.mjs';
@@ -86,3 +86,11 @@ test('full-deck cached checks retain original retrieval provenance rather than t
  await fetchSpellbookForDeck(deck,catalog,{...args,fetcher:async()=>{throw Error('cached check must not fetch');}});
  assert.equal(seen.length,2);assert.equal(seen[0].fetchedAt,seen[1].fetchedAt);assert.equal(seen[1].fromCache,true);
 }));
+
+test('provider Retry-After/auth denial blocks other scopes without sleeping or issuing more requests',async()=>{
+ let clock=1700000000000;const fetcher=async()=>{},args={fetcher,now:()=>clock,minGapMs:0};
+ await waitForSpellbook(args);noteSpellbookResponse({status:429,headers:new Map([['retry-after','30']])},args);
+ await assert.rejects(waitForSpellbook(args),/429/);clock+=30000;await waitForSpellbook(args);
+ noteSpellbookResponse({status:403,headers:new Map()},args);await assert.rejects(waitForSpellbook(args),/403/);
+ clock+=60000;noteSpellbookResponse({status:429,headers:new Map([['retry-after','259200']])},args);clock+=86400000;await assert.rejects(waitForSpellbook(args),/429/);clock+=172800000;await waitForSpellbook(args);
+});

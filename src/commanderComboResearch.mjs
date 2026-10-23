@@ -6,7 +6,7 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {normalizeVariant,normalizedName} from './combos.mjs';
 import {legalFor} from './cards.mjs';
-import {waitForSpellbook,boundedSpellbookJSON} from './spellbookTransport.mjs';
+import {waitForSpellbook,boundedSpellbookJSON,noteSpellbookResponse} from './spellbookTransport.mjs';
 const ROOT=path.join(path.dirname(fileURLToPath(import.meta.url)),'..','data','spellbook-commander-cache');
 export const SPELLBOOK_VARIANTS='https://backend.commanderspellbook.com/variants/';
 const TTL=86400000,PARTIAL_TTL=600000,PAGE=40,MAX_BYTES=1500000,inFlight=new Map();
@@ -66,8 +66,9 @@ async function lookup({commanderId,commanderName,scope='commander-card',identity
  try{
   for(let page=0;page<maxPages;page++){
    const url=new URL(SPELLBOOK_VARIANTS);url.searchParams.set('q',query);url.searchParams.set('limit',String(PAGE));url.searchParams.set('offset',String(page*PAGE));
-   await waitForSpellbook({now,minGapMs});
+   await waitForSpellbook({fetcher,now,minGapMs});
    const response=await fetcher(url.toString(),{method:'GET',headers:{Accept:'application/json'},redirect:'manual',signal:AbortSignal.timeout(20000)});
+   noteSpellbookResponse(response,{fetcher,now});
    if(!response.ok)throw Error(response.status===429?'Commander Spellbook rate limited the variant search.':'Commander Spellbook variant search unavailable (HTTP '+response.status+').');
    const payload=await boundedSpellbookJSON(response,MAX_BYTES),result=pageVariants(payload,accept);
    pages++;total=result.count;malformed+=result.malformed;excluded+=result.excluded;for(const v of result.variants)unique.set(v.id,v);

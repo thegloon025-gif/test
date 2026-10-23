@@ -56,7 +56,7 @@ stay explicit.
 A later-page failure retains verified first-page candidates as partial. The
 client constructs every URL, validates pagination, and never follows arbitrary
 hosts or redirects. Actual streamed UTF-8 size caps are 1.5 MB/GET and 3 MB/POST,
-with per-request timeouts. GET and POST share provider request spacing.
+with per-request timeouts. GET and POST share provider request spacing. A rate limit or public-access denial\nblocks further provider requests; Retry-After is honored without a blocking\nsleep. Cached/local construction continues and failures stay explicit.
 Same-query concurrent requests coalesce, and single-process library writes
 serialize. Provenance distinguishes retrieval time from library write time.
 Existing storage limits remain; advisory queries cannot evict known variants.
