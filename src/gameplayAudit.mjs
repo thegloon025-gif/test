@@ -4,10 +4,11 @@ import {cardModel, cardTypes, cardSubtypes, castContext, isCreature, isLand} fro
 import {accessModel} from './gameplayAccess.mjs';
 import {outletModel} from './gameplayOutlets.mjs';
 import {nativeModel} from './gameplayNative.mjs';
+import {auditTutorPlans} from './gameplayTutorAudit.mjs';
 export function auditDeploymentTrace(result, commander, cards) {
   const definitions = new Map(cards.map((c, i) => ['deck-' + i, c])); definitions.set('commander', commander);
   const board = new Map(), pool = new Map(), errors = [];
-  let life = 40, turn = 0, pendingSpell;
+  let life = 40, turn = 0, pendingSpell, commanderCasts=0,creatureCasts=0;
   const error = (event, reason) => errors.push({turn, event, reason});
   function spend(units, cost, context, reduction = 0) {
     const pips = parseManaCost(cost, reduction), available = [];
@@ -30,10 +31,12 @@ export function auditDeploymentTrace(result, commander, cards) {
   }
   for (const e of result.trace) {
     turn = e.turn;
-    if(e.event==='copy-created'&&result.schemaVersion===4){const card=definitions.get(e.original);if(!card||definitions.has(e.id))error(e.event,'invalid copy definition');else definitions.set(e.id,card);
+    if(e.event==='native-tutor-choice'){for(const reason of auditTutorPlans(e,{board,pool,life,turn,definitions,commander,creatureCasts}))error(e.event,reason);}
+    else if(e.event==='disruption-move'){if(!result.stage7||!board.has(e.id))error(e.event,'unavailable disruption source');board.delete(e.id);}
+    else if(e.event==='copy-created'&&result.schemaVersion===4){const card=definitions.get(e.original);if(!card||definitions.has(e.id))error(e.event,'invalid copy definition');else definitions.set(e.id,card);
     }else if(e.event==='native-legend-rule'&&result.schemaVersion===4)board.delete(e.id);
     else if (e.event === 'untap') {
-      pool.clear();
+      pool.clear();creatureCasts=0;
       for (const s of board.values()) if (!s.model.noNaturalUntap) s.tapped = false;
     } else if (e.event === 'land' || e.event === 'permanent-resolved' || e.event === 'token-created') {
       const card = e.event === 'token-created' ? e.card : definitions.get(e.id);
@@ -60,7 +63,8 @@ export function auditDeploymentTrace(result, commander, cards) {
       const card=definitions.get(e.id);
       if (!card) { error(e.event,'unknown spell identity'); continue; }
       pendingSpell=card;
-      const context=castContext(card,e.id==='commander'), cost=cardModel(card).cost+(e.id==='commander'&&result.assumptions.commanderTaxPriorCasts?`{${2*result.assumptions.commanderTaxPriorCasts}}`:'');
+      const context=castContext(card,e.id==='commander'), cost=cardModel(card).cost+(e.id==='commander'&&(result.stage7?commanderCasts:result.assumptions.commanderTaxPriorCasts)?`{${2*(result.stage7?commanderCasts:result.assumptions.commanderTaxPriorCasts)}}`:'');
+      if(e.id==='commander')commanderCasts++;if(isCreature(card))creatureCasts++;
       if (JSON.stringify(context)!==JSON.stringify(e.context) || e.cost!==(result.schemaVersion===4&&e.freeCast?'':cost)) error(e.event,'spell context/printed cost differs');
       spend(e.spent,e.cost,context,e.reduction);
     } else if(e.event==='native-trigger-paid'&&result.schemaVersion===4){

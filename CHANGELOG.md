@@ -1,3 +1,10 @@
+## Unreleased development — Stage 7 (version remains 1.1.5)
+
+- Add opt-in, shadow-only empty-stack disruption checkpoints with explicitly scoped destroy/exile, survivors, commander-zone choices, cumulative real tax and separate mana/recast/native/access/outlet observations. Unsupported relevant rules suspend as unknown; no universal recovery grade.
+- Add a state-aware alternative to supported tutor targeting, using actual inventory and exact current/next-untap positive payment receipts, legal destinations and supported tactical channels; preserve legacy default and independently audit actual/positive projected resource and zone receipts.
+- Explore bounded source-backed cast-draw packages with existing construction safeguards; compare fixed complete decks, all three pilots, explicit disruption/no-event controls and disjoint prospective samples. Publish tradeoff/Pareto views separately from strict diagnostics. Production selection and official policy remain unchanged.
+- Preserve Stage 1–6 artifacts and separately frozen human observations; Stage 7 model/Windows commands: `docs/GAMEPLAY_STAGE7.md`, actual validation: `benchmarks/v12/stage7-VALIDATION.md`. No merge, release, spending reward or external-score optimization.
+
 ## Unreleased development — Stage 6 (version remains 1.1.5)
 
 - Discover new source/Oracle-backed complete shadow challengers with bounded coordinated access, mana, tutor/follow-up, land and answer packages through existing investment safeguards. Production generation and candidate selection remain unchanged.

@@ -9,9 +9,9 @@ export function summarizeExecution(run,{commander,cards,decision='conservative',
  if(!run.stage5||!run.outlets)throw Error('Audited Stage 5 execution required');
  const nativeUnknown=run.trace.filter(e=>e.event==='native-unknown'),bounds=run.trace.filter(e=>['native-bound','action-bound'].includes(e.event));
  const searchUnknown=run.nativeExecution.boundedUnknown||run.stats.boundHits>0||run.stats.actionBoundHits>0;
- const status=searchUnknown?'search-unknown':nativeUnknown.length?'unsupported-rule-unknown':run.outlets.won?'conditional-lethal':run.lost?'model-loss':run.observations.at(-1)?.turn===run.turns?'completed-t8':'search-unknown';
+ const status=searchUnknown?'search-unknown':run.stage7?.suspendedUnknown?'unsupported-rule-unknown':nativeUnknown.length?'unsupported-rule-unknown':run.outlets.won?'conditional-lethal':run.lost?'model-loss':run.observations.at(-1)?.turn===run.turns?'completed-t8':'search-unknown';
  const endTurn=run.outlets.lethalTurn||run.trace.find(e=>e.event==='empty-draw'||e.event==='model-loss')?.turn||run.observations.at(-1)?.turn||0;
- const unknownFrom=searchUnknown?(run.stats.boundHits>0||run.stats.actionBoundHits>0?1:Math.min(...bounds.map(e=>e.turn),run.observations.at(-1)?.turn||1)):nativeUnknown[0]?.turn??null;
+ const unknownFrom=searchUnknown?(run.stats.boundHits>0||run.stats.actionBoundHits>0?1:Math.min(...bounds.map(e=>e.turn),run.observations.at(-1)?.turn||1)):run.trace.find(e=>e.event==='disruption-unknown')?.turn??nativeUnknown[0]?.turn??null;
  const defs=new Map(cards.map((c,i)=>['deck-'+i,c]));defs.set('commander',commander);const copies=new Set(),objects=new Map(),copySource=new Map(),engineValue={},deployments=[];
  const use=(id,kind,n=1)=>{const name=defs.get(id)?.name||id,entry=engineValue[name]??={};entry[kind]=(entry[kind]||0)+n;};
  for(const e of run.trace){

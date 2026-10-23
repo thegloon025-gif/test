@@ -8,10 +8,14 @@ import {planFor} from './mechanics.mjs';
 import {planTypes} from './engineSupport.mjs';
 import {outletModel,createOutletLedger,safeOutletResource} from './gameplayOutlets.mjs';
 import {createNativeStack,nativeModel} from './gameplayNative.mjs';
+import {validateStage7,removalEvidence} from './gameplayRecovery.mjs';
+import {chooseTutorTarget} from './gameplayTutor.mjs';
 
-export function evaluateGameplay({commander,cards,seed='gameplay-stage2-v1',turns=8,order,script,policy='native',mulligan='none',access=true,maxManaStates=4000,maxActions=24,onPreAction=null,nativeExecution=false,maxNativeSteps=192,maxNativeObjects=128,nativeTriggerOrder='copy-first',nativeStage5=false,nativeOutlets=true,nativeCompression=true,nativeContinuations=3,nativeDecisionPolicy='copy-first',opponentLife=[40,40,40]}={}) {
+export function evaluateGameplay({commander,cards,seed='gameplay-stage2-v1',turns=8,order,script,policy='native',mulligan='none',access=true,maxManaStates=4000,maxActions=24,onPreAction=null,nativeExecution=false,maxNativeSteps=192,maxNativeObjects=128,nativeTriggerOrder='copy-first',nativeStage5=false,nativeOutlets=true,nativeCompression=true,nativeContinuations=3,nativeDecisionPolicy='copy-first',opponentLife=[40,40,40],stage7=null}={}) {
   if(!commander||!Array.isArray(cards)||cards.length<7||cards.length>99||!Number.isInteger(turns)||turns<1||turns>8||!GAMEPLAY_POLICIES.includes(policy)||!['none','one-free'].includes(mulligan)||!Number.isInteger(maxActions)||maxActions<1||maxActions>40||script&&mulligan!=='none')throw Error('Invalid Stage 2 bounds/options');
   if(nativeStage5&&(!nativeExecution||typeof nativeCompression!=='boolean'||typeof nativeOutlets!=='boolean'||!['copy-first','resources-first','conservative','follow-up'].includes(nativeDecisionPolicy)))throw Error('Explicit native Stage 5 policy required');
+  stage7=validateStage7(stage7);if(stage7&&!nativeStage5)throw Error('Stage 7 requires native Stage 5');
+  let commandCasts=0,stage7Suspended=false;const checkpoints=[];let afterEvent=null;
   const decision= nativeStage5?{order:nativeDecisionPolicy==='copy-first'?'copy-first':'resources-first',optional:['conservative','follow-up'].includes(nativeDecisionPolicy)?'conservative':'all',follow:nativeDecisionPolicy==='follow-up'}:null;
   order??=deploymentOrder(cards,seed);
   if(order.length!==cards.length||new Set(order).size!==cards.length||order.some(i=>!Number.isInteger(i)||i<0||i>=cards.length))throw Error('Order must be an exact permutation');
@@ -27,7 +31,7 @@ export function evaluateGameplay({commander,cards,seed='gameplay-stage2-v1',turn
   const trace=[],observations=[],stats={casts:[],commanderDeploymentTurn:null,setupBeforePayableCommander:0,optionalPayments:[],effectDraws:0,naturalDraws:0,accessDiscards:0,cleanupDiscards:0,returnedToTop:0,topCasts:0,accessSacrifices:0,accessSpells:0,activations:0,selections:0,manaStates:0,manaSearches:0,boundHits:0,actionBoundHits:0,usedEngines:[],mulligans:0};
   const emit=e=>trace.push({turn,...e}),context=()=>({hand,board,graveyard,chosenType}),pilotContext=()=>({policy,turn,turns,commander,board,hand,nativeTypes});
   const outlets=nativeStage5?createOutletLedger(emit,opponentLife):null;
-  const finished=()=>lost||!!outlets?.won;
+  const finished=()=>lost||!!outlets?.won||stage7Suspended;
   const opening=hand.map(s=>({id:s.id,card:s.card.name}));
   if(mulligan==='one-free'&&(hand.filter(s=>isLand(s.card)).length<2||hand.filter(s=>isLand(s.card)).length>5)){
     const previous=hand.map(s=>s.id);order=deploymentOrder(cards,seed+':free-mulligan:1');library=order.map(i=>slots[i]);hand=library.splice(0,7);stats.mulligans=1;
@@ -44,7 +48,7 @@ export function evaluateGameplay({commander,cards,seed='gameplay-stage2-v1',turn
     if(m.extraCost||m.cost==null||m.cost===''||!parseManaCost(m.cost)||active().some(s=>s.model.unknownTax))return {status:'unknown',reason:'unknown/unpayable base cost or battlefield tax',states:0};
     if(/enters under the control of an opponent/i.test(cardText(slot.card)))return {status:'unknown',reason:'enters under opponent control',states:0};
     const triggers=active().filter(s=>s.model.castPayment&&cardSubtypes(slot.card).includes(s.model.castPayment.subtype));
-    const payments=[{label:'spell',cost:free?'':m.cost,reduction:free?0:reductionFor(slot.card),context:castContext(slot.card,slot===command)}];
+    const payments=[{label:'spell',cost:free?'':m.cost+(stage7&&slot===command&&commandCasts?'{'+(2*commandCasts)+'}':''),reduction:free?0:reductionFor(slot.card),context:castContext(slot.card,slot===command)}];
     if(reserve)for(const s of triggers)payments.push({label:'cast-trigger:'+s.id,cost:s.model.castPayment.cost,context:{kind:'ability',abilityType:'triggered',types:cardTypes(s.card)}});
     return {...pay(sourceState(),payments,record),triggers};
   }
@@ -168,7 +172,7 @@ export function evaluateGameplay({commander,cards,seed='gameplay-stage2-v1',turn
     const candidates=hand.filter(s=>isLand(s.card)).map(s=>{
       const landCount=active().filter(b=>isLand(b.card)).length+1;
       const hypothetical={...current,sources:[...current.sources.map(source=>({...source,modes:board.find(b=>b.id===source.id).model.modes.filter(m=>!m.minLands||landCount>=m.minLands)})),{id:s.id,types:cardTypes(s.card),subtypes:cardSubtypes(s.card),modes:s.model.modes.filter(m=>!m.minLands||landCount>=m.minLands),tapped:s.model.tapped,sick:isCreature(s.card)&&!s.model.haste}]};
-      const enables=costKnown&&!commanderCast&&!command.model.extraCost&&parseManaCost(command.model.cost||'{X}')&&pay(hypothetical,[{cost:command.model.cost,reduction:reductionFor(commander),context:castContext(commander,true)}],false).status==='paid';
+      const enables=costKnown&&!commanderCast&&!command.model.extraCost&&parseManaCost(command.model.cost||'{X}')&&pay(hypothetical,[{cost:command.model.cost+(stage7&&commandCasts?'{'+(2*commandCasts)+'}':''),reduction:reductionFor(commander),context:castContext(commander,true)}],false).status==='paid';
       const trigger=active().find(b=>b.id==='commander')?.model.castPayment;
       const enablesFollowup=costKnown&&!!trigger&&hand.some(h=>h.model.permanent&&!h.model.extraCost&&!cardSubtypes(h.card).includes('Aura')&&parseManaCost(h.model.cost||'{X}')&&cardSubtypes(h.card).includes(trigger.subtype)&&pay(hypothetical,[{cost:h.model.cost,reduction:reductionFor(h.card),context:castContext(h.card)},{cost:trigger.cost,context:{kind:'ability',abilityType:'triggered'}}],false).status==='paid');
       return {slot:s,enables:!!enables,enablesFollowup,fixes:s.model.modes.some(m=>m.outputs.some(o=>o.some(t=>wanted.has(t))))};
@@ -236,7 +240,7 @@ export function evaluateGameplay({commander,cards,seed='gameplay-stage2-v1',turn
     if(slot===command)origin='command';
     if(requireOptional){const preview=castPlan(slot,true,true,free);if(preview.status!=='paid')return preview;}
     const r=castPlan(slot,false,true,free);if(r.status!=='paid')return r;
-    if(slot===command)commanderCast=true;
+    if(slot===command){commanderCast=true;if(stage7)commandCasts++;}
     else if(origin==='cascade'){const i=exile.indexOf(slot);if(i<0)throw Error('Cascade card not exiled');exile.splice(i,1);}
     else if(origin==='library'){if(library.shift()!==slot)throw Error('Top changed');stats.topCasts++;}
     else hand.splice(hand.indexOf(slot),1);
@@ -252,11 +256,36 @@ export function evaluateGameplay({commander,cards,seed='gameplay-stage2-v1',turn
   function resolveNativeSpell(slot,origin){
     if(slot.model.ritualMana){const produced=slot.model.ritualMana.map((type,n)=>({id:slot.id+':ritual:'+n,source:slot.id,type,restriction:'none'}));pool.push(...produced);toGrave(slot);emit({event:'ritual-resolved',source:slot.id,produced});}
     else if(!slot.model.permanent){if(access&&slot.access.direct){effects(slot.access.direct,slot,'spell');if(lost)return false;stats.accessSpells++;}toGrave(slot);emit({event:slot.spellCopy?'copy-ceased':'spell-resolved',id:slot.id});}
-    else{const b={...slot,since:turn,tapped:slot.model.tapped};board.push(b);if(slot===command)stats.commanderDeploymentTurn=turn;emit({event:'permanent-resolved',id:b.id,card:b.card.name,tapped:b.tapped});native.entry(b);
+    else{const b={...slot,since:turn,tapped:slot.model.tapped};board.push(b);if(slot===command&&(!stage7||stats.commanderDeploymentTurn===null))stats.commanderDeploymentTurn=turn;emit({event:'permanent-resolved',id:b.id,card:b.card.name,tapped:b.tapped});native.entry(b);
       if(cardTypes(b.card).includes('Legendary')){const same=active().filter(s=>cardTypes(s.card).includes('Legendary')&&s.card.name===b.card.name);if(same.length>1){const keep=same.find(s=>!s.spellCopy)||same[0];for(const s of same.filter(s=>s!==keep)){s.consumed=true;toGrave(s);emit({event:'native-legend-rule',id:s.id,keep:keep.id});}}}
     }
   }
+  function manaSnapshot(){const observation=manaObservation();return {generic:observation.max.generic.payableAtLeast,C:observation.max.C.payableAtLeast,unknown:observation.max.generic.unknown||observation.max.C.unknown,copyCC:observation.separateTriggeredCC};}
+  function injectDisruptions(){for(const spec of stage7?.disruptions.filter(d=>d.turn===turn)||[]){
+    if(native.resolving||native.blocked){stage7Suspended=true;emit({event:'disruption-unknown',id:spec.id,reasons:[{reason:'stack not safely empty'}]});break;}
+    const evidence=removalEvidence(active(),spec);emit({event:'disruption-checkpoint',spec,mana:manaSnapshot(),board:active().map(s=>({id:s.id,card:s.card.name,types:cardTypes(s.card)}))});
+    if(evidence.unknown.length){emit({event:'disruption-unknown',id:spec.id,reasons:evidence.unknown});stage7Suspended=true;break;}
+    const removed=[];for(const slot of evidence.removed){const destination=spec.effect==='destroy'?'graveyard':'exile';
+      board=board.filter(s=>s.id!==slot.id);(destination==='graveyard'?graveyard:exile).push(slot);emit({event:'disruption-move',id:slot.id,experiment:spec.id,from:'battlefield',to:destination,method:spec.effect});
+      if(slot.id==='commander'&&spec.commanderDestination==='command'){(destination==='graveyard'?graveyard:exile).splice((destination==='graveyard'?graveyard:exile).indexOf(slot),1);commanderCast=false;emit({event:'commander-zone',id:slot.id,from:destination,to:'command',experiment:spec.id,priorCommandCasts:commandCasts});}
+      else if(slot.token){(destination==='graveyard'?graveyard:exile).splice((destination==='graveyard'?graveyard:exile).indexOf(slot),1);ceased.push(slot);emit({event:'disruption-token-ceased',id:slot.id,from:destination,experiment:spec.id});}
+      removed.push({id:slot.id,card:slot.card.name,types:cardTypes(slot.card),destination:slot.id==='commander'&&spec.commanderDestination==='command'?'command':slot.token?'ceased':destination});
+    }
+    afterEvent=spec.id;emit({event:'disruption-complete',id:spec.id,removed,survivors:evidence.survivors,mana:manaSnapshot()});
+  }}
+  function tutorPreview(slot,destination){
+    const state=sourceState(),future={...state,pool:[],sources:state.sources.map(source=>{const b=active().find(s=>s.id===source.id);return {...source,tapped:b.model.noNaturalUntap?source.tapped:false,sick:false};})};
+    const triggers=active().filter(b=>nativeModel(b.card).ulalek&&cardSubtypes(slot.card).includes('Eldrazi'));
+    const payments=[{label:'tutor-projection',cost:slot.model.cost,reduction:reductionFor(slot.card),context:castContext(slot.card)}],joint=[...payments,...triggers.map(b=>({label:'tutor-trigger:'+b.id,cost:'{C}{C}',context:{kind:'ability',abilityType:'triggered',types:cardTypes(b.card)}}))];
+    const possible=!active().some(s=>s.model.unknownTax)&&slot.model.permanent&&!slot.model.extraCost&&!cardSubtypes(slot.card).includes('Aura')&&parseManaCost(slot.model.cost||'{X}');
+    const preview=(st,ps)=>possible?pay(st,ps,false):{status:'unknown',reason:'unsupported target casting prerequisites',states:0};
+    const nextReduction=active().flatMap(b=>b.model.reducers).reduce((n,r)=>n+((r.kind==='colorless'&&isColorless(slot.card)||['creatures','firstCreature'].includes(r.kind)&&isCreature(slot.card))?r.amount:0),0),nextPayments=payments.map(p=>({...p,reduction:nextReduction})),nextJoint=[...nextPayments,...joint.slice(1)];
+    const topAvailable=destination!=='top'||active().some(b=>b.access.lookTop&&b.access.top&&topCastAllowed(slot.card,b.access.top));
+    const inaccessible={status:'blocked',reason:'top destination not presently accessible',states:0};
+    return {now:topAvailable?preview(state,payments):inaccessible,next:preview(future,nextPayments),jointNow:topAvailable?preview(state,joint):inaccessible,jointNext:preview(future,nextJoint)};
+  }
   if(nativeExecution){native=createNativeStack({emit,active,context,library,hand,exile,effects,useEngine,sourceState,lost:()=>lost,won:()=>!!outlets?.won,damage:(...args)=>outlets.damage(...args),
+    ...(stage7?.tutorPolicy==='state-aware'?{chooseTutor:(eligible,item)=>{const choice=chooseTutorTarget(eligible,{turn,turns,board:active(),hand,nativeTypes,commander,preview:s=>tutorPreview(s,item.effect.destination)});emit({event:'native-tutor-choice',ability:item.id,destination:item.effect.destination,...choice});return choice.chosen;}}:{}),
     copySlot:s=>({...make(s.card,'copy-'+copyId++),spellCopy:true,token:s.model.permanent}),
     resolveSpell:resolveNativeSpell,castCascade:(s,permission)=>castNative(s,'cascade',false,true,permission),
     payOptional:(source,cost,item)=>{const r=pay(sourceState(),[{label:'cast-trigger:'+source.id,cost,context:{kind:'ability',abilityType:'triggered',types:cardTypes(source.card)}}]);if(r.status==='paid'){commit(r,receipt=>emit({event:'native-trigger-paid',ability:item.id,source:source.id,causedBy:item.cause.id,...receipt}));stats.optionalPayments.push({turn,card:item.cause.card.name,cost,copy:!!item.copyOf,ability:item.id});useEngine(source,'cast-payment');}return r;},
@@ -266,8 +295,10 @@ export function evaluateGameplay({commander,cards,seed='gameplay-stage2-v1',turn
     native?.beginTurn();
     pool=[];creatureCasts=0;landPlayed=false;lastTop=null;for(const s of active())if(!s.model.noNaturalUntap)s.tapped=false;
     emit({event:'untap',sources:sourceState().sources});draw(1,'natural');native?.drain();if(finished())break;
+    if(stage7){injectDisruptions();if(stage7Suspended)break;}
     if(!script){const land=chooseLand();if(land)playLand(land);}
     const beforeMana=manaObservation(),threatsBeforeActions=threatObservation();let acts=0;
+    if(stage7)checkpoints.push({turn,afterEvent,mana:manaSnapshot()});
     recordNativeFollowup('before-actions');
     // A read-only diagnostic snapshot before spending action mana. Payment
     // previews do not resolve effects or change the pilot/trace/statistics.
@@ -303,6 +334,7 @@ export function evaluateGameplay({commander,cards,seed='gameplay-stage2-v1',turn
   }
   return {schemaVersion:native?4:2,evaluator:nativeStage5?'gameplay-native-v2':native?'gameplay-native-v1':'gameplay-stage2-v1',seed,turns,policy,mulligan,order,initialOpening:opening,commander:commander.name,nativeTypes,chosenType,stats,observations,decked,lost,
     assumptions:{opening:7,mulligan,drawOnTurnOne:true,rankingIntegration:false,commanderTaxPriorCasts:0,access,mainPhases:1,maxActions,maxManaStates,maxSetupActionsBeforePayableCommander:1,sourcePayments:'optimized exact ledger',opponents:'three inert seats; no combat/interaction; supported control transfers leave our board',optionalPayment:native?'separate payment at trigger resolution under fixed '+(decision?.order||nativeTriggerOrder)+' ordering':'reserve before resolving resource/access triggers',threatDefinition:'native creature with printed power >=4 or printed MV >=5; payment availability, not win conversion; other threat/combat/copy outcomes unknown',otherRulesCoverage:'not quantified; parsed access is not complete Oracle/rules coverage'},
+    ...(stage7?{stage7:{...stage7,suspendedUnknown:stage7Suspended,commandCasts,checkpoints}}:{}),
     ...(nativeStage5?{stage5:{outletsEnabled:nativeOutlets,decisionPolicy:nativeDecisionPolicy,compression:nativeCompression,maxContinuations:nativeContinuations,logicalStackCap:4096},outlets:{initialLife:opponentLife,life:outlets.life,won:outlets.won,damageEvents:outlets.events.length,totalDamage:outlets.events.reduce((n,e)=>n+e.amount,0),lethalTurn:outlets.won?trace.findLast(e=>e.event==='opponent-eliminated').turn:null}}:{}),
     ...(native?{nativeExecution:{triggerOrder:decision?.order||nativeTriggerOrder,maxSteps:maxNativeSteps,maxObjects:maxNativeObjects,boundedUnknown:native.blocked,unknown:[...models.keys()].map(c=>({card:c.name,clauses:nativeModel(c).unknown.filter(l=>!(nativeStage5&&nativeOutlets&&outletModel(c).recognized.includes(l)))})).filter(c=>c.clauses.length)}}:{}),
     coverage:{cardsWithSupportedAccess:[...models.values()].filter(m=>m.access.direct||m.access.abilities.length||m.access.triggers.length||m.access.top).length,cardsWithUnmodeledAccess:[...models.values()].filter(m=>m.access.unknown.length).length,unmodeledAccessClauses:[...models.values()].reduce((n,m)=>n+m.access.unknown.length,0)},

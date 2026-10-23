@@ -1,6 +1,6 @@
 # CommanderOracle Independent — development roadmap
 
-Last revised: 2026-10-22. Local, deterministic Commander generator: **no paid AI API** is needed to build a deck.
+Last revised: 2026-10-23. Local, deterministic Commander generator: **no paid AI API** is needed to build a deck.
 
 ## v1.2 Gameplay Intelligence (draft PR #4, no release)
 
@@ -14,6 +14,10 @@ Last revised: 2026-10-22. Local, deterministic Commander generator: **no paid AI
 - [x] Stage 4 foundation: opt-in supported own-stack native copying/multiplication, cascade, tutor destinations and resolved Spawn/Scion, with independent event/zone/resource replay. Keep incomplete native strategies and bounded outcomes unknown; no production integration.
 - [x] Stage 5: proof-backed native stack compression/continuation and narrowly verified damage outlets; conditional execution and remaining unknowns stay separate from real-game power.
 - [x] Stage 6: genuinely new source/Oracle-backed complete shadow challengers, coordinated support, terminal-aware paired evidence, all fixed pilots, fresh holdouts and independent selected-printing/resource/zone/stack/outlet audits. See `GAMEPLAY_STAGE6.md` and the Stage 6 validation report.
+- [x] Stage 7 foundation: opt-in typed disruption checkpoints, real command-zone tax/recasts, supported survivors/protection and separate recovery receipts; unknown death/recursion/replacement/targeting rules abstain.
+- [x] State-aware supported tutor alternative with actual inventory, exact payment projections and independent positive receipts; preserve legacy default and production selection.
+- [x] Stage 7 bounded lower-setup cast-access hypotheses, fresh paired control/disruption/tutor cohorts and explicit supported tradeoff/Pareto views. See `GAMEPLAY_STAGE7.md` and Stage 7 validation before any trial decision.
+- [ ] Expand the most informative remaining recovery/native mechanics and policy planning under a new prospective protocol; do not tune to the DeckCheck three-turn hypothetical or reinterpret a commander recast as full recovery.
 - [ ] Stage 6 follow-up: retain production selection; prospectively test earlier supported access and tutor-target/follow-up planning, then manually evaluate shortlisted complete decks. Do not promote a partial-model improvement or a higher spend to a power claim.
 - [ ] Stage 3 integration decision: expand native mechanics/pilot coverage, larger prospective holdouts and external evaluation before explicitly reviewing any production feedback hook. See `GAMEPLAY_STAGE3.md` and the Stage 3 validation report.
 

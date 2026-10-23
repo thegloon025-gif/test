@@ -5,6 +5,7 @@ import {cardModel,cardTypes,cardSubtypes,isCreature,isLand,isColorless,cardText}
 import {accessModel,entryMatches,accessCondition,accessConditionStatus,matchesCastFilter,knownPower,topCastAllowed,printedManaValue} from './gameplayAccess.mjs';
 import {nativeModel,triggerMultipliers,tutorMatches,nativeShuffle} from './gameplayNative.mjs';
 import {outletModel} from './gameplayOutlets.mjs';
+import {removalEvidence} from './gameplayRecovery.mjs';
 import {singletonName} from './deckValidation.mjs';
 const same=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
 export function auditNativeGameplayTrace(result,commander,cards){
@@ -14,6 +15,7 @@ export function auditNativeGameplayTrace(result,commander,cards){
  const cardKeys=new WeakMap();let cardSerial=0;
  function residentKey(o){if(o.kind==='ability')return JSON.stringify([o.kind,o.source,o.zone,o.effect,o.cause,o.phase]);if(!o.copyOf)return null;const card=slot(o.source).card;if(!cardKeys.has(card))cardKeys.set(card,cardSerial++);return 'spell:'+cardKeys.get(card);}
  function popStack(){const id=stack.pop(),o=objects.get(id),below=objects.get(stack.at(-1));if(id!==undefined&&(o.residentKey===null||o.residentKey!==below?.residentKey))residency--;return id;}
+ let disruption=null,choice=null,commanderCasts=0;
  let turn=0,landDrops=0,draws=0,shuffle=0,creatureCasts=0,current=null,effectFrame=null,announced=null,activation=null,pendingCopy=null,lossEvidence=false,life=40;
  if(result.stage5&&(result.outlets.initialLife.length!==3||result.outlets.initialLife.some(n=>!Number.isInteger(n)||n<1||n>100)))errors.push({event:'native-audit',reason:'invalid opponent life assumptions'});
  const fail=s=>errors.push({turn,event:'native-audit',reason:s}),slot=id=>defs.get(id),state=()=>({hand:hand.map(slot),board:[...board.values()],graveyard:[...zones].filter(([,z])=>z==='graveyard').map(([id])=>slot(id)),chosenType:result.chosenType});
@@ -46,14 +48,30 @@ export function auditNativeGameplayTrace(result,commander,cards){
  function consume(kind,e){const step=effectFrame?.steps[0];if(!effectFrame||effectFrame.source!==e.source||!step||step.kind!==kind){fail('effect outside justified frame: '+kind);return;}
   if(kind==='loseLife'&&step.count!==e.count)fail('life effect quantity');if(--step.remaining===0)effectFrame.steps.shift();}
  for(const e of result.trace){turn=e.turn;
-  if(e.event==='untap'){landDrops=0;draws=0;creatureCasts=0;quantumSteps=0;continuations=0;for(const b of board.values())if(!cardModel(b.card).noNaturalUntap)b.tapped=false;}
+  if(e.event==='disruption-checkpoint'){
+   const spec=result.stage7?.disruptions.find(d=>d.id===e.spec.id);if(!spec||!same(spec,e.spec)||turn!==spec.turn||stack.length||current||effectFrame)fail('invalid interruption checkpoint');
+   const proof=removalEvidence([...board.values()],e.spec);disruption={spec:e.spec,proof,moved:new Set(),commandPending:null,tokens:new Set()};
+  }else if(e.event==='disruption-unknown'){
+   if(!result.stage7?.suspendedUnknown||!disruption?.proof.unknown.length||!same(e.reasons,disruption.proof.unknown))fail('unjustified disruption unknown');
+  }else if(e.event==='disruption-move'){
+   const b=board.get(e.id),allowed=disruption?.proof.removed.find(s=>s.id===e.id);if(!b||!allowed||disruption.moved.has(e.id)||e.experiment!==disruption.spec.id||e.to!==(disruption.spec.effect==='destroy'?'graveyard':'exile')||disruption.proof.unknown.length)fail('unjustified interruption removal');
+   else{disruption.moved.add(e.id);move(e.id,'battlefield',e.to);board.delete(e.id);if(e.id==='commander'&&disruption.spec.commanderDestination==='command')disruption.commandPending=e.to;else if(b.token)disruption.tokens.add(e.id);}
+  }else if(e.event==='commander-zone'){
+   if(e.id!=='commander'||e.from!==disruption?.commandPending||e.to!=='command'||e.priorCommandCasts!==commanderCasts)fail('illegal command-zone choice/tax');move(e.id,e.from,'command');if(disruption)disruption.commandPending=null;
+  }else if(e.event==='disruption-token-ceased'){
+   if(!disruption?.tokens.delete(e.id))fail('unjustified token cessation');move(e.id,e.from,'ceased');
+  }else if(e.event==='disruption-complete'){
+   if(!disruption||disruption.spec.id!==e.id||disruption.commandPending||disruption.tokens.size||disruption.moved.size!==disruption.proof.removed.length||!same(e.survivors,disruption.proof.survivors)||!same(e.removed.map(r=>r.id).sort(),[...disruption.moved].sort()))fail('interruption omitted/invented state changes');disruption=null;
+  }else if(e.event==='native-tutor-choice'){
+   if(result.stage7?.tutorPolicy!=='state-aware'||current?.id!==e.ability||current.effect.type!=='tutor'||choice)fail('unauthorized tutor decision');choice=e;
+  }else if(e.event==='untap'){landDrops=0;draws=0;creatureCasts=0;quantumSteps=0;continuations=0;for(const b of board.values())if(!cardModel(b.card).noNaturalUntap)b.tapped=false;}
   else if(e.event==='opening'){const ids=e.hand.map(s=>s.id);if(!same(ids,library.splice(0,7)))fail('opening top mismatch');for(const id of ids){move(id,'library','hand');hand.push(id);}}
   else if(e.event==='draw'||e.event==='access-draw'){if(e.event==='access-draw')consume('draw',e);if(library.shift()!==e.id)fail('draw bypassed top');move(e.id,'library','hand');hand.push(e.id);if(++draws===2)onEvent('secondDraw',slot(e.id));}
   else if(e.event==='empty-draw'){if(library.length)fail('false empty draw');else lossEvidence=true;if(e.reason!=='natural')consume('draw',e);}
   else if(e.event==='land'){if(++landDrops>1||!isLand(slot(e.id)?.card||{}))fail('invalid land drop');move(e.id,'hand','battlefield');hand.splice(hand.indexOf(e.id),1);board.set(e.id,{...slot(e.id),tapped:e.tapped,since:turn});onEvent('entry',slot(e.id));}
   else if(e.event==='cast-paid'){
    const s=slot(e.id);if(!s){fail('unknown spell');continue;}if(e.freeCast){if(e.origin!=='cascade'||current?.effect.type!=='cascade'||e.permission!==current.id||current.found!==e.id||e.cost!==''||e.reduction!==0)fail('free cast without resolving cascade permission');move(e.id,'exile','stack');current.cast=e.id;}
-   else if(e.id==='commander')move(e.id,'command','stack');else if(e.origin==='library'){
+   else if(e.id==='commander'){move(e.id,'command','stack');commanderCasts++;}else if(e.origin==='library'){
     if(![...board.values()].some(b=>{const a=accessModel(b.card);return a.lookTop&&a.top&&topCastAllowed(s.card,a.top);})||library.shift()!==e.id)fail('unpermitted top cast');move(e.id,'library','stack');
    }else{move(e.id,'hand','stack');if(!hand.includes(e.id))fail('cast not in hand');else hand.splice(hand.indexOf(e.id),1);}
    const reduction=[...board.values()].flatMap(b=>cardModel(b.card).reducers).reduce((n,r)=>n+((r.kind==='colorless'&&isColorless(s.card)||r.kind==='creatures'&&isCreature(s.card)||r.kind==='firstCreature'&&isCreature(s.card)&&creatureCasts===0)?r.amount:0),0);
@@ -128,7 +146,18 @@ export function auditNativeGameplayTrace(result,commander,cards){
    if(current?.id!==e.ability||current.effect.type!=='cascade')fail('cascade bottom outside frame');else{current.bottomDone=true;const ids=current.revealed.filter(id=>id!==current.cast),expectedOrder=nativeShuffle(ids.map(slot),result.seed,'cascade:'+shuffle++).map(s=>s.id);if(!same(expectedOrder,e.ids))fail('cascade cards missing/extra/order');for(const id of e.ids){move(id,'exile','library');library.push(id);}}
   }else if(e.event==='native-tutor'){
    if(current?.id!==e.ability||current.effect.type!=='tutor'||current.tutored||e.destination!==current.effect.destination)fail('tutor outside justified frame');else{current.tutored=true;
-    const eligible=library.map(slot).filter(s=>tutorMatches(s.card,current.effect.filter)).sort((a,b)=>printedManaValue(a.card)-printedManaValue(b.card)||singletonName(a.card).localeCompare(singletonName(b.card))),found=eligible[0]?.id||null;if(found!==e.found)fail('invalid/fictional tutor choice');
+    const eligible=library.map(slot).filter(s=>tutorMatches(s.card,current.effect.filter)).sort((a,b)=>printedManaValue(a.card)-printedManaValue(b.card)||singletonName(a.card).localeCompare(singletonName(b.card))),found=result.stage7?.tutorPolicy==='state-aware'?choice?.chosen:eligible[0]?.id||null;if(found!==e.found||found&&!eligible.some(s=>s.id===found))fail('invalid/fictional tutor choice');if(result.stage7?.tutorPolicy==='state-aware'){
+     if(!choice||choice.destination!==e.destination||!same(choice.facts.map(f=>f.id).sort(),eligible.slice(0,24).map(s=>s.id).sort()))fail('missing/foreign tutor planning inventory');
+     for(const fact of choice?.facts||[]){const c=slot(fact.id)?.card;if(!c)continue;const a=accessModel(c),m=cardModel(c),affordable=fact.now?.status==='paid'||turn<result.turns&&fact.next?.status==='paid';
+      if(fact.channel.startsWith('payable-')&&!affordable)fail('unpayable tactical credit');
+      if(e.destination==='top'&&fact.now?.status==='paid'&&![...board.values()].some(b=>{const a=accessModel(b.card);return a.lookTop&&a.top&&topCastAllowed(c,a.top);}))fail('fictional same-turn top access');
+      if(fact.channel==='payable-cascade-follow-up'&&![...board.values()].some(b=>{const g=nativeModel(b.card).cascadeGrant;return g&&isColorless(c)&&printedManaValue(c)>=g.minMV;}))fail('unsupported cascade utility');
+      if(fact.channel==='payable-supported-mana'&&!m.modes.length&&!m.reducers.length)fail('unsupported mana utility');
+      if(fact.channel==='payable-supported-card-access'&&!a.triggers.length&&!(a.top&&a.lookTop))fail('unsupported access utility');
+      if(fact.channel==='payable-supported-engine-protection'&&!/^Artifacts you control have indestructible\.$/m.test(cardText(c)))fail('unsupported protection utility');
+      if(fact.channel==='payable-entry-outlet-setup'&&!outletModel(c).entryDamage)fail('unsupported outlet utility');
+     }
+    }choice=null;
     if(e.found){const i=library.indexOf(e.found);if(i<0)fail('tutored card missing');else library.splice(i,1);}
     const order=nativeShuffle(library.map(slot),result.seed,'tutor:'+shuffle++).map(s=>s.id);if(!same(order,e.order))fail('tutor shuffle lost/reordered cards');library.splice(0,library.length,...e.order);
     if(e.found){if(e.destination==='hand'){move(e.found,'library','hand');hand.unshift(e.found);}else library.unshift(e.found);}
@@ -160,6 +189,7 @@ export function auditNativeGameplayTrace(result,commander,cards){
    for(const [z,ids]of [['battlefield',e.board.map(s=>s.id)],['graveyard',e.graveyard],['exile',e.exile],['opponents',e.opponents],['ceased',e.ceased]])if(!same([...zones].filter(([,zone])=>zone===z).map(([id])=>id).sort(),[...ids].sort()))fail(z+' snapshot mismatch');
   }
  }
+ if((disruption&&!result.stage7?.suspendedUnknown)||choice)fail('unfinished interruption/tutor decision');
  if(result.lost&&!lossEvidence)fail('model loss without verified resource/zone evidence');
  if(!result.nativeExecution.boundedUnknown&&!result.lost&&!result.outlets?.won&&(stack.length||triggered.size||castAnnouncements.size||[...expected.values()].some(x=>x.remaining)||current||effectFrame))fail('unfinished native transaction');
  const events=result.trace,number=predicate=>events.filter(predicate).length;

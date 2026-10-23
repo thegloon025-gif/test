@@ -13,7 +13,8 @@ import {planTypes} from './engineSupport.mjs';
 const stable=(a,b)=>String(a).localeCompare(String(b));
 export const challengerSignature=cards=>cards.map(singletonName).sort(stable).join('|');
 const combos=(xs,n)=>n===0?[[]]:xs.flatMap((x,i)=>combos(xs.slice(i+1),n-1).map(ys=>[x,...ys]));
-export function discoverGameplayChallengers({built,pool,commander,bracket,budget,communityDecks=[],source=null,comboViolation=()=>null,maxCandidates=4}={}){
+export function discoverGameplayChallengers({built,pool,commander,bracket,budget,communityDecks=[],source=null,comboViolation=()=>null,maxCandidates=4,accessFamily='entry'}={}){
+ if(!['entry','cast-draw'].includes(accessFamily))throw Error('Unsupported shadow access family');
  if(!Number.isInteger(maxCandidates)||maxCandidates<1||maxCandidates>4)throw Error('Challenger bound 1..4');
  const plan=planFor(commander),types=planTypes(plan),id=oracleId(commander);
  const cohort=communityDecks.filter(d=>d.validated&&d.commanderIds?.length===1&&d.commanderIds[0]===id&&Number(d.edhBracket)===Number(bracket));
@@ -26,7 +27,7 @@ export function discoverGameplayChallengers({built,pool,commander,bracket,budget
  const newCards=[...unique.values()].filter(c=>!owned.has(singletonName(c))),available=newCards.filter(c=>!isLandSlot(c));
  const sourceCards=available.filter(c=>provenance.has(oracleId(c))),order=(a,b)=>printedManaValue(a)-printedManaValue(b)||stable(a.name,b.name);
  const native=c=>types.some(t=>castHasSubtype(c,t));
- const access=sourceCards.filter(c=>accessModel(c).triggers.some(t=>t.phase==='entry'&&t.chosen)).sort(order).slice(0,1);
+ const access=sourceCards.filter(c=>accessModel(c).triggers.some(t=>accessFamily==='entry'?t.phase==='entry'&&t.chosen:t.phase==='cast')).sort(order).slice(0,1);
  const castDraw=sourceCards.filter(c=>accessModel(c).triggers.some(t=>t.phase==='cast')).sort(order).slice(0,2);
  const ramp=sourceCards.filter(c=>manaCapacity(c).units>=2&&manaCapacity(c).colorless>=2).sort((a,b)=>manaCapacity(b).units-manaCapacity(a).units||order(a,b)).slice(0,2);
  const fixing=sourceCards.filter(c=>manaCapacity(c).fast&&manaCapacity(c).colorless>=1&&cardModel(c,commander.color_identity||[]).modes.some(m=>m.outputs.some(o=>o.some(t=>/[WUBRG]/.test(t))))).sort(order).slice(0,2);

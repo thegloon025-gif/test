@@ -83,7 +83,7 @@ export function createNativeStack(host,{seed,chosenType,triggerOrder='copy-first
   if(found){const r=host.castCascade(found,item.id);if(r.status==='paid'){stats.castsFromCascade++;revealed.splice(revealed.indexOf(found),1);}else unknown('cascade eligible card not cast: '+r.reason,{card:found.card.name,status:r.status});}
   const bottom=nativeShuffle(revealed,seed,'cascade:'+shuffle++);for(const s of bottom){host.exile.splice(host.exile.indexOf(s),1);host.library.push(s);}emit({event:'cascade-bottom',ability:item.id,ids:bottom.map(s=>s.id)});
  }
- function tutor(item){const eligible=host.library.filter(s=>tutorMatches(s.card,item.effect.filter)).sort((a,b)=>printedManaValue(a.card)-printedManaValue(b.card)||singletonName(a.card).localeCompare(singletonName(b.card))),found=eligible[0];
+ function tutor(item){const eligible=host.library.filter(s=>tutorMatches(s.card,item.effect.filter)).sort((a,b)=>printedManaValue(a.card)-printedManaValue(b.card)||singletonName(a.card).localeCompare(singletonName(b.card))),chosen=host.chooseTutor?.(eligible,item),found=host.chooseTutor?eligible.find(s=>s.id===chosen):eligible[0];
   if(found)host.library.splice(host.library.indexOf(found),1);const reordered=nativeShuffle(host.library,seed,'tutor:'+shuffle++);host.library.splice(0,host.library.length,...reordered);
   if(found){(item.effect.destination==='hand'?host.hand:host.library).unshift(found);stats[item.effect.destination==='hand'?'tutorCardsToHand':'tutorCardsToTop']++;}emit({event:'native-tutor',ability:item.id,source:item.source.id,found:found?.id||null,destination:item.effect.destination,order:reordered.map(s=>s.id)});stats.tutors++;return !!found;
  }

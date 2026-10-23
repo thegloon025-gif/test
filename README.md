@@ -696,3 +696,5 @@ Card information and price estimates from [Scryfall](https://scryfall.com). Magi
 Stage 5 developer-only native execution: [supported mechanics and offline reproduction](docs/GAMEPLAY_STAGE5.md), [validation](benchmarks/v12/stage5-VALIDATION.md). Production selection and app version remain unchanged.
 
 Stage 6 developer-only construction experiments: [model, terminal contract and Windows reproduction](docs/GAMEPLAY_STAGE6.md), [new complete-deck challengers and validation](benchmarks/v12/stage6-VALIDATION.md). Shadow only; production ranking and version 1.1.5 remain unchanged.
+
+Stage 7 opt-in recovery/tutor experiments: [supported semantics and offline Windows commands](docs/GAMEPLAY_STAGE7.md), [validation and remaining integration decision](benchmarks/v12/stage7-VALIDATION.md). Typed disruption, actual tax, positive payment receipts and tradeoffs remain shadow-only; default generation is unchanged.
