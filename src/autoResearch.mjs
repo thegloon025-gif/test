@@ -70,24 +70,44 @@ export async function autoResearchArchidekt({commanderId,commanderName,bracket,b
  if(!catalog.some(c=>oracleId(c)===commanderId))throw Error('Commander must exist in the downloaded Scryfall catalog.');
  if(budget!==null&&(!Number.isFinite(Number(budget))||Number(budget)<=0))throw Error('Choose a valid EUR budget.');
  const saved=await loadCommunity(file);
- const preview=await search(commanderName,{bracket:targetBracket,startPage:1,maxPreviews:AUTO_RESEARCH_LIMITS.maxPreviews,fetcher,now,minGapMs});
- const existingKeys=new Set(saved.map(d=>d.key)),candidates=[],skipped=[];
- let examined=0,alreadyStored=0,rateLimited=false;
- // Read only a bounded subset per deliberate click; do not harvest unseen pages.
- for(const p of (preview.previews||[]).slice(0,AUTO_RESEARCH_LIMITS.maxDetails)){
-  if(existingKeys.has(`archidekt:${p.id}`)){alreadyStored++;continue;}
-  examined++;
-  try{
-   const payload=await fetchDeck(p.id,{fetcher,now,minGapMs});
-   const d=normalizeArchidektDeck(payload,p.url,catalog);
-   if(!d.validated){skipped.push({id:p.id,reason:'Failed deck validation: '+d.issues.slice(0,2).join(' | ')});continue;}
-   if(d.edhBracket!==targetBracket){skipped.push({id:p.id,reason:'Incorrect or missing declared bracket.'});continue;}
-   if(d.commanderIds.length!==1||d.commanderIds[0]!==commanderId){skipped.push({id:p.id,reason:'Deck actually uses a different commander.'});continue;}
-   candidates.push(d);
-  }catch(err){
-   skipped.push({id:p.id,reason:String(err.message).slice(0,180)});
-   if(/rate limit|HTTP 429|HTTP 403|HTTP 401/i.test(String(err.message))){rateLimited=true;break;}
+ // Search full name first, then a short-name title alias only if no verified
+ // commander/bracket source survives. Both searches share one detail budget.
+ // A title is NEVER accepted as proof of commander identity.
+ const shortName=String(commanderName).split(' // ')[0].split(',')[0].trim();
+ const alias=shortName.length>=4&&shortName.toLowerCase()!==String(commanderName).split(' // ')[0].trim().toLowerCase()?shortName:null;
+ const savedKeys=new Set(saved.map(d=>d.key)),seen=new Set(),candidates=[],skipped=[];
+ let examined=0,alreadyStored=0,rateLimited=false,pagesSearched=0,previews=0;
+ const searchedNames=[commanderName];
+ const inspect=async (list,limit)=>{
+  for(const p of (list||[]).slice(0,limit)){
+   if(examined>=AUTO_RESEARCH_LIMITS.maxDetails||rateLimited)break;
+   if(seen.has(String(p.id)))continue;
+   seen.add(String(p.id));
+   if(savedKeys.has('archidekt:'+p.id)){alreadyStored++;continue;}
+   examined++;
+   try{
+    const payload=await fetchDeck(p.id,{fetcher,now,minGapMs});
+    const d=normalizeArchidektDeck(payload,p.url,catalog);
+    if(!d.validated){skipped.push({id:p.id,reason:'Failed deck validation: '+d.issues.slice(0,2).join(' | ')});continue;}
+    if(d.edhBracket!==targetBracket){skipped.push({id:p.id,reason:'Incorrect or missing declared bracket.'});continue;}
+    if(d.commanderIds.length!==1||d.commanderIds[0]!==commanderId){skipped.push({id:p.id,reason:'Deck actually uses a different commander.'});continue;}
+    candidates.push(d);
+   }catch(err){
+    skipped.push({id:p.id,reason:String(err.message).slice(0,180)});
+    if(/rate limit|HTTP 429|HTTP 403|HTTP 401/i.test(String(err.message))){rateLimited=true;break;}
+   }
   }
+ };
+ const preview=await search(commanderName,{bracket:targetBracket,startPage:1,maxPreviews:AUTO_RESEARCH_LIMITS.maxPreviews,fetcher,now,minGapMs});
+ pagesSearched+=preview.pagesSearched||0;previews+=preview.previews?.length||0;
+ await inspect(preview.previews,alias?Math.min(12,AUTO_RESEARCH_LIMITS.maxDetails):AUTO_RESEARCH_LIMITS.maxDetails);
+ // No relaxation of bracket matching or importing unverified lists.
+ if(alias&&!candidates.length&&!rateLimited&&examined<AUTO_RESEARCH_LIMITS.maxDetails){
+  try{
+   const secondary=await search(alias,{bracket:targetBracket,startPage:1,maxPreviews:AUTO_RESEARCH_LIMITS.maxPreviews,fetcher,now,minGapMs});
+   searchedNames.push(alias);pagesSearched+=secondary.pagesSearched||0;previews+=secondary.previews?.length||0;
+   await inspect(secondary.previews,AUTO_RESEARCH_LIMITS.maxDetails-examined);
+  }catch(err){skipped.push({id:'alias-search',reason:'Short-name fallback unavailable: '+String(err.message).slice(0,150)});}
  }
  const pick=chooseResearchDecks(candidates,saved,{catalog,budget:Number(budget)||null,limit:AUTO_RESEARCH_LIMITS.maxNew});
  skipped.push(...pick.skipped);
@@ -96,7 +116,7 @@ export async function autoResearchArchidekt({commanderId,commanderName,bracket,b
  const cohort=independentCommunityDecks([...saved,...additions],{commanderId,bracket:targetBracket});
  return {added:additions.map(d=>({id:d.sourceId,title:d.title,url:d.url,owner:d.owner,landCount:d.research.landCount,estimatedEur:d.research.estimatedEur,relevance:d.research.relevance,structureScore:d.research.structural.score,earlyRamp:d.research.structural.earlyRamp})),
   examined,eligible:candidates.length,alreadyStored,skipped:skipped.slice(0,30),skippedCount:skipped.length,
-  previews:preview.previews?.length||0,pagesSearched:preview.pagesSearched||0,rateLimited,
+  previews,pagesSearched,searchedNames,rateLimited,
   distinctValidated:cohort.decks.length,distinctCreators:new Set(cohort.decks.map(normalizeOwner).filter(Boolean)).size,
   note:'Search is based on deck TITLES and declared Archidekt brackets. Validation and relevance screening are not EDH power checks. A matching budget estimate is not a price guarantee.'};
 }
