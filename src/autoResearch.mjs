@@ -76,7 +76,9 @@ export async function autoResearchArchidekt({commanderId,commanderName,bracket,b
  const shortName=String(commanderName).split(' // ')[0].split(',')[0].trim();
  const alias=shortName.length>=4&&shortName.toLowerCase()!==String(commanderName).split(' // ')[0].trim().toLowerCase()?shortName:null;
  const savedKeys=new Set(saved.map(d=>d.key)),seen=new Set(),candidates=[],skipped=[];
- let examined=0,alreadyStored=0,rateLimited=false,pagesSearched=0,previews=0;
+ let examined=0,alreadyStored=0,rateLimited=false,pagesSearched=0,previews=0,unknownBracket=0,partial=false,truncated=false;
+ const searches=[],errors=[];
+ const evidence=p=>{pagesSearched+=p.pagesSearched||0;previews+=p.previews?.length||0;unknownBracket+=p.unknownBracket||0;partial||=p.partial===true;truncated||=p.truncated===true;if(p.error)errors.push(p.error);searches.push({query:p.query||null,fetchedAt:p.searchedAt||null,fromCache:p.fromCache===true,cacheAgeMs:p.cacheAgeMs??null,truncated:p.truncated===true});};
  const searchedNames=[commanderName];
  const inspect=async (list,limit)=>{
   for(const p of (list||[]).slice(0,limit)){
@@ -99,16 +101,19 @@ export async function autoResearchArchidekt({commanderId,commanderName,bracket,b
   }
  };
  const preview=await search(commanderName,{bracket:targetBracket,startPage:1,maxPreviews:AUTO_RESEARCH_LIMITS.maxPreviews,fetcher,now,minGapMs});
- pagesSearched+=preview.pagesSearched||0;previews+=preview.previews?.length||0;
+ evidence(preview);
  await inspect(preview.previews,alias?Math.min(12,AUTO_RESEARCH_LIMITS.maxDetails):AUTO_RESEARCH_LIMITS.maxDetails);
  // No relaxation of bracket matching or importing unverified lists.
  if(alias&&!candidates.length&&!rateLimited&&examined<AUTO_RESEARCH_LIMITS.maxDetails){
   try{
    const secondary=await search(alias,{bracket:targetBracket,startPage:1,maxPreviews:AUTO_RESEARCH_LIMITS.maxPreviews,fetcher,now,minGapMs});
-   searchedNames.push(alias);pagesSearched+=secondary.pagesSearched||0;previews+=secondary.previews?.length||0;
+   searchedNames.push(alias);evidence(secondary);
    await inspect(secondary.previews,AUTO_RESEARCH_LIMITS.maxDetails-examined);
-  }catch(err){skipped.push({id:'alias-search',reason:'Short-name fallback unavailable: '+String(err.message).slice(0,150)});}
+  }catch(err){partial=true;errors.push(String(err.message).slice(0,150));skipped.push({id:'alias-search',reason:'Short-name fallback unavailable: '+String(err.message).slice(0,150)});}
  }
+ if(alias&&candidates.length&&examined<AUTO_RESEARCH_LIMITS.maxDetails)await inspect(preview.previews,AUTO_RESEARCH_LIMITS.maxDetails);
+ truncated||=examined>=AUTO_RESEARCH_LIMITS.maxDetails;
+ const dates=searches.map(s=>s.fetchedAt).filter(Boolean).sort();
  const pick=chooseResearchDecks(candidates,saved,{catalog,budget:Number(budget)||null,limit:AUTO_RESEARCH_LIMITS.maxNew});
  skipped.push(...pick.skipped);
  const additions=pick.selected.map(x=>({...x.deck,research:{mode:'one-click',screen:'commander+bracket+legality+diversity+budget relevance',...x.evidence}}));
@@ -116,7 +121,7 @@ export async function autoResearchArchidekt({commanderId,commanderName,bracket,b
  const cohort=independentCommunityDecks([...saved,...additions],{commanderId,bracket:targetBracket});
  return {added:additions.map(d=>({id:d.sourceId,title:d.title,url:d.url,owner:d.owner,landCount:d.research.landCount,estimatedEur:d.research.estimatedEur,relevance:d.research.relevance,structureScore:d.research.structural.score,earlyRamp:d.research.structural.earlyRamp})),
   examined,eligible:candidates.length,alreadyStored,skipped:skipped.slice(0,30),skippedCount:skipped.length,
-  previews,pagesSearched,searchedNames,rateLimited,
+  previews,pagesSearched,searchedNames,rateLimited,unknownBracket,partial,truncated,errors,searches,fetchedAt:dates[0]||null,cacheAgeMs:searches.length?Math.max(...searches.map(s=>s.cacheAgeMs||0)):null,
   distinctValidated:cohort.decks.length,distinctCreators:new Set(cohort.decks.map(normalizeOwner).filter(Boolean)).size,
   note:'Search is based on deck TITLES and declared Archidekt brackets. Validation and relevance screening are not EDH power checks. A matching budget estimate is not a price guarantee.'};
 }

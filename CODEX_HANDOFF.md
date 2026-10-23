@@ -55,3 +55,8 @@ The user's **`data/` folder lives in their Windows installation**, is absent fro
 ## Broader next features (not authorization to do everything at once)
 
 More reliable EDHREC-like insights **only from authorized sources**; functional Scryfall tagging/role evidence; genuine mana sequencing and hand simulation; stronger source-deck quality evaluation, hidden-gem recommendations; comparison of generated alternatives; later a strategy-preserving in-app upgrader. Moxfield authenticated push and live Cardmarket EN NM acquisition remain unimplemented.
+
+
+## Stage 10 — PR #6 research continuation
+
+Work is on codex/stage10-any-commander-research, based on draft PR #2 separately from gameplay PR #4. Read Issue #5, docs/RESEARCH_STAGE10.md and benchmarks/stage10-VALIDATION.md. Commander GET discovery runs without Archidekt, with nullable-total-safe pagination and partial/stale provenance. Other locally legal color candidates are advisory colorCandidates, separate from constructor variants, and cannot evict known combo knowledge. Existing source-deck POST, exact pricing, bracket/source/commitment rules, local fallback and Windows launcher remain. No EDHREC rights assumption/scraping, commander sets, Pod activation, gameplay ranking, release, version change or stronger-deck claim is authorized. Full branch tests and live/browser/Windows limits are in the report; this branch has a different test baseline from gameplay PR #4.

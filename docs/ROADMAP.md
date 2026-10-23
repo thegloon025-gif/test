@@ -1,6 +1,17 @@
 # CommanderOracle Independent — development roadmap
 
-Last revised: 2026-10-22. Local, deterministic Commander generator: **no paid AI API** is needed to build a deck.
+Last revised: 2026-10-24. Local, deterministic Commander generator: **no paid AI API** is needed to build a deck.
+
+## Stage 10 — Commander research (draft PR #6, separate from #4)
+
+- [x] Independent single-commander Spellbook discovery without imported decks; live nullable-count pagination, partial/unknown coverage and stale provenance.
+- [x] Strict actual-commander/declared-bracket Archidekt screening, bounded alias fallback and retained partial results.
+- [x] Separate color-compatible advisory suggestions without evicting constructor knowledge; preserve quantities/templates/prerequisites.
+- [x] Browser disclosures, live API/schema checks and actual local/browser verification. Read RESEARCH_STAGE10.md and Stage 10 validation for precise coverage and limitations.
+- [ ] Native Windows verification, API drift monitoring and permitted external evaluation before merge/release.
+- [ ] Review contextual strategy support before integrating advisory color suggestions. No gameplay ranking or spending/combo-count bonus.
+- [ ] Investigate authorized EDHREC data and supported commander-set semantics without scraping or pretending these exist.
+
 
 ## Pod combo rules and v1.2 execution groundwork
 

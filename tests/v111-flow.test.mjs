@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {researchForGeneration} from '../src/researchFlow.mjs';
 const sample={key:'archidekt:400',sourceId:'400',validated:true,edhBracket:3,commanderIds:['cmr'],mainboard:[],owner:'sample'};
-const args={commanderId:'cmr',commanderName:'Example Legend',bracket:3,budget:191,catalog:[],savedCommunity:[],lookup:async()=>({variants:[],total:0,truncated:false,fromCache:true,pages:1})};
+const args={commanderId:'cmr',commanderName:'Example Legend',bracket:3,budget:191,catalog:[],savedCommunity:[],record:async()=>{},lookup:async()=>({variants:[],total:0,truncated:false,fromCache:true,pages:1})};
 
 test('one-click flow discovers, reloads verified sources, checks combo and returns refreshed cohort',async()=>{
  const events=[];

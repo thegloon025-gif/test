@@ -8,12 +8,11 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {oracleId,legalFor,priceOf} from './cards.mjs';
 import {satisfyTemplates} from './comboTemplates.mjs';
+import {waitForSpellbook,boundedSpellbookJSON} from './spellbookTransport.mjs';
 const HERE=path.dirname(fileURLToPath(import.meta.url));
 const CACHE=path.join(HERE,'..','data','spellbook-cache');
 const ENDPOINT='https://backend.commanderspellbook.com/find-my-combos';
 const DAY=24*60*60*1000;
-let lastRequest=0;
-const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
 export const normalizedName=s=>String(s||'').normalize('NFKC').replace(/[‘’]/g,"'").replace(/\s*\/\/\s*/g,' // ').trim().toLowerCase();
 const text=x=>typeof x==='string'?x:typeof x?.name==='string'?x.name:typeof x?.description==='string'?x.description:typeof x?.card?.name==='string'?x.card.name:typeof x?.card==='string'?x.card:typeof x?.feature?.name==='string'?x.feature.name:typeof x?.template?.name==='string'?x.template.name:'';
 const listText=value=>Array.isArray(value)?value.map(text).filter(Boolean).slice(0,24):typeof value==='string'?[value]:[];
@@ -119,8 +118,8 @@ export async function fetchSpellbookForDeck(deck,catalog,{fetcher=fetch,now=()=>
  const request=spellbookRequest(deck,catalog);
  const key=createHash('sha256').update(JSON.stringify(request)).digest('hex');
  const filename=path.join(cacheDir,key+'.json');
- if(!forceRefresh){try{const saved=JSON.parse(await readFile(filename,'utf8'));if(saved.stamp&&now()-saved.stamp<DAY){const parsed=normalizeFindResponse(saved.response);await onVerifiedResponse(parsed);return {...annotateCombos(parsed,deck,catalog),fromCache:true,fetchedAt:new Date(saved.stamp).toISOString()};}}catch(e){if(e.code!=='ENOENT')throw e;}}
- const delay=minGapMs-(now()-lastRequest);if(delay>0)await wait(delay);lastRequest=now();
+ if(!forceRefresh){try{const saved=JSON.parse(await readFile(filename,'utf8'));if(saved.stamp&&now()-saved.stamp<DAY){const parsed=normalizeFindResponse(saved.response);await onVerifiedResponse(parsed,{fetchedAt:new Date(saved.stamp).toISOString(),fromCache:true});return {...annotateCombos(parsed,deck,catalog),fromCache:true,fetchedAt:new Date(saved.stamp).toISOString()};}}catch(e){if(e.code!=='ENOENT')throw e;}}
+ await waitForSpellbook({now,minGapMs});
  const response=await fetcher(ENDPOINT,{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json','User-Agent':'CommanderOracleIndependent/0.8'},body:JSON.stringify(request),redirect:'manual',signal:AbortSignal.timeout(25000)});
  if(response.status===429)throw Error('Commander Spellbook is rate-limiting requests; wait and retry.');
  if(response.status===400||response.status===422){
@@ -135,11 +134,9 @@ export async function fetchSpellbookForDeck(deck,catalog,{fetcher=fetch,now=()=>
   throw Error(`Commander Spellbook rejected its request (HTTP ${response.status})${detail?': '+detail:''}. No combos were assumed.`);
  }
  if(!response.ok)throw Error(`Commander Spellbook unavailable (HTTP ${response.status}). No combos were assumed.`);
- const len=Number(response.headers?.get?.('content-length'))||0;if(len>3_000_000)throw Error('Commander Spellbook response too large.');
- const raw=await response.text();if(raw.length>3_000_000)throw Error('Commander Spellbook response too large.');
- let result;try{result=JSON.parse(raw);}catch{throw Error('Commander Spellbook sent non-JSON data.');}
+ const result=await boundedSpellbookJSON(response,3_000_000);
  const parsed=normalizeFindResponse(result);
- await onVerifiedResponse(parsed);
+ await onVerifiedResponse(parsed,{fetchedAt:new Date(now()).toISOString(),fromCache:false});
  await mkdir(cacheDir,{recursive:true});const tmp=filename+'.tmp';await writeFile(tmp,JSON.stringify({stamp:now(),response:result}));await rename(tmp,filename);
  return {...annotateCombos(parsed,deck,catalog),fromCache:false,fetchedAt:new Date(now()).toISOString()};
 }

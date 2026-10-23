@@ -1,3 +1,9 @@
+### Draft PR #6 — Automatic research for your commander
+
+Research & Generate independently checks commander-containing Spellbook candidates even when Archidekt returns no verified sources. Results separate discovery, source-deck inventory, advisory color-compatible suggestions and local Scryfall evidence, with cache age and offline/partial status. You still provide commander, EUR ceiling and bracket; manual deck import is optional.
+
+Candidate counts do not prove execution or stronger decks. Version stays 1.1.5; nothing is merged or released. See [Stage 10 behavior](docs/RESEARCH_STAGE10.md) and [validation](benchmarks/stage10-VALIDATION.md).
+
 ### Unreleased PR #2 — combo execution review
 
 Generated decks now include an expandable **Combo execution requirements** disclosure: named quantities, commander participation, starting zones/states, mana and resource instructions, alternate-face setup and published outcomes. Inventory matches remain unverified execution; infinite mana or tokens still need a usable win outlet. Reliable combo timing stays unknown.

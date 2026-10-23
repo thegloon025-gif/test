@@ -4,6 +4,7 @@ import {readFile,writeFile,mkdir,rename} from 'node:fs/promises';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {normalizeVariant} from './combos.mjs';
+let writes=Promise.resolve();
 const DEFAULT=path.join(path.dirname(fileURLToPath(import.meta.url)),'..','data','combo-library.json');
 export async function readComboLibrary(file=DEFAULT){
  try{
@@ -13,13 +14,24 @@ export async function readComboLibrary(file=DEFAULT){
    .map(e=>({...e,variants:e.variants.map(normalizeVariant).filter(Boolean)}));
  }catch(e){if(e.code==='ENOENT')return [];throw e;}
 }
-export async function recordSpellbookVariants(commanderId,normalized,{file=DEFAULT,now=()=>new Date().toISOString()}={}){
+export function recordSpellbookVariants(commanderId,normalized,options={}){
+ const pending=writes.then(()=>writeVariants(commanderId,normalized,options));writes=pending.catch(()=>{});return pending;
+}
+async function writeVariants(commanderId,normalized,{file=DEFAULT,now=()=>new Date().toISOString(),provenance=null}={}){
  if(typeof commanderId!=='string'||!commanderId||!Array.isArray(normalized?.included)||!Array.isArray(normalized?.near))throw Error('Only verified normalized Spellbook responses can be recorded.');
  const entries=await readComboLibrary(file);
- const prior=entries.find(e=>e.commanderId===commanderId)?.variants||[];
- const variants=[...new Map([...prior,...normalized.near,...normalized.included].map(v=>[v.id,v])).values()].filter(v=>v&&/^\d+(?:(?:-\d+)|(?:--\d+))*$/.test(v.id)).slice(-1000);
+ const existing=entries.find(e=>e.commanderId===commanderId),prior=existing?.variants||[];
+ const incoming=provenance?.scope==='color-identity'?[]:[...normalized.near,...normalized.included];
+ const variants=[...new Map([...prior,...incoming].map(v=>[v.id,v])).values()].filter(v=>v&&/^\d+(?:(?:-\d+)|(?:--\d+))*$/.test(v.id)).slice(-1000);
  const updated=entries.filter(e=>e.commanderId!==commanderId);
- updated.push({commanderId,source:'Commander Spellbook',updatedAt:now(),variants});
+ const research=[...(existing?.research||[])];
+ if(provenance){
+  if(!['commander-card','color-identity','deck-inventory'].includes(provenance.scope)||typeof provenance.query!=='string'||typeof provenance.fetchedAt!=='string')throw Error('Invalid Spellbook research provenance.');
+  const event={scope:provenance.scope,query:provenance.query.slice(0,300),fetchedAt:provenance.fetchedAt,endpoint:provenance.scope==='deck-inventory'?'https://backend.commanderspellbook.com/find-my-combos':'https://backend.commanderspellbook.com/variants/',partial:provenance.partial===true,truncated:provenance.truncated===true,variantIds:[...new Set([...normalized.included,...normalized.near].map(v=>v.id))].slice(0,120)};
+  const key=x=>JSON.stringify([x.scope,x.query,x.fetchedAt]);if(!research.some(x=>key(x)===key(event)))research.push(event);
+ }
+ const colorCandidates=provenance?.scope==='color-identity'?[...new Map([...(existing?.colorCandidates||[]),...normalized.near,...normalized.included].map(v=>[v.id,v])).values()].slice(-40):existing?.colorCandidates;
+ updated.push({...existing,...(colorCandidates?{colorCandidates}:{}),commanderId,source:'Commander Spellbook',updatedAt:now(),variants,...(research.length?{research:research.slice(-16)}:{})});
  await mkdir(path.dirname(file),{recursive:true});
  const tmp=file+'.tmp-'+process.pid;
  await writeFile(tmp,JSON.stringify({schema:1,entries:updated}));await rename(tmp,file);
