@@ -88,3 +88,14 @@ test('fourth refinement slot reaches unexpanded source even when shared scaffold
  const result=refinementCohort([a,b,c,local,resilience],{commander,preferred:a,coverageLeaders:[local,b],limit:4});
  assert.deepEqual(result,[a,local,b,c]);
 });
+
+test('observed noncreature cast prerequisites match actual nonland spells and printed MV threshold',async()=>{
+ const {planFor,synergy}=await import('../src/mechanics.mjs'),{engineContext,matchesCastNeed}=await import('../src/engineSupport.mjs');
+ const cmd=card('Previously unseen commander','Legendary Creature — Wizard','Whenever you cast a noncreature spell with mana value 3 or greater, this creature deals 2 damage to each opponent.');
+ const plan=planFor(cmd),need=plan.needs[0];assert.deepEqual(need,{kind:'typed-cast',types:['noncreature'],minManaValue:3});
+ const yes=card('Qualifying','Sorcery','Draw two cards.',{cmc:3}),small=card('Too small','Instant','Draw a card.',{cmc:2}),creature=card('Creature','Creature — Wizard','',{cmc:5}),land=card('Land','Land','',{cmc:5});
+ assert.equal(matchesCastNeed(yes,need),true);assert.ok(synergy(yes,plan).roles.includes('engine'));
+ for(const no of[small,creature,land]){assert.equal(matchesCastNeed(no,need),false);assert.ok(!synergy(no,plan).roles.includes('engine'));}
+ assert.deepEqual(engineContext([yes,small,creature,land],plan).native.map(c=>c.name),['Qualifying']);
+ const reversed=card('Spell // Spell','Sorcery','',{cmc:0,layout:'reversible_card',card_faces:[{name:'Spell',type_line:'Sorcery',mana_cost:'{3}{U}'}]});assert.equal(matchesCastNeed(reversed,need),true);
+});

@@ -14,10 +14,19 @@ export function engineManaValue(c){
  return [...cost.matchAll(/\{([^}]+)\}/g)].reduce((n,m)=>n+(/^[XYZ]$/.test(m[1])?0:Math.max(1,...m[1].split('/').map(x=>Number(x)||0))),0);
 }
 
+/** Match an observed spell descriptor, not an assumed commander archetype. */
+export function matchesCastNeed(card,need){
+ if(isLandSlot(card)||need.kind!=='typed-cast')return false;
+ const typed=(need.types||[]).some(type=>type.toLowerCase()==='noncreature'?!castHasType(card,'Creature'):castHasType(card,type)||castHasSubtype(card,type));
+ return typed&&(need.minManaValue==null||engineManaValue(card)>=need.minManaValue);
+}
+
 export const planTypes=plan=>[...new Set((plan.needs||[]).flatMap(n=>n.types||(n.kind==='ninjutsu'?['Ninja']:[n.type])).filter(Boolean))];
 export function engineContext(cards,plan){
  const spells=cards.filter(c=>!isLandSlot(c)),creatures=spells.filter(c=>castHasType(c,'Creature')),relevant=planTypes(plan);
- return {spells,creatures,relevant,tribal:creatures.filter(c=>relevant.some(type=>castHasSubtype(c,type)))};
+ const typed=(plan.needs||[]).filter(n=>n.kind==='typed-cast');
+ const native=spells.filter(c=>typed.length?typed.some(n=>matchesCastNeed(c,n)):relevant.some(type=>castHasSubtype(c,type)||castHasType(c,type)));
+ return {spells,creatures,relevant,native,tribal:creatures.filter(c=>relevant.some(type=>castHasSubtype(c,type)))};
 }
 const unique=cards=>[...new Map(cards.map(c=>[singletonName(c),c])).values()];
 const drawAction=/\bdraw (?:a|one|two|three|four|[1-9]) cards?\b/i;
@@ -83,7 +92,7 @@ export function supportedCardAccess(c,context){
  * dominated improvement merely because generic role totals are higher. */
 export function strategyInfrastructure(c,context){
  const text=oracleText(c),spells=context.spells.filter(x=>x!==c);
- const native=spells.filter(x=>context.relevant.some(type=>castHasSubtype(x,type)||castHasType(x,type)));
+ const native=(context.native||spells.filter(x=>context.relevant.some(type=>castHasSubtype(x,type)||castHasType(x,type)))).filter(x=>x!==c);
  const colorless=spells.filter(colorlessSpell),entries=[];
  function add(kind,support,min=1,units=1){if(unique(support).length>=min)entries.push({kind,units,support:unique(support).length,cards:unique(support).map(x=>x.name)});}
  const cascade=text.match(/(colorless )?spells you cast(?: from your hand)? with mana value (\d+) or greater have ["“]?(cascade(?:, cascade)*)/i);
