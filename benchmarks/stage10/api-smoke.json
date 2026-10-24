@@ -1,0 +1,12 @@
+{
+  "status": 200,
+  "runtimeMs": 31136,
+  "version": "1.1.5",
+  "price": 102.06,
+  "count": 100,
+  "provenance": "exact-selected-cards",
+  "withinBudget": true,
+  "agreesWithGenerator": true,
+  "anomalies": [],
+  "automaticResearchAbsent": true
+}

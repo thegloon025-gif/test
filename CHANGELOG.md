@@ -1,3 +1,10 @@
+## Unreleased — Stage 10 automatic commander research (draft PR #6)
+
+- Independent commander-containing Spellbook discovery works without Archidekt sources, with live nullable-total pagination, useful partial results and honest stale-cache fallback.
+- Add capped local-color/legal advisory suggestions separately from constructor variants; preserve bracket, source, combo and exact-pricing safeguards.
+- Show separate candidate/source-inventory counts, retrieval provenance, cache age, unknown coverage and local catalog evidence in the browser.
+- Add scoped cache validation, streamed size limits, shared Spellbook pacing, serialized library writes and focused regressions. Version stays 1.1.5; no merge, release or external power claim.
+
 ## Unreleased — combo execution requirements and fixed-cache B3/B4 benchmark
 
 - Preserve standard combo gates and record the requested Pod High-Power rules separately as v1.2 requirements. Cached loop data does not establish reliable timing; no pod profile or pod-approved export is silently enabled.

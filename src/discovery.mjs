@@ -60,12 +60,13 @@ export async function discoverPublicDecks(commanderName,{bracket=null,startPage=
  const url=discoverySearchUrl(commanderName);
  const cacheKey=`${url}#bracket=${targetBracket??'any'}#page=${startPage}#limit=${maxPreviews}`;
  const cached=cachedSearches.get(cacheKey);
- if(!forceRefresh&&cached&&now()-cached.stamp<CACHE_TTL)return {...cached.value,fromCache:true};
- const previews=[],seen=new Set();let inspected=0,unknownBracket=0,pagesSearched=0;
+ if(!forceRefresh&&cached&&now()-cached.stamp>=0&&now()-cached.stamp<(cached.value.partial?600000:CACHE_TTL))return {...cached.value,fromCache:true,cacheAgeMs:now()-cached.stamp};
+ const previews=[],seen=new Set();let inspected=0,unknownBracket=0,pagesSearched=0,truncated=false,partial=false,searchError=null;
  // Deck listings are title-based. The API's search-side bracket parameter is
  // not documented, so filter actual edhBracket metadata locally rather than
  // pretending an unverified query parameter applies a server-side restriction.
  for(let page=startPage;page<=(startPage===1&&targetBracket!==null?MAX_PAGES:startPage);page++){
+  try{
   const pageUrl=discoverySearchUrl(commanderName,{page});
   const remaining=minGapMs-(now()-lastSearchAt);if(remaining>0)await pause(remaining);
   lastSearchAt=now();
@@ -83,14 +84,17 @@ export async function discoverPublicDecks(commanderName,{bracket=null,startPage=
   unknownBracket+=data.results.filter(x=>declaredBracket(x?.edhBracket)===null).length;
   const matches=normalizeSearchResults(data,{limit:PAGE_SIZE,bracket:targetBracket});
   for(const deck of matches){if(!seen.has(deck.id)){seen.add(deck.id);previews.push(deck);}if(previews.length>=maxPreviews)break;}
-  if(previews.length>=maxPreviews||data.results.length<PAGE_SIZE)break;
+  const hasNext=Object.hasOwn(data,'next')?data.next!==null:data.results.length>=PAGE_SIZE;
+  truncated=hasNext||previews.length>=maxPreviews&&matches.length>0;
+  if(previews.length>=maxPreviews||!hasNext)break;
+  }catch(e){if(!pagesSearched)throw e;partial=true;truncated=true;searchError=String(e.message||e).slice(0,250);break;}
  }
- const value={previews,bracket:targetBracket,startPage,pagesSearched,inspected,unknownBracket,
+ const value={previews,bracket:targetBracket,startPage,pagesSearched,inspected,unknownBracket,truncated,partial,error:searchError,
   query:String(commanderName).split(' // ')[0],searchedAt:new Date(now()).toISOString(),
   note:'Title matches only; bracket matches use creator-declared Archidekt edhBracket metadata, not computed power. Unknown bracket decks excluded from filtered search. Commander verified on import.'};
  cachedSearches.set(cacheKey,{stamp:now(),value});
  if(cachedSearches.size>80)cachedSearches.delete(cachedSearches.keys().next().value);
- return {...value,fromCache:false};
+ return {...value,fromCache:false,cacheAgeMs:0};
 }
 
 /** Only IDs returned by a recent bounded search can be submitted for batch import. */

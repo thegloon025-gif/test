@@ -1,0 +1,53 @@
+{
+  "decks": 14,
+  "selectedPrintingSlots": 1400,
+  "sourceSpinesChecked": 5,
+  "afterStandardPolicyCheckedAgainstFinalLibrary": [
+    {
+      "slug": "ulalek-b3",
+      "passed": true
+    },
+    {
+      "slug": "ulalek-b4",
+      "passed": true
+    },
+    {
+      "slug": "wilhelt-b3",
+      "passed": true
+    },
+    {
+      "slug": "wilhelt-b4",
+      "passed": true
+    },
+    {
+      "slug": "yuriko-b3",
+      "passed": true
+    },
+    {
+      "slug": "yuriko-b4",
+      "passed": true
+    },
+    {
+      "slug": "zada-b3",
+      "passed": true
+    },
+    {
+      "slug": "zada-b4",
+      "passed": true
+    },
+    {
+      "slug": "henzie-b3",
+      "passed": true
+    },
+    {
+      "slug": "henzie-b4",
+      "passed": true
+    }
+  ],
+  "newlyKnownBeforeViolations": [],
+  "originalCacheHashesPreserved": true,
+  "constructionPricingBracketAndWindowsFilesUnchanged": true,
+  "version": "1.1.5",
+  "implementationCommit": "a9f9ee7beb8ebcb782aa0d32000716d75f1395c6",
+  "limitations": "Selected-record, source and inventory-policy checks do not prove gameplay, optimal strategy selection or official bracket compliance. Live research changes over time; exact live snapshots remain in the disposable local scratch cache, not redistributed with the user catalog."
+}

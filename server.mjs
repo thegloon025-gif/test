@@ -34,7 +34,7 @@ const headers={'X-Content-Type-Options':'nosniff','Cache-Control':'no-store'};
 function json(res,obj,status=200){res.writeHead(status,{...headers,'Content-Type':'application/json; charset=utf-8'});res.end(JSON.stringify(obj));}
 function error(res,err,status=400){json(res,{error:err.message||String(err)},status);}
 async function body(req){let str='';for await(const chunk of req){str+=chunk;if(str.length>8_000_000)throw Error('Request too large (8 MB maximum)');}return JSON.parse(str||'{}');}
-const staticFiles={'/':'index.html','/index.html':'index.html','/app.js':'app.js','/style.css':'style.css'};
+const staticFiles={'/':'index.html','/index.html':'index.html','/app.js':'app.js','/research.js':'research.js','/style.css':'style.css'};
 const mime={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8'};
 const server=http.createServer(async(req,res)=>{
  const url=new URL(req.url,'http://localhost');
@@ -141,19 +141,17 @@ const server=http.createServer(async(req,res)=>{
    let automaticResearch=null;
    if(p.autoResearch===true&&p.communityMode!=='off'){
     const key=oracleId(commander)+':'+String(Number(p.bracket));
-    const cachedUntil=completedAutomaticResearch.get(key)||0;
-    if(communityDiscoveryBusy){
-     automaticResearch={mode:'automatic-before-build',discovery:{status:'busy',error:'Another Archidekt request is running; used saved sources.'},combos:{status:'skipped'},matchingSaved:null};
-    }else{
-     communityDiscoveryBusy=true;
-     try{
-      const result=await researchForGeneration({commanderId:oracleId(commander),commanderName:commander.name,
-       bracket:Number(p.bracket),budget:Number(p.budget),catalog:state.cards,savedCommunity:community,
-       reuseDiscovery:Date.now()<cachedUntil});
-      community=result.community;automaticResearch=result.report;
-      if(result.report.discovery.status==='completed')completedAutomaticResearch.set(key,Date.now()+6*60*60*1000);
-     }finally{communityDiscoveryBusy=false;}
-    }
+    const cached=completedAutomaticResearch.get(key),ownsDiscovery=!communityDiscoveryBusy;
+    if(ownsDiscovery)communityDiscoveryBusy=true;
+    try{
+     const result=await researchForGeneration({commanderId:oracleId(commander),commanderName:commander.name,
+      bracket:Number(p.bracket),budget:Number(p.budget),catalog:state.cards,savedCommunity:community,
+      reuseDiscovery:Date.now()<(cached?.until||0),reusedAt:cached?.at||null,discoveryBusy:!ownsDiscovery,catalogFetchedAt:state.meta?.savedAt||null});
+     // Concurrent Spellbook-only work must not replace a newer imported cohort.
+     if(ownsDiscovery)community=result.community;
+     automaticResearch=result.report;
+     if(ownsDiscovery&&result.report.discovery.status==='completed')completedAutomaticResearch.set(key,{until:Date.now()+6*60*60*1000,at:result.report.discovery.fetchedAt||new Date().toISOString()});
+    }finally{if(ownsDiscovery)communityDiscoveryBusy=false;}
    }
    let localCombos=[],comboLibraryError=null;
    try{localCombos=(await readComboLibrary()).find(x=>x.commanderId===p.commanderId)?.variants||[];}catch(e){comboLibraryError=e.message;console.error('Combo library unavailable:',e.message);}
@@ -169,8 +167,10 @@ const server=http.createServer(async(req,res)=>{
    if(automaticResearch){deck.automaticResearch=automaticResearch;
     if(automaticResearch.discovery?.status==='unavailable')deck.warnings.push('Automatic Archidekt research unavailable; built from saved sources/local fallback: '+automaticResearch.discovery.error);
     if(automaticResearch.combos?.status==='unavailable')deck.warnings.push('Automatic Spellbook source check unavailable; retained previously cached combos: '+automaticResearch.combos.error);
+    if(['unavailable','partial','cached-fallback'].includes(automaticResearch.commanderLookup?.status))deck.warnings.push('Commander-specific Spellbook research unavailable; retained saved combo library/local fallback: '+automaticResearch.commanderLookup.error);
     if(automaticResearch.discovery?.status==='busy')deck.warnings.push('Archidekt research was busy; built from previously saved community sources.');
    }
+   if(automaticResearch?.colorLookup?.status==='unavailable')deck.warnings.push('Color-compatible Spellbook discovery unavailable; retained saved combo knowledge: '+automaticResearch.colorLookup.error);
    // Validate the FINAL exported list, not just intermediate construction costs.
    // Any inconsistency fails closed instead of presenting a misleading budget.
    const audit=auditExportPricing(deck,selectedCommander,candidateCards);

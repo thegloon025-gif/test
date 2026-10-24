@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "recorded_on": "2026-10-24",
+  "source_type": "user-supplied evaluator screenshots",
+  "subject": {
+    "commander": "Wilhelt, the Rotcleaver",
+    "requested_bracket": 4,
+    "eur_budget": 191,
+    "pricing_source": "frozen selected-printing Scryfall EUR estimates",
+    "research_branch": "codex/stage10-any-commander-research",
+    "original_export": "benchmarks/stage10/wilhelt-b4-before.txt",
+    "after_export": "benchmarks/stage10/wilhelt-b4-after.txt"
+  },
+  "deck_before": {
+    "eur": 97.18,
+    "edhcheck": {
+      "power": 4.6,
+      "category": "High Casual",
+      "bracket": 3,
+      "game_changers_reported": [
+        "Mana Vault"
+      ],
+      "speed": 4.1,
+      "consistency": 5.5,
+      "saltiness": 0.5,
+      "avg_mana_value": 2.91,
+      "tutors_reported": 3,
+      "ramp_percent_reported": 3.1,
+      "draw_percent_reported": 16.9
+    },
+    "edhpowerlevel": {
+      "power": 1.55,
+      "bracket": 3,
+      "tipping_point": 3,
+      "efficiency": 7.16,
+      "impact": 296.37,
+      "score_out_of_1000": 288,
+      "average_playability_percent": 72.2
+    }
+  },
+  "deck_after": {
+    "eur": 181.8,
+    "edhcheck": {
+      "power": 4.7,
+      "category": "High Casual",
+      "bracket": 2,
+      "description": "Core: 1 fast mana source (e.g. Sol Ring)",
+      "speed": 3.8,
+      "consistency": 6.5,
+      "saltiness": 0.2,
+      "avg_mana_value": 2.83,
+      "tutors_reported": 1,
+      "ramp_percent_reported": 10.8
+    },
+    "edhpowerlevel": {
+      "power": 4.95,
+      "bracket": 2,
+      "tipping_point": 3,
+      "efficiency": 7.26,
+      "impact": 427.97,
+      "score_out_of_1000": 418,
+      "average_playability_percent": 72
+    }
+  },
+  "comparison": {
+    "eur_delta": 84.62,
+    "edhcheck_power_delta": 0.1,
+    "edhpowerlevel_power_delta": 3.4,
+    "edhcheck_consistency_delta": 1,
+    "edhcheck_speed_delta": -0.3,
+    "efficiency_delta": 0.1,
+    "impact_delta": 131.6,
+    "edhpowerlevel_score_delta": 130,
+    "average_playability_percentage_point_delta": -0.2,
+    "bracket_estimate_change": "3 to 2 on both evaluators"
+  },
+  "cautions": [
+    "User screenshots not automatically rerun or externally verified.",
+    "Both sites are heuristic evaluators; the 3.40 delta does not prove game performance or real win rate.",
+    "The EDHCheck +0.10 contrast is modest and sites disagree sharply about magnitude.",
+    "The 36-card research-informed deck change combines many causes and an additional €84.62 expenditure; it is not an isolated attribution to Spellbook vs Archidekt.",
+    "A selected B4 construction policy is not proof of a B4-strength deck. Both sites recommend/display B2 for the research-informed output.",
+    "Original 1 Game Changer Mana Vault removed from the after deck; bracket label shift might reflect that rule, not deck weakness.",
+    "Do not optimize to the rating systems, invent missing stats, merge, release, change version or enable the gameplay ranking."
+  ]
+}

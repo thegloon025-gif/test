@@ -1,0 +1,32 @@
+{
+  "node": "v24.19.0",
+  "baseline": {
+    "tests": 200,
+    "pass": 200,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "duration_ms": 74245.172513,
+    "commit": "0463260123c0f03f558fa8d3ca23d2590f02942c"
+  },
+  "full": {
+    "tests": 216,
+    "pass": 216,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "duration_ms": 72056.515396,
+    "command": "npm test"
+  },
+  "focused": {
+    "tests": 47,
+    "pass": 47,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "duration_ms": 168.702042,
+    "command": "node --test tests/stage10-research-quality.test.mjs tests/stage10-commander-research.test.mjs tests/v111-flow.test.mjs tests/v111-auto-research.test.mjs tests/discovery.test.mjs tests/combos.test.mjs"
+  },
+  "limitations": "This is PR #6 stacked on PR #2, not the gameplay PR #4 suite. Browser controlled-response tests pass separately; native Windows is not tested.",
+  "reviewedImplementationCommit": "a69b4e236628871efcb3f1794bdd9e87fc98d589"
+}

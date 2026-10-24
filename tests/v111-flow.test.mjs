@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {researchForGeneration} from '../src/researchFlow.mjs';
 const sample={key:'archidekt:400',sourceId:'400',validated:true,edhBracket:3,commanderIds:['cmr'],mainboard:[],owner:'sample'};
-const args={commanderId:'cmr',commanderName:'Example Legend',bracket:3,budget:191,catalog:[],savedCommunity:[]};
+const args={commanderId:'cmr',commanderName:'Example Legend',bracket:3,budget:191,catalog:[],savedCommunity:[],record:async()=>{},lookup:async()=>({variants:[],total:0,truncated:false,fromCache:true,pages:1})};
 
 test('one-click flow discovers, reloads verified sources, checks combo and returns refreshed cohort',async()=>{
  const events=[];
@@ -12,7 +12,7 @@ test('one-click flow discovers, reloads verified sources, checks combo and retur
   analyze:async(d,c,{onVerifiedResponse})=>{assert.equal(d.key,'archidekt:400');events.push('combos');await onVerifiedResponse({included:[],near:[]});return {counts:{complete:2,infiniteComplete:1},fromCache:false};},
   record:async(id)=>{assert.equal(id,'cmr');events.push('persist');}
  });
- assert.deepEqual(events,['discover','reload','combos','persist']);
+ assert.deepEqual(events,['discover','reload','persist','combos','persist']);
  assert.equal(result.community.length,1);
  assert.equal(result.report.matchingSaved,1);
  assert.equal(result.report.discovery.status,'completed');

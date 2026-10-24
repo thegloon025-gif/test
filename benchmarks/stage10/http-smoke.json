@@ -1,0 +1,20 @@
+[
+  {
+    "path": "/",
+    "status": 200
+  },
+  {
+    "path": "/app.js",
+    "status": 200
+  },
+  {
+    "path": "/research.js",
+    "status": 200
+  },
+  {
+    "path": "/api/status",
+    "status": 200,
+    "version": "1.1.5",
+    "catalog": 32197
+  }
+]
