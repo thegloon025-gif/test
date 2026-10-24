@@ -120,3 +120,13 @@ test('counting explicitly unowned basics reconciles exact records and preserves 
  assert.ok(d.price<=191);assert.ok(d.alternatives.every(x=>x.pricingAudit.agreesWithGenerator));
  assert.ok(priced.filter(c=>c.type_line.startsWith('Basic')).every(c=>priceOf(c)===0),'caller records stay owned-by-default');
 });
+
+test('explicit tolerance permits a selected-record total above target but never above its effective cap',()=>{
+ const premium={...commander,prices:{eur:160.01}},free=cards.map(c=>c.id===commander.id?premium:{...c,prices:{eur:0}});
+ const options={...shared,cards:free,commander:premium,budget:160,constructionMode:'strategy-first'};
+ assert.throws(()=>generateDeck(options),/Commander alone exceeds/);
+ const deck=generateDeck({...options,budgetTolerance:4});
+ assert.equal(deck.totalCards,100);assert.equal(deck.price,160.01);assert.equal(deck.budgetPolicy.overTarget,.01);
+ assert.equal(auditExportPricing(deck,premium,free).withinBudget,true);
+ assert.equal(auditExportPricing({...deck,budget:160},premium,free).withinBudget,false,'audit still enforces the explicit effective cap');
+});
