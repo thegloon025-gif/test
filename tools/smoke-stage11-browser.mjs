@@ -10,7 +10,7 @@ try{
  const context=await browser.newContext({permissions:['clipboard-read','clipboard-write']}),page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));
  await page.route('https://**',route=>route.abort());
  await page.route('**/api/generate',async route=>{const p=route.request().postDataJSON();bodies.push(p);assert.equal(p.autoResearch,false);assert.equal(p.budgetTolerance,4);assert.equal(p.basicLandsOwned,true);
-  const max=p.budget+4;await route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({...actual,budget:max,budgetPolicy:{...actual.budgetPolicy,target:p.budget,effectiveMaximum:max,unused:Math.round((max-actual.price)*100)/100}})});
+  const max=p.budget+4;await route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({...actual,budget:max,budgetPolicy:{...actual.budgetPolicy,target:p.budget,effectiveMaximum:max,unused:Math.round((max-actual.price)*100)/100,overTarget:Math.round(Math.max(0,actual.price-p.budget)*100)/100}})});
  });
  await page.goto(base,{waitUntil:'domcontentloaded'});assert.equal(await page.locator('#research-on-generate').isChecked(),true);assert.equal(await page.locator('#budget-leeway').isChecked(),false);assert.equal(await page.locator('#basics-owned').isChecked(),true);
  await page.locator('#research-on-generate').uncheck();await page.locator('#budget-leeway').check();await page.locator('#budget').fill('160');await page.locator('#search').fill('Wilhelt');await page.locator('.search-item').first().click();await page.locator('#generate').click();await page.waitForFunction(()=>!document.getElementById('deck-result').hidden);

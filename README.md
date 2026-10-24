@@ -14,7 +14,7 @@ extra regeneration applies tolerance once.
 Optional user-supplied EDHREC JSON remains local and advisory. Conflicting
 category statistics stay separate; alphabetical examples are not rankings.
 No EDHREC scraping or imported-statistic ranking is enabled. See
-[Stage 11 integration](docs/STRATEGY_STAGE11.md) and [local import](docs/EDHREC_STAGE12.md).
+[Stage 11 integration](docs/STRATEGY_STAGE11.md) and [local import](docs/EDHREC_STAGE12.md), and the [validation report](benchmarks/stage11-12-VALIDATION.md).
 Version stays **1.1.5**; all work is draft and unmerged. This does not establish
 stronger gameplay or readiness for an automatic deck upgrader.
 

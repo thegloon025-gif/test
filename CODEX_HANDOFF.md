@@ -85,3 +85,16 @@ exact selected printing audits, basics-owned default, standard B3/B4, inactive
 Pod, source/commitment/colorless constraints, original caches and Windows
 launcher. Native Windows, unsupported Oracle mechanics and external strength
 remain explicit validation limits; no automatic Deck Upgrader is authorized.
+
+
+Final Stage 11 audit found that deep refinement erased Warren Soultrader's
+unmodeled native life/sacrifice/Treasure conversion, including the path to the
+old €102.06 Wilhelt B3. The new generic uncertainty guard retains safe input
+paths, with canonical-name printing equivalence and explicit proposal receipts.
+Under the frozen €191 cohort the recommendation becomes source 3838228,
+**€163.25**, not a certified power improvement. Ulalek stays €174.24/€173.88 and
+Wilhelt B4 €181.80. Y'shtola's observed noncreature/MV prerequisite and Zada's
+unparsed targets-only restriction are handled generically; no reference recipes
+or commander-name bonuses enter construction. Read all checkpoint tradeoffs
+before treating this as a solved quality objective; an automatic Upgrader and
+production gameplay ranking remain unjustified.

@@ -13,6 +13,11 @@
   fourth bounded turn to a screened source alternative. Protect distinct
   relationship capabilities during complete-candidate pruning; keep uncertainty
   and the existing comparator explicit rather than inventing a new power score.
+- Reject unsupported native-engine removal: simple generic role dominance no
+  longer certifies replacing selected life/sacrifice/Treasure conversions.
+  Preserve physical-card equivalence across printing aliases and explain
+  quarantined proposals. Correct observed spell-type/MV prerequisites; unparsed
+  target/zone qualifiers remain unknown instead of earning generic cast credit.
 - Add audited complete alternatives and a text-only Why this deck comparison
   view. Add explicit basic-land valuation and optional €4 effective hard maximum,
   consistent construction, reconciliation and original-target regeneration.

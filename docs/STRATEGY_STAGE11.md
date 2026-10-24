@@ -21,7 +21,13 @@ discovery, not exhaustive strategy understanding. No private reference list,
 price bonus, inclusion frequency or named commander recommendation enters it.
 
 The existing functional comparator cannot discard a candidate while losing a
-recognized relationship capability. No new scalar objective replaces the old
+recognized relationship capability. Native death strategies also retain selected
+life-payment + creature-sacrifice → Treasure engines when their execution is
+unmodeled. A deeper proposal that removes one abstains and retains the legal
+input, recording proposed cuts/price and the unresolved resource relationship.
+Canonical physical names allow alternate eligible records without protecting a
+premium printing. This is a narrow uncertainty guard, not a claim of value,
+infinite execution or a general guarantee for every unsupported mechanic. No new scalar objective replaces the old
 one: incomparable strategies retain a **provisional** heuristic recommendation
 and competitive alternatives. Deeper atomic refinement is bounded to four
 complete starts, preserving the prior preferred/mana/access starts and then adding a
@@ -33,6 +39,18 @@ Up to four complete frontier alternatives require at least 12 nonland changes
 and two changed engine identities; cosmetic land/card changes do not qualify.
 Each exported alternative passes its own exact-selected-printing price audit.
 No extra candidate is manufactured to fill the view.
+
+Observed spell prerequisites now distinguish noncreature/colorless/type
+predicates and printed mana-value thresholds. Unparsed target, zone or timing
+qualifiers do not grant generic cast credit. This prevents a targets-only
+commander from treating arbitrary instants as supported native spells. Commander
+cast-pressure explanations require actual qualifying inventory and explicitly
+distinguish casts from copies; lethal conversion remains unverified.
+
+The Why panel reports every considered complete candidate and quarantined
+refinement, including incomparable plans that do not meet the heuristic threshold
+for a separately exported strategy. That diversity threshold can underdescribe
+real strategic differences; it is not a proof that excluded plans are inferior.
 
 ## Purchasing assumptions
 
