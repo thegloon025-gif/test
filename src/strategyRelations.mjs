@@ -8,6 +8,24 @@ import {engineContext,engineManaValue,matchesCastNeed,supportedCardAccess,strate
 const unique=xs=>[...new Map(xs.map(c=>[oracleId(c),c])).values()];
 const sorted=xs=>xs.slice().sort((a,b)=>a.name.localeCompare(b.name));
 
+/** Narrow uncertainty guard for native death strategies. These printed
+ * life+sacrifice→Treasure costs are not modeled by the simple outlet grammar.
+ * Losing them cannot be certified by surplus generic mana/draw evidence. */
+export function uncertainNativeResources(cards,commander,plan=planFor(commander)){
+ if(!(plan.needs||[]).some(n=>['death-tribal','recursion'].includes(n.kind)))return [];
+ const context=engineContext(cards,plan);if(!context.creatures.length)return [];
+ return cards.flatMap(card=>oracleText(card).split('\n').flatMap(line=>{
+  const at=line.indexOf(':');if(at<0)return [];
+  const cost=line.slice(0,at),effect=line.slice(at+1).trim();
+  return /\bPay \d+ life\b/i.test(cost)&&/\bSacrifice (?:another |a )creature\b/i.test(cost)&&/^Create a Treasure token\./i.test(effect)
+   ?[{card:card.name,id:oracleId(card),cost,effect,status:'unknown execution; native compound resource conversion'}]:[];
+ }));
+}
+export function guardNativeRefinement(built,proposal,commander,plan=planFor(commander)){
+ const remaining=new Set(proposal.cards.map(oracleId)),lost=uncertainNativeResources(built.cards,commander,plan).filter(r=>!remaining.has(r.id));
+ return {deck:lost.length?built:proposal,lost};
+}
+
 export function strategyRelations(cards,commander,{plan=planFor(commander)}={}){
  const all=unique([commander,...cards]),spells=all.filter(c=>!isLandSlot(c));
  const context={...engineContext(all,plan),commander};
@@ -49,9 +67,11 @@ export function strategyRelations(cards,commander,{plan=planFor(commander)}={}){
   }
   if(/graveyard/i.test(text)&&/return|cast/i.test(text))unknowns.push({card:c.name,reason:'Recursion present; legal targets, timing and resources not certified by relationship analysis'});
  }
+ const unverifiedNativeResources=uncertainNativeResources(cards,commander,plan);
+ for(const r of unverifiedNativeResources)unknowns.push({card:r.card,reason:'Native resource conversion requires '+r.cost+'; '+r.effect+' Execution and substitutability unverified.'});
  const capabilities=[...new Set(relationships.filter(r=>r.support.length&&r.qualified!==false).map(r=>r.kind))].sort();
  const byCard=new Map();for(const r of relationships){const xs=byCard.get(r.card)||[];xs.push(r.kind);byCard.set(r.card,xs);}
- return {relationships,capabilities,multiRole:[...byCard].filter(([,xs])=>new Set(xs).size>1).map(([card,kinds])=>({card,functions:[...new Set(kinds)],note:'One permanent; functions share deployment, survival and resource dependencies'})),
+ return {relationships,capabilities,unverifiedNativeResources,multiRole:[...byCard].filter(([,xs])=>new Set(xs).size>1).map(([card,kinds])=>({card,functions:[...new Set(kinds)],note:'One permanent; functions share deployment, survival and resource dependencies'})),
   unknowns,commanderOracle:oracleText(commander),commanderNeeds:plan.needs,
   limitations:'Inventory relationships are conditional; no execution, recursion, reliable timing, combat win or infinite conversion is certified. Unrecognized mechanics remain unknown.'};
 }

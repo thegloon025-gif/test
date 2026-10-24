@@ -18,7 +18,7 @@ import {strategyExecution,executionDominates} from './strategyExecution.mjs';
 import {refinePackageInvestments,selectInvestmentDeck,investmentEvidence,dominatesCandidateEvidence} from './packageInvestment.mjs';
 import {tempoEvidence,drawAccess,sustainedEarlyMana} from './playabilityEvidence.mjs';
 
-import {strategyRelations,distinctStrategy,refinementCohort,discoverStrategyPlans} from './strategyRelations.mjs';
+import {strategyRelations,distinctStrategy,refinementCohort,discoverStrategyPlans,guardNativeRefinement} from './strategyRelations.mjs';
 
 const INVESTMENT_STARTS=Symbol('investment starting decks');
 const basics={W:'Plains',U:'Island',B:'Swamp',R:'Mountain',G:'Forest',C:'Wastes'};
@@ -455,9 +455,15 @@ export function investRemainingBudget(options={}){
 }
 function finishPackageInvestments(options,selected,starts,plan){
  const commander=options.commander;
- const refined=refinePackageInvestments({...options,plan,built:selected,startingDecks:starts,protectionBaseline:starts.find(x=>x.budgetInvestment?.searchMode==='unchanged')?.cards||options.built?.cards||selected.cards,
+ let refined=refinePackageInvestments({...options,plan,built:selected,startingDecks:starts,protectionBaseline:starts.find(x=>x.budgetInvestment?.searchMode==='unchanged')?.cards||options.built?.cards||selected.cards,
   comboViolation:cards=>conservativeComboViolation(cards,commander,options.comboVariants||[],options.bracket??3),
   score:cards=>strategyScore(cards,commander,plan).value});
+ const guarded=guardNativeRefinement(selected,refined,commander,plan);
+ if(guarded.lost.length){
+  const proposal=refined.packageInvestment;
+  refined={...selected,packageInvestment:{...proposal,proposedPrice:refined.price,proposedPackages:proposal.accepted,accepted:[],finalPrice:selected.price,after:investmentEvidence(selected.cards,commander,plan),abstainedForNativeResources:guarded.lost,
+   abstention:'Retained legal input: simple generic evidence cannot certify replacement of an unmodeled native life/sacrifice/Treasure engine.'}};
+ }
  refined.budgetInvestment={...(refined.budgetInvestment||selected.budgetInvestment),candidates:selected.budgetInvestment.candidates,finalPrice:refined.price,remaining:round(Math.max(0,options.budget-refined.price)),packages:refined.packageInvestment.accepted};
  refined.sourceSpellCount=options.source?refined.cards.filter(c=>!isLandSlot(c)&&options.source.has(oracleId(c))).length:0;
  refined.sourceLandCount=options.source?refined.cards.filter(c=>isLandSlot(c)&&options.source.has(oracleId(c))).length:0;
@@ -501,7 +507,7 @@ export function constructStrategyDeck({cards,commander,bracket,budget,powerTarge
  const relationsFor=cards=>{if(!relationMemo.has(cards))relationMemo.set(cards,strategyRelations(cards,commander,{plan}));return relationMemo.get(cards);};
  const evidenceMemo=new Map(successful.map(d=>[d.cards,investmentEvidence(d.cards,commander,plan)]));
  const relationEvidence=new Map(successful.map(d=>[evidenceMemo.get(d.cards),relationsFor(d.cards)]));
- const candidateDominates=(a,b)=>dominatesCandidateEvidence(a,b)&&relationEvidence.get(b).capabilities.every(k=>relationEvidence.get(a).capabilities.includes(k));
+ const candidateDominates=(a,b)=>dominatesCandidateEvidence(a,b)&&relationEvidence.get(b).capabilities.every(k=>relationEvidence.get(a).capabilities.includes(k))&&relationEvidence.get(b).unverifiedNativeResources.every(r=>relationEvidence.get(a).unverifiedNativeResources.some(x=>x.id===r.id));
  const functionalChoice=selectInvestmentDeck(successful,{commander,plan,score:cards=>strategyScore(cards,commander,plan).value,evidenceFor:cards=>evidenceMemo.get(cards),candidateDominates,executionFor,executionDominates});
  successful.sort((a,b)=>b.score.value-a.score.value||stable(a.strategy,b.strategy));
  if(functionalChoice){successful.splice(successful.indexOf(functionalChoice),1);successful.unshift(functionalChoice);}

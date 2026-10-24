@@ -122,3 +122,12 @@ test('unparsed target and zone restrictions cannot grant generic instant/sorcery
  const arbitrary=card('Untargeted draw','Sorcery','Draw two cards.',{cmc:3});assert.ok(!synergy(arbitrary,plan).roles.includes('engine'));
  const restricted=planFor(card('Exile-only caster','Legendary Creature — Wizard','Whenever you cast an artifact spell from exile, draw a card.'));assert.ok(!restricted.needs.some(n=>n.kind==='typed-cast'));assert.ok(restricted.unsupportedCast.length);
 });
+
+test('unmodeled native life/sacrifice/Treasure conversion cannot be discarded as a generic refinement',async()=>{
+ const {uncertainNativeResources,guardNativeRefinement}=await import('../src/strategyRelations.mjs');
+ const resource=card('Native conversion','Creature — Crab','Pay 1 life, Sacrifice another creature: Create a Treasure token.');
+ const built={status:'ok',cards:[body,resource],price:40,committedCombos:[{id:'keep',cards:['Material']}]},proposal={...built,cards:[body,outlet],price:20};
+ const result=guardNativeRefinement(built,proposal,commander);assert.equal(result.deck,built);assert.equal(result.lost[0].cost,'Pay 1 life, Sacrifice another creature');assert.equal(result.deck.committedCombos,built.committedCombos);
+ assert.equal(guardNativeRefinement(built,{...proposal,cards:[body,resource,outlet]},commander).lost.length,0);
+ const unrelated=card('Unrelated casting commander','Legendary Creature — Crab','Whenever you cast a Crab spell, draw a card.');assert.deepEqual(uncertainNativeResources(built.cards,unrelated),[]);
+});
