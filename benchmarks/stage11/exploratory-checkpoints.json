@@ -1,0 +1,193 @@
+[
+  {
+    "reason": "Exploratory unfair cohort displaced local engine and seeded unsupported conditional Gran-Gran; fixed before main comparisons",
+    "inputs": {
+      "cards.json": "6add2c5dd20809fd787438d3c8825f8dd21a74e7d3fc429f83c7a9a091045f6c",
+      "community.json": "7f47f68487ea432afabd32f3cf136b27bc248e78a0732a3b1cda9ba5598de871",
+      "library.json": "9a62c706660032d1d2320e0e597898a659496912dd51e9343cce59f0cb902d5b"
+    },
+    "sourceHashes": {
+      "generator.mjs": "68fa5f40ca46839034a7bb5cc8bb541abfcbcb9329c6e7ac51077826ed402919",
+      "strategyFirst.mjs": "a6b08bb48809f0e1c82d86c518240ce72e6c7c9add74c209770b4c2a3b398ab8",
+      "packageInvestment.mjs": "d49649ffada79f0f99be2e602288287f80468371805f01e807c086248890086a",
+      "cards.mjs": "13e255fb1c20ec07dc91cb87fba10ed4e5ecb424f2795088215ce88deedfa3b4",
+      "strategyRelations.mjs": "e107e980576f4038e15606708ee56b7672188f5b8f16aa9445464c37481acd37",
+      "budgetPolicy.mjs": "d876cb4edf44dd79a2f7983deb2b54a21634ca15c458d3d47f4417ac41db5c73"
+    },
+    "completed": [
+      {
+        "id": "wilhelt-b3-191-current",
+        "price": 136.78,
+        "selected": "source:archidekt:24423895",
+        "status": "ok"
+      }
+    ],
+    "rawOutputsRetainedLocally": "/tmp/stage11-trial"
+  },
+  {
+    "reason": "Exploratory diversity-first fourth slot could still miss screened source; superseded by source-priority rule",
+    "inputs": {
+      "cards.json": "6add2c5dd20809fd787438d3c8825f8dd21a74e7d3fc429f83c7a9a091045f6c",
+      "community.json": "7f47f68487ea432afabd32f3cf136b27bc248e78a0732a3b1cda9ba5598de871",
+      "library.json": "9a62c706660032d1d2320e0e597898a659496912dd51e9343cce59f0cb902d5b"
+    },
+    "sourceHashes": {
+      "generator.mjs": "68fa5f40ca46839034a7bb5cc8bb541abfcbcb9329c6e7ac51077826ed402919",
+      "strategyFirst.mjs": "4186b385bd8793b8f967db4ce23f7e64a983f8b6f7bf2bdbc35a634558207a7b",
+      "packageInvestment.mjs": "d49649ffada79f0f99be2e602288287f80468371805f01e807c086248890086a",
+      "cards.mjs": "13e255fb1c20ec07dc91cb87fba10ed4e5ecb424f2795088215ce88deedfa3b4",
+      "strategyRelations.mjs": "99c1f07b002e0b5040d15d9d1f1d02bfddffb9c1657f471e07ef516164241940",
+      "budgetPolicy.mjs": "d876cb4edf44dd79a2f7983deb2b54a21634ca15c458d3d47f4417ac41db5c73"
+    },
+    "completed": [
+      {
+        "id": "ulalek-b3-191-historical",
+        "price": 174.24,
+        "selected": "source:archidekt:23460147",
+        "status": "ok"
+      },
+      {
+        "id": "ulalek-b4-191-historical",
+        "price": 173.88,
+        "selected": "source:archidekt:24772686",
+        "status": "ok"
+      },
+      {
+        "id": "wilhelt-b3-191-historical",
+        "price": 102.06,
+        "selected": "local:engine",
+        "status": "ok"
+      },
+      {
+        "id": "wilhelt-b4-191-historical",
+        "price": 97.59,
+        "selected": "local:engine",
+        "status": "ok"
+      }
+    ],
+    "rawOutputsRetainedLocally": "/tmp/stage11-history"
+  },
+  {
+    "reason": "Stopped after source-priority bug confirmed; rerun all jobs",
+    "inputs": {
+      "cards.json": "6add2c5dd20809fd787438d3c8825f8dd21a74e7d3fc429f83c7a9a091045f6c",
+      "heldout-community.json": "586bf3f9a8285c1211934fce78b4e8387d2313f540ab0db224025005060bde1f",
+      "library.json": "9a62c706660032d1d2320e0e597898a659496912dd51e9343cce59f0cb902d5b"
+    },
+    "sourceHashes": {
+      "generator.mjs": "68fa5f40ca46839034a7bb5cc8bb541abfcbcb9329c6e7ac51077826ed402919",
+      "strategyFirst.mjs": "4186b385bd8793b8f967db4ce23f7e64a983f8b6f7bf2bdbc35a634558207a7b",
+      "packageInvestment.mjs": "d49649ffada79f0f99be2e602288287f80468371805f01e807c086248890086a",
+      "cards.mjs": "13e255fb1c20ec07dc91cb87fba10ed4e5ecb424f2795088215ce88deedfa3b4",
+      "strategyRelations.mjs": "99c1f07b002e0b5040d15d9d1f1d02bfddffb9c1657f471e07ef516164241940",
+      "budgetPolicy.mjs": "d876cb4edf44dd79a2f7983deb2b54a21634ca15c458d3d47f4417ac41db5c73"
+    },
+    "completed": [
+      {
+        "id": "ulalek-b3-160-heldout",
+        "price": 154.61,
+        "selected": "source:archidekt:23460147",
+        "status": "ok"
+      },
+      {
+        "id": "ulalek-b3-180-heldout",
+        "price": 154.61,
+        "selected": "source:archidekt:23460147",
+        "status": "ok"
+      },
+      {
+        "id": "ulalek-b3-200-heldout",
+        "price": 174.24,
+        "selected": "source:archidekt:23460147",
+        "status": "ok"
+      }
+    ],
+    "rawOutputsRetainedLocally": "/tmp/stage11-ladder"
+  },
+  {
+    "reason": "Stopped after source-priority bug confirmed; rerun all jobs",
+    "inputs": {
+      "cards.json": "6add2c5dd20809fd787438d3c8825f8dd21a74e7d3fc429f83c7a9a091045f6c",
+      "heldout-community.json": "586bf3f9a8285c1211934fce78b4e8387d2313f540ab0db224025005060bde1f",
+      "library.json": "9a62c706660032d1d2320e0e597898a659496912dd51e9343cce59f0cb902d5b"
+    },
+    "sourceHashes": {
+      "generator.mjs": "68fa5f40ca46839034a7bb5cc8bb541abfcbcb9329c6e7ac51077826ed402919",
+      "strategyFirst.mjs": "4186b385bd8793b8f967db4ce23f7e64a983f8b6f7bf2bdbc35a634558207a7b",
+      "packageInvestment.mjs": "d49649ffada79f0f99be2e602288287f80468371805f01e807c086248890086a",
+      "cards.mjs": "13e255fb1c20ec07dc91cb87fba10ed4e5ecb424f2795088215ce88deedfa3b4",
+      "strategyRelations.mjs": "99c1f07b002e0b5040d15d9d1f1d02bfddffb9c1657f471e07ef516164241940",
+      "budgetPolicy.mjs": "d876cb4edf44dd79a2f7983deb2b54a21634ca15c458d3d47f4417ac41db5c73"
+    },
+    "completed": [
+      {
+        "id": "teval-b3-180-heldout",
+        "price": 140.95,
+        "selected": "local:resilience",
+        "status": "ok"
+      },
+      {
+        "id": "yuna-b3-204-heldout",
+        "price": 193.04,
+        "selected": "reference:legacy",
+        "status": "ok"
+      },
+      {
+        "id": "zacama-b3-160-heldout",
+        "price": 103.47,
+        "selected": "local:resilience",
+        "status": "ok"
+      },
+      {
+        "id": "betor-ancestor-b3-232-heldout",
+        "price": 178.27,
+        "selected": "reference:legacy",
+        "status": "ok"
+      },
+      {
+        "id": "betor-kin-b3-232-heldout",
+        "price": 129.73,
+        "selected": "local:resilience",
+        "status": "ok"
+      },
+      {
+        "id": "yshtola-b3-160-heldout",
+        "price": 85.39,
+        "selected": "local:threats",
+        "status": "ok"
+      }
+    ],
+    "rawOutputsRetainedLocally": "/tmp/stage11-references"
+  },
+  {
+    "reason": "Intermediate type predicate checkpoint before normalization and target restriction review",
+    "inputs": {
+      "cards.json": "6add2c5dd20809fd787438d3c8825f8dd21a74e7d3fc429f83c7a9a091045f6c",
+      "heldout-community.json": "586bf3f9a8285c1211934fce78b4e8387d2313f540ab0db224025005060bde1f",
+      "library.json": "9a62c706660032d1d2320e0e597898a659496912dd51e9343cce59f0cb902d5b"
+    },
+    "sourceHashes": {
+      "generator.mjs": "68fa5f40ca46839034a7bb5cc8bb541abfcbcb9329c6e7ac51077826ed402919",
+      "strategyFirst.mjs": "4186b385bd8793b8f967db4ce23f7e64a983f8b6f7bf2bdbc35a634558207a7b",
+      "packageInvestment.mjs": "d49649ffada79f0f99be2e602288287f80468371805f01e807c086248890086a",
+      "cards.mjs": "13e255fb1c20ec07dc91cb87fba10ed4e5ecb424f2795088215ce88deedfa3b4",
+      "strategyRelations.mjs": "17fad5bdd16443c472507a327854c31fd99af7c6558068eb196634d8ea1e7a1c",
+      "budgetPolicy.mjs": "d876cb4edf44dd79a2f7983deb2b54a21634ca15c458d3d47f4417ac41db5c73"
+    },
+    "completed": [
+      {
+        "id": "yshtola-b3-160-heldout",
+        "price": 90.68,
+        "selected": "local:resilience",
+        "status": "ok"
+      },
+      {
+        "id": "yshtola-b3-180-heldout",
+        "price": 90.68,
+        "selected": "local:resilience",
+        "status": "ok"
+      }
+    ],
+    "rawOutputsRetainedLocally": "/tmp/stage11-corrected-yshtola"
+  }
+]

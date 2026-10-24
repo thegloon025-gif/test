@@ -1,0 +1,145 @@
+{
+  "date": "2026-10-24",
+  "branch": "codex/stage11-12-strategy-integration",
+  "base": "codex/stage12-local-edhrec-knowledge",
+  "baseSHA": "85f1f2ce82a4de9150f06482827b750dba75c6a4",
+  "implementationSHA": "b18ddc9ac0876dd592b2c4df0fe7f68af14beaa3",
+  "currentSourceSHA256": {
+    "autoResearch.mjs": "ead62ed1f5d82481258bd7840931555d68bada5a669cea452a7ef825828055ca",
+    "benchmarkOracle.mjs": "a716a596ed2adc68984dfdc3bd4e29735aca2ab8f76e1fda201255bb3a556fe8",
+    "budgetPolicy.mjs": "d876cb4edf44dd79a2f7983deb2b54a21634ca15c458d3d47f4417ac41db5c73",
+    "cards.mjs": "13e255fb1c20ec07dc91cb87fba10ed4e5ecb424f2795088215ce88deedfa3b4",
+    "comboConstruction.mjs": "39f72d9474085caa6b2acbc42bcb2ee784e0b7441950f36e34d6a0e4c62c92b0",
+    "comboExecutionEvidence.mjs": "4d20c1cf7a3981bde8a02f4849799be68d06d0dfa78bf1e94feb593d67414df2",
+    "comboLibrary.mjs": "fe1d7b057e64aaa9f7ecdc76f674924dd787795757457c7bc5d04a896be8fb05",
+    "comboTemplates.mjs": "4855a3caad6f37294d4542cb9d5c8d0a24a7558ff7f29247da3a83e12bb32927",
+    "combos.mjs": "9557eee84f332d266356a22228aae7b940b66e36ec7501c987d88e746f1b6d72",
+    "commanderComboResearch.mjs": "6761571a52b6037883479b1d078b5d2661e2f54bdc1d5ed8d0f4b5493b54f308",
+    "community.mjs": "e1b5341d85b2c0970c5c6fc4ab976dd7de1cd7eeeee2521063c877c8a88c842b",
+    "communityConstruction.mjs": "ec41c8a3f38ff734fd308592f40206370c76154b00120c5260ba748ef109c39d",
+    "communityKnowledge.mjs": "b6386b613e7fdc6f87a8f654d59377bbba1434713ce6c24be51aced6d7a3e1a7",
+    "deckExport.mjs": "a214ebab70042033f8bf84442873fa4a4145977401a4f60eaa722f2d5665a287",
+    "deckQuality.mjs": "e54deaa3495557d40ffb2e8d566db8f6389f5c23a9fffaffb9358f61c68cfeae",
+    "deckSelection.mjs": "9ebd6cc549395b57d7732b8021679056c21dbda3800878dc80e62fec42f05e52",
+    "deckValidation.mjs": "1249ee2b7e76930757a8a36b236c44b541f8017594af719923920489e486807f",
+    "discovery.mjs": "4bc4514e0ce458fd45641a95999feeaa8d87e322e1e1b83faba3ad9972d496cc",
+    "edhrecKnowledge.mjs": "b6dbb795feb28367930fb9f261de43d9ceef5abd20acd1e516969e384ab9f47c",
+    "engineSupport.mjs": "e33b1dedfcb110bc9d0d2bd44df6fd9cc551d6f69e0667d9e4ace55be0a3aade",
+    "generator.mjs": "68fa5f40ca46839034a7bb5cc8bb541abfcbcb9329c6e7ac51077826ed402919",
+    "handSampling.mjs": "8e1e559454e0bbb2fa14cef86b5ffb0bedcdccc6708121b53fac8748a5b31b9a",
+    "highPower.mjs": "0e6e48bef0dbce293ec22c14f43f7dfb2161a23a68d32a3fd25f3d57e1b30d1f",
+    "manaBaseOptimizer.mjs": "c4059800c245dcb4929f6df2e03503be530ed8d89b5316a039d8144516ed3e4c",
+    "mechanics.mjs": "effa16a06fca5971a3e5843c7eefb659c2aaf3ae8518ffe2335246f44d93f79a",
+    "packageInvestment.mjs": "d49649ffada79f0f99be2e602288287f80468371805f01e807c086248890086a",
+    "packageNetwork.mjs": "20193f1c15cd1fdb8c28fe466bbe940b120308e358b3c14d5bca5ff0b59f1964",
+    "playabilityEvidence.mjs": "a30a4ea799e94e5523830188fe88d5056b6e6e6f18320049ba9fdefc7cdf8847",
+    "pricing.mjs": "7f20b87290fc8f9b87a0642b38269573a4bf0a7ead5634a9899d94f2e580bcf1",
+    "printingEligibility.mjs": "63f79afe4b7eb93233c17c2606464da8efca3421a989962edf865b0fafb82490",
+    "researchFlow.mjs": "3e15aa3b24f78ead581f21105748b9fa7a72761a215c994a2293033929a3e94f",
+    "roleEvidence.mjs": "ebea5a606327a0d8a2e144d64faed36524ca9173481ef4fc06c005a8a6bd4684",
+    "scryfall.mjs": "6762db3aea89151d84b2871434cccf55eda368b7f6497c487aecab9cda979d54",
+    "selectionPolicy.mjs": "fc0be8765c162fa0a75fae663c646542d70e0ae4a9bcde86621951bdca52648c",
+    "sourceQuality.mjs": "b7dd64d32241fbe6ea8b144f2decb1df91a3afe51217542e7a53ca4efbfc63ad",
+    "spellbookTransport.mjs": "255097584472a3acd2256f5af06968f8a50f93ae9a2528c7e6f58f20b1d223d7",
+    "strategyExecution.mjs": "6555a42346370204e2e00cfb82f40880e87195498bd9baf239c637996b436787",
+    "strategyFirst.mjs": "d469589774e4ff01349c8c49b8dd76505a25d76a54def6e3c008a40f1b915617",
+    "strategyRelations.mjs": "c905e8d45b616cfc3c435f983877c0c0760d7be0a867cb585c12fd132a57fbfb",
+    "wholeDeckOptimizer.mjs": "27803d44082419be39887e02a747ef2bb1e27d720227fa4749bf05440e1d1e9a"
+  },
+  "groups": {
+    "baseline": {
+      "directory": "/tmp/stage11-baseline",
+      "debug": "/tmp/stage11-debug-baseline",
+      "phase": "Exact PR8 unfiltered reproduction",
+      "implementation": "85f1f2c"
+    },
+    "historical-checkpoint": {
+      "directory": "/tmp/stage11-final-history",
+      "debug": "/tmp/stage11-final-debug-history",
+      "phase": "Final refinement; before cast grammar correction",
+      "implementation": "d1e610d"
+    },
+    "historical-final": {
+      "directory": "/tmp/stage11-post-grammar-history",
+      "debug": "/tmp/stage11-post-grammar-debug-history",
+      "phase": "Type-predicate recheck; Wilhelt superseded by native-resource guard",
+      "implementation": "82427dc"
+    },
+    "ladder-ulalek": {
+      "directory": "/tmp/stage11-final-ulalek",
+      "debug": "/tmp/stage11-final-debug-ulalek",
+      "phase": "Held-out strict B3 ladder, B4 endpoints and explicit tolerance",
+      "implementation": "d1e610d"
+    },
+    "ladder-wilhelt": {
+      "directory": "/tmp/stage11-final-wilhelt",
+      "debug": "/tmp/stage11-final-debug-wilhelt",
+      "phase": "Checkpoint before native-resource guard; retained tradeoffs",
+      "implementation": "d1e610d"
+    },
+    "references-checkpoint": {
+      "directory": "/tmp/stage11-final-references",
+      "debug": "/tmp/stage11-final-debug-references",
+      "phase": "Independent personal/unrelated builds; Ysh/Zada superseded by predicate repairs",
+      "implementation": "d1e610d"
+    },
+    "cast-correction": {
+      "directory": "/tmp/stage11-cast-final",
+      "debug": "/tmp/stage11-cast-final-debug",
+      "phase": "Ysh final; intermediate Zada superseded by unparsed-qualifier guard",
+      "implementation": "82427dc"
+    },
+    "zada-final": {
+      "directory": "/tmp/stage11-zada-final",
+      "debug": "/tmp/stage11-zada-final-debug",
+      "phase": "Final target-qualifier abstention regression",
+      "implementation": "b730f86"
+    },
+    "ulalek-reference": {
+      "directory": "/tmp/stage11-ulalek-reference",
+      "debug": "/tmp/stage11-ulalek-reference-debug",
+      "phase": "Confirmed test2 reference excluded; matched strict 191 budget",
+      "implementation": "90a81d5"
+    },
+    "candidates-before": {
+      "directory": "/tmp/stage11-candidates-before",
+      "phase": "Exact constructor replay; generated legacy scaffold only",
+      "implementation": "85f1f2c"
+    },
+    "candidates-after": {
+      "directory": "/tmp/stage11-candidates-after",
+      "phase": "Checkpoint: unsupported native resource loss later quarantined",
+      "implementation": "d1e610d"
+    },
+    "resource-history": {
+      "directory": "/tmp/stage11-resource-history",
+      "phase": "Native-resource uncertainty protection; current Wilhelt result",
+      "implementation": "d2b764b",
+      "debug": "/tmp/stage11-resource-history-debug"
+    },
+    "resource-ladder-a": {
+      "directory": "/tmp/stage11-resource-ladder-a",
+      "phase": "Native-resource uncertainty protection; current Wilhelt result",
+      "implementation": "d2b764b",
+      "debug": "/tmp/stage11-resource-ladder-a-debug"
+    },
+    "resource-ladder-b": {
+      "directory": "/tmp/stage11-resource-ladder-b",
+      "phase": "Native-resource uncertainty protection; current Wilhelt result",
+      "implementation": "d2b764b",
+      "debug": "/tmp/stage11-resource-ladder-b-debug"
+    },
+    "candidates-guarded": {
+      "directory": "/tmp/stage11-candidates-guarded",
+      "phase": "Native-resource uncertainty protection; current Wilhelt result",
+      "implementation": "d2b764b"
+    }
+  },
+  "cacheHash": "6add2c5dd20809fd787438d3c8825f8dd21a74e7d3fc429f83c7a9a091045f6c",
+  "research": "Frozen Stage10 45-source cohort; held-out cohort removes confirmed test2 and >=80% canonical nonbasic-name overlaps (one exclusion, 44 remain). Same library retained; old variant acquisition lineage is incomplete, residual reference leakage cannot be ruled out.",
+  "personalReferences": "Private ZIP/IDs never supplied to constructors; manifest labels not archetypes. Commander identities user-confirmed, Betor Ancestor Voice explicit. Confirmed test2 independently obtained through supported public Archidekt API. Unknown catalog cards never priced free.",
+  "prices": "Eligible selected-record Scryfall EUR, basics incl Wastes owned, commander/nonbasics counted, no shipping; not verified EN NM offers",
+  "timing": "Single deterministic full-generation observations under concurrent cloud load; maxRSS is process cumulative, not per-build incremental memory. No probability/performance improvement inference.",
+  "checkpoints": "Retain every selected primary/checkpoint measurement. Ysh/Zada repairs re-run separately; original recommendations rechecked. Older exploratory errors recorded separately, not favorable quality evidence.",
+  "quality": "No superior complete deck, official bracket certification, reliable combo timing or external power claim. No PR4 stateful ranking, Pod activation, merge, release or version bump."
+}

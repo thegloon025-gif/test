@@ -1,0 +1,225 @@
+{
+  "historical": [
+    {
+      "id": "ulalek-b3-191-historical",
+      "commander": "Ulalek, Fused Atrocity",
+      "budget": 191,
+      "bracket": 3
+    },
+    {
+      "id": "ulalek-b4-191-historical",
+      "commander": "Ulalek, Fused Atrocity",
+      "budget": 191,
+      "bracket": 4
+    },
+    {
+      "id": "wilhelt-b3-191-historical",
+      "commander": "Wilhelt, the Rotcleaver",
+      "budget": 191,
+      "bracket": 3
+    },
+    {
+      "id": "wilhelt-b4-191-historical",
+      "commander": "Wilhelt, the Rotcleaver",
+      "budget": 191,
+      "bracket": 4
+    }
+  ],
+  "heldout": [
+    {
+      "id": "ulalek-b3-160-heldout",
+      "commander": "Ulalek, Fused Atrocity",
+      "budget": 160,
+      "bracket": 3
+    },
+    {
+      "id": "ulalek-b3-180-heldout",
+      "commander": "Ulalek, Fused Atrocity",
+      "budget": 180,
+      "bracket": 3
+    },
+    {
+      "id": "ulalek-b3-200-heldout",
+      "commander": "Ulalek, Fused Atrocity",
+      "budget": 200,
+      "bracket": 3
+    },
+    {
+      "id": "ulalek-b3-220-heldout",
+      "commander": "Ulalek, Fused Atrocity",
+      "budget": 220,
+      "bracket": 3
+    },
+    {
+      "id": "ulalek-b3-240-heldout",
+      "commander": "Ulalek, Fused Atrocity",
+      "budget": 240,
+      "bracket": 3
+    },
+    {
+      "id": "ulalek-b4-160-heldout",
+      "commander": "Ulalek, Fused Atrocity",
+      "budget": 160,
+      "bracket": 4
+    },
+    {
+      "id": "ulalek-b4-240-heldout",
+      "commander": "Ulalek, Fused Atrocity",
+      "budget": 240,
+      "bracket": 4
+    },
+    {
+      "id": "ulalek-b3-160-plus4-heldout",
+      "commander": "Ulalek, Fused Atrocity",
+      "budget": 160,
+      "bracket": 3,
+      "budgetTolerance": 4
+    },
+    {
+      "id": "teval-b3-180-heldout",
+      "commander": "Teval, the Balanced Scale",
+      "budget": 180,
+      "bracket": 3
+    },
+    {
+      "id": "yuna-b3-204-heldout",
+      "commander": "Yuna, Grand Summoner",
+      "budget": 204,
+      "bracket": 3
+    },
+    {
+      "id": "zacama-b3-160-heldout",
+      "commander": "Zacama, Primal Calamity",
+      "budget": 160,
+      "bracket": 3
+    },
+    {
+      "id": "betor-ancestor-b3-232-heldout",
+      "commander": "Betor, Ancestor's Voice",
+      "budget": 232,
+      "bracket": 3
+    },
+    {
+      "id": "betor-kin-b3-232-heldout",
+      "commander": "Betor, Kin to All",
+      "budget": 232,
+      "bracket": 3
+    },
+    {
+      "id": "yuriko-b3-191-heldout",
+      "commander": "Yuriko, the Tiger's Shadow",
+      "budget": 191,
+      "bracket": 3
+    },
+    {
+      "id": "henzie-b3-191-heldout",
+      "commander": "Henzie \"Toolbox\" Torre",
+      "budget": 191,
+      "bracket": 3
+    },
+    {
+      "id": "aesi-b3-180-heldout",
+      "commander": "Aesi, Tyrant of Gyre Strait",
+      "budget": 180,
+      "bracket": 3
+    },
+    {
+      "id": "osgir-b3-180-heldout",
+      "commander": "Osgir, the Reconstructor",
+      "budget": 180,
+      "bracket": 3
+    },
+    {
+      "id": "yshtola-b3-160-heldout",
+      "commander": "Y'shtola, Night's Blessed",
+      "budget": 160,
+      "bracket": 3
+    },
+    {
+      "id": "yshtola-b3-180-heldout",
+      "commander": "Y'shtola, Night's Blessed",
+      "budget": 180,
+      "bracket": 3
+    },
+    {
+      "id": "yshtola-b3-200-heldout",
+      "commander": "Y'shtola, Night's Blessed",
+      "budget": 200,
+      "bracket": 3
+    },
+    {
+      "id": "yshtola-b3-220-heldout",
+      "commander": "Y'shtola, Night's Blessed",
+      "budget": 220,
+      "bracket": 3
+    },
+    {
+      "id": "yshtola-b3-240-heldout",
+      "commander": "Y'shtola, Night's Blessed",
+      "budget": 240,
+      "bracket": 3
+    },
+    {
+      "id": "zada-b3-191-heldout",
+      "commander": "Zada, Hedron Grinder",
+      "budget": 191,
+      "bracket": 3
+    },
+    {
+      "id": "ulalek-b3-191-reference-heldout",
+      "commander": "Ulalek, Fused Atrocity",
+      "budget": 191,
+      "bracket": 3
+    },
+    {
+      "id": "wilhelt-b3-160-heldout",
+      "commander": "Wilhelt, the Rotcleaver",
+      "budget": 160,
+      "bracket": 3
+    },
+    {
+      "id": "wilhelt-b3-180-heldout",
+      "commander": "Wilhelt, the Rotcleaver",
+      "budget": 180,
+      "bracket": 3
+    },
+    {
+      "id": "wilhelt-b3-200-heldout",
+      "commander": "Wilhelt, the Rotcleaver",
+      "budget": 200,
+      "bracket": 3
+    },
+    {
+      "id": "wilhelt-b3-220-heldout",
+      "commander": "Wilhelt, the Rotcleaver",
+      "budget": 220,
+      "bracket": 3
+    },
+    {
+      "id": "wilhelt-b3-240-heldout",
+      "commander": "Wilhelt, the Rotcleaver",
+      "budget": 240,
+      "bracket": 3
+    },
+    {
+      "id": "wilhelt-b4-160-heldout",
+      "commander": "Wilhelt, the Rotcleaver",
+      "budget": 160,
+      "bracket": 4
+    },
+    {
+      "id": "wilhelt-b4-240-heldout",
+      "commander": "Wilhelt, the Rotcleaver",
+      "budget": 240,
+      "bracket": 4
+    },
+    {
+      "id": "wilhelt-b3-240-plus4-heldout",
+      "commander": "Wilhelt, the Rotcleaver",
+      "budget": 240,
+      "bracket": 3,
+      "budgetTolerance": 4
+    }
+  ],
+  "note": "Run historical on baseline85f1f2c or current branch with unfiltered community. Run heldout on current branch with held-out community. See report for per-checkpoint implementation provenance."
+}

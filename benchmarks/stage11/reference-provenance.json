@@ -1,0 +1,17 @@
+{
+  "confirmedUlalek": {
+    "fetchedTitle": "test2",
+    "apiCount": 100,
+    "preferredCount": 100,
+    "sameCanonicalMultiset": true,
+    "queriedURL": "https://archidekt.com/decks/26715826/test2",
+    "fetchedAt": "2026-10-24T20:35:22.471Z"
+  },
+  "betorCommander": "Betor, Ancestor's Voice",
+  "betorConfirmation": "Explicit user reply in this task",
+  "originalReferenceMembersUnchanged": true,
+  "fullPersonalFilesPublished": false,
+  "sourceObservationDate": "2026-10-24; exact upstream collection date unknown",
+  "privateInputBundleSHA256": "34233ace54ffb5ccfafb6087429ecc97df94c100749df3aa603b144c517362f3",
+  "note": "Private input ZIP is outside Git; do not redistribute it as public evidence. Current test2/API and later TXT provenance stay separate even when current canonical multisets match."
+}

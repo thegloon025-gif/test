@@ -1,0 +1,7 @@
+{
+  "completedCandidates": 21,
+  "selectedPrintingSlots": 2100,
+  "hardCap": 191,
+  "countSingletonColorFormatPrintingAndKnownCompactPolicyPassed": true,
+  "limitations": "Constructor replays separate from fresh-generation measurements; no execution or strength certification"
+}

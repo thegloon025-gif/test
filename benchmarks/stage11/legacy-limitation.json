@@ -1,0 +1,29 @@
+{
+  "results": [
+    {
+      "implementation": "/tmp/commander-exact-pr8",
+      "totalCards": 64,
+      "selectedRecords": 64,
+      "exportLines": 64,
+      "lands": 36,
+      "price": 97.6,
+      "verdict": "INCOMPLETE",
+      "incompleteWarnings": [
+        "Deck size or lands incomplete: 63/99 cards; 36/36 lands"
+      ]
+    },
+    {
+      "implementation": "/workspace/test",
+      "totalCards": 64,
+      "selectedRecords": 64,
+      "exportLines": 64,
+      "lands": 36,
+      "price": 97.6,
+      "verdict": "INCOMPLETE",
+      "incompleteWarnings": [
+        "Deck size or lands incomplete: 63/99 cards; 36/36 lands"
+      ]
+    }
+  ],
+  "note": "Existing generator A/B limitation, separately reproduced on exact baseline and current source; API final 100-card audit fails closed. Strategy-first outputs independently passed complete-deck audits."
+}
