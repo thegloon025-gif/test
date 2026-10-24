@@ -283,11 +283,13 @@ function renderPriceLedger(r){
 }
 function updateBudgetPreview(){
  if(!lastDeck)return;
- const base=Number.isFinite(originalBudget)?originalBudget:Number(lastDeck.budget);
+ const base=Number.isFinite(originalBudget)?originalBudget:Number(lastDeck.budgetPolicy?.target??lastDeck.budget);
  const extra=Number($('extra-budget').value);
  const cart=$('actual-cart').value.trim();
- $('budget-preview').textContent=`Original ceiling €${base.toFixed(2)} + €${Number.isFinite(extra)&&extra>0?extra.toFixed(2):'0.00'} = €${(base+(Number.isFinite(extra)&&extra>0?extra:0)).toFixed(2)}. ${cart!==''?'Reported current cart total €'+Number(cart).toFixed(2)+' (reference only).':''}`;
+ const tolerance=$('budget-leeway').checked?4:0;
+ $('budget-preview').textContent=`Original target €${base.toFixed(2)} + €${Number.isFinite(extra)&&extra>0?extra.toFixed(2):'0.00'} = €${(base+(Number.isFinite(extra)&&extra>0?extra:0)).toFixed(2)} target; tolerance €${tolerance.toFixed(2)} once, hard maximum €${(base+(Number.isFinite(extra)&&extra>0?extra:0)+tolerance).toFixed(2)}. ${cart!==''?'Reported current cart total €'+Number(cart).toFixed(2)+' (reference only).':''}`;
 }
+$('budget-leeway').addEventListener('change',updateBudgetPreview);
 $('actual-cart').addEventListener('input',updateBudgetPreview);
 $('extra-budget').addEventListener('input',updateBudgetPreview);
 $('regenerate-extra').addEventListener('click',()=>{
@@ -295,7 +297,7 @@ $('regenerate-extra').addEventListener('click',()=>{
  const extra=Number($('extra-budget').value),cartText=$('actual-cart').value.trim(),cart=cartText===''?null:Number(cartText);
  if(!Number.isFinite(extra)||extra<=0||extra>100000){notice('Enter a positive additional budget (up to €100,000).');return;}
  if(cart!==null&&(!Number.isFinite(cart)||cart<0||cart>1000000)){notice('Enter a valid cart total or leave it blank.');return;}
- const base=Number.isFinite(originalBudget)?originalBudget:Number(lastDeck.budget);
+ const base=Number.isFinite(originalBudget)?originalBudget:Number(lastDeck.budgetPolicy?.target??lastDeck.budget);
  const next=Math.round((base+extra)*100)/100;
  if(next>100000){notice('Total ceiling exceeds €100,000.');return;}
  regeneration={originalBudget:base,extraBudget:extra,reportedActualCart:cart};
@@ -308,7 +310,7 @@ function showRegenerationComparison(before,after,context){
  const newNames=new Set([...after.sections.spells,...after.sections.lands]);
  const added=[...newNames].filter(n=>!oldNames.has(n));const removed=[...oldNames].filter(n=>!newNames.has(n));
  const priceChange=after.price-before.price;
- $('comparison-result').textContent=`New cap €${after.budget.toFixed(2)} (original €${context.originalBudget.toFixed(2)} + €${context.extraBudget.toFixed(2)}).
+ $('comparison-result').textContent=`New cap €${after.budget.toFixed(2)} (original target €${context.originalBudget.toFixed(2)} + €${context.extraBudget.toFixed(2)} + tolerance €${(after.budgetPolicy?.tolerance||0).toFixed(2)} once).
 `+
   `Previous estimated deck €${before.price.toFixed(2)} → new €${after.price.toFixed(2)} (${priceChange>=0?'+':''}€${priceChange.toFixed(2)}).
 `+
