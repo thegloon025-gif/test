@@ -2,6 +2,28 @@
 
 Last revised: 2026-10-24. Local, deterministic Commander generator: **no paid AI API** is needed to build a deck.
 
+## Stage 11/12 integration — draft PR #9 on PR #8
+
+- [x] Verify exact PR #8 baseline; repair and negatively test local snapshot
+  cohorts, persistence, provenance, duplicate counts and CLI paths with spaces.
+- [x] Add commander-neutral bounded Oracle engine hypotheses, conditional
+  relationship reports, shared multi-role dependencies and capability guards.
+- [x] Preserve existing refinement starts and add a bounded opportunity for a
+  screened source alternative; expose full audited alternatives and explanations.
+- [x] Explicit basics-owned pricing, strict default ceiling, opt-in €4 tolerance
+  and original-target regeneration with one application of tolerance.
+- [ ] Establish an objective winner among incomparable Wilhelt strategies;
+  provisional legacy selection remains visible and is not power certification.
+- [ ] Expand beyond the narrow supported grammar only for demonstrated
+  construction defects; do not restart open-ended simulator expansion.
+- [ ] Close missing frozen-catalog reference coverage, manual game/external
+  comparisons, native Windows verification and the Deck Upgrader quality gate.
+- [ ] Integrate/release only after explicit review. No gameplay-ranking or Pod
+  activation; PR #4 remains a separate sibling with archived Stages 1–9.
+
+See `docs/STRATEGY_STAGE11.md` and the Stage 11/12 validation report for actual
+prices, exports, runtime, incomplete checks and the quality-gate verdict.
+
 ## Stage 10 — Commander research (draft PR #6, separate from #4)
 
 - [x] Independent single-commander Spellbook discovery without imported decks; live nullable-count pagination, partial/unknown coverage and stale provenance.

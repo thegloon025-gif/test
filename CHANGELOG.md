@@ -1,3 +1,26 @@
+## Unreleased — Stage 11/12 integration (draft PR #9)
+
+- Validate the exact Stage 12 branch before changes; preserve conflicting local
+  observations, explicit unknown source age and non-ranked examples. Rebuild
+  persisted derived data, bound reads, use unique atomic writes and exercise
+  real CLI imports with paths containing spaces. No network EDHREC adapter or
+  recommendation-statistic production ranking.
+- Discover bounded Oracle-backed engine hypotheses without commander-name
+  presets or private reference lists. Describe actual supporting cards,
+  sacrifice costs, material, death outcomes, multi-role dependencies and unknowns.
+  Reject conditional reduction assumptions and repair zero-MV discovery ordering.
+- Preserve prior preferred/mana/access refinement opportunities and offer a
+  fourth bounded turn to a screened source alternative. Protect distinct
+  relationship capabilities during complete-candidate pruning; keep uncertainty
+  and the existing comparator explicit rather than inventing a new power score.
+- Add audited complete alternatives and a text-only Why this deck comparison
+  view. Add explicit basic-land valuation and optional €4 effective hard maximum,
+  consistent construction, reconciliation and original-target regeneration.
+- Add frozen-input generation, held-out reference preprocessing, independent
+  receipt audits and browser/API workflow tools. Historical measurements and
+  original caches remain unchanged. No version bump, merge, release, Pod
+  activation, PR #4 stateful gameplay ranking or automatic upgrader.
+
 ## Unreleased — Stage 10 automatic commander research (draft PR #6)
 
 - Independent commander-containing Spellbook discovery works without Archidekt sources, with live nullable-total pagination, useful partial results and honest stale-cache fallback.

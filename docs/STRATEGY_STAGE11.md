@@ -1,7 +1,7 @@
 # Stage 11/12 integration (draft, v1.1.5)
 
-Based on PR #8 at 85f1f2c; gameplay PR #4 remains a separate sibling. No simulator
-or new gameplay-based ranking is integrated. Stage 12 is local advisory only.
+Based on PR #8 at 85f1f2c; gameplay PR #4 remains a separate sibling. No PR #4 stateful evaluator
+or new gameplay-based ranking is integrated; existing PR #2 probes remain. Stage 12 is local advisory only.
 
 ## Strategy evidence and alternatives
 
