@@ -110,7 +110,7 @@ export async function readEdhrecCommanderJson({commanderName,directory=ROOT,now=
   importedAt:doc.importedAt,ageHours,sourceRetrievedAt:retrieved,
   sourceAgeHours:retrieved?Math.round((at-Date.parse(retrieved))/360000)/10:null,
   coverage:'unknown; user-supplied partial categories, not bracket-specific',cardCount:revalidated.cardCount,
-  categories:revalidated.categories.map(g=>({name:g.name,count:g.cards.length})),
+  categories:revalidated.categories.map(g=>({name:g.name,count:new Set(g.cards.map(c=>norm(c.name))).size,observations:g.cards.length})),
   exampleOrdering:'alphabetical, not recommendation rank',
   topCards:revalidated.distinctCards.slice(0,12).map(c=>({name:c.name,categories:c.categories,
    inclusionFraction:c.stats?.inclusionFraction??null,synergy:c.stats?.synergy??null,

@@ -100,3 +100,13 @@ test('real CLI quoted path arguments with spaces round trip and repeated flags f
   await assert.rejects(run(process.execPath,[cli,'--file',input,'--file',input,'--commander',commander]),/repeated/);
  }finally{await rm(directory,{recursive:true,force:true});}
 });
+
+test('conflicting repeated observations do not inflate a category distinct-card count',async()=>{
+ const directory=await mkdtemp(path.join(os.tmpdir(),'co-stage12-count-'));
+ try{
+  const f=structuredClone(fixture);f.container.json_dict.cardlists[0].cardviews.push({name:'Gravecrawler',num_decks:50,potential_decks:100,synergy:.1});
+  await importEdhrecCommanderJson({commanderName:commander,payload:f,directory});
+  const report=await readEdhrecCommanderJson({commanderName:commander,directory});
+  assert.equal(report.cardCount,3);assert.equal(report.categories[0].count,2);assert.equal(report.categories[0].observations,3);
+ }finally{await rm(directory,{recursive:true,force:true});}
+});
