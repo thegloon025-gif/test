@@ -4,6 +4,7 @@
 import {castHasType,castHasSubtype,isLandSlot,oracleId} from './cards.mjs';
 import {oracleText} from './roleEvidence.mjs';
 import {planFor} from './mechanics.mjs';
+import {singletonName} from './deckValidation.mjs';
 import {engineContext,engineManaValue,matchesCastNeed,supportedCardAccess,strategyInfrastructure} from './engineSupport.mjs';
 const unique=xs=>[...new Map(xs.map(c=>[oracleId(c),c])).values()];
 const sorted=xs=>xs.slice().sort((a,b)=>a.name.localeCompare(b.name));
@@ -18,11 +19,11 @@ export function uncertainNativeResources(cards,commander,plan=planFor(commander)
   const at=line.indexOf(':');if(at<0)return [];
   const cost=line.slice(0,at),effect=line.slice(at+1).trim();
   return /\bPay \d+ life\b/i.test(cost)&&/\bSacrifice (?:another |a )creature\b/i.test(cost)&&/^Create a Treasure token\./i.test(effect)
-   ?[{card:card.name,id:oracleId(card),cost,effect,status:'unknown execution; native compound resource conversion'}]:[];
+   ?[{card:card.name,id:oracleId(card),identity:singletonName(card),cost,effect,status:'unknown execution; native compound resource conversion'}]:[];
  }));
 }
 export function guardNativeRefinement(built,proposal,commander,plan=planFor(commander)){
- const remaining=new Set(proposal.cards.map(oracleId)),lost=uncertainNativeResources(built.cards,commander,plan).filter(r=>!remaining.has(r.id));
+ const remaining=new Set(proposal.cards.map(singletonName)),lost=uncertainNativeResources(built.cards,commander,plan).filter(r=>!remaining.has(r.identity));
  return {deck:lost.length?built:proposal,lost};
 }
 

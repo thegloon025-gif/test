@@ -131,3 +131,10 @@ test('unmodeled native life/sacrifice/Treasure conversion cannot be discarded as
  assert.equal(guardNativeRefinement(built,{...proposal,cards:[body,resource,outlet]},commander).lost.length,0);
  const unrelated=card('Unrelated casting commander','Legendary Creature — Crab','Whenever you cast a Crab spell, draw a card.');assert.deepEqual(uncertainNativeResources(built.cards,unrelated),[]);
 });
+
+test('native uncertainty protection does not pin a premium alternate record of the same physical card',async()=>{
+ const {guardNativeRefinement}=await import('../src/strategyRelations.mjs');
+ const engine=card('Native conversion','Creature — Crab','Pay 1 life, Sacrifice another creature: Create a Treasure token.'),cheaper={...engine,id:'alternate-printing',name:'Native conversion // Native conversion',prices:{eur:.1}};
+ const built={cards:[body,engine],price:20},proposal={cards:[body,cheaper],price:10};
+ const r=guardNativeRefinement(built,proposal,commander);assert.equal(r.deck,proposal);assert.deepEqual(r.lost,[]);
+});

@@ -507,7 +507,7 @@ export function constructStrategyDeck({cards,commander,bracket,budget,powerTarge
  const relationsFor=cards=>{if(!relationMemo.has(cards))relationMemo.set(cards,strategyRelations(cards,commander,{plan}));return relationMemo.get(cards);};
  const evidenceMemo=new Map(successful.map(d=>[d.cards,investmentEvidence(d.cards,commander,plan)]));
  const relationEvidence=new Map(successful.map(d=>[evidenceMemo.get(d.cards),relationsFor(d.cards)]));
- const candidateDominates=(a,b)=>dominatesCandidateEvidence(a,b)&&relationEvidence.get(b).capabilities.every(k=>relationEvidence.get(a).capabilities.includes(k))&&relationEvidence.get(b).unverifiedNativeResources.every(r=>relationEvidence.get(a).unverifiedNativeResources.some(x=>x.id===r.id));
+ const candidateDominates=(a,b)=>dominatesCandidateEvidence(a,b)&&relationEvidence.get(b).capabilities.every(k=>relationEvidence.get(a).capabilities.includes(k))&&relationEvidence.get(b).unverifiedNativeResources.every(r=>relationEvidence.get(a).unverifiedNativeResources.some(x=>x.identity===r.identity));
  const functionalChoice=selectInvestmentDeck(successful,{commander,plan,score:cards=>strategyScore(cards,commander,plan).value,evidenceFor:cards=>evidenceMemo.get(cards),candidateDominates,executionFor,executionDominates});
  successful.sort((a,b)=>b.score.value-a.score.value||stable(a.strategy,b.strategy));
  if(functionalChoice){successful.splice(successful.indexOf(functionalChoice),1);successful.unshift(functionalChoice);}
