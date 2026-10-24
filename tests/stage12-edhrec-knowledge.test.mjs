@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {mkdtemp,rm,readFile,writeFile,readdir,mkdir} from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
+import {fileURLToPath} from 'node:url';
 import {parseEdhrecCommanderJson,importEdhrecCommanderJson,readEdhrecCommanderJson,edhrecCachePath} from '../src/edhrecKnowledge.mjs';
 
 const commander='Wilhelt, the Rotcleaver';
@@ -94,7 +95,7 @@ test('real CLI quoted path arguments with spaces round trip and repeated flags f
  const run=promisify(execFile),directory=await mkdtemp(path.join(os.tmpdir(),'co CLI space '));
  try{
   const input=path.join(directory,'my source file.json'),output=path.join(directory,'my local imports');await writeFile(input,JSON.stringify(fixture));
-  const cli=new URL('../tools/import-edhrec-json.mjs',import.meta.url).pathname;
+  const cli=fileURLToPath(new URL('../tools/import-edhrec-json.mjs',import.meta.url));
   const result=await run(process.execPath,[cli,'--commander',commander,'--file',input,'--directory',output]);
   assert.match(result.stdout,/Imported 3/);assert.equal((await readEdhrecCommanderJson({commanderName:commander,directory:output})).cardCount,3);
   await assert.rejects(run(process.execPath,[cli,'--file',input,'--file',input,'--commander',commander]),/repeated/);
