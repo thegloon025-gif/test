@@ -82,3 +82,9 @@ test('conditional reductions and reversible zero-MV records cannot seed unsuppor
  const bodies=Array.from({length:9},(_,i)=>card('Body '+i,'Creature — Crab'));
  const found=discoverStrategyPlans([engine,slow,...bodies],commander,{budget:191});assert.ok(found.every(x=>!x.discovery.anchors.includes(slow.name)));
 });
+
+test('fourth refinement slot reaches unexpanded source even when shared scaffolding hides early differences',()=>{
+ const local=deck('local:engine',0),a=deck('source:a',1,'a','a'),b=deck('source:b',2,'a','b'),c=deck('source:c',3,'a','c'),resilience=deck('local:resilience',30,'b');
+ const result=refinementCohort([a,b,c,local,resilience],{commander,preferred:a,coverageLeaders:[local,b],limit:4});
+ assert.deepEqual(result,[a,local,b,c]);
+});

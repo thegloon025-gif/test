@@ -68,6 +68,10 @@ export function refinementCohort(decks,{preferred,commander,coverageLeaders=[],l
  for(const deck of coverageLeaders)if(chosen.length<limit)take(rows.find(r=>r.original===deck));
  // Round-robin across source-informed vs local, prioritizing actual plan differences.
  const other=rows.filter(r=>r!==chosen[0]).sort((a,b)=>Number(!!b.sourceKey)-Number(!!a.sourceKey)||String(a.strategy).localeCompare(String(b.strategy)));
+ // Source templates were already independently screened and deduplicated.
+ // Shared scaffolding before refinement must not deny the remaining source
+ // its one bounded opportunity to recover a distinct native plan.
+ for(const row of other)if(row.sourceKey&&chosen.length<limit)take(row);
  for(const row of other)if(chosen.length<limit&&chosen.every(x=>distinctStrategy(row,x)))take(row);
  for(const row of other)if(chosen.length<limit)take(row);
  return chosen.map(r=>r.original);
