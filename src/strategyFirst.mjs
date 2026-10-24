@@ -483,7 +483,9 @@ export function constructStrategyDeck({cards,commander,bracket,budget,powerTarge
  if(referenceDeck){results.push(investRemainingBudget({built:referenceDeck,pool,commander,plan,bracket:Number(bracket),budget:Number(budget),deferPackages:true,limits,comboVariants,traceNames:Array.isArray(investmentTrace)?investmentTrace:[]}));}
  const complete=results.filter(x=>x.status==='ok');
  const preferred=selectInvestmentDeck(complete,{commander,plan,score:cards=>strategyScore(cards,commander,plan).value});
- const expanded=refinementCohort(complete,{preferred,commander,limit:4});
+ const preliminary=new Map(complete.map(d=>[d,investmentEvidence(d.cards,commander,plan)]));
+ const leader=key=>complete.slice().sort((a,b)=>preliminary.get(b).vector[key]-preliminary.get(a).vector[key]||stable(a.strategy,b.strategy))[0];
+ const expanded=refinementCohort(complete,{preferred,commander,coverageLeaders:[leader('flow'),leader('repeatableMana')],limit:4});
  for(const built of expanded){
   const entry=entries.find(e=>e.id===built.strategy);
   const improved=finishPackageInvestments({pool,commander,budget:Number(budget),bracket:Number(bracket),limits,comboVariants,source:entry?.source||null,
@@ -532,7 +534,7 @@ export function constructStrategyDeck({cards,commander,bracket,budget,powerTarge
   if(!alternatives.length||alternatives.every(x=>distinctStrategy(row,x)))alternatives.push(row);
   if(alternatives.length===4)break;
  }
- return {selected:successful[0]||null,successful,alternatives,report:{mode:'strategy-first',comparison,discovered:entries.filter(e=>e.discovery).map(e=>({id:e.id,...e.discovery})),packageExpansion:{limit:4,expanded:expanded.map(x=>x.strategy),reason:'Preferred candidate then distinct source/local plans; all retained source alternatives get a bounded opportunity where capacity permits. Remaining candidates retain single-card results'},generated:results.length,complete:successful.length,distinct,
+ return {selected:successful[0]||null,successful,alternatives,report:{mode:'strategy-first',comparison,discovered:entries.filter(e=>e.discovery).map(e=>({id:e.id,...e.discovery})),packageExpansion:{limit:4,expanded:expanded.map(x=>x.strategy),reason:'Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results'},generated:results.length,complete:successful.length,distinct,
   candidates:results.map(x=>({id:x.strategy,label:x.label||x.strategy,status:x.status,score:x.score?.value??null,
    sourceSpells:x.sourceSpellCount||0,sourceLands:x.sourceLandCount||0,price:x.price??null,
    budgetSwaps:x.budgetInvestment?.swaps.length||0,investment:x.budgetInvestment,packageInvestment:x.packageInvestment})),

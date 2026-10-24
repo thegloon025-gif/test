@@ -71,3 +71,14 @@ test('explanations disclose tradeoffs, prerequisite dependencies and unverified 
  const result={whyThisDeck:{selection:'Provisional, incomparable strategies',relations:strategyRelations([body,outlet,payoff],commander)},budgetPolicy:budgetUsage(budgetPolicy({budget:160,budgetTolerance:4}),102)};
  const text=whyRows(result).join('\n');assert.match(text,/hard maximum €164/);assert.match(text,/Payoff → death:card-access/);assert.match(text,/No win-conversion line is certified/);assert.match(text,/never determine these choices/);
 });
+
+test('conditional reductions and reversible zero-MV records cannot seed unsupported engine plans',()=>{
+ const conditional=card('Conditional reducer','Creature — Human','Noncreature spells you cast cost {1} less to cast as long as there are three or more Lesson cards in your graveyard.');
+ const spells=Array.from({length:12},(_,i)=>card('Real spell '+i,'Sorcery','Draw two cards.',{cmc:4}));
+ assert.ok(!strategyRelations([conditional,...spells],commander).capabilities.includes('native:costReduction'));
+ assert.deepEqual(discoverStrategyPlans([conditional,...spells],commander,{budget:191}),[]);
+ const slow=card('Huge // Huge','Creature — Crab','',{cmc:0,card_faces:[{name:'Huge',type_line:'Creature — Crab',mana_cost:'{12}',oracle_text:''}],layout:'reversible_card'});
+ const engine=card('Entry engine','Enchantment','Whenever a creature you control enters, draw a card.');
+ const bodies=Array.from({length:9},(_,i)=>card('Body '+i,'Creature — Crab'));
+ const found=discoverStrategyPlans([engine,slow,...bodies],commander,{budget:191});assert.ok(found.every(x=>!x.discovery.anchors.includes(slow.name)));
+});

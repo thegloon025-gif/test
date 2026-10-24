@@ -24,8 +24,8 @@ The existing functional comparator cannot discard a candidate while losing a
 recognized relationship capability. No new scalar objective replaces the old
 one: incomparable strategies retain a **provisional** heuristic recommendation
 and competitive alternatives. Deeper atomic refinement is bounded to four
-complete starts, prioritizing distinct source/local plans rather than only
-mana/access leaders. Reports identify expanded and unexpanded candidates.
+complete starts, preserving the prior preferred/mana/access starts and then adding a
+distinct source/local plan. Reports identify expanded and unexpanded candidates.
 
 The expandable **Why this deck?** panel explains actual selected relationships,
 prerequisites, multi-role dependencies, unknowns, source and selection tradeoffs.

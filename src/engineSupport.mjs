@@ -98,9 +98,16 @@ export function strategyInfrastructure(c,context){
   add('passiveTriggerCopy',sources,1);
  }
  if(/copy target triggered ability/i.test(text))add('activatedTriggerCopy',native.filter(x=>/when(?:ever)?|at the beginning|cascade/i.test(oracleText(x))),4);
- for(const line of text.split('\n'))if(/spells you cast cost[^\n]*less|creature spell you cast each turn costs[^\n]*less|spells of the chosen type cost[^\n]*less/i.test(line)){
-  const support=/colorless/i.test(line)?colorless:/creature spell/i.test(line)?context.creatures:native;
-  add('costReduction',support.filter(x=>engineManaValue(x)>=3),8);
+ for(const line of text.split('\n')){
+  // Conditions such as graveyard Lessons, levels, life or counters are not
+  // established by inventory. Never grant unconditional reduction support.
+  if(/as long as|\bif\b|for each|level up|Level \d/i.test(line))continue;
+  const m=line.match(/^(colorless|creature|artifact|enchantment|noncreature|instant and sorcery|instant or sorcery) spells you cast cost \{\d+\} less to cast\.$/i);
+  let support=null;
+  if(m){const kind=m[1].toLowerCase();support=spells.filter(x=>kind==='colorless'?colorlessSpell(x):kind==='noncreature'?!castHasType(x,'Creature'):kind.startsWith('instant')?castHasType(x,'Instant')||castHasType(x,'Sorcery'):castHasType(x,kind[0].toUpperCase()+kind.slice(1)));}
+  if(/^the first creature spell you cast each turn costs \{\d+\} less to cast\.$/i.test(line))support=context.creatures.filter(x=>x!==c);
+  if(/^spells of the chosen type cost \{\d+\} less to cast\.$/i.test(line))support=native;
+  if(support)add('costReduction',support.filter(x=>engineManaValue(x)>=3),8);
  }
 
  // A bounded tutor grammar: require real eligible targets, and distinguish

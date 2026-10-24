@@ -4,7 +4,7 @@
 import {castHasType,castHasSubtype,isLandSlot,oracleId} from './cards.mjs';
 import {oracleText} from './roleEvidence.mjs';
 import {planFor} from './mechanics.mjs';
-import {engineContext,supportedCardAccess,strategyInfrastructure} from './engineSupport.mjs';
+import {engineContext,engineManaValue,supportedCardAccess,strategyInfrastructure} from './engineSupport.mjs';
 const unique=xs=>[...new Map(xs.map(c=>[oracleId(c),c])).values()];
 const sorted=xs=>xs.slice().sort((a,b)=>a.name.localeCompare(b.name));
 
@@ -61,10 +61,11 @@ export function distinctStrategy(a,b){
  return changed>=12&&engineChange>=2;
 }
 
-export function refinementCohort(decks,{preferred,commander,limit=4}={}){
+export function refinementCohort(decks,{preferred,commander,coverageLeaders=[],limit=4}={}){
  const rows=decks.map(deck=>({...deck,original:deck,relations:strategyRelations(deck.cards,commander)})),chosen=[];
  const take=row=>{if(row&&!chosen.includes(row))chosen.push(row);};
  take(rows.find(r=>r.original===preferred));
+ for(const deck of coverageLeaders)if(chosen.length<limit)take(rows.find(r=>r.original===deck));
  // Round-robin across source-informed vs local, prioritizing actual plan differences.
  const other=rows.filter(r=>r!==chosen[0]).sort((a,b)=>Number(!!b.sourceKey)-Number(!!a.sourceKey)||String(a.strategy).localeCompare(String(b.strategy)));
  for(const row of other)if(chosen.length<limit&&chosen.every(x=>distinctStrategy(row,x)))take(row);
@@ -77,16 +78,16 @@ export function refinementCohort(decks,{preferred,commander,limit=4}={}){
  * feasibility; neither cost nor inclusion/popularity earns merit. */
 export function discoverStrategyPlans(pool,commander,{budget,limit=2}={}){
  const plan=planFor(commander),context={...engineContext(pool,plan),commander};
- const providers=sorted(pool.filter(c=>!isLandSlot(c)&&/Creature|Artifact|Enchantment/.test(c.type_line||'')&&Number(c.cmc)<=6&&
+ const providers=sorted(pool.filter(c=>!isLandSlot(c)&&/Creature|Artifact|Enchantment/.test(c.type_line||'')&&engineManaValue(c)<=6&&
   /whenever|spells you cast|from the top of your library/i.test(oracleText(c))))
-  .sort((a,b)=>Number(a.cmc)-Number(b.cmc)||a.name.localeCompare(b.name)).slice(0,160);
+  .sort((a,b)=>engineManaValue(a)-engineManaValue(b)||a.name.localeCompare(b.name)).slice(0,160);
  const found=[];
  for(const c of providers){
   const access=supportedCardAccess(c,context),native=strategyInfrastructure(c,context);
   const entries=[...access.triggers.filter(t=>t.supported).map(t=>({kind:'access-'+t.kind,cards:t.cards})),
    ...native.map(t=>({kind:t.kind,cards:t.cards}))];
   for(const entry of entries){
-   const support=sorted(pool.filter(x=>entry.cards.includes(x.name)&&x!==c)).sort((a,b)=>Number(a.cmc)-Number(b.cmc)||a.name.localeCompare(b.name));
+   const support=sorted(pool.filter(x=>entry.cards.includes(x.name)&&x!==c&&engineManaValue(x)<=5)).sort((a,b)=>engineManaValue(a)-engineManaValue(b)||a.name.localeCompare(b.name));
    if(support.length<4)continue;
    const anchors=[c,...support.slice(0,2)];
    // Real card-value estimates only screen affordability.
