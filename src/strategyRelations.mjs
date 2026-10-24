@@ -11,7 +11,7 @@ const sorted=xs=>xs.slice().sort((a,b)=>a.name.localeCompare(b.name));
 export function strategyRelations(cards,commander,{plan=planFor(commander)}={}){
  const all=unique([commander,...cards]),spells=all.filter(c=>!isLandSlot(c));
  const context={...engineContext(all,plan),commander};
- const creatures=spells.filter(c=>castHasType(c,'Creature')),relationships=[],unknowns=[];
+ const creatures=spells.filter(c=>castHasType(c,'Creature')),relationships=[],unknowns=(plan.unsupportedCast||[]).map(clause=>({card:commander.name,reason:'Unparsed cast qualifier; no generic cast support granted: '+clause}));
  const add=(card,kind,support,prerequisites,outcome,extra={})=>relationships.push({card:card.name,kind,
   support:sorted(unique(support)).map(c=>c.name),prerequisites,outcome,evidence:'local Oracle grammar; inventory support only',...extra});
  const outlets=[];

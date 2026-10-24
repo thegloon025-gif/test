@@ -114,3 +114,11 @@ test('supported commander cast-pressure explanation includes exact support and n
  const row=strategyRelations([yes,small],cmd).relationships.find(x=>x.kind==='cast:life-pressure');
  assert.deepEqual(row.support,['Qualifies']);assert.match(row.prerequisites.join(';'),/copies are not casts/);assert.match(row.prerequisites.join(';'),/lethal conversion unverified/);
 });
+
+test('unparsed target and zone restrictions cannot grant generic instant/sorcery cast engine credit',async()=>{
+ const {planFor,synergy}=await import('../src/mechanics.mjs');
+ const cmd=card('Restricted caster','Legendary Creature — Wizard','Whenever you cast an instant or sorcery spell that targets only this creature, copy that spell for each other creature you control that the spell could target.');
+ const plan=planFor(cmd);assert.ok(!plan.needs.some(n=>n.kind==='typed-cast'));assert.ok(plan.needs.some(n=>n.kind==='target-copy'));assert.equal(plan.unsupportedCast.length,1);
+ const arbitrary=card('Untargeted draw','Sorcery','Draw two cards.',{cmc:3});assert.ok(!synergy(arbitrary,plan).roles.includes('engine'));
+ const restricted=planFor(card('Exile-only caster','Legendary Creature — Wizard','Whenever you cast an artifact spell from exile, draw a card.'));assert.ok(!restricted.needs.some(n=>n.kind==='typed-cast'));assert.ok(restricted.unsupportedCast.length);
+});
