@@ -88,3 +88,15 @@ test('atomic concurrent imports preserve complete readable files and remove temp
   await assert.rejects(importEdhrecCommanderJson({commanderName:commander,payload:fixture,directory,retrievedAt:'2099-01-01'}),/retrieval/);
  }finally{await rm(directory,{recursive:true,force:true});}
 });
+
+test('real CLI quoted path arguments with spaces round trip and repeated flags fail',async()=>{
+ const {execFile}=await import('node:child_process'),{promisify}=await import('node:util');
+ const run=promisify(execFile),directory=await mkdtemp(path.join(os.tmpdir(),'co CLI space '));
+ try{
+  const input=path.join(directory,'my source file.json'),output=path.join(directory,'my local imports');await writeFile(input,JSON.stringify(fixture));
+  const cli=new URL('../tools/import-edhrec-json.mjs',import.meta.url).pathname;
+  const result=await run(process.execPath,[cli,'--commander',commander,'--file',input,'--directory',output]);
+  assert.match(result.stdout,/Imported 3/);assert.equal((await readEdhrecCommanderJson({commanderName:commander,directory:output})).cardCount,3);
+  await assert.rejects(run(process.execPath,[cli,'--file',input,'--file',input,'--commander',commander]),/repeated/);
+ }finally{await rm(directory,{recursive:true,force:true});}
+});
