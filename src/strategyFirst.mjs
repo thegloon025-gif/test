@@ -18,6 +18,8 @@ import {strategyExecution,executionDominates} from './strategyExecution.mjs';
 import {refinePackageInvestments,selectInvestmentDeck,investmentEvidence,dominatesCandidateEvidence} from './packageInvestment.mjs';
 import {tempoEvidence,drawAccess,sustainedEarlyMana} from './playabilityEvidence.mjs';
 
+import {strategyRelations,distinctStrategy,refinementCohort,discoverStrategyPlans} from './strategyRelations.mjs';
+
 const INVESTMENT_STARTS=Symbol('investment starting decks');
 const basics={W:'Plains',U:'Island',B:'Swamp',R:'Mountain',G:'Forest',C:'Wastes'};
 const round=n=>Math.round(n*100)/100;
@@ -210,6 +212,9 @@ function buildOne({pool,commander,plan,bracket,budget,profile,entry,limits,comma
   if(!accepted){for(const f of selected.splice(before))usedNames.delete(cardSignature(f.card));spent=beforeSpent;gc=beforeGc;continue;}
   committedCombos.push({id:combo.id,cards:components.map(f=>f.card.name),added:neededParts.map(f=>f.card.name)});
  }
+ // Bounded evidence-derived engine hypotheses receive a genuine construction
+ // opportunity after essential scaffolding, before generic tribal filling.
+ if(entry.anchors)for(const f of sorted.filter(f=>entry.anchors.has(oracleId(f.card))))add(f);
  fill(null,primaryGoal);
  // Source-spine priority is bounded to avoid adopting unsupported filler en masse.
  if(entry.source){
@@ -237,10 +242,10 @@ function buildOne({pool,commander,plan,bracket,budget,profile,entry,limits,comma
  let landSpend=0;
  function pushLand(c){if(landSelected.length>=landTarget)return false;
   if(!isBasic(c)&&usedNames.has(cardSignature(c)))return false;
-  if(!isBasic(c)&&landSpend+cost(c)>remainingBudget+1e-8)return false;
-  if(!isBasic(c)){usedNames.add(cardSignature(c));landSpend+=cost(c);}
+  if(landSpend+cost(c)>remainingBudget+1e-8)return false;
+  if(!isBasic(c))usedNames.add(cardSignature(c));landSpend+=cost(c);
   landSelected.push(c);return true;}
- function availableLand(c){if(isBasic(c))return true;
+ function availableLand(c){if(isBasic(c))return landSpend+cost(c)<=remainingBudget+1e-8;
   return !usedNames.has(cardSignature(c))&&landSpend+cost(c)<=remainingBudget+1e-8;}
  const landShortlist=landPool.filter(c=>!isBasic(c)).map(c=>{const m=landManaQuality(c);return {c,pre:m.colors.length*11+(m.canC?5:0)+(entry.source?.has(oracleId(c))?30:0)-(m.unusable?100:0)-(m.restricted?12:0)-(m.needsActivationPayment?12:0)-(m.entersTapped?4:0)-Math.log1p(cost(c))*3};}).sort((a,b)=>b.pre-a.pre||byName(a.c,b.c)).slice(0,170).map(x=>x.c);
  const lane=(c)=>{
@@ -276,10 +281,11 @@ function buildOne({pool,commander,plan,bracket,budget,profile,entry,limits,comma
  }
  if(landSelected.length!==landTarget)return {status:'incomplete-lands',strategy:entry.id};
  const deck=[...spells,...landSelected];
+ if(entry.anchors&&![...entry.anchors].every(id=>deck.some(c=>oracleId(c)===id)))return {status:'engine-hypothesis-incomplete',strategy:entry.id};
  if(deck.some(c=>!isLandSlot(c)&&castabilityIssues(c,landSelected).length))return {status:'unsupported-casting',strategy:entry.id};
  const singleton=validateCommanderSingleton(commander,deck);
  if(!singleton.valid||spent+landSpend>budget+1e-6)return {status:'illegal-or-over-budget',strategy:entry.id};
- return {status:'ok',strategy:entry.id,label:entry.label,sourceKey:entry.sourceKey,
+ return {status:'ok',strategy:entry.id,label:entry.label,sourceKey:entry.sourceKey,strategyCommitments:entry.anchors?deck.filter(c=>entry.anchors.has(oracleId(c))).map(c=>c.name):[],
   cards:deck,price:round(spent+landSpend),sourceSpellCount:entry.source?spells.filter(c=>entry.source.has(oracleId(c))).length:0,
   sourceLandCount:entry.source?landSelected.filter(c=>entry.source.has(oracleId(c))).length:0,committedCombos};
 }
@@ -323,7 +329,7 @@ function investBudgetPath({built,pool,commander,plan=planFor(commander),bracket=
  const before=cost(commander)+sum(built.cards,cost),lands=built.cards.filter(isLandSlot);
  bracket=Number(bracket);
  const spells=built.cards.filter(c=>!isLandSlot(c));
- const committed=new Set((built.committedCombos||[]).flatMap(p=>p.cards||[]).map(x=>singletonName({name:x})));
+ const committed=new Set([...(built.committedCombos||[]).flatMap(p=>p.cards||[]),...(built.strategyCommitments||[])].map(x=>singletonName({name:x})));
  const cache=new Map();
  const fact=c=>{if(!cache.has(c))cache.set(c,cardFacts(c,plan));return cache.get(c);};
  // Price is deliberately NOT a card-quality bonus or penalty in this stage.
@@ -464,6 +470,7 @@ export function constructStrategyDeck({cards,commander,bracket,budget,powerTarge
  const plan=planFor(commander),pool=dedupeCatalog(cards,commander),commanderPrice=cost(commander);
  const limits=selectionLimits(plan,Number(bracket),powerTarget);
  const entries=candidatePlans(communityDecks,commander,bracket,communityBuild?.status==='ready',communityBuild,pool);
+ for(const hypothesis of discoverStrategyPlans(pool,commander,{budget:Number(budget)}))entries.push({...hypothesis,style:styles[0]});
  const results=entries.map(entry=>{const built=buildOne({pool,commander,plan,bracket:Number(bracket),budget:Number(budget),profile,entry,limits,commanderPrice,preferredCombos});
   if(built.status!=='ok')return built;
   const violation=conservativeComboViolation(built.cards,commander,comboVariants,bracket);
@@ -476,10 +483,7 @@ export function constructStrategyDeck({cards,commander,bracket,budget,powerTarge
  if(referenceDeck){results.push(investRemainingBudget({built:referenceDeck,pool,commander,plan,bracket:Number(bracket),budget:Number(budget),deferPackages:true,limits,comboVariants,traceNames:Array.isArray(investmentTrace)?investmentTrace:[]}));}
  const complete=results.filter(x=>x.status==='ok');
  const preferred=selectInvestmentDeck(complete,{commander,plan,score:cards=>strategyScore(cards,commander,plan).value});
- const evidence=new Map(complete.map(x=>[x,investmentEvidence(x.cards,commander,plan)]));
- const mostFlow=complete.slice().sort((a,b)=>evidence.get(b).vector.flow-evidence.get(a).vector.flow||stable(a.strategy,b.strategy))[0];
- const mostMana=complete.slice().sort((a,b)=>evidence.get(b).vector.repeatableMana-evidence.get(a).vector.repeatableMana||stable(a.strategy,b.strategy))[0];
- const expanded=[...new Set([preferred,mostFlow,mostMana,...complete].filter(Boolean))].slice(0,3);
+ const expanded=refinementCohort(complete,{preferred,commander,limit:4});
  for(const built of expanded){
   const entry=entries.find(e=>e.id===built.strategy);
   const improved=finishPackageInvestments({pool,commander,budget:Number(budget),bracket:Number(bracket),limits,comboVariants,source:entry?.source||null,
@@ -491,7 +495,12 @@ export function constructStrategyDeck({cards,commander,bracket,budget,powerTarge
  // Compare complete-deck evidence first; spending more is not evidence.
  const executionMemo=new Map();
  const executionFor=cards=>{if(!executionMemo.has(cards))executionMemo.set(cards,strategyExecution(cards,commander,plan));return executionMemo.get(cards);};
- const functionalChoice=selectInvestmentDeck(successful,{commander,plan,score:cards=>strategyScore(cards,commander,plan).value,executionFor,executionDominates});
+ const relationMemo=new Map();
+ const relationsFor=cards=>{if(!relationMemo.has(cards))relationMemo.set(cards,strategyRelations(cards,commander,{plan}));return relationMemo.get(cards);};
+ const evidenceMemo=new Map(successful.map(d=>[d.cards,investmentEvidence(d.cards,commander,plan)]));
+ const relationEvidence=new Map(successful.map(d=>[evidenceMemo.get(d.cards),relationsFor(d.cards)]));
+ const candidateDominates=(a,b)=>dominatesCandidateEvidence(a,b)&&relationEvidence.get(b).capabilities.every(k=>relationEvidence.get(a).capabilities.includes(k));
+ const functionalChoice=selectInvestmentDeck(successful,{commander,plan,score:cards=>strategyScore(cards,commander,plan).value,evidenceFor:cards=>evidenceMemo.get(cards),candidateDominates,executionFor,executionDominates});
  successful.sort((a,b)=>b.score.value-a.score.value||stable(a.strategy,b.strategy));
  if(functionalChoice){successful.splice(successful.indexOf(functionalChoice),1);successful.unshift(functionalChoice);}
  // A user-picked community archetype is an explicit choice, not a loose bonus.
@@ -503,13 +512,13 @@ export function constructStrategyDeck({cards,commander,bracket,budget,powerTarge
   if(selected){successful.splice(successful.indexOf(selected),1);successful.unshift(selected);}
  }
  const distinct=new Set(successful.map(x=>x.cards.map(c=>oracleId(c)).sort(stable).join('|'))).size;
- const compared=successful.map(deck=>({deck,evidence:investmentEvidence(deck.cards,commander,plan)}));
- const functionalFrontier=compared.filter(x=>!compared.some(y=>x!==y&&dominatesCandidateEvidence(y.evidence,x.evidence)));
+ const compared=successful.map(deck=>({deck,evidence:evidenceMemo.get(deck.cards)}));
+ const functionalFrontier=compared.filter(x=>!compared.some(y=>x!==y&&candidateDominates(y.evidence,x.evidence)));
  const selectedEvidence=compared.find(x=>x.deck===successful[0]);
  const comparison=compared.map(({deck,evidence})=>{
-  const dominatedBy=compared.filter(other=>other.deck!==deck&&dominatesCandidateEvidence(other.evidence,evidence)).map(other=>other.deck.strategy);
+  const dominatedBy=compared.filter(other=>other.deck!==deck&&candidateDominates(other.evidence,evidence)).map(other=>other.deck.strategy);
   const executionDominatedBy=functionalFrontier.filter(x=>x.deck!==deck&&executionDominates(executionFor(x.deck.cards),executionFor(deck.cards))).map(x=>x.deck.strategy);
-  return {id:deck.strategy,price:deck.price,score:deck.score.value,vector:evidence.vector,execution:executionFor(deck.cards),
+  return {id:deck.strategy,relations:relationsFor(deck.cards),price:deck.price,score:deck.score.value,vector:evidence.vector,execution:executionFor(deck.cards),
    selection:{reason:deck===successful[0]?'selected':dominatedBy.length?'functional frontier elimination':executionDominatedBy.length?'paired deployment frontier elimination':'incomparable surviving strategies; legacy scalar tie-break',
     selectedGains:Object.keys(evidence.vector).filter(k=>selectedEvidence.evidence.vector[k]>evidence.vector[k]),
     selectedLosses:Object.keys(evidence.vector).filter(k=>selectedEvidence.evidence.vector[k]<evidence.vector[k]),
@@ -517,7 +526,13 @@ export function constructStrategyDeck({cards,commander,bracket,budget,powerTarge
    infrastructure:evidence.infrastructure.map(({card,kind,units,support})=>({card,kind,units,support})),
    drawEngines:evidence.drawEngines.map(({card,trigger,topAccess,independent,support})=>({card,trigger,topAccess,independent,support})),dominatedBy};
  });
- return {selected:successful[0]||null,successful,report:{mode:'strategy-first',comparison,packageExpansion:{limit:3,expanded:expanded.map(x=>x.strategy),reason:'Coverage leader plus flow/mana alternatives; remaining complete candidates retain single-card path results'},generated:results.length,complete:successful.length,distinct,
+ const alternatives=[];
+ for(const deck of [successful[0],...functionalFrontier.map(x=>x.deck)].filter(Boolean)){
+  const row={...deck,relations:relationsFor(deck.cards)};
+  if(!alternatives.length||alternatives.every(x=>distinctStrategy(row,x)))alternatives.push(row);
+  if(alternatives.length===4)break;
+ }
+ return {selected:successful[0]||null,successful,alternatives,report:{mode:'strategy-first',comparison,discovered:entries.filter(e=>e.discovery).map(e=>({id:e.id,...e.discovery})),packageExpansion:{limit:4,expanded:expanded.map(x=>x.strategy),reason:'Preferred candidate then distinct source/local plans; all retained source alternatives get a bounded opportunity where capacity permits. Remaining candidates retain single-card results'},generated:results.length,complete:successful.length,distinct,
   candidates:results.map(x=>({id:x.strategy,label:x.label||x.strategy,status:x.status,score:x.score?.value??null,
    sourceSpells:x.sourceSpellCount||0,sourceLands:x.sourceLandCount||0,price:x.price??null,
    budgetSwaps:x.budgetInvestment?.swaps.length||0,investment:x.budgetInvestment,packageInvestment:x.packageInvestment})),

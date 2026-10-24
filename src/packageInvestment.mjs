@@ -127,9 +127,9 @@ export const functionallyBetter=dominatesCandidateEvidence;
 /** Only full functional dominance overrides the existing scorer. A core-role
  * surplus alone cannot erase threats, support or another essential function.
  * Incomparable tradeoffs retain the existing scorer; cost never earns merit. */
-export function selectInvestmentDeck(decks,{commander,plan=planFor(commander),score=()=>0,evidenceFor=cards=>investmentEvidence(cards,commander,plan),executionFor=null,executionDominates=null}={}){
+export function selectInvestmentDeck(decks,{commander,plan=planFor(commander),score=()=>0,evidenceFor=cards=>investmentEvidence(cards,commander,plan),executionFor=null,executionDominates=null,candidateDominates=dominatesCandidateEvidence}={}){
  const rows=decks.map(deck=>({deck,evidence:evidenceFor(deck.cards)}));
- let frontier=rows.filter(a=>!rows.some(b=>b!==a&&(b.deck.strategy===a.deck.strategy?dominatesEvidence(b.evidence,a.evidence):dominatesCandidateEvidence(b.evidence,a.evidence))));
+ let frontier=rows.filter(a=>!rows.some(b=>b!==a&&(b.deck.strategy===a.deck.strategy?dominatesEvidence(b.evidence,a.evidence):candidateDominates(b.evidence,a.evidence))));
  if(executionFor&&executionDominates){
   const measured=new Map(frontier.map(r=>[r,executionFor(r.deck.cards)]));
   frontier=frontier.filter(a=>!frontier.some(b=>a!==b&&executionDominates(measured.get(b),measured.get(a))));
@@ -159,7 +159,7 @@ export function refinePackageInvestments({built,pool,commander,plan=planFor(comm
  const coverageTargets={fastMana:8,flow:8,answers:7,shields:3,wideShields:1,threats:4,castAnswers:2};
  const functionalFloors=Object.fromEntries(Object.entries(original.vector).map(([k,n])=>[k,Math.min(n,coverageTargets[k]??n)]));
  const preservesInput=cards=>{const e=evidenceFor(cards);return preservesStrategy(e)&&Object.keys(functionalFloors).every(k=>e.vector[k]>=functionalFloors[k])&&(!requireColorless||(e.raw.trueColorless>=original.raw.trueColorless&&e.land.realColorless>=original.land.realColorless));};
- const committed=new Set((built.committedCombos||[]).flatMap(p=>p.cards||[]).map(name=>singletonName({name})));
+ const committed=new Set([...(built.committedCombos||[]).flatMap(p=>p.cards||[]),...(built.strategyCommitments||[])].map(name=>singletonName({name})));
  const sourceFloor=source?Math.min(20,built.cards.filter(c=>source.has(oracleId(c))&&!isLandSlot(c)).length):0;
  const maxGC=Number(bracket)===2?0:Number(bracket)===3?3:99;
  const report={method:'Atomic two/three-card investments plus single-card probes; Pareto functional improvements, price is only a ceiling',
