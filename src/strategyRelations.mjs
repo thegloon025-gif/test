@@ -4,7 +4,7 @@
 import {castHasType,castHasSubtype,isLandSlot,oracleId} from './cards.mjs';
 import {oracleText} from './roleEvidence.mjs';
 import {planFor} from './mechanics.mjs';
-import {engineContext,engineManaValue,supportedCardAccess,strategyInfrastructure} from './engineSupport.mjs';
+import {engineContext,engineManaValue,matchesCastNeed,supportedCardAccess,strategyInfrastructure} from './engineSupport.mjs';
 const unique=xs=>[...new Map(xs.map(c=>[oracleId(c),c])).values()];
 const sorted=xs=>xs.slice().sort((a,b)=>a.name.localeCompare(b.name));
 
@@ -25,6 +25,13 @@ export function strategyRelations(cards,commander,{plan=planFor(commander)}={}){
  }
  for(const c of spells){
   const text=oracleText(c),access=supportedCardAccess(c,context);
+  if(oracleId(c)===oracleId(commander))for(const line of text.split('\n')){
+   const m=line.match(/^Whenever you cast (?:a|an|another) [A-Za-z]+(?:, [A-Za-z]+)*(?:,? or [A-Za-z]+)? spell(?: with mana value \d+ or (?:greater|more))?, (.+)$/i);
+   if(!m||!/deals? \d+ damage to each opponent|each opponent loses \d+ life/i.test(m[1]))continue;
+   const needs=(plan.needs||[]).filter(n=>n.kind==='typed-cast'),support=spells.filter(x=>x!==c&&needs.some(n=>matchesCastNeed(x,n)));
+   const conditional=/\bif\b|unless|\bpay\b|first|only once/i.test(m[1]);
+   add(c,'cast:life-pressure',support,['Commander must be deployed','Actually cast a qualifying spell; copies are not casts','Pay spell costs and resolve trigger; repeatability, life totals and lethal conversion unverified'],m[1],{conditional,qualified:support.length>0&&!conditional});
+  }
   for(const trigger of access.triggers)if(trigger.support>=1)add(c,'card-access:'+trigger.kind,all.filter(x=>trigger.cards.includes(x.name)),['Deploy engine, then resolve qualifying '+trigger.kind+' event','Pay actual spell/activation costs; support count is not realized draw'], 'Conditional card access',{qualified:trigger.supported});
   if(access.topSupport)add(c,'top-library-access',all.filter(x=>access.topCards.includes(x.name)),['Deploy engine','Eligible card must actually be on top; pay its real costs'],'Access, not a free draw',{qualified:access.topAccess});
   for(const entry of strategyInfrastructure(c,context))add(c,'native:'+entry.kind,all.filter(x=>entry.cards.includes(x.name)),['Deploy source and satisfy its printed trigger/payment/zone restrictions'],'Supported '+entry.kind+' infrastructure; no resolved value claimed');

@@ -17,7 +17,10 @@ export function engineManaValue(c){
 /** Match an observed spell descriptor, not an assumed commander archetype. */
 export function matchesCastNeed(card,need){
  if(isLandSlot(card)||need.kind!=='typed-cast')return false;
- const typed=(need.types||[]).some(type=>type.toLowerCase()==='noncreature'?!castHasType(card,'Creature'):castHasType(card,type)||castHasSubtype(card,type));
+ const typed=(need.types||[]).some(type=>{
+  const lower=type.toLowerCase(),canonical=type[0].toUpperCase()+type.slice(1);
+  return lower==='noncreature'?!castHasType(card,'Creature'):lower==='colorless'?colorlessSpell(card):castHasType(card,canonical)||castHasSubtype(card,canonical);
+ });
  return typed&&(need.minManaValue==null||engineManaValue(card)>=need.minManaValue);
 }
 

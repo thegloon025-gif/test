@@ -99,3 +99,18 @@ test('observed noncreature cast prerequisites match actual nonland spells and pr
  assert.deepEqual(engineContext([yes,small,creature,land],plan).native.map(c=>c.name),['Qualifying']);
  const reversed=card('Spell // Spell','Sorcery','',{cmc:0,layout:'reversible_card',card_faces:[{name:'Spell',type_line:'Sorcery',mana_cost:'{3}{U}'}]});assert.equal(matchesCastNeed(reversed,need),true);
 });
+
+test('standard lowercase spell descriptors and colorless match without granting creature or land casts',async()=>{
+ const {matchesCastNeed}=await import('../src/engineSupport.mjs');
+ const instant=card('Instant','Instant','',{cmc:3}),creature=card('Creature','Creature — Wizard','',{cmc:3});
+ assert.equal(matchesCastNeed(instant,{kind:'typed-cast',types:['instant','sorcery']}),true);
+ assert.equal(matchesCastNeed(creature,{kind:'typed-cast',types:['instant','sorcery']}),false);
+ assert.equal(matchesCastNeed({...instant,colors:[]},{kind:'typed-cast',types:['colorless']}),true);
+ assert.equal(matchesCastNeed({...instant,colors:['U']},{kind:'typed-cast',types:['colorless']}),false);
+});
+test('supported commander cast-pressure explanation includes exact support and never certifies a win',()=>{
+ const cmd=card('Another unseen commander','Legendary Creature — Wizard','Whenever you cast a noncreature spell with mana value 3 or greater, this creature deals 2 damage to each opponent.');
+ const yes=card('Qualifies','Sorcery','Draw two cards.',{cmc:3}),small=card('Small','Instant','',{cmc:2});
+ const row=strategyRelations([yes,small],cmd).relationships.find(x=>x.kind==='cast:life-pressure');
+ assert.deepEqual(row.support,['Qualifies']);assert.match(row.prerequisites.join(';'),/copies are not casts/);assert.match(row.prerequisites.join(';'),/lethal conversion unverified/);
+});
