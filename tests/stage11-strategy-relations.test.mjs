@@ -138,3 +138,8 @@ test('native uncertainty protection does not pin a premium alternate record of t
  const built={cards:[body,engine],price:20},proposal={cards:[body,cheaper],price:10};
  const r=guardNativeRefinement(built,proposal,commander);assert.equal(r.deck,proposal);assert.deepEqual(r.lost,[]);
 });
+
+test('Why panel explains considered incomparable candidates and quarantined refinements even without another distinct export',()=>{
+ const text=whyRows({whyThisDeck:{selection:'Provisional',relations:strategyRelations([body,outlet],commander)},constructionEngine:{comparison:[{id:'source:a',price:186.47,selection:{reason:'incomparable surviving strategies; legacy scalar tie-break'},relations:{capabilities:['death:card-access']}}],candidates:[{id:'source:a',label:'Source-supported plan',packageInvestment:{abstention:'Native compound resource loss unverified.',proposedPrice:163.07}}]}}).join('\n');
+ assert.match(text,/Considered Source-supported plan/);assert.match(text,/incomparable surviving/);assert.match(text,/€163.07 changes were not exported/);assert.match(text,/does not prove a stronger deck/);
+});

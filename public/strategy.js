@@ -4,6 +4,14 @@ export function whyRows(result){
  if(policy)rows.push(`Card-value target €${policy.target.toFixed(2)}; tolerance €${policy.tolerance.toFixed(2)}; hard maximum €${policy.effectiveMaximum.toFixed(2)}; estimate €${policy.selectedCardValue.toFixed(2)}; unused €${policy.unused.toFixed(2)}; above target €${policy.overTarget.toFixed(2)}. ${policy.assumption}. Shipping excluded.`);
  if(!why){rows.push('Detailed strategy relationships are unavailable for this fallback or legacy build.');return rows;}
  rows.push(why.selection);
+ for(const candidate of result.constructionEngine?.comparison||[]){
+  const detail=result.constructionEngine.candidates?.find(c=>c.id===candidate.id);
+  const functions=(candidate.relations?.capabilities||[]).map(k=>k.replace('native:','').replace(':',' ').replace(/[A-Z]/g,m=>' '+m.toLowerCase())).join(', ')||'coverage incomplete';
+  rows.push(`Considered ${detail?.label||candidate.id} · estimated €${candidate.price.toFixed(2)}. ${candidate.selection.reason}. Observed functions: ${functions}. This comparison does not prove a stronger deck.`);
+  const refinement=detail?.packageInvestment;
+  if(refinement?.abstention)rows.push(`${detail?.label||candidate.id}: ${refinement.abstention} Proposed €${refinement.proposedPrice.toFixed(2)} changes were not exported as an improvement.`);
+ }
+
  for(const d of why.discovered||[])rows.push(`Considered ${d.engine}: ${d.kind}, ${d.support} eligible catalog interactions. ${d.basis}. Construction may reject this hypothesis; it is not an established archetype.`);
  const r=why.relations;
  for(const e of r?.relationships||[])rows.push(`${e.card} → ${e.kind}: ${e.support.length} inventory supports (${e.support.slice(0,6).join(', ')||'none'}). ${e.outcome}. Requires: ${e.prerequisites.join('; ')}.${e.outlets?.length?' Available sacrifice outlets: '+e.outlets.join(', ')+'.':''} ${e.qualified===false?'Support insufficient or condition unverified.':''}`);
