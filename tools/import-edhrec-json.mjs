@@ -11,7 +11,7 @@ if(args.includes('--help')||!get('--commander')||!get('--file')){
   const source=get('--file'),info=await stat(source);
   if(info.size>MAX_EDHREC_BYTES)throw Error('Input JSON exceeds 3MB; import refused.');
   const payload=JSON.parse(await readFile(source,'utf8'));
-  const {saved}=await importEdhrecCommanderJson({commanderName:get('--commander'),payload});
+  const {saved}=await importEdhrecCommanderJson({commanderName:get('--commander'),payload,retrievedAt:get('--retrieved-at')});
   console.log('Imported '+saved.cardCount+' distinct recommendation cards across '+saved.categories.length+' categories for '+saved.commanderName+'.');
   console.log('Stored locally in data/edhrec-imports. No EDHREC network request made; does not alter production selection.');
  }catch(e){console.error('Local EDHREC import failed: '+e.message);process.exitCode=1;}
