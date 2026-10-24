@@ -11,6 +11,7 @@ import {loadCommunity,importPublicDeck,communityInsights} from './src/community.
 import {discoverPublicDecks,importDiscoveredDecks} from './src/discovery.mjs';
 import {autoResearchArchidekt} from './src/autoResearch.mjs';
 import {researchForGeneration} from './src/researchFlow.mjs';
+import {readEdhrecCommanderJson} from './src/edhrecKnowledge.mjs';
 import {archidektTextExport} from './src/deckExport.mjs';
 import {tempoEvidence} from './src/playabilityEvidence.mjs';
 import {selectedCards} from './src/deckSelection.mjs';
@@ -164,6 +165,11 @@ const server=http.createServer(async(req,res)=>{
    }
    const deck=generateDeck({cards:candidateCards,commander:selectedCommander,budget:p.budget,bracket:p.bracket,powerTarget:p.powerTarget||'balanced',comboVariants:localCombos,communityBuild:communityPrepared,communityDecks:community,constructionMode:p.constructionMode==='legacy'?'legacy':'strategy-first'});
    deck.communityKnowledge=communityStrategySummary(communityPrepared);
+   // Stage 12: optional manually imported EDHREC observation. Never a remote
+   // request and never a constructor score or ranking input.
+   try{deck.edhrecKnowledge=await readEdhrecCommanderJson({commanderName:commander.name});}
+   catch(e){deck.edhrecKnowledge={status:'unavailable',source:'EDHREC local JSON',error:String(e.message).slice(0,180)};}
+
    if(automaticResearch){deck.automaticResearch=automaticResearch;
     if(automaticResearch.discovery?.status==='unavailable')deck.warnings.push('Automatic Archidekt research unavailable; built from saved sources/local fallback: '+automaticResearch.discovery.error);
     if(automaticResearch.combos?.status==='unavailable')deck.warnings.push('Automatic Spellbook source check unavailable; retained previously cached combos: '+automaticResearch.combos.error);
