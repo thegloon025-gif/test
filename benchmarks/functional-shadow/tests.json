@@ -1,0 +1,19 @@
+{
+  "full": {
+    "implementation": "2089818",
+    "tests": 288,
+    "passed": 288,
+    "failed": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "durationMs": 115381.7805
+  },
+  "strictAuditFollowup": {
+    "commit": "735fe54",
+    "focusedTests": 15,
+    "passed": 15,
+    "durationMs": 128.544373,
+    "tracesReaudited": 1728
+  },
+  "supersededRun": "Initial draw accounting test failed; corrected and full rerun passed"
+}
