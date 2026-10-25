@@ -36,7 +36,7 @@ slot ID. Its jobs describe provided resources/events, beneficiaries, qualifying
 cards, printed costs, timing, repeatability and unresolved clauses. Several jobs
 on one permanent share `sharedDependency`; they are not independent engines.
 
-Recognized jobs include physical creature/artifact material, casts, simple own
+Recognized jobs include physical creature/artifact/land material, casts, simple own
 mana abilities, token production and sacrifice consumption, direct/activated/
 triggered/top-library access, death and cast pressure, native infrastructure,
 recovery permissions, interaction, protection and printed outlets/combat.
@@ -66,6 +66,9 @@ Examples:
 - Y'shtola: actual noncreature/MV≥3 cards support the printed pressure predicate.
   Enough life lost during a particular turn for end-step draw remains unknown;
   qualifying inventory is not a sequence of affordable casts.
+- Wilhelt: its printed end-step sacrifice is a scheduled paid choice, not free
+  draw or a freely repeatable activation. World Breaker's sacrifice-land recovery
+  recognizes real land material but still requires actual graveyard and mana state.
 - Mystic Forge: access is from the **actual top of library**, with paid costs and
   normal timing. It is neither a free draw nor evidence that a useful card was on top.
 - Cycling and source sacrifice are consumed-card access. Counter-gated draw,

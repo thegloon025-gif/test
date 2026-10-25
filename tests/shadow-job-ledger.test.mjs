@@ -58,6 +58,18 @@ test('parenthesized basic-land mana remains one printed source with a real tap c
  const j=jobs(l).find(j=>j.card==='Island'&&j.kind==='resource:mana');
  assert.equal(j.status,'supported');assert.deepEqual(j.provides[0].symbols,['U']);assert.equal(j.provides[0].trueColorless,false);assert.equal(j.cost.resources[0].kind,'tap-source');
 });
+test('a printed sacrifice-land recovery cost recognizes real lands instead of reporting missing material',()=>{
+ const recovery=card('World Breaker','Creature — Eldrazi','{2}{C}, Sacrifice a land: Return this card from your graveyard to your hand.');
+ const land=card('Wastes','Basic Land','{T}: Add {C}.',{cmc:0,mana_cost:''}),l=run([recovery,land]);
+ assert.ok(l.obligations.filter(o=>o.anchor.includes('world breaker')&&o.id.endsWith('material')).every(o=>o.status==='supported'));
+ assert.ok(l.obligations.some(o=>o.anchor.includes('world breaker')&&o.id.endsWith('zone-and-permission')&&o.status==='unknown'));
+});
+test('native end-step sacrifice is a scheduled paid choice, not free draw or a freely repeatable outlet',()=>{
+ const commander=card('Wilhelt, the Rotcleaver','Legendary Creature — Zombie','At the beginning of your end step, you may sacrifice a Zombie. If you do, draw a card.');
+ const l=buildCardJobLedger({commander,cards:complete([])}),j=jobs(l).find(j=>j.kind==='consume:end-step-choice');
+ assert.equal(j.cost.phase,'optional end-step trigger choice');assert.equal(j.cost.resources[0].type,'Zombie');assert.equal(j.status,'unknown');assert.match(j.repeatability,/not a freely repeatable/);
+ assert.ok(l.obligations.some(o=>o.anchor===j.id&&o.id.endsWith('material')&&o.status==='supported'),'the commander is potential legal material; replacement/execution remain unknown');
+});
 test('alternative casting faces and unknown printed clauses retain explicit coverage uncertainty',()=>{
  const c=card('Different Faces','Artifact // Sorcery','',{layout:'modal_dfc',card_faces:[{name:'Front',type_line:'Artifact',oracle_text:'{T}: Add {C}.',mana_cost:'{2}'},{name:'Back',type_line:'Sorcery',oracle_text:'Draw two cards.',mana_cost:'{3}{U}'}]});
  const l=run([c,elf]);assert.ok(jobs(l).filter(j=>j.card===c.name).every(j=>j.status==='unknown'));
