@@ -30,6 +30,7 @@ test('persistent access loss is detected even when replaced by a larger one-shot
  const delta=compareJobLedgers(run([engine,elf]),run([one,elf]));
  assert.ok(delta.lostPersistentAccess.some(j=>j.card===engine.name));assert.ok(delta.addedJobs.some(j=>j.kind==='access:one-shot'));
  assert.ok(delta.brokenBaselineObligations.length);assert.equal('winner' in delta,false);
+ assert.ok(delta.brokenBaselineObligations.filter(o=>o.beforeStatus==='unknown').every(o=>o.status==='unknown'&&o.anchorStatus==='unsupported'),'missing physical anchor must not turn unknown execution into a failed gameplay obligation');
 });
 test('unparsed zone conditions remain unknown rather than unsupported or reliable',()=>{
  const engine=card('Exile access','Enchantment','Whenever you cast a spell from exile, draw a card.');

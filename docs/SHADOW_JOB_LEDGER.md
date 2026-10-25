@@ -105,6 +105,11 @@ or power claims. Missing/zero endpoints do not mean a strategy failed.
 | Complete-candidate pruning/refinement: generic vectors, coverage leaders and lightweight execution comparisons narrow survivors/deeper work. | Test native/support loss and unfamiliar-strategy abstention. A missing probe event is not failed functionality. Validate opportunity/coverage before a pruning decision. |
 | Final selection/API presentation: `strategyScore` sorts incomparable survivors and alternatives; generator has a scalar legacy-acceptance veto. | Keep incomparable alternatives; propose an explicit deterministic presentation policy and user preferences only in a separately reviewed integration. Retain historical diagnostics, not a hidden replacement score. |
 
+The construction umbrella also includes the legacy `generator.quality()`
+popularity/price priors, weighted mana/source preparation and merit-ranked combo
+proposals feeding the legacy reference. Those remain unchanged and do not feed
+the shadow ledger.
+
 These are present-day behaviors, not claims the scalar is retired from production.
 The historical Wilhelt €102.06 / €186.47 scores (168.82 /168.50) and final guarded
 €163.25 recommendation remain archived. The ledger does not recalculate or
