@@ -1,3 +1,4 @@
+import {upgradeDeck} from './src/deckUpgrader.mjs';
 import {budgetPolicy,applyBudgetValuation} from './src/budgetPolicy.mjs';
 import http from 'node:http';
 import {readFile} from 'node:fs/promises';
@@ -36,11 +37,20 @@ const headers={'X-Content-Type-Options':'nosniff','Cache-Control':'no-store'};
 function json(res,obj,status=200){res.writeHead(status,{...headers,'Content-Type':'application/json; charset=utf-8'});res.end(JSON.stringify(obj));}
 function error(res,err,status=400){json(res,{error:err.message||String(err)},status);}
 async function body(req){let str='';for await(const chunk of req){str+=chunk;if(str.length>8_000_000)throw Error('Request too large (8 MB maximum)');}return JSON.parse(str||'{}');}
-const staticFiles={'/':'index.html','/index.html':'index.html','/app.js':'app.js','/strategy.js':'strategy.js','/research.js':'research.js','/style.css':'style.css'};
+const staticFiles={'/':'index.html','/index.html':'index.html','/app.js':'app.js','/strategy.js':'strategy.js','/research.js':'research.js','/upgrader.js':'upgrader.js','/style.css':'style.css'};
 const mime={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8'};
 const server=http.createServer(async(req,res)=>{
  const url=new URL(req.url,'http://localhost');
  try{
+  if(req.method==='POST'&&url.pathname==='/api/upgrader/analyze'){
+   if(!state.cards.length)throw Error('Load the local Scryfall catalog first.');
+   const p=await body(req),mode=p.pricingMode||PRICING_SCRYFALL;
+   if(![PRICING_SCRYFALL,PRICING_CM,PRICING_ESTIMATED_EN_NM].includes(mode))throw Error('Unknown pricing mode.');
+   if(mode!==PRICING_CM&&!pricingCatalogStatus(state.cards,state.meta).audited)throw Error('Refresh the catalog for eligible-printing prices first.');
+   const priced=mode===PRICING_CM?applyCardmarketPrices(state.cards,offers):mode===PRICING_ESTIMATED_EN_NM?applyEstimatedEnglishNM(state.cards):state.cards;
+   const library=await readComboLibrary();const variants=library.flatMap(e=>e.variants);
+   return json(res,upgradeDeck(p,priced,variants));
+  }
   if(req.method==='GET'&&url.pathname==='/api/status')return json(res,{version:APP_VERSION,count:state.cards.length,metadata:state.meta,printingAudit:pricingCatalogStatus(state.cards,state.meta),update,syncing});
   if(req.method==='GET'&&url.pathname==='/api/community/decks')return json(res,{decks:community.map(d=>({key:d.key,url:d.url,title:d.title,commanderNames:d.commanderNames,totalCards:d.totalCards,validated:d.validated,issues:d.issues,unmatchedCount:d.unmatched?.length||0,unmatched:d.unmatched||[],excluded:d.excluded||[],excludedCount:d.excludedCount||0,sourceIncludedCards:d.sourceIncludedCards,sourceExcludedCards:d.sourceExcludedCards,importedAt:d.importedAt,owner:d.owner,edhBracket:d.edhBracket??null})),count:community.length});
   if(req.method==='POST'&&url.pathname==='/api/community/import'){

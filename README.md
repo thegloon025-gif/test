@@ -1,3 +1,5 @@
+> New experimental branch: [Deck Upgrader workflow](docs/EXPERIMENTAL_UPGRADER.md). Manual, local and separate from generation; no release/version change.
+
 > Offline functional shadow testing: [protocol, limitations and local commands](docs/FUNCTIONAL_SHADOW.md). This adds no production ranking or browser controls.
 
 > Current milestone: [read-only shadow job ledger](docs/SHADOW_JOB_LEDGER.md). Production scalar selection remains unchanged pending validation; incomplete legacy exports now fail closed. Historical measurements below remain frozen.
