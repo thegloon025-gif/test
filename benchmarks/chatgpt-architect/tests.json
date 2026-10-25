@@ -1,0 +1,42 @@
+{
+  "appFull": {
+    "tests": 326,
+    "pass": 326,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "duration_ms": 117600.314028
+  },
+  "appFocusedIncludedInFull": {
+    "tests": 25,
+    "pass": 25,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "duration_ms": 369.884384
+  },
+  "officialSDKUpstreamSeparateMockedTests": {
+    "tests": 57,
+    "pass": 57,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "duration_ms": 422.344629
+  },
+  "mockedNotLive": [
+    "eligible plan call",
+    "OAuth identity/rotation",
+    "Windows encryption adapter transport",
+    "quota/session/model/network failures",
+    "cancellation and repair limits"
+  ],
+  "realLocal": [
+    "SDK pinned installer/build/import",
+    "five manual-result fixtures",
+    "three advisory upgrade previews",
+    "browser download/approval/undo",
+    "local Host/Origin/CSRF rejection"
+  ],
+  "liveAccount": "unverified",
+  "liveBilling": "unverified"
+}

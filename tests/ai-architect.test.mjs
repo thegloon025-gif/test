@@ -1,0 +1,192 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import {
+  architectRequest,
+  validateArchitectResult,
+  architectManaEvidence,
+} from "../src/aiArchitect.mjs";
+const print = {
+    eligibleVersion: 2,
+    set: "tst",
+    language: "en",
+    border: "black",
+  },
+  card = (name, type_line, mana_cost, text = "", price = 1) => ({
+    id: name,
+    name,
+    type_line,
+    mana_cost,
+    oracle_text: text,
+    cmc: 3,
+    legalities: { commander: "legal" },
+    color_identity: [],
+    prices: { eur: price },
+    printing: print,
+  });
+const cmd = card("Commander", "Legendary Creature", "{3}"),
+  land = card("Wastes", "Basic Land — Wastes", "", "{T}: Add {C}.", 0),
+  slow = card(
+    "Slow",
+    "Artifact",
+    "{3}",
+    "Slow enters tapped.\n{T}: Add {C}.",
+    10,
+  ),
+  fast = card("Fast", "Artifact", "{2}", "{T}: Add {C}.", 4),
+  catalog = [cmd, land, slow, fast],
+  deck = "1 Commander *CMDR*\n1 Slow\n98 Wastes";
+const build = {
+    mode: "builder",
+    commanderName: "Commander",
+    budget: 20,
+    bracket: 3,
+    budgetTolerance: 0,
+  },
+  upgrade = { mode: "upgrader", text: deck, budget: 40, bracket: 3 };
+test("offline builder prompt uses verified bounded records and no inference", () => {
+  const x = architectRequest(build, catalog);
+  assert.ok(x.prompt.includes("Commander"));
+  assert.ok(x.prompt.includes("eligiblePrinting"));
+  assert.ok(Buffer.byteLength(x.prompt) <= 46000);
+  assert.ok(!x.prompt.includes("apiKey"));
+});
+test("manual builder fenced/plain outputs share exact 100/price verification", () => {
+  for (const raw of [
+    JSON.stringify({ deck }),
+    "```json\n" + JSON.stringify({ deck }) + "\n```",
+    deck,
+  ]) {
+    const x = validateArchitectResult(build, raw, catalog);
+    assert.equal(x.valid, true, JSON.stringify(x.issues));
+    assert.equal(x.audit.count, 100);
+    assert.equal(x.price, 11);
+    assert.equal(x.audit.provenance, "exact-selected-cards");
+  }
+});
+test("unknown identity, malformed JSON, illegal count and hard total budget reject", () => {
+  for (const raw of [
+    "{bad",
+    JSON.stringify({ deck: deck.replace("Slow", "Unknown") }),
+    JSON.stringify({ deck: deck.replace("98 Wastes", "64 Wastes") }),
+  ])
+    assert.equal(validateArchitectResult(build, raw, catalog).valid, false);
+  const x = validateArchitectResult(
+    { ...build, budget: 5 },
+    JSON.stringify({ deck }),
+    catalog,
+  );
+  assert.equal(x.valid, false);
+  assert.match(x.issues[0], /exceeds/);
+});
+test("total budget tolerance applied exactly once", () => {
+  const x = validateArchitectResult(
+    { ...build, budget: 7, budgetTolerance: 4 },
+    JSON.stringify({ deck }),
+    catalog,
+  );
+  assert.equal(x.valid, true);
+  assert.equal(x.ceiling, 11);
+  assert.equal(
+    validateArchitectResult(
+      { ...build, budget: 6, budgetTolerance: 4 },
+      JSON.stringify({ deck }),
+      catalog,
+    ).valid,
+    false,
+  );
+});
+test("model recommendations are previews, not accepted edits; original is immutable", () => {
+  const before = JSON.stringify(catalog),
+    raw = JSON.stringify({ packages: [{ cuts: ["Slow"], adds: ["Fast"] }] });
+  const x = validateArchitectResult(upgrade, raw, catalog);
+  assert.equal(x.valid, true);
+  assert.equal(x.preview.budget.grossPurchaseCost, 4);
+  assert.equal(x.deck, undefined);
+  assert.equal(JSON.stringify(catalog), before);
+  assert.equal(
+    validateArchitectResult({ ...upgrade, budget: 0 }, raw, catalog).valid,
+    false,
+  );
+});
+test("malformed/overlapping packages, forged prices and oversized input never bypass guards", () => {
+  assert.equal(
+    validateArchitectResult(
+      upgrade,
+      JSON.stringify({
+        packages: [{ cuts: ["Slow"], adds: [{ name: "Fast", price: 0 }] }],
+      }),
+      catalog,
+    ).valid,
+    false,
+  );
+  assert.equal(
+    validateArchitectResult(upgrade, "x".repeat(100001), catalog).valid,
+    false,
+  );
+  assert.throws(() =>
+    architectRequest({ ...build, preferences: "x".repeat(2001) }, catalog),
+  );
+});
+test("known true-colorless missing channels are not successful commander payments", () => {
+  const green = {
+    ...land,
+    id: "Forest",
+    name: "Forest",
+    type_line: "Basic Land — Forest",
+    oracle_text: "{T}: Add {G}.",
+  };
+  const x = architectManaEvidence(
+    { ...cmd, mana_cost: "{C}{C}" },
+    Array(99).fill(green),
+  );
+  assert.notEqual(x.commanderPayment, "supported");
+});
+test("builder honors unowned-basic valuation and rejects unsupported basic pricing modes", () => {
+  const priced = catalog.map((c) =>
+    c.id === "Wastes" ? { ...c, prices: { eur: 0.5 } } : c,
+  );
+  assert.equal(
+    validateArchitectResult(build, JSON.stringify({ deck }), priced).price,
+    11,
+  );
+  const bad = validateArchitectResult(
+    { ...build, basicLandsOwned: false },
+    JSON.stringify({ deck }),
+    priced,
+  );
+  assert.equal(bad.valid, false);
+  assert.match(bad.issues[0], /exceeds/);
+  const good = validateArchitectResult(
+    { ...build, basicLandsOwned: false, budget: 60 },
+    JSON.stringify({ deck }),
+    priced,
+  );
+  assert.equal(good.price, 60);
+  assert.equal(
+    validateArchitectResult(
+      { ...build, basicLandsOwned: false, pricingMode: "estimated_en_nm" },
+      JSON.stringify({ deck }),
+      priced,
+    ).valid,
+    false,
+  );
+});
+test("model strategy explanation remains bounded advisory text, not execution evidence", () => {
+  const x = validateArchitectResult(
+    build,
+    JSON.stringify({
+      deck,
+      strategy: {
+        direction: "Example",
+        winConversion: "Claimed win",
+        unknowns: "Unverified",
+        powerScore: 10,
+      },
+    }),
+    catalog,
+  );
+  assert.equal(x.valid, true);
+  assert.equal(x.strategy.direction, "Example");
+  assert.equal(x.strategy.powerScore, undefined);
+  assert.match(x.strategyEvidence, /no gameplay proof/);
+});

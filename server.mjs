@@ -1,3 +1,8 @@
+import {randomBytes} from 'node:crypto';
+import {createPlanOnly,safePlanError} from './src/planOnly.mjs';
+import {loadOfficialChatGPT} from './src/chatgptSdk.mjs';
+import {architectRequest,validateArchitectResult} from './src/aiArchitect.mjs';
+import {DATA_DIR} from './src/scryfall.mjs';
 import {upgradeDeck} from './src/deckUpgrader.mjs';
 import {budgetPolicy,applyBudgetValuation} from './src/budgetPolicy.mjs';
 import http from 'node:http';
@@ -33,15 +38,45 @@ try{state=await loadCatalog();if(state.cards.length)update={phase:'ready',unique
 // ending --34) from exact previously cached user-requested Spellbook responses.
 // This is local-only; a missing cache never triggers an API call.
 try{const recovered=await repairComboLibraryFromCache(community,state.cards);if(recovered.cacheHits)console.log('Local Spellbook cache repair:',recovered);if(recovered.errors.length)console.warn('Some local combo caches could not be repaired:',recovered.errors.slice(0,5));}catch(e){console.warn('Combo cache repair skipped:',e.message);}
+const architectCSRF=randomBytes(32).toString('hex');
+const architect=createPlanOnly({sdkFactory:()=>loadOfficialChatGPT({dataDir:DATA_DIR}),historyFile:path.join(DATA_DIR,'chatgpt-architect','usage.json')});
+function architectOrigin(req){
+ const host=req.headers.host,allowed=new Set(['127.0.0.1:'+PORT,'localhost:'+PORT]);
+ if(!allowed.has(host)||req.headers.origin&&req.headers.origin!=='http://'+host||req.headers['sec-fetch-site']==='cross-site')throw Error('Architect requests must originate from this local app.');
+ if(req.method!=='GET'&&req.headers['x-commander-ai-session']!==architectCSRF)throw Error('Reload the local app before using Architect actions.');
+}
+async function architectInputs(p){
+ if(!state.cards.length)throw Error('Load the local eligible-printing catalog first.');const mode=p.pricingMode||PRICING_SCRYFALL;
+ if(![PRICING_SCRYFALL,PRICING_CM,PRICING_ESTIMATED_EN_NM].includes(mode))throw Error('Unsupported pricing mode.');
+ if(mode!==PRICING_CM&&!pricingCatalogStatus(state.cards,state.meta).audited)throw Error('Refresh eligible-printing metadata first.');
+ const cards=mode===PRICING_CM?applyCardmarketPrices(state.cards,offers):mode===PRICING_ESTIMATED_EN_NM?applyEstimatedEnglishNM(state.cards):state.cards;
+ const library=await readComboLibrary();return {cards,variants:library.flatMap(e=>e.variants)};
+}
 const headers={'X-Content-Type-Options':'nosniff','Cache-Control':'no-store'};
 function json(res,obj,status=200){res.writeHead(status,{...headers,'Content-Type':'application/json; charset=utf-8'});res.end(JSON.stringify(obj));}
 function error(res,err,status=400){json(res,{error:err.message||String(err)},status);}
 async function body(req){let str='';for await(const chunk of req){str+=chunk;if(str.length>8_000_000)throw Error('Request too large (8 MB maximum)');}return JSON.parse(str||'{}');}
-const staticFiles={'/':'index.html','/index.html':'index.html','/app.js':'app.js','/strategy.js':'strategy.js','/research.js':'research.js','/upgrader.js':'upgrader.js','/style.css':'style.css'};
+const staticFiles={'/':'index.html','/index.html':'index.html','/app.js':'app.js','/strategy.js':'strategy.js','/research.js':'research.js','/upgrader.js':'upgrader.js','/architect.js':'architect.js','/style.css':'style.css'};
 const mime={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8'};
 const server=http.createServer(async(req,res)=>{
  const url=new URL(req.url,'http://localhost');
  try{
+  if(url.pathname.startsWith('/api/architect/')){
+   architectOrigin(req);
+   if(req.method==='GET'&&url.pathname==='/api/architect/status'){let status;try{status=await architect.status();}catch(e){status={strictPlanOnly:true,paidFallback:false,enabled:false,error:safePlanError(e),models:[],history:[]};}return json(res,{...status,csrf:architectCSRF});}
+   if(req.method!=='POST')throw Error('Unsupported Architect method.');const p=await body(req);
+   if(url.pathname==='/api/architect/request'){const x=await architectInputs(p);return json(res,architectRequest(p,x.cards,x.variants));}
+   if(url.pathname==='/api/architect/import'){const x=await architectInputs(p);return json(res,validateArchitectResult(p,p.result,x.cards,x.variants));}
+   try{
+    if(url.pathname==='/api/architect/connect')return json(res,{auth:await architect.signIn(p)});
+    if(url.pathname==='/api/architect/models')return json(res,{models:await architect.discover()});
+    if(url.pathname==='/api/architect/configure'){await architect.configure(p);return json(res,await architect.status());}
+    if(url.pathname==='/api/architect/cancel'){architect.cancel();return json(res,{cancelled:true});}
+    if(url.pathname==='/api/architect/disconnect'){await architect.disconnect();return json(res,await architect.status());}
+    if(url.pathname==='/api/architect/run'){const x=await architectInputs(p),request=architectRequest(p,x.cards,x.variants);res.on('close',()=>{if(!res.writableEnded)architect.cancel();});return json(res,await architect.run({prompt:request.prompt,validate:raw=>validateArchitectResult(p,raw,x.cards,x.variants)}));}
+   }catch(e){const safe=safePlanError(e);return json(res,{error:safe.message,code:safe.code},400);}
+   throw Error('Unknown Architect operation.');
+  }
   if(req.method==='POST'&&url.pathname==='/api/upgrader/analyze'){
    if(!state.cards.length)throw Error('Load the local Scryfall catalog first.');
    const p=await body(req),mode=p.pricingMode||PRICING_SCRYFALL;

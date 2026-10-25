@@ -1,3 +1,9 @@
+## Optional ChatGPT Architect experiment (unreleased)
+
+- Explicit plan-only SDK integration and a manual copy/import bridge are implemented separately from deterministic selection; see [setup and limitations](CHATGPT_ARCHITECT.md).
+- Required before claiming live readiness: native Windows DPAPI/OAuth/model/direct-plan verification by an eligible user with saved below-100% account app limits. No billing telemetry or zero-charge proof is claimed.
+- Deferred: Linux/macOS OS-backed credential providers, current official bracket data #10, Forge #11 and complete gameplay/strategy certification.
+
 ## Experimental Upgrader checkpoint (unreleased)
 
 - Manual import/review/undo/export now implemented on an experimental branch; see [workflow](EXPERIMENTAL_UPGRADER.md).

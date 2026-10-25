@@ -1,3 +1,5 @@
+> Optional [ChatGPT Architect setup and strict plan-only safeguards](docs/CHATGPT_ARCHITECT.md). Connected AI stays off by default; manual copy/import needs no SDK or account connection.
+
 > New experimental branch: [Deck Upgrader workflow](docs/EXPERIMENTAL_UPGRADER.md). Manual, local and separate from generation; no release/version change.
 
 > Offline functional shadow testing: [protocol, limitations and local commands](docs/FUNCTIONAL_SHADOW.md). This adds no production ranking or browser controls.

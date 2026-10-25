@@ -1,0 +1,15 @@
+{
+  "README.md": "ed85172e354e9c87fd62971c84eca728453271370cc3878861c60ac46ee5b857",
+  "browser.json": "f7951f9fb0fdb2a0913cadabf4dd8ddc57439c281c12978ef4e68a6599234336",
+  "guarded-runtime-egress.json": "621d51202f38693e32078404ea1baf179547c67ef85fe7f6b3fdb79b22659a63",
+  "independent-audit.json": "56a17b44cb87c7fca6f4ef1b8ed678cf5ceaa86e05604d3c4d971dd075eabc49",
+  "manual-receipts.json.gz": "14f63f1274da2a1ed1e48332e156362124eb3cc7554c14f9a3e08da98b52f35e",
+  "provenance.json": "eb7d6fff0b1428dc8d692188765b9ad24124d730e85ed5e871514f3fa6ead17f",
+  "summary.json": "91cfc02424829838a405b1d16a93513a522d50d6d3a1b2721cc3a73aaf201e5a",
+  "tests.json": "aae32dbd10b5fe324de1a8cf0fdb0977a7e29154d55a0e2cf42d13883b0d2e73",
+  "ulalek-validated-manual-fixture.txt": "25e98e63206c8dbf969f01cb5ff8935c487ffbb566a9a9e0801b80943e820333",
+  "wilhelt-validated-manual-fixture.txt": "ef9e96bf815f7cc1db0867d6e3705e4cde8406e10bed1e2df838bcc51b7d8604",
+  "yshtola-validated-manual-fixture.txt": "9ac22ed2f7246d39bb0ea273d96a5046ae0beb8fbfd0cc571f7eb0d5765bac9f",
+  "yuriko-validated-manual-fixture.txt": "877fce57b07b516cf8e3fafd0f9911edfb421591109c2795cbdb965b4195a2a9",
+  "zada-validated-manual-fixture.txt": "f630297fab931afeae8938056e8a11ad8b1648e6827248618f5cafdf503de41c"
+}

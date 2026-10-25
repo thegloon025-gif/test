@@ -1,0 +1,59 @@
+{
+  "basePR12Head": "406f8aea916017cbb0ed88b6dc4dfe9ce1e476a1",
+  "implementation": "bb73b6f",
+  "hardening": "d8e8ccc",
+  "promptContext": "c571be9",
+  "sourceHashes": {
+    "src/aiArchitect.mjs": "c7e5b31282fd5956221aab818b3509f842ecaedf0c256eb6816328c8fa20cbba",
+    "src/chatgptSdk.mjs": "b36400ebceb838e133c003cebd369bff4b909a832f467e81c1e8e2da0e344afb",
+    "src/planOnly.mjs": "d8f826f9f470ddbaea4bcf4c98d6edbaf9b3bccb4f6ee76b1b3ec4548b3bba09",
+    "public/architect.js": "65cefde7b4e5f577b359108e4514be5c05a073e5db9af9dee7146183d5f2cb20",
+    "public/upgrader.js": "74f5cb5c11eadd5c222915d421355c1fc98c8a2cc163818240d484d76529f98f",
+    "public/index.html": "3bc2080ab745b2af08e42a5b5edb8d0b4ed5b5892395e4cefdd836734c4201bd",
+    "server.mjs": "1e8b807da9a0588033203a40d435bcbeff2771724fa81d8ad66b6403295c31cc",
+    "tests/ai-architect.test.mjs": "97c92ddd4e29376e863c1be4e294a22b90f3605df5db769cff383db74ba52767",
+    "tests/chatgpt-plan-only.test.mjs": "fcd9e75fe87ef6d25379391c0c4aacb337b8d09626036db2a396fa66855f2130",
+    "tools/install-chatgpt-devkit.mjs": "998d8041bbe894889e9377021240e8f1fd20ec28c3814bf4e8cdcbe680235328",
+    "tools/validate-architect-workflows.mjs": "20a422f022f18e43d911e3ebb9f81c86191588f665e8c2180b2599b4fa189cdf",
+    "tools/smoke-architect-browser.mjs": "1b3169c7b439ed4f694e29a59a8ad3a628c59a292fddd6e5984346f455de490b",
+    "tools/audit-architect-fixtures.mjs": "98d8657b35a3c03a00c17efe5bf047f09fc2f876d9c14914e756dc2bc111c5bc"
+  },
+  "inputs": {
+    "catalogSHA256": "6add2c5dd20809fd787438d3c8825f8dd21a74e7d3fc429f83c7a9a091045f6c",
+    "researchLibrarySHA256": "9a62c706660032d1d2320e0e597898a659496912dd51e9343cce59f0cb902d5b",
+    "publicArchiveSHA256": "99403e75d61d51549135070e48e9caadc2fbd0e3d433c55ec7240076b772ecf7"
+  },
+  "version": "1.1.5",
+  "officialSDK": {
+    "repository": "https://github.com/openai/sign-in-with-chatgpt-devkit",
+    "revision": "0a36fefeb913055c8c7a1a29b63d82b96b2e841a",
+    "license": "OpenAI DevKit Noncommercial License v1.0",
+    "installation": "Explicit installer succeeded in fresh disposable directory; 14 packages; SDK built/imported; manifest verified",
+    "sdkSourceAndDistHashes": {
+      "LICENSE": "d12fe9f3c01626a133398d70e672b5591c38b1819f3da852b1e3ef8da606facd",
+      "package-lock.json": "c85320e7938f07b96ce7dcd44bda30b661a8f877cf49ec8666dd2119de7bfef5",
+      "packages/local/src/errors.ts": "14a1f7b8c6913feb788059309b527c6ef9f25ffba8470aeb216a1559c6b678d3",
+      "packages/local/src/index.ts": "ea94e148be97f91d627be98dd4535cc2a38cee4f2bfd5d94d918b2c87f351870",
+      "packages/local/src/models.ts": "a1e33e85073aa2f79095ecb572c6123b329d60aa7f68cff3591c53f838ef2bd1",
+      "packages/local/src/oauth.ts": "556e7afc432db0d59b14912a20fdbaa4a76220c8e7d3e404efc5430e4e1a5ba1",
+      "packages/local/src/responses.ts": "66225e439c44b20d77295c800abbc0cbadcf56293cb42bc0733d226e307d3598",
+      "packages/local/src/storage.ts": "51c61d3fe369441951a08642089264cbdac96d9906ebf2f59eeda131153b30a4",
+      "packages/local/src/types.ts": "01f5863b62ed9d6c3b3765123cba1f0c8b73ca395520fc9ba116a16b13980fc1",
+      "packages/local/dist/errors.js": "0573510815128fc33a148769d9a3619dc490db2198a74d33e60014f5558663f1",
+      "packages/local/dist/index.js": "36d3ede094102d6d8aa2376e91dbb8f6a888039d4363ab876b51f46515e68e97",
+      "packages/local/dist/models.js": "55d1a407f971fdae41ab8649be91c840b7938ed03fc379c69471c069b6a40157",
+      "packages/local/dist/oauth.js": "7541d71f7e02ae51a4f0d3cc8c51e9f3a7fb71734fb73ed2e6804bd39ed6db0c",
+      "packages/local/dist/responses.js": "78ad5838c3116f4e3e9e95abccf1e6fd90b452c772a1ee3e695641770d4e8f1f",
+      "packages/local/dist/storage.js": "20d762e04825a09f6cee76a7ce083cd0e61639b13526ef9261f3d7fbeaaf2058",
+      "packages/local/dist/types.js": "01ae2a5b120382f9a648ced7ee8507493a134f216d100fc61600c6c9738235d2"
+    },
+    "connectedRuntime": "Windows DPAPI provider only; unavailable in Linux, fails before OAuth"
+  },
+  "documentationRetrieval": "Four supplied URLs blocked by proxy tunnel 403; official OpenAI GitHub source/security docs/types used instead",
+  "liveOAuth": "unverified, no user account authorized",
+  "livePlanEligibility": "unverified",
+  "liveBilling": "unverified, no zero-billing proof claimed",
+  "immutableInputsUnchanged": true,
+  "existingGeneratorPricingResearchAndLauncher": "unchanged; no root-cache server launched",
+  "mockTestMeaning": "Synthetic app/SDK tests prove guard behavior, not live eligibility, DPAPI or actual provider billing"
+}
