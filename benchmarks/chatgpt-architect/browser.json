@@ -1,0 +1,12 @@
+{
+  "checks": [
+    "default off, no inference on page load",
+    "manual verified request copied with no account",
+    "manual 100-card builder result revalidated on download",
+    "manual upgrade request copied with protected-card and cached prerequisite context",
+    "manual upgrade JSON transferred for separate user approval and 100-card export",
+    "original unchanged and undo works"
+  ],
+  "pageErrors": [],
+  "liveAuthorization": "not tested; manual bridge only; no mocked AI responses passed off as live"
+}
