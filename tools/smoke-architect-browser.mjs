@@ -57,13 +57,20 @@ try {
       ),
     );
   await page.locator("#ai-mode").selectOption("upgrader");
-  await page
-    .locator("#ai-result")
-    .fill(
-      JSON.stringify({
-        packages: [{ cuts: ["Village Rites"], adds: ["Vampiric Rites"] }],
-      }),
-    );
+  wait = page.waitForResponse((r) =>
+    r.url().endsWith("/api/architect/request"),
+  );
+  await page.locator("#ai-copy").click();
+  const upgradeRequest = await wait;
+  assert.equal(upgradeRequest.status(), 200);
+  checks.push(
+    "manual upgrade request copied with protected-card and cached prerequisite context",
+  );
+  await page.locator("#ai-result").fill(
+    JSON.stringify({
+      packages: [{ cuts: ["Village Rites"], adds: ["Vampiric Rites"] }],
+    }),
+  );
   wait = page.waitForResponse((r) => r.url().endsWith("/api/architect/import"));
   await page.locator("#ai-import").click();
   await wait;

@@ -160,6 +160,32 @@ export function architectRequest(p, catalog, variants = []) {
     preferences: p.preferences || "",
     excludedStrategies: p.excludedStrategies || "",
     original: x.cards.map(describe),
+    userOwnedAdditions:
+      p.mode === "upgrader"
+        ? (p.owned || []).filter((n) => typeof n === "string").slice(0, 100)
+        : [],
+    protectedOriginalCards:
+      x.original?.analysis.protectedNames.slice(0, 100) || [],
+    explicitLocks:
+      p.mode === "upgrader"
+        ? (p.locked || []).filter((n) => typeof n === "string").slice(0, 100)
+        : [],
+    knownComboInventory:
+      x.original?.analysis.combos.combinations
+        .filter((c) => c.inventoryComplete)
+        .slice(0, 6)
+        .map((c) => ({
+          pieces: c.requirements.map((r) => ({
+            name: r.name,
+            quantity: r.quantity,
+            zones: r.startingZones,
+          })),
+          initialMana: c.initialMana.spellbook,
+          prerequisites: c.prerequisites
+            .slice(0, 4)
+            .map((t) => t.slice(0, 250)),
+          execution: "unknown; inventory and cached instructions only",
+        })) || [],
     advisoryCandidateSample: candidates.map(describe),
     warning:
       "Candidate sample is bounded and alphabetical, not ranked or complete. Only exact locally resolvable cards pass. Mechanics and gameplans are not fully simulated. Preserve original engines, complete combos and mana. No purchases or price assumptions.",

@@ -94,6 +94,9 @@ for (const [id, cut, add] of [
   const p = { mode: "upgrader", text: texts.get(id), budget: 40, bracket: 3 },
     packages = [{ cuts: [cut], adds: [add] }],
     x = await post("import", { ...p, result: JSON.stringify({ packages }) });
+  const upgradePrompt = await post("request", p);
+  assert.equal(upgradePrompt.status, 200, JSON.stringify(upgradePrompt.x));
+  assert.ok(Buffer.byteLength(upgradePrompt.x.prompt) <= 46000);
   assert.equal(x.x.valid, true, JSON.stringify(x.x.issues));
   upgrades.push({ id, packages, preview: x.x.preview, warning: x.x.warning });
   await writeFile(
