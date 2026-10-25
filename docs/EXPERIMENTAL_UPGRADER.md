@@ -57,3 +57,5 @@ node tools/audit-upgrader-evidence.mjs "evidence directory" "data/cards.json" "N
 ```
 
 This separately verifies exported slots, canonical singleton/color/known GC checks, selected-printing cents and gross new-card acquisition cost. It does not call the Upgrader, assign a score or certify complete Oracle gameplay. `analysisMs` starts after import and initial hard gates; proposal/combined-validation/goldfish subphase timings are separate, not end-to-end browser latency.
+
+The new Upgrader's B5 option shares B4's unrestricted compact-combo inventory allowance. Existing B3 conservatism remains unchanged. This does not refresh official policy data or alter the production generator.
