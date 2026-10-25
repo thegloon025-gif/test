@@ -1,3 +1,5 @@
+> Current milestone: [read-only shadow job ledger](docs/SHADOW_JOB_LEDGER.md). Production scalar selection remains unchanged pending validation; incomplete legacy exports now fail closed. Historical measurements below remain frozen.
+
 # CommanderOracle Independent — Codex handoff
 
 **Starting source version:** v1.1.5 (2026-10-21). This handoff records prior human-observed benchmarks and project priorities; do not confuse them with independently reproduced tests. This is a local-first Node.js 22+ Commander deckbuilder, not a paid-AI wrapper.

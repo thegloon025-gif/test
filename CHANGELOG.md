@@ -1,3 +1,7 @@
+## Unreleased shadow job ledger — still 1.1.5
+
+Adds a local read-only, score-free card-job ledger, plan-specific obligation observations and destructive-mutation diagnostics. No construction/selection integration or export changes. The isolated legacy guard refuses incomplete direct/fallback outputs while preserving valid strategy-first construction. Generated evidence and private reference analysis remain separate. See docs/SHADOW_JOB_LEDGER.md for supported/unsupported/unknown semantics, limits and proposed migration of the six scalar decision points. No release or gameplay-power claim.
+
 ## Unreleased — Stage 11/12 integration (draft PR #9)
 
 - Validate the exact Stage 12 branch before changes; preserve conflicting local

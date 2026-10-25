@@ -1,3 +1,5 @@
+> Current milestone: [read-only shadow job ledger](SHADOW_JOB_LEDGER.md). Production scalar selection remains unchanged pending validation; incomplete legacy exports now fail closed. Historical measurements below remain frozen.
+
 # CommanderOracle Independent — development roadmap
 
 Last revised: 2026-10-24. Local, deterministic Commander generator: **no paid AI API** is needed to build a deck.
