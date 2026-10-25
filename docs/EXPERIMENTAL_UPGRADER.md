@@ -49,3 +49,11 @@ node tools/smoke-upgrader-browser.mjs http://127.0.0.1:4285 "evidence directory"
 ```
 
 See `benchmarks/experimental-upgrader-VALIDATION.md` for actual outcomes and the separate builder/upgrader decision gates. Forge #11, Karsten methodology and official-policy synchronization remain separate future work, never prerequisites to using this feature.
+
+Independent receipt check (after the workflow tool writes its raw files):
+
+```
+node tools/audit-upgrader-evidence.mjs "evidence directory" "data/cards.json" "NEW audit.json"
+```
+
+This separately verifies exported slots, canonical singleton/color/known GC checks, selected-printing cents and gross new-card acquisition cost. It does not call the Upgrader, assign a score or certify complete Oracle gameplay. `analysisMs` starts after import and initial hard gates; proposal/combined-validation/goldfish subphase timings are separate, not end-to-end browser latency.
