@@ -1,3 +1,5 @@
+> Offline functional shadow testing: [protocol, limitations and local commands](docs/FUNCTIONAL_SHADOW.md). This adds no production ranking or browser controls.
+
 > Current milestone: [read-only shadow job ledger](docs/SHADOW_JOB_LEDGER.md). Production scalar selection remains unchanged pending validation; incomplete legacy exports now fail closed. Historical measurements below remain frozen.
 
 ### Draft PR #9 — Compare supported plans and local research

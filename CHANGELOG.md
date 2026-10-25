@@ -1,3 +1,5 @@
+- Added offline score-free functional shadow probes, physical-dependency analysis and counterfactual ablations; production selection remains unchanged. See docs/FUNCTIONAL_SHADOW.md.
+
 ## Unreleased shadow job ledger — still 1.1.5
 
 Adds a local read-only, score-free card-job ledger, plan-specific obligation observations and destructive-mutation diagnostics. No construction/selection integration or export changes. The isolated legacy guard refuses incomplete direct/fallback outputs while preserving valid strategy-first construction. Generated evidence and private reference analysis remain separate. See docs/SHADOW_JOB_LEDGER.md for supported/unsupported/unknown semantics, limits and proposed migration of the six scalar decision points. No release or gameplay-power claim.

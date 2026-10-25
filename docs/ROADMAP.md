@@ -1,3 +1,5 @@
+Functional shadow foundation now includes bounded hand/mana probes and all 15 held-out references. Native strategy sensitivity and verified finishing/recursion dependencies remain prerequisites to production use; Forge/Karsten/authoritative brackets stay separate future work.
+
 > Current milestone: [read-only shadow job ledger](SHADOW_JOB_LEDGER.md). Production scalar selection remains unchanged pending validation; incomplete legacy exports now fail closed. Historical measurements below remain frozen.
 
 # CommanderOracle Independent — development roadmap
