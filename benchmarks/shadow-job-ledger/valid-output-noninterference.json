@@ -1,0 +1,11 @@
+{
+  "baseline": "Prior Stage11 API 160+4 frozen-cache smoke",
+  "sameExport": true,
+  "sameSelectedPrintings": true,
+  "sameStrategy": true,
+  "priceBefore": 163.25,
+  "priceAfter": 163.25,
+  "exportSHA256": "83e7ed184d0a555ccea8b78b17e4349fb2b7b6786978ebfeeae8c61df85d2a26",
+  "generationImplementation": "8fb7aee (same generator source as shadow implementation d4ac625)",
+  "scope": "Valid output unchanged; shadow is not invoked by production"
+}

@@ -1,0 +1,20 @@
+{
+  "baseline": "246/246 archived Stage11/12 integration",
+  "finalFull": {
+    "tests": 273,
+    "pass": 273,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "durationMs": 115541.059739
+  },
+  "focused": {
+    "tests": 27,
+    "pass": 27,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "durationMs": 340.957984
+  },
+  "nativeWindows": "not available; instructions in docs/SHADOW_JOB_LEDGER.md"
+}

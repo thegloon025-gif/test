@@ -1,0 +1,1917 @@
+{
+  "inputs": {
+    "catalogSHA256": "6add2c5dd20809fd787438d3c8825f8dd21a74e7d3fc429f83c7a9a091045f6c",
+    "archiveSHA256": "99403e75d61d51549135070e48e9caadc2fbd0e3d433c55ec7240076b772ecf7",
+    "librarySHA256": "9a62c706660032d1d2320e0e597898a659496912dd51e9343cce59f0cb902d5b",
+    "privateAnalysisSHA256": "468863f476ed346807febb1cd0e93b5deb75db724b48cc4a7fd763aff336f100"
+  },
+  "sourceHashes": {
+    "src/jobLedger.mjs": "925816b0e7a5353f6b20d1b2ada246f2b0e75d1bfbf2ea32767426d73ede6536",
+    "src/generator.mjs": "8e59102334afce8385d1930fa52e975202375a06b7218ff6a2b3f775654655f1",
+    "src/strategyRelations.mjs": "c905e8d45b616cfc3c435f983877c0c0760d7be0a867cb585c12fd132a57fbfb",
+    "src/engineSupport.mjs": "e33b1dedfcb110bc9d0d2bd44df6fd9cc551d6f69e0667d9e4ace55be0a3aade",
+    "src/strategyExecution.mjs": "6555a42346370204e2e00cfb82f40880e87195498bd9baf239c637996b436787",
+    "src/roleEvidence.mjs": "ebea5a606327a0d8a2e144d64faed36524ca9173481ef4fc06c005a8a6bd4684",
+    "src/strategyFirst.mjs": "d469589774e4ff01349c8c49b8dd76505a25d76a54def6e3c008a40f1b915617",
+    "src/packageInvestment.mjs": "d49649ffada79f0f99be2e602288287f80468371805f01e807c086248890086a"
+  },
+  "measurements": [
+    {
+      "id": "yshtola-90",
+      "commander": "Y'shtola, Night's Blessed",
+      "cards": 100,
+      "completeKnownInput": true,
+      "jobs": {
+        "supported": 177,
+        "unsupported": 0,
+        "unknown": 122
+      },
+      "obligations": {
+        "supported": 2,
+        "unsupported": 0,
+        "unknown": 213
+      },
+      "observedDirections": 56,
+      "unknownClauses": 44,
+      "price": 90.68,
+      "budget": 160,
+      "count": 100,
+      "bracket": 3,
+      "runtimeMs": 63.51,
+      "ledgerMs": 27.569,
+      "conditionalProbeMs": 35.044,
+      "probeTrials": 16,
+      "probeIsConditionalOnly": true
+    },
+    {
+      "id": "wilhelt-163",
+      "commander": "Wilhelt, the Rotcleaver",
+      "cards": 100,
+      "completeKnownInput": true,
+      "jobs": {
+        "supported": 224,
+        "unsupported": 0,
+        "unknown": 105
+      },
+      "obligations": {
+        "supported": 39,
+        "unsupported": 0,
+        "unknown": 206
+      },
+      "observedDirections": 39,
+      "unknownClauses": 50,
+      "price": 163.25,
+      "budget": 191,
+      "count": 100,
+      "bracket": 3,
+      "runtimeMs": 66.152,
+      "ledgerMs": 38.141,
+      "conditionalProbeMs": 27.394,
+      "probeTrials": 16,
+      "probeIsConditionalOnly": true
+    },
+    {
+      "id": "wilhelt-102",
+      "commander": "Wilhelt, the Rotcleaver",
+      "cards": 100,
+      "completeKnownInput": true,
+      "jobs": {
+        "supported": 231,
+        "unsupported": 0,
+        "unknown": 97
+      },
+      "obligations": {
+        "supported": 39,
+        "unsupported": 0,
+        "unknown": 209
+      },
+      "observedDirections": 37,
+      "unknownClauses": 42,
+      "price": 102.06,
+      "budget": 191,
+      "count": 100,
+      "bracket": 3,
+      "runtimeMs": 59.478,
+      "ledgerMs": 40.961,
+      "conditionalProbeMs": 17.865,
+      "probeTrials": 16,
+      "probeIsConditionalOnly": true
+    },
+    {
+      "id": "wilhelt-source-136",
+      "commander": "Wilhelt, the Rotcleaver",
+      "cards": 100,
+      "completeKnownInput": true,
+      "jobs": {
+        "supported": 225,
+        "unsupported": 0,
+        "unknown": 97
+      },
+      "obligations": {
+        "supported": 27,
+        "unsupported": 0,
+        "unknown": 194
+      },
+      "observedDirections": 32,
+      "unknownClauses": 48,
+      "price": 136.78,
+      "budget": 191,
+      "count": 100,
+      "bracket": 3,
+      "runtimeMs": 50.417,
+      "ledgerMs": 31.421,
+      "conditionalProbeMs": 18.347,
+      "probeTrials": 16,
+      "probeIsConditionalOnly": true
+    },
+    {
+      "id": "wilhelt-source-160",
+      "commander": "Wilhelt, the Rotcleaver",
+      "cards": 100,
+      "completeKnownInput": true,
+      "jobs": {
+        "supported": 214,
+        "unsupported": 0,
+        "unknown": 108
+      },
+      "obligations": {
+        "supported": 26,
+        "unsupported": 0,
+        "unknown": 198
+      },
+      "observedDirections": 38,
+      "unknownClauses": 57,
+      "price": 160.38,
+      "budget": 191,
+      "count": 100,
+      "bracket": 3,
+      "runtimeMs": 38.245,
+      "ledgerMs": 22.199,
+      "conditionalProbeMs": 15.465,
+      "probeTrials": 16,
+      "probeIsConditionalOnly": true
+    },
+    {
+      "id": "wilhelt-source-186",
+      "commander": "Wilhelt, the Rotcleaver",
+      "cards": 100,
+      "completeKnownInput": true,
+      "jobs": {
+        "supported": 228,
+        "unsupported": 0,
+        "unknown": 105
+      },
+      "obligations": {
+        "supported": 39,
+        "unsupported": 0,
+        "unknown": 212
+      },
+      "observedDirections": 40,
+      "unknownClauses": 48,
+      "price": 186.47,
+      "budget": 191,
+      "count": 100,
+      "bracket": 3,
+      "runtimeMs": 46.237,
+      "ledgerMs": 29.871,
+      "conditionalProbeMs": 15.613,
+      "probeTrials": 16,
+      "probeIsConditionalOnly": true
+    },
+    {
+      "id": "wilhelt-b4",
+      "commander": "Wilhelt, the Rotcleaver",
+      "cards": 100,
+      "completeKnownInput": true,
+      "jobs": {
+        "supported": 233,
+        "unsupported": 0,
+        "unknown": 100
+      },
+      "obligations": {
+        "supported": 28,
+        "unsupported": 0,
+        "unknown": 209
+      },
+      "observedDirections": 40,
+      "unknownClauses": 43,
+      "price": 181.8,
+      "budget": 191,
+      "count": 100,
+      "bracket": 4,
+      "runtimeMs": 45.159,
+      "ledgerMs": 26.242,
+      "conditionalProbeMs": 18.263,
+      "probeTrials": 16,
+      "probeIsConditionalOnly": true
+    },
+    {
+      "id": "ulalek-b3",
+      "commander": "Ulalek, Fused Atrocity",
+      "cards": 100,
+      "completeKnownInput": true,
+      "jobs": {
+        "supported": 219,
+        "unsupported": 0,
+        "unknown": 126
+      },
+      "obligations": {
+        "supported": 9,
+        "unsupported": 0,
+        "unknown": 195
+      },
+      "observedDirections": 38,
+      "unknownClauses": 66,
+      "price": 174.24,
+      "budget": 191,
+      "count": 100,
+      "bracket": 3,
+      "runtimeMs": 52.051,
+      "ledgerMs": 30.401,
+      "conditionalProbeMs": 21.199,
+      "probeTrials": 16,
+      "probeIsConditionalOnly": true
+    },
+    {
+      "id": "ulalek-b4",
+      "commander": "Ulalek, Fused Atrocity",
+      "cards": 100,
+      "completeKnownInput": true,
+      "jobs": {
+        "supported": 224,
+        "unsupported": 0,
+        "unknown": 126
+      },
+      "obligations": {
+        "supported": 9,
+        "unsupported": 0,
+        "unknown": 202
+      },
+      "observedDirections": 38,
+      "unknownClauses": 70,
+      "price": 173.88,
+      "budget": 191,
+      "count": 100,
+      "bracket": 4,
+      "runtimeMs": 48.274,
+      "ledgerMs": 27.323,
+      "conditionalProbeMs": 20.485,
+      "probeTrials": 16,
+      "probeIsConditionalOnly": true
+    },
+    {
+      "id": "yuriko",
+      "commander": "Yuriko, the Tiger's Shadow",
+      "cards": 100,
+      "completeKnownInput": true,
+      "jobs": {
+        "supported": 219,
+        "unsupported": 0,
+        "unknown": 102
+      },
+      "obligations": {
+        "supported": 0,
+        "unsupported": 0,
+        "unknown": 167
+      },
+      "observedDirections": 34,
+      "unknownClauses": 58,
+      "price": 126.04,
+      "budget": 191,
+      "count": 100,
+      "bracket": 3,
+      "runtimeMs": 30.242,
+      "ledgerMs": 15.067,
+      "conditionalProbeMs": 14.556,
+      "probeTrials": 16,
+      "probeIsConditionalOnly": true
+    },
+    {
+      "id": "zada",
+      "commander": "Zada, Hedron Grinder",
+      "cards": 100,
+      "completeKnownInput": true,
+      "jobs": {
+        "supported": 224,
+        "unsupported": 0,
+        "unknown": 101
+      },
+      "obligations": {
+        "supported": 5,
+        "unsupported": 0,
+        "unknown": 204
+      },
+      "observedDirections": 29,
+      "unknownClauses": 44,
+      "price": 152.66,
+      "budget": 191,
+      "count": 100,
+      "bracket": 3,
+      "runtimeMs": 43.294,
+      "ledgerMs": 24.193,
+      "conditionalProbeMs": 18.321,
+      "probeTrials": 16,
+      "probeIsConditionalOnly": true
+    },
+    {
+      "id": "henzie",
+      "commander": "Henzie \"Toolbox\" Torre",
+      "cards": 100,
+      "completeKnownInput": true,
+      "jobs": {
+        "supported": 215,
+        "unsupported": 0,
+        "unknown": 97
+      },
+      "obligations": {
+        "supported": 4,
+        "unsupported": 0,
+        "unknown": 209
+      },
+      "observedDirections": 30,
+      "unknownClauses": 47,
+      "price": 133.67,
+      "budget": 191,
+      "count": 100,
+      "bracket": 3,
+      "runtimeMs": 38.296,
+      "ledgerMs": 17.207,
+      "conditionalProbeMs": 20.421,
+      "probeTrials": 16,
+      "probeIsConditionalOnly": true
+    }
+  ],
+  "referenceSummary": [
+    {
+      "id": "ulalek-test2",
+      "commander": "Ulalek, Fused Atrocity",
+      "cards": 100,
+      "completeKnownInput": true,
+      "jobs": {
+        "supported": 210,
+        "unsupported": 0,
+        "unknown": 133
+      },
+      "obligations": {
+        "supported": 9,
+        "unsupported": 0,
+        "unknown": 189
+      },
+      "observedDirections": 38,
+      "unknownClauses": 71,
+      "frozenValue": 167.62,
+      "completeLegality": "known inventory checks passed",
+      "unresolvedCatalogSlots": 0,
+      "privacy": "Full personal job/card ledger retained outside Git"
+    },
+    {
+      "id": "teval",
+      "commander": "Teval, the Balanced Scale",
+      "cards": 100,
+      "completeKnownInput": true,
+      "jobs": {
+        "supported": 174,
+        "unsupported": 0,
+        "unknown": 120
+      },
+      "obligations": {
+        "supported": 4,
+        "unsupported": 0,
+        "unknown": 217
+      },
+      "observedDirections": 57,
+      "unknownClauses": 57,
+      "frozenValue": 371.27,
+      "completeLegality": "known inventory checks passed",
+      "unresolvedCatalogSlots": 0,
+      "privacy": "Full personal job/card ledger retained outside Git"
+    },
+    {
+      "id": "Yuna_204_Updated_Preferred",
+      "commander": "Yuna, Grand Summoner",
+      "cards": 100,
+      "completeKnownInput": true,
+      "jobs": {
+        "supported": 168,
+        "unsupported": 0,
+        "unknown": 102
+      },
+      "obligations": {
+        "supported": 1,
+        "unsupported": 1,
+        "unknown": 145
+      },
+      "observedDirections": 33,
+      "unknownClauses": 65,
+      "frozenValue": 185.35,
+      "completeLegality": "known inventory checks passed",
+      "unresolvedCatalogSlots": 0,
+      "privacy": "Full personal job/card ledger retained outside Git"
+    },
+    {
+      "id": "Betor",
+      "commander": "Betor, Ancestor's Voice",
+      "cards": 100,
+      "completeKnownInput": false,
+      "jobs": {
+        "supported": 183,
+        "unsupported": 0,
+        "unknown": 100
+      },
+      "obligations": {
+        "supported": 3,
+        "unsupported": 0,
+        "unknown": 158
+      },
+      "observedDirections": 31,
+      "unknownClauses": 59,
+      "frozenValue": null,
+      "completeLegality": "unknown",
+      "unresolvedCatalogSlots": 2,
+      "privacy": "Full personal job/card ledger retained outside Git"
+    },
+    {
+      "id": "Wilhelt_220_Budget_Preferred",
+      "commander": "Wilhelt, the Rotcleaver",
+      "cards": 100,
+      "completeKnownInput": true,
+      "jobs": {
+        "supported": 196,
+        "unsupported": 0,
+        "unknown": 89
+      },
+      "obligations": {
+        "supported": 21,
+        "unsupported": 0,
+        "unknown": 168
+      },
+      "observedDirections": 38,
+      "unknownClauses": 47,
+      "frozenValue": 120.61,
+      "completeLegality": "known inventory checks passed",
+      "unresolvedCatalogSlots": 0,
+      "privacy": "Full personal job/card ledger retained outside Git"
+    },
+    {
+      "id": "Yshtola_NoStax_Delney_Preferred(1)",
+      "commander": "Y'shtola, Night's Blessed",
+      "cards": 100,
+      "completeKnownInput": false,
+      "jobs": {
+        "supported": 174,
+        "unsupported": 0,
+        "unknown": 91
+      },
+      "obligations": {
+        "supported": 2,
+        "unsupported": 0,
+        "unknown": 150
+      },
+      "observedDirections": 29,
+      "unknownClauses": 58,
+      "frozenValue": null,
+      "completeLegality": "unknown",
+      "unresolvedCatalogSlots": 3,
+      "privacy": "Full personal job/card ledger retained outside Git"
+    },
+    {
+      "id": "Zacama_Early_Game_100",
+      "commander": "Zacama, Primal Calamity",
+      "cards": 100,
+      "completeKnownInput": true,
+      "jobs": {
+        "supported": 161,
+        "unsupported": 0,
+        "unknown": 94
+      },
+      "obligations": {
+        "supported": 6,
+        "unsupported": 0,
+        "unknown": 149
+      },
+      "observedDirections": 35,
+      "unknownClauses": 59,
+      "frozenValue": 239.53,
+      "completeLegality": "known inventory checks passed",
+      "unresolvedCatalogSlots": 0,
+      "privacy": "Full personal job/card ledger retained outside Git"
+    }
+  ],
+  "runtime": {
+    "elapsedMs": 1314,
+    "processPeakRSSKiB": 376204,
+    "scope": "Serial frozen-list shadow analysis including conditional 16-trial probes; not generation or gameplay benchmarking"
+  },
+  "comparisonKeys": [
+    "wilhelt-102--wilhelt-163",
+    "wilhelt-source-136--wilhelt-163",
+    "wilhelt-source-160--wilhelt-163",
+    "wilhelt-source-186--wilhelt-163"
+  ],
+  "mutations": [
+    {
+      "id": "remove-forge",
+      "sourceId": "ulalek-b3",
+      "purpose": "Remove a real top-access engine",
+      "cuts": [
+        "Mystic Forge"
+      ],
+      "adds": [
+        "Swamp"
+      ],
+      "price": 172.34,
+      "budget": 191,
+      "observations": {
+        "removedJobCount": 4,
+        "lostPersistentAccess": [
+          {
+            "card": "Mystic Forge",
+            "kind": "access:top-library"
+          }
+        ],
+        "supportChanges": [
+          {
+            "card": "Echoes of Eternity",
+            "kind": "native:infrastructure",
+            "removed": [
+              "Mystic Forge"
+            ],
+            "added": [],
+            "beforeStatus": "unknown",
+            "afterStatus": "unknown"
+          }
+        ],
+        "changedObligationCount": 0,
+        "removedAnchorObligationCount": 4
+      }
+    },
+    {
+      "id": "replace-forge-one-shot",
+      "sourceId": "ulalek-b3",
+      "purpose": "Substitute one-shot draw for persistent library access",
+      "cuts": [
+        "Mystic Forge"
+      ],
+      "adds": [
+        "Brilliant Plan"
+      ],
+      "price": 172.46,
+      "budget": 191,
+      "observations": {
+        "removedJobCount": 4,
+        "lostPersistentAccess": [
+          {
+            "card": "Mystic Forge",
+            "kind": "access:top-library"
+          }
+        ],
+        "supportChanges": [
+          {
+            "card": "Echoes of Eternity",
+            "kind": "native:infrastructure",
+            "removed": [
+              "Mystic Forge"
+            ],
+            "added": [],
+            "beforeStatus": "unknown",
+            "afterStatus": "unknown"
+          }
+        ],
+        "changedObligationCount": 0,
+        "removedAnchorObligationCount": 4
+      }
+    },
+    {
+      "id": "remove-warren",
+      "sourceId": "wilhelt-163",
+      "purpose": "Remove life + creature \u2192 Treasure conversion",
+      "cuts": [
+        "Warren Soultrader"
+      ],
+      "adds": [
+        "Swamp"
+      ],
+      "price": 148.41,
+      "budget": 191,
+      "observations": {
+        "removedJobCount": 4,
+        "lostPersistentAccess": [],
+        "supportChanges": [
+          {
+            "card": "Wilhelt, the Rotcleaver",
+            "kind": "payoff:death",
+            "removed": [
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "unknown",
+            "afterStatus": "unknown"
+          },
+          {
+            "card": "Wilhelt, the Rotcleaver",
+            "kind": "consume:end-step-choice",
+            "removed": [
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "unknown",
+            "afterStatus": "unknown"
+          },
+          {
+            "card": "Wilhelt, the Rotcleaver",
+            "kind": "access:end-step",
+            "removed": [
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "unknown",
+            "afterStatus": "unknown"
+          },
+          {
+            "card": "Archghoul of Thraben",
+            "kind": "payoff:death",
+            "removed": [
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "unknown",
+            "afterStatus": "unknown"
+          },
+          {
+            "card": "Carrion Feeder",
+            "kind": "consume:sacrifice",
+            "removed": [
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "supported",
+            "afterStatus": "supported"
+          },
+          {
+            "card": "Cleaver Skaab",
+            "kind": "conversion:resource",
+            "removed": [
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "supported",
+            "afterStatus": "supported"
+          },
+          {
+            "card": "Cleaver Skaab",
+            "kind": "consume:sacrifice",
+            "removed": [
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "supported",
+            "afterStatus": "supported"
+          },
+          {
+            "card": "Corpse Blockade",
+            "kind": "consume:sacrifice",
+            "removed": [
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "supported",
+            "afterStatus": "supported"
+          },
+          {
+            "card": "Crowded Crypt",
+            "kind": "payoff:death",
+            "removed": [
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "unknown",
+            "afterStatus": "unknown"
+          },
+          {
+            "card": "Dauthi Ghoul",
+            "kind": "payoff:death",
+            "removed": [
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "unknown",
+            "afterStatus": "unknown"
+          },
+          {
+            "card": "Diregraf Captain",
+            "kind": "payoff:death",
+            "removed": [
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "unknown",
+            "afterStatus": "unknown"
+          },
+          {
+            "card": "Dreadmalkin",
+            "kind": "consume:sacrifice",
+            "removed": [
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "unknown",
+            "afterStatus": "unknown"
+          },
+          {
+            "card": "Feral Ghoul",
+            "kind": "payoff:death",
+            "removed": [
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "unknown",
+            "afterStatus": "unknown"
+          },
+          {
+            "card": "Feral Ghoul",
+            "kind": "payoff:death",
+            "removed": [
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "unknown",
+            "afterStatus": "unknown"
+          },
+          {
+            "card": "Gnawing Zombie",
+            "kind": "consume:sacrifice",
+            "removed": [
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "supported",
+            "afterStatus": "supported"
+          },
+          {
+            "card": "Gravecrawler",
+            "kind": "recovery:zone-access",
+            "removed": [
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "unknown",
+            "afterStatus": "unknown"
+          },
+          {
+            "card": "Grimgrin, Corpse-Born",
+            "kind": "consume:sacrifice",
+            "removed": [
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "supported",
+            "afterStatus": "supported"
+          },
+          {
+            "card": "Gutless Ghoul",
+            "kind": "consume:sacrifice",
+            "removed": [
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "supported",
+            "afterStatus": "supported"
+          },
+          {
+            "card": "Headless Rider",
+            "kind": "payoff:death",
+            "removed": [
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "unknown",
+            "afterStatus": "unknown"
+          },
+          {
+            "card": "Hungry Ghoul",
+            "kind": "consume:sacrifice",
+            "removed": [
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "supported",
+            "afterStatus": "supported"
+          },
+          {
+            "card": "Jason Bright, Glowing Prophet",
+            "kind": "access:death",
+            "removed": [
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "unknown",
+            "afterStatus": "unknown"
+          },
+          {
+            "card": "Jason Bright, Glowing Prophet",
+            "kind": "consume:sacrifice",
+            "removed": [
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "unknown",
+            "afterStatus": "unknown"
+          },
+          {
+            "card": "Midnight Reaper",
+            "kind": "access:death",
+            "removed": [
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "unknown",
+            "afterStatus": "unknown"
+          },
+          {
+            "card": "Murderous Rider // Swift End",
+            "kind": "payoff:death",
+            "removed": [
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "unknown",
+            "afterStatus": "unknown"
+          },
+          {
+            "card": "Nantuko Husk",
+            "kind": "consume:sacrifice",
+            "removed": [
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "supported",
+            "afterStatus": "supported"
+          },
+          {
+            "card": "Necrosavant",
+            "kind": "consume:sacrifice",
+            "removed": [
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "supported",
+            "afterStatus": "supported"
+          },
+          {
+            "card": "Phyrexian Ghoul",
+            "kind": "consume:sacrifice",
+            "removed": [
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "supported",
+            "afterStatus": "supported"
+          },
+          {
+            "card": "Plague Belcher",
+            "kind": "payoff:death",
+            "removed": [
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "unknown",
+            "afterStatus": "unknown"
+          },
+          {
+            "card": "Ragamuffyn",
+            "kind": "consume:sacrifice",
+            "removed": [
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "unknown",
+            "afterStatus": "unknown"
+          },
+          {
+            "card": "Ragamuffyn",
+            "kind": "access:activated",
+            "removed": [
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "unknown",
+            "afterStatus": "unknown"
+          },
+          {
+            "card": "Sepulcher Ghoul",
+            "kind": "consume:sacrifice",
+            "removed": [
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "supported",
+            "afterStatus": "supported"
+          },
+          {
+            "card": "Sidisi, Regent of the Mire",
+            "kind": "consume:sacrifice",
+            "removed": [
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "unknown",
+            "afterStatus": "unknown"
+          },
+          {
+            "card": "Sidisi, Regent of the Mire",
+            "kind": "utility:interaction",
+            "removed": [
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "supported",
+            "afterStatus": "supported"
+          },
+          {
+            "card": "Sidisi, Undead Vizier",
+            "kind": "native:infrastructure",
+            "removed": [
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "unknown",
+            "afterStatus": "unknown"
+          },
+          {
+            "card": "Silumgar Scavenger",
+            "kind": "payoff:death",
+            "removed": [
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "unknown",
+            "afterStatus": "unknown"
+          },
+          {
+            "card": "Skullclamp",
+            "kind": "access:death",
+            "removed": [
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "unknown",
+            "afterStatus": "unknown"
+          },
+          {
+            "card": "Stronghold Assassin",
+            "kind": "consume:sacrifice",
+            "removed": [
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "supported",
+            "afterStatus": "supported"
+          },
+          {
+            "card": "Stronghold Assassin",
+            "kind": "utility:interaction",
+            "removed": [
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "supported",
+            "afterStatus": "supported"
+          },
+          {
+            "card": "The Ghoul, Gunslinger",
+            "kind": "payoff:death",
+            "removed": [
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "unknown",
+            "afterStatus": "unknown"
+          },
+          {
+            "card": "Tomb Tyrant",
+            "kind": "consume:sacrifice",
+            "removed": [
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "supported",
+            "afterStatus": "supported"
+          },
+          {
+            "card": "Undead Augur",
+            "kind": "access:death",
+            "removed": [
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "unknown",
+            "afterStatus": "unknown"
+          },
+          {
+            "card": "Voracious Null",
+            "kind": "consume:sacrifice",
+            "removed": [
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "supported",
+            "afterStatus": "supported"
+          },
+          {
+            "card": "Wight",
+            "kind": "payoff:death",
+            "removed": [
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "unknown",
+            "afterStatus": "unknown"
+          }
+        ],
+        "changedObligationCount": 132,
+        "removedAnchorObligationCount": 7
+      }
+    },
+    {
+      "id": "remove-skullclamp",
+      "sourceId": "wilhelt-163",
+      "purpose": "Remove a conditional equipped-death access engine",
+      "cuts": [
+        "Skullclamp"
+      ],
+      "adds": [
+        "Swamp"
+      ],
+      "price": 158.76,
+      "budget": 191,
+      "observations": {
+        "removedJobCount": 4,
+        "lostPersistentAccess": [
+          {
+            "card": "Skullclamp",
+            "kind": "access:death"
+          }
+        ],
+        "supportChanges": [],
+        "changedObligationCount": 0,
+        "removedAnchorObligationCount": 4
+      }
+    },
+    {
+      "id": "remove-known-sacrifice-outlets",
+      "sourceId": "wilhelt-163",
+      "purpose": "Remove recognized voluntary sacrifice channels; other death causes remain unknown",
+      "cuts": [
+        "Carrion Feeder",
+        "Cleaver Skaab",
+        "Corpse Blockade",
+        "Dreadmalkin",
+        "Gnawing Zombie",
+        "Grimgrin, Corpse-Born",
+        "Gutless Ghoul",
+        "Hungry Ghoul",
+        "Jason Bright, Glowing Prophet",
+        "Nantuko Husk",
+        "Necrosavant",
+        "Phyrexian Ghoul",
+        "Ragamuffyn",
+        "Sepulcher Ghoul",
+        "Sidisi, Regent of the Mire",
+        "Stronghold Assassin",
+        "Tomb Tyrant",
+        "Voracious Null",
+        "Warren Soultrader"
+      ],
+      "adds": [
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp"
+      ],
+      "price": 135.45,
+      "budget": 191,
+      "observations": {
+        "removedJobCount": 72,
+        "lostPersistentAccess": [
+          {
+            "card": "Jason Bright, Glowing Prophet",
+            "kind": "access:death"
+          },
+          {
+            "card": "Ragamuffyn",
+            "kind": "access:activated"
+          }
+        ],
+        "supportChanges": [
+          {
+            "card": "Wilhelt, the Rotcleaver",
+            "kind": "payoff:death",
+            "removed": [
+              "Carrion Feeder",
+              "Cleaver Skaab",
+              "Corpse Blockade",
+              "Dreadmalkin",
+              "Gnawing Zombie",
+              "Grimgrin, Corpse-Born",
+              "Gutless Ghoul",
+              "Hungry Ghoul",
+              "Jason Bright, Glowing Prophet",
+              "Nantuko Husk",
+              "Necrosavant",
+              "Phyrexian Ghoul",
+              "Ragamuffyn",
+              "Sepulcher Ghoul",
+              "Sidisi, Regent of the Mire",
+              "Stronghold Assassin",
+              "Tomb Tyrant",
+              "Voracious Null",
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "unknown",
+            "afterStatus": "unknown"
+          },
+          {
+            "card": "Wilhelt, the Rotcleaver",
+            "kind": "consume:end-step-choice",
+            "removed": [
+              "Carrion Feeder",
+              "Cleaver Skaab",
+              "Corpse Blockade",
+              "Dreadmalkin",
+              "Gnawing Zombie",
+              "Grimgrin, Corpse-Born",
+              "Gutless Ghoul",
+              "Hungry Ghoul",
+              "Jason Bright, Glowing Prophet",
+              "Nantuko Husk",
+              "Necrosavant",
+              "Phyrexian Ghoul",
+              "Ragamuffyn",
+              "Sepulcher Ghoul",
+              "Sidisi, Regent of the Mire",
+              "Stronghold Assassin",
+              "Tomb Tyrant",
+              "Voracious Null",
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "unknown",
+            "afterStatus": "unknown"
+          },
+          {
+            "card": "Wilhelt, the Rotcleaver",
+            "kind": "access:end-step",
+            "removed": [
+              "Carrion Feeder",
+              "Cleaver Skaab",
+              "Corpse Blockade",
+              "Dreadmalkin",
+              "Gnawing Zombie",
+              "Grimgrin, Corpse-Born",
+              "Gutless Ghoul",
+              "Hungry Ghoul",
+              "Jason Bright, Glowing Prophet",
+              "Nantuko Husk",
+              "Necrosavant",
+              "Phyrexian Ghoul",
+              "Ragamuffyn",
+              "Sepulcher Ghoul",
+              "Sidisi, Regent of the Mire",
+              "Stronghold Assassin",
+              "Tomb Tyrant",
+              "Voracious Null",
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "unknown",
+            "afterStatus": "unknown"
+          },
+          {
+            "card": "Archghoul of Thraben",
+            "kind": "payoff:death",
+            "removed": [
+              "Carrion Feeder",
+              "Cleaver Skaab",
+              "Corpse Blockade",
+              "Dreadmalkin",
+              "Gnawing Zombie",
+              "Grimgrin, Corpse-Born",
+              "Gutless Ghoul",
+              "Hungry Ghoul",
+              "Jason Bright, Glowing Prophet",
+              "Nantuko Husk",
+              "Necrosavant",
+              "Phyrexian Ghoul",
+              "Ragamuffyn",
+              "Sepulcher Ghoul",
+              "Sidisi, Regent of the Mire",
+              "Stronghold Assassin",
+              "Tomb Tyrant",
+              "Voracious Null",
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "unknown",
+            "afterStatus": "unknown"
+          },
+          {
+            "card": "Crowded Crypt",
+            "kind": "payoff:death",
+            "removed": [
+              "Carrion Feeder",
+              "Cleaver Skaab",
+              "Corpse Blockade",
+              "Dreadmalkin",
+              "Gnawing Zombie",
+              "Grimgrin, Corpse-Born",
+              "Gutless Ghoul",
+              "Hungry Ghoul",
+              "Jason Bright, Glowing Prophet",
+              "Nantuko Husk",
+              "Necrosavant",
+              "Phyrexian Ghoul",
+              "Ragamuffyn",
+              "Sepulcher Ghoul",
+              "Sidisi, Regent of the Mire",
+              "Stronghold Assassin",
+              "Tomb Tyrant",
+              "Voracious Null",
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "unknown",
+            "afterStatus": "unknown"
+          },
+          {
+            "card": "Dauthi Ghoul",
+            "kind": "payoff:death",
+            "removed": [
+              "Carrion Feeder",
+              "Cleaver Skaab",
+              "Corpse Blockade",
+              "Dreadmalkin",
+              "Gnawing Zombie",
+              "Grimgrin, Corpse-Born",
+              "Gutless Ghoul",
+              "Hungry Ghoul",
+              "Jason Bright, Glowing Prophet",
+              "Nantuko Husk",
+              "Necrosavant",
+              "Phyrexian Ghoul",
+              "Ragamuffyn",
+              "Sepulcher Ghoul",
+              "Sidisi, Regent of the Mire",
+              "Stronghold Assassin",
+              "Tomb Tyrant",
+              "Voracious Null",
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "unknown",
+            "afterStatus": "unknown"
+          },
+          {
+            "card": "Diregraf Captain",
+            "kind": "payoff:death",
+            "removed": [
+              "Carrion Feeder",
+              "Cleaver Skaab",
+              "Corpse Blockade",
+              "Dreadmalkin",
+              "Gnawing Zombie",
+              "Grimgrin, Corpse-Born",
+              "Gutless Ghoul",
+              "Hungry Ghoul",
+              "Jason Bright, Glowing Prophet",
+              "Nantuko Husk",
+              "Necrosavant",
+              "Phyrexian Ghoul",
+              "Ragamuffyn",
+              "Sepulcher Ghoul",
+              "Sidisi, Regent of the Mire",
+              "Stronghold Assassin",
+              "Tomb Tyrant",
+              "Voracious Null",
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "unknown",
+            "afterStatus": "unknown"
+          },
+          {
+            "card": "Feral Ghoul",
+            "kind": "payoff:death",
+            "removed": [
+              "Carrion Feeder",
+              "Cleaver Skaab",
+              "Corpse Blockade",
+              "Dreadmalkin",
+              "Gnawing Zombie",
+              "Grimgrin, Corpse-Born",
+              "Gutless Ghoul",
+              "Hungry Ghoul",
+              "Jason Bright, Glowing Prophet",
+              "Nantuko Husk",
+              "Necrosavant",
+              "Phyrexian Ghoul",
+              "Ragamuffyn",
+              "Sepulcher Ghoul",
+              "Sidisi, Regent of the Mire",
+              "Stronghold Assassin",
+              "Tomb Tyrant",
+              "Voracious Null",
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "unknown",
+            "afterStatus": "unknown"
+          },
+          {
+            "card": "Feral Ghoul",
+            "kind": "payoff:death",
+            "removed": [
+              "Carrion Feeder",
+              "Cleaver Skaab",
+              "Corpse Blockade",
+              "Dreadmalkin",
+              "Gnawing Zombie",
+              "Grimgrin, Corpse-Born",
+              "Gutless Ghoul",
+              "Hungry Ghoul",
+              "Jason Bright, Glowing Prophet",
+              "Nantuko Husk",
+              "Necrosavant",
+              "Phyrexian Ghoul",
+              "Ragamuffyn",
+              "Sepulcher Ghoul",
+              "Sidisi, Regent of the Mire",
+              "Stronghold Assassin",
+              "Tomb Tyrant",
+              "Voracious Null",
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "unknown",
+            "afterStatus": "unknown"
+          },
+          {
+            "card": "Gravecrawler",
+            "kind": "recovery:zone-access",
+            "removed": [
+              "Carrion Feeder",
+              "Cleaver Skaab",
+              "Corpse Blockade",
+              "Dreadmalkin",
+              "Gnawing Zombie",
+              "Grimgrin, Corpse-Born",
+              "Gutless Ghoul",
+              "Hungry Ghoul",
+              "Jason Bright, Glowing Prophet",
+              "Nantuko Husk",
+              "Necrosavant",
+              "Phyrexian Ghoul",
+              "Ragamuffyn",
+              "Sepulcher Ghoul",
+              "Sidisi, Regent of the Mire",
+              "Stronghold Assassin",
+              "Tomb Tyrant",
+              "Voracious Null",
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "unknown",
+            "afterStatus": "unknown"
+          },
+          {
+            "card": "Headless Rider",
+            "kind": "payoff:death",
+            "removed": [
+              "Carrion Feeder",
+              "Cleaver Skaab",
+              "Corpse Blockade",
+              "Dreadmalkin",
+              "Gnawing Zombie",
+              "Grimgrin, Corpse-Born",
+              "Gutless Ghoul",
+              "Hungry Ghoul",
+              "Jason Bright, Glowing Prophet",
+              "Nantuko Husk",
+              "Necrosavant",
+              "Phyrexian Ghoul",
+              "Ragamuffyn",
+              "Sepulcher Ghoul",
+              "Sidisi, Regent of the Mire",
+              "Stronghold Assassin",
+              "Tomb Tyrant",
+              "Voracious Null",
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "unknown",
+            "afterStatus": "unknown"
+          },
+          {
+            "card": "Midnight Reaper",
+            "kind": "access:death",
+            "removed": [
+              "Carrion Feeder",
+              "Cleaver Skaab",
+              "Corpse Blockade",
+              "Dreadmalkin",
+              "Gnawing Zombie",
+              "Grimgrin, Corpse-Born",
+              "Gutless Ghoul",
+              "Hungry Ghoul",
+              "Jason Bright, Glowing Prophet",
+              "Nantuko Husk",
+              "Necrosavant",
+              "Phyrexian Ghoul",
+              "Ragamuffyn",
+              "Sepulcher Ghoul",
+              "Sidisi, Regent of the Mire",
+              "Stronghold Assassin",
+              "Tomb Tyrant",
+              "Voracious Null",
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "unknown",
+            "afterStatus": "unknown"
+          },
+          {
+            "card": "Murderous Rider // Swift End",
+            "kind": "payoff:death",
+            "removed": [
+              "Carrion Feeder",
+              "Cleaver Skaab",
+              "Corpse Blockade",
+              "Dreadmalkin",
+              "Gnawing Zombie",
+              "Grimgrin, Corpse-Born",
+              "Gutless Ghoul",
+              "Hungry Ghoul",
+              "Jason Bright, Glowing Prophet",
+              "Nantuko Husk",
+              "Necrosavant",
+              "Phyrexian Ghoul",
+              "Ragamuffyn",
+              "Sepulcher Ghoul",
+              "Sidisi, Regent of the Mire",
+              "Stronghold Assassin",
+              "Tomb Tyrant",
+              "Voracious Null",
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "unknown",
+            "afterStatus": "unknown"
+          },
+          {
+            "card": "Plague Belcher",
+            "kind": "payoff:death",
+            "removed": [
+              "Carrion Feeder",
+              "Cleaver Skaab",
+              "Corpse Blockade",
+              "Dreadmalkin",
+              "Gnawing Zombie",
+              "Grimgrin, Corpse-Born",
+              "Gutless Ghoul",
+              "Hungry Ghoul",
+              "Jason Bright, Glowing Prophet",
+              "Nantuko Husk",
+              "Necrosavant",
+              "Phyrexian Ghoul",
+              "Ragamuffyn",
+              "Sepulcher Ghoul",
+              "Sidisi, Regent of the Mire",
+              "Stronghold Assassin",
+              "Tomb Tyrant",
+              "Voracious Null",
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "unknown",
+            "afterStatus": "unknown"
+          },
+          {
+            "card": "Sidisi, Undead Vizier",
+            "kind": "native:infrastructure",
+            "removed": [
+              "Carrion Feeder",
+              "Cleaver Skaab",
+              "Corpse Blockade",
+              "Dreadmalkin",
+              "Gnawing Zombie",
+              "Grimgrin, Corpse-Born",
+              "Gutless Ghoul",
+              "Hungry Ghoul",
+              "Jason Bright, Glowing Prophet",
+              "Nantuko Husk",
+              "Necrosavant",
+              "Phyrexian Ghoul",
+              "Ragamuffyn",
+              "Sepulcher Ghoul",
+              "Sidisi, Regent of the Mire",
+              "Stronghold Assassin",
+              "Tomb Tyrant",
+              "Voracious Null",
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "unknown",
+            "afterStatus": "unknown"
+          },
+          {
+            "card": "Silumgar Scavenger",
+            "kind": "payoff:death",
+            "removed": [
+              "Carrion Feeder",
+              "Cleaver Skaab",
+              "Corpse Blockade",
+              "Dreadmalkin",
+              "Gnawing Zombie",
+              "Grimgrin, Corpse-Born",
+              "Gutless Ghoul",
+              "Hungry Ghoul",
+              "Jason Bright, Glowing Prophet",
+              "Nantuko Husk",
+              "Necrosavant",
+              "Phyrexian Ghoul",
+              "Ragamuffyn",
+              "Sepulcher Ghoul",
+              "Sidisi, Regent of the Mire",
+              "Stronghold Assassin",
+              "Tomb Tyrant",
+              "Voracious Null",
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "unknown",
+            "afterStatus": "unknown"
+          },
+          {
+            "card": "Skullclamp",
+            "kind": "access:death",
+            "removed": [
+              "Carrion Feeder",
+              "Cleaver Skaab",
+              "Corpse Blockade",
+              "Dreadmalkin",
+              "Gnawing Zombie",
+              "Grimgrin, Corpse-Born",
+              "Gutless Ghoul",
+              "Hungry Ghoul",
+              "Jason Bright, Glowing Prophet",
+              "Nantuko Husk",
+              "Necrosavant",
+              "Phyrexian Ghoul",
+              "Ragamuffyn",
+              "Sepulcher Ghoul",
+              "Sidisi, Regent of the Mire",
+              "Stronghold Assassin",
+              "Tomb Tyrant",
+              "Voracious Null",
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "unknown",
+            "afterStatus": "unknown"
+          },
+          {
+            "card": "The Ghoul, Gunslinger",
+            "kind": "payoff:death",
+            "removed": [
+              "Carrion Feeder",
+              "Cleaver Skaab",
+              "Corpse Blockade",
+              "Dreadmalkin",
+              "Gnawing Zombie",
+              "Grimgrin, Corpse-Born",
+              "Gutless Ghoul",
+              "Hungry Ghoul",
+              "Jason Bright, Glowing Prophet",
+              "Nantuko Husk",
+              "Necrosavant",
+              "Phyrexian Ghoul",
+              "Ragamuffyn",
+              "Sepulcher Ghoul",
+              "Sidisi, Regent of the Mire",
+              "Stronghold Assassin",
+              "Tomb Tyrant",
+              "Voracious Null",
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "unknown",
+            "afterStatus": "unknown"
+          },
+          {
+            "card": "Undead Augur",
+            "kind": "access:death",
+            "removed": [
+              "Carrion Feeder",
+              "Cleaver Skaab",
+              "Corpse Blockade",
+              "Dreadmalkin",
+              "Gnawing Zombie",
+              "Grimgrin, Corpse-Born",
+              "Gutless Ghoul",
+              "Hungry Ghoul",
+              "Jason Bright, Glowing Prophet",
+              "Nantuko Husk",
+              "Necrosavant",
+              "Phyrexian Ghoul",
+              "Ragamuffyn",
+              "Sepulcher Ghoul",
+              "Sidisi, Regent of the Mire",
+              "Stronghold Assassin",
+              "Tomb Tyrant",
+              "Voracious Null",
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "unknown",
+            "afterStatus": "unknown"
+          },
+          {
+            "card": "Wight",
+            "kind": "payoff:death",
+            "removed": [
+              "Carrion Feeder",
+              "Cleaver Skaab",
+              "Corpse Blockade",
+              "Dreadmalkin",
+              "Gnawing Zombie",
+              "Grimgrin, Corpse-Born",
+              "Gutless Ghoul",
+              "Hungry Ghoul",
+              "Jason Bright, Glowing Prophet",
+              "Nantuko Husk",
+              "Necrosavant",
+              "Phyrexian Ghoul",
+              "Ragamuffyn",
+              "Sepulcher Ghoul",
+              "Sidisi, Regent of the Mire",
+              "Stronghold Assassin",
+              "Tomb Tyrant",
+              "Voracious Null",
+              "Warren Soultrader"
+            ],
+            "added": [],
+            "beforeStatus": "unknown",
+            "afterStatus": "unknown"
+          }
+        ],
+        "changedObligationCount": 76,
+        "removedAnchorObligationCount": 82
+      }
+    },
+    {
+      "id": "remove-qualified-casts",
+      "sourceId": "yshtola-90",
+      "purpose": "Destroy the actual noncreature/MV cast predicate support while keeping 100 cards",
+      "cuts": [
+        "Akroma's Blessing",
+        "Bilbo's Ring",
+        "Cast Away Doubt",
+        "Cast Out",
+        "Casting of Bones",
+        "Catalog",
+        "Circle of Power",
+        "Counsel of the Soratami",
+        "Cruel Calculations",
+        "Curator's Ward",
+        "Daredevil Dragster",
+        "Decode Transmissions",
+        "Dihada's Ploy",
+        "Diresight",
+        "Dismantling Blow",
+        "Distorted Curiosity",
+        "Divination",
+        "Esper Charm",
+        "Fall of the First Civilization",
+        "Field Research",
+        "Funeral Rites",
+        "Ghastly Discovery",
+        "Gideon Blackblade",
+        "Gruesome Realization",
+        "Infernal Idol",
+        "Live Fast",
+        "Love Song of Night and Day",
+        "Merciless Resolve",
+        "My Precious // Allure of Power",
+        "Neutralize",
+        "Notion Rain",
+        "Parting Thoughts",
+        "Phyrexian Espionage",
+        "Pilfered Plans",
+        "Plan for All Outcomes",
+        "Quick Study",
+        "Read the Bones",
+        "Rescind",
+        "Resounding Wave",
+        "Risky Research",
+        "Rousing Read",
+        "School Daze",
+        "Secret Rendezvous",
+        "Spellgyre",
+        "Staff of Compleation",
+        "Succumb to Temptation",
+        "Survive the Night",
+        "Sword of Fire and Ice",
+        "Tattoo Ward",
+        "Teachings of the Archaics",
+        "The Phasing of Zhalfir",
+        "Uncover the Moon-Letters",
+        "Your Temple Is Under Attack"
+      ],
+      "adds": [
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp",
+        "Swamp"
+      ],
+      "price": 57.02,
+      "budget": 160,
+      "observations": {
+        "removedJobCount": 172,
+        "lostPersistentAccess": [
+          {
+            "card": "Bilbo's Ring",
+            "kind": "access:unparsed"
+          },
+          {
+            "card": "Casting of Bones",
+            "kind": "access:unparsed"
+          },
+          {
+            "card": "Curator's Ward",
+            "kind": "access:unparsed"
+          },
+          {
+            "card": "Daredevil Dragster",
+            "kind": "access:unparsed"
+          },
+          {
+            "card": "Fall of the First Civilization",
+            "kind": "access:unparsed"
+          },
+          {
+            "card": "Love Song of Night and Day",
+            "kind": "access:unparsed"
+          },
+          {
+            "card": "Plan for All Outcomes",
+            "kind": "access:unparsed"
+          },
+          {
+            "card": "Rousing Read",
+            "kind": "access:unparsed"
+          },
+          {
+            "card": "Staff of Compleation",
+            "kind": "access:activated"
+          },
+          {
+            "card": "Sword of Fire and Ice",
+            "kind": "access:unparsed"
+          }
+        ],
+        "supportChanges": [
+          {
+            "card": "Y'shtola, Night's Blessed",
+            "kind": "payoff:cast-pressure",
+            "removed": [
+              "Akroma's Blessing",
+              "Bilbo's Ring",
+              "Cast Away Doubt",
+              "Cast Out",
+              "Casting of Bones",
+              "Catalog",
+              "Circle of Power",
+              "Counsel of the Soratami",
+              "Cruel Calculations",
+              "Curator's Ward",
+              "Daredevil Dragster",
+              "Decode Transmissions",
+              "Dihada's Ploy",
+              "Diresight",
+              "Dismantling Blow",
+              "Distorted Curiosity",
+              "Divination",
+              "Esper Charm",
+              "Fall of the First Civilization",
+              "Field Research",
+              "Funeral Rites",
+              "Ghastly Discovery",
+              "Gideon Blackblade",
+              "Gruesome Realization",
+              "Infernal Idol",
+              "Live Fast",
+              "Love Song of Night and Day",
+              "Merciless Resolve",
+              "My Precious // Allure of Power",
+              "Neutralize",
+              "Notion Rain",
+              "Parting Thoughts",
+              "Phyrexian Espionage",
+              "Pilfered Plans",
+              "Plan for All Outcomes",
+              "Quick Study",
+              "Read the Bones",
+              "Rescind",
+              "Resounding Wave",
+              "Risky Research",
+              "Rousing Read",
+              "School Daze",
+              "Secret Rendezvous",
+              "Spellgyre",
+              "Staff of Compleation",
+              "Succumb to Temptation",
+              "Survive the Night",
+              "Sword of Fire and Ice",
+              "Tattoo Ward",
+              "Teachings of the Archaics",
+              "The Phasing of Zhalfir",
+              "Uncover the Moon-Letters",
+              "Your Temple Is Under Attack"
+            ],
+            "added": [],
+            "beforeStatus": "supported",
+            "afterStatus": "unsupported"
+          }
+        ],
+        "changedObligationCount": 19,
+        "removedAnchorObligationCount": 136
+      }
+    }
+  ],
+  "scope": "Frozen complete-deck analysis only; no fresh generation, quality ranking or production decision",
+  "mutationDetails": "Full deltas and complete mutated job ledgers are retained losslessly in ledgers.json.gz; mutations are diagnostic, not proposed upgrades."
+}

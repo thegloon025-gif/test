@@ -1,0 +1,6 @@
+{
+  "status": 400,
+  "error": "Legacy generation is incomplete (64/100 cards); refusing export or fallback. Use strategy-first construction.",
+  "exportPresent": false,
+  "scope": "Incomplete legacy fails closed; no partial deck export"
+}

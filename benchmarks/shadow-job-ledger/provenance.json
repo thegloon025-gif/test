@@ -1,0 +1,45 @@
+{
+  "baseSHA": "6c6166231da9289cdf36ac1af783e49da70becf2",
+  "implementationSHA": "f264ecae9dd1fe4eec662186fff9c4b10efc3b83",
+  "unchangedProductionFiles": {
+    "src/strategyFirst.mjs": true,
+    "src/packageInvestment.mjs": true,
+    "src/strategyRelations.mjs": true,
+    "src/engineSupport.mjs": true,
+    "src/strategyExecution.mjs": true,
+    "src/roleEvidence.mjs": true,
+    "src/cards.mjs": true,
+    "src/pricing.mjs": true,
+    "src/printingEligibility.mjs": true,
+    "src/autoResearch.mjs": true,
+    "src/communityConstruction.mjs": true,
+    "src/edhrecKnowledge.mjs": true,
+    "server.mjs": true,
+    "public/app.js": true,
+    "public/index.html": true,
+    "public/strategy.js": true,
+    "start-windows.bat": true,
+    "package.json": true
+  },
+  "uploadedOriginalCacheFilesUnchanged": {
+    "cards.json": true,
+    "combo-library.json": true,
+    "community-decks.json": true,
+    "metadata.json": true,
+    "spellbook-cache/3efe7c217ee49c71bfa4c88e4525f3886b1a6b0249110f8b10e5e2b5b503abb7.json": true,
+    "spellbook-cache/92d2d2419a5fd5a05119dee5da2aad9c6292297d77d8dd7dd2a33cbab4adf915.json": true,
+    "spellbook-cache/d94463ec988c2b6302962c89f24fae2a122b49c271d6ad91218e94dd9e1b93f4.json": true
+  },
+  "productionException": "Only incomplete legacy direct/fallback export guards in generator.mjs; existing valid construction/selection remains unchanged.",
+  "shadowImportedIntoProduction": false,
+  "readOnly": "Validator and benchmark never modify selected records, inputs or exports. Private references are not generation inputs.",
+  "version": "1.1.5",
+  "cacheIncident": "A smoke server briefly launched in the working checkout and ran existing startup repair. It refreshed the working library metadata, reporting added=0. Normalized original 177-variant knowledge matches the uploaded original; the older synthetic cmr entry predates this task. Uploaded originals are byte-identical. Pre-launch working-copy bytes were not captured, so exact working-copy preservation cannot be certified. Incident copies remain private outside Git; subsequent smoke uses a disposable worktree.",
+  "toolSHA256": {
+    "tools/shadow-job-ledger.mjs": "c28b438a1b3c73624319fb295aafb690a2b94eeacaa975458fbd60bec530c4eb",
+    "tools/benchmark-shadow-job-ledgers.mjs": "42b4e04ab94e1d34a3fefdf6469756ea4ca268f74ce239a040558e9990612d15",
+    "tools/audit-shadow-job-ledgers.mjs": "f29bf18a57e121f256e9dde0587a2cf6e8d8fabea029ea155c2e81d06571d1f5"
+  },
+  "privateReferenceBundleSHA256": "6b3ba6b83d94fbf131fd67b6736467a3350e6cbd40b3ec6e13f835af8fff6475",
+  "privateReferenceBundleBytes": 327223
+}
