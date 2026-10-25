@@ -1,3 +1,8 @@
+## Unreleased optional ChatGPT Architect — version remains 1.1.5
+
+- Added an opt-in official pinned DevKit adapter with Windows DPAPI storage, model discovery, strict confirmation/quota/session guards and bounded advisory jobs. No API-key or paid-provider route.
+- Added manual copy/import with shared local Builder/Upgrader verification and separate package approval. Native Windows sign-in and live account/billing remain unverified; unsupported secure storage fails closed.
+
 ## Unreleased experimental Upgrader (version remains 1.1.5)
 
 - Added explicit local UI import, score-free atomic proposal review, incremental acquisition costing, ownership/resale assumptions, undo and validated 100-card export.
