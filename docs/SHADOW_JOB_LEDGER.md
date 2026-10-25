@@ -133,7 +133,7 @@ Frozen public/archive plus private-reference reproduction, from repository root:
 
 ```
 node tools/benchmark-shadow-job-ledgers.mjs CATALOG LIBRARY PRIVATE_ANALYSIS NEW_PUBLIC_OUT NEW_PRIVATE_OUT
-node tools/audit-shadow-job-ledgers.mjs CATALOG LIBRARY NEW_PUBLIC_OUT/ledgers.json.gz NEW_AUDIT.json
+node tools/audit-shadow-job-ledgers.mjs CATALOG LIBRARY NEW_PUBLIC_OUT/ledgers.json.gz NEW_AUDIT.json NEW_PRIVATE_OUT/reference-ledgers.json.gz
 ```
 
 `PRIVATE_ANALYSIS` is the existing confirmed reference analysis, never a generator
