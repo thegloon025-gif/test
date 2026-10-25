@@ -1,3 +1,8 @@
+## Unreleased experimental Upgrader (version remains 1.1.5)
+
+- Added explicit local UI import, score-free atomic proposal review, incremental acquisition costing, ownership/resale assumptions, undo and validated 100-card export.
+- Reuses frozen read-only ledger/goldfish; builder integration remains NOT YET. No automatic migration or paid dependencies.
+
 - Added offline score-free functional shadow probes, physical-dependency analysis and counterfactual ablations; production selection remains unchanged. See docs/FUNCTIONAL_SHADOW.md.
 
 ## Unreleased shadow job ledger — still 1.1.5

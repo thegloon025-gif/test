@@ -1,3 +1,9 @@
+## Experimental Upgrader checkpoint (unreleased)
+
+- Manual import/review/undo/export now implemented on an experimental branch; see [workflow](EXPERIMENTAL_UPGRADER.md).
+- Automatic builder evidence remains insufficient for production ranking. Validate real user upgrade choices and external gameplay before broadening automatic package discovery.
+- Deferred: alternative-direction redesign, complete recursion packages, exact repeated-engine gameplay, Forge #11, authoritative bracket snapshot #10.
+
 Functional shadow foundation now includes bounded hand/mana probes and all 15 held-out references. Native strategy sensitivity and verified finishing/recursion dependencies remain prerequisites to production use; Forge/Karsten/authoritative brackets stay separate future work.
 
 > Current milestone: [read-only shadow job ledger](SHADOW_JOB_LEDGER.md). Production scalar selection remains unchanged pending validation; incomplete legacy exports now fail closed. Historical measurements below remain frozen.

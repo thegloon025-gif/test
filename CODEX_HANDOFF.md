@@ -1,3 +1,5 @@
+> Experimental Upgrader continuation: see [workflow and limits](docs/EXPERIMENTAL_UPGRADER.md). Branch targets PR #9; no production constructor or selection changes.
+
 > Current milestone: [read-only shadow job ledger](docs/SHADOW_JOB_LEDGER.md). Production scalar selection remains unchanged pending validation; incomplete legacy exports now fail closed. Historical measurements below remain frozen.
 
 # CommanderOracle Independent — Codex handoff

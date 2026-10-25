@@ -1,0 +1,17 @@
+{
+  "full": {
+    "passed": 301,
+    "total": 301,
+    "failures": 0,
+    "skipped": 0,
+    "durationMs": 116258.557679
+  },
+  "focused": {
+    "passed": 13,
+    "total": 13,
+    "durationMs": 353.884298
+  },
+  "independentReceiptSlots": 600,
+  "browser": "all three real API workflows; no mocked upgrade responses; zero page errors",
+  "b5CurrentSourceAPI": "validated 100-card export; B3 policy unchanged"
+}

@@ -1,0 +1,44 @@
+{
+  "basePR9Head": "ed8817308aae20ec1f0e5edd1241188e61b44bb8",
+  "implementation": "91a6375",
+  "independentAudit": "a11f169",
+  "sourceHashes": {
+    "src/deckUpgrader.mjs": "3475af2dda6477f3a7facd86bca7d783efbaaa7142e051d5393844f47464918a",
+    "public/upgrader.js": "433feb4d2200e734ebd286b0b8d75e888e5efef9025787c117e22b178cb50d97",
+    "public/index.html": "9bcea64a62aeeb7149dbbf8fb504d03abffa4de67e847955faf6ebf4941a225b",
+    "server.mjs": "34e8cb51addafaa5140a1aef52d8430b5018cdf911fd043fe89c0db5c2bcec27",
+    "tests/deck-upgrader.test.mjs": "1e6fa6c9efb1a891dc06df27b9a2b54fdbb8fa49b1c058ff82571f017776ba45",
+    "tools/validate-upgrader-workflows.mjs": "a350dd8cd9f3c4ef70157b4b9c98359a7ac5f2f656520b537226d8a27a1f6d6a",
+    "tools/audit-upgrader-evidence.mjs": "b775836a325f9d1f4d45fccf5afe727d5f22ff0acc694547141ec2c40377f634",
+    "tools/smoke-upgrader-browser.mjs": "e7e27a5ed4cbea21a5c587a825140d0d91ec254ecf3aff41930d715185f1e95e"
+  },
+  "inputs": {
+    "catalogSHA256": "6add2c5dd20809fd787438d3c8825f8dd21a74e7d3fc429f83c7a9a091045f6c",
+    "comboLibrarySHA256": "9a62c706660032d1d2320e0e597898a659496912dd51e9343cce59f0cb902d5b",
+    "archiveSHA256": "99403e75d61d51549135070e48e9caadc2fbd0e3d433c55ec7240076b772ecf7",
+    "libraryScope": "PR9 frozen Stage10 research-enriched cache, five commander entries; prior uploaded-only cache was an additional check"
+  },
+  "version": "1.1.5",
+  "sourceCaches": "Smoke uses a separate copy; no root-cache server launched",
+  "productionSelection": "unchanged",
+  "historicalEvidence": "unchanged; PR9 held-out 15-reference panels reused, not new samples",
+  "goldfish": {
+    "trials": 16,
+    "turns": 8,
+    "seed": "upgrader-v1",
+    "policy": "commander-first",
+    "coupling": "SHA256 physical card identity + occurrence, not numeric seed alone",
+    "notObserved": "native repeated draw, energy fixing, sacrifice/death resolution and win conversion"
+  },
+  "windows": "launcher unchanged; native Windows unverified",
+  "reviewFollowup": "3f00d963fe8dc8c1e9d000ea1b375da30fa5692c",
+  "uploadedUlalekOnlyCacheCrosscheck": {
+    "sha256": "cbe8505b795ba34137f9b8d42dee1911e80213c55db0ed108a39c7a78fdfc2d1",
+    "result": "Initial workflows passed; complete exports and goldfish outcomes identical under fuller PR9 frozen library. Both originals unchanged."
+  },
+  "inputCopiesPreserved": {
+    "uploadedCatalogAndMetadata": true,
+    "PR9FrozenEnrichedLibrary": true,
+    "uploadedOriginalLibrary": true
+  }
+}

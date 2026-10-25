@@ -1,0 +1,17 @@
+{
+  "README.md": "3b0f385154549675128db084d19baefb3a285b941a8793fcecedfcc5aa980839",
+  "b5-api.json": "891406614161dcde30d26effe2c7771fd29e644282271c1b718ef93ad5eff763",
+  "browser.json": "e9291e190657606f93b6b7ad1e24a6d52b92e76ea6957b16f2bba56dde209481",
+  "independent-audit.json": "eb3795b402390c8cae674044afa396cbf22721896e3607b77cb2fe88b71ac7fa",
+  "negative-api.json": "dfba8e5fa2bcf7ca8bf5630b00ec9ad01176cf19f7e1f559abcecd060c9eb0a0",
+  "provenance.json": "92ad5b27a21f51d042f0b06b6a440a588bfdb636dc92b68a338721abe6645b1f",
+  "receipts.json.gz": "6b936487478e294861052613e9668cd6b8584fc0a3385a91070e6dbb03a06019",
+  "summary.json": "9bee42f65988c0daa4c515edeb1bf111b62db2778aa5f9a7985ba8ca5bcf24cb",
+  "tests.json": "abb540595e186b6713d8c1500c4b2e162f0c16ba3745a31969ea178733b58114",
+  "ulalek-original.txt": "25e98e63206c8dbf969f01cb5ff8935c487ffbb566a9a9e0801b80943e820333",
+  "ulalek-proposed.txt": "ac2ab2506f664e12c18a4b586a22f1c432941162362d6c2565d80525ae5035cd",
+  "wilhelt-original.txt": "ef9e96bf815f7cc1db0867d6e3705e4cde8406e10bed1e2df838bcc51b7d8604",
+  "wilhelt-proposed.txt": "520331699ae51122e8e79ef3cd343259996bea0d7592592586a18cfa2be0727c",
+  "yshtola-original.txt": "9ac22ed2f7246d39bb0ea273d96a5046ae0beb8fbfd0cc571f7eb0d5765bac9f",
+  "yshtola-proposed.txt": "10eba1ae88dbd89c956f1018060b99b2caf78ddc88b56cbe0249874dc05054b6"
+}

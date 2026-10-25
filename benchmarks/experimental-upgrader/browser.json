@@ -1,0 +1,11 @@
+{
+  "checks": [
+    "ulalek: real API import, approve, reject, 100-card download and undo",
+    "wilhelt: real API import, approve, reject, 100-card download and undo",
+    "yshtola: real API import, approve, reject, 100-card download and undo",
+    "changed budget invalidates stale export",
+    "TXT upload preserves source text"
+  ],
+  "pageErrors": [],
+  "scope": "Actual browser and real local API over disposable frozen catalog/library; no mocked upgrade responses"
+}
