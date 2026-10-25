@@ -80,6 +80,11 @@ test('a source cannot fund its own casting cost or spend its tap twice',()=>{
  const l=run([rock]),mine=jobs(l).filter(j=>j.card===rock.name),mana=mine.find(j=>j.kind==='resource:mana');
  for(const j of mine.filter(j=>j.kind==='event:spell-cast'||j.kind==='access:activated'))assert.ok(j.resourceLinks.every(r=>!r.providers.includes(mana.id)));
 });
+test('printed mana quantities distinguish generic units, single hybrid units and unresolved variable costs',()=>{
+ const resources=printedCosts('{2}{C}{W/U}{X}',elf).resources;
+ assert.deepEqual(resources.map(r=>({symbol:r.symbol,amount:r.amount})),[{symbol:'2',amount:2},{symbol:'C',amount:1},{symbol:'W/U',amount:1},{symbol:'X',amount:null}]);
+ assert.equal(printedCosts('{2/W}',elf).resources[0].amount,null,'two-generic hybrid needs an explicit payment choice');
+});
 test('a chosen creature type is an undeclared choice rather than a predetermined commander archetype',()=>{
  const engine=card('Kindred Discovery','Enchantment','As this enchantment enters, choose a creature type.\nWhenever a creature you control of the chosen type enters or attacks, draw a card.');
  const j=jobs(run([engine,elf])).find(j=>j.card===engine.name&&j.kind==='access:entry');
@@ -99,6 +104,13 @@ test('an effect cannot bootstrap its own sacrifice payment with a not-yet-create
  const anchor=l=>jobs(l).find(j=>j.kind==='conversion:resource');
  assert.equal(before.obligations.find(o=>o.anchor===anchor(before).id&&o.id.endsWith('|material')).status,'supported');
  assert.equal(after.obligations.find(o=>o.anchor===anchor(after).id&&o.id.endsWith('|material')).status,'unsupported');
+});
+test('a partially parsed alternative sacrifice cost cannot create a failed material obligation',()=>{
+ const commander=card('Human Commander','Legendary Creature — Human','');
+ const alternate=card('Alternative cost','Artifact','Sacrifice a Zombie or an Elf: Draw a card.');
+ const l=buildCardJobLedger({commander,cards:complete([alternate,elf])});
+ assert.ok(l.obligations.filter(o=>o.anchor.includes('alternative cost')&&o.id.endsWith('material')).every(o=>o.status==='unknown'));
+ assert.ok(jobs(l).find(j=>j.card===alternate.name&&j.kind==='access:activated').cost.unparsed);
 });
 test('death-payoff outlet removal identifies the lost voluntary path without declaring all deaths impossible',()=>{
  const drain=card('Vengeful Dead','Creature — Zombie','Whenever this creature or another Zombie dies, each opponent loses 1 life.');

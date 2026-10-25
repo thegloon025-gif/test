@@ -17,7 +17,7 @@ const timing=line=>/^At the beginning of (?:your |each )?end step/i.test(line)?'
 
 export function printedCosts(text,card){
  const resources=[];let rest=text;
- for(const m of text.matchAll(/\{([^}]+)\}/g))resources.push({kind:m[1]==='T'?'tap-source':m[1]==='Q'?'untap-source':'mana',symbol:m[1],amount:1,consumed:true});
+ for(const m of text.matchAll(/\{([^}]+)\}/g))resources.push({kind:m[1]==='T'?'tap-source':m[1]==='Q'?'untap-source':'mana',symbol:m[1],amount:/^\d+$/.test(m[1])?Number(m[1]):/^[WUBRGCTQ](?:\/[WUBRGC])?$/.test(m[1])?1:null,consumed:true});
  rest=rest.replace(/\{[^}]+\}/g,'');
  const life=text.match(/Pay (\d+) life/i);if(life){resources.push({kind:'life',amount:Number(life[1]),consumed:true});rest=rest.replace(life[0],'');}
  const sacrifice=text.match(/[Ss]acrifice (?:(another|an?|any number of) )?(nontoken )?(creature|artifact|enchantment|land|[A-Z][a-z]+)(?: token)?\b/);
@@ -59,7 +59,7 @@ export function buildCardJobLedger({commander,cards,executionEvidence=null}={}){
    const mana=normalizedLine.match(/^\s*(\{T\}[^:]*):\s*Add ((?:\{[WUBRGC]\})+|one mana of any colou?r)\./i);
    if(mana&&!/["“]/.test(line.slice(0,line.indexOf('Add')))){
     const symbols=[...mana[2].matchAll(/\{([WUBRGC])\}/g)].map(m=>m[1]);
-    add(row,'resource:mana',line,{...common,status:cost?.unparsed||/if|unless|only|for each|doesn't untap/i.test(line)?'unknown':'supported',provides:[{kind:'mana',symbols:symbols.length?symbols:['W/U/B/R/G choice'],trueColorless:symbols.includes('C'),spendingRestrictions:/spend|only|can't|unless|for each/i.test(line)?line:'none parsed'}],unresolved:[...common.unresolved,'Production, tappedness, sickness and sequencing are not simulated']});
+    add(row,'resource:mana',line,{...common,status:cost?.unparsed||/if|unless|only|for each|doesn't untap/i.test(line)?'unknown':'supported',provides:[{kind:'mana',amount:symbols.length||1,symbols:symbols.length?symbols:['W/U/B/R/G choice'],trueColorless:symbols.includes('C'),spendingRestrictions:/spend|only|can't|unless|for each/i.test(line)?line:'none parsed'}],unresolved:[...common.unresolved,'Production, tappedness, sickness and sequencing are not simulated']});
    }
    const tokens=line.match(/\b[Cc]reate (a|an|one|two|three|four|[1-9]) ([^.]*?)tokens?\b/);
    if(tokens){
@@ -120,7 +120,7 @@ export function buildCardJobLedger({commander,cards,executionEvidence=null}={}){
     return material.type==='creature'?p.kind==='creature'||p.kind==='creature-token':material.type==='artifact'?p.kind==='treasure-token'||p.kind==='artifact':material.type==='land'?p.kind==='land':p.types?.includes(material.type)||p.descriptor?.includes(material.type);
    }));
    job.supportingCards=[...new Set([...job.supportingCards,...supports.map(s=>s.card)])].sort();
-   obligations.push({id:job.id+'|material',anchor:job.id,question:'Which existing material can pay this printed sacrifice cost?',status:status(supports.length>0,unknownCatalog),satisfiedBy:supports.map(s=>s.id),missing:supports.length?[]:['No recognized eligible material provider in the known inventory'],scope:'Potential material only; not simultaneous funded activations or sustained throughput'});
+   obligations.push({id:job.id+'|material',anchor:job.id,question:'Which existing material can pay this printed sacrifice cost?',status:job.cost?.unparsed?'unknown':status(supports.length>0,unknownCatalog),satisfiedBy:supports.map(s=>s.id),missing:supports.length?[]:['No recognized eligible material provider in the known inventory'],scope:'Potential material only; not simultaneous funded activations or sustained throughput'});
   }
   if(job.kind==='payoff:death'||job.kind==='access:death'){
    const tribe=job.oracle.match(/(?:another )?(?:nontoken )?([A-Z][a-z]+|creature)(?: you control)? dies/)?.[1]||'creature';
@@ -132,11 +132,11 @@ export function buildCardJobLedger({commander,cards,executionEvidence=null}={}){
   if(job.kind==='recovery:zone-access'){
    const guard=job.oracle.match(/as long as you control an? ([A-Z][a-z]+)/),support=guard?all.filter(c=>identity(c)!==identity({name:job.card})&&castHasSubtype(c,guard[1])):[];
    job.supportingCards=names(support);
-   obligations.push({id:job.id+'|zone-and-permission',anchor:job.id,question:'Are the actual graveyard card, permission and printed battlefield guard available?',status:guard&&!support.length&&!unknownCatalog?'unsupported':'unknown',satisfiedBy:names(support),scope:'No graveyard state or recast is invented. Token/unknown enablers and alternative recovery remain unverified'});
+   obligations.push({id:job.id+'|zone-and-permission',anchor:job.id,question:'Are the actual graveyard card, permission and printed battlefield guard available?',status:'unknown',missingRecognizedGuardProvider:!!guard&&!support.length,satisfiedBy:names(support),scope:'No graveyard state or recast is invented. Token/unknown enablers and alternative recovery remain unverified'});
   }
   if(job.kind==='conversion:resource')obligations.push({id:job.id+'|material-renewal',anchor:job.id,question:'What replaces the material consumed by another funded activation?',status:'unknown',satisfiedBy:jobs.filter(j=>j.id!==job.id&&(j.kind==='recovery:zone-access'||j.provides.some(p=>p.kind==='creature-token'))).map(j=>j.id),scope:'Possible renewal channels, not an executable cycle; zone, life, mana, ordering and shared objects must be proven'});
   job.resourceLinks=[];
-  for(const need of costs.filter(r=>r.kind==='mana')){
+  for(const need of costs.filter(r=>r.kind==='mana'&&r.amount!==0)){
    const receiver=slots.find(s=>s.slot===job.slot)?.card;
    const donors=jobs.filter(j=>j.id!==job.id&&!(j.slot===job.slot&&(j.oracle===job.oracle||job.kind==='event:spell-cast'||costs.some(r=>r.kind==='tap-source')&&j.cost?.resources.some(r=>r.kind==='tap-source')))&&
     !(job.kind==='event:spell-cast'&&/spend this mana only to activate/i.test(j.oracle))&&
