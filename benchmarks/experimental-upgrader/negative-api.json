@@ -1,0 +1,10 @@
+{
+  "ambiguousCommander": "prompted then explicit choice validated",
+  "conflict": {
+    "status": 400,
+    "error": "Conflicting packages remove the same card."
+  },
+  "unknownCard": "disclosed, no export",
+  "reset": "unchanged",
+  "library": "PR9 frozen research-enriched"
+}

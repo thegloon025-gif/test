@@ -1,0 +1,182 @@
+{
+  "scope": "scripted approvals, not gameplay endorsement",
+  "results": [
+    {
+      "id": "ulalek",
+      "originalValue": 174.24,
+      "resultValue": 175.89,
+      "purchase": {
+        "target": 40,
+        "tolerance": 0,
+        "ceiling": 40,
+        "grossPurchaseCost": 1.73,
+        "resaleCredit": 0,
+        "netAcquisitionCost": 1.73,
+        "remaining": 38.27,
+        "shippingIncluded": false,
+        "ownedNewCards": []
+      },
+      "runtime": {
+        "analysisMs": 68,
+        "proposalMs": 395,
+        "validationMs": 127,
+        "goldfishMs": 59,
+        "peakRSSKiB": 433664,
+        "peakScope": "process lifetime, not incremental allocation"
+      },
+      "checks": [
+        "100 slots",
+        "exact selected-printing audit",
+        "incremental budget",
+        "zero budget blocked",
+        "owned addition zero cost",
+        "undo original unchanged"
+      ],
+      "goldfishCoverage": "Conditional supported projections only; unknown native effects cannot be compared.",
+      "cuts": [
+        {
+          "id": "cb377c27-39a6-42b4-8c89-80a9a2350e81",
+          "name": "Solar Transformer",
+          "price": 0.08
+        }
+      ],
+      "adds": [
+        {
+          "id": "b7d4b7dd-fbb1-4ca3-875f-ef13a95e66ad",
+          "name": "Liquimetal Torque",
+          "price": 1.73,
+          "printing": {
+            "set": "sld",
+            "setName": "Secret Lair Drop",
+            "collectorNumber": "2559",
+            "language": "en",
+            "border": "borderless",
+            "finish": "normal",
+            "source": "Scryfall bulk printing",
+            "eligibleVersion": 2
+          }
+        }
+      ],
+      "reason": "Earlier supported mana deployment with the recognized output preserved; review additional lost Oracle abilities",
+      "confidence": "supported mana property; whole-deck improvement unverified"
+    },
+    {
+      "id": "wilhelt",
+      "originalValue": 163.25,
+      "resultValue": 163.09,
+      "purchase": {
+        "target": 40,
+        "tolerance": 0,
+        "ceiling": 40,
+        "grossPurchaseCost": 0.11,
+        "resaleCredit": 0,
+        "netAcquisitionCost": 0.11,
+        "remaining": 39.89,
+        "shippingIncluded": false,
+        "ownedNewCards": []
+      },
+      "runtime": {
+        "analysisMs": 66,
+        "proposalMs": 221,
+        "validationMs": 118,
+        "goldfishMs": 67,
+        "peakRSSKiB": 519440,
+        "peakScope": "process lifetime, not incremental allocation"
+      },
+      "checks": [
+        "100 slots",
+        "exact selected-printing audit",
+        "incremental budget",
+        "zero budget blocked",
+        "owned addition zero cost",
+        "undo original unchanged"
+      ],
+      "goldfishCoverage": "Conditional supported projections only; unknown native effects cannot be compared.",
+      "cuts": [
+        {
+          "id": "365548fb-5acc-4a8a-b20b-26d28b7d029f",
+          "name": "Village Rites",
+          "price": 0.27
+        }
+      ],
+      "adds": [
+        {
+          "id": "660de988-b6fb-4f36-8006-42af3e7f908d",
+          "name": "Vampiric Rites",
+          "price": 0.11,
+          "printing": {
+            "set": "fdn",
+            "setName": "Foundations",
+            "collectorNumber": "615",
+            "language": "en",
+            "border": "black",
+            "finish": "normal",
+            "source": "Scryfall bulk printing",
+            "eligibleVersion": 2
+          }
+        }
+      ],
+      "reason": "Optional one-shot access \u2192 persistent conditional engine tradeoff with qualifying support in this deck; loses immediate access/tempo and requires deployment, survival and paid follow-ups",
+      "confidence": "unverified"
+    },
+    {
+      "id": "yshtola",
+      "originalValue": 90.68,
+      "resultValue": 90.8,
+      "purchase": {
+        "target": 40,
+        "tolerance": 0,
+        "ceiling": 40,
+        "grossPurchaseCost": 0.2,
+        "resaleCredit": 0,
+        "netAcquisitionCost": 0.2,
+        "remaining": 39.8,
+        "shippingIncluded": false,
+        "ownedNewCards": []
+      },
+      "runtime": {
+        "analysisMs": 81,
+        "proposalMs": 602,
+        "validationMs": 113,
+        "goldfishMs": 65,
+        "peakRSSKiB": 646212,
+        "peakScope": "process lifetime, not incremental allocation"
+      },
+      "checks": [
+        "100 slots",
+        "exact selected-printing audit",
+        "incremental budget",
+        "zero budget blocked",
+        "owned addition zero cost",
+        "undo original unchanged"
+      ],
+      "goldfishCoverage": "Conditional supported projections only; unknown native effects cannot be compared.",
+      "cuts": [
+        {
+          "id": "bcf29dd7-6d5a-4139-958e-7c59434c0770",
+          "name": "Cast Away Doubt",
+          "price": 0.08
+        }
+      ],
+      "adds": [
+        {
+          "id": "1ff62220-be95-4901-b8d8-812b9a1a1b0a",
+          "name": "Greed",
+          "price": 0.2,
+          "printing": {
+            "set": "c21",
+            "setName": "Commander 2021",
+            "collectorNumber": "145",
+            "language": "en",
+            "border": "black",
+            "finish": "normal",
+            "source": "Scryfall bulk printing",
+            "eligibleVersion": 2
+          }
+        }
+      ],
+      "reason": "Optional one-shot access \u2192 persistent conditional engine tradeoff with qualifying support in this deck; loses immediate access/tempo and requires deployment, survival and paid follow-ups",
+      "confidence": "unverified"
+    }
+  ]
+}
