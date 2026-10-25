@@ -1,0 +1,26 @@
+{
+  "privateReferences": 7,
+  "privateReferenceRecords": 700,
+  "privateUnknownCards": 5,
+  "privateScope": "Graph/cost receipts and known-record identities; no complete legality/price certification for unresolved references, no personal card lists in this public report",
+  "originalDecks": 12,
+  "controlledMutations": 6,
+  "selectedPrintingSlots": 1800,
+  "jobsChecked": 7782,
+  "obligationsChecked": 5066,
+  "costReceipts": 3303,
+  "potentialSourceLinks": 3692,
+  "failures": [],
+  "sourceSHA256": {
+    "src/jobLedger.mjs": "925816b0e7a5353f6b20d1b2ada246f2b0e75d1bfbf2ea32767426d73ede6536",
+    "src/generator.mjs": "8e59102334afce8385d1930fa52e975202375a06b7218ff6a2b3f775654655f1",
+    "src/strategyRelations.mjs": "c905e8d45b616cfc3c435f983877c0c0760d7be0a867cb585c12fd132a57fbfb",
+    "src/engineSupport.mjs": "e33b1dedfcb110bc9d0d2bd44df6fd9cc551d6f69e0667d9e4ace55be0a3aade",
+    "src/strategyExecution.mjs": "6555a42346370204e2e00cfb82f40880e87195498bd9baf239c637996b436787",
+    "src/roleEvidence.mjs": "ebea5a606327a0d8a2e144d64faed36524ca9173481ef4fc06c005a8a6bd4684",
+    "src/strategyFirst.mjs": "d469589774e4ff01349c8c49b8dd76505a25d76a54def6e3c008a40f1b915617",
+    "src/packageInvestment.mjs": "d49649ffada79f0f99be2e602288287f80468371805f01e807c086248890086a"
+  },
+  "bundleSHA256": "d93ed336f87cf6e1c67539bca25f27237b58297429a5f2d6f278cdca2a15f393",
+  "scope": "Independent static identity/printing/cents and graph/cost receipts; no simulated zone movement, resource spending or gameplay proof. Existing standard compact-inventory helper reused explicitly."
+}

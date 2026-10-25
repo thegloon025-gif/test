@@ -1,0 +1,32 @@
+{
+  "baseline": {
+    "tests": 219,
+    "pass": 219,
+    "fail": 0,
+    "durationMs": 76149.44977
+  },
+  "stage12Fix": {
+    "tests": 222,
+    "pass": 222,
+    "fail": 0,
+    "durationMs": 75680.635594
+  },
+  "full": {
+    "tests": 246,
+    "pass": 246,
+    "fail": 0,
+    "durationMs": 115279.239237
+  },
+  "focused": {
+    "tests": 44,
+    "pass": 44,
+    "fail": 0,
+    "durationMs": 2369.293057
+  },
+  "toleranceBoundary": {
+    "tests": 10,
+    "pass": 10,
+    "fail": 0,
+    "durationMs": 102525.766007
+  }
+}

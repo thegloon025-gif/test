@@ -1,3 +1,5 @@
+> Current milestone: [read-only shadow job ledger](docs/SHADOW_JOB_LEDGER.md). Production scalar selection remains unchanged pending validation; incomplete legacy exports now fail closed. Historical measurements below remain frozen.
+
 # CommanderOracle Independent — Codex handoff
 
 **Starting source version:** v1.1.5 (2026-10-21). This handoff records prior human-observed benchmarks and project priorities; do not confuse them with independently reproduced tests. This is a local-first Node.js 22+ Commander deckbuilder, not a paid-AI wrapper.
@@ -60,3 +62,41 @@ More reliable EDHREC-like insights **only from authorized sources**; functional 
 ## Stage 10 — PR #6 research continuation
 
 Work is on codex/stage10-any-commander-research, based on draft PR #2 separately from gameplay PR #4. Read Issue #5, docs/RESEARCH_STAGE10.md and benchmarks/stage10-VALIDATION.md. Commander GET discovery runs without Archidekt, with nullable-total-safe pagination and partial/stale provenance. Other locally legal color candidates are advisory colorCandidates, separate from constructor variants, and cannot evict known combo knowledge. Existing source-deck POST, exact pricing, bracket/source/commitment rules, local fallback and Windows launcher remain. No EDHREC rights assumption/scraping, commander sets, Pod activation, gameplay ranking, release, version change or stronger-deck claim is authorized. Full branch tests and live/browser/Windows limits are in the report; this branch has a different test baseline from gameplay PR #4.
+
+
+## Stage 11/12 — draft PR #9 integration continuation
+
+Branch `codex/stage11-12-strategy-integration` starts at exact PR #8 head
+`85f1f2ce82a4de9150f06482827b750dba75c6a4` and targets
+`codex/stage12-local-edhrec-knowledge`. Existing PRs #2/#4/#6/#8 remain draft,
+unmerged and preserved. Read `docs/STRATEGY_STAGE11.md` and the new validation
+report before drawing quality conclusions. Stage 12 fixes are separate commits
+from construction/UX and generated evidence.
+
+No PR #4 stateful evaluator is integrated; existing PR #2 bounded probes remain.
+The local importer cannot affect production selection. Complete candidates now
+have a bounded additional refinement opportunity, engine/dependency explanations
+and audited alternatives. The existing scalar still resolves incomparable
+survivors provisionally; do not present this as a solved quality objective.
+Personal references remain private/local and excluded from their held-out
+research cohort; historical unfiltered reproduction is a separate experiment.
+Betor's intended commander is user-confirmed **Betor, Ancestor's Voice**.
+
+Version stays 1.1.5. Preserve target/tolerance/effective-maximum accounting,
+exact selected printing audits, basics-owned default, standard B3/B4, inactive
+Pod, source/commitment/colorless constraints, original caches and Windows
+launcher. Native Windows, unsupported Oracle mechanics and external strength
+remain explicit validation limits; no automatic Deck Upgrader is authorized.
+
+
+Final Stage 11 audit found that deep refinement erased Warren Soultrader's
+unmodeled native life/sacrifice/Treasure conversion, including the path to the
+old €102.06 Wilhelt B3. The new generic uncertainty guard retains safe input
+paths, with canonical-name printing equivalence and explicit proposal receipts.
+Under the frozen €191 cohort the recommendation becomes source 3838228,
+**€163.25**, not a certified power improvement. Ulalek stays €174.24/€173.88 and
+Wilhelt B4 €181.80. Y'shtola's observed noncreature/MV prerequisite and Zada's
+unparsed targets-only restriction are handled generically; no reference recipes
+or commander-name bonuses enter construction. Read all checkpoint tradeoffs
+before treating this as a solved quality objective; an automatic Upgrader and
+production gameplay ranking remain unjustified.

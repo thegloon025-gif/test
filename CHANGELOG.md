@@ -1,3 +1,37 @@
+- Added offline score-free functional shadow probes, physical-dependency analysis and counterfactual ablations; production selection remains unchanged. See docs/FUNCTIONAL_SHADOW.md.
+
+## Unreleased shadow job ledger — still 1.1.5
+
+Adds a local read-only, score-free card-job ledger, plan-specific obligation observations and destructive-mutation diagnostics. No construction/selection integration or export changes. The isolated legacy guard refuses incomplete direct/fallback outputs while preserving valid strategy-first construction. Generated evidence and private reference analysis remain separate. See docs/SHADOW_JOB_LEDGER.md for supported/unsupported/unknown semantics, limits and proposed migration of the six scalar decision points. No release or gameplay-power claim.
+
+## Unreleased — Stage 11/12 integration (draft PR #9)
+
+- Validate the exact Stage 12 branch before changes; preserve conflicting local
+  observations, explicit unknown source age and non-ranked examples. Rebuild
+  persisted derived data, bound reads, use unique atomic writes and exercise
+  real CLI imports with paths containing spaces. No network EDHREC adapter or
+  recommendation-statistic production ranking.
+- Discover bounded Oracle-backed engine hypotheses without commander-name
+  presets or private reference lists. Describe actual supporting cards,
+  sacrifice costs, material, death outcomes, multi-role dependencies and unknowns.
+  Reject conditional reduction assumptions and repair zero-MV discovery ordering.
+- Preserve prior preferred/mana/access refinement opportunities and offer a
+  fourth bounded turn to a screened source alternative. Protect distinct
+  relationship capabilities during complete-candidate pruning; keep uncertainty
+  and the existing comparator explicit rather than inventing a new power score.
+- Reject unsupported native-engine removal: simple generic role dominance no
+  longer certifies replacing selected life/sacrifice/Treasure conversions.
+  Preserve physical-card equivalence across printing aliases and explain
+  quarantined proposals. Correct observed spell-type/MV prerequisites; unparsed
+  target/zone qualifiers remain unknown instead of earning generic cast credit.
+- Add audited complete alternatives and a text-only Why this deck comparison
+  view. Add explicit basic-land valuation and optional €4 effective hard maximum,
+  consistent construction, reconciliation and original-target regeneration.
+- Add frozen-input generation, held-out reference preprocessing, independent
+  receipt audits and browser/API workflow tools. Historical measurements and
+  original caches remain unchanged. No version bump, merge, release, Pod
+  activation, PR #4 stateful gameplay ranking or automatic upgrader.
+
 ## Unreleased — Stage 10 automatic commander research (draft PR #6)
 
 - Independent commander-containing Spellbook discovery works without Archidekt sources, with live nullable-total pagination, useful partial results and honest stale-cache fallback.

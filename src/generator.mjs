@@ -1,3 +1,5 @@
+import {auditExportPricing} from './pricing.mjs';
+import {budgetPolicy,applyBudgetValuation,budgetUsage} from './budgetPolicy.mjs';
 import {auditComboExecutions} from './comboExecutionEvidence.mjs';
 import {investmentEvidence,functionallyBetter} from './packageInvestment.mjs';
 import {constructStrategyDeck,strategyScore} from './strategyFirst.mjs';
@@ -119,7 +121,7 @@ function targetsFor(plan,commander,profile,all){
  }
  return out;
 }
-export function generateLegacyDeck({cards,commander,budget=191,bracket=3,comboVariants=[],powerTarget='balanced',communityBuild=null}){
+function buildLegacyScaffold({cards,commander,budget=191,bracket=3,comboVariants=[],powerTarget='balanced',communityBuild=null}){
  const fitsSelectionLimits=createSelectionLimitChecker();
  const b=Number(bracket),profile=BRACKETS[b],cap=Number(budget);
  if(!profile)throw Error('Choose bracket 2, 3 or 4.');
@@ -194,7 +196,9 @@ export function generateLegacyDeck({cards,commander,budget=191,bracket=3,comboVa
  for(const c of chosen.filter(isLandSlot))for(const color of colorTotals.keys())if(landAccess(c,{commander,plan,lands:chosen.filter(isLandSlot)}).reliable.includes(color))colorTotals.set(color,colorTotals.get(color)+1);
  let basicNum=0;
  while(chosen.filter(isLandSlot).length<landQuota){let name;if(!legalColors.length)name='Wastes';else {const color=[...colorTotals].sort((a,b)=>a[1]-b[1])[0][0];name=({W:'Plains',U:'Island',B:'Swamp',R:'Mountain',G:'Forest'})[color];colorTotals.set(color,colorTotals.get(color)+1);}chosen.push(basicMap.get(name));basicNum++;}
- // Explicit land budget reserve was applied above; basics have nominal zero price.
+ // Account for explicitly unowned basic records before choosing spells.
+ spent=cmdPrice+chosen.reduce((n,c)=>n+(priceOf(c)??Infinity),0);
+ if(spent>cap)throw Error('Land configuration exceeds the effective budget.');
  const spellQuota=99-landQuota;
  const targets=targetsFor(plan,commander,profile,analyzed);
  const roleCounts=role=>chosen.filter(c=>{const o=analyzedById.get(oracleId(c));return o?.s.roles.includes(role);}).length;
@@ -564,19 +568,41 @@ export function generateLegacyDeck({cards,commander,budget=191,bracket=3,comboVa
 }
 
 
+/** Fail closed on the documented partial legacy result. The private scaffold
+ * may still supply diagnostics to a valid strategy-first build; it is never an
+ * export/fallback until its exact physical count and completeness pass. */
+function requireCompleteLegacy(deck){
+ if(deck.totalCards!==100||selectedCards(deck)?.length!==100||deck.qualityVerdict==='INCOMPLETE')
+  throw Error('Legacy generation is incomplete ('+deck.totalCards+'/100 cards); refusing export or fallback. Use strategy-first construction.');
+ return deck;
+}
+export function generateLegacyDeck(options){return requireCompleteLegacy(buildLegacyScaffold(options));}
+
+
 /** New API engine; the historical single-path constructor remains independently
  * accessible for deterministic A/B tests and as a hard safety fallback.
  * The old result is *only* a reporting scaffold for successfully constructed
  * strategy-first candidates. Its spell/land decisions never fill these decks.
  */
 export function generateDeck(opts){
+ const policy=budgetPolicy(opts),cards=applyBudgetValuation(opts.cards,policy);
+ const commander=cards.find(c=>oracleId(c)===oracleId(opts.commander));
+ if(!commander)throw Error('Commander is missing from priced catalog.');
+ const result=generateWithEffectiveBudget({...opts,cards,commander,budget:policy.effectiveMaximum});
+ if(result.totalCards!==100||selectedCards(result)?.length!==100)throw Error('Final physical deck count is not 100; refusing export.');
+ if(result.price>policy.effectiveMaximum+0.005)throw Error('Final selected deck exceeds the effective maximum.');
+ result.budgetPolicy=budgetUsage(policy,result.price);
+ result.warnings=result.warnings.map(w=>w.startsWith('Budget estimates use cached Scryfall EUR prices')?'Selected EUR estimates; '+policy.assumption+'. Shipping excluded.':w);
+ return result;
+}
+function generateWithEffectiveBudget(opts){
  const {cards,commander,bracket=3,budget=191,powerTarget='balanced',communityBuild=null,
   communityDecks=[],constructionMode='legacy',comboVariants=[]}=opts;
  if(!['legacy','strategy-first'].includes(constructionMode))throw Error('Unknown construction mode.');
- const legacy=generateLegacyDeck(opts);
+ const legacy=buildLegacyScaffold(opts);
  if(constructionMode==='legacy'){
   legacy.constructionEngine={mode:'legacy',selected:'legacy',reason:'Explicit old-generator A/B selection'};
-  return legacy;
+  return requireCompleteLegacy(legacy);
  }
  const plan=planFor(commander),landQuota=BRACKETS[Number(bracket)].lands+((commander.color_identity||[]).length>=4?1:0);
  const referenceCards=selectedCards(legacy)?.slice(1)||[];
@@ -594,6 +620,7 @@ export function generateDeck(opts){
  const functionalImprovement=!!candidate&&baseline.length===99&&functionallyBetter(investmentEvidence(candidate.cards,commander,plan),investmentEvidence(baseline,commander,plan));
  const materiallyWorse=!!candidate&&!!baselineScore&&!functionalImprovement&&candidate.score.value<baselineScore.value-18;
  if(failed||materiallyWorse){
+  requireCompleteLegacy(legacy);
   return {...legacy,constructionEngine:{...pool.report,mode:'strategy-first',selected:'legacy-fallback',
    reason:failed?'Independent complete-deck candidate failed a hard validation gate.':'Independent whole-deck evidence was materially below the legacy reference.',
    legacyScore:baselineScore?.value??null},
@@ -632,8 +659,18 @@ export function generateDeck(opts){
   evidence:'Full independent source-deck scaffold or local archetype; never asserted to be a proven strategy',
   highConfidence:!!communityBuild?.highConfidence,sourceDecks:candidate.sourceKey?[candidate.sourceKey]:[],added:sourceNames,
   newCardCount:sourceNames.length,committedPackages:[],skipped:[]};
+ const alternatives=(pool.alternatives||[]).map(row=>{
+  const ordered=row.cards.filter(c=>!isLandSlot(c)).sort((a,b)=>a.name.localeCompare(b.name)).concat(row.cards.filter(isLandSlot).sort((a,b)=>a.name.localeCompare(b.name)));
+  const alternative=withSelectedCards({deck:`1 ${exportCardName(commander)} *CMDR*\n${ordered.map(c=>`1 ${exportCardName(c)}`).join('\n')}`,price:row.price,budget:Number(budget)},commander,ordered);
+  const audit=auditExportPricing(alternative,commander,cards);
+  if(audit.count!==100||!audit.withinBudget||!audit.agreesWithGenerator||audit.anomalies.length)throw Error('Alternative deck exact-printing audit failed.');
+  const comparison=pool.report.comparison.find(x=>x.id===row.strategy);
+  return {id:row.strategy,recommended:row.strategy===candidate.strategy,deck:alternative.deck,price:audit.total,pricingAudit:audit,relations:row.relations,comparison,sourceKey:row.sourceKey,committedCombos:row.committedCombos,
+   explanation:comparison?.selection.reason==='selected'?'Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior':comparison?.selection.reason};
+ });
  const high=Number(bracket)===4||(Number(bracket)===3&&powerTarget==='high');
  return withSelectedCards({...legacy,deck,price:roundCost(candidate.price),totalCards:100,landCount:lands.length,colorlessSources:all.filter(trueColorlessSource).length,
+  alternatives,whyThisDeck:{relations:pool.report.comparison.find(x=>x.id===candidate.strategy)?.relations,discovered:pool.report.discovered,selection:'Supported capabilities constrain pruning. Remaining incomparable strategies use the existing heuristic; this is not an objective power winner.',alternatives:alternatives.map(a=>({id:a.id,price:a.price,explanation:a.explanation}))},
   comboPlan,needs,qualityAudit:quality,roleAudit:evidence,selectionAudit:selection,
   highPowerAudit:high?highPowerAudit(all):null,openingHands:sampleOpeningHands(all,{seed:`${oracleId(commander)}:B${bracket}:strategy-first`}),
   communityConstruction:community,wholeDeckOptimization:null,manaOptimization:null,reinvestment:null,

@@ -1,8 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {mkdtemp,rm,readFile} from 'node:fs/promises';
+import {mkdtemp,rm,readFile,writeFile,readdir,mkdir} from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
+import {fileURLToPath} from 'node:url';
 import {parseEdhrecCommanderJson,importEdhrecCommanderJson,readEdhrecCommanderJson,edhrecCachePath} from '../src/edhrecKnowledge.mjs';
 
 const commander='Wilhelt, the Rotcleaver';
@@ -18,9 +19,10 @@ const fixture={container:{json_dict:{card:{name:commander},cardlists:[
 test('category cards are not double counted; num_decks is not automatically a percentage',()=>{
  const data=parseEdhrecCommanderJson(fixture,{commanderName:commander});
  assert.equal(data.cardCount,3);
- assert.equal(data.distinctCards[0].stats.inclusionFraction,0.75);
- assert.equal(data.distinctCards[0].stats.synergy,0.24);
- assert.deepEqual(data.distinctCards[0].categories,['High Synergy Cards','Top Cards']);
+ const grave=data.distinctCards.find(c=>c.name==='Gravecrawler');
+ assert.equal(grave.stats,null);assert.equal(grave.conflictingStatistics,true);
+ assert.deepEqual(grave.observations.map(v=>v.inclusionFraction),[0.75,0.9]);
+ assert.deepEqual(grave.categories,['High Synergy Cards','Top Cards']);
  assert.equal(data.distinctCards[2].stats.inclusionFraction,null);
  assert.equal(data.omittedEntries,1);
 });
@@ -42,9 +44,70 @@ test('bounded local import, safe commander identity cache and advisory-only repo
   assert.equal(out.status,'local-import');
   assert.equal(out.ageHours,36);
   assert.equal(out.cardCount,3);
-  assert.equal(out.topCards[0].name,'Gravecrawler');
-  assert.equal(out.topCards[0].synergy,0.24);
+  assert.equal(out.topCards[0].name,'Cryptbreaker');
+  assert.equal(out.topCards.find(c=>c.name==='Gravecrawler').synergy,null);
+  assert.equal(out.sourceRetrievedAt,null);assert.match(out.exampleOrdering,/not recommendation/);
   const persisted=JSON.parse(await readFile(result.file,'utf8'));
   assert.equal(persisted.source,'EDHREC user-supplied snapshot');
  }finally{await rm(dir,{recursive:true,force:true});}
+});
+
+
+test('round trips revalidate observations instead of trusting persisted derived recommendations',async()=>{
+ const directory=await mkdtemp(path.join(os.tmpdir(),'co stage12 spaces '));
+ try{
+  const {file,saved}=await importEdhrecCommanderJson({commanderName:commander,payload:fixture,directory,retrievedAt:'2026-10-01',now:()=> '2026-10-24'});
+  saved.distinctCards[0]={name:'Forged top suggestion',stats:{synergy:1}};
+  await writeFile(file,JSON.stringify(saved));
+  const out=await readEdhrecCommanderJson({commanderName:commander,directory,now:()=>Date.parse('2026-10-25')});
+  assert.ok(!out.topCards.some(c=>c.name==='Forged top suggestion'));
+  assert.equal(out.sourceAgeHours,576);assert.equal(out.ageHours,24);
+  for(const raw of ['{',JSON.stringify({...saved,commanderName:'Wrong commander'}),JSON.stringify({...saved,importedAt:'nonsense'}),' '.repeat(3_000_001)]){
+   await writeFile(file,raw);await assert.rejects(readEdhrecCommanderJson({commanderName:commander,directory}));
+  }
+ }finally{await rm(directory,{recursive:true,force:true});}
+});
+test('missing, invalid numeric values and category ordering never create a merged ranked cohort',()=>{
+ const f=structuredClone(fixture);f.container.json_dict.cardlists.reverse();
+ const a=parseEdhrecCommanderJson(f,{commanderName:commander});
+ assert.deepEqual(a.distinctCards.map(c=>c.name),['Cryptbreaker','Gravecrawler','Relentless Dead']);
+ assert.equal(a.distinctCards[1].stats,null);
+ f.container.json_dict.cardlists=[{cardviews:[{name:'A',num_decks:'75',potential_decks:100,synergy:Infinity},{name:'B',num_decks:101,potential_decks:100,synergy:2},{name:'C',num_decks:-1,potential_decks:0,synergy:NaN}]}];
+ const cards=parseEdhrecCommanderJson(f,{commanderName:commander}).distinctCards;
+ assert.ok(cards.every(c=>c.stats.inclusionFraction===null&&c.stats.synergy===null));
+ assert.throws(()=>edhrecCachePath('x'.repeat(161)),/Invalid/);
+});
+test('atomic concurrent imports preserve complete readable files and remove temporary files',async()=>{
+ const directory=await mkdtemp(path.join(os.tmpdir(),'co-stage12-atomic-'));
+ try{
+  await Promise.all(Array.from({length:8},()=>importEdhrecCommanderJson({commanderName:commander,payload:fixture,directory})));
+  assert.equal((await readEdhrecCommanderJson({commanderName:commander,directory})).cardCount,3);
+  assert.equal((await readdir(directory)).length,1);
+  const bad=path.join(directory,'not a directory');await writeFile(bad,'keep');
+  await assert.rejects(importEdhrecCommanderJson({commanderName:commander,payload:fixture,directory:bad}));
+  assert.equal(await readFile(bad,'utf8'),'keep');
+  await assert.rejects(importEdhrecCommanderJson({commanderName:commander,payload:fixture,directory,retrievedAt:'2099-01-01'}),/retrieval/);
+ }finally{await rm(directory,{recursive:true,force:true});}
+});
+
+test('real CLI quoted path arguments with spaces round trip and repeated flags fail',async()=>{
+ const {execFile}=await import('node:child_process'),{promisify}=await import('node:util');
+ const run=promisify(execFile),directory=await mkdtemp(path.join(os.tmpdir(),'co CLI space '));
+ try{
+  const input=path.join(directory,'my source file.json'),output=path.join(directory,'my local imports');await writeFile(input,JSON.stringify(fixture));
+  const cli=fileURLToPath(new URL('../tools/import-edhrec-json.mjs',import.meta.url));
+  const result=await run(process.execPath,[cli,'--commander',commander,'--file',input,'--directory',output]);
+  assert.match(result.stdout,/Imported 3/);assert.equal((await readEdhrecCommanderJson({commanderName:commander,directory:output})).cardCount,3);
+  await assert.rejects(run(process.execPath,[cli,'--file',input,'--file',input,'--commander',commander]),/repeated/);
+ }finally{await rm(directory,{recursive:true,force:true});}
+});
+
+test('conflicting repeated observations do not inflate a category distinct-card count',async()=>{
+ const directory=await mkdtemp(path.join(os.tmpdir(),'co-stage12-count-'));
+ try{
+  const f=structuredClone(fixture);f.container.json_dict.cardlists[0].cardviews.push({name:'Gravecrawler',num_decks:50,potential_decks:100,synergy:.1});
+  await importEdhrecCommanderJson({commanderName:commander,payload:f,directory});
+  const report=await readEdhrecCommanderJson({commanderName:commander,directory});
+  assert.equal(report.cardCount,3);assert.equal(report.categories[0].count,2);assert.equal(report.categories[0].observations,3);
+ }finally{await rm(directory,{recursive:true,force:true});}
 });

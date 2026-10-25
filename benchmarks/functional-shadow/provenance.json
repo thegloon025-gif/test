@@ -1,0 +1,40 @@
+{
+  "implementationCommit": "2089818",
+  "sources": {
+    "src/functionalGoldfish.mjs": "cbf4f4c5f8d840ea3f01f02fea6d8036983b808643374ca12915dac414af081a",
+    "src/functionalAblation.mjs": "ab4c20425ac04a50a8ea2753eda5e78a7e51974a7d2a432e72aa772990876c59",
+    "src/functionalTraceAudit.mjs": "3e9488cf1cf3d217f939aba1a44a39f8830953450e23b22b6945442cd90e083a",
+    "tools/benchmark-functional-shadow.mjs": "eff5dd55a01508d41c8f0a5a7b6609cc7780c025e650e64244476ed8d9c3fbac",
+    "tools/functional-goldfish.mjs": "207af716198c378f8fe2cd3d02c5fa2ea38417e793839ba2a02c8d8bcc82edf7",
+    "tests/functional-goldfish.test.mjs": "c6f9fe839260b49a4654f72f64f6fd81f458c5e1d4115e71f9f4648d88873b6e"
+  },
+  "protocol": {
+    "turns": 8,
+    "trialsPerPolicy": 16,
+    "policies": [
+      "commander-first",
+      "development-first"
+    ],
+    "baselineSeed": "functional-heldout-2026-10-25-v1",
+    "ablationSeed": "functional-ablation-2026-10-25-v1"
+  },
+  "runtimeMs": 4214,
+  "auditedTraces": 1728,
+  "fullPrivateOutputSHA256": "04a4eda923cd87ec33ede6096762b7c385c6234b2ddd0930212931766a4c78a2",
+  "originalInputs": "Unchanged frozen job-ledger catalog/archive; no production calls",
+  "smoke": {
+    "status": 200,
+    "page": 200,
+    "cache": "isolated empty worktree",
+    "port": 4323
+  },
+  "windows": "launcher unchanged; native execution unverified",
+  "auditFollowupCommit": "735fe54",
+  "strictCostAudit": {
+    "traces": 1728,
+    "printedCostAndTax": "passed",
+    "elapsedMs": 4123,
+    "outputsIdenticalToPriorAudit": true
+  },
+  "cliSmoke": "path spaces, roundtrip, overwrite refusal passed"
+}

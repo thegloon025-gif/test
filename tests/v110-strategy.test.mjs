@@ -104,3 +104,29 @@ test('v1.1 blocks inventory-complete recorded 2-card infinites at B3, not at B4'
  assert.equal(conservativeComboViolation(pair.slice(0,1),commander,[known],3),null);
  assert.equal(conservativeComboViolation(pair,commander,[{...known,isInfinite:false}],3),null);
 });
+
+test('explicit tolerance and owned basics propagate through completed candidate audits',()=>{
+ const d=generateDeck({...shared,budget:160,budgetTolerance:4,basicLandsOwned:true,constructionMode:'strategy-first'});
+ assert.equal(d.budget,164);assert.equal(d.budgetPolicy.target,160);assert.equal(d.budgetPolicy.tolerance,4);
+ assert.equal(d.budgetPolicy.unused,Math.round((164-d.price)*100)/100);
+ assert.ok(d.alternatives.length>=1&&d.alternatives.length<=4);
+ for(const alt of d.alternatives){assert.equal(alt.deck.split('\n').length,100);assert.equal(alt.pricingAudit.provenance,'exact-selected-cards');assert.ok(alt.pricingAudit.withinBudget&&alt.pricingAudit.agreesWithGenerator);}
+ assert.ok(d.whyThisDeck.relations);assert.equal(d.constructionEngine.packageExpansion.limit,4);
+});
+test('counting explicitly unowned basics reconciles exact records and preserves the original catalog',()=>{
+ const priced=cards.map(c=>c.type_line.startsWith('Basic')?{...c,prices:{eur:.2}}:c);
+ const d=generateDeck({...shared,cards:priced,basicLandsOwned:false,constructionMode:'strategy-first'});
+ assert.equal(d.totalCards,100);assert.equal(d.budgetPolicy.basicLandsOwned,false);
+ assert.ok(d.price<=191);assert.ok(d.alternatives.every(x=>x.pricingAudit.agreesWithGenerator));
+ assert.ok(priced.filter(c=>c.type_line.startsWith('Basic')).every(c=>priceOf(c)===0),'caller records stay owned-by-default');
+});
+
+test('explicit tolerance permits a selected-record total above target but never above its effective cap',()=>{
+ const premium={...commander,prices:{eur:160.01}},free=cards.map(c=>c.id===commander.id?premium:{...c,prices:{eur:0}});
+ const options={...shared,cards:free,commander:premium,budget:160,constructionMode:'strategy-first'};
+ assert.throws(()=>generateDeck(options),/Commander alone exceeds/);
+ const deck=generateDeck({...options,budgetTolerance:4});
+ assert.equal(deck.totalCards,100);assert.equal(deck.price,160.01);assert.equal(deck.budgetPolicy.overTarget,.01);
+ assert.equal(auditExportPricing(deck,premium,free).withinBudget,true);
+ assert.equal(auditExportPricing({...deck,budget:160},premium,free).withinBudget,false,'audit still enforces the explicit effective cap');
+});

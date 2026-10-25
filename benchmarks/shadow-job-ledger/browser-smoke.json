@@ -1,0 +1,26 @@
+{
+  "browser": "Chromium/Playwright",
+  "realServerCatalogSearch": true,
+  "controlledAuditedDeckResponses": true,
+  "externalBrowserRequestsBlocked": true,
+  "requests": [
+    {
+      "budget": 160,
+      "budgetTolerance": 4,
+      "basicLandsOwned": true
+    },
+    {
+      "budget": 190,
+      "budgetTolerance": 4,
+      "basicLandsOwned": true
+    }
+  ],
+  "checks": [
+    "Actual Why this deck panel renders real named support, prerequisites, uncertainty and explicit 160+4 maximum",
+    "Complete alternative exports contain 100 lines",
+    "Alternative clipboard copies its complete list",
+    "Regeneration adds 30 to original 160 target, tolerance once; previous deck and actual-cart reference preserved"
+  ],
+  "pageErrors": [],
+  "limitations": "UI fixtures reuse an actual separately generated/audited API deck. Regeneration UI test is not a fresh quality or generation measurement at 194 EUR. Native Windows untested."
+}

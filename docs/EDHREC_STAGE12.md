@@ -30,3 +30,22 @@ On the next `Research & Generate` (or local generation), a report line discloses
 The real full-deck quality bottleneck remains `local:engine` versus source-informed Wilhelt B3 strategy selection (legacy score differs by ~0.32), not absence of research. Stage 11 must evaluate coherent complete decks with independent manual comparisons, and if licensed inclusion/synergy data is available later can use it as **one attributed source of evidence**, not price, card popularity or combo-count merit. Keep a separate review for any future integration of a live licensed EDHREC provider.
 
 Test: `node --test tests/stage12-edhrec-knowledge.test.mjs`; then `npm test`, Windows launcher and browser verification before considering any merge. No unverified claim of new deck strength, authorized endpoint access or production integration.
+
+## Integration validation fixes
+
+Schema 2 retains category-specific observations when statistics conflict; no
+first-category statistic is promoted as a merged cohort. Examples are sorted
+alphabetically and explicitly not ranked. Legacy schema-1 files are read by
+rebuilding recommendations from validated category observations, never trusting
+the persisted derived suggestions. Duplicate identical observations within a
+category are omitted. Numeric strings, nonfinite values and invalid fractions
+do not become percentages.
+
+Imports use unique exclusive temporary files and atomic replacement; failed
+writes preserve the prior snapshot. Reads allocate at most 3 MB + 1 byte, reject
+oversize/corruption and validate commander and dates. Missing optional data does
+not block generation. `--retrieved-at "2026-10-01T00:00:00Z"` optionally records
+an explicitly supplied source date; otherwise source age is unknown regardless
+of how recently the file was imported. A user-supplied date is not independently
+verified. Run CLI commands with quoted Windows paths containing spaces. Native
+Windows replacement semantics still require user-side verification.

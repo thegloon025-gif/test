@@ -1,0 +1,118 @@
+{
+  "primaryDecks": 61,
+  "primarySelectedPrintingSlots": 6100,
+  "alternativeReceiptsAudited": 145,
+  "constructorReplays": 21,
+  "constructorSelectedPrintingSlots": 2100,
+  "audits": [
+    {
+      "group": "baseline",
+      "decks": 4,
+      "slots": 400,
+      "alternatives": 0,
+      "sourceSpines": 3,
+      "commitmentMembershipChecks": 28,
+      "failed": []
+    },
+    {
+      "group": "historical-checkpoint",
+      "decks": 4,
+      "slots": 400,
+      "alternatives": 14,
+      "sourceSpines": 13,
+      "commitmentMembershipChecks": 140,
+      "failed": []
+    },
+    {
+      "group": "historical-final",
+      "decks": 4,
+      "slots": 400,
+      "alternatives": 14,
+      "sourceSpines": 13,
+      "commitmentMembershipChecks": 140,
+      "failed": []
+    },
+    {
+      "group": "ladder-ulalek",
+      "decks": 8,
+      "slots": 800,
+      "alternatives": 32,
+      "sourceSpines": 24,
+      "commitmentMembershipChecks": 574,
+      "failed": []
+    },
+    {
+      "group": "ladder-wilhelt",
+      "decks": 8,
+      "slots": 800,
+      "alternatives": 21,
+      "sourceSpines": 22,
+      "commitmentMembershipChecks": 0,
+      "failed": []
+    },
+    {
+      "group": "references-checkpoint",
+      "decks": 15,
+      "slots": 1500,
+      "alternatives": 29,
+      "sourceSpines": 0,
+      "commitmentMembershipChecks": 8,
+      "failed": []
+    },
+    {
+      "group": "cast-correction",
+      "decks": 6,
+      "slots": 600,
+      "alternatives": 10,
+      "sourceSpines": 0,
+      "commitmentMembershipChecks": 12,
+      "failed": []
+    },
+    {
+      "group": "zada-final",
+      "decks": 1,
+      "slots": 100,
+      "alternatives": 2,
+      "sourceSpines": 0,
+      "commitmentMembershipChecks": 12,
+      "failed": []
+    },
+    {
+      "group": "ulalek-reference",
+      "decks": 1,
+      "slots": 100,
+      "alternatives": 4,
+      "sourceSpines": 3,
+      "commitmentMembershipChecks": 60,
+      "failed": []
+    },
+    {
+      "group": "resource-history",
+      "decks": 2,
+      "slots": 200,
+      "alternatives": 4,
+      "sourceSpines": 6,
+      "commitmentMembershipChecks": 0,
+      "failed": []
+    },
+    {
+      "group": "resource-ladder-a",
+      "decks": 4,
+      "slots": 400,
+      "alternatives": 8,
+      "sourceSpines": 10,
+      "commitmentMembershipChecks": 0,
+      "failed": []
+    },
+    {
+      "group": "resource-ladder-b",
+      "decks": 4,
+      "slots": 400,
+      "alternatives": 7,
+      "sourceSpines": 9,
+      "commitmentMembershipChecks": 0,
+      "failed": []
+    }
+  ],
+  "limitations": "Alternative records reconstructed by complete physical name/price/printing match; identical duplicate catalog entries remain indistinguishable. Existing standard inventory-policy helper reused, not an independent official bracket ruling."
+}

@@ -1,0 +1,2244 @@
+{
+  "generated": 12,
+  "references": 15,
+  "audited": 1728,
+  "elapsedMs": 4214,
+  "decks": [
+    {
+      "id": "yshtola-90",
+      "kind": "generated/archive",
+      "policies": {
+        "commander-first": {
+          "deployed": 4,
+          "trials": 16,
+          "interval95": [
+            0.10181901984237346,
+            0.49498768929398645
+          ],
+          "unknownCards": 70,
+          "meanDraw": 0.75
+        },
+        "development-first": {
+          "deployed": 4,
+          "trials": 16,
+          "interval95": [
+            0.10181901984237346,
+            0.49498768929398645
+          ],
+          "unknownCards": 70,
+          "meanDraw": 0.75
+        }
+      },
+      "adversarial": {
+        "repeatable-access": {
+          "disabled": 18,
+          "affectedObligations": 46,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "sacrifice-payoff": {
+          "disabled": 0,
+          "affectedObligations": 0,
+          "status": "unknown"
+        },
+        "recursion": {
+          "disabled": 1,
+          "affectedObligations": 4,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "true-colorless": {
+          "disabled": 10,
+          "affectedObligations": 85,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "fixing": {
+          "disabled": 28,
+          "affectedObligations": 108,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "finishing-path": {
+          "disabled": 2,
+          "affectedObligations": 5,
+          "status": "printed relationship disabled; execution unknown"
+        }
+      },
+      "ablation": {
+        "commanderByHorizon": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "draw": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "casts": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "missedLand": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        }
+      }
+    },
+    {
+      "id": "wilhelt-163",
+      "kind": "generated/archive",
+      "policies": {
+        "commander-first": {
+          "deployed": 6,
+          "trials": 16,
+          "interval95": [
+            0.18480982554752806,
+            0.613593529020652
+          ],
+          "unknownCards": 76,
+          "meanDraw": 0
+        },
+        "development-first": {
+          "deployed": 6,
+          "trials": 16,
+          "interval95": [
+            0.18480982554752806,
+            0.613593529020652
+          ],
+          "unknownCards": 76,
+          "meanDraw": 0
+        }
+      },
+      "adversarial": {
+        "repeatable-access": {
+          "disabled": 11,
+          "affectedObligations": 34,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "sacrifice-payoff": {
+          "disabled": 13,
+          "affectedObligations": 29,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "recursion": {
+          "disabled": 9,
+          "affectedObligations": 28,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "true-colorless": {
+          "disabled": 5,
+          "affectedObligations": 85,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "fixing": {
+          "disabled": 25,
+          "affectedObligations": 113,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "finishing-path": {
+          "disabled": 0,
+          "affectedObligations": 0,
+          "status": "unknown"
+        }
+      },
+      "ablation": {
+        "commanderByHorizon": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "draw": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "casts": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "missedLand": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        }
+      }
+    },
+    {
+      "id": "wilhelt-102",
+      "kind": "generated/archive",
+      "policies": {
+        "commander-first": {
+          "deployed": 5,
+          "trials": 16,
+          "interval95": [
+            0.14164435051961052,
+            0.5559606813326594
+          ],
+          "unknownCards": 71,
+          "meanDraw": 0
+        },
+        "development-first": {
+          "deployed": 5,
+          "trials": 16,
+          "interval95": [
+            0.14164435051961052,
+            0.5559606813326594
+          ],
+          "unknownCards": 71,
+          "meanDraw": 0
+        }
+      },
+      "adversarial": {
+        "repeatable-access": {
+          "disabled": 13,
+          "affectedObligations": 39,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "sacrifice-payoff": {
+          "disabled": 14,
+          "affectedObligations": 31,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "recursion": {
+          "disabled": 7,
+          "affectedObligations": 21,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "true-colorless": {
+          "disabled": 10,
+          "affectedObligations": 93,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "fixing": {
+          "disabled": 29,
+          "affectedObligations": 117,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "finishing-path": {
+          "disabled": 0,
+          "affectedObligations": 0,
+          "status": "unknown"
+        }
+      },
+      "ablation": {
+        "commanderByHorizon": {
+          "meanDelta": -0.0625,
+          "approximate95": [
+            -0.185,
+            0.06
+          ],
+          "nonzeroPairs": 1
+        },
+        "draw": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "casts": {
+          "meanDelta": -0.125,
+          "approximate95": [
+            -0.37,
+            0.12
+          ],
+          "nonzeroPairs": 1
+        },
+        "missedLand": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        }
+      }
+    },
+    {
+      "id": "wilhelt-source-136",
+      "kind": "generated/archive",
+      "policies": {
+        "commander-first": {
+          "deployed": 10,
+          "trials": 16,
+          "interval95": [
+            0.3864064709793481,
+            0.815190174452472
+          ],
+          "unknownCards": 74,
+          "meanDraw": 0
+        },
+        "development-first": {
+          "deployed": 10,
+          "trials": 16,
+          "interval95": [
+            0.3864064709793481,
+            0.815190174452472
+          ],
+          "unknownCards": 74,
+          "meanDraw": 0
+        }
+      },
+      "adversarial": {
+        "repeatable-access": {
+          "disabled": 10,
+          "affectedObligations": 31,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "sacrifice-payoff": {
+          "disabled": 9,
+          "affectedObligations": 21,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "recursion": {
+          "disabled": 10,
+          "affectedObligations": 31,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "true-colorless": {
+          "disabled": 7,
+          "affectedObligations": 87,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "fixing": {
+          "disabled": 27,
+          "affectedObligations": 116,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "finishing-path": {
+          "disabled": 0,
+          "affectedObligations": 0,
+          "status": "unknown"
+        }
+      },
+      "ablation": {
+        "commanderByHorizon": {
+          "meanDelta": -0.0625,
+          "approximate95": [
+            -0.185,
+            0.06
+          ],
+          "nonzeroPairs": 1
+        },
+        "draw": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "casts": {
+          "meanDelta": -0.1875,
+          "approximate95": [
+            -0.5549999999999999,
+            0.18
+          ],
+          "nonzeroPairs": 1
+        },
+        "missedLand": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        }
+      }
+    },
+    {
+      "id": "wilhelt-source-160",
+      "kind": "generated/archive",
+      "policies": {
+        "commander-first": {
+          "deployed": 4,
+          "trials": 16,
+          "interval95": [
+            0.10181901984237346,
+            0.49498768929398645
+          ],
+          "unknownCards": 76,
+          "meanDraw": 0
+        },
+        "development-first": {
+          "deployed": 4,
+          "trials": 16,
+          "interval95": [
+            0.10181901984237346,
+            0.49498768929398645
+          ],
+          "unknownCards": 76,
+          "meanDraw": 0
+        }
+      },
+      "adversarial": {
+        "repeatable-access": {
+          "disabled": 11,
+          "affectedObligations": 34,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "sacrifice-payoff": {
+          "disabled": 11,
+          "affectedObligations": 25,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "recursion": {
+          "disabled": 9,
+          "affectedObligations": 26,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "true-colorless": {
+          "disabled": 6,
+          "affectedObligations": 80,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "fixing": {
+          "disabled": 24,
+          "affectedObligations": 110,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "finishing-path": {
+          "disabled": 0,
+          "affectedObligations": 0,
+          "status": "unknown"
+        }
+      },
+      "ablation": {
+        "commanderByHorizon": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "draw": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "casts": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "missedLand": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        }
+      }
+    },
+    {
+      "id": "wilhelt-source-186",
+      "kind": "generated/archive",
+      "policies": {
+        "commander-first": {
+          "deployed": 5,
+          "trials": 16,
+          "interval95": [
+            0.14164435051961052,
+            0.5559606813326594
+          ],
+          "unknownCards": 77,
+          "meanDraw": 0
+        },
+        "development-first": {
+          "deployed": 5,
+          "trials": 16,
+          "interval95": [
+            0.14164435051961052,
+            0.5559606813326594
+          ],
+          "unknownCards": 77,
+          "meanDraw": 0
+        }
+      },
+      "adversarial": {
+        "repeatable-access": {
+          "disabled": 11,
+          "affectedObligations": 34,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "sacrifice-payoff": {
+          "disabled": 14,
+          "affectedObligations": 31,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "recursion": {
+          "disabled": 10,
+          "affectedObligations": 31,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "true-colorless": {
+          "disabled": 7,
+          "affectedObligations": 90,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "fixing": {
+          "disabled": 26,
+          "affectedObligations": 116,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "finishing-path": {
+          "disabled": 0,
+          "affectedObligations": 0,
+          "status": "unknown"
+        }
+      },
+      "ablation": {
+        "commanderByHorizon": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "draw": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "casts": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "missedLand": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        }
+      }
+    },
+    {
+      "id": "wilhelt-b4",
+      "kind": "generated/archive",
+      "policies": {
+        "commander-first": {
+          "deployed": 12,
+          "trials": 16,
+          "interval95": [
+            0.5050123107060135,
+            0.8981809801576265
+          ],
+          "unknownCards": 69,
+          "meanDraw": 0
+        },
+        "development-first": {
+          "deployed": 12,
+          "trials": 16,
+          "interval95": [
+            0.5050123107060135,
+            0.8981809801576265
+          ],
+          "unknownCards": 69,
+          "meanDraw": 0
+        }
+      },
+      "adversarial": {
+        "repeatable-access": {
+          "disabled": 13,
+          "affectedObligations": 39,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "sacrifice-payoff": {
+          "disabled": 12,
+          "affectedObligations": 27,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "recursion": {
+          "disabled": 11,
+          "affectedObligations": 29,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "true-colorless": {
+          "disabled": 12,
+          "affectedObligations": 84,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "fixing": {
+          "disabled": 30,
+          "affectedObligations": 114,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "finishing-path": {
+          "disabled": 2,
+          "affectedObligations": 4,
+          "status": "printed relationship disabled; execution unknown"
+        }
+      },
+      "ablation": {
+        "commanderByHorizon": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "draw": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "casts": {
+          "meanDelta": -0.125,
+          "approximate95": [
+            -0.29236686251067345,
+            0.042366862510673425
+          ],
+          "nonzeroPairs": 2
+        },
+        "missedLand": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        }
+      }
+    },
+    {
+      "id": "ulalek-b3",
+      "kind": "generated/archive",
+      "policies": {
+        "commander-first": {
+          "deployed": 1,
+          "trials": 16,
+          "interval95": [
+            0.01111905730833121,
+            0.2832926836802987
+          ],
+          "unknownCards": 84,
+          "meanDraw": 0
+        },
+        "development-first": {
+          "deployed": 1,
+          "trials": 16,
+          "interval95": [
+            0.01111905730833121,
+            0.2832926836802987
+          ],
+          "unknownCards": 84,
+          "meanDraw": 0
+        }
+      },
+      "adversarial": {
+        "repeatable-access": {
+          "disabled": 16,
+          "affectedObligations": 46,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "sacrifice-payoff": {
+          "disabled": 4,
+          "affectedObligations": 9,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "recursion": {
+          "disabled": 4,
+          "affectedObligations": 11,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "true-colorless": {
+          "disabled": 36,
+          "affectedObligations": 117,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "fixing": {
+          "disabled": 8,
+          "affectedObligations": 87,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "finishing-path": {
+          "disabled": 3,
+          "affectedObligations": 7,
+          "status": "printed relationship disabled; execution unknown"
+        }
+      },
+      "ablation": {
+        "commanderByHorizon": {
+          "meanDelta": -0.0625,
+          "approximate95": [
+            -0.185,
+            0.06
+          ],
+          "nonzeroPairs": 1
+        },
+        "draw": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "casts": {
+          "meanDelta": -0.3125,
+          "approximate95": [
+            -0.7011681317868326,
+            0.07616813178683257
+          ],
+          "nonzeroPairs": 3
+        },
+        "missedLand": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        }
+      }
+    },
+    {
+      "id": "ulalek-b4",
+      "kind": "generated/archive",
+      "policies": {
+        "commander-first": {
+          "deployed": 1,
+          "trials": 16,
+          "interval95": [
+            0.01111905730833121,
+            0.2832926836802987
+          ],
+          "unknownCards": 87,
+          "meanDraw": 0
+        },
+        "development-first": {
+          "deployed": 1,
+          "trials": 16,
+          "interval95": [
+            0.01111905730833121,
+            0.2832926836802987
+          ],
+          "unknownCards": 87,
+          "meanDraw": 0
+        }
+      },
+      "adversarial": {
+        "repeatable-access": {
+          "disabled": 14,
+          "affectedObligations": 40,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "sacrifice-payoff": {
+          "disabled": 1,
+          "affectedObligations": 4,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "recursion": {
+          "disabled": 5,
+          "affectedObligations": 17,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "true-colorless": {
+          "disabled": 41,
+          "affectedObligations": 121,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "fixing": {
+          "disabled": 8,
+          "affectedObligations": 87,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "finishing-path": {
+          "disabled": 3,
+          "affectedObligations": 8,
+          "status": "printed relationship disabled; execution unknown"
+        }
+      },
+      "ablation": {
+        "commanderByHorizon": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "draw": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "casts": {
+          "meanDelta": -0.375,
+          "approximate95": [
+            -0.9915698122137778,
+            0.24156981221377782
+          ],
+          "nonzeroPairs": 2
+        },
+        "missedLand": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        }
+      }
+    },
+    {
+      "id": "yuriko",
+      "kind": "generated/archive",
+      "policies": {
+        "commander-first": {
+          "deployed": 12,
+          "trials": 16,
+          "interval95": [
+            0.5050123107060135,
+            0.8981809801576265
+          ],
+          "unknownCards": 71,
+          "meanDraw": 0
+        },
+        "development-first": {
+          "deployed": 12,
+          "trials": 16,
+          "interval95": [
+            0.5050123107060135,
+            0.8981809801576265
+          ],
+          "unknownCards": 71,
+          "meanDraw": 0
+        }
+      },
+      "adversarial": {
+        "repeatable-access": {
+          "disabled": 12,
+          "affectedObligations": 35,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "sacrifice-payoff": {
+          "disabled": 0,
+          "affectedObligations": 0,
+          "status": "unknown"
+        },
+        "recursion": {
+          "disabled": 1,
+          "affectedObligations": 2,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "true-colorless": {
+          "disabled": 11,
+          "affectedObligations": 49,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "fixing": {
+          "disabled": 28,
+          "affectedObligations": 109,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "finishing-path": {
+          "disabled": 1,
+          "affectedObligations": 1,
+          "status": "printed relationship disabled; execution unknown"
+        }
+      },
+      "ablation": {
+        "commanderByHorizon": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "draw": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "casts": {
+          "meanDelta": -0.0625,
+          "approximate95": [
+            -0.185,
+            0.06
+          ],
+          "nonzeroPairs": 1
+        },
+        "missedLand": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        }
+      }
+    },
+    {
+      "id": "zada",
+      "kind": "generated/archive",
+      "policies": {
+        "commander-first": {
+          "deployed": 0,
+          "trials": 16,
+          "interval95": [
+            0,
+            0.19361341827271994
+          ],
+          "unknownCards": 69,
+          "meanDraw": 0
+        },
+        "development-first": {
+          "deployed": 0,
+          "trials": 16,
+          "interval95": [
+            0,
+            0.19361341827271994
+          ],
+          "unknownCards": 69,
+          "meanDraw": 0
+        }
+      },
+      "adversarial": {
+        "repeatable-access": {
+          "disabled": 13,
+          "affectedObligations": 37,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "sacrifice-payoff": {
+          "disabled": 2,
+          "affectedObligations": 6,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "recursion": {
+          "disabled": 0,
+          "affectedObligations": 0,
+          "status": "unknown"
+        },
+        "true-colorless": {
+          "disabled": 11,
+          "affectedObligations": 100,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "fixing": {
+          "disabled": 33,
+          "affectedObligations": 130,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "finishing-path": {
+          "disabled": 3,
+          "affectedObligations": 7,
+          "status": "printed relationship disabled; execution unknown"
+        }
+      },
+      "ablation": {
+        "commanderByHorizon": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "draw": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "casts": {
+          "meanDelta": -0.375,
+          "approximate95": [
+            -0.7272096913298478,
+            -0.022790308670152137
+          ],
+          "nonzeroPairs": 4
+        },
+        "missedLand": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        }
+      }
+    },
+    {
+      "id": "henzie",
+      "kind": "generated/archive",
+      "policies": {
+        "commander-first": {
+          "deployed": 6,
+          "trials": 16,
+          "interval95": [
+            0.18480982554752806,
+            0.613593529020652
+          ],
+          "unknownCards": 69,
+          "meanDraw": 0
+        },
+        "development-first": {
+          "deployed": 6,
+          "trials": 16,
+          "interval95": [
+            0.18480982554752806,
+            0.613593529020652
+          ],
+          "unknownCards": 69,
+          "meanDraw": 0
+        }
+      },
+      "adversarial": {
+        "repeatable-access": {
+          "disabled": 17,
+          "affectedObligations": 46,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "sacrifice-payoff": {
+          "disabled": 0,
+          "affectedObligations": 0,
+          "status": "unknown"
+        },
+        "recursion": {
+          "disabled": 0,
+          "affectedObligations": 0,
+          "status": "unknown"
+        },
+        "true-colorless": {
+          "disabled": 11,
+          "affectedObligations": 86,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "fixing": {
+          "disabled": 41,
+          "affectedObligations": 127,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "finishing-path": {
+          "disabled": 2,
+          "affectedObligations": 7,
+          "status": "printed relationship disabled; execution unknown"
+        }
+      },
+      "ablation": {
+        "commanderByHorizon": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "draw": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "casts": {
+          "meanDelta": -0.125,
+          "approximate95": [
+            -0.29236686251067345,
+            0.042366862510673425
+          ],
+          "nonzeroPairs": 2
+        },
+        "missedLand": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        }
+      }
+    },
+    {
+      "id": "reference-0",
+      "kind": "held-out personal reference",
+      "policies": {
+        "commander-first": {
+          "deployed": 4,
+          "trials": 16,
+          "interval95": [
+            0.10181901984237346,
+            0.49498768929398645
+          ],
+          "unknownCards": 76,
+          "meanDraw": 0
+        },
+        "development-first": {
+          "deployed": 4,
+          "trials": 16,
+          "interval95": [
+            0.10181901984237346,
+            0.49498768929398645
+          ],
+          "unknownCards": 76,
+          "meanDraw": 0
+        }
+      },
+      "adversarial": {
+        "repeatable-access": {
+          "disabled": 2,
+          "affectedObligations": 6,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "sacrifice-payoff": {
+          "disabled": 6,
+          "affectedObligations": 24,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "recursion": {
+          "disabled": 2,
+          "affectedObligations": 13,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "true-colorless": {
+          "disabled": 5,
+          "affectedObligations": 60,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "fixing": {
+          "disabled": 25,
+          "affectedObligations": 92,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "finishing-path": {
+          "disabled": 10,
+          "affectedObligations": 23,
+          "status": "printed relationship disabled; execution unknown"
+        }
+      },
+      "ablation": {
+        "commanderByHorizon": {
+          "meanDelta": -0.0625,
+          "approximate95": [
+            -0.185,
+            0.06
+          ],
+          "nonzeroPairs": 1
+        },
+        "draw": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "casts": {
+          "meanDelta": -0.5,
+          "approximate95": [
+            -1.0658032638058332,
+            0.06580326380583323
+          ],
+          "nonzeroPairs": 3
+        },
+        "missedLand": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        }
+      }
+    },
+    {
+      "id": "reference-1",
+      "kind": "held-out personal reference",
+      "policies": {
+        "commander-first": {
+          "deployed": 0,
+          "trials": 16,
+          "interval95": [
+            0,
+            0.19361341827271994
+          ],
+          "unknownCards": 90,
+          "meanDraw": 0
+        },
+        "development-first": {
+          "deployed": 0,
+          "trials": 16,
+          "interval95": [
+            0,
+            0.19361341827271994
+          ],
+          "unknownCards": 90,
+          "meanDraw": 0
+        }
+      },
+      "adversarial": {
+        "repeatable-access": {
+          "disabled": 5,
+          "affectedObligations": 12,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "sacrifice-payoff": {
+          "disabled": 0,
+          "affectedObligations": 0,
+          "status": "unknown"
+        },
+        "recursion": {
+          "disabled": 3,
+          "affectedObligations": 6,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "true-colorless": {
+          "disabled": 10,
+          "affectedObligations": 57,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "fixing": {
+          "disabled": 6,
+          "affectedObligations": 72,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "finishing-path": {
+          "disabled": 0,
+          "affectedObligations": 0,
+          "status": "unknown"
+        }
+      },
+      "ablation": {
+        "commanderByHorizon": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "draw": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "casts": {
+          "meanDelta": -0.1875,
+          "approximate95": [
+            -0.4540137582439851,
+            0.0790137582439851
+          ],
+          "nonzeroPairs": 2
+        },
+        "missedLand": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        }
+      }
+    },
+    {
+      "id": "reference-2",
+      "kind": "held-out personal reference",
+      "policies": {
+        "commander-first": {
+          "deployed": 0,
+          "trials": 16,
+          "interval95": [
+            0,
+            0.19361341827271994
+          ],
+          "unknownCards": 81,
+          "meanDraw": 0
+        },
+        "development-first": {
+          "deployed": 0,
+          "trials": 16,
+          "interval95": [
+            0,
+            0.19361341827271994
+          ],
+          "unknownCards": 81,
+          "meanDraw": 0
+        }
+      },
+      "adversarial": {
+        "repeatable-access": {
+          "disabled": 6,
+          "affectedObligations": 16,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "sacrifice-payoff": {
+          "disabled": 1,
+          "affectedObligations": 2,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "recursion": {
+          "disabled": 4,
+          "affectedObligations": 11,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "true-colorless": {
+          "disabled": 7,
+          "affectedObligations": 68,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "fixing": {
+          "disabled": 22,
+          "affectedObligations": 90,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "finishing-path": {
+          "disabled": 0,
+          "affectedObligations": 0,
+          "status": "unknown"
+        }
+      },
+      "ablation": {
+        "commanderByHorizon": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "draw": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "casts": {
+          "meanDelta": -0.0625,
+          "approximate95": [
+            -0.185,
+            0.06
+          ],
+          "nonzeroPairs": 1
+        },
+        "missedLand": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        }
+      }
+    },
+    {
+      "id": "reference-3",
+      "kind": "held-out personal reference",
+      "policies": {
+        "commander-first": {
+          "deployed": 0,
+          "trials": 16,
+          "interval95": [
+            0,
+            0.19361341827271994
+          ],
+          "unknownCards": 89,
+          "meanDraw": 0
+        },
+        "development-first": {
+          "deployed": 0,
+          "trials": 16,
+          "interval95": [
+            0,
+            0.19361341827271994
+          ],
+          "unknownCards": 89,
+          "meanDraw": 0
+        }
+      },
+      "adversarial": {
+        "repeatable-access": {
+          "disabled": 9,
+          "affectedObligations": 25,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "sacrifice-payoff": {
+          "disabled": 1,
+          "affectedObligations": 3,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "recursion": {
+          "disabled": 5,
+          "affectedObligations": 16,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "true-colorless": {
+          "disabled": 42,
+          "affectedObligations": 115,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "fixing": {
+          "disabled": 6,
+          "affectedObligations": 76,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "finishing-path": {
+          "disabled": 4,
+          "affectedObligations": 10,
+          "status": "printed relationship disabled; execution unknown"
+        }
+      },
+      "ablation": {
+        "commanderByHorizon": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "draw": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "casts": {
+          "meanDelta": -0.0625,
+          "approximate95": [
+            -0.185,
+            0.06
+          ],
+          "nonzeroPairs": 1
+        },
+        "missedLand": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        }
+      }
+    },
+    {
+      "id": "reference-4",
+      "kind": "held-out personal reference",
+      "policies": {
+        "commander-first": {
+          "deployed": 6,
+          "trials": 16,
+          "interval95": [
+            0.18480982554752806,
+            0.613593529020652
+          ],
+          "unknownCards": 76,
+          "meanDraw": 0
+        },
+        "development-first": {
+          "deployed": 6,
+          "trials": 16,
+          "interval95": [
+            0.18480982554752806,
+            0.613593529020652
+          ],
+          "unknownCards": 76,
+          "meanDraw": 0
+        }
+      },
+      "adversarial": {
+        "repeatable-access": {
+          "disabled": 8,
+          "affectedObligations": 24,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "sacrifice-payoff": {
+          "disabled": 10,
+          "affectedObligations": 26,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "recursion": {
+          "disabled": 7,
+          "affectedObligations": 15,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "true-colorless": {
+          "disabled": 6,
+          "affectedObligations": 60,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "fixing": {
+          "disabled": 24,
+          "affectedObligations": 90,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "finishing-path": {
+          "disabled": 3,
+          "affectedObligations": 6,
+          "status": "printed relationship disabled; execution unknown"
+        }
+      },
+      "ablation": {
+        "commanderByHorizon": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "draw": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "casts": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "missedLand": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        }
+      }
+    },
+    {
+      "id": "reference-5",
+      "kind": "held-out personal reference",
+      "policies": {
+        "commander-first": {
+          "deployed": 1,
+          "trials": 16,
+          "interval95": [
+            0.01111905730833121,
+            0.2832926836802987
+          ],
+          "unknownCards": 87,
+          "meanDraw": 0
+        },
+        "development-first": {
+          "deployed": 1,
+          "trials": 16,
+          "interval95": [
+            0.01111905730833121,
+            0.2832926836802987
+          ],
+          "unknownCards": 87,
+          "meanDraw": 0
+        }
+      },
+      "adversarial": {
+        "repeatable-access": {
+          "disabled": 10,
+          "affectedObligations": 25,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "sacrifice-payoff": {
+          "disabled": 0,
+          "affectedObligations": 0,
+          "status": "unknown"
+        },
+        "recursion": {
+          "disabled": 2,
+          "affectedObligations": 5,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "true-colorless": {
+          "disabled": 9,
+          "affectedObligations": 62,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "fixing": {
+          "disabled": 12,
+          "affectedObligations": 78,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "finishing-path": {
+          "disabled": 1,
+          "affectedObligations": 2,
+          "status": "printed relationship disabled; execution unknown"
+        }
+      },
+      "ablation": {
+        "commanderByHorizon": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "draw": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "casts": {
+          "meanDelta": -0.0625,
+          "approximate95": [
+            -0.185,
+            0.06
+          ],
+          "nonzeroPairs": 1
+        },
+        "missedLand": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        }
+      }
+    },
+    {
+      "id": "reference-6",
+      "kind": "held-out personal reference",
+      "policies": {
+        "commander-first": {
+          "deployed": 1,
+          "trials": 16,
+          "interval95": [
+            0.01111905730833121,
+            0.2832926836802987
+          ],
+          "unknownCards": 80,
+          "meanDraw": 0
+        },
+        "development-first": {
+          "deployed": 0,
+          "trials": 16,
+          "interval95": [
+            0,
+            0.19361341827271994
+          ],
+          "unknownCards": 80,
+          "meanDraw": 0
+        }
+      },
+      "adversarial": {
+        "repeatable-access": {
+          "disabled": 10,
+          "affectedObligations": 28,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "sacrifice-payoff": {
+          "disabled": 2,
+          "affectedObligations": 5,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "recursion": {
+          "disabled": 6,
+          "affectedObligations": 14,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "true-colorless": {
+          "disabled": 48,
+          "affectedObligations": 133,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "fixing": {
+          "disabled": 0,
+          "affectedObligations": 0,
+          "status": "unknown"
+        },
+        "finishing-path": {
+          "disabled": 4,
+          "affectedObligations": 7,
+          "status": "printed relationship disabled; execution unknown"
+        }
+      },
+      "ablation": {
+        "commanderByHorizon": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "draw": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "casts": {
+          "meanDelta": -0.1875,
+          "approximate95": [
+            -0.5549999999999999,
+            0.18
+          ],
+          "nonzeroPairs": 1
+        },
+        "missedLand": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        }
+      }
+    },
+    {
+      "id": "reference-7",
+      "kind": "held-out personal reference",
+      "policies": {
+        "commander-first": {
+          "deployed": 0,
+          "trials": 16,
+          "interval95": [
+            0,
+            0.19361341827271994
+          ],
+          "unknownCards": 86,
+          "meanDraw": 0
+        },
+        "development-first": {
+          "deployed": 0,
+          "trials": 16,
+          "interval95": [
+            0,
+            0.19361341827271994
+          ],
+          "unknownCards": 86,
+          "meanDraw": 0
+        }
+      },
+      "adversarial": {
+        "repeatable-access": {
+          "disabled": 10,
+          "affectedObligations": 28,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "sacrifice-payoff": {
+          "disabled": 0,
+          "affectedObligations": 0,
+          "status": "unknown"
+        },
+        "recursion": {
+          "disabled": 1,
+          "affectedObligations": 3,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "true-colorless": {
+          "disabled": 6,
+          "affectedObligations": 62,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "fixing": {
+          "disabled": 14,
+          "affectedObligations": 81,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "finishing-path": {
+          "disabled": 1,
+          "affectedObligations": 2,
+          "status": "printed relationship disabled; execution unknown"
+        }
+      },
+      "ablation": {
+        "commanderByHorizon": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "draw": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "casts": {
+          "meanDelta": -0.125,
+          "approximate95": [
+            -0.37,
+            0.12
+          ],
+          "nonzeroPairs": 1
+        },
+        "missedLand": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        }
+      }
+    },
+    {
+      "id": "reference-8",
+      "kind": "held-out personal reference",
+      "policies": {
+        "commander-first": {
+          "deployed": 5,
+          "trials": 16,
+          "interval95": [
+            0.14164435051961052,
+            0.5559606813326594
+          ],
+          "unknownCards": 76,
+          "meanDraw": 0
+        },
+        "development-first": {
+          "deployed": 5,
+          "trials": 16,
+          "interval95": [
+            0.14164435051961052,
+            0.5559606813326594
+          ],
+          "unknownCards": 76,
+          "meanDraw": 0
+        }
+      },
+      "adversarial": {
+        "repeatable-access": {
+          "disabled": 7,
+          "affectedObligations": 22,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "sacrifice-payoff": {
+          "disabled": 10,
+          "affectedObligations": 26,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "recursion": {
+          "disabled": 6,
+          "affectedObligations": 17,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "true-colorless": {
+          "disabled": 6,
+          "affectedObligations": 63,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "fixing": {
+          "disabled": 26,
+          "affectedObligations": 98,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "finishing-path": {
+          "disabled": 3,
+          "affectedObligations": 5,
+          "status": "printed relationship disabled; execution unknown"
+        }
+      },
+      "ablation": {
+        "commanderByHorizon": {
+          "meanDelta": -0.0625,
+          "approximate95": [
+            -0.185,
+            0.06
+          ],
+          "nonzeroPairs": 1
+        },
+        "draw": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "casts": {
+          "meanDelta": -0.125,
+          "approximate95": [
+            -0.37,
+            0.12
+          ],
+          "nonzeroPairs": 1
+        },
+        "missedLand": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        }
+      }
+    },
+    {
+      "id": "reference-9",
+      "kind": "held-out personal reference",
+      "policies": {
+        "commander-first": {
+          "deployed": 0,
+          "trials": 16,
+          "interval95": [
+            0,
+            0.19361341827271994
+          ],
+          "unknownCards": 93,
+          "meanDraw": 0
+        },
+        "development-first": {
+          "deployed": 0,
+          "trials": 16,
+          "interval95": [
+            0,
+            0.19361341827271994
+          ],
+          "unknownCards": 93,
+          "meanDraw": 0
+        }
+      },
+      "adversarial": {
+        "repeatable-access": {
+          "disabled": 10,
+          "affectedObligations": 24,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "sacrifice-payoff": {
+          "disabled": 3,
+          "affectedObligations": 7,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "recursion": {
+          "disabled": 18,
+          "affectedObligations": 40,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "true-colorless": {
+          "disabled": 9,
+          "affectedObligations": 71,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "fixing": {
+          "disabled": 10,
+          "affectedObligations": 92,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "finishing-path": {
+          "disabled": 3,
+          "affectedObligations": 4,
+          "status": "printed relationship disabled; execution unknown"
+        }
+      },
+      "ablation": {
+        "commanderByHorizon": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "draw": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "casts": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "missedLand": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        }
+      }
+    },
+    {
+      "id": "reference-10",
+      "kind": "held-out personal reference",
+      "policies": {
+        "commander-first": {
+          "deployed": 0,
+          "trials": 16,
+          "interval95": [
+            0,
+            0.19361341827271994
+          ],
+          "unknownCards": 79,
+          "meanDraw": 0
+        },
+        "development-first": {
+          "deployed": 0,
+          "trials": 16,
+          "interval95": [
+            0,
+            0.19361341827271994
+          ],
+          "unknownCards": 79,
+          "meanDraw": 0
+        }
+      },
+      "adversarial": {
+        "repeatable-access": {
+          "disabled": 12,
+          "affectedObligations": 30,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "sacrifice-payoff": {
+          "disabled": 2,
+          "affectedObligations": 5,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "recursion": {
+          "disabled": 1,
+          "affectedObligations": 3,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "true-colorless": {
+          "disabled": 6,
+          "affectedObligations": 68,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "fixing": {
+          "disabled": 22,
+          "affectedObligations": 93,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "finishing-path": {
+          "disabled": 5,
+          "affectedObligations": 6,
+          "status": "printed relationship disabled; execution unknown"
+        }
+      },
+      "ablation": {
+        "commanderByHorizon": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "draw": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "casts": {
+          "meanDelta": -0.1875,
+          "approximate95": [
+            -0.5549999999999999,
+            0.18
+          ],
+          "nonzeroPairs": 1
+        },
+        "missedLand": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        }
+      }
+    },
+    {
+      "id": "reference-11",
+      "kind": "held-out personal reference",
+      "policies": {
+        "commander-first": {
+          "deployed": 0,
+          "trials": 16,
+          "interval95": [
+            0,
+            0.19361341827271994
+          ],
+          "unknownCards": 79,
+          "meanDraw": 0
+        },
+        "development-first": {
+          "deployed": 0,
+          "trials": 16,
+          "interval95": [
+            0,
+            0.19361341827271994
+          ],
+          "unknownCards": 79,
+          "meanDraw": 0
+        }
+      },
+      "adversarial": {
+        "repeatable-access": {
+          "disabled": 9,
+          "affectedObligations": 25,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "sacrifice-payoff": {
+          "disabled": 1,
+          "affectedObligations": 6,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "recursion": {
+          "disabled": 2,
+          "affectedObligations": 12,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "true-colorless": {
+          "disabled": 5,
+          "affectedObligations": 62,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "fixing": {
+          "disabled": 26,
+          "affectedObligations": 91,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "finishing-path": {
+          "disabled": 4,
+          "affectedObligations": 9,
+          "status": "printed relationship disabled; execution unknown"
+        }
+      },
+      "ablation": {
+        "commanderByHorizon": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "draw": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "casts": {
+          "meanDelta": -0.0625,
+          "approximate95": [
+            -0.185,
+            0.06
+          ],
+          "nonzeroPairs": 1
+        },
+        "missedLand": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        }
+      }
+    },
+    {
+      "id": "reference-12",
+      "kind": "held-out personal reference",
+      "policies": {
+        "commander-first": {
+          "deployed": 1,
+          "trials": 16,
+          "interval95": [
+            0.01111905730833121,
+            0.2832926836802987
+          ],
+          "unknownCards": 82,
+          "meanDraw": 0
+        },
+        "development-first": {
+          "deployed": 1,
+          "trials": 16,
+          "interval95": [
+            0.01111905730833121,
+            0.2832926836802987
+          ],
+          "unknownCards": 82,
+          "meanDraw": 0
+        }
+      },
+      "adversarial": {
+        "repeatable-access": {
+          "disabled": 7,
+          "affectedObligations": 18,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "sacrifice-payoff": {
+          "disabled": 0,
+          "affectedObligations": 0,
+          "status": "unknown"
+        },
+        "recursion": {
+          "disabled": 0,
+          "affectedObligations": 0,
+          "status": "unknown"
+        },
+        "true-colorless": {
+          "disabled": 7,
+          "affectedObligations": 65,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "fixing": {
+          "disabled": 17,
+          "affectedObligations": 83,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "finishing-path": {
+          "disabled": 0,
+          "affectedObligations": 0,
+          "status": "unknown"
+        }
+      },
+      "ablation": {
+        "commanderByHorizon": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "draw": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "casts": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "missedLand": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        }
+      }
+    },
+    {
+      "id": "reference-13",
+      "kind": "held-out personal reference",
+      "policies": {
+        "commander-first": {
+          "deployed": 2,
+          "trials": 16,
+          "interval95": [
+            0.034976749337057134,
+            0.3602333143674828
+          ],
+          "unknownCards": 84,
+          "meanDraw": 0
+        },
+        "development-first": {
+          "deployed": 2,
+          "trials": 16,
+          "interval95": [
+            0.034976749337057134,
+            0.3602333143674828
+          ],
+          "unknownCards": 84,
+          "meanDraw": 0
+        }
+      },
+      "adversarial": {
+        "repeatable-access": {
+          "disabled": 11,
+          "affectedObligations": 26,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "sacrifice-payoff": {
+          "disabled": 0,
+          "affectedObligations": 0,
+          "status": "unknown"
+        },
+        "recursion": {
+          "disabled": 3,
+          "affectedObligations": 9,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "true-colorless": {
+          "disabled": 10,
+          "affectedObligations": 63,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "fixing": {
+          "disabled": 15,
+          "affectedObligations": 81,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "finishing-path": {
+          "disabled": 3,
+          "affectedObligations": 8,
+          "status": "printed relationship disabled; execution unknown"
+        }
+      },
+      "ablation": {
+        "commanderByHorizon": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "draw": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "casts": {
+          "meanDelta": -0.0625,
+          "approximate95": [
+            -0.185,
+            0.06
+          ],
+          "nonzeroPairs": 1
+        },
+        "missedLand": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        }
+      }
+    },
+    {
+      "id": "reference-14",
+      "kind": "held-out personal reference",
+      "policies": {
+        "commander-first": {
+          "deployed": 1,
+          "trials": 16,
+          "interval95": [
+            0.01111905730833121,
+            0.2832926836802987
+          ],
+          "unknownCards": 89,
+          "meanDraw": 0
+        },
+        "development-first": {
+          "deployed": 1,
+          "trials": 16,
+          "interval95": [
+            0.01111905730833121,
+            0.2832926836802987
+          ],
+          "unknownCards": 89,
+          "meanDraw": 0
+        }
+      },
+      "adversarial": {
+        "repeatable-access": {
+          "disabled": 9,
+          "affectedObligations": 25,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "sacrifice-payoff": {
+          "disabled": 1,
+          "affectedObligations": 3,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "recursion": {
+          "disabled": 5,
+          "affectedObligations": 16,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "true-colorless": {
+          "disabled": 42,
+          "affectedObligations": 115,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "fixing": {
+          "disabled": 6,
+          "affectedObligations": 76,
+          "status": "printed relationship disabled; execution unknown"
+        },
+        "finishing-path": {
+          "disabled": 4,
+          "affectedObligations": 10,
+          "status": "printed relationship disabled; execution unknown"
+        }
+      },
+      "ablation": {
+        "commanderByHorizon": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "draw": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        },
+        "casts": {
+          "meanDelta": -0.0625,
+          "approximate95": [
+            -0.185,
+            0.06
+          ],
+          "nonzeroPairs": 1
+        },
+        "missedLand": {
+          "meanDelta": 0,
+          "approximate95": null,
+          "nonzeroPairs": 0
+        }
+      }
+    }
+  ],
+  "limitations": "No payoff, recursion, combat, trigger or finishing-path execution; static destructive diagnostics remain in prior ledger evidence. Ablation has no native-mechanics sensitivity here."
+}

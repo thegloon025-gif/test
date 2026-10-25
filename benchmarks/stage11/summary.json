@@ -1,0 +1,3965 @@
+{
+  "schema": 1,
+  "groups": {
+    "baseline": {
+      "directory": "/tmp/stage11-baseline",
+      "debug": "/tmp/stage11-debug-baseline",
+      "phase": "Exact PR8 unfiltered reproduction",
+      "implementation": "85f1f2c"
+    },
+    "historical-checkpoint": {
+      "directory": "/tmp/stage11-final-history",
+      "debug": "/tmp/stage11-final-debug-history",
+      "phase": "Final refinement; before cast grammar correction",
+      "implementation": "d1e610d"
+    },
+    "historical-final": {
+      "directory": "/tmp/stage11-post-grammar-history",
+      "debug": "/tmp/stage11-post-grammar-debug-history",
+      "phase": "Type-predicate recheck; Wilhelt superseded by native-resource guard",
+      "implementation": "82427dc"
+    },
+    "ladder-ulalek": {
+      "directory": "/tmp/stage11-final-ulalek",
+      "debug": "/tmp/stage11-final-debug-ulalek",
+      "phase": "Held-out strict B3 ladder, B4 endpoints and explicit tolerance",
+      "implementation": "d1e610d"
+    },
+    "ladder-wilhelt": {
+      "directory": "/tmp/stage11-final-wilhelt",
+      "debug": "/tmp/stage11-final-debug-wilhelt",
+      "phase": "Checkpoint before native-resource guard; retained tradeoffs",
+      "implementation": "d1e610d"
+    },
+    "references-checkpoint": {
+      "directory": "/tmp/stage11-final-references",
+      "debug": "/tmp/stage11-final-debug-references",
+      "phase": "Independent personal/unrelated builds; Ysh/Zada superseded by predicate repairs",
+      "implementation": "d1e610d"
+    },
+    "cast-correction": {
+      "directory": "/tmp/stage11-cast-final",
+      "debug": "/tmp/stage11-cast-final-debug",
+      "phase": "Ysh final; intermediate Zada superseded by unparsed-qualifier guard",
+      "implementation": "82427dc"
+    },
+    "zada-final": {
+      "directory": "/tmp/stage11-zada-final",
+      "debug": "/tmp/stage11-zada-final-debug",
+      "phase": "Final target-qualifier abstention regression",
+      "implementation": "b730f86"
+    },
+    "ulalek-reference": {
+      "directory": "/tmp/stage11-ulalek-reference",
+      "debug": "/tmp/stage11-ulalek-reference-debug",
+      "phase": "Confirmed test2 reference excluded; matched strict 191 budget",
+      "implementation": "90a81d5"
+    },
+    "candidates-before": {
+      "directory": "/tmp/stage11-candidates-before",
+      "phase": "Exact constructor replay; generated legacy scaffold only",
+      "implementation": "85f1f2c"
+    },
+    "candidates-after": {
+      "directory": "/tmp/stage11-candidates-after",
+      "phase": "Checkpoint: unsupported native resource loss later quarantined",
+      "implementation": "d1e610d"
+    },
+    "resource-history": {
+      "directory": "/tmp/stage11-resource-history",
+      "phase": "Native-resource uncertainty protection; current Wilhelt result",
+      "implementation": "d2b764b",
+      "debug": "/tmp/stage11-resource-history-debug"
+    },
+    "resource-ladder-a": {
+      "directory": "/tmp/stage11-resource-ladder-a",
+      "phase": "Native-resource uncertainty protection; current Wilhelt result",
+      "implementation": "d2b764b",
+      "debug": "/tmp/stage11-resource-ladder-a-debug"
+    },
+    "resource-ladder-b": {
+      "directory": "/tmp/stage11-resource-ladder-b",
+      "phase": "Native-resource uncertainty protection; current Wilhelt result",
+      "implementation": "d2b764b",
+      "debug": "/tmp/stage11-resource-ladder-b-debug"
+    },
+    "candidates-guarded": {
+      "directory": "/tmp/stage11-candidates-guarded",
+      "phase": "Native-resource uncertainty protection; current Wilhelt result",
+      "implementation": "d2b764b"
+    }
+  },
+  "results": [
+    {
+      "group": "baseline",
+      "phase": "Exact PR8 unfiltered reproduction",
+      "implementation": "85f1f2c",
+      "id": "ulalek-b3-191-historical",
+      "commander": "Ulalek, Fused Atrocity",
+      "bracket": 3,
+      "budget": 191,
+      "status": "ok",
+      "price": 174.24,
+      "effectiveMaximum": 191,
+      "unused": 16.76,
+      "selected": "source:archidekt:23460147",
+      "export": "baseline/ulalek-b3-191-historical.txt",
+      "runtimeMs": 129681,
+      "maxRSSKiB": 752088,
+      "earlyAcceleration": 12,
+      "colorlessSources": 53,
+      "landCount": 37,
+      "averageSpellMV": 4.05,
+      "refinement": {
+        "limit": 3,
+        "expanded": [
+          "source:archidekt:23460147",
+          "local:resilience",
+          "source:archidekt:14494014"
+        ],
+        "reason": "Coverage leader plus flow/mana alternatives; remaining complete candidates retain single-card path results"
+      },
+      "alternatives": [],
+      "inventoryComplete": 12,
+      "inventoryExecutionVerified": false,
+      "warningCount": 3
+    },
+    {
+      "group": "baseline",
+      "phase": "Exact PR8 unfiltered reproduction",
+      "implementation": "85f1f2c",
+      "id": "ulalek-b4-191-historical",
+      "commander": "Ulalek, Fused Atrocity",
+      "bracket": 4,
+      "budget": 191,
+      "status": "ok",
+      "price": 173.88,
+      "effectiveMaximum": 191,
+      "unused": 17.12,
+      "selected": "source:archidekt:24772686",
+      "export": "baseline/ulalek-b4-191-historical.txt",
+      "runtimeMs": 97895,
+      "maxRSSKiB": 775568,
+      "earlyAcceleration": 21,
+      "colorlessSources": 48,
+      "landCount": 36,
+      "averageSpellMV": 3.81,
+      "refinement": {
+        "limit": 3,
+        "expanded": [
+          "source:archidekt:24772686",
+          "local:threats",
+          "local:resilience"
+        ],
+        "reason": "Coverage leader plus flow/mana alternatives; remaining complete candidates retain single-card path results"
+      },
+      "alternatives": [],
+      "inventoryComplete": 12,
+      "inventoryExecutionVerified": false,
+      "warningCount": 4
+    },
+    {
+      "group": "baseline",
+      "phase": "Exact PR8 unfiltered reproduction",
+      "implementation": "85f1f2c",
+      "id": "wilhelt-b3-191-historical",
+      "commander": "Wilhelt, the Rotcleaver",
+      "bracket": 3,
+      "budget": 191,
+      "status": "ok",
+      "price": 102.06,
+      "effectiveMaximum": 191,
+      "unused": 88.94,
+      "selected": "local:engine",
+      "export": "baseline/wilhelt-b3-191-historical.txt",
+      "runtimeMs": 60237,
+      "maxRSSKiB": 775568,
+      "earlyAcceleration": 8,
+      "colorlessSources": 9,
+      "landCount": 36,
+      "averageSpellMV": 2.9,
+      "refinement": {
+        "limit": 3,
+        "expanded": [
+          "source:archidekt:3838228",
+          "local:engine",
+          "source:archidekt:24423895"
+        ],
+        "reason": "Coverage leader plus flow/mana alternatives; remaining complete candidates retain single-card path results"
+      },
+      "alternatives": [],
+      "inventoryComplete": 0,
+      "inventoryExecutionVerified": false,
+      "warningCount": 2
+    },
+    {
+      "group": "baseline",
+      "phase": "Exact PR8 unfiltered reproduction",
+      "implementation": "85f1f2c",
+      "id": "wilhelt-b4-191-historical",
+      "commander": "Wilhelt, the Rotcleaver",
+      "bracket": 4,
+      "budget": 191,
+      "status": "ok",
+      "price": 181.8,
+      "effectiveMaximum": 191,
+      "unused": 9.2,
+      "selected": "source:archidekt:24246712",
+      "export": "baseline/wilhelt-b4-191-historical.txt",
+      "runtimeMs": 58490,
+      "maxRSSKiB": 775568,
+      "earlyAcceleration": 10,
+      "colorlessSources": 11,
+      "landCount": 35,
+      "averageSpellMV": 2.73,
+      "refinement": {
+        "limit": 3,
+        "expanded": [
+          "source:archidekt:24246712",
+          "local:engine",
+          "source:archidekt:6212325"
+        ],
+        "reason": "Coverage leader plus flow/mana alternatives; remaining complete candidates retain single-card path results"
+      },
+      "alternatives": [],
+      "inventoryComplete": 0,
+      "inventoryExecutionVerified": false,
+      "warningCount": 2
+    },
+    {
+      "group": "historical-checkpoint",
+      "phase": "Final refinement; before cast grammar correction",
+      "implementation": "d1e610d",
+      "id": "ulalek-b3-191-historical",
+      "commander": "Ulalek, Fused Atrocity",
+      "bracket": 3,
+      "budget": 191,
+      "status": "ok",
+      "price": 174.24,
+      "effectiveMaximum": 191,
+      "unused": 16.76,
+      "selected": "source:archidekt:23460147",
+      "export": "historical-checkpoint/ulalek-b3-191-historical.txt",
+      "runtimeMs": 145430,
+      "maxRSSKiB": 789128,
+      "earlyAcceleration": 12,
+      "colorlessSources": 53,
+      "landCount": 37,
+      "averageSpellMV": 4.05,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "source:archidekt:23460147",
+          "local:resilience",
+          "source:archidekt:14494014",
+          "source:archidekt:16437369"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "source:archidekt:23460147",
+          "price": 174.24,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": [
+            "death:replacement-material",
+            "native:activatedTriggerCopy",
+            "native:cascade",
+            "native:castCopy",
+            "native:costReduction",
+            "native:passiveTriggerCopy",
+            "native:tutor",
+            "sacrifice-outlet",
+            "top-library-access"
+          ]
+        },
+        {
+          "id": "source:archidekt:16437369",
+          "price": 161,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "native:activatedTriggerCopy",
+            "native:cascade",
+            "native:castCopy",
+            "native:costReduction",
+            "native:passiveTriggerCopy",
+            "native:tutor",
+            "sacrifice-outlet",
+            "top-library-access"
+          ]
+        },
+        {
+          "id": "local:engine",
+          "price": 163.51,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "native:activatedTriggerCopy",
+            "native:cascade",
+            "native:costReduction",
+            "native:passiveTriggerCopy",
+            "native:tutor",
+            "sacrifice-outlet"
+          ]
+        },
+        {
+          "id": "local:resilience",
+          "price": 183.59,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "card-access:cast",
+            "native:activatedTriggerCopy",
+            "native:costReduction",
+            "native:passiveTriggerCopy",
+            "sacrifice-outlet"
+          ]
+        }
+      ],
+      "inventoryComplete": 12,
+      "inventoryExecutionVerified": false,
+      "warningCount": 3
+    },
+    {
+      "group": "historical-checkpoint",
+      "phase": "Final refinement; before cast grammar correction",
+      "implementation": "d1e610d",
+      "id": "ulalek-b4-191-historical",
+      "commander": "Ulalek, Fused Atrocity",
+      "bracket": 4,
+      "budget": 191,
+      "status": "ok",
+      "price": 173.88,
+      "effectiveMaximum": 191,
+      "unused": 17.12,
+      "selected": "source:archidekt:24772686",
+      "export": "historical-checkpoint/ulalek-b4-191-historical.txt",
+      "runtimeMs": 115576,
+      "maxRSSKiB": 866164,
+      "earlyAcceleration": 21,
+      "colorlessSources": 48,
+      "landCount": 36,
+      "averageSpellMV": 3.81,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "source:archidekt:24772686",
+          "local:threats",
+          "local:resilience",
+          "source:archidekt:11395308"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "source:archidekt:24772686",
+          "price": 173.88,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": [
+            "native:activatedTriggerCopy",
+            "native:cascade",
+            "native:castCopy",
+            "native:costReduction",
+            "native:passiveTriggerCopy",
+            "sacrifice-outlet",
+            "top-library-access"
+          ]
+        },
+        {
+          "id": "local:threats",
+          "price": 141.78,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "card-access:cast",
+            "native:activatedTriggerCopy",
+            "native:cascade",
+            "native:castCopy",
+            "native:costReduction",
+            "native:passiveTriggerCopy",
+            "native:tutor",
+            "sacrifice-outlet",
+            "top-library-access"
+          ]
+        },
+        {
+          "id": "source:archidekt:11395308",
+          "price": 145.71,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "native:activatedTriggerCopy",
+            "native:castCopy",
+            "native:costReduction",
+            "native:passiveTriggerCopy",
+            "native:tutor",
+            "sacrifice-outlet",
+            "top-library-access"
+          ]
+        },
+        {
+          "id": "source:archidekt:17691266",
+          "price": 144.52,
+          "explanation": "paired deployment frontier elimination",
+          "capabilities": [
+            "native:activatedTriggerCopy",
+            "native:cascade",
+            "native:castCopy",
+            "native:costReduction",
+            "native:passiveTriggerCopy",
+            "native:tutor",
+            "sacrifice-outlet"
+          ]
+        }
+      ],
+      "inventoryComplete": 12,
+      "inventoryExecutionVerified": false,
+      "warningCount": 4
+    },
+    {
+      "group": "historical-checkpoint",
+      "phase": "Final refinement; before cast grammar correction",
+      "implementation": "d1e610d",
+      "id": "wilhelt-b3-191-historical",
+      "commander": "Wilhelt, the Rotcleaver",
+      "bracket": 3,
+      "budget": 191,
+      "status": "ok",
+      "price": 102.06,
+      "effectiveMaximum": 191,
+      "unused": 88.94,
+      "selected": "local:engine",
+      "export": "historical-checkpoint/wilhelt-b3-191-historical.txt",
+      "runtimeMs": 65007,
+      "maxRSSKiB": 866164,
+      "earlyAcceleration": 8,
+      "colorlessSources": 9,
+      "landCount": 36,
+      "averageSpellMV": 2.9,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "source:archidekt:3838228",
+          "local:engine",
+          "source:archidekt:24423895",
+          "source:archidekt:2298582"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "local:engine",
+          "price": 102.06,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": [
+            "death:card-access",
+            "death:life-pressure",
+            "death:replacement-material",
+            "sacrifice-outlet"
+          ]
+        },
+        {
+          "id": "source:archidekt:24423895",
+          "price": 136.78,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "death:card-access",
+            "death:life-pressure",
+            "death:replacement-material",
+            "sacrifice-outlet"
+          ]
+        },
+        {
+          "id": "source:archidekt:2298582",
+          "price": 163.07,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "death:card-access",
+            "death:life-pressure",
+            "death:replacement-material",
+            "native:tutor",
+            "sacrifice-outlet"
+          ]
+        }
+      ],
+      "inventoryComplete": 0,
+      "inventoryExecutionVerified": false,
+      "warningCount": 2
+    },
+    {
+      "group": "historical-checkpoint",
+      "phase": "Final refinement; before cast grammar correction",
+      "implementation": "d1e610d",
+      "id": "wilhelt-b4-191-historical",
+      "commander": "Wilhelt, the Rotcleaver",
+      "bracket": 4,
+      "budget": 191,
+      "status": "ok",
+      "price": 181.8,
+      "effectiveMaximum": 191,
+      "unused": 9.2,
+      "selected": "source:archidekt:24246712",
+      "export": "historical-checkpoint/wilhelt-b4-191-historical.txt",
+      "runtimeMs": 60794,
+      "maxRSSKiB": 866164,
+      "earlyAcceleration": 10,
+      "colorlessSources": 11,
+      "landCount": 35,
+      "averageSpellMV": 2.73,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "source:archidekt:24246712",
+          "local:engine",
+          "source:archidekt:3276096",
+          "source:archidekt:6212325"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "source:archidekt:24246712",
+          "price": 181.8,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": [
+            "death:card-access",
+            "death:life-pressure",
+            "death:replacement-material",
+            "native:tutor",
+            "sacrifice-outlet"
+          ]
+        },
+        {
+          "id": "source:archidekt:3276096",
+          "price": 176.35,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "death:card-access",
+            "death:life-pressure",
+            "death:replacement-material",
+            "native:tutor",
+            "sacrifice-outlet"
+          ]
+        },
+        {
+          "id": "source:archidekt:6212325",
+          "price": 172.29,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "death:card-access",
+            "death:life-pressure",
+            "native:tutor",
+            "sacrifice-outlet"
+          ]
+        }
+      ],
+      "inventoryComplete": 0,
+      "inventoryExecutionVerified": false,
+      "warningCount": 2
+    },
+    {
+      "group": "historical-final",
+      "phase": "Type-predicate recheck; Wilhelt superseded by native-resource guard",
+      "implementation": "82427dc",
+      "id": "ulalek-b3-191-historical",
+      "commander": "Ulalek, Fused Atrocity",
+      "bracket": 3,
+      "budget": 191,
+      "status": "ok",
+      "price": 174.24,
+      "effectiveMaximum": 191,
+      "unused": 16.76,
+      "selected": "source:archidekt:23460147",
+      "export": "historical-final/ulalek-b3-191-historical.txt",
+      "runtimeMs": 119991,
+      "maxRSSKiB": 820168,
+      "earlyAcceleration": 12,
+      "colorlessSources": 53,
+      "landCount": 37,
+      "averageSpellMV": 4.05,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "source:archidekt:23460147",
+          "local:resilience",
+          "source:archidekt:14494014",
+          "source:archidekt:16437369"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "source:archidekt:23460147",
+          "price": 174.24,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": [
+            "death:replacement-material",
+            "native:activatedTriggerCopy",
+            "native:cascade",
+            "native:castCopy",
+            "native:costReduction",
+            "native:passiveTriggerCopy",
+            "native:tutor",
+            "sacrifice-outlet",
+            "top-library-access"
+          ]
+        },
+        {
+          "id": "source:archidekt:16437369",
+          "price": 161,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "native:activatedTriggerCopy",
+            "native:cascade",
+            "native:castCopy",
+            "native:costReduction",
+            "native:passiveTriggerCopy",
+            "native:tutor",
+            "sacrifice-outlet",
+            "top-library-access"
+          ]
+        },
+        {
+          "id": "local:engine",
+          "price": 163.51,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "native:activatedTriggerCopy",
+            "native:cascade",
+            "native:costReduction",
+            "native:passiveTriggerCopy",
+            "native:tutor",
+            "sacrifice-outlet"
+          ]
+        },
+        {
+          "id": "local:resilience",
+          "price": 183.59,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "card-access:cast",
+            "native:activatedTriggerCopy",
+            "native:costReduction",
+            "native:passiveTriggerCopy",
+            "sacrifice-outlet"
+          ]
+        }
+      ],
+      "inventoryComplete": 12,
+      "inventoryExecutionVerified": false,
+      "warningCount": 3
+    },
+    {
+      "group": "historical-final",
+      "phase": "Type-predicate recheck; Wilhelt superseded by native-resource guard",
+      "implementation": "82427dc",
+      "id": "ulalek-b4-191-historical",
+      "commander": "Ulalek, Fused Atrocity",
+      "bracket": 4,
+      "budget": 191,
+      "status": "ok",
+      "price": 173.88,
+      "effectiveMaximum": 191,
+      "unused": 17.12,
+      "selected": "source:archidekt:24772686",
+      "export": "historical-final/ulalek-b4-191-historical.txt",
+      "runtimeMs": 103514,
+      "maxRSSKiB": 882740,
+      "earlyAcceleration": 21,
+      "colorlessSources": 48,
+      "landCount": 36,
+      "averageSpellMV": 3.81,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "source:archidekt:24772686",
+          "local:threats",
+          "local:resilience",
+          "source:archidekt:11395308"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "source:archidekt:24772686",
+          "price": 173.88,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": [
+            "native:activatedTriggerCopy",
+            "native:cascade",
+            "native:castCopy",
+            "native:costReduction",
+            "native:passiveTriggerCopy",
+            "sacrifice-outlet",
+            "top-library-access"
+          ]
+        },
+        {
+          "id": "local:threats",
+          "price": 141.78,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "card-access:cast",
+            "native:activatedTriggerCopy",
+            "native:cascade",
+            "native:castCopy",
+            "native:costReduction",
+            "native:passiveTriggerCopy",
+            "native:tutor",
+            "sacrifice-outlet",
+            "top-library-access"
+          ]
+        },
+        {
+          "id": "source:archidekt:11395308",
+          "price": 145.71,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "native:activatedTriggerCopy",
+            "native:castCopy",
+            "native:costReduction",
+            "native:passiveTriggerCopy",
+            "native:tutor",
+            "sacrifice-outlet",
+            "top-library-access"
+          ]
+        },
+        {
+          "id": "source:archidekt:17691266",
+          "price": 144.52,
+          "explanation": "paired deployment frontier elimination",
+          "capabilities": [
+            "native:activatedTriggerCopy",
+            "native:cascade",
+            "native:castCopy",
+            "native:costReduction",
+            "native:passiveTriggerCopy",
+            "native:tutor",
+            "sacrifice-outlet"
+          ]
+        }
+      ],
+      "inventoryComplete": 12,
+      "inventoryExecutionVerified": false,
+      "warningCount": 4
+    },
+    {
+      "group": "historical-final",
+      "phase": "Type-predicate recheck; Wilhelt superseded by native-resource guard",
+      "implementation": "82427dc",
+      "id": "wilhelt-b3-191-historical",
+      "commander": "Wilhelt, the Rotcleaver",
+      "bracket": 3,
+      "budget": 191,
+      "status": "ok",
+      "price": 102.06,
+      "effectiveMaximum": 191,
+      "unused": 88.94,
+      "selected": "local:engine",
+      "export": "historical-final/wilhelt-b3-191-historical.txt",
+      "runtimeMs": 53165,
+      "maxRSSKiB": 882740,
+      "earlyAcceleration": 8,
+      "colorlessSources": 9,
+      "landCount": 36,
+      "averageSpellMV": 2.9,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "source:archidekt:3838228",
+          "local:engine",
+          "source:archidekt:24423895",
+          "source:archidekt:2298582"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "local:engine",
+          "price": 102.06,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": [
+            "death:card-access",
+            "death:life-pressure",
+            "death:replacement-material",
+            "sacrifice-outlet"
+          ]
+        },
+        {
+          "id": "source:archidekt:24423895",
+          "price": 136.78,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "death:card-access",
+            "death:life-pressure",
+            "death:replacement-material",
+            "sacrifice-outlet"
+          ]
+        },
+        {
+          "id": "source:archidekt:2298582",
+          "price": 163.07,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "death:card-access",
+            "death:life-pressure",
+            "death:replacement-material",
+            "native:tutor",
+            "sacrifice-outlet"
+          ]
+        }
+      ],
+      "inventoryComplete": 0,
+      "inventoryExecutionVerified": false,
+      "warningCount": 2
+    },
+    {
+      "group": "historical-final",
+      "phase": "Type-predicate recheck; Wilhelt superseded by native-resource guard",
+      "implementation": "82427dc",
+      "id": "wilhelt-b4-191-historical",
+      "commander": "Wilhelt, the Rotcleaver",
+      "bracket": 4,
+      "budget": 191,
+      "status": "ok",
+      "price": 181.8,
+      "effectiveMaximum": 191,
+      "unused": 9.2,
+      "selected": "source:archidekt:24246712",
+      "export": "historical-final/wilhelt-b4-191-historical.txt",
+      "runtimeMs": 48410,
+      "maxRSSKiB": 882740,
+      "earlyAcceleration": 10,
+      "colorlessSources": 11,
+      "landCount": 35,
+      "averageSpellMV": 2.73,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "source:archidekt:24246712",
+          "local:engine",
+          "source:archidekt:3276096",
+          "source:archidekt:6212325"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "source:archidekt:24246712",
+          "price": 181.8,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": [
+            "death:card-access",
+            "death:life-pressure",
+            "death:replacement-material",
+            "native:tutor",
+            "sacrifice-outlet"
+          ]
+        },
+        {
+          "id": "source:archidekt:3276096",
+          "price": 176.35,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "death:card-access",
+            "death:life-pressure",
+            "death:replacement-material",
+            "native:tutor",
+            "sacrifice-outlet"
+          ]
+        },
+        {
+          "id": "source:archidekt:6212325",
+          "price": 172.29,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "death:card-access",
+            "death:life-pressure",
+            "native:tutor",
+            "sacrifice-outlet"
+          ]
+        }
+      ],
+      "inventoryComplete": 0,
+      "inventoryExecutionVerified": false,
+      "warningCount": 2
+    },
+    {
+      "group": "ladder-ulalek",
+      "phase": "Held-out strict B3 ladder, B4 endpoints and explicit tolerance",
+      "implementation": "d1e610d",
+      "id": "ulalek-b3-160-heldout",
+      "commander": "Ulalek, Fused Atrocity",
+      "bracket": 3,
+      "budget": 160,
+      "status": "ok",
+      "price": 154.61,
+      "effectiveMaximum": 160,
+      "unused": 5.39,
+      "selected": "source:archidekt:23460147",
+      "export": "ladder-ulalek/ulalek-b3-160-heldout.txt",
+      "runtimeMs": 157187,
+      "maxRSSKiB": 632040,
+      "earlyAcceleration": 13,
+      "colorlessSources": 55,
+      "landCount": 37,
+      "averageSpellMV": 3.92,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "local:engine",
+          "local:threats",
+          "local:resilience",
+          "source:archidekt:14494014"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "source:archidekt:23460147",
+          "price": 154.61,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": [
+            "death:replacement-material",
+            "native:activatedTriggerCopy",
+            "native:cascade",
+            "native:castCopy",
+            "native:costReduction",
+            "native:passiveTriggerCopy",
+            "native:tutor",
+            "sacrifice-outlet"
+          ]
+        },
+        {
+          "id": "source:archidekt:14494014",
+          "price": 115.6,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "native:activatedTriggerCopy",
+            "native:castCopy",
+            "native:costReduction",
+            "native:passiveTriggerCopy",
+            "sacrifice-outlet",
+            "top-library-access"
+          ]
+        },
+        {
+          "id": "local:resilience",
+          "price": 72.08,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "card-access:cast",
+            "native:activatedTriggerCopy",
+            "native:castCopy",
+            "native:costReduction",
+            "native:passiveTriggerCopy",
+            "sacrifice-outlet",
+            "top-library-access"
+          ]
+        },
+        {
+          "id": "reference:legacy",
+          "price": 157.88,
+          "explanation": "paired deployment frontier elimination",
+          "capabilities": [
+            "card-access:cast",
+            "native:activatedTriggerCopy",
+            "native:castCopy",
+            "native:costReduction",
+            "native:passiveTriggerCopy",
+            "native:tutor",
+            "sacrifice-outlet"
+          ]
+        }
+      ],
+      "inventoryComplete": 12,
+      "inventoryExecutionVerified": false,
+      "warningCount": 4
+    },
+    {
+      "group": "ladder-ulalek",
+      "phase": "Held-out strict B3 ladder, B4 endpoints and explicit tolerance",
+      "implementation": "d1e610d",
+      "id": "ulalek-b3-180-heldout",
+      "commander": "Ulalek, Fused Atrocity",
+      "bracket": 3,
+      "budget": 180,
+      "status": "ok",
+      "price": 165.01,
+      "effectiveMaximum": 180,
+      "unused": 14.99,
+      "selected": "source:archidekt:14494014",
+      "export": "ladder-ulalek/ulalek-b3-180-heldout.txt",
+      "runtimeMs": 119005,
+      "maxRSSKiB": 738128,
+      "earlyAcceleration": 11,
+      "colorlessSources": 51,
+      "landCount": 37,
+      "averageSpellMV": 3.9,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "local:engine",
+          "local:threats",
+          "local:resilience",
+          "source:archidekt:14494014"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "source:archidekt:14494014",
+          "price": 165.01,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": [
+            "native:activatedTriggerCopy",
+            "native:cascade",
+            "native:castCopy",
+            "native:costReduction",
+            "native:passiveTriggerCopy",
+            "native:tutor",
+            "sacrifice-outlet",
+            "top-library-access"
+          ]
+        },
+        {
+          "id": "local:engine",
+          "price": 140.07,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "native:activatedTriggerCopy",
+            "native:castCopy",
+            "native:passiveTriggerCopy",
+            "sacrifice-outlet",
+            "top-library-access"
+          ]
+        },
+        {
+          "id": "local:resilience",
+          "price": 168.2,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "card-access:cast",
+            "native:activatedTriggerCopy",
+            "native:castCopy",
+            "native:costReduction",
+            "native:passiveTriggerCopy",
+            "sacrifice-outlet"
+          ]
+        },
+        {
+          "id": "reference:legacy",
+          "price": 157.88,
+          "explanation": "paired deployment frontier elimination",
+          "capabilities": [
+            "card-access:cast",
+            "native:activatedTriggerCopy",
+            "native:castCopy",
+            "native:costReduction",
+            "native:passiveTriggerCopy",
+            "native:tutor",
+            "sacrifice-outlet"
+          ]
+        }
+      ],
+      "inventoryComplete": 13,
+      "inventoryExecutionVerified": false,
+      "warningCount": 4
+    },
+    {
+      "group": "ladder-ulalek",
+      "phase": "Held-out strict B3 ladder, B4 endpoints and explicit tolerance",
+      "implementation": "d1e610d",
+      "id": "ulalek-b3-200-heldout",
+      "commander": "Ulalek, Fused Atrocity",
+      "bracket": 3,
+      "budget": 200,
+      "status": "ok",
+      "price": 174.24,
+      "effectiveMaximum": 200,
+      "unused": 25.76,
+      "selected": "source:archidekt:23460147",
+      "export": "ladder-ulalek/ulalek-b3-200-heldout.txt",
+      "runtimeMs": 131963,
+      "maxRSSKiB": 783416,
+      "earlyAcceleration": 12,
+      "colorlessSources": 53,
+      "landCount": 37,
+      "averageSpellMV": 4.05,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "source:archidekt:23460147",
+          "local:resilience",
+          "source:archidekt:14494014",
+          "source:archidekt:16437369"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "source:archidekt:23460147",
+          "price": 174.24,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": [
+            "death:replacement-material",
+            "native:activatedTriggerCopy",
+            "native:cascade",
+            "native:castCopy",
+            "native:costReduction",
+            "native:passiveTriggerCopy",
+            "native:tutor",
+            "sacrifice-outlet",
+            "top-library-access"
+          ]
+        },
+        {
+          "id": "source:archidekt:16437369",
+          "price": 161,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "native:activatedTriggerCopy",
+            "native:cascade",
+            "native:castCopy",
+            "native:costReduction",
+            "native:passiveTriggerCopy",
+            "native:tutor",
+            "sacrifice-outlet",
+            "top-library-access"
+          ]
+        },
+        {
+          "id": "local:engine",
+          "price": 163.51,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "native:activatedTriggerCopy",
+            "native:cascade",
+            "native:costReduction",
+            "native:passiveTriggerCopy",
+            "native:tutor",
+            "sacrifice-outlet"
+          ]
+        },
+        {
+          "id": "local:resilience",
+          "price": 183.59,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "card-access:cast",
+            "native:activatedTriggerCopy",
+            "native:costReduction",
+            "native:passiveTriggerCopy",
+            "sacrifice-outlet"
+          ]
+        }
+      ],
+      "inventoryComplete": 12,
+      "inventoryExecutionVerified": false,
+      "warningCount": 3
+    },
+    {
+      "group": "ladder-ulalek",
+      "phase": "Held-out strict B3 ladder, B4 endpoints and explicit tolerance",
+      "implementation": "d1e610d",
+      "id": "ulalek-b3-220-heldout",
+      "commander": "Ulalek, Fused Atrocity",
+      "bracket": 3,
+      "budget": 220,
+      "status": "ok",
+      "price": 174.24,
+      "effectiveMaximum": 220,
+      "unused": 45.76,
+      "selected": "source:archidekt:23460147",
+      "export": "ladder-ulalek/ulalek-b3-220-heldout.txt",
+      "runtimeMs": 112394,
+      "maxRSSKiB": 818104,
+      "earlyAcceleration": 12,
+      "colorlessSources": 53,
+      "landCount": 37,
+      "averageSpellMV": 4.05,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "source:archidekt:23460147",
+          "local:resilience",
+          "source:archidekt:14494014",
+          "source:archidekt:16437369"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "source:archidekt:23460147",
+          "price": 174.24,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": [
+            "death:replacement-material",
+            "native:activatedTriggerCopy",
+            "native:cascade",
+            "native:castCopy",
+            "native:costReduction",
+            "native:passiveTriggerCopy",
+            "native:tutor",
+            "sacrifice-outlet",
+            "top-library-access"
+          ]
+        },
+        {
+          "id": "source:archidekt:16437369",
+          "price": 161,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "native:activatedTriggerCopy",
+            "native:cascade",
+            "native:castCopy",
+            "native:costReduction",
+            "native:passiveTriggerCopy",
+            "native:tutor",
+            "sacrifice-outlet",
+            "top-library-access"
+          ]
+        },
+        {
+          "id": "local:engine",
+          "price": 163.51,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "native:activatedTriggerCopy",
+            "native:cascade",
+            "native:costReduction",
+            "native:passiveTriggerCopy",
+            "native:tutor",
+            "sacrifice-outlet"
+          ]
+        },
+        {
+          "id": "local:resilience",
+          "price": 183.59,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "card-access:cast",
+            "native:activatedTriggerCopy",
+            "native:costReduction",
+            "native:passiveTriggerCopy",
+            "sacrifice-outlet"
+          ]
+        }
+      ],
+      "inventoryComplete": 12,
+      "inventoryExecutionVerified": false,
+      "warningCount": 3
+    },
+    {
+      "group": "ladder-ulalek",
+      "phase": "Held-out strict B3 ladder, B4 endpoints and explicit tolerance",
+      "implementation": "d1e610d",
+      "id": "ulalek-b3-240-heldout",
+      "commander": "Ulalek, Fused Atrocity",
+      "bracket": 3,
+      "budget": 240,
+      "status": "ok",
+      "price": 223.88,
+      "effectiveMaximum": 240,
+      "unused": 16.12,
+      "selected": "source:archidekt:23460147",
+      "export": "ladder-ulalek/ulalek-b3-240-heldout.txt",
+      "runtimeMs": 114452,
+      "maxRSSKiB": 846764,
+      "earlyAcceleration": 12,
+      "colorlessSources": 54,
+      "landCount": 37,
+      "averageSpellMV": 4.03,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "source:archidekt:23460147",
+          "local:resilience",
+          "source:archidekt:14494014",
+          "source:archidekt:16437369"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "source:archidekt:23460147",
+          "price": 223.88,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": [
+            "death:replacement-material",
+            "native:activatedTriggerCopy",
+            "native:cascade",
+            "native:castCopy",
+            "native:costReduction",
+            "native:passiveTriggerCopy",
+            "native:tutor",
+            "sacrifice-outlet",
+            "top-library-access"
+          ]
+        },
+        {
+          "id": "source:archidekt:16437369",
+          "price": 161,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "native:activatedTriggerCopy",
+            "native:cascade",
+            "native:castCopy",
+            "native:costReduction",
+            "native:passiveTriggerCopy",
+            "native:tutor",
+            "sacrifice-outlet",
+            "top-library-access"
+          ]
+        },
+        {
+          "id": "local:engine",
+          "price": 163.51,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "native:activatedTriggerCopy",
+            "native:cascade",
+            "native:costReduction",
+            "native:passiveTriggerCopy",
+            "native:tutor",
+            "sacrifice-outlet"
+          ]
+        },
+        {
+          "id": "local:resilience",
+          "price": 183.59,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "card-access:cast",
+            "native:activatedTriggerCopy",
+            "native:costReduction",
+            "native:passiveTriggerCopy",
+            "sacrifice-outlet"
+          ]
+        }
+      ],
+      "inventoryComplete": 12,
+      "inventoryExecutionVerified": false,
+      "warningCount": 4
+    },
+    {
+      "group": "ladder-ulalek",
+      "phase": "Held-out strict B3 ladder, B4 endpoints and explicit tolerance",
+      "implementation": "d1e610d",
+      "id": "ulalek-b4-160-heldout",
+      "commander": "Ulalek, Fused Atrocity",
+      "bracket": 4,
+      "budget": 160,
+      "status": "ok",
+      "price": 159.99,
+      "effectiveMaximum": 160,
+      "unused": 0.01,
+      "selected": "source:archidekt:24772686",
+      "export": "ladder-ulalek/ulalek-b4-160-heldout.txt",
+      "runtimeMs": 106360,
+      "maxRSSKiB": 875368,
+      "earlyAcceleration": 21,
+      "colorlessSources": 47,
+      "landCount": 36,
+      "averageSpellMV": 3.83,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "source:archidekt:24772686",
+          "local:threats",
+          "local:resilience",
+          "source:archidekt:11395308"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "source:archidekt:24772686",
+          "price": 159.99,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": [
+            "native:activatedTriggerCopy",
+            "native:cascade",
+            "native:castCopy",
+            "native:costReduction",
+            "native:passiveTriggerCopy",
+            "sacrifice-outlet",
+            "top-library-access"
+          ]
+        },
+        {
+          "id": "local:threats",
+          "price": 141.78,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "card-access:cast",
+            "native:activatedTriggerCopy",
+            "native:cascade",
+            "native:castCopy",
+            "native:costReduction",
+            "native:passiveTriggerCopy",
+            "native:tutor",
+            "sacrifice-outlet",
+            "top-library-access"
+          ]
+        },
+        {
+          "id": "source:archidekt:11395308",
+          "price": 145.71,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "native:activatedTriggerCopy",
+            "native:castCopy",
+            "native:costReduction",
+            "native:passiveTriggerCopy",
+            "native:tutor",
+            "sacrifice-outlet",
+            "top-library-access"
+          ]
+        },
+        {
+          "id": "source:archidekt:17691266",
+          "price": 144.52,
+          "explanation": "paired deployment frontier elimination",
+          "capabilities": [
+            "native:activatedTriggerCopy",
+            "native:cascade",
+            "native:castCopy",
+            "native:costReduction",
+            "native:passiveTriggerCopy",
+            "native:tutor",
+            "sacrifice-outlet"
+          ]
+        }
+      ],
+      "inventoryComplete": 12,
+      "inventoryExecutionVerified": false,
+      "warningCount": 4
+    },
+    {
+      "group": "ladder-ulalek",
+      "phase": "Held-out strict B3 ladder, B4 endpoints and explicit tolerance",
+      "implementation": "d1e610d",
+      "id": "ulalek-b4-240-heldout",
+      "commander": "Ulalek, Fused Atrocity",
+      "bracket": 4,
+      "budget": 240,
+      "status": "ok",
+      "price": 173.88,
+      "effectiveMaximum": 240,
+      "unused": 66.12,
+      "selected": "source:archidekt:24772686",
+      "export": "ladder-ulalek/ulalek-b4-240-heldout.txt",
+      "runtimeMs": 107689,
+      "maxRSSKiB": 892584,
+      "earlyAcceleration": 21,
+      "colorlessSources": 48,
+      "landCount": 36,
+      "averageSpellMV": 3.81,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "source:archidekt:24772686",
+          "local:threats",
+          "local:resilience",
+          "source:archidekt:11395308"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "source:archidekt:24772686",
+          "price": 173.88,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": [
+            "native:activatedTriggerCopy",
+            "native:cascade",
+            "native:castCopy",
+            "native:costReduction",
+            "native:passiveTriggerCopy",
+            "sacrifice-outlet",
+            "top-library-access"
+          ]
+        },
+        {
+          "id": "source:archidekt:11395308",
+          "price": 236.84,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "native:activatedTriggerCopy",
+            "native:castCopy",
+            "native:costReduction",
+            "native:passiveTriggerCopy",
+            "native:tutor",
+            "sacrifice-outlet",
+            "top-library-access"
+          ]
+        },
+        {
+          "id": "local:threats",
+          "price": 233.03,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "card-access:cast",
+            "native:activatedTriggerCopy",
+            "native:cascade",
+            "native:castCopy",
+            "native:costReduction",
+            "native:passiveTriggerCopy",
+            "native:tutor",
+            "sacrifice-outlet",
+            "top-library-access"
+          ]
+        },
+        {
+          "id": "source:archidekt:17691266",
+          "price": 144.52,
+          "explanation": "paired deployment frontier elimination",
+          "capabilities": [
+            "native:activatedTriggerCopy",
+            "native:cascade",
+            "native:castCopy",
+            "native:costReduction",
+            "native:passiveTriggerCopy",
+            "native:tutor",
+            "sacrifice-outlet"
+          ]
+        }
+      ],
+      "inventoryComplete": 12,
+      "inventoryExecutionVerified": false,
+      "warningCount": 4
+    },
+    {
+      "group": "ladder-ulalek",
+      "phase": "Held-out strict B3 ladder, B4 endpoints and explicit tolerance",
+      "implementation": "d1e610d",
+      "id": "ulalek-b3-160-plus4-heldout",
+      "commander": "Ulalek, Fused Atrocity",
+      "bracket": 3,
+      "budget": 160,
+      "budgetTolerance": 4,
+      "status": "ok",
+      "price": 154.61,
+      "effectiveMaximum": 164,
+      "unused": 9.39,
+      "selected": "source:archidekt:23460147",
+      "export": "ladder-ulalek/ulalek-b3-160-plus4-heldout.txt",
+      "runtimeMs": 123835,
+      "maxRSSKiB": 892584,
+      "earlyAcceleration": 13,
+      "colorlessSources": 55,
+      "landCount": 37,
+      "averageSpellMV": 3.92,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "local:engine",
+          "local:threats",
+          "local:resilience",
+          "source:archidekt:14494014"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "source:archidekt:23460147",
+          "price": 154.61,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": [
+            "death:replacement-material",
+            "native:activatedTriggerCopy",
+            "native:cascade",
+            "native:castCopy",
+            "native:costReduction",
+            "native:passiveTriggerCopy",
+            "native:tutor",
+            "sacrifice-outlet"
+          ]
+        },
+        {
+          "id": "local:engine",
+          "price": 140.07,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "native:activatedTriggerCopy",
+            "native:castCopy",
+            "native:passiveTriggerCopy",
+            "sacrifice-outlet",
+            "top-library-access"
+          ]
+        },
+        {
+          "id": "local:resilience",
+          "price": 72.08,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "card-access:cast",
+            "native:activatedTriggerCopy",
+            "native:castCopy",
+            "native:costReduction",
+            "native:passiveTriggerCopy",
+            "sacrifice-outlet",
+            "top-library-access"
+          ]
+        },
+        {
+          "id": "reference:legacy",
+          "price": 157.88,
+          "explanation": "paired deployment frontier elimination",
+          "capabilities": [
+            "card-access:cast",
+            "native:activatedTriggerCopy",
+            "native:castCopy",
+            "native:costReduction",
+            "native:passiveTriggerCopy",
+            "native:tutor",
+            "sacrifice-outlet"
+          ]
+        }
+      ],
+      "inventoryComplete": 12,
+      "inventoryExecutionVerified": false,
+      "warningCount": 4
+    },
+    {
+      "group": "ladder-wilhelt",
+      "phase": "Checkpoint before native-resource guard; retained tradeoffs",
+      "implementation": "d1e610d",
+      "id": "wilhelt-b3-160-heldout",
+      "commander": "Wilhelt, the Rotcleaver",
+      "bracket": 3,
+      "budget": 160,
+      "status": "ok",
+      "price": 159.87,
+      "effectiveMaximum": 160,
+      "unused": 0.13,
+      "selected": "source:archidekt:2298582",
+      "export": "ladder-wilhelt/wilhelt-b3-160-heldout.txt",
+      "runtimeMs": 72467,
+      "maxRSSKiB": 781812,
+      "earlyAcceleration": 9,
+      "colorlessSources": 8,
+      "landCount": 36,
+      "averageSpellMV": 2.86,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "source:archidekt:3838228",
+          "local:engine",
+          "source:archidekt:24423895",
+          "source:archidekt:2298582"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "source:archidekt:2298582",
+          "price": 159.87,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": [
+            "death:card-access",
+            "death:life-pressure",
+            "death:replacement-material",
+            "native:tutor",
+            "sacrifice-outlet"
+          ]
+        },
+        {
+          "id": "source:archidekt:24423895",
+          "price": 134.95,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "death:card-access",
+            "death:life-pressure",
+            "death:replacement-material",
+            "sacrifice-outlet"
+          ]
+        }
+      ],
+      "inventoryComplete": 0,
+      "inventoryExecutionVerified": false,
+      "warningCount": 3
+    },
+    {
+      "group": "ladder-wilhelt",
+      "phase": "Checkpoint before native-resource guard; retained tradeoffs",
+      "implementation": "d1e610d",
+      "id": "wilhelt-b3-180-heldout",
+      "commander": "Wilhelt, the Rotcleaver",
+      "bracket": 3,
+      "budget": 180,
+      "status": "ok",
+      "price": 136.78,
+      "effectiveMaximum": 180,
+      "unused": 43.22,
+      "selected": "source:archidekt:24423895",
+      "export": "ladder-wilhelt/wilhelt-b3-180-heldout.txt",
+      "runtimeMs": 73595,
+      "maxRSSKiB": 805908,
+      "earlyAcceleration": 10,
+      "colorlessSources": 6,
+      "landCount": 36,
+      "averageSpellMV": 2.79,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "source:archidekt:3838228",
+          "local:engine",
+          "source:archidekt:24423895",
+          "source:archidekt:2298582"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "source:archidekt:24423895",
+          "price": 136.78,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": [
+            "death:card-access",
+            "death:life-pressure",
+            "death:replacement-material",
+            "sacrifice-outlet"
+          ]
+        },
+        {
+          "id": "local:engine",
+          "price": 143.17,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "death:card-access",
+            "death:life-pressure",
+            "death:replacement-material",
+            "sacrifice-outlet"
+          ]
+        },
+        {
+          "id": "source:archidekt:2298582",
+          "price": 163.07,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "death:card-access",
+            "death:life-pressure",
+            "death:replacement-material",
+            "native:tutor",
+            "sacrifice-outlet"
+          ]
+        }
+      ],
+      "inventoryComplete": 0,
+      "inventoryExecutionVerified": false,
+      "warningCount": 3
+    },
+    {
+      "group": "ladder-wilhelt",
+      "phase": "Checkpoint before native-resource guard; retained tradeoffs",
+      "implementation": "d1e610d",
+      "id": "wilhelt-b3-200-heldout",
+      "commander": "Wilhelt, the Rotcleaver",
+      "bracket": 3,
+      "budget": 200,
+      "status": "ok",
+      "price": 136.78,
+      "effectiveMaximum": 200,
+      "unused": 63.22,
+      "selected": "source:archidekt:24423895",
+      "export": "ladder-wilhelt/wilhelt-b3-200-heldout.txt",
+      "runtimeMs": 59060,
+      "maxRSSKiB": 806804,
+      "earlyAcceleration": 10,
+      "colorlessSources": 6,
+      "landCount": 36,
+      "averageSpellMV": 2.79,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "source:archidekt:3838228",
+          "local:engine",
+          "source:archidekt:24423895",
+          "source:archidekt:2298582"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "source:archidekt:24423895",
+          "price": 136.78,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": [
+            "death:card-access",
+            "death:life-pressure",
+            "death:replacement-material",
+            "sacrifice-outlet"
+          ]
+        },
+        {
+          "id": "source:archidekt:2298582",
+          "price": 163.07,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "death:card-access",
+            "death:life-pressure",
+            "death:replacement-material",
+            "native:tutor",
+            "sacrifice-outlet"
+          ]
+        }
+      ],
+      "inventoryComplete": 0,
+      "inventoryExecutionVerified": false,
+      "warningCount": 3
+    },
+    {
+      "group": "ladder-wilhelt",
+      "phase": "Checkpoint before native-resource guard; retained tradeoffs",
+      "implementation": "d1e610d",
+      "id": "wilhelt-b3-220-heldout",
+      "commander": "Wilhelt, the Rotcleaver",
+      "bracket": 3,
+      "budget": 220,
+      "status": "ok",
+      "price": 136.78,
+      "effectiveMaximum": 220,
+      "unused": 83.22,
+      "selected": "source:archidekt:24423895",
+      "export": "ladder-wilhelt/wilhelt-b3-220-heldout.txt",
+      "runtimeMs": 60083,
+      "maxRSSKiB": 806804,
+      "earlyAcceleration": 10,
+      "colorlessSources": 6,
+      "landCount": 36,
+      "averageSpellMV": 2.79,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "source:archidekt:3838228",
+          "local:engine",
+          "source:archidekt:24423895",
+          "source:archidekt:2298582"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "source:archidekt:24423895",
+          "price": 136.78,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": [
+            "death:card-access",
+            "death:life-pressure",
+            "death:replacement-material",
+            "sacrifice-outlet"
+          ]
+        },
+        {
+          "id": "source:archidekt:2298582",
+          "price": 164.92,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "death:card-access",
+            "death:life-pressure",
+            "death:replacement-material",
+            "native:tutor",
+            "sacrifice-outlet"
+          ]
+        }
+      ],
+      "inventoryComplete": 0,
+      "inventoryExecutionVerified": false,
+      "warningCount": 3
+    },
+    {
+      "group": "ladder-wilhelt",
+      "phase": "Checkpoint before native-resource guard; retained tradeoffs",
+      "implementation": "d1e610d",
+      "id": "wilhelt-b3-240-heldout",
+      "commander": "Wilhelt, the Rotcleaver",
+      "bracket": 3,
+      "budget": 240,
+      "status": "ok",
+      "price": 164.92,
+      "effectiveMaximum": 240,
+      "unused": 75.08,
+      "selected": "source:archidekt:2298582",
+      "export": "ladder-wilhelt/wilhelt-b3-240-heldout.txt",
+      "runtimeMs": 68975,
+      "maxRSSKiB": 806804,
+      "earlyAcceleration": 10,
+      "colorlessSources": 7,
+      "landCount": 36,
+      "averageSpellMV": 2.79,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "source:archidekt:3838228",
+          "local:engine",
+          "source:archidekt:24423895",
+          "source:archidekt:2298582"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "source:archidekt:2298582",
+          "price": 164.92,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": [
+            "death:card-access",
+            "death:life-pressure",
+            "death:replacement-material",
+            "native:tutor",
+            "sacrifice-outlet"
+          ]
+        },
+        {
+          "id": "local:engine",
+          "price": 187.35,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "death:card-access",
+            "death:life-pressure",
+            "death:replacement-material",
+            "sacrifice-outlet"
+          ]
+        },
+        {
+          "id": "source:archidekt:24423895",
+          "price": 181.53,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "death:card-access",
+            "death:life-pressure",
+            "death:replacement-material",
+            "sacrifice-outlet"
+          ]
+        }
+      ],
+      "inventoryComplete": 0,
+      "inventoryExecutionVerified": false,
+      "warningCount": 3
+    },
+    {
+      "group": "ladder-wilhelt",
+      "phase": "Checkpoint before native-resource guard; retained tradeoffs",
+      "implementation": "d1e610d",
+      "id": "wilhelt-b4-160-heldout",
+      "commander": "Wilhelt, the Rotcleaver",
+      "bracket": 4,
+      "budget": 160,
+      "status": "ok",
+      "price": 146.73,
+      "effectiveMaximum": 160,
+      "unused": 13.27,
+      "selected": "local:engine",
+      "export": "ladder-wilhelt/wilhelt-b4-160-heldout.txt",
+      "runtimeMs": 58155,
+      "maxRSSKiB": 831476,
+      "earlyAcceleration": 11,
+      "colorlessSources": 8,
+      "landCount": 35,
+      "averageSpellMV": 2.81,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "source:archidekt:3276096",
+          "local:engine",
+          "source:archidekt:24246712",
+          "source:archidekt:6212325"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "local:engine",
+          "price": 146.73,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": [
+            "death:card-access",
+            "death:life-pressure",
+            "death:replacement-material",
+            "sacrifice-outlet"
+          ]
+        },
+        {
+          "id": "source:archidekt:3276096",
+          "price": 147.16,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "death:card-access",
+            "death:life-pressure",
+            "death:replacement-material",
+            "native:tutor",
+            "sacrifice-outlet"
+          ]
+        },
+        {
+          "id": "source:archidekt:6212325",
+          "price": 153.22,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "death:card-access",
+            "death:life-pressure",
+            "native:tutor",
+            "sacrifice-outlet"
+          ]
+        }
+      ],
+      "inventoryComplete": 0,
+      "inventoryExecutionVerified": false,
+      "warningCount": 2
+    },
+    {
+      "group": "ladder-wilhelt",
+      "phase": "Checkpoint before native-resource guard; retained tradeoffs",
+      "implementation": "d1e610d",
+      "id": "wilhelt-b4-240-heldout",
+      "commander": "Wilhelt, the Rotcleaver",
+      "bracket": 4,
+      "budget": 240,
+      "status": "ok",
+      "price": 187.54,
+      "effectiveMaximum": 240,
+      "unused": 52.46,
+      "selected": "local:engine",
+      "export": "ladder-wilhelt/wilhelt-b4-240-heldout.txt",
+      "runtimeMs": 52498,
+      "maxRSSKiB": 831476,
+      "earlyAcceleration": 11,
+      "colorlessSources": 8,
+      "landCount": 35,
+      "averageSpellMV": 2.77,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "source:archidekt:3276096",
+          "local:engine",
+          "source:archidekt:24246712",
+          "source:archidekt:6212325"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "local:engine",
+          "price": 187.54,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": [
+            "death:card-access",
+            "death:life-pressure",
+            "death:replacement-material",
+            "sacrifice-outlet"
+          ]
+        },
+        {
+          "id": "source:archidekt:6212325",
+          "price": 239.89,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "death:card-access",
+            "death:life-pressure",
+            "native:tutor",
+            "sacrifice-outlet"
+          ]
+        },
+        {
+          "id": "source:archidekt:24246712",
+          "price": 221.79,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "death:card-access",
+            "death:life-pressure",
+            "death:replacement-material",
+            "native:tutor",
+            "sacrifice-outlet"
+          ]
+        }
+      ],
+      "inventoryComplete": 0,
+      "inventoryExecutionVerified": false,
+      "warningCount": 2
+    },
+    {
+      "group": "ladder-wilhelt",
+      "phase": "Checkpoint before native-resource guard; retained tradeoffs",
+      "implementation": "d1e610d",
+      "id": "wilhelt-b3-240-plus4-heldout",
+      "commander": "Wilhelt, the Rotcleaver",
+      "bracket": 3,
+      "budget": 240,
+      "budgetTolerance": 4,
+      "status": "ok",
+      "price": 164.92,
+      "effectiveMaximum": 244,
+      "unused": 79.08,
+      "selected": "source:archidekt:2298582",
+      "export": "ladder-wilhelt/wilhelt-b3-240-plus4-heldout.txt",
+      "runtimeMs": 56159,
+      "maxRSSKiB": 831476,
+      "earlyAcceleration": 10,
+      "colorlessSources": 7,
+      "landCount": 36,
+      "averageSpellMV": 2.79,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "source:archidekt:3838228",
+          "local:engine",
+          "source:archidekt:24423895",
+          "source:archidekt:2298582"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "source:archidekt:2298582",
+          "price": 164.92,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": [
+            "death:card-access",
+            "death:life-pressure",
+            "death:replacement-material",
+            "native:tutor",
+            "sacrifice-outlet"
+          ]
+        },
+        {
+          "id": "local:engine",
+          "price": 187.35,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "death:card-access",
+            "death:life-pressure",
+            "death:replacement-material",
+            "sacrifice-outlet"
+          ]
+        },
+        {
+          "id": "source:archidekt:24423895",
+          "price": 181.53,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "death:card-access",
+            "death:life-pressure",
+            "death:replacement-material",
+            "sacrifice-outlet"
+          ]
+        }
+      ],
+      "inventoryComplete": 0,
+      "inventoryExecutionVerified": false,
+      "warningCount": 3
+    },
+    {
+      "group": "references-checkpoint",
+      "phase": "Independent personal/unrelated builds; Ysh/Zada superseded by predicate repairs",
+      "implementation": "d1e610d",
+      "id": "teval-b3-180-heldout",
+      "commander": "Teval, the Balanced Scale",
+      "bracket": 3,
+      "budget": 180,
+      "status": "ok",
+      "price": 140.95,
+      "effectiveMaximum": 180,
+      "unused": 39.05,
+      "selected": "local:resilience",
+      "export": "references-checkpoint/teval-b3-180-heldout.txt",
+      "runtimeMs": 73934,
+      "maxRSSKiB": 572168,
+      "earlyAcceleration": 13,
+      "colorlessSources": 11,
+      "landCount": 36,
+      "averageSpellMV": 2.3,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "local:resilience",
+          "local:engine",
+          "local:tempo",
+          "local:threats"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "local:resilience",
+          "price": 140.95,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": []
+        },
+        {
+          "id": "local:engine",
+          "price": 42.71,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "top-library-access"
+          ]
+        }
+      ],
+      "inventoryComplete": 0,
+      "inventoryExecutionVerified": false,
+      "warningCount": 3
+    },
+    {
+      "group": "references-checkpoint",
+      "phase": "Independent personal/unrelated builds; Ysh/Zada superseded by predicate repairs",
+      "implementation": "d1e610d",
+      "id": "yuna-b3-204-heldout",
+      "commander": "Yuna, Grand Summoner",
+      "bracket": 3,
+      "budget": 204,
+      "status": "ok",
+      "price": 193.04,
+      "effectiveMaximum": 204,
+      "unused": 10.96,
+      "selected": "reference:legacy",
+      "export": "references-checkpoint/yuna-b3-204-heldout.txt",
+      "runtimeMs": 71737,
+      "maxRSSKiB": 778796,
+      "earlyAcceleration": 19,
+      "colorlessSources": 10,
+      "landCount": 36,
+      "averageSpellMV": 2.37,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "local:resilience",
+          "reference:legacy",
+          "local:engine",
+          "local:tempo"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "reference:legacy",
+          "price": 193.04,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": []
+        },
+        {
+          "id": "local:resilience",
+          "price": 189.75,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "top-library-access"
+          ]
+        }
+      ],
+      "inventoryComplete": 0,
+      "inventoryExecutionVerified": false,
+      "warningCount": 2
+    },
+    {
+      "group": "references-checkpoint",
+      "phase": "Independent personal/unrelated builds; Ysh/Zada superseded by predicate repairs",
+      "implementation": "d1e610d",
+      "id": "zacama-b3-160-heldout",
+      "commander": "Zacama, Primal Calamity",
+      "bracket": 3,
+      "budget": 160,
+      "status": "ok",
+      "price": 103.47,
+      "effectiveMaximum": 160,
+      "unused": 56.53,
+      "selected": "local:resilience",
+      "export": "references-checkpoint/zacama-b3-160-heldout.txt",
+      "runtimeMs": 61851,
+      "maxRSSKiB": 806804,
+      "earlyAcceleration": 15,
+      "colorlessSources": 10,
+      "landCount": 36,
+      "averageSpellMV": 2.02,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "local:resilience",
+          "local:engine",
+          "local:tempo",
+          "local:threats"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "local:resilience",
+          "price": 103.47,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": []
+        },
+        {
+          "id": "local:tempo",
+          "price": 137.36,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "card-access:cast",
+            "card-access:entry",
+            "top-library-access"
+          ]
+        }
+      ],
+      "inventoryComplete": 0,
+      "inventoryExecutionVerified": false,
+      "warningCount": 3
+    },
+    {
+      "group": "references-checkpoint",
+      "phase": "Independent personal/unrelated builds; Ysh/Zada superseded by predicate repairs",
+      "implementation": "d1e610d",
+      "id": "betor-ancestor-b3-232-heldout",
+      "commander": "Betor, Ancestor's Voice",
+      "bracket": 3,
+      "budget": 232,
+      "status": "ok",
+      "price": 178.27,
+      "effectiveMaximum": 232,
+      "unused": 53.73,
+      "selected": "reference:legacy",
+      "export": "references-checkpoint/betor-ancestor-b3-232-heldout.txt",
+      "runtimeMs": 61438,
+      "maxRSSKiB": 813708,
+      "earlyAcceleration": 20,
+      "colorlessSources": 12,
+      "landCount": 36,
+      "averageSpellMV": 2.37,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "reference:legacy",
+          "local:engine",
+          "local:tempo",
+          "local:resilience"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "reference:legacy",
+          "price": 178.27,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": []
+        }
+      ],
+      "inventoryComplete": 0,
+      "inventoryExecutionVerified": false,
+      "warningCount": 2
+    },
+    {
+      "group": "references-checkpoint",
+      "phase": "Independent personal/unrelated builds; Ysh/Zada superseded by predicate repairs",
+      "implementation": "d1e610d",
+      "id": "betor-kin-b3-232-heldout",
+      "commander": "Betor, Kin to All",
+      "bracket": 3,
+      "budget": 232,
+      "status": "ok",
+      "price": 129.73,
+      "effectiveMaximum": 232,
+      "unused": 102.27,
+      "selected": "local:resilience",
+      "export": "references-checkpoint/betor-kin-b3-232-heldout.txt",
+      "runtimeMs": 82655,
+      "maxRSSKiB": 813708,
+      "earlyAcceleration": 15,
+      "colorlessSources": 12,
+      "landCount": 36,
+      "averageSpellMV": 2,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "reference:legacy",
+          "local:resilience",
+          "local:engine",
+          "local:tempo"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "local:resilience",
+          "price": 129.73,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": []
+        }
+      ],
+      "inventoryComplete": 0,
+      "inventoryExecutionVerified": false,
+      "warningCount": 3
+    },
+    {
+      "group": "references-checkpoint",
+      "phase": "Independent personal/unrelated builds; Ysh/Zada superseded by predicate repairs",
+      "implementation": "d1e610d",
+      "id": "yshtola-b3-160-heldout",
+      "commander": "Y'shtola, Night's Blessed",
+      "bracket": 3,
+      "budget": 160,
+      "status": "ok",
+      "price": 85.39,
+      "effectiveMaximum": 160,
+      "unused": 74.61,
+      "selected": "local:threats",
+      "export": "references-checkpoint/yshtola-b3-160-heldout.txt",
+      "runtimeMs": 57219,
+      "maxRSSKiB": 813708,
+      "earlyAcceleration": 10,
+      "colorlessSources": 9,
+      "landCount": 36,
+      "averageSpellMV": 2.4,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "local:threats",
+          "local:resilience",
+          "local:tempo",
+          "local:engine"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "local:threats",
+          "price": 85.39,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": [
+            "card-access:cast",
+            "native:costReduction"
+          ]
+        },
+        {
+          "id": "local:tempo",
+          "price": 138.67,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "native:costReduction",
+            "top-library-access"
+          ]
+        },
+        {
+          "id": "local:resilience",
+          "price": 151.73,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "card-access:cast",
+            "native:costReduction"
+          ]
+        }
+      ],
+      "inventoryComplete": 0,
+      "inventoryExecutionVerified": false,
+      "warningCount": 3
+    },
+    {
+      "group": "references-checkpoint",
+      "phase": "Independent personal/unrelated builds; Ysh/Zada superseded by predicate repairs",
+      "implementation": "d1e610d",
+      "id": "yshtola-b3-180-heldout",
+      "commander": "Y'shtola, Night's Blessed",
+      "bracket": 3,
+      "budget": 180,
+      "status": "ok",
+      "price": 85.39,
+      "effectiveMaximum": 180,
+      "unused": 94.61,
+      "selected": "local:threats",
+      "export": "references-checkpoint/yshtola-b3-180-heldout.txt",
+      "runtimeMs": 55089,
+      "maxRSSKiB": 818892,
+      "earlyAcceleration": 10,
+      "colorlessSources": 9,
+      "landCount": 36,
+      "averageSpellMV": 2.4,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "local:threats",
+          "local:resilience",
+          "local:tempo",
+          "local:engine"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "local:threats",
+          "price": 85.39,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": [
+            "card-access:cast",
+            "native:costReduction"
+          ]
+        },
+        {
+          "id": "local:tempo",
+          "price": 138.67,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "native:costReduction",
+            "top-library-access"
+          ]
+        },
+        {
+          "id": "local:resilience",
+          "price": 151.73,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "card-access:cast",
+            "native:costReduction"
+          ]
+        }
+      ],
+      "inventoryComplete": 0,
+      "inventoryExecutionVerified": false,
+      "warningCount": 3
+    },
+    {
+      "group": "references-checkpoint",
+      "phase": "Independent personal/unrelated builds; Ysh/Zada superseded by predicate repairs",
+      "implementation": "d1e610d",
+      "id": "yshtola-b3-200-heldout",
+      "commander": "Y'shtola, Night's Blessed",
+      "bracket": 3,
+      "budget": 200,
+      "status": "ok",
+      "price": 138.67,
+      "effectiveMaximum": 200,
+      "unused": 61.33,
+      "selected": "local:tempo",
+      "export": "references-checkpoint/yshtola-b3-200-heldout.txt",
+      "runtimeMs": 38232,
+      "maxRSSKiB": 819056,
+      "earlyAcceleration": 14,
+      "colorlessSources": 12,
+      "landCount": 36,
+      "averageSpellMV": 2.33,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "local:threats",
+          "local:resilience",
+          "local:tempo",
+          "local:engine"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "local:tempo",
+          "price": 138.67,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": [
+            "native:costReduction",
+            "top-library-access"
+          ]
+        },
+        {
+          "id": "local:threats",
+          "price": 136.05,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "card-access:cast",
+            "native:costReduction"
+          ]
+        },
+        {
+          "id": "local:resilience",
+          "price": 151.73,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "card-access:cast",
+            "native:costReduction"
+          ]
+        }
+      ],
+      "inventoryComplete": 0,
+      "inventoryExecutionVerified": false,
+      "warningCount": 3
+    },
+    {
+      "group": "references-checkpoint",
+      "phase": "Independent personal/unrelated builds; Ysh/Zada superseded by predicate repairs",
+      "implementation": "d1e610d",
+      "id": "yshtola-b3-220-heldout",
+      "commander": "Y'shtola, Night's Blessed",
+      "bracket": 3,
+      "budget": 220,
+      "status": "ok",
+      "price": 138.67,
+      "effectiveMaximum": 220,
+      "unused": 81.33,
+      "selected": "local:tempo",
+      "export": "references-checkpoint/yshtola-b3-220-heldout.txt",
+      "runtimeMs": 39141,
+      "maxRSSKiB": 819056,
+      "earlyAcceleration": 14,
+      "colorlessSources": 12,
+      "landCount": 36,
+      "averageSpellMV": 2.33,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "local:threats",
+          "local:resilience",
+          "local:tempo",
+          "local:engine"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "local:tempo",
+          "price": 138.67,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": [
+            "native:costReduction",
+            "top-library-access"
+          ]
+        },
+        {
+          "id": "local:threats",
+          "price": 136.05,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "card-access:cast",
+            "native:costReduction"
+          ]
+        },
+        {
+          "id": "local:resilience",
+          "price": 151.73,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "card-access:cast",
+            "native:costReduction"
+          ]
+        }
+      ],
+      "inventoryComplete": 0,
+      "inventoryExecutionVerified": false,
+      "warningCount": 3
+    },
+    {
+      "group": "references-checkpoint",
+      "phase": "Independent personal/unrelated builds; Ysh/Zada superseded by predicate repairs",
+      "implementation": "d1e610d",
+      "id": "yshtola-b3-240-heldout",
+      "commander": "Y'shtola, Night's Blessed",
+      "bracket": 3,
+      "budget": 240,
+      "status": "ok",
+      "price": 138.67,
+      "effectiveMaximum": 240,
+      "unused": 101.33,
+      "selected": "local:tempo",
+      "export": "references-checkpoint/yshtola-b3-240-heldout.txt",
+      "runtimeMs": 47741,
+      "maxRSSKiB": 819056,
+      "earlyAcceleration": 14,
+      "colorlessSources": 12,
+      "landCount": 36,
+      "averageSpellMV": 2.33,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "local:threats",
+          "local:resilience",
+          "local:tempo",
+          "local:engine"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "local:tempo",
+          "price": 138.67,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": [
+            "native:costReduction",
+            "top-library-access"
+          ]
+        },
+        {
+          "id": "local:threats",
+          "price": 136.05,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "card-access:cast",
+            "native:costReduction"
+          ]
+        },
+        {
+          "id": "local:resilience",
+          "price": 151.73,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "card-access:cast",
+            "native:costReduction"
+          ]
+        }
+      ],
+      "inventoryComplete": 0,
+      "inventoryExecutionVerified": false,
+      "warningCount": 3
+    },
+    {
+      "group": "references-checkpoint",
+      "phase": "Independent personal/unrelated builds; Ysh/Zada superseded by predicate repairs",
+      "implementation": "d1e610d",
+      "id": "yuriko-b3-191-heldout",
+      "commander": "Yuriko, the Tiger's Shadow",
+      "bracket": 3,
+      "budget": 191,
+      "status": "ok",
+      "price": 126.04,
+      "effectiveMaximum": 191,
+      "unused": 64.96,
+      "selected": "local:resilience",
+      "export": "references-checkpoint/yuriko-b3-191-heldout.txt",
+      "runtimeMs": 35495,
+      "maxRSSKiB": 819056,
+      "earlyAcceleration": 9,
+      "colorlessSources": 11,
+      "landCount": 36,
+      "averageSpellMV": 1.51,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "reference:legacy",
+          "local:resilience",
+          "local:engine",
+          "local:tempo"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "local:resilience",
+          "price": 126.04,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": []
+        },
+        {
+          "id": "reference:legacy",
+          "price": 94.9,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "card-access:cast",
+            "native:costReduction"
+          ]
+        }
+      ],
+      "inventoryComplete": 0,
+      "inventoryExecutionVerified": false,
+      "warningCount": 4
+    },
+    {
+      "group": "references-checkpoint",
+      "phase": "Independent personal/unrelated builds; Ysh/Zada superseded by predicate repairs",
+      "implementation": "d1e610d",
+      "id": "zada-b3-191-heldout",
+      "commander": "Zada, Hedron Grinder",
+      "bracket": 3,
+      "budget": 191,
+      "status": "ok",
+      "price": 159.95,
+      "effectiveMaximum": 191,
+      "unused": 31.05,
+      "selected": "local:tempo",
+      "export": "references-checkpoint/zada-b3-191-heldout.txt",
+      "runtimeMs": 33089,
+      "maxRSSKiB": 819056,
+      "earlyAcceleration": 21,
+      "colorlessSources": 11,
+      "landCount": 36,
+      "averageSpellMV": 2.21,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "local:tempo",
+          "discovered:costReduction:ea734863-5793-49d6-b10e-109432aec0a3",
+          "local:engine",
+          "local:resilience"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "local:tempo",
+          "price": 159.95,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": [
+            "top-library-access"
+          ]
+        }
+      ],
+      "inventoryComplete": 1,
+      "inventoryExecutionVerified": false,
+      "warningCount": 8
+    },
+    {
+      "group": "references-checkpoint",
+      "phase": "Independent personal/unrelated builds; Ysh/Zada superseded by predicate repairs",
+      "implementation": "d1e610d",
+      "id": "henzie-b3-191-heldout",
+      "commander": "Henzie \"Toolbox\" Torre",
+      "bracket": 3,
+      "budget": 191,
+      "status": "ok",
+      "price": 133.67,
+      "effectiveMaximum": 191,
+      "unused": 57.33,
+      "selected": "local:engine",
+      "export": "references-checkpoint/henzie-b3-191-heldout.txt",
+      "runtimeMs": 58554,
+      "maxRSSKiB": 851624,
+      "earlyAcceleration": 48,
+      "colorlessSources": 10,
+      "landCount": 36,
+      "averageSpellMV": 2.06,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "local:resilience",
+          "local:engine",
+          "local:tempo",
+          "local:threats"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "local:engine",
+          "price": 133.67,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": [
+            "card-access:cast",
+            "top-library-access"
+          ]
+        }
+      ],
+      "inventoryComplete": 0,
+      "inventoryExecutionVerified": false,
+      "warningCount": 4
+    },
+    {
+      "group": "references-checkpoint",
+      "phase": "Independent personal/unrelated builds; Ysh/Zada superseded by predicate repairs",
+      "implementation": "d1e610d",
+      "id": "aesi-b3-180-heldout",
+      "commander": "Aesi, Tyrant of Gyre Strait",
+      "bracket": 3,
+      "budget": 180,
+      "status": "ok",
+      "price": 47.29,
+      "effectiveMaximum": 180,
+      "unused": 132.71,
+      "selected": "local:engine",
+      "export": "references-checkpoint/aesi-b3-180-heldout.txt",
+      "runtimeMs": 43698,
+      "maxRSSKiB": 851624,
+      "earlyAcceleration": 47,
+      "colorlessSources": 12,
+      "landCount": 36,
+      "averageSpellMV": 2.3,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "local:resilience",
+          "reference:legacy",
+          "local:tempo",
+          "local:engine"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "local:engine",
+          "price": 47.29,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": [
+            "card-access:cast",
+            "native:costReduction",
+            "top-library-access"
+          ]
+        }
+      ],
+      "inventoryComplete": 0,
+      "inventoryExecutionVerified": false,
+      "warningCount": 3
+    },
+    {
+      "group": "references-checkpoint",
+      "phase": "Independent personal/unrelated builds; Ysh/Zada superseded by predicate repairs",
+      "implementation": "d1e610d",
+      "id": "osgir-b3-180-heldout",
+      "commander": "Osgir, the Reconstructor",
+      "bracket": 3,
+      "budget": 180,
+      "status": "ok",
+      "price": 122.58,
+      "effectiveMaximum": 180,
+      "unused": 57.42,
+      "selected": "local:resilience",
+      "export": "references-checkpoint/osgir-b3-180-heldout.txt",
+      "runtimeMs": 23808,
+      "maxRSSKiB": 851624,
+      "earlyAcceleration": 13,
+      "colorlessSources": 11,
+      "landCount": 36,
+      "averageSpellMV": 2.14,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "local:resilience",
+          "local:engine",
+          "local:tempo",
+          "local:threats"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "local:resilience",
+          "price": 122.58,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": [
+            "top-library-access"
+          ]
+        }
+      ],
+      "inventoryComplete": 0,
+      "inventoryExecutionVerified": false,
+      "warningCount": 3
+    },
+    {
+      "group": "cast-correction",
+      "phase": "Ysh final; intermediate Zada superseded by unparsed-qualifier guard",
+      "implementation": "82427dc",
+      "id": "yshtola-b3-160-heldout",
+      "commander": "Y'shtola, Night's Blessed",
+      "bracket": 3,
+      "budget": 160,
+      "status": "ok",
+      "price": 90.68,
+      "effectiveMaximum": 160,
+      "unused": 69.32,
+      "selected": "local:resilience",
+      "export": "cast-correction/yshtola-b3-160-heldout.txt",
+      "runtimeMs": 55845,
+      "maxRSSKiB": 752096,
+      "earlyAcceleration": 11,
+      "colorlessSources": 9,
+      "landCount": 36,
+      "averageSpellMV": 2.97,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "local:resilience",
+          "reference:legacy",
+          "local:engine",
+          "local:tempo"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "local:resilience",
+          "price": 90.68,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": [
+            "cast:life-pressure"
+          ]
+        },
+        {
+          "id": "reference:legacy",
+          "price": 108.34,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "card-access:cast",
+            "cast:life-pressure",
+            "native:costReduction",
+            "native:tutor"
+          ]
+        }
+      ],
+      "inventoryComplete": 0,
+      "inventoryExecutionVerified": false,
+      "warningCount": 2
+    },
+    {
+      "group": "cast-correction",
+      "phase": "Ysh final; intermediate Zada superseded by unparsed-qualifier guard",
+      "implementation": "82427dc",
+      "id": "yshtola-b3-180-heldout",
+      "commander": "Y'shtola, Night's Blessed",
+      "bracket": 3,
+      "budget": 180,
+      "status": "ok",
+      "price": 90.68,
+      "effectiveMaximum": 180,
+      "unused": 89.32,
+      "selected": "local:resilience",
+      "export": "cast-correction/yshtola-b3-180-heldout.txt",
+      "runtimeMs": 65644,
+      "maxRSSKiB": 754736,
+      "earlyAcceleration": 11,
+      "colorlessSources": 9,
+      "landCount": 36,
+      "averageSpellMV": 2.97,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "local:resilience",
+          "reference:legacy",
+          "local:engine",
+          "local:tempo"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "local:resilience",
+          "price": 90.68,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": [
+            "cast:life-pressure"
+          ]
+        },
+        {
+          "id": "reference:legacy",
+          "price": 108.34,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "card-access:cast",
+            "cast:life-pressure",
+            "native:costReduction",
+            "native:tutor"
+          ]
+        }
+      ],
+      "inventoryComplete": 0,
+      "inventoryExecutionVerified": false,
+      "warningCount": 2
+    },
+    {
+      "group": "cast-correction",
+      "phase": "Ysh final; intermediate Zada superseded by unparsed-qualifier guard",
+      "implementation": "82427dc",
+      "id": "yshtola-b3-200-heldout",
+      "commander": "Y'shtola, Night's Blessed",
+      "bracket": 3,
+      "budget": 200,
+      "status": "ok",
+      "price": 90.68,
+      "effectiveMaximum": 200,
+      "unused": 109.32,
+      "selected": "local:resilience",
+      "export": "cast-correction/yshtola-b3-200-heldout.txt",
+      "runtimeMs": 52658,
+      "maxRSSKiB": 782788,
+      "earlyAcceleration": 11,
+      "colorlessSources": 9,
+      "landCount": 36,
+      "averageSpellMV": 2.97,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "local:resilience",
+          "reference:legacy",
+          "local:engine",
+          "local:tempo"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "local:resilience",
+          "price": 90.68,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": [
+            "cast:life-pressure"
+          ]
+        },
+        {
+          "id": "reference:legacy",
+          "price": 108.34,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "card-access:cast",
+            "cast:life-pressure",
+            "native:costReduction",
+            "native:tutor"
+          ]
+        }
+      ],
+      "inventoryComplete": 0,
+      "inventoryExecutionVerified": false,
+      "warningCount": 2
+    },
+    {
+      "group": "cast-correction",
+      "phase": "Ysh final; intermediate Zada superseded by unparsed-qualifier guard",
+      "implementation": "82427dc",
+      "id": "yshtola-b3-220-heldout",
+      "commander": "Y'shtola, Night's Blessed",
+      "bracket": 3,
+      "budget": 220,
+      "status": "ok",
+      "price": 90.68,
+      "effectiveMaximum": 220,
+      "unused": 129.32,
+      "selected": "local:resilience",
+      "export": "cast-correction/yshtola-b3-220-heldout.txt",
+      "runtimeMs": 52644,
+      "maxRSSKiB": 789580,
+      "earlyAcceleration": 11,
+      "colorlessSources": 9,
+      "landCount": 36,
+      "averageSpellMV": 2.97,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "local:resilience",
+          "reference:legacy",
+          "local:engine",
+          "local:tempo"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "local:resilience",
+          "price": 90.68,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": [
+            "cast:life-pressure"
+          ]
+        }
+      ],
+      "inventoryComplete": 0,
+      "inventoryExecutionVerified": false,
+      "warningCount": 2
+    },
+    {
+      "group": "cast-correction",
+      "phase": "Ysh final; intermediate Zada superseded by unparsed-qualifier guard",
+      "implementation": "82427dc",
+      "id": "yshtola-b3-240-heldout",
+      "commander": "Y'shtola, Night's Blessed",
+      "bracket": 3,
+      "budget": 240,
+      "status": "ok",
+      "price": 90.68,
+      "effectiveMaximum": 240,
+      "unused": 149.32,
+      "selected": "local:resilience",
+      "export": "cast-correction/yshtola-b3-240-heldout.txt",
+      "runtimeMs": 52784,
+      "maxRSSKiB": 802372,
+      "earlyAcceleration": 11,
+      "colorlessSources": 9,
+      "landCount": 36,
+      "averageSpellMV": 2.97,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "local:resilience",
+          "reference:legacy",
+          "local:engine",
+          "local:tempo"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "local:resilience",
+          "price": 90.68,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": [
+            "cast:life-pressure"
+          ]
+        }
+      ],
+      "inventoryComplete": 0,
+      "inventoryExecutionVerified": false,
+      "warningCount": 2
+    },
+    {
+      "group": "cast-correction",
+      "phase": "Ysh final; intermediate Zada superseded by unparsed-qualifier guard",
+      "implementation": "82427dc",
+      "id": "zada-b3-191-heldout",
+      "commander": "Zada, Hedron Grinder",
+      "bracket": 3,
+      "budget": 191,
+      "status": "ok",
+      "price": 169.94,
+      "effectiveMaximum": 191,
+      "unused": 21.06,
+      "selected": "local:tempo",
+      "export": "cast-correction/zada-b3-191-heldout.txt",
+      "runtimeMs": 29825,
+      "maxRSSKiB": 802372,
+      "earlyAcceleration": 17,
+      "colorlessSources": 11,
+      "landCount": 36,
+      "averageSpellMV": 2.25,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "local:resilience",
+          "discovered:costReduction:ea734863-5793-49d6-b10e-109432aec0a3",
+          "local:tempo",
+          "local:engine"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "local:tempo",
+          "price": 169.94,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": [
+            "top-library-access"
+          ]
+        },
+        {
+          "id": "discovered:costReduction:ea734863-5793-49d6-b10e-109432aec0a3",
+          "price": 172.07,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "native:costReduction"
+          ]
+        }
+      ],
+      "inventoryComplete": 1,
+      "inventoryExecutionVerified": false,
+      "warningCount": 2
+    },
+    {
+      "group": "zada-final",
+      "phase": "Final target-qualifier abstention regression",
+      "implementation": "b730f86",
+      "id": "zada-b3-191-heldout",
+      "commander": "Zada, Hedron Grinder",
+      "bracket": 3,
+      "budget": 191,
+      "status": "ok",
+      "price": 152.66,
+      "effectiveMaximum": 191,
+      "unused": 38.34,
+      "selected": "local:tempo",
+      "export": "zada-final/zada-b3-191-heldout.txt",
+      "runtimeMs": 31790,
+      "maxRSSKiB": 538572,
+      "earlyAcceleration": 18,
+      "colorlessSources": 11,
+      "landCount": 36,
+      "averageSpellMV": 2.13,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "discovered:costReduction:ea734863-5793-49d6-b10e-109432aec0a3",
+          "local:resilience",
+          "local:engine",
+          "local:tempo"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "local:tempo",
+          "price": 152.66,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": [
+            "top-library-access"
+          ]
+        },
+        {
+          "id": "discovered:costReduction:ea734863-5793-49d6-b10e-109432aec0a3",
+          "price": 163.28,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "native:costReduction"
+          ]
+        }
+      ],
+      "inventoryComplete": 1,
+      "inventoryExecutionVerified": false,
+      "warningCount": 2
+    },
+    {
+      "group": "ulalek-reference",
+      "phase": "Confirmed test2 reference excluded; matched strict 191 budget",
+      "implementation": "90a81d5",
+      "id": "ulalek-b3-191-reference-heldout",
+      "commander": "Ulalek, Fused Atrocity",
+      "budget": 191,
+      "bracket": 3,
+      "status": "ok",
+      "price": 174.24,
+      "effectiveMaximum": 191,
+      "unused": 16.76,
+      "selected": "source:archidekt:23460147",
+      "export": "ulalek-reference/ulalek-b3-191-reference-heldout.txt",
+      "runtimeMs": 107352,
+      "maxRSSKiB": 794572,
+      "earlyAcceleration": 12,
+      "colorlessSources": 53,
+      "landCount": 37,
+      "averageSpellMV": 4.05,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "source:archidekt:23460147",
+          "local:resilience",
+          "source:archidekt:14494014",
+          "source:archidekt:16437369"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "source:archidekt:23460147",
+          "price": 174.24,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": [
+            "death:replacement-material",
+            "native:activatedTriggerCopy",
+            "native:cascade",
+            "native:castCopy",
+            "native:costReduction",
+            "native:passiveTriggerCopy",
+            "native:tutor",
+            "sacrifice-outlet",
+            "top-library-access"
+          ]
+        },
+        {
+          "id": "source:archidekt:16437369",
+          "price": 161,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "native:activatedTriggerCopy",
+            "native:cascade",
+            "native:castCopy",
+            "native:costReduction",
+            "native:passiveTriggerCopy",
+            "native:tutor",
+            "sacrifice-outlet",
+            "top-library-access"
+          ]
+        },
+        {
+          "id": "local:engine",
+          "price": 163.51,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "native:activatedTriggerCopy",
+            "native:cascade",
+            "native:costReduction",
+            "native:passiveTriggerCopy",
+            "native:tutor",
+            "sacrifice-outlet"
+          ]
+        },
+        {
+          "id": "local:resilience",
+          "price": 183.59,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "card-access:cast",
+            "native:activatedTriggerCopy",
+            "native:costReduction",
+            "native:passiveTriggerCopy",
+            "sacrifice-outlet"
+          ]
+        }
+      ],
+      "inventoryComplete": 12,
+      "inventoryExecutionVerified": false,
+      "warningCount": 3
+    },
+    {
+      "group": "resource-history",
+      "phase": "Native-resource uncertainty protection; current Wilhelt result",
+      "implementation": "d2b764b",
+      "id": "wilhelt-b3-191-historical",
+      "commander": "Wilhelt, the Rotcleaver",
+      "bracket": 3,
+      "budget": 191,
+      "status": "ok",
+      "price": 163.25,
+      "effectiveMaximum": 191,
+      "unused": 27.75,
+      "selected": "source:archidekt:3838228",
+      "export": "resource-history/wilhelt-b3-191-historical.txt",
+      "runtimeMs": 58834,
+      "maxRSSKiB": 634436,
+      "earlyAcceleration": 10,
+      "colorlessSources": 4,
+      "landCount": 36,
+      "averageSpellMV": 2.75,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "source:archidekt:3838228",
+          "local:engine",
+          "source:archidekt:24423895",
+          "source:archidekt:2298582"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "source:archidekt:3838228",
+          "price": 163.25,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": [
+            "death:card-access",
+            "death:life-pressure",
+            "death:replacement-material",
+            "native:tutor",
+            "sacrifice-outlet"
+          ]
+        }
+      ],
+      "inventoryComplete": 1,
+      "inventoryExecutionVerified": false,
+      "warningCount": 2
+    },
+    {
+      "group": "resource-history",
+      "phase": "Native-resource uncertainty protection; current Wilhelt result",
+      "implementation": "d2b764b",
+      "id": "wilhelt-b4-191-historical",
+      "commander": "Wilhelt, the Rotcleaver",
+      "bracket": 4,
+      "budget": 191,
+      "status": "ok",
+      "price": 181.8,
+      "effectiveMaximum": 191,
+      "unused": 9.2,
+      "selected": "source:archidekt:24246712",
+      "export": "resource-history/wilhelt-b4-191-historical.txt",
+      "runtimeMs": 49682,
+      "maxRSSKiB": 736308,
+      "earlyAcceleration": 10,
+      "colorlessSources": 11,
+      "landCount": 35,
+      "averageSpellMV": 2.73,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "source:archidekt:24246712",
+          "local:engine",
+          "source:archidekt:3276096",
+          "source:archidekt:6212325"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "source:archidekt:24246712",
+          "price": 181.8,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": [
+            "death:card-access",
+            "death:life-pressure",
+            "death:replacement-material",
+            "native:tutor",
+            "sacrifice-outlet"
+          ]
+        },
+        {
+          "id": "source:archidekt:3276096",
+          "price": 176.35,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "death:card-access",
+            "death:life-pressure",
+            "death:replacement-material",
+            "native:tutor",
+            "sacrifice-outlet"
+          ]
+        },
+        {
+          "id": "source:archidekt:6212325",
+          "price": 172.29,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "death:card-access",
+            "death:life-pressure",
+            "native:tutor",
+            "sacrifice-outlet"
+          ]
+        }
+      ],
+      "inventoryComplete": 0,
+      "inventoryExecutionVerified": false,
+      "warningCount": 2
+    },
+    {
+      "group": "resource-ladder-a",
+      "phase": "Native-resource uncertainty protection; current Wilhelt result",
+      "implementation": "d2b764b",
+      "id": "wilhelt-b3-160-heldout",
+      "commander": "Wilhelt, the Rotcleaver",
+      "bracket": 3,
+      "budget": 160,
+      "status": "ok",
+      "price": 159.91,
+      "effectiveMaximum": 160,
+      "unused": 0.09,
+      "selected": "source:archidekt:24423895",
+      "export": "resource-ladder-a/wilhelt-b3-160-heldout.txt",
+      "runtimeMs": 58849,
+      "maxRSSKiB": 712704,
+      "earlyAcceleration": 10,
+      "colorlessSources": 5,
+      "landCount": 36,
+      "averageSpellMV": 2.71,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "source:archidekt:3838228",
+          "local:engine",
+          "source:archidekt:24423895",
+          "source:archidekt:2298582"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "source:archidekt:24423895",
+          "price": 159.91,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": [
+            "death:card-access",
+            "death:life-pressure",
+            "death:replacement-material",
+            "sacrifice-outlet"
+          ]
+        },
+        {
+          "id": "local:engine",
+          "price": 143.17,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "death:card-access",
+            "death:life-pressure",
+            "death:replacement-material",
+            "sacrifice-outlet"
+          ]
+        },
+        {
+          "id": "source:archidekt:2298582",
+          "price": 159.87,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "death:card-access",
+            "death:life-pressure",
+            "death:replacement-material",
+            "native:tutor",
+            "sacrifice-outlet"
+          ]
+        }
+      ],
+      "inventoryComplete": 1,
+      "inventoryExecutionVerified": false,
+      "warningCount": 2
+    },
+    {
+      "group": "resource-ladder-a",
+      "phase": "Native-resource uncertainty protection; current Wilhelt result",
+      "implementation": "d2b764b",
+      "id": "wilhelt-b3-180-heldout",
+      "commander": "Wilhelt, the Rotcleaver",
+      "bracket": 3,
+      "budget": 180,
+      "status": "ok",
+      "price": 163.25,
+      "effectiveMaximum": 180,
+      "unused": 16.75,
+      "selected": "source:archidekt:3838228",
+      "export": "resource-ladder-a/wilhelt-b3-180-heldout.txt",
+      "runtimeMs": 52898,
+      "maxRSSKiB": 798884,
+      "earlyAcceleration": 10,
+      "colorlessSources": 4,
+      "landCount": 36,
+      "averageSpellMV": 2.75,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "source:archidekt:3838228",
+          "local:engine",
+          "source:archidekt:24423895",
+          "source:archidekt:2298582"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "source:archidekt:3838228",
+          "price": 163.25,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": [
+            "death:card-access",
+            "death:life-pressure",
+            "death:replacement-material",
+            "native:tutor",
+            "sacrifice-outlet"
+          ]
+        },
+        {
+          "id": "local:engine",
+          "price": 143.17,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "death:card-access",
+            "death:life-pressure",
+            "death:replacement-material",
+            "sacrifice-outlet"
+          ]
+        },
+        {
+          "id": "source:archidekt:2298582",
+          "price": 163.07,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "death:card-access",
+            "death:life-pressure",
+            "death:replacement-material",
+            "native:tutor",
+            "sacrifice-outlet"
+          ]
+        }
+      ],
+      "inventoryComplete": 1,
+      "inventoryExecutionVerified": false,
+      "warningCount": 2
+    },
+    {
+      "group": "resource-ladder-a",
+      "phase": "Native-resource uncertainty protection; current Wilhelt result",
+      "implementation": "d2b764b",
+      "id": "wilhelt-b3-200-heldout",
+      "commander": "Wilhelt, the Rotcleaver",
+      "bracket": 3,
+      "budget": 200,
+      "status": "ok",
+      "price": 163.25,
+      "effectiveMaximum": 200,
+      "unused": 36.75,
+      "selected": "source:archidekt:3838228",
+      "export": "resource-ladder-a/wilhelt-b3-200-heldout.txt",
+      "runtimeMs": 52376,
+      "maxRSSKiB": 804732,
+      "earlyAcceleration": 10,
+      "colorlessSources": 4,
+      "landCount": 36,
+      "averageSpellMV": 2.75,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "source:archidekt:3838228",
+          "local:engine",
+          "source:archidekt:24423895",
+          "source:archidekt:2298582"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "source:archidekt:3838228",
+          "price": 163.25,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": [
+            "death:card-access",
+            "death:life-pressure",
+            "death:replacement-material",
+            "native:tutor",
+            "sacrifice-outlet"
+          ]
+        }
+      ],
+      "inventoryComplete": 1,
+      "inventoryExecutionVerified": false,
+      "warningCount": 2
+    },
+    {
+      "group": "resource-ladder-a",
+      "phase": "Native-resource uncertainty protection; current Wilhelt result",
+      "implementation": "d2b764b",
+      "id": "wilhelt-b3-220-heldout",
+      "commander": "Wilhelt, the Rotcleaver",
+      "bracket": 3,
+      "budget": 220,
+      "status": "ok",
+      "price": 163.25,
+      "effectiveMaximum": 220,
+      "unused": 56.75,
+      "selected": "source:archidekt:3838228",
+      "export": "resource-ladder-a/wilhelt-b3-220-heldout.txt",
+      "runtimeMs": 52494,
+      "maxRSSKiB": 806384,
+      "earlyAcceleration": 10,
+      "colorlessSources": 4,
+      "landCount": 36,
+      "averageSpellMV": 2.75,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "source:archidekt:3838228",
+          "local:engine",
+          "source:archidekt:24423895",
+          "source:archidekt:2298582"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "source:archidekt:3838228",
+          "price": 163.25,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": [
+            "death:card-access",
+            "death:life-pressure",
+            "death:replacement-material",
+            "native:tutor",
+            "sacrifice-outlet"
+          ]
+        }
+      ],
+      "inventoryComplete": 1,
+      "inventoryExecutionVerified": false,
+      "warningCount": 2
+    },
+    {
+      "group": "resource-ladder-b",
+      "phase": "Native-resource uncertainty protection; current Wilhelt result",
+      "implementation": "d2b764b",
+      "id": "wilhelt-b3-240-heldout",
+      "commander": "Wilhelt, the Rotcleaver",
+      "bracket": 3,
+      "budget": 240,
+      "status": "ok",
+      "price": 163.25,
+      "effectiveMaximum": 240,
+      "unused": 76.75,
+      "selected": "source:archidekt:3838228",
+      "export": "resource-ladder-b/wilhelt-b3-240-heldout.txt",
+      "runtimeMs": 60611,
+      "maxRSSKiB": 772432,
+      "earlyAcceleration": 10,
+      "colorlessSources": 4,
+      "landCount": 36,
+      "averageSpellMV": 2.75,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "source:archidekt:3838228",
+          "local:engine",
+          "source:archidekt:24423895",
+          "source:archidekt:2298582"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "source:archidekt:3838228",
+          "price": 163.25,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": [
+            "death:card-access",
+            "death:life-pressure",
+            "death:replacement-material",
+            "native:tutor",
+            "sacrifice-outlet"
+          ]
+        }
+      ],
+      "inventoryComplete": 1,
+      "inventoryExecutionVerified": false,
+      "warningCount": 2
+    },
+    {
+      "group": "resource-ladder-b",
+      "phase": "Native-resource uncertainty protection; current Wilhelt result",
+      "implementation": "d2b764b",
+      "id": "wilhelt-b4-160-heldout",
+      "commander": "Wilhelt, the Rotcleaver",
+      "bracket": 4,
+      "budget": 160,
+      "status": "ok",
+      "price": 147.16,
+      "effectiveMaximum": 160,
+      "unused": 12.84,
+      "selected": "source:archidekt:3276096",
+      "export": "resource-ladder-b/wilhelt-b4-160-heldout.txt",
+      "runtimeMs": 48739,
+      "maxRSSKiB": 784504,
+      "earlyAcceleration": 10,
+      "colorlessSources": 9,
+      "landCount": 35,
+      "averageSpellMV": 2.73,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "source:archidekt:3276096",
+          "local:engine",
+          "source:archidekt:24246712",
+          "source:archidekt:6212325"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "source:archidekt:3276096",
+          "price": 147.16,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": [
+            "death:card-access",
+            "death:life-pressure",
+            "death:replacement-material",
+            "native:tutor",
+            "sacrifice-outlet"
+          ]
+        },
+        {
+          "id": "source:archidekt:6212325",
+          "price": 153.22,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "death:card-access",
+            "death:life-pressure",
+            "native:tutor",
+            "sacrifice-outlet"
+          ]
+        }
+      ],
+      "inventoryComplete": 0,
+      "inventoryExecutionVerified": false,
+      "warningCount": 2
+    },
+    {
+      "group": "resource-ladder-b",
+      "phase": "Native-resource uncertainty protection; current Wilhelt result",
+      "implementation": "d2b764b",
+      "id": "wilhelt-b4-240-heldout",
+      "commander": "Wilhelt, the Rotcleaver",
+      "bracket": 4,
+      "budget": 240,
+      "status": "ok",
+      "price": 187.54,
+      "effectiveMaximum": 240,
+      "unused": 52.46,
+      "selected": "local:engine",
+      "export": "resource-ladder-b/wilhelt-b4-240-heldout.txt",
+      "runtimeMs": 49281,
+      "maxRSSKiB": 808456,
+      "earlyAcceleration": 11,
+      "colorlessSources": 8,
+      "landCount": 35,
+      "averageSpellMV": 2.77,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "source:archidekt:3276096",
+          "local:engine",
+          "source:archidekt:24246712",
+          "source:archidekt:6212325"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "local:engine",
+          "price": 187.54,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": [
+            "death:card-access",
+            "death:life-pressure",
+            "death:replacement-material",
+            "sacrifice-outlet"
+          ]
+        },
+        {
+          "id": "source:archidekt:6212325",
+          "price": 239.89,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "death:card-access",
+            "death:life-pressure",
+            "native:tutor",
+            "sacrifice-outlet"
+          ]
+        },
+        {
+          "id": "source:archidekt:24246712",
+          "price": 221.79,
+          "explanation": "incomparable surviving strategies; legacy scalar tie-break",
+          "capabilities": [
+            "death:card-access",
+            "death:life-pressure",
+            "death:replacement-material",
+            "native:tutor",
+            "sacrifice-outlet"
+          ]
+        }
+      ],
+      "inventoryComplete": 0,
+      "inventoryExecutionVerified": false,
+      "warningCount": 2
+    },
+    {
+      "group": "resource-ladder-b",
+      "phase": "Native-resource uncertainty protection; current Wilhelt result",
+      "implementation": "d2b764b",
+      "id": "wilhelt-b3-240-plus4-heldout",
+      "commander": "Wilhelt, the Rotcleaver",
+      "bracket": 3,
+      "budget": 240,
+      "budgetTolerance": 4,
+      "status": "ok",
+      "price": 163.25,
+      "effectiveMaximum": 244,
+      "unused": 80.75,
+      "selected": "source:archidekt:3838228",
+      "export": "resource-ladder-b/wilhelt-b3-240-plus4-heldout.txt",
+      "runtimeMs": 52608,
+      "maxRSSKiB": 808456,
+      "earlyAcceleration": 10,
+      "colorlessSources": 4,
+      "landCount": 36,
+      "averageSpellMV": 2.75,
+      "refinement": {
+        "limit": 4,
+        "expanded": [
+          "source:archidekt:3838228",
+          "local:engine",
+          "source:archidekt:24423895",
+          "source:archidekt:2298582"
+        ],
+        "reason": "Preserve previous preferred/flow/mana starts, then add a distinct source/local plan; remaining candidates retain single-card results"
+      },
+      "alternatives": [
+        {
+          "id": "source:archidekt:3838228",
+          "price": 163.25,
+          "explanation": "Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior",
+          "capabilities": [
+            "death:card-access",
+            "death:life-pressure",
+            "death:replacement-material",
+            "native:tutor",
+            "sacrifice-outlet"
+          ]
+        }
+      ],
+      "inventoryComplete": 1,
+      "inventoryExecutionVerified": false,
+      "warningCount": 2
+    }
+  ],
+  "primaryMeasurements": 61,
+  "archivedSelectedPrintingSlots": 8200,
+  "limitations": "Generated outputs only. Original catalog, research and private references are not redistributed. Match input hashes for exact reproduction; runtime is under concurrent cloud load, not a controlled speed comparison."
+}

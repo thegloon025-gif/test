@@ -1,0 +1,16 @@
+{
+  "implementation": "independent receipt arithmetic and catalog identity/printing reconstruction; existing standard combo-policy helper reused",
+  "primaryDecks": 2,
+  "primaryPrintingSlots": 200,
+  "alternativeReceiptsAudited": 4,
+  "sourceSpines": 6,
+  "commitmentMembershipChecks": 0,
+  "failedOrUnverifiedJobs": [],
+  "inputs": {
+    "cards.json": "6add2c5dd20809fd787438d3c8825f8dd21a74e7d3fc429f83c7a9a091045f6c",
+    "community.json": "7f47f68487ea432afabd32f3cf136b27bc248e78a0732a3b1cda9ba5598de871",
+    "library.json": "9a62c706660032d1d2320e0e597898a659496912dd51e9343cce59f0cb902d5b"
+  },
+  "catalogSHA256": "6add2c5dd20809fd787438d3c8825f8dd21a74e7d3fc429f83c7a9a091045f6c",
+  "limitations": "Alternative physical records reconstructed from full name/price/printing equality, not independently retained selected IDs; indistinguishable duplicate catalog records remain possible. No strength, executable combo, mana sequencing or official bracket certification."
+}

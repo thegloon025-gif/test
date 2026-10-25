@@ -1,0 +1,69 @@
+{
+  "checks": [
+    {
+      "url": "/",
+      "status": 200
+    },
+    {
+      "url": "/app.js",
+      "status": 200
+    },
+    {
+      "url": "/strategy.js",
+      "status": 200
+    },
+    {
+      "url": "/research.js",
+      "status": 200
+    },
+    {
+      "url": "/api/status",
+      "status": 200
+    },
+    {
+      "invalid": {
+        "budgetTolerance": 20
+      },
+      "status": 400
+    },
+    {
+      "invalid": {
+        "basicLandsOwned": "true"
+      },
+      "status": 400
+    },
+    {
+      "invalid": {
+        "budget": 160.001
+      },
+      "status": 400
+    },
+    {
+      "invalid": {
+        "basicLandsOwned": false,
+        "pricingMode": "estimated_en_nm"
+      },
+      "status": 400
+    }
+  ],
+  "version": "1.1.5",
+  "cards": 100,
+  "price": 163.25,
+  "budgetPolicy": {
+    "target": 160,
+    "tolerance": 4,
+    "effectiveMaximum": 164,
+    "basicLandsOwned": true,
+    "commanderIncluded": true,
+    "shippingIncluded": false,
+    "assumption": "All basic lands, including Wastes, already owned; commander and nonbasics counted",
+    "selectedCardValue": 163.25,
+    "unused": 0.75,
+    "overTarget": 3.25
+  },
+  "alternativeCount": 3,
+  "printingAudit": "exact-selected-cards",
+  "optionalKnowledge": "not-imported",
+  "runtimeMs": 51873,
+  "onlineResearch": false
+}

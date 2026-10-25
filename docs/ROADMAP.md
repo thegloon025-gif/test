@@ -1,6 +1,32 @@
+Functional shadow foundation now includes bounded hand/mana probes and all 15 held-out references. Native strategy sensitivity and verified finishing/recursion dependencies remain prerequisites to production use; Forge/Karsten/authoritative brackets stay separate future work.
+
+> Current milestone: [read-only shadow job ledger](SHADOW_JOB_LEDGER.md). Production scalar selection remains unchanged pending validation; incomplete legacy exports now fail closed. Historical measurements below remain frozen.
+
 # CommanderOracle Independent — development roadmap
 
 Last revised: 2026-10-24. Local, deterministic Commander generator: **no paid AI API** is needed to build a deck.
+
+## Stage 11/12 integration — draft PR #9 on PR #8
+
+- [x] Verify exact PR #8 baseline; repair and negatively test local snapshot
+  cohorts, persistence, provenance, duplicate counts and CLI paths with spaces.
+- [x] Add commander-neutral bounded Oracle engine hypotheses, conditional
+  relationship reports, shared multi-role dependencies and capability guards.
+- [x] Preserve existing refinement starts and add a bounded opportunity for a
+  screened source alternative; expose full audited alternatives and explanations.
+- [x] Explicit basics-owned pricing, strict default ceiling, opt-in €4 tolerance
+  and original-target regeneration with one application of tolerance.
+- [ ] Establish an objective winner among incomparable Wilhelt strategies;
+  provisional legacy selection remains visible and is not power certification.
+- [ ] Expand beyond the narrow supported grammar only for demonstrated
+  construction defects; do not restart open-ended simulator expansion.
+- [ ] Close missing frozen-catalog reference coverage, manual game/external
+  comparisons, native Windows verification and the Deck Upgrader quality gate.
+- [ ] Integrate/release only after explicit review. No gameplay-ranking or Pod
+  activation; PR #4 remains a separate sibling with archived Stages 1–9.
+
+See `docs/STRATEGY_STAGE11.md` and the Stage 11/12 validation report for actual
+prices, exports, runtime, incomplete checks and the quality-gate verdict.
 
 ## Stage 10 — Commander research (draft PR #6, separate from #4)
 

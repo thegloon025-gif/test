@@ -1,11 +1,17 @@
+import {matchesCastNeed} from './engineSupport.mjs';
 import {castHasSubtype,castHasType,isCreatureSpell,playableLand,trueColorlessSource,castOracle} from './cards.mjs';
 const lower=s=>String(s||'').toLowerCase();
 const text=c=>castOracle(c);
 export function planFor(commander){
- const t=text(commander),s=lower(t),needs=[];
+ const t=text(commander),s=lower(t),needs=[],unsupportedCast=[];
  // Detect *which* objects are needed to activate the commander's actual triggers.
  const cast=t.match(/whenever you cast (?:a|an|another)\s+([A-Za-z]+)(?:\s*,\s*([A-Za-z]+))?(?:\s*,?\s*or\s+([A-Za-z]+))?\s+spell/i);
- if(cast){const types=[cast[1],cast[2],cast[3]].filter(Boolean);needs.push({kind:'typed-cast',types});}
+ if(cast){const types=[cast[1],cast[2],cast[3]].filter(Boolean);
+  const suffix=t.slice(cast.index+cast[0].length),threshold=suffix.match(/^ with mana value (\d+) or (?:greater|more)/i);
+  // A target, zone, timing or other unparsed qualifier is not a free cast
+  // trigger. Specialized supported needs may still be detected below.
+  if(/^\s*,/.test(suffix.slice(threshold?.[0].length||0)))needs.push({kind:'typed-cast',types,...(threshold?{minManaValue:Number(threshold[1])}:{})});
+  else unsupportedCast.push(suffix.split('\n')[0]);}
  if(/whenever an aura enters/i.test(t)&&!/aura/i.test(needs.map(n=>n.types).join(' ')))needs.push({kind:'typed-cast',types:['Aura']});
  if(/commander ninjutsu|\bninjutsu\s*\{/i.test(s))needs.push({kind:'ninjutsu'});
  const death=t.match(/whenever (?:another|a|one or more)\s+([A-Za-z]+)\s+you control dies/i);if(death)needs.push({kind:'death-tribal',type:death[1]});
@@ -21,7 +27,7 @@ export function planFor(commander){
  if(!needs.length)needs.push({kind:'unknown'});
  const pay=t.match(/\bpay\s+(?:\{\d+\}\s*)?(\{C\}(?:\s*\{C\})*)/i);
  const needsColorless=pay?(pay[1].match(/\{C\}/gi)||[]).length:0;
- return {needs,needsColorless,label:needs.map(n=>n.kind==='typed-cast'?`Cast ${n.types.join('/')} spells`:n.kind.replaceAll('-',' ')).join(' + '),confidence:needs[0].kind==='unknown'?'low':'heuristic'};
+ return {needs,needsColorless,...(unsupportedCast.length?{unsupportedCast}:{}),label:needs.map(n=>n.kind==='typed-cast'?`Cast ${n.types.join('/')} spells${n.minManaValue!=null?' with mana value '+n.minManaValue+'+':''}`:n.kind.replaceAll('-',' ')).join(' + '),confidence:needs[0].kind==='unknown'?'low':'heuristic'};
 }
 export function analysis(c){
  const t=lower(text(c)),type=lower(c.card_faces?.[0]?.type_line||c.type_line),creature=isCreatureSpell(c);
@@ -46,7 +52,7 @@ export function analysis(c){
 export function synergy(c,plan,a=analysis(c)){
  const t=lower(text(c));const roles=new Set();let impact=0;
  for(const n of plan.needs)switch(n.kind){
- case 'typed-cast':if(n.types.some(x=>castHasType(c,x)||castHasSubtype(c,x))&&!a.land){roles.add('engine');impact+=8;}
+ case 'typed-cast':if(matchesCastNeed(c,n)&&!a.land){roles.add('engine');impact+=8;}
  // A standalone engine that explicitly rewards casting the relevant spell
  // type is independently useful even if it isn't itself that type. For
  // example, generic tribal cast-trigger payoffs belong in their own plan.

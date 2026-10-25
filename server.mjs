@@ -1,3 +1,4 @@
+import {budgetPolicy,applyBudgetValuation} from './src/budgetPolicy.mjs';
 import http from 'node:http';
 import {readFile} from 'node:fs/promises';
 import path from 'node:path';
@@ -35,7 +36,7 @@ const headers={'X-Content-Type-Options':'nosniff','Cache-Control':'no-store'};
 function json(res,obj,status=200){res.writeHead(status,{...headers,'Content-Type':'application/json; charset=utf-8'});res.end(JSON.stringify(obj));}
 function error(res,err,status=400){json(res,{error:err.message||String(err)},status);}
 async function body(req){let str='';for await(const chunk of req){str+=chunk;if(str.length>8_000_000)throw Error('Request too large (8 MB maximum)');}return JSON.parse(str||'{}');}
-const staticFiles={'/':'index.html','/index.html':'index.html','/app.js':'app.js','/research.js':'research.js','/style.css':'style.css'};
+const staticFiles={'/':'index.html','/index.html':'index.html','/app.js':'app.js','/strategy.js':'strategy.js','/research.js':'research.js','/style.css':'style.css'};
 const mime={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8'};
 const server=http.createServer(async(req,res)=>{
  const url=new URL(req.url,'http://localhost');
@@ -135,7 +136,10 @@ const server=http.createServer(async(req,res)=>{
    if(![PRICING_SCRYFALL,PRICING_CM,PRICING_ESTIMATED_EN_NM].includes(mode))throw Error('Unsupported pricing mode.');
    if(mode!==PRICING_CM&&!pricingCatalogStatus(state.cards,state.meta).audited)throw Error('This Scryfall catalog predates v1.1.3 printing eligibility checks. Click Update database and wait for the full refresh before generating a budget-constrained deck. Your existing imported community decks are preserved.');
    if(mode===PRICING_CM&&!offers)throw Error('Cardmarket English NM requires imported Cardmarket offer prices. Select a CSV file under Pricing and import it first.');
-   const candidateCards=mode===PRICING_CM?applyCardmarketPrices(state.cards,offers):mode===PRICING_ESTIMATED_EN_NM?applyEstimatedEnglishNM(state.cards):state.cards;
+   const purchasing=budgetPolicy(p);
+   if(!purchasing.basicLandsOwned&&mode!==PRICING_SCRYFALL)throw Object.assign(Error('Counting unowned basics currently requires selected Scryfall EUR records; offer/model basics are not priced independently.'),{statusCode:400});
+   const pricedCards=mode===PRICING_CM?applyCardmarketPrices(state.cards,offers):mode===PRICING_ESTIMATED_EN_NM?applyEstimatedEnglishNM(state.cards):state.cards;
+   const candidateCards=applyBudgetValuation(pricedCards,purchasing);
    if(mode===PRICING_CM&&candidateCards.length<400)throw Error(`Only ${candidateCards.length} locally catalogued cards have usable English NM/Mint offer prices (including basics). A full Commander deck requires broader offer coverage. No Scryfall fallback was used.`);
    const selectedCommander=candidateCards.find(c=>c.id===p.commanderId);
    if(!selectedCommander)throw Error('No matching English NM Cardmarket price for this commander in the imported offers. No Scryfall fallback was used.');
@@ -163,7 +167,7 @@ const server=http.createServer(async(req,res)=>{
     if(!selected)throw Error('Selected community strategy is no longer available. Refresh community research and choose another strategy.');
     communityPrepared.selected=selected;communityPrepared.userSelected=true;
    }
-   const deck=generateDeck({cards:candidateCards,commander:selectedCommander,budget:p.budget,bracket:p.bracket,powerTarget:p.powerTarget||'balanced',comboVariants:localCombos,communityBuild:communityPrepared,communityDecks:community,constructionMode:p.constructionMode==='legacy'?'legacy':'strategy-first'});
+   const deck=generateDeck({cards:candidateCards,commander:selectedCommander,budget:p.budget,budgetTolerance:purchasing.tolerance,basicLandsOwned:purchasing.basicLandsOwned,bracket:p.bracket,powerTarget:p.powerTarget||'balanced',comboVariants:localCombos,communityBuild:communityPrepared,communityDecks:community,constructionMode:p.constructionMode==='legacy'?'legacy':'strategy-first'});
    deck.communityKnowledge=communityStrategySummary(communityPrepared);
    // Stage 12: optional manually imported EDHREC observation. Never a remote
    // request and never a constructor score or ranking input.
@@ -191,7 +195,7 @@ const server=http.createServer(async(req,res)=>{
    if(comboLibraryError)deck.warnings.push('Combo library is unreadable; skipped optional combo packages ('+comboLibraryError+').');
    deck.pricing={mode,label:mode===PRICING_CM?'Imported Cardmarket offers · English NM or Mint (not live verified)':mode===PRICING_ESTIMATED_EN_NM?'Modeled English NM price (unverified markup, NOT a Cardmarket quote)':'Scryfall eligible-printing EUR market estimate (not English NM verified)',updatedAt:mode===PRICING_CM?offers.importedAt:state.meta?.savedAt||null,shippingIncluded:false};
    deck.warnings=deck.warnings.filter(w=>!w.startsWith('Budget estimates use cached Scryfall EUR prices'));
-   deck.warnings.push(mode===PRICING_CM?'Prices from the imported English NM/Mint offer snapshot; offers may be stale or unavailable. Shipping excluded; basics presumed owned.':mode===PRICING_ESTIMATED_EN_NM?'Modeled EN NM prices based on Scryfall EUR. NOT live offers and NOT verified English/NM stock. Shipping excluded; basics presumed owned.':'Scryfall EUR estimates only — NOT verified Cardmarket English NM offers. Shipping excluded; basics presumed owned.');
+   deck.warnings.push(mode===PRICING_CM?'Prices from the imported English NM/Mint offer snapshot; offers may be stale or unavailable. Shipping excluded; basics presumed owned.':mode===PRICING_ESTIMATED_EN_NM?'Modeled EN NM prices based on Scryfall EUR. NOT live offers and NOT verified English/NM stock. Shipping excluded; basics presumed owned.':'Scryfall EUR estimates only — NOT verified Cardmarket English NM offers. Shipping excluded; '+purchasing.assumption+'.');
    return json(res,deck);
   }
   if(req.method==='GET'&&staticFiles[url.pathname]){
@@ -199,6 +203,6 @@ const server=http.createServer(async(req,res)=>{
    const buf=await readFile(filename);res.writeHead(200,{...headers,'Content-Type':mime[path.extname(filename)]});return res.end(buf);
   }
   json(res,{error:'Not found'},404);
- }catch(e){console.error('Request error:',e.message);error(res,e,e.message?.includes('Scryfall')?502:400);}
+ }catch(e){console.error('Request error:',e.message);error(res,e,e.statusCode??(e.message?.includes('Scryfall')?502:400));}
 });
 server.listen(PORT,'127.0.0.1',()=>console.log(`CommanderOracle Independent running at http://127.0.0.1:${PORT}`));

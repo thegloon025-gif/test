@@ -1,3 +1,27 @@
+> Offline functional shadow testing: [protocol, limitations and local commands](docs/FUNCTIONAL_SHADOW.md). This adds no production ranking or browser controls.
+
+> Current milestone: [read-only shadow job ledger](docs/SHADOW_JOB_LEDGER.md). Production scalar selection remains unchanged pending validation; incomplete legacy exports now fail closed. Historical measurements below remain frozen.
+
+### Draft PR #9 — Compare supported plans and local research
+
+The expandable **Why this deck?** view shows actual Oracle relationships,
+prerequisites, unknowns and up to four genuinely different complete alternatives
+when supported. Recommendations remain provisional where strategies are
+incomparable. Price, popularity and combo counts do not earn a quality bonus.
+
+The existing basic-land-owned assumption (including Wastes) is now explicit.
+Optional €4 leeway is off by default; when enabled, target + €4 is the hard
+maximum throughout construction and exact-printing reconciliation. Shipping is
+excluded; estimates are not verified English NM offers. Original-target-plus-
+extra regeneration applies tolerance once.
+
+Optional user-supplied EDHREC JSON remains local and advisory. Conflicting
+category statistics stay separate; alphabetical examples are not rankings.
+No EDHREC scraping or imported-statistic ranking is enabled. See
+[Stage 11 integration](docs/STRATEGY_STAGE11.md) and [local import](docs/EDHREC_STAGE12.md), and the [validation report](benchmarks/stage11-12-VALIDATION.md).
+Version stays **1.1.5**; all work is draft and unmerged. This does not establish
+stronger gameplay or readiness for an automatic deck upgrader.
+
 ### Draft PR #6 — Automatic research for your commander
 
 Research & Generate independently checks commander-containing Spellbook candidates even when Archidekt returns no verified sources. Results separate discovery, source-deck inventory, advisory color-compatible suggestions and local Scryfall evidence, with cache age and offline/partial status. You still provide commander, EUR ceiling and bracket; manual deck import is optional.

@@ -14,10 +14,22 @@ export function engineManaValue(c){
  return [...cost.matchAll(/\{([^}]+)\}/g)].reduce((n,m)=>n+(/^[XYZ]$/.test(m[1])?0:Math.max(1,...m[1].split('/').map(x=>Number(x)||0))),0);
 }
 
+/** Match an observed spell descriptor, not an assumed commander archetype. */
+export function matchesCastNeed(card,need){
+ if(isLandSlot(card)||need.kind!=='typed-cast')return false;
+ const typed=(need.types||[]).some(type=>{
+  const lower=type.toLowerCase(),canonical=type[0].toUpperCase()+type.slice(1);
+  return lower==='noncreature'?!castHasType(card,'Creature'):lower==='colorless'?colorlessSpell(card):castHasType(card,canonical)||castHasSubtype(card,canonical);
+ });
+ return typed&&(need.minManaValue==null||engineManaValue(card)>=need.minManaValue);
+}
+
 export const planTypes=plan=>[...new Set((plan.needs||[]).flatMap(n=>n.types||(n.kind==='ninjutsu'?['Ninja']:[n.type])).filter(Boolean))];
 export function engineContext(cards,plan){
  const spells=cards.filter(c=>!isLandSlot(c)),creatures=spells.filter(c=>castHasType(c,'Creature')),relevant=planTypes(plan);
- return {spells,creatures,relevant,tribal:creatures.filter(c=>relevant.some(type=>castHasSubtype(c,type)))};
+ const typed=(plan.needs||[]).filter(n=>n.kind==='typed-cast');
+ const native=spells.filter(c=>typed.length?typed.some(n=>matchesCastNeed(c,n)):relevant.some(type=>castHasSubtype(c,type)||castHasType(c,type)));
+ return {spells,creatures,relevant,native,tribal:creatures.filter(c=>relevant.some(type=>castHasSubtype(c,type)))};
 }
 const unique=cards=>[...new Map(cards.map(c=>[singletonName(c),c])).values()];
 const drawAction=/\bdraw (?:a|one|two|three|four|[1-9]) cards?\b/i;
@@ -83,7 +95,7 @@ export function supportedCardAccess(c,context){
  * dominated improvement merely because generic role totals are higher. */
 export function strategyInfrastructure(c,context){
  const text=oracleText(c),spells=context.spells.filter(x=>x!==c);
- const native=spells.filter(x=>context.relevant.some(type=>castHasSubtype(x,type)||castHasType(x,type)));
+ const native=(context.native||spells.filter(x=>context.relevant.some(type=>castHasSubtype(x,type)||castHasType(x,type)))).filter(x=>x!==c);
  const colorless=spells.filter(colorlessSpell),entries=[];
  function add(kind,support,min=1,units=1){if(unique(support).length>=min)entries.push({kind,units,support:unique(support).length,cards:unique(support).map(x=>x.name)});}
  const cascade=text.match(/(colorless )?spells you cast(?: from your hand)? with mana value (\d+) or greater have ["“]?(cascade(?:, cascade)*)/i);
@@ -98,9 +110,16 @@ export function strategyInfrastructure(c,context){
   add('passiveTriggerCopy',sources,1);
  }
  if(/copy target triggered ability/i.test(text))add('activatedTriggerCopy',native.filter(x=>/when(?:ever)?|at the beginning|cascade/i.test(oracleText(x))),4);
- for(const line of text.split('\n'))if(/spells you cast cost[^\n]*less|creature spell you cast each turn costs[^\n]*less|spells of the chosen type cost[^\n]*less/i.test(line)){
-  const support=/colorless/i.test(line)?colorless:/creature spell/i.test(line)?context.creatures:native;
-  add('costReduction',support.filter(x=>engineManaValue(x)>=3),8);
+ for(const line of text.split('\n')){
+  // Conditions such as graveyard Lessons, levels, life or counters are not
+  // established by inventory. Never grant unconditional reduction support.
+  if(/as long as|\bif\b|for each|level up|Level \d/i.test(line))continue;
+  const m=line.match(/^(colorless|creature|artifact|enchantment|noncreature|instant and sorcery|instant or sorcery) spells you cast cost \{\d+\} less to cast\.$/i);
+  let support=null;
+  if(m){const kind=m[1].toLowerCase();support=spells.filter(x=>kind==='colorless'?colorlessSpell(x):kind==='noncreature'?!castHasType(x,'Creature'):kind.startsWith('instant')?castHasType(x,'Instant')||castHasType(x,'Sorcery'):castHasType(x,kind[0].toUpperCase()+kind.slice(1)));}
+  if(/^the first creature spell you cast each turn costs \{\d+\} less to cast\.$/i.test(line))support=context.creatures.filter(x=>x!==c);
+  if(/^spells of the chosen type cost \{\d+\} less to cast\.$/i.test(line))support=native;
+  if(support)add('costReduction',support.filter(x=>engineManaValue(x)>=3),8);
  }
 
  // A bounded tutor grammar: require real eligible targets, and distinguish

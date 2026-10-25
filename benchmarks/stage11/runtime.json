@@ -1,0 +1,10 @@
+{
+  "recordedFullBuilds": 61,
+  "totalSerialBuildSeconds": 4301,
+  "minSeconds": 23.808,
+  "maxSeconds": 157.187,
+  "minProcessPeakRSSMiB": 525.94921875,
+  "maxProcessPeakRSSMiB": 871.6640625,
+  "constructorReplaySeconds": "separate per-group metadata",
+  "note": "Overlapping processes; total serial build time is not wall time or a speedup claim. RSS is cumulative process maximum."
+}
