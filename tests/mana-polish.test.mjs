@@ -65,3 +65,11 @@ test("unknown/new land utility does not imply a proved early-turn deployment pro
   assert.match(r.scope, /not probabilities/);
   assert.equal(r.suggestions.some(s=>s.cut === fetch.name),false);
 });
+
+test("bounce lands and two-mana sources do not silently trade their throughput for a plain dual", () => {
+  const bounce = card("Bounce Test Aqueduct", "Land",
+    "Bounce Test Aqueduct enters tapped.\nWhen this land enters, return a land you control to its owner's hand.\n{T}: Add {U}{B}.", ["U", "B"], 0.1);
+  const r = manaPolishReview({ commander, cards:[bounce, swamp], catalog:[fastland], budget:10 });
+  assert.equal(r.entryCounts["always-tapped"], 1);
+  assert.equal(r.suggestions.length, 0);
+});
