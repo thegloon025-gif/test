@@ -90,6 +90,11 @@ export function manaPolishReview({ commander, cards, catalog = [], budget = null
     const unique = new Map(pool.map(c => [key(c), c]));
     for (const old of lands) {
       if (suggestions.length >= Math.max(0, Math.min(10, maxSuggestions))) break;
+      // A bounce/lotus-style land can produce multiple mana or require returning
+      // another land. Replacing it with an ordinary dual is not a free tempo gain.
+      const oldText = text(old);
+      if (/\breturn (?:a|an|another) land you control to its owner.s hand/i.test(oldText) ||
+          /\bAdd\s+(?:\{[WUBRGC]\}){2,}/i.test(oldText)) continue;
       const from = landEntryEvidence(old);
       if (from.kind !== "always-tapped" && from.kind !== "conditional-tapped") continue;
       const matches = [...unique.values()].filter(c =>
@@ -101,7 +106,6 @@ export function manaPolishReview({ commander, cards, catalog = [], budget = null
       if (!matches.length) continue;
       // Cheapest feasible equivalent printed channels is a budget-filtering choice, not a power score.
       const next = matches[0];
-      const oldText = text(old);
       suggestions.push({
         cut: old.name, add: next.name,
         before: from.kind, after: landEntryEvidence(next).kind,
