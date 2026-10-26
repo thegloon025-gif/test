@@ -37,8 +37,12 @@ function adequateReplacement(old, next) {
   return subset(a.colors, b.colors) && (!a.trueC || b.trueC);
 }
 function conservativeCandidate(c) {
-  if (landEntryEvidence(c).kind !== "no-recognized-tap-clause") return false;
+  const e = landEntryEvidence(c);
   const t = text(c), q = landManaQuality(c);
+  const earlyFastland = e.kind === "conditional-tapped" && /unless you control two or fewer other lands/i.test(t);
+  // Favor source channels known to be untapped immediately, or fastlands whose early
+  // timing is explicitly printed. Other conditional effects stay unsupported.
+  if (e.kind !== "no-recognized-tap-clause" && !earlyFastland) return false;
   return !q.restricted && !q.needsActivationPayment && !q.consumable && !q.unusable &&
     !/\b(?:sacrifice (?:a|an|this) land|return a land|pay \d+ life|doesn't untap|skip your untap|at the beginning of your upkeep)\b/i.test(t);
 }
@@ -107,9 +111,11 @@ export function manaPolishReview({ commander, cards, catalog = [], budget = null
         priceDeltaEUR: (cents(priceOf(next)) - cents(priceOf(old))) / 100,
         proposedFullDeckEUR: (originalCents - cents(priceOf(old)) + cents(priceOf(next))) / 100,
         ceilingEUR: ceilingCents / 100,
-        caveat: /scry|surveil|search your library|draw|life|sacrifice|counter|cycling|when(?:ever)?/i.test(oldText)
-          ? "Cut has additional printed function(s); review what is lost before accepting."
-          : "Other mana/entry restrictions and turn sequencing are not fully modeled.",
+        caveat: (/scry|surveil|search your library|draw|life|sacrifice|counter|cycling|when(?:ever)?/i.test(oldText)
+          ? "Cut has additional printed function(s); review what is lost. "
+          : "") + (landEntryEvidence(next).kind === "conditional-tapped"
+          ? "Fastland is early-untapped only when its printed condition holds. "
+          : "") + "Other mana/entry restrictions and turn sequencing are not fully modeled.",
         status: "advisory-only; no change or gameplay proof"
       });
     }
