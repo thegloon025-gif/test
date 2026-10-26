@@ -273,3 +273,60 @@ test("explicit one-request Builder bound never repairs invalid output or functio
   assert.equal(ok.valid, true);
   assert.equal(f.calls.length, 2);
 });
+
+
+test("builder invalid output is retained as unvalidated local draft without another request", async () => {
+  const f = await fixture({
+    async streamResponse(p) {
+      f.calls.push(p);
+      return { text: '{"deck":"1 Commander *CMDR*\\n1 Wastes"}' };
+    },
+  });
+  await enable(f);
+  const r = await f.c.run({
+    prompt:"builder", maxRepairs:0,
+    validate: () => ({valid:false,issues:["Expected 100 cards, resolved 2."]})
+  });
+  assert.equal(r.valid,false);
+  assert.equal(r.iterations,1);
+  assert.match(r.unvalidatedDraft,/Wastes/);
+  assert.equal(f.calls.length,1);
+  assert.equal((await f.c.status()).requestsToday,1);
+  assert.ok(!(await readFile(f.file,"utf8")).includes("Wastes"));
+});
+test("deadline is distinguishable from manual cancellation; stopped and no paid fallback", async () => {
+  const f = await fixture({
+    async streamResponse(p) {
+      f.calls.push(p);
+      return new Promise((resolve,reject) => {
+        p.signal.addEventListener("abort", () => reject(Object.assign(new Error("abort"),{code:"cancelled"})),{once:true});
+      });
+    }
+  });
+  const ctrl=createPlanOnly({sdkFactory:f.factory,historyFile:f.file,deadlineMs:15});
+  await ctrl.signIn({directUseAuthorized:true});
+  await ctrl.discover();
+  await ctrl.configure(config);
+  await assert.rejects(ctrl.run({prompt:"x",maxRepairs:0,validate:()=>({valid:true})}),e => e.code==="timed_out");
+  assert.equal(f.calls.length,1);
+  const status=await ctrl.status();
+  assert.equal(status.stopped.code,"timed_out");
+  assert.equal(status.enabled,false);
+  assert.equal(status.requestsToday,1);
+  assert.match(safePlanError({code:"timed_out"}).message,/165-second/);
+  await assert.rejects(ctrl.run({prompt:"x",maxRepairs:0,validate:()=>({valid:true})}));
+  assert.equal(f.calls.length,1);
+});
+test("output-bound abort is reported as response_too_large instead of manual cancellation", async () => {
+  const f = await fixture({
+    async streamResponse(p) {
+      f.calls.push(p);
+      p.onDelta("x".repeat(33000));
+      throw Object.assign(Error("aborted"),{code:"cancelled"});
+    }
+  });
+  await enable(f);
+  await assert.rejects(f.c.run({prompt:"x",maxRepairs:0,validate:()=>({valid:true})}),e=>e.code==="response_too_large");
+  assert.equal((await f.c.status()).stopped.code,"response_too_large");
+  assert.equal(f.calls.length,1);
+});
