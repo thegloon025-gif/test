@@ -1,0 +1,15 @@
+{
+  "scope": "Mocked auth/configure/generation transport; real renderer and local import gate. No OAuth or inference. Not a Windows/live-model test.",
+  "mockedRequests": 7,
+  "checks": [
+    "timed_out: useful draft retained, exports disabled, one click/one mocked request",
+    "timed_out: useful draft retained, exports disabled, one click/one mocked request",
+    "cancelled: useful draft retained, exports disabled, one click/one mocked request",
+    "empty_response: useful draft retained, exports disabled, one click/one mocked request",
+    "validation_failed: useful draft retained, exports disabled, one click/one mocked request",
+    "malformed-envelope: useful draft retained, exports disabled, one click/one mocked request",
+    "partial import rejected by real 100-card validator",
+    "only locally validated complete fixture replaces the editor and enables revalidated download"
+  ],
+  "pageErrors": []
+}

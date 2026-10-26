@@ -1,0 +1,81 @@
+{
+  "scope": "Fixed frozen-input losslessness checks, no inference; bytes are not tokens or latency predictions.",
+  "cases": [
+    {
+      "commander": "Ulalek, Fused Atrocity",
+      "beforeBytes": 45780,
+      "afterBytes": 31703,
+      "reductionPercent": 30.75,
+      "retainedEnginePackages": 12,
+      "criticalCombosPreserved": 4,
+      "exactOracleAndPrerequisites": true,
+      "pricedFunctionsPreserved": true
+    },
+    {
+      "commander": "Wilhelt, the Rotcleaver",
+      "beforeBytes": 45835,
+      "afterBytes": 31990,
+      "reductionPercent": 30.21,
+      "retainedEnginePackages": 12,
+      "criticalCombosPreserved": 4,
+      "exactOracleAndPrerequisites": true,
+      "pricedFunctionsPreserved": true
+    },
+    {
+      "commander": "Y'shtola, Night's Blessed",
+      "beforeBytes": 45944,
+      "afterBytes": 31622,
+      "reductionPercent": 31.17,
+      "retainedEnginePackages": 3,
+      "criticalCombosPreserved": 4,
+      "exactOracleAndPrerequisites": true,
+      "pricedFunctionsPreserved": true
+    },
+    {
+      "commander": "Yuriko, the Tiger's Shadow",
+      "beforeBytes": 45550,
+      "afterBytes": 31988,
+      "reductionPercent": 29.77,
+      "retainedEnginePackages": 3,
+      "criticalCombosPreserved": 4,
+      "exactOracleAndPrerequisites": true,
+      "pricedFunctionsPreserved": true
+    },
+    {
+      "commander": "Zada, Hedron Grinder",
+      "beforeBytes": 45616,
+      "afterBytes": 31768,
+      "reductionPercent": 30.36,
+      "retainedEnginePackages": 0,
+      "criticalCombosPreserved": 4,
+      "exactOracleAndPrerequisites": true,
+      "pricedFunctionsPreserved": true
+    }
+  ],
+  "upgrades": [
+    {
+      "slug": "ulalek",
+      "bytes": 45382,
+      "physicalMainboard": 99,
+      "protectedIdentities": 34,
+      "committedComboExamples": 6,
+      "scope": "Original, locks, prices/costs and committed combo context retained; optional NEW discovery examples may be removed under legacy Upgrader bound."
+    },
+    {
+      "slug": "wilhelt",
+      "bytes": 44785,
+      "physicalMainboard": 99,
+      "protectedIdentities": 35,
+      "committedComboExamples": 1,
+      "scope": "Original, locks, prices/costs and committed combo context retained; optional NEW discovery examples may be removed under legacy Upgrader bound."
+    },
+    {
+      "slug": "yshtola",
+      "bytes": 45785,
+      "physicalMainboard": 99,
+      "protectedIdentities": 22,
+      "committedComboExamples": 0,
+      "scope": "Original, locks, prices/costs and committed combo context retained; optional NEW discovery examples may be removed under legacy Upgrader bound."
+    }
+  ]
+}
