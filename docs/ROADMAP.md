@@ -1,3 +1,9 @@
+## Architect deadline/recovery checkpoint (unreleased)
+
+- [x] Distinct timeout/user cancellation, bounded 165-second deadline, text receipts and safe unvalidated draft inspection.
+- [x] Mocked stop/empty/invalid regressions and fixed-input critical-evidence preservation audit; one explicit Builder request.
+- [ ] User Windows confirmation of real generation latency/completion under unchanged account app limits; no live inference or stronger-deck claim in development tests.
+
 ## Architect information-quality checkpoint (unreleased)
 
 - [x] Typed commander/package/function evidence replaces alphabetical context; full catalog remains available to validation.

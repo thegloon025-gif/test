@@ -1,3 +1,5 @@
+> Architect timeout/recovery follow-up: [165-second deadline, distinct stop reasons and unvalidated draft inspection](docs/ARCHITECT_RECOVERY.md). Still one explicit Builder request; no automatic timeout retry.
+
 > Architect now receives [typed strategy evidence and a score-free functional review](docs/ARCHITECT_STRATEGY_EVIDENCE.md). Builder: one explicit request per click; warnings do not trigger AI repairs. Still unreleased 1.1.5.
 
 > Optional [ChatGPT Architect setup and strict plan-only safeguards](docs/CHATGPT_ARCHITECT.md). Connected AI stays off by default; manual copy/import needs no SDK or account connection.

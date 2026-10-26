@@ -56,8 +56,8 @@ const headers={'X-Content-Type-Options':'nosniff','Cache-Control':'no-store'};
 function json(res,obj,status=200){res.writeHead(status,{...headers,'Content-Type':'application/json; charset=utf-8'});res.end(JSON.stringify(obj));}
 function error(res,err,status=400){json(res,{error:err.message||String(err)},status);}
 async function body(req){let str='';for await(const chunk of req){str+=chunk;if(str.length>8_000_000)throw Error('Request too large (8 MB maximum)');}return JSON.parse(str||'{}');}
-const staticFiles={'/':'index.html','/index.html':'index.html','/app.js':'app.js','/strategy.js':'strategy.js','/research.js':'research.js','/upgrader.js':'upgrader.js','/architect.js':'architect.js','/style.css':'style.css'};
-const mime={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8'};
+const staticFiles={'/':'index.html','/index.html':'index.html','/app.js':'app.js','/strategy.js':'strategy.js','/research.js':'research.js','/upgrader.js':'upgrader.js','/architect.js':'architect.js','/architectResult.mjs':'architectResult.mjs','/style.css':'style.css'};
+const mime={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.mjs':'text/javascript; charset=utf-8'};
 const server=http.createServer(async(req,res)=>{
  const url=new URL(req.url,'http://localhost');
  try{
@@ -74,7 +74,7 @@ const server=http.createServer(async(req,res)=>{
     if(url.pathname==='/api/architect/cancel'){architect.cancel();return json(res,{cancelled:true});}
     if(url.pathname==='/api/architect/disconnect'){await architect.disconnect();return json(res,await architect.status());}
     if(url.pathname==='/api/architect/run'){const x=await architectInputs(p),request=architectRequest(p,x.cards,x.variants,x.research);res.on('close',()=>{if(!res.writableEnded)architect.cancel();});return json(res,await architect.run({prompt:request.prompt,maxRepairs:p.mode==='builder'?0:2,validate:raw=>validateArchitectResult(p,raw,x.cards,x.variants)}));}
-   }catch(e){const safe=safePlanError(e);return json(res,{error:safe.message,code:safe.code},400);}
+   }catch(e){const safe=safePlanError(e);return json(res,{...(url.pathname==='/api/architect/run'&&e.generation?e.generation:{}),error:safe.message,code:safe.code},400);}
    throw Error('Unknown Architect operation.');
   }
   if(req.method==='POST'&&url.pathname==='/api/upgrader/analyze'){

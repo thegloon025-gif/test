@@ -1,0 +1,58 @@
+{
+  "sourceCommit": "723a6da",
+  "basePR": 14,
+  "baseCommit": "6fe466d6b9d857fb1fb43eec8481d5e2d3061a40",
+  "tests": {
+    "baseline": {
+      "tests": 339,
+      "pass": 339,
+      "fail": 0,
+      "skipped": 0,
+      "cancelled": 0,
+      "durationMs": 117147.370241
+    },
+    "focused": {
+      "tests": 61,
+      "pass": 61,
+      "fail": 0,
+      "skipped": 0,
+      "cancelled": 0,
+      "durationMs": 862.577528
+    },
+    "full": {
+      "tests": 362,
+      "pass": 362,
+      "fail": 0,
+      "skipped": 0,
+      "cancelled": 0,
+      "durationMs": 118174.274723
+    }
+  },
+  "api": {
+    "decks": 5,
+    "checks": [
+      "overbudget local result blocked",
+      "malformed result blocked",
+      "unknown card blocked",
+      "missing financial confirmation blocked",
+      "disabled run blocked",
+      "wrong CSRF and cross-origin requests blocked",
+      "unavailable OS credential encryption disables sign-in before OAuth",
+      "zero inference calls recorded; no environment key exposed"
+    ],
+    "inferenceCalls": 0
+  },
+  "liveInferenceCalls": 0,
+  "defaultDeadlineMs": 165000,
+  "maximumDeadlineMs": 170000,
+  "unchangedPinnedSDKDeadlineMs": 180000,
+  "originalFilesUnchanged": {
+    "cards.json": "6add2c5dd20809fd787438d3c8825f8dd21a74e7d3fc429f83c7a9a091045f6c",
+    "metadata.json": "7ca579e431b2abba90f7629d06b393899f3ab5da4981cdc2cfd15eb20174c0cd",
+    "community-decks.json": "630dd24c667d308ddbca4e43f35a486f5d3f6cab4df9d3d2af8579e5226478eb",
+    "combo-library.json": "d196d851204ca8ea99b97bcc3b701a5be0817af1cf437e74bbfc3a0481e1b37b",
+    "start-windows.bat": "3aac6ed95cc36cf5d816969d33df83c8835d34703cbe3df57cf026e745f9099d",
+    "package.json": "295cf3d6a4acfd87d0e7613e9da3ecdd4e5dbc4d022a82b76ce6e9663965005d"
+  },
+  "windowsLiveVerification": "Not performed; user-observed original timestamps preserved, deterministic mocked expiry instead of live inference."
+}
