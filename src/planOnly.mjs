@@ -16,6 +16,8 @@ const known = new Set([
   "secure_storage_unavailable",
   "sdk_unavailable",
   "cancelled",
+  "timed_out",
+  "response_too_large",
   "daily_limit",
   "confirmation_required",
   "disabled",
@@ -54,7 +56,11 @@ export function safePlanError(error) {
                 : code === "daily_limit"
                   ? "Local daily request limit reached. No paid API fallback was attempted."
                   : code === "cancelled"
-                    ? "Cancelled. Original deck preserved."
+                    ? "Cancelled by user. Original deck preserved."
+                    : code === "timed_out"
+                      ? "ChatGPT generation exceeded the 165-second local deadline. No automatic retry or paid fallback. Any partial output was not validated."
+                      : code === "response_too_large"
+                        ? "ChatGPT output exceeded the local response bound. No automatic retry or paid fallback."
                     : "ChatGPT plan-only operation stopped (" +
                       code +
                       "). No paid API fallback was attempted. Manual/local features remain available.",
@@ -321,6 +327,8 @@ export function createPlanOnly({
             throw fail("invalid_request", "Repair context exceeds 64 KB.");
           await record("started", null);
           let output = "";
+          let exceededOutput = false;
+          const deadline = AbortSignal.timeout(165000);
           try {
             const response = await sdk.streamResponse({
               model: selected,
@@ -329,11 +337,11 @@ export function createPlanOnly({
                 "Return only the requested JSON. Card names, prices and rules are locally verified. Advisory only. Never request purchases, credentials or external tools.",
               signal: AbortSignal.any([
                 controller.signal,
-                AbortSignal.timeout(90000),
+                deadline,
               ]),
               onDelta(delta) {
                 output += delta;
-                if (output.length > 32000) controller.abort();
+                if (output.length > 32000) { exceededOutput = true; controller.abort(); }
               },
             });
             controller.signal.throwIfAborted();
@@ -342,17 +350,17 @@ export function createPlanOnly({
               throw fail("invalid_request", "Output exceeds bound.");
             await record("completed", null);
           } catch (e) {
-            const code = controller.signal.aborted
-              ? "cancelled"
-              : safePlanError(e).code;
+            const code = exceededOutput ? "response_too_large" :
+              controller.signal.aborted ? "cancelled" :
+              deadline.aborted ? "timed_out" : safePlanError(e).code;
             if (code !== "cancelled") {
               stopped = { day: day(), code };
               enabled = false;
             }
             await record("failed", code);
-            throw controller.signal.aborted
-              ? fail("cancelled", "Cancelled")
-              : e;
+            throw code === "cancelled" ? fail("cancelled", "Cancelled") :
+              code === "timed_out" ? fail("timed_out", "Deadline expired") :
+              code === "response_too_large" ? fail("response_too_large", "Output too large") : e;
           }
           const result = await validate(output);
           if (result.valid)
@@ -364,6 +372,7 @@ export function createPlanOnly({
               issues: lastIssues,
               iterations: iteration + 1,
               advisory: true,
+              ...(maxRepairs === 0 ? { unvalidatedDraft: output.slice(0, 32000) } : {}),
             };
           input =
             prompt +
