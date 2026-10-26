@@ -366,6 +366,9 @@ export function validateArchitectResult(p, raw, catalog, variants = []) {
           commander: parsed.commander,
           cards: parsed.cards,
           variants,
+          catalog,
+          budget: p.budget,
+          tolerance: p.budgetTolerance ?? 0,
         }),
         strategyEvidence:
           "Model advice only; no gameplay proof or strength certification",

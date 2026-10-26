@@ -7,7 +7,8 @@ import { auditFunctionalTrace } from "./functionalTraceAudit.mjs";
 import { auditComboExecutions } from "./comboExecutionEvidence.mjs";
 import { isLandSlot, coloredSources, trueColorlessSource } from "./cards.mjs";
 import { engineManaValue } from "./engineSupport.mjs";
-export function architectFunctionalReview({ commander, cards, variants = [] }) {
+import { manaPolishReview } from "./manaPolish.mjs";
+export function architectFunctionalReview({ commander, cards, variants = [], catalog = [], budget = null, tolerance = 0 }) {
   const present = new Set(
     [commander, ...cards].map((c) => c.name.toLowerCase()),
   );
@@ -276,6 +277,7 @@ export function architectFunctionalReview({ commander, cards, variants = [] }) {
     dependencies,
     relations,
     manaInventory,
+    manaPolish: manaPolishReview({ commander, cards, catalog, budget, tolerance }),
     cardAccess: {
       persistent: [...new Set(persistentAccess.map((j) => j.card))],
       oneShot: [...new Set(oneShot.map((j) => j.card))],
