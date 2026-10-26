@@ -18,7 +18,7 @@ const config = {
   dailyLimit: 3,
   model: "eligible-model",
 };
-async function fixture(overrides = {}) {
+async function fixture(overrides = {}, controllerOptions = {}) {
   const dir = await mkdtemp(path.join(os.tmpdir(), "plan-only-")),
     calls = [],
     state = { status: "connected", sharing: true, profileId: "synthetic" },
@@ -45,7 +45,11 @@ async function fixture(overrides = {}) {
     };
   const file = path.join(dir, "usage.json"),
     factory = async () => sdk,
-    c = createPlanOnly({ sdkFactory: factory, historyFile: file });
+    c = createPlanOnly({
+      sdkFactory: factory,
+      historyFile: file,
+      ...controllerOptions,
+    });
   return { c, calls, state, file, factory };
 }
 async function enable(f) {
@@ -272,4 +276,237 @@ test("explicit one-request Builder bound never repairs invalid output or functio
   });
   assert.equal(ok.valid, true);
   assert.equal(f.calls.length, 2);
+});
+
+for (const partial of ["", "1 Commander *CMDR*\n1 Sol Ring"])
+  test(`deadline is timed_out, not SDK cancelled; ${partial ? "partial" : "no"} text`, async () => {
+    let trigger,
+      cleared = false,
+      notify;
+    const started = new Promise((r) => (notify = r));
+    const f = await fixture(
+      {
+        streamResponse(p) {
+          f.calls.push(p);
+          if (partial) p.onDelta(partial);
+          notify();
+          return new Promise((resolve, reject) =>
+            p.signal.addEventListener(
+              "abort",
+              () =>
+                reject(
+                  Object.assign(Error("SDK caller aborted"), {
+                    code: "cancelled",
+                  }),
+                ),
+              { once: true },
+            ),
+          );
+        },
+      },
+      {
+        deadlineScheduler(ms, cb) {
+          assert.equal(ms, 165000);
+          trigger = cb;
+          return () => {
+            cleared = true;
+          };
+        },
+      },
+    );
+    await enable(f);
+    let validated = 0;
+    const job = f.c.run({
+      prompt: "one explicit request",
+      maxRepairs: 2,
+      validate() {
+        validated++;
+        return { valid: true };
+      },
+    });
+    await started;
+    trigger();
+    await assert.rejects(job, (e) => {
+      assert.equal(e.code, "timed_out");
+      assert.equal(e.generation.response.textReceived, !!partial);
+      assert.equal(e.generation.response.charactersReceived, partial.length);
+      assert.equal(e.generation.draft?.text, partial || undefined);
+      assert.equal(e.generation.draft?.unvalidated, partial ? true : undefined);
+      return true;
+    });
+    assert.equal(validated, 0);
+    assert.equal(f.calls.length, 1);
+    assert.equal(cleared, true);
+    const state = await f.c.status();
+    assert.equal(state.requestsToday, 1);
+    assert.equal(state.active, false);
+    assert.equal(state.stopped, null);
+    assert.ok(state.history.some((h) => h.code === "timed_out"));
+    const receipt = state.history.find(
+      (h) => h.state === "failed" && h.code === "timed_out",
+    );
+    assert.equal(receipt.responseCharacters, partial.length);
+    assert.equal(receipt.textReceived, !!partial);
+    assert.equal(receipt.deadlineMs, 165000);
+    assert.ok(!state.history.some((h) => h.code === "cancelled"));
+    assert.ok(!(await readFile(f.file, "utf8")).includes("1 Commander"));
+  });
+test("manual cancel preserves captured text, stays cancelled and clears deadline", async () => {
+  let notify,
+    cleared = false;
+  const started = new Promise((r) => (notify = r));
+  const f = await fixture(
+    {
+      streamResponse(p) {
+        f.calls.push(p);
+        p.onDelta("unfinished deck");
+        notify();
+        return new Promise((resolve, reject) =>
+          p.signal.addEventListener("abort", () => reject(Error()), {
+            once: true,
+          }),
+        );
+      },
+    },
+    {
+      deadlineScheduler(ms, cb) {
+        return () => (cleared = true);
+      },
+    },
+  );
+  await enable(f);
+  const job = f.c.run({
+    prompt: "manual cancel",
+    maxRepairs: 0,
+    validate: () => assert.fail("No validation of cancelled stream"),
+  });
+  await started;
+  f.c.cancel();
+  await assert.rejects(
+    job,
+    (e) =>
+      e.code === "cancelled" && e.generation.draft.text === "unfinished deck",
+  );
+  assert.equal(cleared, true);
+  assert.equal(f.calls.length, 1);
+  assert.equal((await f.c.status()).requestsToday, 1);
+  assert.match(safePlanError({ code: "cancelled" }).message, /Cancelled/);
+});
+for (const text of ["", "   ", undefined])
+  test(`empty completed response ${JSON.stringify(text)} does not repair or validate`, async () => {
+    const f = await fixture({
+      async streamResponse(p) {
+        f.calls.push(p);
+        return { text };
+      },
+    });
+    await enable(f);
+    await assert.rejects(
+      f.c.run({
+        prompt: "empty",
+        maxRepairs: 2,
+        validate: () => assert.fail("Empty cannot validate"),
+      }),
+      (e) => {
+        assert.equal(e.code, "empty_response");
+        assert.equal(
+          e.generation.response.textReceived,
+          typeof text === "string" && text.length > 0,
+        );
+        return true;
+      },
+    );
+    assert.equal(f.calls.length, 1);
+    assert.equal((await f.c.status()).requestsToday, 1);
+  });
+test("failed validation retains exact raw response and reports no automatic Builder retry", async () => {
+  const text = '{"deck":"1 Commander *CMDR*"}';
+  const f = await fixture({
+    async streamResponse(p) {
+      f.calls.push(p);
+      p.onDelta(text);
+      return { text };
+    },
+  });
+  await enable(f);
+  const r = await f.c.run({
+    prompt: "Builder",
+    maxRepairs: 0,
+    validate: () => ({ valid: false, issues: ["Expected 100 cards."] }),
+  });
+  assert.equal(r.valid, false);
+  assert.equal(r.code, "validation_failed");
+  assert.equal(r.draft.text, text);
+  assert.equal(r.draft.unvalidated, true);
+  assert.equal(r.response.textReceived, true);
+  assert.deepEqual(r.issues, ["Expected 100 cards."]);
+  assert.equal(f.calls.length, 1);
+  assert.equal(r.iterations, 1);
+});
+test("streamed prefix survives empty completion, and oversized response is not user cancellation", async () => {
+  for (const mode of ["empty", "oversized"]) {
+    const f = await fixture({
+      async streamResponse(p) {
+        f.calls.push(p);
+        p.onDelta(mode === "empty" ? "useful prefix" : "x".repeat(32001));
+        return { text: "" };
+      },
+    });
+    await enable(f);
+    await assert.rejects(
+      f.c.run({ prompt: mode, maxRepairs: 0, validate: () => assert.fail() }),
+      (e) => {
+        assert.equal(
+          e.code,
+          mode === "empty" ? "empty_response" : "response_too_large",
+        );
+        assert.equal(
+          e.generation.draft.text.length,
+          mode === "empty" ? 13 : 32000,
+        );
+        return true;
+      },
+    );
+    assert.equal(f.calls.length, 1);
+  }
+});
+test("generation deadline defaults to 165 seconds and cannot exceed finite sub-SDK cap", async () => {
+  const f = await fixture();
+  const s = await f.c.status();
+  assert.equal(s.generationDeadlineMs, 165000);
+  assert.equal(s.maximumGenerationDeadlineMs, 170000);
+  assert.ok(s.maximumGenerationDeadlineMs < 180000);
+  assert.throws(() => createPlanOnly({ generationDeadlineMs: 170001 }));
+  assert.throws(() => createPlanOnly({ generationDeadlineMs: Infinity }));
+});
+
+test("an explicit quota failure still latches if the local deadline fires concurrently", async () => {
+  let trigger;
+  const code = "subscription_sharing_usage_limit_exceeded";
+  const f = await fixture(
+    {
+      async streamResponse(p) {
+        f.calls.push(p);
+        trigger();
+        throw Object.assign(Error("do not expose raw message"), { code });
+      },
+    },
+    {
+      deadlineScheduler(ms, cb) {
+        trigger = cb;
+        return () => {};
+      },
+    },
+  );
+  await enable(f);
+  await assert.rejects(
+    f.c.run({
+      prompt: "quota race",
+      maxRepairs: 0,
+      validate: () => assert.fail(),
+    }),
+    (e) => e.code === code,
+  );
+  assert.equal((await f.c.status()).stopped.code, code);
+  assert.equal(f.calls.length, 1);
 });

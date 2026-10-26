@@ -1,3 +1,9 @@
+## Unreleased Architect timeout recovery — version remains 1.1.5
+
+- Distinguish timed_out from manual cancellation; use a 165-second generation deadline capped at 170 seconds, within the unchanged official SDK 180-second bound. No automatic timeout retry or provider fallback.
+- Report text receipt/count metadata and keep bounded unvalidated responses separate from useful editor drafts; failed output never becomes an empty object or gains export permission.
+- Share exact repeated Oracle/requirement text to reduce Builder prompt bulk while retaining critical package, policy and price evidence. Existing authorization, accounting and hard deck checks remain.
+
 ## Unreleased Architect strategy evidence — still 1.1.5
 
 - Replaced alphabetical candidate context with commander-specific package/function retrieval, cached source structures, published combo prerequisites and exact selected-record price options.

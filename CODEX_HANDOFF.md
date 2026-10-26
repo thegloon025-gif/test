@@ -1,3 +1,5 @@
+> Timeout follow-up is separately stacked on PR #14. See docs/ARCHITECT_RECOVERY.md and benchmarks/architect-timeout-VALIDATION.md. Version remains 1.1.5, no live inference; preserve request limits and complete local validation before partial text can export.
+
 > Architect quality follow-up is separately stacked on PR #13. Read docs/ARCHITECT_STRATEGY_EVIDENCE.md and benchmarks/architect-quality-VALIDATION.md. No production selection, authentication, caches or Upgrader implementation change; Builder one-call default and explicit strategic revision only.
 
 > ChatGPT Architect experiment is separately stacked on PR #12. See docs/CHATGPT_ARCHITECT.md. No API-key/paid-provider fallback; live account/billing unverified.

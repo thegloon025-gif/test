@@ -32,8 +32,11 @@ reserved disclosure position, followed by commander-required, compact-risk,
 native and source-only package channels. Numeric combo IDs only stabilize order
 inside a channel, not rank strategy strength.
 
-The 46 KB prompt bound trims whole combo/source/package units and interleaved
-card records, flags truncation, and retains concise priced function options.
+The Builder now targets 32 KB through shared exact Oracle/requirement references
+and optional-example trimming, with a 46 KB hard cap. Selected engine packages,
+critical combo prerequisites and priced function options remain. Upgrader retains
+its original/protected context and bounded optional-discovery trimming. See
+[deadline and recovery details](ARCHITECT_RECOVERY.md).
 It never silently clips a selected combo's prerequisites. Oracle excerpts are
 explicitly marked when clipped. Retrieval is incomplete, **not an allowed-card
 whitelist**: any exact catalog-resolvable card can be proposed and is then
