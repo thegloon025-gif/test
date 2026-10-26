@@ -242,3 +242,34 @@ test("corrupted usage ledger fails closed, bounded requests do not infer", async
   );
   assert.equal(g.calls.length, 0);
 });
+
+test("explicit one-request Builder bound never repairs invalid output or functional warnings", async () => {
+  const f = await fixture();
+  await f.c.discover();
+  await f.c.configure(config);
+  const r = await f.c.run({
+    prompt: "Explicit Builder request",
+    maxRepairs: 0,
+    validate: () => ({ valid: false, issues: ["100 cards required"] }),
+  });
+  assert.equal(r.valid, false);
+  assert.equal(r.iterations, 1);
+  assert.equal(f.calls.length, 1);
+  await assert.rejects(
+    f.c.run({
+      prompt: "invalid bound",
+      maxRepairs: 3,
+      validate: () => ({ valid: true }),
+    }),
+  );
+  const ok = await f.c.run({
+    prompt: "New explicit request",
+    maxRepairs: 0,
+    validate: () => ({
+      valid: true,
+      functionalReview: { warnings: [{ code: "unknown-access" }] },
+    }),
+  });
+  assert.equal(ok.valid, true);
+  assert.equal(f.calls.length, 2);
+});

@@ -1,3 +1,10 @@
+## Architect information-quality checkpoint (unreleased)
+
+- [x] Typed commander/package/function evidence replaces alphabetical context; full catalog remains available to validation.
+- [x] Read-only functional warnings, audited bounded mana/hand probes and explicit strategic revision; no score or automatic warning repairs.
+- [ ] Collect fresh user-generated lists and external gameplay feedback under fixed inputs; information coverage is not proof of stronger decks.
+- [ ] Broaden precise grammar only for observed defects; official bracket snapshot #10 and native Windows checks remain separate gates.
+
 ## Optional ChatGPT Architect experiment (unreleased)
 
 - Explicit plan-only SDK integration and a manual copy/import bridge are implemented separately from deterministic selection; see [setup and limitations](CHATGPT_ARCHITECT.md).

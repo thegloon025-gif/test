@@ -1,0 +1,1264 @@
+{
+  "source": "Immutable uploaded Scryfall selected-record catalog; controlled public-card fixtures, not user comparison lists or templates.",
+  "catalogSHA256": "6add2c5dd20809fd787438d3c8825f8dd21a74e7d3fc429f83c7a9a091045f6c",
+  "cards": [
+    {
+      "id": "9f6828e3-39d9-45d9-9bf1-0e3737a0321e",
+      "name": "Ulalek, Fused Atrocity",
+      "layout": "normal",
+      "type_line": "Legendary Creature — Eldrazi",
+      "oracle_text": "Devoid (This card has no color.)\nWhenever you cast an Eldrazi spell, you may pay {C}{C}. If you do, copy all spells you control, then copy all other activated and triggered abilities you control. You may choose new targets for the copies. (Mana abilities can't be copied.)",
+      "mana_cost": "{C/W}{C/U}{C/B}{C/R}{C/G}",
+      "cmc": 5,
+      "color_identity": [
+        "B",
+        "G",
+        "R",
+        "U",
+        "W"
+      ],
+      "colors": [],
+      "produced_mana": [],
+      "legalities": {
+        "commander": "legal"
+      },
+      "prices": {
+        "eur": 0.46
+      },
+      "printing": {
+        "set": "m3c",
+        "setName": "Modern Horizons 3 Commander",
+        "collectorNumber": "4",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "game_changer": false,
+      "power": "2",
+      "keywords": [
+        "Devoid"
+      ]
+    },
+    {
+      "id": "eada96a1-4964-4ad0-b0e3-2df08d6ae188",
+      "name": "Wilhelt, the Rotcleaver",
+      "layout": "normal",
+      "type_line": "Legendary Creature — Zombie Warrior",
+      "oracle_text": "Whenever another Zombie you control dies, if it didn't have decayed, create a 2/2 black Zombie creature token with decayed. (It can't block. When it attacks, sacrifice it at end of combat.)\nAt the beginning of your end step, you may sacrifice a Zombie. If you do, draw a card.",
+      "mana_cost": "{2}{U}{B}",
+      "cmc": 4,
+      "color_identity": [
+        "B",
+        "U"
+      ],
+      "colors": [
+        "B",
+        "U"
+      ],
+      "produced_mana": [],
+      "legalities": {
+        "commander": "legal"
+      },
+      "prices": {
+        "eur": 9.36
+      },
+      "printing": {
+        "set": "mic",
+        "setName": "Midnight Hunt Commander",
+        "collectorNumber": "2",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "game_changer": false,
+      "power": "3",
+      "keywords": []
+    },
+    {
+      "id": "3268251a-8292-44f9-9267-c961b182f739",
+      "name": "Y'shtola, Night's Blessed",
+      "layout": "normal",
+      "type_line": "Legendary Creature — Cat Warlock",
+      "oracle_text": "Vigilance\nAt the beginning of each end step, if a player lost 4 or more life this turn, you draw a card.\nWhenever you cast a noncreature spell with mana value 3 or greater, Y'shtola deals 2 damage to each opponent and you gain 2 life.",
+      "mana_cost": "{1}{W}{U}{B}",
+      "cmc": 4,
+      "color_identity": [
+        "B",
+        "U",
+        "W"
+      ],
+      "colors": [
+        "B",
+        "U",
+        "W"
+      ],
+      "produced_mana": [],
+      "legalities": {
+        "commander": "legal"
+      },
+      "prices": {
+        "eur": 2.75
+      },
+      "printing": {
+        "set": "fic",
+        "setName": "Final Fantasy Commander",
+        "collectorNumber": "7",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "game_changer": false,
+      "power": "2",
+      "keywords": [
+        "Vigilance"
+      ]
+    },
+    {
+      "id": "0715e860-3b3b-4331-9718-207973e94fee",
+      "name": "Tatyova, Benthic Druid",
+      "layout": "normal",
+      "type_line": "Legendary Creature — Merfolk Druid",
+      "oracle_text": "Landfall — Whenever a land you control enters, you gain 1 life and draw a card.",
+      "mana_cost": "{3}{G}{U}",
+      "cmc": 5,
+      "color_identity": [
+        "G",
+        "U"
+      ],
+      "colors": [
+        "G",
+        "U"
+      ],
+      "produced_mana": [],
+      "legalities": {
+        "commander": "legal"
+      },
+      "prices": {
+        "eur": 0.08
+      },
+      "printing": {
+        "set": "m3c",
+        "setName": "Modern Horizons 3 Commander",
+        "collectorNumber": "273",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "game_changer": false,
+      "power": "3",
+      "keywords": [
+        "Landfall"
+      ]
+    },
+    {
+      "id": "9f7d5e1c-bf5b-4ab9-bd6e-2627b4d22b36",
+      "name": "Zada, Hedron Grinder",
+      "layout": "normal",
+      "type_line": "Legendary Creature — Goblin Ally",
+      "oracle_text": "Whenever you cast an instant or sorcery spell that targets only Zada, copy that spell for each other creature you control that the spell could target. Each copy targets a different one of those creatures.",
+      "mana_cost": "{3}{R}",
+      "cmc": 4,
+      "color_identity": [
+        "R"
+      ],
+      "colors": [
+        "R"
+      ],
+      "produced_mana": [],
+      "legalities": {
+        "commander": "legal"
+      },
+      "prices": {
+        "eur": 0.12
+      },
+      "printing": {
+        "set": "mul",
+        "setName": "Multiverse Legends",
+        "collectorNumber": "25",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "game_changer": false,
+      "power": "3",
+      "keywords": []
+    },
+    {
+      "id": "a7043fbd-1dfd-42cf-be4b-cc343d0949e5",
+      "name": "Yuriko, the Tiger's Shadow",
+      "layout": "normal",
+      "type_line": "Legendary Creature — Human Ninja",
+      "oracle_text": "Commander ninjutsu {U}{B} ({U}{B}, Return an unblocked attacker you control to hand: Put this card onto the battlefield from your hand or the command zone tapped and attacking.)\nWhenever a Ninja you control deals combat damage to a player, reveal the top card of your library and put that card into your hand. Each opponent loses life equal to that card's mana value.",
+      "mana_cost": "{1}{U}{B}",
+      "cmc": 3,
+      "color_identity": [
+        "B",
+        "U"
+      ],
+      "colors": [
+        "B",
+        "U"
+      ],
+      "produced_mana": [],
+      "legalities": {
+        "commander": "legal"
+      },
+      "prices": {
+        "eur": 2.47
+      },
+      "printing": {
+        "set": "plst",
+        "setName": "The List",
+        "collectorNumber": "C18-52",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "game_changer": false,
+      "power": "1",
+      "keywords": [
+        "Commander ninjutsu"
+      ]
+    },
+    {
+      "id": "a7c69802-99c4-4778-934e-cc09ba58c267",
+      "name": "Basking Broodscale",
+      "layout": "normal",
+      "type_line": "Creature — Eldrazi Lizard",
+      "oracle_text": "Devoid (This card has no color.)\n{1}{G}: Adapt 1. (If this creature has no +1/+1 counters on it, put a +1/+1 counter on it.)\nWhenever one or more +1/+1 counters are put on this creature, you may create a 0/1 colorless Eldrazi Spawn creature token with \"Sacrifice this token: Add {C}.\"",
+      "mana_cost": "{1}{G}",
+      "cmc": 2,
+      "color_identity": [
+        "G"
+      ],
+      "colors": [],
+      "produced_mana": [
+        "C"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "prices": {
+        "eur": 0.21
+      },
+      "printing": {
+        "set": "mh3",
+        "setName": "Modern Horizons 3",
+        "collectorNumber": "145",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "game_changer": false,
+      "power": "2",
+      "keywords": [
+        "Devoid",
+        "Adapt"
+      ]
+    },
+    {
+      "id": "8985e545-07c3-45f9-9058-fe3c1f50de04",
+      "name": "Blade of the Bloodchief",
+      "layout": "normal",
+      "type_line": "Artifact — Equipment",
+      "oracle_text": "Whenever a creature dies, put a +1/+1 counter on equipped creature. If equipped creature is a Vampire, put two +1/+1 counters on it instead.\nEquip {1}",
+      "mana_cost": "{1}",
+      "cmc": 1,
+      "color_identity": [],
+      "colors": [],
+      "produced_mana": [],
+      "legalities": {
+        "commander": "legal"
+      },
+      "prices": {
+        "eur": 4.42
+      },
+      "printing": {
+        "set": "c17",
+        "setName": "Commander 2017",
+        "collectorNumber": "204",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "game_changer": false,
+      "keywords": [
+        "Equip"
+      ]
+    },
+    {
+      "id": "ace86e56-efde-4eb7-8815-71456a4c3abe",
+      "name": "Warren Soultrader",
+      "layout": "normal",
+      "type_line": "Creature — Zombie Goblin Wizard",
+      "oracle_text": "Pay 1 life, Sacrifice another creature: Create a Treasure token. (It's an artifact with \"{T}, Sacrifice this token: Add one mana of any color.\")",
+      "mana_cost": "{2}{B}",
+      "cmc": 3,
+      "color_identity": [
+        "B"
+      ],
+      "colors": [
+        "B"
+      ],
+      "produced_mana": [
+        "B",
+        "G",
+        "R",
+        "U",
+        "W"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "prices": {
+        "eur": 14.84
+      },
+      "printing": {
+        "set": "mh3",
+        "setName": "Modern Horizons 3",
+        "collectorNumber": "110",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "game_changer": false,
+      "power": "3",
+      "keywords": [
+        "Treasure"
+      ]
+    },
+    {
+      "id": "16f75a65-d067-4f79-81b9-833c373cf4d2",
+      "name": "Cryptbreaker",
+      "layout": "normal",
+      "type_line": "Creature — Zombie",
+      "oracle_text": "{1}{B}, {T}, Discard a card: Create a 2/2 black Zombie creature token.\nTap three untapped Zombies you control: You draw a card and lose 1 life.",
+      "mana_cost": "{B}",
+      "cmc": 1,
+      "color_identity": [
+        "B"
+      ],
+      "colors": [
+        "B"
+      ],
+      "produced_mana": [],
+      "legalities": {
+        "commander": "legal"
+      },
+      "prices": {
+        "eur": 0.66
+      },
+      "printing": {
+        "set": "fdc",
+        "setName": "Foundations Commander",
+        "collectorNumber": "94",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "game_changer": false,
+      "power": "1",
+      "keywords": []
+    },
+    {
+      "id": "a1cc5e37-b09a-4b7f-afd5-77c1c35aa425",
+      "name": "Carrion Feeder",
+      "layout": "normal",
+      "type_line": "Creature — Zombie",
+      "oracle_text": "This creature can't block.\nSacrifice a creature: Put a +1/+1 counter on this creature.",
+      "mana_cost": "{B}",
+      "cmc": 1,
+      "color_identity": [
+        "B"
+      ],
+      "colors": [
+        "B"
+      ],
+      "produced_mana": [],
+      "legalities": {
+        "commander": "legal"
+      },
+      "prices": {
+        "eur": 2.59
+      },
+      "printing": {
+        "set": "fdc",
+        "setName": "Foundations Commander",
+        "collectorNumber": "88",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "game_changer": false,
+      "power": "1",
+      "keywords": []
+    },
+    {
+      "id": "c26887e1-27f4-4550-921b-53460e43c079",
+      "name": "Undead Augur",
+      "layout": "normal",
+      "type_line": "Creature — Zombie Wizard",
+      "oracle_text": "Whenever this creature or another Zombie you control dies, you draw a card and lose 1 life.",
+      "mana_cost": "{B}{B}",
+      "cmc": 2,
+      "color_identity": [
+        "B"
+      ],
+      "colors": [
+        "B"
+      ],
+      "produced_mana": [],
+      "legalities": {
+        "commander": "legal"
+      },
+      "prices": {
+        "eur": 0.2
+      },
+      "printing": {
+        "set": "drc",
+        "setName": "Aetherdrift Commander",
+        "collectorNumber": "100",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "game_changer": false,
+      "power": "2",
+      "keywords": []
+    },
+    {
+      "id": "09ff28b1-b6c9-48e6-b12e-2f0e644f709f",
+      "name": "Gravecrawler",
+      "layout": "normal",
+      "type_line": "Creature — Zombie",
+      "oracle_text": "This creature can't block.\nYou may cast this card from your graveyard as long as you control a Zombie.",
+      "mana_cost": "{B}",
+      "cmc": 1,
+      "color_identity": [
+        "B"
+      ],
+      "colors": [
+        "B"
+      ],
+      "produced_mana": [],
+      "legalities": {
+        "commander": "legal"
+      },
+      "prices": {
+        "eur": 1.01
+      },
+      "printing": {
+        "set": "fdc",
+        "setName": "Foundations Commander",
+        "collectorNumber": "104",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "game_changer": false,
+      "power": "2",
+      "keywords": []
+    },
+    {
+      "id": "70de24d9-c585-4bf6-ac2c-c5b4b7aa298c",
+      "name": "Diregraf Captain",
+      "layout": "normal",
+      "type_line": "Creature — Zombie Soldier",
+      "oracle_text": "Deathtouch\nOther Zombie creatures you control get +1/+1.\nWhenever another Zombie you control dies, target opponent loses 1 life.",
+      "mana_cost": "{1}{U}{B}",
+      "cmc": 3,
+      "color_identity": [
+        "B",
+        "U"
+      ],
+      "colors": [
+        "B",
+        "U"
+      ],
+      "produced_mana": [],
+      "legalities": {
+        "commander": "legal"
+      },
+      "prices": {
+        "eur": 0.23
+      },
+      "printing": {
+        "set": "ddq",
+        "setName": "Duel Decks: Blessed vs. Cursed",
+        "collectorNumber": "68",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "game_changer": false,
+      "power": "2",
+      "keywords": [
+        "Deathtouch"
+      ]
+    },
+    {
+      "id": "23a79523-4be0-4d17-80aa-5ea024cb3463",
+      "name": "Echoes of Eternity",
+      "layout": "normal",
+      "type_line": "Kindred Enchantment — Eldrazi",
+      "oracle_text": "If a triggered ability of a colorless spell you control or another colorless permanent you control triggers, that ability triggers an additional time.\nWhenever you cast a colorless spell, copy it. You may choose new targets for the copy. (A copy of a permanent spell becomes a token.)",
+      "mana_cost": "{3}{C}{C}{C}",
+      "cmc": 6,
+      "color_identity": [],
+      "colors": [],
+      "produced_mana": [],
+      "legalities": {
+        "commander": "legal"
+      },
+      "prices": {
+        "eur": 0.74
+      },
+      "printing": {
+        "set": "pmh3",
+        "setName": "Modern Horizons 3 Promos",
+        "collectorNumber": "4p",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "game_changer": false,
+      "keywords": []
+    },
+    {
+      "id": "cd3d79e9-c72e-4321-bca1-54505d51331a",
+      "name": "Conduit of Ruin",
+      "layout": "normal",
+      "type_line": "Creature — Eldrazi",
+      "oracle_text": "When you cast this spell, you may search your library for a colorless creature card with mana value 7 or greater, reveal it, then shuffle and put that card on top.\nThe first creature spell you cast each turn costs {2} less to cast.",
+      "mana_cost": "{6}",
+      "cmc": 6,
+      "color_identity": [],
+      "colors": [],
+      "produced_mana": [],
+      "legalities": {
+        "commander": "legal"
+      },
+      "prices": {
+        "eur": 3.47
+      },
+      "printing": {
+        "set": "bfz",
+        "setName": "Battle for Zendikar",
+        "collectorNumber": "4",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "game_changer": false,
+      "power": "5",
+      "keywords": []
+    },
+    {
+      "id": "ec726c54-987b-48ed-8ffa-ec73a5e35333",
+      "name": "Zhulodok, Void Gorger",
+      "layout": "normal",
+      "type_line": "Legendary Creature — Eldrazi",
+      "oracle_text": "Colorless spells you cast from your hand with mana value 7 or greater have \"Cascade, cascade.\" (When you cast one, exile cards from the top of your library until you exile a nonland card that costs less. You may cast it without paying its mana cost. Put the exiled cards on the bottom in a random order. Then do it again.)",
+      "mana_cost": "{5}{C}",
+      "cmc": 6,
+      "color_identity": [],
+      "colors": [],
+      "produced_mana": [],
+      "legalities": {
+        "commander": "legal"
+      },
+      "prices": {
+        "eur": 41.27
+      },
+      "printing": {
+        "set": "cmm",
+        "setName": "Commander Masters",
+        "collectorNumber": "704",
+        "language": "en",
+        "border": "black",
+        "finish": "foil",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "game_changer": false,
+      "power": "7",
+      "keywords": []
+    },
+    {
+      "id": "050f5733-7c0b-4991-9a6c-7ea12ccf0ca9",
+      "name": "Up the Beanstalk",
+      "layout": "normal",
+      "type_line": "Enchantment",
+      "oracle_text": "When this enchantment enters and whenever you cast a spell with mana value 5 or greater, draw a card.",
+      "mana_cost": "{1}{G}",
+      "cmc": 2,
+      "color_identity": [
+        "G"
+      ],
+      "colors": [
+        "G"
+      ],
+      "produced_mana": [],
+      "legalities": {
+        "commander": "legal"
+      },
+      "prices": {
+        "eur": 2.47
+      },
+      "printing": {
+        "set": "woe",
+        "setName": "Wilds of Eldraine",
+        "collectorNumber": "195",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "game_changer": false,
+      "keywords": []
+    },
+    {
+      "id": "005ee549-1bf5-478f-bc3f-3e791bd7eecf",
+      "name": "Kindred Discovery",
+      "layout": "normal",
+      "type_line": "Enchantment",
+      "oracle_text": "As this enchantment enters, choose a creature type.\nWhenever a creature you control of the chosen type enters or attacks, draw a card.",
+      "mana_cost": "{3}{U}{U}",
+      "cmc": 5,
+      "color_identity": [
+        "U"
+      ],
+      "colors": [
+        "U"
+      ],
+      "produced_mana": [],
+      "legalities": {
+        "commander": "legal"
+      },
+      "prices": {
+        "eur": 5.51
+      },
+      "printing": {
+        "set": "msc",
+        "setName": "Marvel Super Heroes Commander",
+        "collectorNumber": "150",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "game_changer": false,
+      "keywords": []
+    },
+    {
+      "id": "4f9e07ae-6341-4b46-9f77-f17ab659d266",
+      "name": "Guardian Project",
+      "layout": "normal",
+      "type_line": "Enchantment",
+      "oracle_text": "Whenever a nontoken creature you control enters, if it doesn't have the same name as another creature you control or a creature card in your graveyard, draw a card.",
+      "mana_cost": "{3}{G}",
+      "cmc": 4,
+      "color_identity": [
+        "G"
+      ],
+      "colors": [
+        "G"
+      ],
+      "produced_mana": [],
+      "legalities": {
+        "commander": "legal"
+      },
+      "prices": {
+        "eur": 12.61
+      },
+      "printing": {
+        "set": "pip",
+        "setName": "Fallout",
+        "collectorNumber": "469",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "game_changer": false,
+      "keywords": []
+    },
+    {
+      "id": "994bc16d-fdc6-475c-96df-beeb4d5aa03e",
+      "name": "Mystic Forge",
+      "layout": "normal",
+      "type_line": "Artifact",
+      "oracle_text": "You may look at the top card of your library any time.\nYou may cast artifact spells and colorless spells from the top of your library.\n{T}, Pay 1 life: Exile the top card of your library.",
+      "mana_cost": "{4}",
+      "cmc": 4,
+      "color_identity": [],
+      "colors": [],
+      "produced_mana": [],
+      "legalities": {
+        "commander": "legal"
+      },
+      "prices": {
+        "eur": 1.9
+      },
+      "printing": {
+        "set": "pm20",
+        "setName": "Core Set 2020 Promos",
+        "collectorNumber": "233p",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "game_changer": false,
+      "keywords": []
+    },
+    {
+      "id": "5bf4d8d9-a2b2-4dba-ac05-9d4470a89db2",
+      "name": "Read the Bones",
+      "layout": "normal",
+      "type_line": "Sorcery",
+      "oracle_text": "Scry 2, then draw two cards. You lose 2 life. (To scry 2, look at the top two cards of your library, then put any number of them on the bottom and the rest on top in any order.)",
+      "mana_cost": "{2}{B}",
+      "cmc": 3,
+      "color_identity": [
+        "B"
+      ],
+      "colors": [
+        "B"
+      ],
+      "produced_mana": [],
+      "legalities": {
+        "commander": "legal"
+      },
+      "prices": {
+        "eur": 0.09
+      },
+      "printing": {
+        "set": "sld",
+        "setName": "Secret Lair Drop",
+        "collectorNumber": "2566",
+        "language": "en",
+        "border": "borderless",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "game_changer": false,
+      "keywords": [
+        "Scry"
+      ]
+    },
+    {
+      "id": "7ffae8f8-3006-4969-a339-6d30678f87ea",
+      "name": "Night's Whisper",
+      "layout": "normal",
+      "type_line": "Sorcery",
+      "oracle_text": "You draw two cards and lose 2 life.",
+      "mana_cost": "{1}{B}",
+      "cmc": 2,
+      "color_identity": [
+        "B"
+      ],
+      "colors": [
+        "B"
+      ],
+      "produced_mana": [],
+      "legalities": {
+        "commander": "legal"
+      },
+      "prices": {
+        "eur": 0.35
+      },
+      "printing": {
+        "set": "msc",
+        "setName": "Marvel Super Heroes Commander",
+        "collectorNumber": "158",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "game_changer": false,
+      "keywords": []
+    },
+    {
+      "id": "0895c9b7-ae7d-4bb3-af17-3b75deb50a25",
+      "name": "Command Tower",
+      "layout": "normal",
+      "type_line": "Land",
+      "oracle_text": "{T}: Add one mana of any color in your commander's color identity.",
+      "mana_cost": "",
+      "cmc": 0,
+      "color_identity": [],
+      "colors": [],
+      "produced_mana": [
+        "B",
+        "G",
+        "R",
+        "U",
+        "W"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "prices": {
+        "eur": 0.18
+      },
+      "printing": {
+        "set": "cmm",
+        "setName": "Commander Masters",
+        "collectorNumber": "420",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "game_changer": false,
+      "keywords": []
+    },
+    {
+      "id": "6ad8011d-3471-4369-9d68-b264cc027487",
+      "name": "Sol Ring",
+      "layout": "normal",
+      "type_line": "Artifact",
+      "oracle_text": "{T}: Add {C}{C}.",
+      "mana_cost": "{1}",
+      "cmc": 1,
+      "color_identity": [],
+      "colors": [],
+      "produced_mana": [
+        "C"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "prices": {
+        "eur": 0.68
+      },
+      "printing": {
+        "set": "c16",
+        "setName": "Commander 2016",
+        "collectorNumber": "272",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "game_changer": false,
+      "keywords": []
+    },
+    {
+      "id": "0bc7f093-bef0-4f1a-852c-4b75ebf54838",
+      "name": "Arcane Signet",
+      "layout": "normal",
+      "type_line": "Artifact",
+      "oracle_text": "{T}: Add one mana of any color in your commander's color identity.",
+      "mana_cost": "{2}",
+      "cmc": 2,
+      "color_identity": [],
+      "colors": [],
+      "produced_mana": [
+        "B",
+        "G",
+        "R",
+        "U",
+        "W"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "prices": {
+        "eur": 0.38
+      },
+      "printing": {
+        "set": "c20",
+        "setName": "Commander 2020",
+        "collectorNumber": "237",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "game_changer": false,
+      "keywords": []
+    },
+    {
+      "id": "ae3e5c80-6a6a-4781-a7b9-4d63357ffa3b",
+      "name": "Eldrazi Repurposer",
+      "layout": "normal",
+      "type_line": "Creature — Eldrazi Drone",
+      "oracle_text": "Devoid (This card has no color.)\nWhen you cast this spell and when this creature dies, create a 0/1 colorless Eldrazi Spawn creature token with \"Sacrifice this token: Add {C}.\"",
+      "mana_cost": "{2}{G}",
+      "cmc": 3,
+      "color_identity": [
+        "G"
+      ],
+      "colors": [],
+      "produced_mana": [
+        "C"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "prices": {
+        "eur": 0.13
+      },
+      "printing": {
+        "set": "mh3",
+        "setName": "Modern Horizons 3",
+        "collectorNumber": "150",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "game_changer": false,
+      "power": "3",
+      "keywords": [
+        "Devoid"
+      ]
+    },
+    {
+      "id": "0ffce5e0-6b1d-4d1a-9318-1a1a219df532",
+      "name": "Glaring Fleshraker",
+      "layout": "normal",
+      "type_line": "Creature — Eldrazi Drone",
+      "oracle_text": "Whenever you cast a colorless spell, create a 0/1 colorless Eldrazi Spawn creature token with \"Sacrifice this token: Add {C}.\"\nWhenever another colorless creature you control enters, this creature deals 1 damage to each opponent.",
+      "mana_cost": "{2}{C}",
+      "cmc": 3,
+      "color_identity": [],
+      "colors": [],
+      "produced_mana": [
+        "C"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "prices": {
+        "eur": 0.78
+      },
+      "printing": {
+        "set": "mh3",
+        "setName": "Modern Horizons 3",
+        "collectorNumber": "7",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "game_changer": false,
+      "power": "2",
+      "keywords": []
+    },
+    {
+      "id": "bc71ebf6-2056-41f7-be35-b2e5c34afa99",
+      "name": "Plains",
+      "layout": "normal",
+      "type_line": "Basic Land — Plains",
+      "oracle_text": "({T}: Add {W}.)",
+      "mana_cost": "",
+      "cmc": 0,
+      "color_identity": [
+        "W"
+      ],
+      "colors": [],
+      "produced_mana": [
+        "W"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "prices": {
+        "eur": 0.15
+      },
+      "printing": {
+        "set": "cma",
+        "setName": "Commander Anthology",
+        "collectorNumber": "292",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "game_changer": false,
+      "keywords": []
+    },
+    {
+      "id": "b2c6aa39-2d2a-459c-a555-fb48ba993373",
+      "name": "Island",
+      "layout": "normal",
+      "type_line": "Basic Land — Island",
+      "oracle_text": "({T}: Add {U}.)",
+      "mana_cost": "",
+      "cmc": 0,
+      "color_identity": [
+        "U"
+      ],
+      "colors": [],
+      "produced_mana": [
+        "U"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "prices": {
+        "eur": 0.07
+      },
+      "printing": {
+        "set": "eld",
+        "setName": "Throne of Eldraine",
+        "collectorNumber": "255",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "game_changer": false,
+      "keywords": []
+    },
+    {
+      "id": "56719f6a-1a6c-4c0a-8d21-18f7d7350b68",
+      "name": "Swamp",
+      "layout": "normal",
+      "type_line": "Basic Land — Swamp",
+      "oracle_text": "({T}: Add {B}.)",
+      "mana_cost": "",
+      "cmc": 0,
+      "color_identity": [
+        "B"
+      ],
+      "colors": [],
+      "produced_mana": [
+        "B"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "prices": {
+        "eur": 0.31
+      },
+      "printing": {
+        "set": "jmp",
+        "setName": "Jumpstart",
+        "collectorNumber": "59",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "game_changer": false,
+      "keywords": []
+    },
+    {
+      "id": "a3fb7228-e76b-4e96-a40e-20b5fed75685",
+      "name": "Mountain",
+      "layout": "normal",
+      "type_line": "Basic Land — Mountain",
+      "oracle_text": "({T}: Add {R}.)",
+      "mana_cost": "",
+      "cmc": 0,
+      "color_identity": [
+        "R"
+      ],
+      "colors": [],
+      "produced_mana": [
+        "R"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "prices": {
+        "eur": 2.69
+      },
+      "printing": {
+        "set": "2ed",
+        "setName": "Unlimited Edition",
+        "collectorNumber": "298",
+        "language": "en",
+        "border": "white",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "game_changer": false,
+      "keywords": []
+    },
+    {
+      "id": "b34bb2dc-c1af-4d77-b0b3-a0fb342a5fc6",
+      "name": "Forest",
+      "layout": "normal",
+      "type_line": "Basic Land — Forest",
+      "oracle_text": "({T}: Add {G}.)",
+      "mana_cost": "",
+      "cmc": 0,
+      "color_identity": [
+        "G"
+      ],
+      "colors": [],
+      "produced_mana": [
+        "G"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "prices": {
+        "eur": 0.24
+      },
+      "printing": {
+        "set": "blb",
+        "setName": "Bloomburrow",
+        "collectorNumber": "280",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "game_changer": false,
+      "keywords": []
+    },
+    {
+      "id": "05d24b0c-904a-46b6-b42a-96a4d91a0dd4",
+      "name": "Wastes",
+      "layout": "normal",
+      "type_line": "Basic Land",
+      "oracle_text": "{T}: Add {C}.",
+      "mana_cost": "",
+      "cmc": 0,
+      "color_identity": [],
+      "colors": [],
+      "produced_mana": [
+        "C"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "prices": {
+        "eur": 0.53
+      },
+      "printing": {
+        "set": "plst",
+        "setName": "The List",
+        "collectorNumber": "OGW-183",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "game_changer": false,
+      "keywords": []
+    },
+    {
+      "id": "32263baa-d3f0-463f-92b3-4e9938476add",
+      "name": "Hedron Archive",
+      "layout": "normal",
+      "type_line": "Artifact",
+      "oracle_text": "{T}: Add {C}{C}.\n{2}, {T}, Sacrifice this artifact: Draw two cards.",
+      "mana_cost": "{4}",
+      "cmc": 4,
+      "color_identity": [],
+      "colors": [],
+      "produced_mana": [
+        "C"
+      ],
+      "legalities": {
+        "commander": "legal"
+      },
+      "prices": {
+        "eur": 0.13
+      },
+      "printing": {
+        "set": "fdc",
+        "setName": "Foundations Commander",
+        "collectorNumber": "262",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "game_changer": false,
+      "keywords": []
+    },
+    {
+      "id": "365548fb-5acc-4a8a-b20b-26d28b7d029f",
+      "name": "Village Rites",
+      "layout": "normal",
+      "type_line": "Instant",
+      "oracle_text": "As an additional cost to cast this spell, sacrifice a creature.\nDraw two cards.",
+      "mana_cost": "{B}",
+      "cmc": 1,
+      "color_identity": [
+        "B"
+      ],
+      "colors": [
+        "B"
+      ],
+      "produced_mana": [],
+      "legalities": {
+        "commander": "legal"
+      },
+      "prices": {
+        "eur": 0.27
+      },
+      "printing": {
+        "set": "gn3",
+        "setName": "Game Night: Free-for-All",
+        "collectorNumber": "64",
+        "language": "en",
+        "border": "black",
+        "finish": "normal",
+        "source": "Scryfall bulk printing",
+        "eligibleVersion": 2
+      },
+      "game_changer": false,
+      "keywords": []
+    }
+  ]
+}

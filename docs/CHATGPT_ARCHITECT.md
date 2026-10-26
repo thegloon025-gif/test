@@ -69,7 +69,7 @@ Architect HTTP actions require the actual local Host/Origin and a random per-lau
 
 The preview does **not** accept changes. Click **Review packages in Experimental Upgrader**, inspect each tradeoff and accept/reject normally. Its existing combined gates, undo and export remain authoritative. No original text, external deck or account is overwritten. Advice is not proof of strength.
 
-The bounded context includes original cards and an incomplete alphabetical candidate sample with selected local prices and Oracle text clipped to 400 characters. This is not a power ranking or a complete catalog/research dump. Final validation uses full records. A model can still propose mechanically weak decks; local legality/payment checks do not prove coherent strategy or better gameplay. No PR #4 ranking or paid research loop is activated.
+The bounded context now contains typed commander-specific engine/function packages, complete cached bracket-matched source structures, Spellbook prerequisites and selected-record prices. It is incomplete and never a card whitelist. A read-only ledger/dependency/goldfish review follows hard validation; warnings do not trigger AI requests. Builder generation permits one request per click and explicit user-directed revision; the Upgrader retains at most two hard-validation repairs. See [strategy evidence and limitations](ARCHITECT_STRATEGY_EVIDENCE.md). No gameplay ranking or stronger-deck claim is activated.
 
 ## Manual bridge (no CommanderOracle AI request)
 

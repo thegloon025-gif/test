@@ -1,3 +1,9 @@
+import comboSupplement from "./architectComboEvidence.json" with { type: "json" };
+import {
+  architectEvidence,
+  architectCardRecord,
+} from "./architectEvidence.mjs";
+import { architectFunctionalReview } from "./architectReview.mjs";
 import { applyBudgetValuation } from "./budgetPolicy.mjs";
 import { sourceGrammar, allocateMana } from "./functionalGoldfish.mjs";
 /** Pure manual/connected recommendation protocol. Model output never becomes trusted card data. */
@@ -121,33 +127,64 @@ export function architectManaEvidence(commander, cards) {
       "Conservative supported-source inventory upper bound, not opening-hand or turn execution. Ramp must have a payment path from already admitted sources; known same-transaction colored/C costs allocate each source once. Unmodeled sources remain unknown.",
   };
 }
-const describe = (c) => ({
-  name: c.name,
-  manaCost: c.mana_cost ?? null,
-  type: c.type_line,
-  colorIdentity: c.color_identity,
-  oracle: (c.oracle_text || "").slice(0, 400),
-  eur: priceOf(c),
-  eligiblePrinting: c.printing?.eligibleVersion === 2,
-});
-export function architectRequest(p, catalog, variants = []) {
+const describe = architectCardRecord;
+export function architectRequest(p, catalog, variants = [], research = {}) {
+  variants = [
+    ...new Map(
+      [...variants, ...comboSupplement.variants].map((v) => [v.id, v]),
+    ).values(),
+  ];
   catalog = valuedCatalog(p, catalog);
-  const x = context(p, catalog, variants),
-    names = new Set(
-      [x.commander, ...x.cards].map((c) => normalizedName(c.name)),
-    ),
-    candidates = catalog
-      .filter(
-        (c) =>
-          legalFor(c, x.commander) &&
-          !names.has(normalizedName(c.name)) &&
-          priceOf(c) !== null &&
-          priceOf(c) <= p.budget,
-      )
-      .sort((a, b) => a.name.localeCompare(b.name))
-      .slice(0, p.mode === "builder" ? 80 : 24);
+  const x = context(p, catalog, variants);
+  const evidence = architectEvidence({
+    commander: x.commander,
+    catalog,
+    variants,
+    decks: research.decks || [],
+    budget: p.budget + (p.budgetTolerance || 0),
+    bracket: p.bracket,
+    highlightVariantIds: comboSupplement.variants.map((v) => v.id),
+  });
+  let revision = null;
+  if (p.revisionRequest || p.revisionDeck) {
+    if (
+      p.mode !== "builder" ||
+      typeof p.revisionRequest !== "string" ||
+      !p.revisionRequest.trim() ||
+      p.revisionRequest.length > 2000 ||
+      typeof p.revisionDeck !== "string"
+    )
+      throw Error(
+        "Strategic revision requires an explicit bounded request and a validated previous Builder deck.",
+      );
+    const previous = validateArchitectResult(
+      { ...p, revisionRequest: null, revisionDeck: null },
+      p.revisionDeck,
+      catalog,
+      variants,
+    );
+    if (!previous.valid)
+      throw Error(
+        "Validate the previous deck before requesting a strategic revision.",
+      );
+    revision = {
+      userRequest: p.revisionRequest,
+      previousDeck: previous.deck,
+      observedWarnings: previous.functionalReview.warnings
+        .slice(0, 12)
+        .map((w) => ({
+          code: w.code,
+          status: w.status,
+          explanation: w.explanation,
+        })),
+      instruction:
+        "Make only the explicitly requested strategic revision. Explain retained/lost packages; no automatic warning repair or spending target.",
+    };
+  }
   const payload = {
     mode: p.mode,
+    revision,
+    deckbuildingBrief: evidence,
     commander: describe(x.commander),
     budget: p.budget,
     tolerance: p.budgetTolerance ?? 0,
@@ -159,7 +196,19 @@ export function architectRequest(p, catalog, variants = []) {
     basicLandsOwned: p.basicLandsOwned !== false,
     preferences: p.preferences || "",
     excludedStrategies: p.excludedStrategies || "",
-    original: x.cards.map(describe),
+    original: x.cards.map((c) => {
+      const d = describe(c);
+      return {
+        name: d.name,
+        manaCost: d.manaCost,
+        type: d.type,
+        colorIdentity: d.colorIdentity,
+        oracle: d.oracle.slice(0, 220),
+        oracleTruncated: d.oracleTruncated || d.oracle.length > 220,
+        eur: d.eur,
+        eligiblePrinting: d.eligiblePrinting,
+      };
+    }),
     userOwnedAdditions:
       p.mode === "upgrader"
         ? (p.owned || []).filter((n) => typeof n === "string").slice(0, 100)
@@ -186,9 +235,9 @@ export function architectRequest(p, catalog, variants = []) {
             .map((t) => t.slice(0, 250)),
           execution: "unknown; inventory and cached instructions only",
         })) || [],
-    advisoryCandidateSample: candidates.map(describe),
+
     warning:
-      "Candidate sample is bounded and alphabetical, not ranked or complete. Only exact locally resolvable cards pass. Mechanics and gameplans are not fully simulated. Preserve original engines, complete combos and mana. No purchases or price assumptions.",
+      "Evidence retrieval is incomplete, NOT an exclusive allowed-card list. You may propose any exact catalog-resolvable card. Choose one coherent direction before filling the deck: development, real card access, native events, separate additional payments, resources/consumers, interaction/protection and plausible win conversion. State missing prerequisites and unknowns. Preserve complete packages, not combo count. No universal quotas, spending reward or performance claim.",
     responseSchema:
       p.mode === "builder"
         ? {
@@ -217,9 +266,20 @@ export function architectRequest(p, catalog, variants = []) {
     JSON.stringify(payload);
   while (
     Buffer.byteLength(prompt) > 46000 &&
-    payload.advisoryCandidateSample.length
+    (evidence.records.length ||
+      evidence.packages.length ||
+      evidence.sourceStructures.length ||
+      evidence.comboPackages.length)
   ) {
-    payload.advisoryCandidateSample.pop();
+    // Trim whole evidence units; never silently sever a combo's prerequisites.
+    if (evidence.comboPackages.length > 4) evidence.comboPackages.pop();
+    else if (evidence.sourceStructures.length > 1)
+      evidence.sourceStructures.pop();
+    else if (evidence.records.length) evidence.records.pop();
+    else if (evidence.sourceStructures.length) evidence.sourceStructures.pop();
+    else if (evidence.packages.length) evidence.packages.pop();
+    else evidence.comboPackages.pop();
+    evidence.contextTruncated = true;
     prompt =
       "CommanderOracle advisory request. Return only responseSchema JSON; preserve strategy and costs.\n" +
       JSON.stringify(payload);
@@ -230,7 +290,7 @@ export function architectRequest(p, catalog, variants = []) {
     prompt,
     commander: { id: String(oracleId(x.commander)), name: x.commander.name },
     scope:
-      "Offline prompt creation; no AI request or account access. Candidate sample is incomplete; final validation uses full current priced catalog.",
+      "Offline prompt creation; no AI request or account access. Typed retrieval is incomplete; final validation uses full current priced catalog.",
   };
 }
 function parseResult(raw, mode) {
@@ -250,6 +310,11 @@ function parseResult(raw, mode) {
 }
 export function validateArchitectResult(p, raw, catalog, variants = []) {
   try {
+    variants = [
+      ...new Map(
+        [...variants, ...comboSupplement.variants].map((v) => [v.id, v]),
+      ).values(),
+    ];
     catalog = valuedCatalog(p, catalog);
     const base = context(p, catalog, variants),
       result = parseResult(raw, p.mode);
@@ -297,6 +362,11 @@ export function validateArchitectResult(p, raw, catalog, variants = []) {
           : null;
       return {
         strategy,
+        functionalReview: safeFunctionalReview({
+          commander: parsed.commander,
+          cards: parsed.cards,
+          variants,
+        }),
         strategyEvidence:
           "Model advice only; no gameplay proof or strength certification",
         mana,
@@ -371,5 +441,26 @@ export function validateArchitectResult(p, raw, catalog, variants = []) {
     };
   } catch (e) {
     return issues([e.message]);
+  }
+}
+
+function safeFunctionalReview(input) {
+  try {
+    return architectFunctionalReview(input);
+  } catch (e) {
+    return {
+      mode: "read-only functional review",
+      status: "unknown",
+      reason: String(e.message).slice(0, 400),
+      warnings: [
+        {
+          code: "review-unavailable",
+          status: "unknown",
+          explanation:
+            "The bounded review or independent receipt audit could not complete. No functional certification; hard legality/printing/budget results are separate.",
+        },
+      ],
+      revision: { automatic: false, requiresExplicitUserRequest: true },
+    };
   }
 }
