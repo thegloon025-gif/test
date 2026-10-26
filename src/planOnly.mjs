@@ -70,7 +70,10 @@ export function createPlanOnly({
   sdkFactory,
   historyFile,
   clock = () => new Date(),
+  deadlineMs = 165000,
 } = {}) {
+  if (!Number.isInteger(deadlineMs) || deadlineMs < 1 || deadlineMs > 165000)
+    throw Error("Connected AI deadline must be finite and at most 165 seconds.");
   let sdk = null,
     auth = { status: "disconnected", sharing: false },
     models = [],
@@ -328,7 +331,7 @@ export function createPlanOnly({
           await record("started", null);
           let output = "";
           let exceededOutput = false;
-          const deadline = AbortSignal.timeout(165000);
+          const deadline = AbortSignal.timeout(deadlineMs);
           try {
             const response = await sdk.streamResponse({
               model: selected,
