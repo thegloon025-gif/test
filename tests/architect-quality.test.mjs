@@ -316,3 +316,17 @@ test("incidental off-tribe deaths do not masquerade as commander-native material
   assert.ok(!e.packages.some((p) => p.anchor === engine.name));
   assert.ok(e.packages.some((p) => p.anchor === "Undead Augur"));
 });
+
+test("connected and manual Architect brief asks for one-pass quality review, never spend-for-spend", () => {
+  const x = architectRequest({ ...params(y), budget:200, budgetTolerance:4 }, catalog);
+  const b = payload(x);
+  assert.equal(b.budget,200);
+  assert.equal(b.tolerance,4);
+  assert.match(x.prompt,/silently critique early mana tempo/);
+  assert.match(x.prompt,/budget is a maximum, not a spending target/);
+  assert.match(b.warning,/including affordable improvements missing from examples/);
+  assert.match(b.responseSchema.strategy.budgetDecisions,/intentionally unspent/);
+  assert.equal(b.deckbuildingBrief.selection.includes("quality score"),true);
+  assert.equal(b.responseSchema.deck.includes("100-card"),true);
+  assert.ok(Buffer.byteLength(x.prompt) <= 46000);
+});
