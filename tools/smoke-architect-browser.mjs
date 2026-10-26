@@ -18,6 +18,9 @@ try {
   await page.route("https://**", (r) => r.abort());
   await page.goto(base);
   await page.locator("#chatgpt-architect summary").first().click();
+  await page.waitForFunction(() =>
+    document.getElementById("ai-status")?.textContent.includes("disabled"),
+  );
   assert.equal(await page.locator("#ai-run").isDisabled(), true);
   assert.match(await page.locator("#ai-status").textContent(), /disabled/);
   checks.push("default off, no inference on page load");
@@ -31,6 +34,23 @@ try {
     () => document.getElementById("ai-prompt").value.length > 0,
   );
   assert.match(await page.locator("#ai-prompt").inputValue(), /responseSchema/);
+  const brief = JSON.parse(
+    (await page.locator("#ai-prompt").inputValue()).slice(
+      (await page.locator("#ai-prompt").inputValue()).indexOf("{"),
+    ),
+  ).deckbuildingBrief;
+  assert.equal(brief.additionalTrueColorless, 2);
+  assert.ok(
+    brief.packages.some((p) => p.function === "commander-qualifying-casts"),
+  );
+  assert.ok(
+    brief.comboPackages.some(
+      (p) => p.id === "1988-5641" && !p.policy.allowedByKnownGate,
+    ),
+  );
+  checks.push(
+    "typed native packages, separate true-C costs and compact-combo risk in copied request",
+  );
   checks.push("manual verified request copied with no account");
   const deck = await readFile(
     examples + "/ulalek-validated-manual-fixture.txt",
@@ -42,6 +62,49 @@ try {
   await wait;
   await page.waitForFunction(
     () => !document.getElementById("ai-download").disabled,
+  );
+  assert.match(
+    await page.locator("#ai-functional-review").textContent(),
+    /Read-only functional review/,
+  );
+  const evidence = JSON.parse(await page.locator("#ai-evidence").textContent());
+  assert.equal(
+    evidence.functionalReview.goldfish.reduce((n, g) => n + g.auditedRuns, 0),
+    16,
+  );
+  assert.equal(evidence.functionalReview.revision.automatic, false);
+  await page
+    .locator("#ai-revision")
+    .fill("Explain a coherent card-access revision and its tradeoffs");
+  wait = page.waitForResponse((r) =>
+    r.url().endsWith("/api/architect/request"),
+  );
+  await page.locator("#ai-copy").click();
+  assert.equal((await wait).status(), 200);
+  assert.match(
+    await page.locator("#ai-prompt").inputValue(),
+    /Explain a coherent card-access revision/,
+  );
+  await page.locator("#ai-revision").fill("");
+  await page
+    .locator("#ai-result")
+    .fill(JSON.stringify({ deck: deck + "\n1 Blade of the Bloodchief" }));
+  wait = page.waitForResponse((r) => r.url().endsWith("/api/architect/import"));
+  await page.locator("#ai-import").click();
+  await wait;
+  await page.waitForFunction(() =>
+    document.getElementById("ai-message").textContent.includes("100"),
+  );
+  assert.equal(await page.locator("#ai-download").isDisabled(), true);
+  await page.locator("#ai-result").fill(JSON.stringify({ deck }));
+  wait = page.waitForResponse((r) => r.url().endsWith("/api/architect/import"));
+  await page.locator("#ai-import").click();
+  await wait;
+  await page.waitForFunction(
+    () => !document.getElementById("ai-download").disabled,
+  );
+  checks.push(
+    "audited score-free review, explicit offline strategic revision and rejected 101-card result",
   );
   const download = page.waitForEvent("download");
   await page.locator("#ai-download").click();

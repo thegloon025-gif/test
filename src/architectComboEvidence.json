@@ -1,0 +1,84 @@
+{
+  "source": "Commander Spellbook",
+  "retrievedAt": "2026-10-26",
+  "endpoint": "https://backend.commanderspellbook.com/variants/?q=card%3A%22Basking%20Broodscale%22%20card%3A%22Blade%20of%20the%20Bloodchief%22",
+  "purpose": "Pinned public requirement evidence for Architect policy disclosure, not a commander recipe or timing proof; no cache mutation.",
+  "variants": [
+    {
+      "id": "1988-5641",
+      "url": "https://commanderspellbook.com/combo/1988-5641/",
+      "cards": [
+        "Basking Broodscale",
+        "Blade of the Bloodchief"
+      ],
+      "uses": [
+        {
+          "name": "Basking Broodscale",
+          "quantity": 1,
+          "zoneLocations": [
+            "B"
+          ],
+          "battlefieldCardState": "",
+          "exileCardState": "",
+          "libraryCardState": "",
+          "graveyardCardState": "",
+          "mustBeCommander": false
+        },
+        {
+          "name": "Blade of the Bloodchief",
+          "quantity": 1,
+          "zoneLocations": [
+            "B"
+          ],
+          "battlefieldCardState": "",
+          "exileCardState": "",
+          "libraryCardState": "",
+          "graveyardCardState": "",
+          "mustBeCommander": false
+        }
+      ],
+      "templates": [],
+      "templateRequirements": [],
+      "manaNeeded": "",
+      "manaValueNeeded": 0,
+      "prerequisites": [
+        "",
+        "You have a way to put a +1/+1 counter on Basking Broodscale.\nBlade of the Bloodchief attached to Basking Broodscale."
+      ],
+      "steps": [
+        "Put a +1/+1 counter on Basking Broodscale.\nBasking Broodscale triggers, creating a 0/1 Eldrazi Spawn creature token.\nActivate the Eldrazi Spawn by sacrificing it, adding {C}.\nWhen the Eldrazi Spawn dies, Blade of the Bloodchief triggers, putting a +1/+1 counter on Basking Broodscale.\nRepeat from step 2."
+      ],
+      "results": [
+        "Infinite +1/+1 counters on a creature",
+        "Infinite colorless mana",
+        "Infinite death triggers",
+        "Infinite creature ETB",
+        "Infinite creature LTB",
+        "Infinite creature sacrifice triggers"
+      ],
+      "isInfinite": true,
+      "bracket": null,
+      "bracketTag": "S",
+      "legalities": {
+        "brawl": false,
+        "predh": false,
+        "legacy": true,
+        "modern": true,
+        "pauper": false,
+        "alchemy": false,
+        "pioneer": false,
+        "vintage": true,
+        "standard": false,
+        "commander": true,
+        "premodern": false,
+        "oathbreaker": true,
+        "standardBrawl": false,
+        "pauperCommander": false,
+        "competitiveBrawl": false,
+        "pauperCommanderMain": false
+      },
+      "identity": "G",
+      "spoiler": false
+    }
+  ]
+}

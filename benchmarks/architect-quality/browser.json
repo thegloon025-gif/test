@@ -1,0 +1,14 @@
+{
+  "checks": [
+    "default off, no inference on page load",
+    "typed native packages, separate true-C costs and compact-combo risk in copied request",
+    "manual verified request copied with no account",
+    "audited score-free review, explicit offline strategic revision and rejected 101-card result",
+    "manual 100-card builder result revalidated on download",
+    "manual upgrade request copied with protected-card and cached prerequisite context",
+    "manual upgrade JSON transferred for separate user approval and 100-card export",
+    "original unchanged and undo works"
+  ],
+  "pageErrors": [],
+  "liveAuthorization": "not tested; manual bridge only; no mocked AI responses passed off as live"
+}

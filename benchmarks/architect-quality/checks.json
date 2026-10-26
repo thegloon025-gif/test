@@ -1,0 +1,60 @@
+{
+  "sourceCommit": "8948714",
+  "basePR": 13,
+  "baseCommit": "61087a981d117ce130aae3aee5b3d0832eccf348",
+  "version": "1.1.5",
+  "tests": {
+    "baseline": {
+      "tests": 326,
+      "pass": 326,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "durationMs": 115816.139478
+    },
+    "focused": {
+      "tests": 38,
+      "pass": 38,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "durationMs": 894.51076
+    },
+    "full": {
+      "tests": 339,
+      "pass": 339,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "durationMs": 117842.957284
+    }
+  },
+  "api": {
+    "decks": 5,
+    "checks": [
+      "overbudget local result blocked",
+      "malformed result blocked",
+      "unknown card blocked",
+      "missing financial confirmation blocked",
+      "disabled run blocked",
+      "wrong CSRF and cross-origin requests blocked",
+      "unavailable OS credential encryption disables sign-in before OAuth",
+      "zero inference calls recorded; no environment key exposed"
+    ],
+    "inferenceCalls": 0
+  },
+  "benchmarkRuns": 80,
+  "independentTraceAudits": 80,
+  "liveInferenceRequests": 0,
+  "liveConnectionOrBillingVerified": false,
+  "missingComparisonLists": "User confirmed neither 101-card comparison list remains available; no reconstruction is represented as either list.",
+  "sourceLookup": "One explicit public Spellbook /variants/ query fetched variant 1988-5641; no runtime research/inference egress.",
+  "commands": [
+    "node --test tests/architect-quality.test.mjs tests/ai-architect.test.mjs tests/chatgpt-plan-only.test.mjs",
+    "npm test",
+    "node tools/validate-architect-quality.mjs CATALOG COMMUNITY LIBRARY NEW_OUTPUT_DIRECTORY",
+    "node tools/validate-architect-workflows.mjs BASE NEW_OUTPUT_DIRECTORY",
+    "node tools/smoke-architect-browser.mjs BASE FIXTURE_DIRECTORY NEW_REPORT",
+    "node tools/audit-architect-fixtures.mjs FIXTURE_DIRECTORY CATALOG NEW_REPORT"
+  ]
+}

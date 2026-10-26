@@ -1,0 +1,9 @@
+{
+  "README.md": "6344cc3291ed082b06054721d252dc1285caf1612c0d4b29ecc07f05aaaa3040",
+  "browser.json": "3fafabce318f861cc9299d37e5aea7d7e86a0123aab0f95d8590eed12f90481f",
+  "checks.json": "37d844d451c409ada6e4f0299fc3142cb42be21b448b9207dfb48e060a2e619e",
+  "comparison.json.gz": "f0677b3fbe7a2100c288d2f6deb6dda30d65343d4bf5240c68a6d45101c09f3f",
+  "independent-audit.json": "56a17b44cb87c7fca6f4ef1b8ed678cf5ceaa86e05604d3c4d971dd075eabc49",
+  "preservation.json": "7895e480761d529b5d626394e6c5edfd07e77e9e83b7a76ed7152ef870f008c2",
+  "runtime-egress.json": "621d51202f38693e32078404ea1baf179547c67ef85fe7f6b3fdb79b22659a63"
+}

@@ -1,3 +1,9 @@
+## Unreleased Architect strategy evidence — still 1.1.5
+
+- Replaced alphabetical candidate context with commander-specific package/function retrieval, cached source structures, published combo prerequisites and exact selected-record price options.
+- Added read-only ledger/dependency/independently audited mana-hand observations after hard checks, specific warnings and explicit user-directed strategic revision. Builder requests do not automatically repair; Upgrader acceptance, authentication and financial safeguards remain.
+- No external power claim, version bump, merge, release or production selection change. See docs/ARCHITECT_STRATEGY_EVIDENCE.md.
+
 ## Unreleased optional ChatGPT Architect — version remains 1.1.5
 
 - Added an opt-in official pinned DevKit adapter with Windows DPAPI storage, model discovery, strict confirmation/quota/session guards and bounded advisory jobs. No API-key or paid-provider route.

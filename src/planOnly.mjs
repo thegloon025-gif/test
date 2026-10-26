@@ -302,7 +302,9 @@ export function createPlanOnly({
       auth = { status: "disconnected", sharing: false };
       if (sdk) await sdk.disconnect();
     },
-    async run({ prompt, validate }) {
+    async run({ prompt, validate, maxRepairs = 2 }) {
+      if (!Number.isInteger(maxRepairs) || maxRepairs < 0 || maxRepairs > 2)
+        throw fail("invalid_request", "Repair bound must be 0–2.");
       if (active || authBusy) throw fail("busy", "Only one active AI job.");
       if (typeof prompt !== "string" || Buffer.byteLength(prompt) > 64000)
         throw fail("invalid_request", "Input exceeds 64 KB.");
@@ -312,7 +314,7 @@ export function createPlanOnly({
         await gate();
         let input = prompt,
           lastIssues = [];
-        for (let iteration = 0; iteration <= 2; iteration++) {
+        for (let iteration = 0; iteration <= maxRepairs; iteration++) {
           controller.signal.throwIfAborted();
           await gate();
           if (Buffer.byteLength(input) > 64000)
@@ -356,11 +358,11 @@ export function createPlanOnly({
           if (result.valid)
             return { ...result, iterations: iteration + 1, advisory: true };
           lastIssues = result.issues;
-          if (iteration === 2)
+          if (iteration === maxRepairs)
             return {
               valid: false,
               issues: lastIssues,
-              iterations: 3,
+              iterations: iteration + 1,
               advisory: true,
             };
           input =
