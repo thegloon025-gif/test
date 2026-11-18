@@ -1,3 +1,10 @@
+## Unreleased ranked public deck discovery
+
+- Default public deck search to combined Brackets 3 + 4, with independent B3 and B4 options, declared bracket checks and exact cardlist deduplication across sources.
+- Check every verified candidate against the locally cached Commander Spellbook bulk snapshot. Show two- and three-card matches, direct and delayed wins, engine outcomes, and setup requirements.
+- Rank with a shared structure, mana, budget and bounded combo score. Discount redundant routes and surface unavailable or partial combo coverage while preserving the active EUR budget and pricing assumptions.
+- Stream search progress and preserve source imports, the bracket-specific generator, and its saved community and EDHREC research.
+
 ## Unreleased Architect strategy evidence — still 1.1.5
 
 - Replaced alphabetical candidate context with commander-specific package/function retrieval, cached source structures, published combo prerequisites and exact selected-record price options.

@@ -8,7 +8,18 @@ const manaValue=c=>Number.isFinite(c.cmc)?c.cmc:NaN;
 const types=new Set(['creature','artifact','enchantment','instant','sorcery','planeswalker','land','battle','kindred']);
 const subtypes=new Set(['eldrazi','zombie','ninja','goblin','elf','dragon','human','wizard','spirit','vampire','soldier']);
 const hasChangeling=c=>(c.keywords||[]).some(k=>String(k).toLowerCase()==='changeling')||castFaces(c).some(f=>/^\s*changeling(?:\s|$)/im.test(f.oracle_text||''));
+const colorless=c=>Array.isArray(c.colors)?c.colors.length===0:(c.color_identity||[]).length===0||castFaces(c).some(f=>/\bdevoid\b/i.test(f.oracle_text||''));
 const matchType=(c,t)=>types.has(t)?(t==='land'?isLandSlot(c):castHasType(c,t[0].toUpperCase()+t.slice(1))):subtypes.has(t)?(castHasSubtype(c,t[0].toUpperCase()+t.slice(1))||(castHasType(c,'Creature')&&hasChangeling(c))):false;
+
+/** A narrow, inventory-checkable prerequisite. Its hand position and casting
+ * mana still require play review. Other free-text setup is retained verbatim. */
+export function handCardPrerequisite(line){
+ const match=line.match(/^you have (?:a|an) (colorless )?([a-z]+) card in (?:your )?hand with the mana to cast it[.!]?$/i);
+ if(!match)return null;
+ const kind=match[2].toLowerCase();
+ if(kind==='land'||!types.has(kind)&&!subtypes.has(kind))return null;
+ return card=>(!match[1]||colorless(card))&&matchType(card,kind);
+}
 
 // Parse *only* unambiguous finite templates. Never infer a general expression
 // such as 'a creature you control that can untap itself' from a word match.
@@ -62,7 +73,7 @@ export function templatePredicate(req){
 /** Match each template occurrence to a distinct deck card, respecting quantities.
  * Named combo cards are reserved and cannot also fill a wildcard slot.
  * Returns unresolved (not unsatisfied) for predicates we cannot parse. */
-export function satisfyTemplates(requirements,cards,{reservedIds=new Set(),idOf=c=>c.oracle_id||c.id||c.name}={}){
+export function satisfyTemplates(requirements,cards,{reservedIds=new Set(),idOf=c=>c.oracle_id||c.id||c.name,allowCopies=false,eligibleFor=()=>true}={}){
  const slots=[];const unresolved=[];
  for(const req of requirements||[]){
   const quantity=Number(req.quantity??1);
@@ -71,13 +82,24 @@ export function satisfyTemplates(requirements,cards,{reservedIds=new Set(),idOf=
   for(let i=0;i<quantity;i++)slots.push({req,pred});
  }
  if(unresolved.length)return {satisfied:false,unresolved,matched:[],missing:slots.map(x=>x.req.name)};
- const taken=new Set(reservedIds),chosen=[];
- // Most restrictive first, then a deterministic stable card selection.
- const sorted=slots.map(s=>({...s,options:cards.filter(c=>!reservedIds.has(idOf(c))&&s.pred(c)).sort((a,b)=>a.name.localeCompare(b.name))})).sort((a,b)=>a.options.length-b.options.length||a.req.name.localeCompare(b.req.name));
- function search(i){if(i===sorted.length)return true;
-  for(const c of sorted[i].options){const id=idOf(c);if(taken.has(id))continue;taken.add(id);chosen[i]=c;if(search(i+1))return true;taken.delete(id);}
+ const eligible=cards.filter(c=>!reservedIds.has(idOf(c)));
+ // With copies, the caller supplies one entry for each available physical card.
+ const available=(allowCopies?eligible:[...new Map(eligible.map(c=>[idOf(c),c])).values()]).sort((a,b)=>a.name.localeCompare(b.name));
+ const sorted=slots.map(s=>({...s,options:available.flatMap((c,i)=>s.pred(c)&&eligibleFor(c,s.req)?[i]:[])})).sort((a,b)=>a.options.length-b.options.length||a.req.name.localeCompare(b.req.name));
+ const owner=new Map(),chosen=[];
+ // Reassign a previously matched card if necessary. Augmenting paths avoid
+ // exponential backtracking when overlapping large templates cannot be filled.
+ function assign(slot,seen){
+  for(const i of sorted[slot].options){
+   if(seen.has(i))continue;
+   seen.add(i);
+   if(owner.has(i)&&!assign(owner.get(i),seen))continue;
+   owner.set(i,slot);
+   chosen[slot]=available[i];
+   return true;
+  }
   return false;
  }
- const satisfied=search(0);
+ const satisfied=sorted.length<=available.length&&sorted.every((_,slot)=>assign(slot,new Set()));
  return {satisfied,unresolved:[],matched:satisfied?chosen.map(c=>c.name):[],missing:satisfied?[]:sorted.map(s=>s.req.name)};
 }

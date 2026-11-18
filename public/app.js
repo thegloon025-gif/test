@@ -1,5 +1,6 @@
 import {renderStrategy} from './strategy.js';
 import {researchSummary} from './research.js';
+import {findRankedDecks,renderRankedDecks} from './discovery-results.js';
 function appendComboExecutionAudit(audit,parent){
  if(!audit?.combinations?.length)return;
  const panel=document.createElement('details'),title=document.createElement('summary');
@@ -150,7 +151,7 @@ async function communityInsights(){
  const box=$('community-insights');box.replaceChildren();
  if(!selected){$('community-insight-status').textContent='Select a commander to explore community statistics.';return;}
  try{
-  const b=communityBracket();const stats=await get(`/api/community/insights?commanderId=${encodeURIComponent(selected.id)}${b===null?'':'&bracket='+b}`);
+  const b=communityResearchBracket();const stats=await get(`/api/community/insights?commanderId=${encodeURIComponent(selected.id)}${b===null?'':'&bracket='+b}`);
   $('community-insight-status').textContent=`${stats.sampleSize} distinct validated ${b===null?'all-bracket':'Bracket '+b} deck(s) for ${selected.name}. ${stats.highConfidence?'Enough samples for candidate patterns; not proof of gameplay strength.':'Low-sample exploratory research, not ready for automatic deckbuilding.'}`;
   const metric=document.createElement('div');metric.className='community-metric';
   metric.textContent=`${stats.sampleSize} source list(s) · ${stats.duplicatesExcluded} near-duplicate(s) excluded · ${stats.independentCreatorCount} known creator(s) · ${stats.baseline.available?stats.baseline.referenceDecks+' other-commander reference decks':'no credible staple baseline'} · ${stats.archetypes.length} clusters`;
@@ -202,39 +203,72 @@ $('community-import').addEventListener('click',async()=>{
   await communityList();await communityInsights();await refreshCommunityBuildOptions();
  }catch(e){$('community-message').textContent=e.message;}finally{$('community-import').disabled=false;}
 });
-// Public community discovery. Search matches TITLES only, not verified commanders.
-let discoveryCommander=null,discoveryBracket=null,discoveryPage=null;
-function communityBracket(){const x=$('community-bracket').value;return x==='any'?null:x==='match'?Number($('bracket').value):Number(x);}
-function resetCommunityDiscovery(){discoveryCommander=null;discoveryBracket=null;discoveryPage=null;$('discovery-results').replaceChildren();$('discovery-import').hidden=true;$('discovery-status').textContent=selected?'Ready to find public decks for '+selected.name+'.':'Select a commander above first.';}
+let discoveryQuery=null,discoveryRevision=0,discoveryRunning=false,autoResearchRunning=false;
+function communityBracket(){
+ const scope=$('community-bracket').value;
+ if(scope==='3+4')return scope;
+ if(scope==='any')return null;
+ return scope==='match'?Number($('bracket').value):Number(scope);
+}
+function communityResearchBracket(){
+ const scope=communityBracket();
+ return scope==='3+4'?Number($('bracket').value):scope;
+}
+function updateDiscoveryButtons(){
+ $('community-discover').disabled=$('community-auto').disabled=!selected||discoveryRunning||autoResearchRunning;
+}
+function resetCommunityDiscovery(){
+ discoveryRevision++;
+ discoveryQuery=null;
+ $('discovery-results').replaceChildren();
+ $('discovery-import').hidden=true;
+ $('discovery-status').textContent=selected?'Ready to find public decks for '+selected.name+'.':'Select a commander above first.';
+ updateDiscoveryButtons();
+}
 $('community-bracket').addEventListener('change',()=>{resetCommunityDiscovery();communityInsights();});
 $('community-page').addEventListener('change',resetCommunityDiscovery);
-$('bracket').addEventListener('change',()=>{if($('community-bracket').value==='match'){resetCommunityDiscovery();communityInsights();}});
+$('bracket').addEventListener('change',()=>{
+ if($('community-bracket').value==='match')resetCommunityDiscovery();
+ if(['match','3+4'].includes($('community-bracket').value))communityInsights();
+});
+for(const id of ['budget','budget-leeway','basics-owned','pricing-mode']){
+ $(id).addEventListener('change',resetCommunityDiscovery);
+}
 $('community-discover').addEventListener('click',async()=>{
  if(!selected){$('discovery-status').textContent='Select a commander first.';return;}
- const target={id:selected.id,name:selected.name,bracket:communityBracket(),startPage:Number($('community-page').value)};
- $('community-discover').disabled=true;$('discovery-import').hidden=true;
- $('discovery-results').replaceChildren();$('discovery-status').textContent=`Searching Archidekt for ${target.name} ${target.bracket?'Bracket '+target.bracket:'(all brackets)'} decks…`;
+ resetCommunityDiscovery();
+ const revision=discoveryRevision;
+ const query={commanderId:selected.id,bracket:communityBracket(),startPage:Number($('community-page').value),
+  budget:Number($('budget').value),budgetTolerance:$('budget-leeway').checked?4:0,
+  basicLandsOwned:$('basics-owned').checked,pricingMode:$('pricing-mode').value};
+ const scope=query.bracket===null?'across all brackets':query.bracket==='3+4'?'in Brackets 3 and 4':`in Bracket ${query.bracket}`;
+ const searching=`Searching Archidekt for ${selected.name} ${scope}…`;
+ discoveryRunning=true;
+ updateDiscoveryButtons();
+ $('discovery-status').textContent=searching;
  try{
-  const result=await post('/api/community/discover',{commanderId:target.id,bracket:target.bracket,startPage:target.startPage});
-  if(!selected||selected.id!==target.id||communityBracket()!==target.bracket||Number($('community-page').value)!==target.startPage)return;
-  discoveryCommander=target.id;discoveryBracket=target.bracket;discoveryPage=target.startPage;
-  $('discovery-status').textContent=`${result.previews.length} matching bracket preview(s) from ${result.inspected} titles across ${result.pagesSearched} page(s)${result.fromCache?' (cached)':''}. ${result.unknownBracket} entries had no declared bracket. Commander identity is verified on import; select up to four.`;
-  for(const deck of result.previews){
-   const line=document.createElement('label');line.className='discovery-preview';
-   const check=document.createElement('input');check.type='checkbox';check.className='discovery-pick';check.value=deck.id;
-   const wrap=document.createElement('span');const a=document.createElement('a');a.textContent=deck.title;a.href=deck.url;a.target='_blank';a.rel='noopener noreferrer';
-   const details=document.createElement('small');details.textContent=`${deck.owner||'Public author'} · ${deck.cardCount??'?'} cards · ${deck.edhBracket?'Bracket '+deck.edhBracket:'Bracket not declared'}`;
-   wrap.append(a,details);line.append(check,wrap);$('discovery-results').append(line);
-  }
-  $('discovery-import').hidden=!result.previews.length;
- }catch(e){$('discovery-status').textContent=e.message;}
- finally{$('community-discover').disabled=false;}
+  const result=await findRankedDecks(query,event=>{
+   if(revision!==discoveryRevision)return;
+   const messages={search:searching,verify:`Verifying deck ${event.checked+1} of ${event.total} with Archidekt…`,
+    spellbook:'Loading Commander Spellbook combo definitions…',score:`Scoring deck ${event.checked+1} of ${event.total}…`};
+   $('discovery-status').textContent=messages[event.phase]||searching;
+  });
+  if(revision!==discoveryRevision)return;
+  discoveryQuery={commanderId:query.commanderId,bracket:result.bracket,startPage:query.startPage};
+  const duplicates=result.duplicateDecks?` ${result.duplicateDecks} duplicate(s) collapsed.`:'';
+  const partial=result.partial||result.stoppedEarly?' Search stopped early and results are partial.':'';
+  const unknown=`Bracket missing from ${result.unknownBracket} listing(s) and ${result.unconfirmedBracket} checked deck(s).`;
+  $('discovery-status').textContent=`${result.results.length} ranked deck(s) after checking ${result.checked} of ${result.inspected} titles. ${unknown}${duplicates}${partial}`;
+  renderRankedDecks($('discovery-results'),result);
+  $('discovery-import').hidden=!result.results.length;
+ }catch(e){if(revision===discoveryRevision)$('discovery-status').textContent=e.message;}
+ finally{discoveryRunning=false;updateDiscoveryButtons();}
 });
 $('community-auto').addEventListener('click',async()=>{
  if(!selected){$('community-auto-status').textContent='Select a commander first.';return;}
- const target={id:selected.id,name:selected.name,bracket:communityBracket(),budget:Number($('budget').value)};
+ const target={id:selected.id,name:selected.name,bracket:communityResearchBracket(),budget:Number($('budget').value)};
  if(![2,3,4].includes(target.bracket)){$('community-auto-status').textContent='Choose a specific community bracket (2, 3 or 4), not All brackets.';return;}
- $('community-auto').disabled=true;$('community-discover').disabled=true;
+ autoResearchRunning=true;updateDiscoveryButtons();
  $('community-auto-status').textContent=`Researching ${target.name} Bracket ${target.bracket}… verifying up to 24 lists, paced to respect Archidekt. Please wait; no clicking needed.`;
  try{
   const r=await post('/api/community/auto-research',{commanderId:target.id,bracket:target.bracket,budget:target.budget});
@@ -246,25 +280,22 @@ $('community-auto').addEventListener('click',async()=>{
   $('community-auto-status').after(reasons);
   await communityList();await communityInsights();await refreshCommunityBuildOptions();
  }catch(e){$('community-auto-status').textContent=e.message;}
- finally{$('community-auto').disabled=!selected;$('community-discover').disabled=!selected;}
+ finally{autoResearchRunning=false;updateDiscoveryButtons();}
 });
 $('discovery-import').addEventListener('click',async()=>{
- if(!selected||selected.id!==discoveryCommander||communityBracket()!==discoveryBracket||Number($('community-page').value)!==discoveryPage){$('discovery-status').textContent='Commander changed; run the search again.';return;}
+ if(!discoveryQuery||selected?.id!==discoveryQuery.commanderId){$('discovery-status').textContent='Run the search again before importing.';return;}
  const ids=[...document.querySelectorAll('.discovery-pick:checked')].map(e=>e.value);
  if(ids.length<1||ids.length>4){$('discovery-status').textContent='Choose between 1 and 4 decks.';return;}
  $('discovery-import').disabled=true;$('discovery-status').textContent=`Verifying ${ids.length} deck(s) against Scryfall and commander identity…`;
  try{
-  const result=await post('/api/community/discover-import',{commanderId:selected.id,bracket:discoveryBracket,startPage:discoveryPage,ids});
+  const result=await post('/api/community/discover-import',{...discoveryQuery,ids});
   const reasons=result.skipped.map(x=>`#${x.id}: ${x.reason}`);
   $('discovery-status').textContent=`Imported ${result.added.length} verified deck(s). ${result.skipped.length} skipped.${reasons.length?' '+reasons.join(' | '):''}`;
   await communityList();await communityInsights();await refreshCommunityBuildOptions();
  }catch(e){$('discovery-status').textContent=e.message;}
  finally{$('discovery-import').disabled=false;}
 });
-// Hook into commander selection without changing the generator.
-const originalCommunitySearch=search;
-// Commander changes trigger a stats refresh through the selected DOM box.
-const communityObserver=new MutationObserver(()=>{communityInsights();discoveryCommander=null;discoveryBracket=null;discoveryPage=null;$('discovery-results').replaceChildren();$('discovery-import').hidden=true;$('community-discover').disabled=!selected;$('community-auto').disabled=!selected;$('discovery-status').textContent=selected?`Ready to find public decks matching ${selected.name}.`:'Select a commander above first.';});
+const communityObserver=new MutationObserver(()=>{communityInsights();resetCommunityDiscovery();});
 communityObserver.observe($('commander-name'),{childList:true,characterData:true,subtree:true});
 communityList();
 

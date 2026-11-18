@@ -3,7 +3,8 @@
  * commander identity must be verified by fetching each candidate's deck details.
  * No background harvest, pagination loop, or hidden remote requests.
  */
-import {fetchArchidektDeck,loadCommunity,saveCommunity,normalizeArchidektDeck} from './community.mjs';
+import {fetchArchidektDeck,loadCommunity,saveCommunity,normalizeArchidektDeck,waitForArchidekt,checkArchidektRateLimit,declaredBracket} from './community.mjs';
+export {declaredBracket} from './community.mjs';
 
 const DISCOVERY_URL='https://archidekt.com/api/decks/v3/';
 const CACHE_TTL=2*60*60*1000;
@@ -11,13 +12,20 @@ const PAGE_SIZE=20;
 const MAX_PREVIEWS=12;
 const MAX_IMPORTS=4;
 const MAX_PAGES=3; // Extra bounded title-search pages only for bracket-specific requests.
-const normalizeRequestedBracket=value=>value==null||value===''?null:([2,3,4].includes(Number(value))?Number(value):(()=>{throw Error('Choose bracket 2, 3, 4, or any.');})());
-export function declaredBracket(value){const num=Number(value);return value!==null&&value!==undefined&&value!==''&&Number.isInteger(num)&&num>=1&&num<=5?num:null;}
+export const COMBINED_BRACKETS='3+4';
+function normalizeRequestedBracket(value){
+ if(value==null||value==='')return null;
+ if(value===COMBINED_BRACKETS)return value;
+ if([2,3,4,'2','3','4'].includes(value))return Number(value);
+ throw Error('Choose bracket 2, 3, 4, 3+4, or any.');
+}
+export function bracketMatches(actual,requested){
+ return requested===null||(requested===COMBINED_BRACKETS ? actual===3||actual===4 : actual===requested);
+}
 const WAIT_MS=2000;
 const MAX_JSON=2_000_000;
 const cachedSearches=new Map();
-let lastSearchAt=0;
-const pause=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+const searchCacheKey=(url,bracket,page,limit)=>`${url}#bracket=${bracket??'any'}#page=${page}#limit=${limit}`;
 
 export function discoverySearchUrl(commanderName,{page=1}={}){
  if(!Number.isInteger(page)||page<1||page>MAX_PAGES)throw Error('Search page outside the bounded limit.');
@@ -42,7 +50,7 @@ export function normalizeSearchResults(response,{limit=MAX_PREVIEWS,bracket=null
   if(!/^[1-9]\d{0,11}$/.test(id)||unique.has(id))continue;
   unique.add(id);
   const edhBracket=declaredBracket(deck.edhBracket);
-  if(targetBracket!==null&&edhBracket!==targetBracket)continue;
+  if(!bracketMatches(edhBracket,targetBracket))continue;
   const title=String(deck.name||deck.title||'Public deck').slice(0,160);
   const owner=String(deck.owner?.username||deck.username||'').slice(0,80);
   const countValue=deck.size??deck.cardCount??deck.card_count??null;
@@ -58,20 +66,22 @@ export async function discoverPublicDecks(commanderName,{bracket=null,startPage=
  if(!Number.isInteger(startPage)||startPage<1||startPage>MAX_PAGES)throw Error('Choose public search page 1, 2 or 3.');
  const targetBracket=normalizeRequestedBracket(bracket);
  const url=discoverySearchUrl(commanderName);
- const cacheKey=`${url}#bracket=${targetBracket??'any'}#page=${startPage}#limit=${maxPreviews}`;
+ const cacheKey=searchCacheKey(url,targetBracket,startPage,maxPreviews);
  const cached=cachedSearches.get(cacheKey);
  if(!forceRefresh&&cached&&now()-cached.stamp>=0&&now()-cached.stamp<(cached.value.partial?600000:CACHE_TTL))return {...cached.value,fromCache:true,cacheAgeMs:now()-cached.stamp};
- const previews=[],seen=new Set();let inspected=0,unknownBracket=0,pagesSearched=0,truncated=false,partial=false,searchError=null;
+ const matchesById=new Map();
+ const combined=targetBracket===COMBINED_BRACKETS;
+ const quota3=Math.ceil(maxPreviews/2),quota4=Math.floor(maxPreviews/2);
+ let bracket3=0,bracket4=0,inspected=0,unknownBracket=0,pagesSearched=0,truncated=false,partial=false,searchError=null;
  // Deck listings are title-based. The API's search-side bracket parameter is
  // not documented, so filter actual edhBracket metadata locally rather than
  // pretending an unverified query parameter applies a server-side restriction.
  for(let page=startPage;page<=(startPage===1&&targetBracket!==null?MAX_PAGES:startPage);page++){
   try{
   const pageUrl=discoverySearchUrl(commanderName,{page});
-  const remaining=minGapMs-(now()-lastSearchAt);if(remaining>0)await pause(remaining);
-  lastSearchAt=now();
+  await waitForArchidekt({fetcher,now,minGapMs});
   const response=await fetcher(pageUrl,{method:'GET',headers:{Accept:'application/json'},redirect:'manual',signal:AbortSignal.timeout(15000)});
-  if(response.status===429)throw Error('Archidekt rate limit reached. Please wait and try again later.');
+  checkArchidektRateLimit(response,{fetcher,now});
   if(response.status===401||response.status===403)throw Error('Archidekt public search is unavailable from this connection.');
   if(!response.ok)throw Error(`Archidekt search failed (HTTP ${response.status}).`);
   const len=Number(response.headers?.get?.('content-length'))||0;
@@ -83,12 +93,30 @@ export async function discoverPublicDecks(commanderName,{bracket=null,startPage=
   inspected+=data.results.length;
   unknownBracket+=data.results.filter(x=>declaredBracket(x?.edhBracket)===null).length;
   const matches=normalizeSearchResults(data,{limit:PAGE_SIZE,bracket:targetBracket});
-  for(const deck of matches){if(!seen.has(deck.id)){seen.add(deck.id);previews.push(deck);}if(previews.length>=maxPreviews)break;}
+  for(const deck of matches){
+   if(matchesById.has(deck.id))continue;
+   matchesById.set(deck.id,deck);
+   if(deck.edhBracket===3)bracket3++;
+   if(deck.edhBracket===4)bracket4++;
+  }
   const hasNext=Object.hasOwn(data,'next')?data.next!==null:data.results.length>=PAGE_SIZE;
-  truncated=hasNext||previews.length>=maxPreviews&&matches.length>0;
-  if(previews.length>=maxPreviews||!hasNext)break;
+  truncated=hasNext||matchesById.size>maxPreviews;
+  const enough=combined?bracket3>=quota3&&bracket4>=quota4:matchesById.size>=maxPreviews;
+  if(enough||!hasNext)break;
   }catch(e){if(!pagesSearched)throw e;partial=true;truncated=true;searchError=String(e.message||e).slice(0,250);break;}
  }
+ const matches=[...matchesById.values()];
+ // Both brackets get a share of the detail budget even if the more popular
+ // bracket fills the first page. Unused places go to the other bracket.
+ const prioritized=new Set(combined?[
+  ...matches.filter(d=>d.edhBracket===3).slice(0,quota3),
+  ...matches.filter(d=>d.edhBracket===4).slice(0,quota4)
+ ]:[]);
+ for(const deck of matches){
+  if(prioritized.size>=maxPreviews)break;
+  prioritized.add(deck);
+ }
+ const previews=matches.filter(d=>prioritized.has(d));
  const value={previews,bracket:targetBracket,startPage,pagesSearched,inspected,unknownBracket,truncated,partial,error:searchError,
   query:String(commanderName).split(' // ')[0],searchedAt:new Date(now()).toISOString(),
   note:'Title matches only; bracket matches use creator-declared Archidekt edhBracket metadata, not computed power. Unknown bracket decks excluded from filtered search. Commander verified on import.'};
@@ -102,7 +130,7 @@ export async function importDiscoveredDecks({commanderId,commanderName,bracket=n
  if(!Number.isInteger(startPage)||startPage<1||startPage>MAX_PAGES)throw Error('Choose public search page 1, 2 or 3.');
  const targetBracket=normalizeRequestedBracket(bracket);
  const url=discoverySearchUrl(commanderName);
- const cached=cachedSearches.get(`${url}#bracket=${targetBracket??'any'}#page=${startPage}#limit=${MAX_PREVIEWS}`);
+ const cached=cachedSearches.get(searchCacheKey(url,targetBracket,startPage,MAX_PREVIEWS));
  if(!cached||now()-cached.stamp>=CACHE_TTL)throw Error('Search for public decks first; previews expire after two hours.');
  if(!Array.isArray(ids)||!ids.length||ids.length>MAX_IMPORTS)throw Error(`Choose between 1 and ${MAX_IMPORTS} search results to import.`);
  const allowed=new Set(cached.value.previews.map(d=>d.id));
@@ -112,17 +140,15 @@ export async function importDiscoveredDecks({commanderId,commanderName,bracket=n
  if(!knownIds.has(commanderId))throw Error('Selected commander not present in the local Scryfall catalog.');
  let decks=await loadCommunity(file);
  const added=[],skipped=[];
- // Avoid making the first detail request immediately after the listing query.
- if(minGapMs>0)await pause(minGapMs);
  for(const id of uniqueIds){
   const key=`archidekt:${id}`;
   const existing=decks.find(d=>d.key===key);
-  if(existing?.validated&&existing.commanderIds.length===1&&existing.commanderIds[0]===commanderId&&(targetBracket===null||existing.edhBracket===targetBracket)){skipped.push({id,reason:'Already imported and verified.'});continue;}
+  if(existing?.validated&&existing.commanderIds.length===1&&existing.commanderIds[0]===commanderId&&bracketMatches(existing.edhBracket,targetBracket)){skipped.push({id,reason:'Already imported and verified.'});continue;}
   try{
    const payload=await fetchArchidektDeck(id,{fetcher,now,minGapMs});
    const normalized=normalizeArchidektDeck(payload,`https://archidekt.com/decks/${id}`,catalog);
    if(!normalized.validated){skipped.push({id,reason:`Deck failed validation: ${normalized.issues.slice(0,2).join(' | ')}`});continue;}
-   if(targetBracket!==null&&normalized.edhBracket!==targetBracket){skipped.push({id,reason:`Archidekt deck bracket is ${normalized.edhBracket??'unset'}, not Bracket ${targetBracket}.`});continue;}
+   if(!bracketMatches(normalized.edhBracket,targetBracket)){skipped.push({id,reason:`Archidekt deck bracket is ${normalized.edhBracket??'unset'}, not Bracket ${targetBracket}.`});continue;}
    if(normalized.commanderIds.length!==1||normalized.commanderIds[0]!==commanderId){skipped.push({id,reason:`Different commander: ${normalized.commanderNames.join(' + ')||'unknown'}.`});continue;}
    decks=[...decks.filter(d=>d.key!==key),normalized];added.push({id,title:normalized.title,url:normalized.url});
   }catch(e){

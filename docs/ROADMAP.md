@@ -1,3 +1,10 @@
+## Ranked public deck discovery (unreleased)
+
+- [x] Compare verified Bracket 3 and 4 cardlists together, retain source bracket metadata and collapse identical lists.
+- [x] Index the official Commander Spellbook snapshot locally, match inventory and requirements, and explain bounded combo contributions alongside structure and budget.
+- [ ] Broaden support for documented wildcard and game-state prerequisites as evidence becomes available. Use playtests to calibrate the discovery score.
+- [ ] Recheck the source ZIP and launcher on native Windows.
+
 ## Architect information-quality checkpoint (unreleased)
 
 - [x] Typed commander/package/function evidence replaces alphabetical context; full catalog remains available to validation.

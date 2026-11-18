@@ -16,6 +16,7 @@ import {generateDeck} from './src/generator.mjs';
 import {prepareCommunityConstruction,communityStrategySummary} from './src/communityConstruction.mjs';
 import {loadCommunity,importPublicDeck,communityInsights} from './src/community.mjs';
 import {discoverPublicDecks,importDiscoveredDecks} from './src/discovery.mjs';
+import {rankPublicDecks} from './src/rankedDiscovery.mjs';
 import {autoResearchArchidekt} from './src/autoResearch.mjs';
 import {researchForGeneration} from './src/researchFlow.mjs';
 import {readEdhrecCommanderJson} from './src/edhrecKnowledge.mjs';
@@ -56,7 +57,32 @@ const headers={'X-Content-Type-Options':'nosniff','Cache-Control':'no-store'};
 function json(res,obj,status=200){res.writeHead(status,{...headers,'Content-Type':'application/json; charset=utf-8'});res.end(JSON.stringify(obj));}
 function error(res,err,status=400){json(res,{error:err.message||String(err)},status);}
 async function body(req){let str='';for await(const chunk of req){str+=chunk;if(str.length>8_000_000)throw Error('Request too large (8 MB maximum)');}return JSON.parse(str||'{}');}
-const staticFiles={'/':'index.html','/index.html':'index.html','/app.js':'app.js','/strategy.js':'strategy.js','/research.js':'research.js','/upgrader.js':'upgrader.js','/architect.js':'architect.js','/style.css':'style.css'};
+function discoveryPricing(p,cards){
+ const policy=budgetPolicy(p),mode=p.pricingMode||PRICING_SCRYFALL;
+ if(![PRICING_SCRYFALL,PRICING_CM,PRICING_ESTIMATED_EN_NM].includes(mode))throw Error('Unsupported pricing mode.');
+ const pricingLabel=mode===PRICING_CM?'Imported Cardmarket English NM/Mint snapshot':
+  mode===PRICING_ESTIMATED_EN_NM?'Modeled English NM estimate':'Scryfall EUR estimate';
+ const printing=pricingCatalogStatus(cards,state.meta);
+ const pricingWarning=mode===PRICING_CM&&!offers?'Import Cardmarket offers to check the budget in this pricing mode.':
+  !policy.basicLandsOwned&&mode!==PRICING_SCRYFALL?'Select Scryfall EUR to price unowned basic lands.':
+  mode!==PRICING_CM?printing.warning:null;
+ const priced=pricingWarning?cards.filter(card=>policy.basicLandsOwned&&isBasic(card)):
+  mode===PRICING_CM?applyCardmarketPrices(cards,offers):
+  mode===PRICING_ESTIMATED_EN_NM?applyEstimatedEnglishNM(cards):cards;
+ return {pricedCatalog:applyBudgetValuation(priced,policy),budgetMaximum:policy.effectiveMaximum,
+  pricingLabel,pricingWarning};
+}
+async function sendRankedDiscovery(req,res,options){
+ if(req.headers.accept!=='application/x-ndjson')return json(res,await rankPublicDecks(options));
+ res.writeHead(200,{...headers,'Content-Type':'application/x-ndjson; charset=utf-8'});
+ const send=event=>{if(!res.destroyed)res.write(JSON.stringify(event)+'\n');};
+ try{
+  const result=await rankPublicDecks({...options,onProgress:progress=>send({type:'progress',...progress})});
+  send({type:'result',result});
+ }catch(err){send({type:'error',error:err.message});}
+ finally{res.end();}
+}
+const staticFiles={'/':'index.html','/index.html':'index.html','/app.js':'app.js','/strategy.js':'strategy.js','/research.js':'research.js','/discovery-results.js':'discovery-results.js','/upgrader.js':'upgrader.js','/architect.js':'architect.js','/style.css':'style.css'};
 const mime={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8'};
 const server=http.createServer(async(req,res)=>{
  const url=new URL(req.url,'http://localhost');
@@ -106,30 +132,36 @@ const server=http.createServer(async(req,res)=>{
    return json(res,{deckKey:target.key,deckTitle:target.title,...result});
   }
   if(req.method==='POST'&&url.pathname==='/api/community/discover'){
-   if(communityDiscoveryBusy)return json(res,{error:'A community search/import is already running.'},409);
    if(!state.cards.length)throw Error('Load the local Scryfall catalog first.');
    const p=await body(req);const selectedCard=state.cards.find(c=>c.id===p.commanderId);
    if(!selectedCard||!isCommander(selectedCard))throw Error('Select a legal commander first.');
+   if(communityDiscoveryBusy)return json(res,{error:'A community search/import is already running.'},409);
    communityDiscoveryBusy=true;
-   try{return json(res,await discoverPublicDecks(selectedCard.name,{bracket:p.bracket,startPage:p.startPage??1}));}
+   try{
+    const startPage=p.startPage??1;
+    if(p.ranked!==true)return json(res,await discoverPublicDecks(selectedCard.name,{bracket:p.bracket,startPage}));
+    const catalog=state.cards;
+    return await sendRankedDiscovery(req,res,{commanderId:oracleId(selectedCard),commanderName:selectedCard.name,
+     bracket:p.bracket,startPage,catalog,...discoveryPricing(p,catalog)});
+   }
    finally{communityDiscoveryBusy=false;}
   }
   if(req.method==='POST'&&url.pathname==='/api/community/discover-import'){
-   if(communityDiscoveryBusy)return json(res,{error:'A community search/import is already running.'},409);
    if(!state.cards.length)throw Error('Load the local Scryfall catalog first.');
    const p=await body(req);const selectedCard=state.cards.find(c=>c.id===p.commanderId);
    if(!selectedCard||!isCommander(selectedCard))throw Error('Select a legal commander first.');
+   if(communityDiscoveryBusy)return json(res,{error:'A community search/import is already running.'},409);
    communityDiscoveryBusy=true;
    try{const result=await importDiscoveredDecks({commanderId:selectedCard.id,commanderName:selectedCard.name,bracket:p.bracket,startPage:p.startPage??1,ids:p.ids,catalog:state.cards});
     community=await loadCommunity();return json(res,result);}
    finally{communityDiscoveryBusy=false;}
   }
   if(req.method==='POST'&&url.pathname==='/api/community/auto-research'){
-   if(communityDiscoveryBusy)return json(res,{error:'A community search/import is already running.'},409);
    if(!state.cards.length)throw Error('Download the local Scryfall catalog before automatic research.');
    const p=await body(req);const selectedCard=state.cards.find(c=>c.id===p.commanderId);
    if(!selectedCard||!isCommander(selectedCard))throw Error('Select a legal commander first.');
    if(![2,3,4].includes(Number(p.bracket)))throw Error('Choose a specific community Bracket 2, 3 or 4.');
+   if(communityDiscoveryBusy)return json(res,{error:'A community search/import is already running.'},409);
    communityDiscoveryBusy=true;
    try{
     const result=await autoResearchArchidekt({commanderId:oracleId(selectedCard),commanderName:selectedCard.name,bracket:Number(p.bracket),budget:p.budget,catalog:state.cards});
