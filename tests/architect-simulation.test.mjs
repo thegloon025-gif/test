@@ -4,6 +4,7 @@ import {simulateArchitectDeck} from '../src/architectSimulation.mjs';
 import {architectLab} from '../src/architectLab.mjs';
 import {allocateMana} from '../src/functionalGoldfish.mjs';
 import {normalizeVariant} from '../src/combos.mjs';
+import {indexDiscoveryCombos} from '../src/discoveryCombos.mjs';
 
 function card(name,type_line,mana_cost='',oracle_text='',color_identity=[],eur=.1){
  return {id:name,name,type_line,mana_cost,oracle_text,color_identity,cmc:[...mana_cost.matchAll(/\{([^}]+)\}/g)].reduce((n,[,x])=>n+(Number(x)||1),0),
@@ -87,6 +88,29 @@ test('comparison price audit blocks revisions over the deck ceiling and preserve
  assert.equal(lost.upgrade.eligible,false);
 });
 
+test('Bracket 3 analysis reports a compact Spellbook combo and allows a revision that retains it',()=>{
+ const variants=[variant('1',[a,b])];
+ const snapshot={variants,index:indexDiscoveryCombos(variants)};
+ const result=architectLab({...settings,bracket:3,text:deckText(cards),suggest:true},{catalog,variants,snapshot});
+ assert.equal(result.original.bracketIssue,false);
+ assert.equal(result.original.combos.twoCard,1);
+ assert.equal(result.original.result.combo[0].outcomes[0],'Infinite damage to each opponent');
+ assert.equal(result.upgrade?.eligible,true);
+ assert.deepEqual(result.upgrade.completeLineIds,['1']);
+});
+
+test('Bracket 3 analysis and Builder validation enforce the three-Game Changer limit',async()=>{
+ const {validateArchitectResult}=await import('../src/aiArchitect.mjs');
+ const marked=new Set([a.id,b.id,expensive.id,filler[0].id]);
+ const gameChangerCatalog=catalog.map(c=>marked.has(c.id)?{...c,game_changer:true}:c);
+ const text=deckText(cards);
+ const params={...settings,bracket:3,mode:'builder',commanderName:commander.name};
+ assert.equal(architectLab({...params,text},{catalog:gameChangerCatalog}).original.bracketIssue,true);
+ const result=validateArchitectResult(params,text,gameChangerCatalog);
+ assert.equal(result.valid,false);
+ assert.match(result.issues.join(' '),/Game Changer allowance exceeded/);
+});
+
 test('connected Architect protocol validates and exports mocked AI decks for both bracket selections',async t=>{
  const {mkdtemp,rm}=await import('node:fs/promises');
  const {tmpdir}=await import('node:os');
@@ -104,14 +128,18 @@ test('connected Architect protocol validates and exports mocked AI decks for bot
  await architect.discover();
  await architect.configure({enabled:true,directUseAuthorized:true,accountSettingsConfirmed:true,
   creditsSettingReviewed:true,weeklyLimitPercent:25,dailyLimit:3,model:'fixture-model'});
+ const variants=[variant('1',[a,b])];
  for(const bracket of [3,4]){
   const params={...settings,bracket,mode:'builder',commanderName:commander.name};
   const result=await architect.run({prompt:'Fixture deck request',maxRepairs:0,
-   validate:raw=>validateArchitectResult(params,raw,catalog)});
+   validate:raw=>validateArchitectResult(params,raw,catalog,variants)});
   assert.ok(result.valid,result.issues?.join(' | '));
   assert.equal(result.strategy.direction,'Land ramp into Zacama');
   assert.equal(result.audit.count,100);
   assert.ok(result.price<=settings.budget);
+  const exported=validateArchitectResult(params,result.deck,catalog,variants);
+  assert.equal(exported.valid,true);
+  assert.equal(exported.deck,result.deck);
  }
  assert.equal((await architect.status()).requestsToday,2);
 });

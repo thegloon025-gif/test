@@ -101,7 +101,7 @@ function profile(card){
 }
 
 function deckInventory(commander,cards,index){
- if(!index?.size)return {details:[],completeLineIds:[],infiniteLineIds:[],compactInfiniteIds:[]};
+ if(!index?.size)return {details:[],completeLineIds:[],infiniteLineIds:[]};
  const byOracle=new Map([[oracleId(commander),commander]]), quantities=new Map();
  for(const card of cards){const id=oracleId(card);byOracle.set(id,card);quantities.set(id,(quantities.get(id)||0)+1);}
  const deck={commanderIds:[oracleId(commander)],mainboard:[...quantities].map(([id,quantity])=>({id,quantity}))};
@@ -197,7 +197,7 @@ export function investArchitectBudget({commander,cards,catalog,variants=[],snaps
  const inventory=list=>{
   const rows=indexes.map(index=>deckInventory(commander,list,index));
   return {ids:new Set(rows.flatMap(row=>row.completeLineIds)),details:rows.flatMap(row=>row.details),
-   forbidden:new Set(rows.flatMap(row=>bansCombos?row.completeLineIds:bracket===2?row.infiniteLineIds:bracket===3?row.compactInfiniteIds:[]))};
+   forbidden:new Set(rows.flatMap(row=>bansCombos?row.completeLineIds:bracket===2?row.infiniteLineIds:[]))};
  };
  const originalInventory=inventory(current);
  const originalEvidence=deckEvidence(current);

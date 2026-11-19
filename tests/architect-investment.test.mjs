@@ -114,19 +114,19 @@ test('a low absolute ceiling still gets a review when most of the budget is avai
  assert.ok(result.deck.includes(cheapUpgrade.name));
 });
 
-test('known combo completions respect bracket limits and corresponding user exclusions',()=>{
+test('Bracket 3 and 4 budget review can complete a published combo and honors explicit exclusions',()=>{
  const missing=card('Combo Completion','Creature — Human','{3}',3,
   "{2}: Return another creature you control to its owner's hand.",10);
  const line=variant('900002',[zacama,missing]);
  const snapshot={variants:[line],index:indexDiscoveryCombos([line])};
- const bracket3=optimize(params,[missing],{snapshot});
- const bracket4=optimize({...params,bracket:4},[missing],{snapshot});
- const excluded=optimize({...params,bracket:4,excludedStrategies:'No infinite combos'},[missing],{snapshot});
- assert.equal(bracket3.valid,true);
- assert.ok(bracket3.budgetOptimization.considered.some(row=>row.adds.includes(missing.name)&&/combo excluded/i.test(row.reason)));
- assert.ok(!bracket3.deck.includes(missing.name));
- assert.equal(bracket4.audit.count,100);
- assert.ok(bracket4.deck.includes(missing.name));
- assert.match(bracket4.budgetOptimization.accepted[0].reason,/published Commander Spellbook route/);
+ for(const bracket of [3,4]){
+  const result=optimize({...params,bracket},[missing],{snapshot});
+  assert.equal(result.valid,true);
+  assert.equal(result.audit.count,100);
+  assert.ok(result.deck.includes(missing.name));
+  assert.match(result.budgetOptimization.accepted[0].reason,/published Commander Spellbook route/);
+ }
+ const excluded=optimize({...params,excludedStrategies:'No infinite combos'},[missing],{snapshot});
+ assert.equal(excluded.valid,true);
  assert.ok(!excluded.deck.includes(missing.name));
 });

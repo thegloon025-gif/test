@@ -145,6 +145,7 @@ export function architectRequest(p, catalog, variants = [], research = {}) {
     decks: research.decks || [],
     budget: p.budget + (p.budgetTolerance || 0),
     bracket: p.bracket,
+    allowCompactCombosInBracket3: p.mode === "builder",
     highlightVariantIds: comboSupplement.variants.map((v) => v.id),
   });
   let revision = null;
@@ -325,7 +326,7 @@ export function validateArchitectResult(p, raw, catalog, variants = [], {optimiz
       if (typeof result.deck !== "string")
         return issues(["Missing complete deck text."]);
       const checkDeck=text=>upgradeDeck({text,commanderId:String(oracleId(base.commander)),
-        bracket:p.bracket,budget:0,budgetTolerance:0},catalog,variants);
+        bracket:p.bracket,budget:0,budgetTolerance:0},catalog,variants,{allowCompactCombosInBracket3:true});
       let review=checkDeck(result.deck);
       if (review.stage !== "review" || !review.canExport)
         return issues(review.errors || ["Unresolved commander"]);

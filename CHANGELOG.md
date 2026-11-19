@@ -1,3 +1,7 @@
+## Unreleased Architect Bracket 3 export
+
+- Report two-card infinite combos in Architect’s combo analysis and allow validated Bracket 3 lists containing them to export.
+
 ## Unreleased Architect catalog setup
 
 - Show the database download or refresh step in Architect when its local catalog is unavailable or needs updated printing data.

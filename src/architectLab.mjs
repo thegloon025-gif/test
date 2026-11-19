@@ -66,9 +66,7 @@ export function architectLab(p,{catalog,variants=[],snapshot=null}={}){
   const prices=all.map(priceOf);
   const price=prices.every(value=>value!==null)?prices.reduce((total,value)=>total+cents(value),0)/100:null;
   const combos=comboReport(parsed,variants,snapshot);
-  const bracketIssue=bracket===3&&(
-   all.filter(card=>card.game_changer).length>3||
-   combos.compactInfinite);
+  const bracketIssue=bracket===3&&all.filter(card=>card.game_changer).length>3;
   return {deck:deckText(parsed),price,withinBudget:price!==null&&price<=policy.effectiveMaximum,
    pricedCards:prices.filter(value=>value!==null).length,bracketIssue,combos:combos.counts,independentRoutes:combos.scoring.independent,
    comboCoverage:combos.coverage,incomplete:combos.incomplete,unmodeledComboRequirements:combos.unresolvedTemplates+combos.unresolvedPrerequisites,
@@ -99,9 +97,10 @@ export function architectLab(p,{catalog,variants=[],snapshot=null}={}){
   reason='Architect revision guided by the prior simulation. Review any strategy trade-offs before using it.';
  }else if(p.suggest&&original.withinBudget&&!original.bracketIssue){
   const params={text:original.deck,commanderId:oracleId(parsed.commander),bracket:Number(p.bracket),budget:policy.effectiveMaximum};
-  const review=upgradeDeck(params,priced,variants);
+  const builderPolicy={allowCompactCombosInBracket3:true};
+  const review=upgradeDeck(params,priced,variants,builderPolicy);
   for(const suggestion of (review.proposals||[]).slice(0,4)){
-   const proposedReview=upgradeDeck({...params,accepted:[suggestion.id]},priced,variants);
+   const proposedReview=upgradeDeck({...params,accepted:[suggestion.id]},priced,variants,builderPolicy);
    if(!proposedReview.canExport||proposedReview.proposed.value>policy.effectiveMaximum)continue;
    const candidate=parsedDeck(proposedReview.proposed.deck,priced,params.commanderId);
    const combos=comboReport(candidate,variants,snapshot);

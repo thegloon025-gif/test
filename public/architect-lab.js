@@ -41,7 +41,7 @@ function showDeck(root,deck,heading){
  const out=deck.result;
  root.append(item('h4',heading+' · '+out.commander));
  root.append(item('p',eur(deck.price)+(deck.withinBudget?' · within the selected ceiling':'')+
-  (deck.bracketIssue?' · known Bracket 3 issue':'')+' · '+deck.comboCoverage));
+  (deck.bracketIssue?' · exceeds the Bracket 3 Game Changer allowance':'')+' · '+deck.comboCoverage));
  const counts=deck.combos;
  root.append(item('p',counts.twoCard+' two-card lines · '+counts.threeCard+' three-card lines · '+counts.directWins+' direct wins · '+counts.engines+' engines/value · '+counts.delayedWins+' delayed wins · '+deck.independentRoutes+' independent scored routes'));
  const detail=item('details');detail.append(item('summary','Turn-by-turn development, combos and model coverage'));

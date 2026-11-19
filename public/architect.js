@@ -459,7 +459,7 @@ async function runLab(deck, settings, {suggest=false, proposed}={}) {
       if(!verified.valid)throw Error((verified.issues||["Candidate could not be validated."]).join(" | "));
       await showBuilt(verified,settings,{suggest:false});
     }));
-    $("ai-lab-status").textContent = outcome.original.bracketIssue?"Review the known Bracket 3 issue before export.":"Analysis ready.";
+    $("ai-lab-status").textContent = outcome.original.bracketIssue?"This Bracket 3 deck exceeds the Game Changer allowance.":"Analysis ready.";
   } catch (error) {
     if (current()) $("ai-lab-status").textContent = error.message;
   } finally {

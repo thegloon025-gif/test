@@ -3,6 +3,7 @@
 - [x] Primary Architect workflow, separate B3/B4 validation and individual TXT export.
 - [x] Seeded goldfish and paired deck comparisons with budget and combo-aware revision review.
 - [x] Automatically review spare budget after generation, report supported upgrades with price reconciliation, and protect known combo packages.
+- [x] Include published two-card infinite lines in Bracket 3 combo analysis and allow validated lists to export.
 - [ ] Extend supported triggered abilities, tutor decisions and combo execution checks. Gather multiplayer playtest evidence.
 
 ## Ranked discovery and combined generation (unreleased)

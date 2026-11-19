@@ -127,8 +127,11 @@ export function architectEvidence({
   decks = [],
   budget,
   bracket,
+  allowCompactCombosInBracket3 = false,
   highlightVariantIds = [],
 }) {
+  const selectedBracket = Number(bracket);
+  const reportCompactCombos = selectedBracket === 3 && allowCompactCombosInBracket3;
   const plan = planFor(commander),
     eligible = unique(
       catalog.filter(
@@ -144,7 +147,7 @@ export function architectEvidence({
   byName.set(normalizedName(commander.name), commander);
   const cohort = independentCommunityDecks(decks, {
       commanderId: id(commander),
-      bracket: Number(bracket),
+      bracket: selectedBracket,
     }),
     sources = [];
   for (const d of cohort.decks) {
@@ -197,7 +200,7 @@ export function architectEvidence({
         );
       }),
   );
-  // Distinct evidence channels: commander-required, compact-risk, native packages,
+  // Distinct evidence channels: commander-required, compact lines, native packages,
   // then source-only ideas. Numeric IDs never act as a global strategy ranking.
   const highlighted = new Set(highlightVariantIds);
   const comboGroups = [[], [], [], [], [], []];
@@ -257,6 +260,7 @@ export function architectEvidence({
     const quantity =
       v.uses.reduce((n, u) => n + u.quantity, 0) +
       (v.templateRequirements || []).reduce((n, r) => n + r.quantity, 0);
+    const compactInfinite = v.isInfinite && quantity < 3;
     return {
       id: v.id,
       url: v.url,
@@ -268,13 +272,14 @@ export function architectEvidence({
       outcomes: v.results,
       infinite: v.isInfinite,
       policy: {
-        allowedByKnownGate: !(
-          (Number(bracket) === 2 && v.isInfinite) ||
-          (Number(bracket) === 3 && v.isInfinite && quantity < 3) ||
-          (Number.isInteger(v.bracket) && v.bracket > Number(bracket))
+        allowedByKnownGate: (reportCompactCombos && compactInfinite) || !(
+          (selectedBracket === 2 && v.isInfinite) ||
+          (selectedBracket === 3 && compactInfinite) ||
+          (Number.isInteger(v.bracket) && v.bracket > selectedBracket)
         ),
-        reason:
-          "Existing conservative B2 infinite/B3 compact-infinite and cached higher-bracket gates; not current official certification. Custom pod profile inactive.",
+        reason: reportCompactCombos
+          ? "Review published prerequisites and outcomes when planning a Bracket 3 win route."
+          : "Local compact-combo policy and published bracket metadata guide this review.",
         timing: "unknown; no turn inferred from inventory",
       },
       conversion: audit?.conversion || { status: "unknown" },

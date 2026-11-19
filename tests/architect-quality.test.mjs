@@ -126,10 +126,11 @@ test("source structures must match commander/bracket, actual size and catalog; n
   assert.equal(data.sourceStructures[0].source, source.key);
   assert.equal(data.score, undefined);
 });
-test("public compact infinite evidence discloses attachment/initial counter and B3 risk, not invented timing/win", () => {
-  const b3 = retrieve(u).comboPackages.find((v) => v.id === "1988-5641");
+test("the Bracket 3 Builder prompt includes published compact combo evidence and its unknown timing", () => {
+  const b3 = payload(architectRequest(params(u), catalog)).deckbuildingBrief.comboPackages
+    .find((v) => v.id === "1988-5641");
   assert.ok(b3);
-  assert.equal(b3.policy.allowedByKnownGate, false);
+  assert.equal(b3.policy.allowedByKnownGate, true);
   assert.match(b3.prerequisites.join(" "), /attached/);
   assert.match(b3.prerequisites.join(" "), /counter/);
   assert.match(b3.policy.timing, /unknown/);
@@ -138,8 +139,9 @@ test("public compact infinite evidence discloses attachment/initial counter and 
     retrieve(u, { bracket: 4 }).comboPackages[0].policy.allowedByKnownGate,
     true,
   );
+  assert.equal(retrieve(u, { bracket: 2 }).comboPackages[0].policy.allowedByKnownGate, false);
 });
-test("101 physical cards are rejected; explicit controlled cut to 100 still respects compact-combo gate", () => {
+test("Architect validates 100-card Bracket 3 and 4 lists with the published compact combo", () => {
   const text = `1 ${u.name} *CMDR*\n1 Basking Broodscale\n1 Blade of the Bloodchief\n97 Wastes\n1 Forest`;
   const wrong = validateArchitectResult(
     { ...params(u), bracket: 4 },
@@ -149,17 +151,17 @@ test("101 physical cards are rejected; explicit controlled cut to 100 still resp
   assert.equal(wrong.valid, false);
   assert.match(wrong.issues.join(" "), /100/);
   const cut = text.replace("97 Wastes", "96 Wastes");
-  assert.equal(validateArchitectResult(params(u), cut, catalog).valid, false);
-  const b4 = validateArchitectResult(
-    { ...params(u), bracket: 4 },
-    cut,
-    catalog,
-  );
-  assert.equal(b4.valid, true, JSON.stringify(b4.issues));
-  assert.equal(
-    b4.functionalReview.combos.combinations[0].timing.status,
-    "unknown",
-  );
+  for (const bracket of [3, 4]) {
+    const result = validateArchitectResult({ ...params(u), bracket }, cut, catalog);
+    assert.equal(result.valid, true, JSON.stringify(result.issues));
+    assert.equal(result.audit.count, 100);
+    const line = result.functionalReview.combos.combinations.find((v) => v.id === "1988-5641");
+    assert.equal(line.inventoryComplete, true);
+    assert.equal(line.timing.status, "unknown");
+  }
+  const b2 = validateArchitectResult({ ...params(u), bracket: 2 }, cut, catalog);
+  assert.equal(b2.valid, false);
+  assert.match(b2.issues.join(" "), /B2 no recorded infinite inventory/);
 });
 test("legally complete expensive-creature pile gets specific warnings without score or automatic repair", () => {
   const threats = Array.from({ length: 59 }, (_, i) => ({
