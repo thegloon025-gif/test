@@ -1,3 +1,9 @@
+## Architect simulations (unreleased)
+
+- [x] Primary Architect workflow, separate B3/B4 validation and individual TXT export.
+- [x] Seeded goldfish and paired deck comparisons with budget and combo-aware revision review.
+- [ ] Extend supported triggered abilities, tutor decisions and combo execution checks. Gather multiplayer playtest evidence.
+
 ## Ranked discovery and combined generation (unreleased)
 
 - [x] Generate independent B3 and B4 decks in one run with a shared input ceiling, individual exports and bracket-specific validation.

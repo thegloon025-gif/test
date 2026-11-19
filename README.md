@@ -1,3 +1,13 @@
+## Generate and evaluate decks in Architect
+
+Choose a commander, budget and Bracket 3, Bracket 4 or both. Set an optional playstyle, then generate with Architect. Connected generation uses one ChatGPT request per bracket. The manual prompt and import flow also validates complete 100-card lists. The local builder is available under Advanced.
+
+Validated decks run 1,000 seeded goldfish trials by default. Choose 100 or 500 for a faster run. View lands, mana, commander deployment, draw and interaction access, and published Spellbook combo availability. Paste a second marked Commander list to compare on the same seed and trial count. With both brackets generated, the other result is the default comparison.
+
+Review local swap suggestions and their paired simulation results. An AI revision can be requested explicitly, or enabled as one extra request after the first deck is simulated. Review and validate a candidate before exporting the TXT. Costs use the selected price source and apply to the whole deck.
+
+The goldfish uses multiplayer London mulligans with one free mulligan and a two-paid-mulligan policy. It models up to turn 10, supported mana payments, several land-search and Aura effects, simple draw, mana multipliers, and cast-triggered land untaps such as Zacama’s. Opponents, combat, tutor decisions, most triggers and activated abilities, many conditional mana sources, and full combo execution are outside its coverage. Combo measurements describe named pieces and supported starting conditions.
+
 ## Generate Brackets 3 and 4 together
 
 Select a commander and budget, then choose **Research & generate both decks**. **Brackets 3 + 4** is the default generation setting. The EUR ceiling applies to each 100-card list. Each build uses its own bracket profile and community cohort. Commander and color Spellbook lookups are shared within the run.

@@ -245,5 +245,6 @@ export function analyzeDiscoveryCombos(deck,byOracle,index,structure){
   threeCard:all.filter(line=>line.requiredCards===3).length,directWins:all.filter(line=>line.directWin).length,
   delayedWins:all.filter(line=>line.delayedWin).length,engines:all.filter(line=>!line.directWin&&!line.delayedWin).length},
   scoring,support:{...support,tutors:support.tutors.length},unresolvedTemplates,unresolvedPrerequisites,
+  compactInfinite:all.some(line=>line.infinite&&line.requiredCards<=2),completeLineIds:all.map(line=>line.id),
   details:all.slice(0,30).map(({deckPieces,comboIds,...line})=>line)};
 }

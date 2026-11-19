@@ -1,3 +1,9 @@
+## Unreleased Architect-first deckbuilding
+
+- Put Architect generation and TXT export in the main workflow. Move local generator controls and results under Advanced.
+- Add 100, 500 and 1,000-trial seeded goldfish comparisons, published combo availability and modeled starting conditions.
+- Simulate suggested revisions on the original seed and disclose cost, consistency and combo changes before a user can adopt them.
+
 ## Unreleased Architect sign-in
 
 - Open ChatGPT authorization from the browser's sign-in click, keep a visible fallback link during authorization, and show setup or connection errors beside the button.

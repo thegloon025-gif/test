@@ -33,7 +33,7 @@ export function allocateMana(printed,sources,{limit=20000}={}){
   const key=JSON.stringify([i,g,available.map(s=>s.id),pool.slice().sort()]);if(failed.has(key))return null;
   const need=i<pips.length?pips[i].split('/'):null;
   for(let j=0;j<pool.length;j++)if(!need||need.includes(pool[j])){const next=pool.slice();next.splice(j,1);const r=walk(i+(need?1:0),g-(need?0:1),available,next,receipt);if(r)return r;}
-  for(let j=0;j<available.length;j++)for(const color of available[j].options){const s=available[j],rest=available.filter((_,k)=>k!==j);const r=walk(i,g,rest,[...pool,...Array(s.units).fill(color)],[...receipt,{source:s.id,color,units:s.units}]);if(r)return r;}
+  for(let j=0;j<available.length;j++){const s=available[j],rest=available.filter((_,k)=>k!==j);for(const output of s.outputs||s.options.map(color=>Array(s.units).fill(color))){const r=walk(i,g,rest,[...pool,...output],[...receipt,{source:s.id,color:output[0],units:output.length,...(s.outputs?{output}:{})}]);if(r)return r;}}
   failed.add(key);return null;
  }
  const r=walk(0,generic,sources.filter(s=>!s.floating),sources.filter(s=>s.floating).flatMap(s=>Array(s.units).fill(s.options[0])),[]);

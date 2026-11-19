@@ -18,3 +18,10 @@
 
 .generated-brackets:not([hidden]){display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 14px}
 .generated-brackets button[aria-pressed="true"]{border-color:#75dcd1;color:#75dcd1}
+
+#chatgpt-architect details,.architect-lab{margin-top:16px}
+.architect-actions{display:flex;gap:8px;flex-wrap:wrap}
+.architect-lab table{border-collapse:collapse;width:100%;text-align:left;margin:12px 0}
+.architect-lab th,.architect-lab td{padding:8px 10px;border-bottom:1px solid #29495a;vertical-align:top}
+.architect-lab a,#chatgpt-architect a{color:#75dcd1}
+.architect-lab .table-wrap{overflow:auto}

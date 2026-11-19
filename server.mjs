@@ -17,6 +17,8 @@ import {prepareCommunityConstruction,communityStrategySummary} from './src/commu
 import {loadCommunity,importPublicDeck,communityInsights} from './src/community.mjs';
 import {COMBINED_BRACKETS,discoverPublicDecks,importDiscoveredDecks} from './src/discovery.mjs';
 import {rankPublicDecks} from './src/rankedDiscovery.mjs';
+import {getSpellbookSnapshot} from './src/spellbookSnapshot.mjs';
+import {architectLab} from './src/architectLab.mjs';
 import {autoResearchArchidekt} from './src/autoResearch.mjs';
 import {researchForGeneration} from './src/researchFlow.mjs';
 import {readEdhrecCommanderJson} from './src/edhrecKnowledge.mjs';
@@ -82,7 +84,7 @@ async function sendWithProgress(req,res,run){
  }catch(err){send({type:'error',error:err.message});}
  finally{res.end();}
 }
-const staticFiles={'/':'index.html','/index.html':'index.html','/app.js':'app.js','/strategy.js':'strategy.js','/research.js':'research.js','/discovery-results.js':'discovery-results.js','/progress.js':'progress.js','/upgrader.js':'upgrader.js','/architect.js':'architect.js','/style.css':'style.css'};
+const staticFiles={'/':'index.html','/index.html':'index.html','/app.js':'app.js','/strategy.js':'strategy.js','/research.js':'research.js','/discovery-results.js':'discovery-results.js','/progress.js':'progress.js','/upgrader.js':'upgrader.js','/architect.js':'architect.js','/architect-lab.js':'architect-lab.js','/style.css':'style.css'};
 const mime={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8'};
 const server=http.createServer(async(req,res)=>{
  const url=new URL(req.url,'http://localhost');
@@ -93,6 +95,11 @@ const server=http.createServer(async(req,res)=>{
    if(req.method!=='POST')throw Error('Unsupported Architect method.');const p=await body(req);
    if(url.pathname==='/api/architect/request'){const x=await architectInputs(p);return json(res,architectRequest(p,x.cards,x.variants,x.research));}
    if(url.pathname==='/api/architect/import'){const x=await architectInputs(p);return json(res,validateArchitectResult(p,p.result,x.cards,x.variants));}
+   if(url.pathname==='/api/architect/simulate'){
+    const x=await architectInputs(p);
+    const feed=await getSpellbookSnapshot();
+    return json(res,{...architectLab(p,{catalog:x.cards,variants:x.variants,snapshot:feed.snapshot}),snapshotStatus:feed.status});
+   }
    try{
     if(url.pathname==='/api/architect/connect'){
      const cancelled=new AbortController();
