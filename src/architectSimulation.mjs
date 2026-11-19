@@ -193,10 +193,30 @@ function trial(compiled,commander,seed,index,combos){
 }
 
 export function simulateArchitectDeck({commander,cards,combos=[]},options={}){
+ return simulateArchitectSample({commander,cards,combos},options).result;
+}
+
+function alignedSlots(compiled,referenceCards){
+ const available=new Map();
+ for(const card of compiled){
+  const copies=available.get(card.id)||[];
+  copies.push(card);
+  available.set(card.id,copies);
+ }
+ // Shared cards occupy the same pre-shuffle indices in both decks. A
+ // replacement takes a vacant slot without moving the rest of the library.
+ const ids=referenceCards.map(oracleId).sort((a,b)=>String(a).localeCompare(String(b)));
+ const slots=ids.map(id=>available.get(id)?.pop());
+ const replacements=[...available.values()].flat();
+ return slots.map(card=>card??replacements.shift());
+}
+
+export function simulateArchitectSample({commander,cards,combos=[]},options={}){
  if(!commander||cards?.length!==99)throw Error('Simulation requires a validated commander and 99 cards.');
  const {trials,seed}=simulationSettings(options);
  const cmd=compile(commander,commander);
- const compiled=cards.map(c=>compile(c,commander)).sort((a,b)=>String(a.id).localeCompare(String(b.id)));
+ const sorted=cards.map(c=>compile(c,commander)).sort((a,b)=>String(a.id).localeCompare(String(b.id)));
+ const compiled=options.referenceCards?alignedSlots(sorted,options.referenceCards):sorted;
  const lines=combos.slice(0,12).map(line=>({...line,simulatable:!line.templateRequirements.length&&!line.prerequisites.some(s=>s.trim()&&s.trim()!==line.manaNeeded)&&
   line.pieces.every(p=>p.zoneLocations.every(z=>['B','H','G','C'].includes(z))&&!p.battlefieldCardState&&!p.graveyardCardState)&&
   (!line.manaNeeded||manaCost.test(line.manaNeeded))&&new Set(line.pieces.map(p=>p.id)).size===line.pieces.length}));
@@ -216,7 +236,7 @@ export function simulateArchitectDeck({commander,cards,combos=[]},options={}){
    kind:line.directWin?'Direct win':line.delayedWin?'Delayed win':'Engine or value',piecesSeenPct:pct(seen.length),
    averagePiecesTurn:average(seen),startingStatePct:line.simulatable?pct(ready.length):null,averageStartingStateTurn:average(ready)};
  }).sort((a,b)=>(b.startingStatePct??-1)-(a.startingStatePct??-1)||b.piecesSeenPct-a.piecesSeenPct);
- return {trials,seed,turnLimit:TURNS,turns,commander:cmd.name,opening:{
+ const result={trials,seed,turnLimit:TURNS,turns,commander:cmd.name,opening:{
    averageLands:average(runs.map(r=>r.opening)),twoToFourLandsPct:pct(count(runs,r=>r.opening>=2&&r.opening<=4)),averageMulligans:average(runs.map(r=>r.attempt)),
    averageCardsKept:average(runs.map(r=>7-r.bottomed))},
   commanderCastPct:pct(cast.length),commanderCastInterval95:wilson(cast.length,trials).map(p=>round(p*100)),
@@ -226,4 +246,5 @@ export function simulateArchitectDeck({commander,cards,combos=[]},options={}){
   manaCurve:Object.fromEntries(Array.from({length:8},(_,n)=>[n===7?'7+':n,count(compiled,c=>!c.land&&Math.min(7,Math.floor(c.mv))===n)])),
   supported:{castUntapsLands:cmd.earliestUntap,manaSources:count(compiled,c=>!!c.source),landSearch:count(compiled,c=>!!c.ramp),landAuras:count(compiled,c=>!!c.aura),doublers:count(compiled,c=>!!c.double)},
   combo:byCombo,unsupportedCards:[...new Set([cmd,...compiled].filter(c=>c.unsupported).map(c=>c.name))]};
+ return {result,runs};
 }

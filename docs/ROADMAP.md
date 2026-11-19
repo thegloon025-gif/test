@@ -5,6 +5,7 @@
 - [x] cEDH budget ranges and Open budget with selected-printing estimates.
 - [x] cEDH rankings tab with tournament provenance, recorded results and single-commander build shortcuts.
 - [x] Seeded goldfish and paired deck comparisons with budget and combo-aware revision review.
+- [x] Recommend optional revisions from paired gameplay-model evidence and preserve the original when the improvement is inconclusive or regresses.
 - [x] Automatically review spare budget after generation, report supported upgrades with price reconciliation, and protect known combo packages.
 - [x] Review every card's supported costs and jobs in context. Apply affordable corrections to weak or unsupported slots and show the final per-card evidence.
 - [x] Complete clean 99-card drafts and apply coordinated budget repairs before offering export.

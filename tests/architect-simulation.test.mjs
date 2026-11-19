@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import {simulateArchitectDeck} from '../src/architectSimulation.mjs';
 import {architectLab} from '../src/architectLab.mjs';
+import {assessArchitectRevision} from '../src/architectRevisionEvidence.mjs';
 import {allocateMana} from '../src/functionalGoldfish.mjs';
 import {normalizeVariant} from '../src/combos.mjs';
 import {indexDiscoveryCombos} from '../src/discoveryCombos.mjs';
@@ -72,9 +73,12 @@ test('comparison price audit blocks revisions over the deck ceiling and preserve
  const text=deckText(cards),variants=[variant('1',[a,b])];
  const result=architectLab({...settings,text,proposed:text.replace('1 Slow rock','1 Premium rock')},{catalog,variants});
  assert.equal(result.upgrade.eligible,false);
+ assert.equal(result.upgrade.assessment.status,'blocked');
  assert.equal(result.upgrade.priceChange,99);
  const legal=architectLab({...settings,text,proposed:text.replace('1 Slow rock','1 Quick rock')},{catalog,variants});
  assert.ok(legal.upgrade.eligible);
+ assert.equal(legal.upgrade.assessment.status,'supported');
+ assert.ok(legal.upgrade.assessment.gains.length>0);
  assert.equal(legal.upgrade.deck.split('\n').length,100);
  assert.match(legal.upgrade.deck.split('\n')[0],/\*CMDR\*$/);
  const [{impact,...swap}]=legal.upgrade.swaps;
@@ -86,6 +90,50 @@ test('comparison price audit blocks revisions over the deck ceiling and preserve
  const lost=architectLab({...settings,text,proposed:text.replace('1 Line B','1 Quick rock')},{catalog,variants});
  assert.deepEqual(lost.upgrade.lostCombos,['1']);
  assert.equal(lost.upgrade.eligible,false);
+});
+
+test('equivalent card replacements preserve paired draws and do not produce a recommendation',()=>{
+ const former=filler[0];
+ const equivalent={...former,id:'ZZZ Alternate Filler',name:'ZZZ Alternate Filler',prices:{eur:.05}};
+ const text=deckText(cards),proposed=text.replace('1 '+former.name,'1 '+equivalent.name);
+ const result=architectLab({...settings,text,proposed},{catalog:[...catalog,equivalent]});
+ const upgrade=result.upgrade;
+ assert.equal(upgrade.priceChange,-.05);
+ assert.deepEqual(upgrade.result,result.original.result);
+ assert.equal(upgrade.assessment.status,'inconclusive');
+ assert.equal(upgrade.eligible,false);
+ for(const key of ['rampPlayedByTurnThreePct','averageManaAfterCommander','keptTwoToFourLandsPct','averageMulligans'])
+  assert.equal(upgrade.deltas[key],0);
+});
+
+test('a slower swap remains visible as a candidate while the original stays eligible to export',()=>{
+ const text=deckText(cards).replace('1 Slow rock','1 Quick rock');
+ const result=architectLab({...settings,text,proposed:deckText(cards)},{catalog});
+ assert.equal(result.upgrade.assessment.status,'regression');
+ assert.equal(result.upgrade.eligible,false);
+ assert.ok(result.upgrade.assessment.regressions.some(signal=>signal.label==='Ramp played by turn 3'));
+ assert.ok(result.upgrade.deltas.rampPlayedByTurnThreePct<0);
+ assert.equal(result.original.deck,text);
+});
+
+test('minor gains do not justify adoption and a meaningful loss outweighs a measured gain',()=>{
+ const runs=Array.from({length:1000},(_,i)=>({
+  seenByTurn:Array.from({length:5},()=>({mana:3,draw:i<700,interaction:i<689})),
+  rampTurn:i<430?3:null,commanderTurn:i<167?8:null,postCastMana:10,drawn:Number(i<290),screw:i<30,
+ }));
+ const minor=runs.map((run,i)=>({
+  ...run,seenByTurn:run.seenByTurn.map(turn=>({...turn,mana:turn.mana+Number(i<10),interaction:i<684})),
+  rampTurn:i<416?3:null,commanderTurn:i<172?8:null,drawn:Number(i<280),
+ }));
+ assert.deepEqual(assessArchitectRevision(runs,minor),{status:'inconclusive',gains:[],regressions:[]});
+ const mixed=minor.map(run=>({
+  ...run,seenByTurn:run.seenByTurn.map(turn=>({...turn,mana:turn.mana+1})),
+  postCastMana:9,
+ }));
+ const regression=assessArchitectRevision(runs,mixed);
+ assert.equal(regression.status,'regression');
+ assert.ok(regression.gains.some(signal=>signal.label==='Mana available on turn 4'));
+ assert.ok(regression.regressions.some(signal=>signal.label==='Mana left after casting when both decks cast'));
 });
 
 test('Bracket 3 analysis reports a compact Spellbook combo and allows a revision that retains it',()=>{

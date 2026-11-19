@@ -1,3 +1,9 @@
+## Unreleased Architect revision assessment
+
+- Match shared cards across paired shuffles when comparing an optional revision with its original deck.
+- Recommend a revision only when the paired trials support a meaningful modeled gain and show no material regression. Keep the original active and show the evidence for AI candidates that fall short.
+- Display previously missing deltas for early ramp, mana after casting the commander, opening hands, and mana curve.
+
 ## Unreleased Architect draft repair and cEDH budgets
 
 - Complete a fully resolved 99-card Architect draft with a legal, priced card chosen for its role in the deck.

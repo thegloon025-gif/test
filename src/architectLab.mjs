@@ -1,10 +1,12 @@
 import {oracleId,priceOf} from './cards.mjs';
-import {parseUpgradeDeck,upgradeDeck} from './deckUpgrader.mjs';
+import {deckConstraintErrors,parseUpgradeDeck,upgradeDeck} from './deckUpgrader.mjs';
 import {applyBudgetValuation,budgetPolicy} from './budgetPolicy.mjs';
 import {exportCardName} from './deckValidation.mjs';
 import {analyzeDiscoveryCombos,indexDiscoveryCombos} from './discoveryCombos.mjs';
 import {sourceStructureEvidence} from './sourceQuality.mjs';
-import {simulateArchitectDeck,simulationSettings} from './architectSimulation.mjs';
+import {simulateArchitectSample,simulationSettings} from './architectSimulation.mjs';
+import {assessArchitectRevision} from './architectRevisionEvidence.mjs';
+import {architectManaEvidence} from './aiArchitect.mjs';
 
 const cents=amount=>Math.round(amount*100);
 function parsedDeck(text,catalog,commanderId){
@@ -36,9 +38,15 @@ function metrics(a,b){
  return {
   landsTurnFour:diff(a.turns[3].lands,b.turns[3].lands),manaTurnFour:diff(a.turns[3].mana,b.turns[3].mana),
   commanderCastPct:diff(a.commanderCastPct,b.commanderCastPct),averageCommanderTurn:diff(a.averageCommanderTurn,b.averageCommanderTurn),
-  extraCardsDrawn:diff(a.averageExtraCardsDrawn,b.averageExtraCardsDrawn),interactionSeenTurnFivePct:diff(a.turns[4].interactionSeenPct,b.turns[4].interactionSeenPct),
+  averageManaAfterCommander:diff(a.averageManaAfterCommander,b.averageManaAfterCommander),
+  extraCardsDrawn:diff(a.averageExtraCardsDrawn,b.averageExtraCardsDrawn),drawSeenTurnFivePct:diff(a.turns[4].drawSeenPct,b.turns[4].drawSeenPct),
+  interactionSeenTurnFivePct:diff(a.turns[4].interactionSeenPct,b.turns[4].interactionSeenPct),
+  rampPlayedByTurnThreePct:diff(a.rampPlayedByTurnThreePct,b.rampPlayedByTurnThreePct),
+  keptTwoToFourLandsPct:diff(a.opening.twoToFourLandsPct,b.opening.twoToFourLandsPct),
+  averageKeptLands:diff(a.opening.averageLands,b.opening.averageLands),averageMulligans:diff(a.opening.averageMulligans,b.opening.averageMulligans),
   screwPct:diff(a.screwPct,b.screwPct),floodPct:diff(a.floodPct,b.floodPct),
-  linesWithModeledStartingState:diff(a.combo.filter(row=>row.startingStatePct>0).length,b.combo.filter(row=>row.startingStatePct>0).length)
+  linesWithModeledStartingState:diff(a.combo.filter(row=>row.startingStatePct>0).length,b.combo.filter(row=>row.startingStatePct>0).length),
+  highManaValueSpells:diff(a.manaCurve['7+'],b.manaCurve['7+'])
  };
 }
 function deckDiff(original,next){
@@ -56,28 +64,30 @@ function deckDiff(original,next){
 
 export function architectLab(p,{catalog,variants=[],snapshot=null}={}){
  const {trials,seed}=simulationSettings(p);
- const options={trials,seed};
+ const bracket=Number(p.bracket);
  const policy=budgetPolicy(p);
- if(![3,4,5].includes(Number(p.bracket)))throw Error('Choose Bracket 3, 4 or 5 for the deck under review.');
+ if(![3,4,5].includes(bracket))throw Error('Choose Bracket 3, 4 or 5 for the deck under review.');
  if(!policy.basicLandsOwned&&p.pricingMode&&p.pricingMode!=='scryfall_eur')throw Error('Count unowned basic lands with Scryfall EUR pricing.');
  const priced=applyBudgetValuation(catalog,policy);
- function analyze(parsed,bracket=Number(p.bracket)){
+ function analyze(parsed,targetBracket=bracket,referenceCards){
   const all=[parsed.commander,...parsed.cards];
   const prices=all.map(priceOf);
   const price=prices.every(value=>value!==null)?prices.reduce((total,value)=>total+cents(value),0)/100:null;
   const combos=comboReport(parsed,variants,snapshot);
-  const bracketIssue=bracket===3&&all.filter(card=>card.game_changer).length>3;
-  return {deck:deckText(parsed),price,withinBudget:price!==null&&price<=policy.effectiveMaximum,
+  const bracketIssue=targetBracket===3&&all.filter(card=>card.game_changer).length>3;
+  const {result,runs}=simulateArchitectSample({...parsed,combos:combos.details},{trials,seed,referenceCards});
+  return {runs,view:{deck:deckText(parsed),price,withinBudget:price!==null&&price<=policy.effectiveMaximum,
    pricedCards:prices.filter(value=>value!==null).length,bracketIssue,combos:combos.counts,independentRoutes:combos.scoring.independent,
    comboCoverage:combos.coverage,incomplete:combos.incomplete,unmodeledComboRequirements:combos.unresolvedTemplates+combos.unresolvedPrerequisites,
-   completeLineIds:combos.completeLineIds,result:simulateArchitectDeck({...parsed,combos:combos.details},options)};
+   completeLineIds:combos.completeLineIds,result}};
  }
- const parsed=parsedDeck(p.text,priced,p.commanderId),original=analyze(parsed);
+ const parsed=parsedDeck(p.text,priced,p.commanderId);
+ const {view:original,runs:originalRuns}=analyze(parsed);
  const result={original,comparison:null,upgrade:null,ceiling:policy.open?null:policy.effectiveMaximum};
  if(p.comparison){
   const comparisonBracket=Number(p.comparisonBracket??p.bracket);
   if(![3,4,5].includes(comparisonBracket))throw Error('Choose a valid comparison bracket.');
-  const comparison=analyze(parsedDeck(p.comparison,priced),comparisonBracket);
+  const {view:comparison}=analyze(parsedDeck(p.comparison,priced),comparisonBracket,parsed.cards);
   result.comparison={...comparison,deltas:metrics(original.result,comparison.result)};
  }
  const recommendation=original.result;
@@ -91,43 +101,57 @@ export function architectLab(p,{catalog,variants=[],snapshot=null}={}){
   recommendation.manaCurve['7+']>=8&&'The deck has at least eight spells costing seven or more mana.',
   original.unmodeledComboRequirements>0&&'Review the combo lines with unsupported setup or wildcard requirements.'
  ].filter(Boolean);
- let proposed=null,reason=null;
+ const builderPolicy={allowCompactCombosInBracket3:true};
+ function preview(proposed,reason){
+  const changes=deckDiff(parsed,proposed);
+  if(changes.swaps.length>3)throw Error('Review requires at most three swaps.');
+  const {view:next,runs}=analyze(proposed,bracket,parsed.cards);
+  const lostCombos=original.completeLineIds.filter(id=>!next.completeLineIds.includes(id));
+  const priceChange=original.price===null||next.price===null?null:(cents(next.price)-cents(original.price))/100;
+  const assessment=assessArchitectRevision(originalRuns,runs);
+  const issues=deckConstraintErrors(proposed.commander,proposed.cards,{bracket,catalog:priced,variants,...builderPolicy});
+  if(!next.withinBudget)issues.push('The candidate needs a fully priced list within the selected budget.');
+  if(lostCombos.length)issues.push('The candidate loses a documented combo already in the deck.');
+  if(!changes.swaps.length)issues.push('The candidate has the same cards as the original.');
+  if(!issues.length&&assessment.status==='supported'){
+   const payment=architectManaEvidence(proposed.commander,proposed.cards);
+   if(payment.commanderPayment!=='supported'||payment.extraCopyPayment?.status==='unknown')
+    issues.push('The candidate lacks a verified commander payment or follow-up mana channel.');
+  }
+  return {...next,...changes,reason,priceChange,lostCombos,deltas:metrics(original.result,next.result),
+   assessment:{...assessment,issues,status:issues.length?'blocked':assessment.status},
+   eligible:!issues.length&&assessment.status==='supported'};
+ }
+ let proposed;
  if(p.proposed){
   proposed=parsedDeck(p.proposed,priced,oracleId(parsed.commander));
-  reason='Architect revision guided by the prior simulation. Review any strategy trade-offs before using it.';
+  result.upgrade=preview(proposed,'Architect revision guided by the prior simulation.');
  }else if(p.suggest&&original.withinBudget&&!original.bracketIssue){
-  const params={text:original.deck,commanderId:oracleId(parsed.commander),bracket:Number(p.bracket),budget:policy.open?100000:policy.effectiveMaximum};
-  const builderPolicy={allowCompactCombosInBracket3:true};
+  const params={text:original.deck,commanderId:oracleId(parsed.commander),bracket,budget:policy.open?100000:policy.effectiveMaximum};
   const review=upgradeDeck(params,priced,variants,builderPolicy);
   for(const suggestion of (review.proposals||[]).slice(0,4)){
    const proposedReview=upgradeDeck({...params,accepted:[suggestion.id]},priced,variants,builderPolicy);
    if(!proposedReview.canExport||proposedReview.proposed.value>policy.effectiveMaximum)continue;
    const candidate=parsedDeck(proposedReview.proposed.deck,priced,params.commanderId);
-   const combos=comboReport(candidate,variants,snapshot);
-   if(original.completeLineIds.some(id=>!combos.completeLineIds.includes(id)))continue;
-   proposed=candidate;reason=suggestion.reason||'Earlier deployment of a supported mana source.';
-   break;
-  }
- }
- if(proposed){
-  const next=analyze(proposed);
-  const lostCombos=original.completeLineIds.filter(id=>!next.completeLineIds.includes(id));
-  const priceChange=original.price===null||next.price===null?null:(cents(next.price)-cents(original.price))/100;
-  const changes=deckDiff(parsed,proposed);
-  if(p.proposed&&changes.swaps.length>3)throw Error('Review requires at most three swaps.');
-  for(const swap of changes.swaps){
-   if(changes.swaps.length===1){
-    swap.impact=metrics(original.result,next.result);
-    continue;
+   const upgrade=preview(candidate,suggestion.reason||'Earlier deployment of a supported mana source.');
+   if(upgrade.eligible){
+    proposed=candidate;
+    result.upgrade=upgrade;
+    break;
    }
+  }
+  if(!result.upgrade)result.revisionNotice='Kept the original deck. The local search found no clear upgrade in this sample.';
+ }
+ if(result.upgrade){
+  const {swaps,deltas}=result.upgrade;
+  for(const swap of swaps){
+   if(swaps.length===1){swap.impact=deltas;continue;}
    const cards=parsed.cards.slice();
    const cut=cards.findIndex(card=>card.name===swap.cut),add=proposed.cards.find(card=>card.name===swap.add);
    cards[cut]=add;
-   const isolated=analyze({commander:parsed.commander,cards});
+   const {view:isolated}=analyze({commander:parsed.commander,cards},bracket,parsed.cards);
    swap.impact=metrics(original.result,isolated.result);
   }
-  result.upgrade={...next,...changes,reason,priceChange,lostCombos,deltas:metrics(original.result,next.result),
-   eligible:next.withinBudget&&!next.bracketIssue&&!lostCombos.length&&changes.swaps.length>0};
  }
  return result;
 }

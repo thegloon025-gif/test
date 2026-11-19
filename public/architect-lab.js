@@ -6,23 +6,24 @@ function item(tag,text){
 const pct=n=>n===null?'Unsupported':n+'%';
 const norm=n=>n===null?'Unavailable':n;
 const eur=n=>n===null?'Price coverage incomplete':'€'+n.toFixed(2);
-const delta=n=>n===null?'Unavailable':(n>0?'+':'')+n;
+const delta=(n,unit='')=>Number.isFinite(n)?(n>0?'+':'')+n+(unit?' '+unit:''):'Unavailable';
 const measures=[
  ['Average lands on turn 4',x=>x.turns[3].lands,'landsTurnFour'],
  ['Average available mana on turn 4',x=>x.turns[3].mana,'manaTurnFour'],
  ['Commander cast by turn 10',x=>pct(x.commanderCastPct),'commanderCastPct'],
  ['Average commander turn when cast',x=>norm(x.averageCommanderTurn),'averageCommanderTurn'],
- ['Average mana available after casting commander',x=>norm(x.averageManaAfterCommander)],
+ ['Average mana available after casting commander',x=>norm(x.averageManaAfterCommander),'averageManaAfterCommander'],
  ['Extra cards drawn per game',x=>x.averageExtraCardsDrawn,'extraCardsDrawn'],
+ ['Draw seen by turn 5',x=>pct(x.turns[4].drawSeenPct),'drawSeenTurnFivePct'],
  ['Interaction seen by turn 5',x=>pct(x.turns[4].interactionSeenPct),'interactionSeenTurnFivePct'],
- ['Supported ramp played by turn 3',x=>pct(x.rampPlayedByTurnThreePct)],
- ['Kept hands with 2–4 lands',x=>pct(x.opening.twoToFourLandsPct)],
- ['Average lands in kept hand',x=>x.opening.averageLands],
- ['Average mulligans taken',x=>x.opening.averageMulligans],
+ ['Supported ramp played by turn 3',x=>pct(x.rampPlayedByTurnThreePct),'rampPlayedByTurnThreePct'],
+ ['Kept hands with 2–4 lands',x=>pct(x.opening.twoToFourLandsPct),'keptTwoToFourLandsPct'],
+ ['Average lands in kept hand',x=>x.opening.averageLands,'averageKeptLands'],
+ ['Average mulligans taken',x=>x.opening.averageMulligans,'averageMulligans'],
  ['Missing third battlefield land on turn 4',x=>pct(x.screwPct),'screwPct'],
  ['Eight or more lands seen by turn 6',x=>pct(x.floodPct),'floodPct'],
  ['Lines reaching a modeled starting state',x=>x.combo.filter(line=>line.startingStatePct>0).length,'linesWithModeledStartingState'],
- ['Spells with mana value seven or more',x=>x.manaCurve['7+']]
+ ['Spells with mana value seven or more',x=>x.manaCurve['7+'],'highManaValueSpells']
 ];
 function table(root,headings,rows){
  const wrap=item('div');wrap.className='table-wrap';
@@ -35,7 +36,7 @@ function table(root,headings,rows){
 function comparison(root,base,other,heading){
  const cols=other?['Metric','Original',heading,'Change']:['Metric','Original'];
  table(root,cols,measures.map(([label,read,key])=>[label,read(base.result),
-  ...(other?[read(other.result),key?delta(other.deltas[key]):'—']:[])]));
+  ...(other?[read(other.result),delta(other.deltas[key],key.endsWith('Pct')?'pp':'')]:[])]));
 }
 function showDeck(root,deck,heading,open){
  const out=deck.result;
@@ -76,14 +77,31 @@ export function renderArchitectLab(root,analysis,choose){
  if(analysis.observations.length){
   const list=item('ul');list.append(...analysis.observations.map(text=>item('li',text)));root.append(list);
  }
+ if(analysis.revisionNotice)root.append(item('p',analysis.revisionNotice));
  if(upgrade){
-  showDeck(root,upgrade,'Suggested revision',open);
+  showDeck(root,upgrade,upgrade.eligible?'Recommended revision':'Candidate revision',open);
   root.append(item('p',upgrade.reason+' · full-deck cost change '+(upgrade.priceChange===null?'unavailable':delta(upgrade.priceChange)+' EUR')));
+  const {assessment}=upgrade;
+  const verdict={
+   supported:'Paired trials support an upgrade.',
+   inconclusive:'Kept the original deck. The paired trials found no clear improvement.',
+   regression:'Kept the original deck. The revision caused a material modeled regression.',
+   blocked:'Kept the original deck. The candidate did not pass validation.',
+  };
+  root.append(item('p',verdict[assessment.status]));
+  const findings=[
+   ...assessment.issues,
+   ...assessment.gains.map(signal=>signal.label+' improved in the paired trials ('+delta(signal.delta,signal.unit)+').'),
+   ...assessment.regressions.map(signal=>signal.label+' declined in the paired trials ('+delta(signal.delta,signal.unit)+').'),
+  ];
+  if(findings.length){
+   const list=item('ul');list.append(...findings.map(text=>item('li',text)));root.append(list);
+  }
   if(upgrade.swaps.length)table(root,['Cut','Add','Reason','Change in card value','Isolated effect'],
    upgrade.swaps.map(swap=>[swap.cut,swap.add,upgrade.reason,swap.priceChange===null?'Unavailable':delta(swap.priceChange)+' EUR',
     delta(swap.impact.manaTurnFour)+' mana on turn 4 · '+delta(swap.impact.commanderCastPct)+' pp commander cast']));
   if(upgrade.lostCombos.length)root.append(item('p','Previously recorded combo lines lost · '+upgrade.lostCombos.join(', ')));
-  comparison(root,original,upgrade,'Suggested');
+  comparison(root,original,upgrade,upgrade.eligible?'Recommended':'Candidate');
   if(upgrade.eligible){
    const use=item('button','Use this revision after validation');use.type='button';use.onclick=()=>choose(upgrade.deck);root.append(use);
   }

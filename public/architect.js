@@ -515,7 +515,7 @@ async function runLab(deck, settings, {suggest=false, proposed}={}) {
     if (!current()) return;
     labResult=outcome;
     renderArchitectLab($("ai-lab-results"),outcome,candidate => action(async()=>{
-      if(!current())return;
+      if(!current()||!outcome.upgrade?.eligible||candidate!==outcome.upgrade.deck)return;
       const verified=await post("import",{...settings,result:candidate});
       if(!current())return;
       if(!verified.valid)throw Error((verified.issues||["Candidate could not be validated."]).join(" | "));
@@ -553,9 +553,10 @@ async function requestRevision(){
   $("ai-upgrade-pass").disabled=true;
   $("ai-lab-status").textContent="ChatGPT is preparing an optional revision…";
   try {
-    const revisionRequest="Suggest up to three strategic swaps while preserving the theme, core engines, bracket and full-deck ceiling. Return the complete revised deck. Goldfish with "
-      +evidence.trials+" trials by turn "+evidence.turnLimit+" found commander cast in "+evidence.commanderCastPct
-      +"% and average "+evidence.turns[3].mana+" available mana on turn four. "+findings;
+    const postCast=Number.isFinite(evidence.averageManaAfterCommander)?" Mana after casting the commander averaged "+evidence.averageManaAfterCommander+".":"";
+    const revisionRequest="Suggest up to three swaps with a material improvement in the deck's actual strategy. Preserve the theme, core engines, early ramp, interaction, commander payoff and budget settings. Return the complete deck and keep the original cards if a worthwhile change is uncertain. In "
+      +evidence.trials+" goldfish trials the commander was cast by turn "+evidence.turnLimit+" in "+evidence.commanderCastPct
+      +"% of games, early ramp was played by turn three in "+evidence.rampPlayedByTurnThreePct+"%, and turn-four mana averaged "+evidence.turns[3].mana+". "+postCast+" "+findings;
     const x=await post("run",{...settings,revisionRequest,revisionDeck:original.deck});
     if(validated!==original||rev!==revision)return;
     if(!x.valid){$("ai-lab-status").textContent=(x.issues||["AI revision failed validation."]).join(" | ");return;}
