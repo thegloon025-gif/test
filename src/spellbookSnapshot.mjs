@@ -174,16 +174,26 @@ async function cachedSnapshot(file){
 /** One fetch/index build for overlapping searches, fresh memory/disk reuse,
  * and a dated stale fallback during an upstream outage. */
 export function createSpellbookSnapshotStore({file=cacheFile,fetcher=fetch,now=Date.now,maxAgeMs=week,minGapMs=2000}={}){
- let snapshot=null,pending=null,retryAt=0,lastError=null,cacheWarning=null;
+ let snapshot=null,pending=null,diskPending=null,retryAt=0,lastError=null,cacheWarning=null;
  const fresh=()=>snapshot&&now()>=snapshot.downloadedAt&&now()-snapshot.downloadedAt<maxAgeMs;
  const result=source=>({snapshot,source,error:lastError,cacheWarning,status:snapshot?(fresh()?'ready':'stale'):'unavailable'});
- return async function getSnapshot(){
+ async function loadDisk(){
+  diskPending??=cachedSnapshot(file).then(cached=>{snapshot??=cached;}).catch(err=>{
+   if(err.code!=='ENOENT')cacheWarning='The saved Spellbook snapshot could not be read.';
+  }).finally(()=>{diskPending=null;});
+  await diskPending;
+ }
+ return async function getSnapshot({localOnly=false}={}){
+  if(localOnly){
+   if(snapshot)return result('memory');
+   await loadDisk();
+   return result(snapshot?'disk':null);
+  }
   if(pending)return pending;
   if(fresh()||now()<retryAt)return result(snapshot?'memory':null);
   pending=(async()=>{
    if(!snapshot){
-    try{snapshot=await cachedSnapshot(file);}
-    catch(err){if(err.code!=='ENOENT')cacheWarning='The saved Spellbook snapshot could not be read.';}
+    await loadDisk();
     if(fresh())return result('disk');
    }
    try{

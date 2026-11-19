@@ -307,6 +307,9 @@ test('snapshot is streamed, cached once, reused after restart, and retained duri
   };
   const options={file,fetcher,minGapMs:0,now:()=>now,maxAgeMs:1000};
   const store=createSpellbookSnapshotStore(options);
+  const absent=await store({localOnly:true});
+  assert.equal(absent.status,'unavailable');
+  assert.equal(calls,0);
   const [first,parallel]=await Promise.all([store(),store()]);
   assert.equal(first.source,'download');
   assert.equal(parallel.snapshot,first.snapshot);
@@ -314,8 +317,9 @@ test('snapshot is streamed, cached once, reused after restart, and retained duri
   assert.deepEqual([...await readFile(file)].slice(0,2),[31,139]);
   assert.equal((await store()).source,'memory');
   const restarted=createSpellbookSnapshotStore(options);
-  const disk=await restarted();
+  const [disk,parallelDisk]=await Promise.all([restarted({localOnly:true}),restarted({localOnly:true})]);
   assert.equal(disk.source,'disk');
+  assert.equal(disk.snapshot,parallelDisk.snapshot);
   assert.equal(disk.snapshot.variants.length,2);
   assert.equal(calls,1);
   now+=2000;

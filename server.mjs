@@ -94,7 +94,11 @@ const server=http.createServer(async(req,res)=>{
    if(req.method==='GET'&&url.pathname==='/api/architect/status'){let status;try{status=await architect.status();}catch(e){status={strictPlanOnly:true,paidFallback:false,enabled:false,error:safePlanError(e),models:[],history:[]};}return json(res,{...status,csrf:architectCSRF});}
    if(req.method!=='POST')throw Error('Unsupported Architect method.');const p=await body(req);
    if(url.pathname==='/api/architect/request'){const x=await architectInputs(p);return json(res,architectRequest(p,x.cards,x.variants,x.research));}
-   if(url.pathname==='/api/architect/import'){const x=await architectInputs(p);return json(res,validateArchitectResult(p,p.result,x.cards,x.variants));}
+   if(url.pathname==='/api/architect/import'){
+    const x=await architectInputs(p),optimizeBudget=p.mode==='builder'&&p.optimizeBudget===true;
+    const snapshot=optimizeBudget?(await getSpellbookSnapshot({localOnly:true})).snapshot:null;
+    return json(res,validateArchitectResult(p,p.result,x.cards,x.variants,{optimizeBudget,snapshot}));
+   }
    if(url.pathname==='/api/architect/simulate'){
     const x=await architectInputs(p);
     const feed=await getSpellbookSnapshot();
@@ -116,7 +120,16 @@ const server=http.createServer(async(req,res)=>{
     if(url.pathname==='/api/architect/configure'){await architect.configure(p);return json(res,await architect.status());}
     if(url.pathname==='/api/architect/cancel'){architect.cancel();return json(res,{cancelled:true});}
     if(url.pathname==='/api/architect/disconnect'){await architect.disconnect();return json(res,await architect.status());}
-    if(url.pathname==='/api/architect/run'){const x=await architectInputs(p),request=architectRequest(p,x.cards,x.variants,x.research);res.on('close',()=>{if(!res.writableEnded)architect.cancel();});return json(res,await architect.run({prompt:request.prompt,maxRepairs:p.mode==='builder'?0:2,validate:raw=>validateArchitectResult(p,raw,x.cards,x.variants)}));}
+    if(url.pathname==='/api/architect/run'){
+     const x=await architectInputs(p),request=architectRequest(p,x.cards,x.variants,x.research);
+     const optimizeBudget=p.mode==='builder'&&!p.revisionRequest&&!p.revisionDeck;
+     res.on('close',()=>{if(!res.writableEnded)architect.cancel();});
+     return json(res,await architect.run({prompt:request.prompt,maxRepairs:p.mode==='builder'?0:2,
+      validate:async raw=>{
+       const snapshot=optimizeBudget?(await getSpellbookSnapshot({localOnly:true})).snapshot:null;
+       return validateArchitectResult(p,raw,x.cards,x.variants,{optimizeBudget,snapshot});
+      }}));
+    }
    }catch(e){const safe=safePlanError(e);return json(res,{error:safe.message,code:safe.code},400);}
    throw Error('Unknown Architect operation.');
   }

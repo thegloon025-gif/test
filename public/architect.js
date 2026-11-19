@@ -19,6 +19,7 @@ panel.innerHTML = `<h2>Generative AI Architect</h2>
 <button id="ai-run" type="button" class="primary" disabled>Generate with AI Architect</button>
 <button id="ai-cancel" type="button">Cancel AI job</button>
 <p id="ai-message" role="status"></p><div id="ai-bracket-results" class="architect-actions"></div>
+<section id="ai-budget-optimization" class="discovery-box" aria-label="Budget optimization" hidden></section>
 <details id="ai-connection"><summary>Connect ChatGPT and review usage settings</summary>
 <p>Connected generation uses eligible included ChatGPT plan allowance. Each bracket is a separate request.</p>
 <label><input id="ai-authorize" type="checkbox"> I authorize eligible included ChatGPT-plan use.</label>
@@ -38,6 +39,7 @@ panel.innerHTML = `<h2>Generative AI Architect</h2>
 <button id="ai-copy" type="button">Copy AI deckbuilding request</button>
 <label>Manual prompt<textarea id="ai-prompt" rows="5" readonly></textarea></label>
 <label>Decklist or Architect result<textarea id="ai-result" rows="8"></textarea></label>
+<label><input id="ai-optimize-import" type="checkbox"> Look for upgrades within the budget after validating this list</label>
 <button id="ai-import" type="button">Validate imported deck or result</button>
 </details>
 <details id="ai-advanced"><summary>Advanced Architect options</summary>
@@ -265,6 +267,64 @@ function renderBudgetReview(x) {
   target.append(d);
 }
 
+function renderBudgetOptimization(report) {
+  const root = $("ai-budget-optimization");
+  root.replaceChildren();
+  root.hidden = !report;
+  if (!report) return;
+
+  const currency = new Intl.NumberFormat("en", { style: "currency", currency: "EUR" });
+  const euros = value => currency.format(value);
+  const heading = document.createElement("h3");
+  heading.textContent = "Budget optimization";
+  const totals = document.createElement("dl");
+  totals.className = "architect-budget-totals";
+  for (const [label, amount] of [
+    ["Budget ceiling", report.ceilingEUR],
+    ["Final estimated price", report.finalEUR],
+    ["Remaining budget", report.remainingEUR],
+  ]) {
+    const group = document.createElement("div");
+    const term = document.createElement("dt"), value = document.createElement("dd");
+    term.textContent = label;
+    value.textContent = euros(amount);
+    group.append(term, value);
+    totals.append(group);
+  }
+  const summary = document.createElement("p");
+  summary.textContent = `Initial deck ${euros(report.initialEUR)}. ${report.utilizationPercent}% of the ceiling used. ` +
+    `The ${report.targetPercent.join("–")}% range applies when upgrades improve the deck. ${report.stopReason}`;
+  root.append(heading, totals, summary);
+
+  const accepted = document.createElement("h4");
+  accepted.textContent = `Upgrades accepted (${report.accepted.length})`;
+  root.append(accepted);
+  const describe = row => `${row.cuts.join(" + ")} → ${row.adds.join(" + ")}. ${row.reason}`;
+  if (report.accepted.length) {
+    const list = document.createElement("ol");
+    for (const row of report.accepted) {
+      const entry = document.createElement("li");
+      entry.textContent = `${describe(row)} Updated deck ${euros(row.priceEUR)}.`;
+      list.append(entry);
+    }
+    root.append(list);
+  }
+
+  const details = document.createElement("details");
+  const caption = document.createElement("summary");
+  caption.textContent = `Upgrades considered (${report.considered.length})`;
+  details.append(caption);
+  const list = document.createElement("ul");
+  for (const row of [...report.considered].sort((a, b) => a.round - b.round || a.status.localeCompare(b.status))) {
+    const entry = document.createElement("li");
+    const delta = `${row.changeEUR > 0 ? "+" : ""}${euros(row.changeEUR)}`;
+    entry.textContent = `Pass ${row.round} · ${row.status} · ${delta} · ${describe(row)}`;
+    list.append(entry);
+  }
+  details.append(list);
+  root.append(details);
+}
+
 function show(x) {
   validated = x.valid ? x : null;
   $("ai-review").disabled = !x.valid || x.mode !== "upgrader";
@@ -288,6 +348,7 @@ function show(x) {
       ].join("\n")
     : "";
   renderBudgetReview(x);
+  renderBudgetOptimization(x.budgetOptimization);
   renderManaPolish(x, review?.manaPolish);
   $("ai-evidence").textContent = JSON.stringify(x, null, 2);
 }
@@ -460,7 +521,9 @@ $("ai-run").onclick = () => action(async () => {
   const errors=[];
   try {
     for(const bracket of brackets){
-      $("ai-message").textContent="Generating Bracket "+bracket+" with ChatGPT…";
+      $("ai-message").textContent=p.mode==="builder"&&!p.revisionRequest
+        ? "Generating Bracket "+bracket+" with ChatGPT and checking for upgrades…"
+        : "Preparing the Architect result with ChatGPT…";
       const settings={...p,bracket};
       let x;
       try {x=await post("run",settings);}
@@ -508,7 +571,7 @@ $("ai-import").onclick = () =>
     const rev = revision;
     rawResult = $("ai-result").value;
     const settings=params();
-    const x = await post("import", { ...settings, result: rawResult });
+    const x = await post("import", { ...settings, result: rawResult, optimizeBudget: $("ai-optimize-import").checked });
     if (rev === revision) {
       if(x.valid&&x.mode==="builder")await showBuilt(x,settings);
       else show(x);
@@ -544,13 +607,14 @@ $("ai-download").onclick = () =>
 document.addEventListener("input", (event) => {
   if (
     event.target.matches("input,textarea,select") &&
-    !["ai-prompt", "ai-evidence", "ai-trials", "ai-seed", "ai-comparison", "ai-builder-bracket"].includes(event.target.id)
+    !["ai-prompt", "ai-evidence", "ai-trials", "ai-seed", "ai-comparison", "ai-builder-bracket", "ai-optimize-import"].includes(event.target.id)
   ) {
     revision++;
     validated = null;
     labResult = null;
     bracketResults.clear();
     $("ai-bracket-results").replaceChildren();
+    renderBudgetOptimization(null);
     $("ai-lab-results").replaceChildren();
     $("ai-lab-status").textContent="";
     $("ai-simulate").disabled=true;

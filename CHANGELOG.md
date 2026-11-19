@@ -1,3 +1,9 @@
+## Unreleased Architect budget optimization
+
+- Reinvest spare budget after a connected Architect draft passes validation. Evaluate land, ramp, tutor, protection, draw, interaction and win-route upgrades using the selected catalog and cached combo evidence.
+- Retain supported deck functions and known combo packages. Revalidate the 100-card list, bracket restrictions and exact-printing total after each accepted pass.
+- Show the ceiling, starting and final estimates, remaining budget, and why candidates were accepted or rejected. Manual import can opt into the same review.
+
 ## Unreleased Architect-first deckbuilding
 
 - Put Architect generation and TXT export in the main workflow. Move local generator controls and results under Advanced.

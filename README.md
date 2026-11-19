@@ -2,6 +2,8 @@
 
 Choose a commander, budget and Bracket 3, Bracket 4 or both. Set an optional playstyle, then generate with Architect. Connected generation uses one ChatGPT request per bracket. The manual prompt and import flow also validates complete 100-card lists. The local builder is available under Advanced.
 
+Architect validates the first complete deck, then searches the local catalog for upgrades when there is substantial budget left. It checks mana, ramp, tutors, card advantage, protection, interaction and supported win routes while preserving the deck’s engines and known combos. The **Budget optimization** report shows the starting and final estimates, remaining budget, and the reasons for accepted and rejected candidates. The spending range of 85–100% is a flexible target when meaningful upgrades are available. You can also enable the same review for an imported draft.
+
 Validated decks run 1,000 seeded goldfish trials by default. Choose 100 or 500 for a faster run. View lands, mana, commander deployment, draw and interaction access, and published Spellbook combo availability. Paste a second marked Commander list to compare on the same seed and trial count. With both brackets generated, the other result is the default comparison.
 
 Review local swap suggestions and their paired simulation results. An AI revision can be requested explicitly, or enabled as one extra request after the first deck is simulated. Review and validate a candidate before exporting the TXT. Costs use the selected price source and apply to the whole deck.
