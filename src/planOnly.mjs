@@ -3,11 +3,12 @@ import { randomUUID } from "node:crypto";
 import { readFile, mkdir, writeFile, rename } from "node:fs/promises";
 import path from "node:path";
 import { USAGE_URL,chatGPTAuthorizationUrl,openChatGPTBrowser } from "./chatgptSdk.mjs";
+const usageLimitCode = "subscription_sharing_usage_limit_exceeded";
 export const QUOTA_MESSAGE =
-  "ChatGPT usage limit reached. AI deckbuilding has stopped. No paid API fallback was attempted. You can continue using CommanderOracle's local features or try again after your usage resets.";
+  "ChatGPT usage limit reached. After your reset, choose Resume after ChatGPT usage reset in the Architect connection panel.";
 const fail = (code, message) => Object.assign(new Error(message), { code });
 const known = new Set([
-  "subscription_sharing_usage_limit_exceeded",
+  usageLimitCode,
   "subscription_sharing_user_not_eligible",
   "subscription_sharing_usage_unavailable",
   "sharing_not_enabled",
@@ -47,7 +48,7 @@ export function safePlanError(error) {
   return {
     code,
     message:
-      code === "subscription_sharing_usage_limit_exceeded"
+      code === usageLimitCode
         ? QUOTA_MESSAGE
         : code === "revocation_failed"
           ? "Local credentials were removed; remote revocation is unconfirmed. Remove CommanderOracle in ChatGPT Settings. No paid API fallback was attempted."
@@ -60,7 +61,7 @@ export function safePlanError(error) {
               : code === "confirmation_required"
                 ? "Confirm ChatGPT credit/app-limit settings and explicit plan-use authorization before enabling AI."
                 : code === "daily_limit"
-                  ? "Local daily request limit reached. No paid API fallback was attempted."
+                  ? "Architect’s local daily request limit reached. The local count resets at midnight UTC."
                   : code === "cancelled"
                     ? "Cancelled by user. Original deck preserved."
                     : code === "timed_out"
@@ -160,6 +161,7 @@ export function createPlanOnly({
     await save();
   }
   const used = () => (counter.day === day() ? counter.count : 0);
+  const todayStop = () => stopped?.day === day() ? stopped : null;
   async function client() {
     sdk ??= await sdkFactory({openBrowser: url => {
       const attempt = signInAttempt;
@@ -200,11 +202,11 @@ export function createPlanOnly({
   }
   async function gate() {
     await load();
+    const stop = todayStop();
+    if (stop) throw fail(stop.code, "Plan requests stopped.");
     if (!enabled) throw fail("disabled", "AI disabled.");
     if (!confirmed || !authorized)
       throw fail("confirmation_required", "Confirmation missing.");
-    if (stopped?.day === day())
-      throw fail(stopped.code, "Plan requests stopped.");
     if (used() >= limit) throw fail("daily_limit", "Local limit reached.");
     await fresh();
     if (!models.some((m) => m.slug === selected))
@@ -228,7 +230,7 @@ export function createPlanOnly({
         dailyLimit: limit,
         requestsToday: used(),
         resetBasis: "UTC calendar day",
-        stopped: stopped?.day === day() ? stopped : null,
+        stopped: todayStop(),
         usageURL: USAGE_URL,
         history: history.slice(-100),
       };
@@ -263,6 +265,7 @@ export function createPlanOnly({
       }
     },
     async discover() {
+      await load();
       if (active || signInAttempt) throw fail("busy", "Wait for current job.");
       await fresh();
       try {
@@ -304,16 +307,30 @@ export function createPlanOnly({
         p.dailyLimit > 10
       )
         throw fail("invalid_request", "Daily limit must be 1–10.");
+      const stop = todayStop();
+      const resuming = stop?.code === usageLimitCode && p.usageResetConfirmed === true;
+      if (stop && !resuming) throw fail(stop.code, "Plan requests stopped.");
+      if (resuming && used() >= p.dailyLimit)
+        throw fail("daily_limit", "Local limit reached.");
       const s = await fresh();
       if (!models.some((m) => m.slug === p.model))
         throw fail("model_not_found", "Model not discovered.");
+      const previousStop = stopped, previousLimit = limit;
       limit = p.dailyLimit;
+      if (resuming) stopped = null;
+      try {
+        if (resuming) await record("success", null, "usage-resume");
+        else await save();
+      } catch (error) {
+        stopped = previousStop;
+        limit = previousLimit;
+        throw error;
+      }
       selected = p.model;
       profile = s.profileId;
       confirmed = true;
       authorized = true;
       enabled = true;
-      await save();
     },
     cancel() {
       active?.abort();

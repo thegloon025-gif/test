@@ -1,3 +1,7 @@
+## Unreleased Architect usage resume
+
+- Resume the connected plan after a ChatGPT quota reset with explicit confirmation in the connection panel. Keep the daily local attempt count and display local exhaustion separately from the provider stop.
+
 ## Unreleased Architect revision assessment
 
 - Match shared cards across paired shuffles when comparing an optional revision with its original deck.

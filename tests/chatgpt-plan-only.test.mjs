@@ -127,7 +127,52 @@ for (const code of [
     assert.ok(!(await readFile(f.file, "utf8")).includes("secret"));
     if (code === "subscription_sharing_usage_limit_exceeded")
       assert.equal(safePlanError({ code }).message, QUOTA_MESSAGE);
+    else
+      await assert.rejects(f.c.configure({...config,usageResetConfirmed:true}),{code});
   });
+test("an explicit provider usage resume clears the saved quota stop and keeps the daily count",async()=>{
+ const quotaCode="subscription_sharing_usage_limit_exceeded";
+ let providerLimited=true;
+ const f=await fixture({
+  async streamResponse(p){
+   f.calls.push(p);
+   if(providerLimited)throw Object.assign(Error("quota"),{code:quotaCode});
+   return {text:'{"ok":true}'};
+  },
+ });
+ const job={prompt:"x",maxRepairs:0,validate:()=>({valid:true})};
+ await enable(f);
+ await assert.rejects(f.c.run(job),{code:quotaCode});
+ const restarted=createPlanOnly({sdkFactory:f.factory,historyFile:f.file});
+ await restarted.discover();
+ assert.equal((await restarted.status()).stopped.code,quotaCode);
+ await assert.rejects(restarted.configure(config),{code:quotaCode});
+ await assert.rejects(restarted.configure({...config,usageResetConfirmed:true,creditsSettingReviewed:false}),
+  {code:"confirmation_required"});
+ await assert.rejects(restarted.configure({...config,usageResetConfirmed:true,dailyLimit:1}),{code:"daily_limit"});
+ assert.equal((await restarted.status()).stopped.code,quotaCode);
+ assert.equal(f.calls.length,1);
+
+ providerLimited=false;
+ await restarted.configure({...config,usageResetConfirmed:true});
+ const resumed=await restarted.status();
+ assert.equal(resumed.enabled,true);
+ assert.equal(resumed.stopped,null);
+ assert.equal(resumed.requestsToday,1);
+ assert.equal(f.calls.length,1);
+ const saved=JSON.parse(await readFile(f.file,"utf8"));
+ assert.equal(saved.stopped,null);
+ assert.equal(saved.counter.count,1);
+ assert.equal(saved.history.at(-1).operation,"usage-resume");
+ assert.equal((await restarted.run(job)).valid,true);
+
+ providerLimited=true;
+ await assert.rejects(restarted.run(job),{code:quotaCode});
+ assert.equal((await restarted.status()).stopped.code,quotaCode);
+ assert.equal((await restarted.status()).requestsToday,3);
+ await assert.rejects(restarted.configure({...config,usageResetConfirmed:true}),{code:"daily_limit"});
+ assert.equal(f.calls.length,3);
+});
 test("missing direct scope and unsupported discovered model never infer", async () => {
   const f = await fixture();
   f.state.sharing = false;

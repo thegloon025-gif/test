@@ -7,6 +7,7 @@ let csrf = null,
   validated = null,
   rawResult = null,
   revision = 0, running = false, canRequest = false, labResult = null;
+let quotaStopped = false, restoredDailyLimit = false;
 const bracketResults = new Map();
 const panel = document.createElement("section");
 panel.className = "panel";
@@ -76,10 +77,22 @@ async function status() {
   const r = await fetch("/api/architect/status"),
     x = await r.json();
   csrf = x.csrf;
+  const providerLimited = x.stopped?.code === "subscription_sharing_usage_limit_exceeded";
+  const localLimited = x.requestsToday >= x.dailyLimit;
+  if (providerLimited && !quotaStopped) $("ai-connection").open = true;
+  quotaStopped = providerLimited;
+  const daily = $("ai-daily");
+  if (!restoredDailyLimit && Number.isInteger(x.dailyLimit)) {
+    if (daily.value === daily.defaultValue) daily.value = String(x.dailyLimit);
+    restoredDailyLimit = true;
+  }
+  $("ai-enable").textContent = quotaStopped ? "Resume after ChatGPT usage reset" : "Confirm and enable connected AI";
+  const stopNotice = providerLimited ? "ChatGPT reported a usage limit. " : x.stopped ? "Stopped (" + x.stopped.code + "). " : "";
+  const localNotice = localLimited ? "Architect’s local daily limit is reached. " : "";
   $("ai-status").textContent =
-    `Authentication: ${x.auth?.status || "unavailable"}; direct plan permission: ${x.auth?.sharing ? "granted" : "not available"}. Model: ${x.selectedModel || "none"}. AI ${x.enabled ? "enabled" : "disabled"}. ${x.requestsToday ?? 0}/${x.dailyLimit ?? 3} local requests today (UTC). Account usage availability: unknown. ${x.stopped ? "Stopped: " + x.stopped.code + ". " : ""}${x.error?.message || ""}`;
+    `Authentication: ${x.auth?.status || "unavailable"}; direct plan permission: ${x.auth?.sharing ? "granted" : "not available"}. Model: ${x.selectedModel || "none"}. AI ${x.enabled ? "enabled" : "disabled"}. ${x.requestsToday ?? 0}/${x.dailyLimit ?? 3} local requests today (UTC). ${stopNotice}${localNotice}Account usage availability: unknown. ${x.error?.message || ""}`;
   $("ai-run").disabled =
-    running || !x.enabled ||
+    running || !x.enabled || !!x.stopped || localLimited ||
     x.active ||
     x.connecting ||
     !$("ai-authorize").checked ||
@@ -481,17 +494,20 @@ $("ai-models").onclick = () =>
     );
   });
 $("ai-enable").onclick = () =>
-  action(() =>
-    post("configure", {
+  action(async () => {
+    const resuming = quotaStopped;
+    await post("configure", {
       enabled: true,
+      usageResetConfirmed: resuming,
       directUseAuthorized: $("ai-authorize").checked,
       accountSettingsConfirmed: $("ai-settings").checked,
       creditsSettingReviewed: $("ai-credits").checked,
       weeklyLimitPercent: Number($("ai-weekly").value),
       dailyLimit: Number($("ai-daily").value),
       model: $("ai-model").value,
-    }),
-  );
+    });
+    if (resuming) $("ai-message").textContent = "Connected AI resumed.";
+  });
 $("ai-disable").onclick = () =>
   action(() => post("configure", { enabled: false }));
 $("ai-disconnect").onclick = () => action(() => post("disconnect", {}));

@@ -50,12 +50,14 @@ AI is disabled until sign-in, verified direct permission, explicit financial pre
 - Initial call plus **at most two** locally validated repairs, never transport/quota retries.
 - Configurable daily inference-attempt maximum **1–10**, default **3**, UTC calendar day. Repairs count. A separate persistent counter cannot be reset by trimming history, disconnecting or reauthorizing.
 - Bounded verified prompt (46 KB) and request/repair context (64 KB), output 32,000 characters, 90-second application deadline; cancel aborts the request. The pinned SDK does **not expose a server-side max-output-token option**, so character/time bounds are not exact token/reasoning-consumption caps and cannot replace account limits. In-flight generation may precede local cancellation.
-- Financial, model, authorization and network errors stop the job, disable inference and retain a same-UTC-day stop latch. No automatic retry, re-login, model/provider switch or credit action. After a later day/reset, explicit confirmation/enablement is still required; no remaining allowance is asserted.
+- Financial, model, authorization and network errors stop the job, disable inference and retain a same-UTC-day stop. After a ChatGPT quota reset, choose **Resume after ChatGPT usage reset** in the connection panel. Resume verifies direct plan permission and the selected model, preserves the local daily count, and re-enables the next user-initiated request. Other saved stops expire the following UTC day and still require enablement.
 - Up to 500 local activity records with timestamps, operation/state/code; no prompts, cardlists, credentials, account identity or responses. `data/chatgpt-architect/usage.json` is a non-secret atomic local guard ledger. A corrupted/unreadable ledger blocks connected jobs rather than resetting limits. Manual routes remain independent.
 
 On `subscription_sharing_usage_limit_exceeded`, the app says:
 
-> ChatGPT usage limit reached. AI deckbuilding has stopped. No paid API fallback was attempted. You can continue using CommanderOracle's local features or try again after your usage resets.
+> ChatGPT usage limit reached. After your reset, choose Resume after ChatGPT usage reset in the Architect connection panel.
+
+The local daily counter resets at midnight UTC. A reset on the ChatGPT account affects the provider's limit. The connection panel shows the local count separately.
 
 `subscription_sharing_user_not_eligible`, `subscription_sharing_usage_unavailable`, missing direct permission, unsupported model/route, and session failures likewise stop. No free-allowance estimate is invented. The SDK may perform its documented bounded credential refresh/verification; it does not switch billing paths or retry quota responses.
 
