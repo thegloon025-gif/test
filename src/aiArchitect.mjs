@@ -18,7 +18,7 @@ import {
 } from "./cards.mjs";
 import { normalizedName } from "./combos.mjs";
 import { upgradeDeck, parseUpgradeDeck } from "./deckUpgrader.mjs";
-import { architectDeckText, investArchitectBudget } from "./architectInvestment.mjs";
+import { architectDeckText, investArchitectBudget, reviewArchitectCards } from "./architectInvestment.mjs";
 function valuedCatalog(p, catalog) {
   if (p.mode === "builder" && p.basicLandsOwned === false) {
     if (p.pricingMode && p.pricingMode !== "scryfall_eur")
@@ -197,6 +197,9 @@ export function architectRequest(p, catalog, variants = [], research = {}) {
         : "full cost of newly acquired cards; cuts are NOT resale cash",
     bracket: p.bracket,
     basicLandsOwned: p.basicLandsOwned !== false,
+    ...(p.mode === "builder" ? {
+      cardReview: "Check every card against this commander and the other 99 cards. Verify colored and special mana, additional casting costs, and resources for the abilities you intend to use. Count sources of required colors, creatures, tokens, and counters using the actual printed text. Evaluate net card advantage after discard or cards given to opponents. Keep situational cards with a specific deck job and enough support. Replace unreliable cards when a legal, affordable alternative strengthens mana, access, interaction, protection, combo assembly or win conversion. Preserve supported combo packages and their prerequisites.",
+    } : {}),
     ...(p.mode === "builder" && Number(p.bracket) === 5 ? {
       competitivePlan: "Bracket 5 cEDH. Build for a competitive multiplayer field. Favor early untapped mana, cheap interaction on the stack, resilient card access, reliable tutors, and compact win routes with the pieces and resources to execute them. Use the commander where it contributes to that plan. Choose affordable functional substitutes for premium cards outside the budget, and describe any speed or resilience trade-offs."
     } : {}),
@@ -333,13 +336,12 @@ export function validateArchitectResult(p, raw, catalog, variants = [], {optimiz
       let review=checkDeck(result.deck);
       if (review.stage !== "review" || !review.canExport)
         return issues(review.errors || ["Unresolved commander"]);
-      if (
-        review.original.value >
-        Math.round((p.budget + (p.budgetTolerance ?? 0)) * 100) / 100
-      )
-        return issues([
-          `Selected-printing value €${review.original.value} exceeds €${p.budget + (p.budgetTolerance ?? 0)} ceiling; preserve coherent engines rather than random cheap replacements.`,
-        ]);
+      const ceiling=Math.round((p.budget+(p.budgetTolerance??0))*100)/100;
+      const optimize=optimizeBudget&&!p.revisionRequest&&!p.revisionDeck;
+      const budgetError=()=>issues([
+        `Selected-printing value €${review.original.value} exceeds €${ceiling} ceiling; preserve coherent engines rather than random cheap replacements.`,
+      ]);
+      if(!optimize&&review.original.value>ceiling)return budgetError();
       const parsed = parseUpgradeDeck(result.deck, catalog, {
           commanderId: String(oracleId(base.commander)),
         });
@@ -351,9 +353,8 @@ export function validateArchitectResult(p, raw, catalog, variants = [], {optimiz
         return issues([
           "Supported mana/payment feasibility could not be established; repair colored/true-C channels and preserve commander follow-up costs. Unmodeled sources are unknown, not free mana.",
         ]);
-      let budgetOptimization=null;
-      if(optimizeBudget&&!p.revisionRequest&&!p.revisionDeck){
-        const ceiling=Math.round((p.budget+(p.budgetTolerance??0))*100)/100;
+      let budgetOptimization=null,cardQuality;
+      if(optimize){
         const investment=investArchitectBudget({commander:parsed.commander,cards:parsed.cards,catalog,variants,snapshot,
           bracket:Number(p.bracket),ceiling,strategy:result.strategy,exclusions:p.excludedStrategies,preferences:p.preferences,verify:(cards,price)=>{
             const checked=checkDeck(architectDeckText(parsed.commander,cards));
@@ -368,7 +369,10 @@ export function validateArchitectResult(p, raw, catalog, variants = [], {optimiz
           }});
         parsed.cards=investment.cards;
         budgetOptimization=investment.report;
+        cardQuality=investment.quality;
       }
+      if(review.original.value>ceiling)return budgetError();
+      cardQuality??=reviewArchitectCards({...parsed,variants,snapshot});
       const functionalReview = safeFunctionalReview({
         commander: parsed.commander,
         cards: parsed.cards,
@@ -393,6 +397,7 @@ export function validateArchitectResult(p, raw, catalog, variants = [], {optimiz
           : null;
       return {
         strategy,
+        cardQuality,
         functionalReview,
         budgetOpportunity,
         ...(budgetOptimization?{budgetOptimization}:{}),
@@ -404,7 +409,7 @@ export function validateArchitectResult(p, raw, catalog, variants = [], {optimiz
         deck: review.original.deck,
         price: review.original.value,
         budget: p.budget,
-        ceiling: p.budget + (p.budgetTolerance ?? 0),
+        ceiling,
         audit: review.original.audit,
         analysis: review.analysis,
         warning:

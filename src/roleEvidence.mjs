@@ -26,13 +26,19 @@ export function roleEvidence(c){
  if(draw==='cantrip-or-conditional')reason.push('card text does not establish positive card advantage');
  // Removal distinguishes broad unconditional targets from narrow board states.
  const counter=/\bcounter (?:target|all|each)\b/i.test(t);
- const broad=/\b(?:exile|destroy) target (?:nonland )?(?:permanent|creature(?! with\b| that\b)|planeswalker)\b|return target (?:nonland )?permanent to its owner's hand/i.test(t);
- const narrower=/\b(?:exile|destroy) target (?:artifact|enchantment|attacking creature|tapped creature|creature with|noncreature)\b/i.test(t);
- const mass=/\b(?:destroy|exile) (?:all|each) creatures\b/i.test(t);
- const counterBroad=/\bcounter target spell\b/i.test(t)&&!/\bunless\b/i.test(t);
- let removal=mass||broad||counterBroad?'broad':narrower||counter?'conditional':'none';
+ const targets=[...t.matchAll(/\b(?:exile|destroy) (?:up to one )?target ([^.,;\n]+)/gi)].map(([,target])=>target);
+ const opponentTargets=targets.filter(target=>!/^(?:\w+ )?(?:creature|permanent|planeswalker|artifact|enchantment)(?: card)? (?:that )?you (?:own|control)\b|\bcard from your graveyard\b/i.test(target));
+ const temporarilyExiled=/\bexile target [\s\S]*?\b(?:return (?:it|that card|the exiled card) to the battlefield|until (?:this [^.\n]* leaves|the next end step)|(?:its|that card's) owner may (?:play|cast) it)\b/i.test(t);
+ const broad=opponentTargets.some(target=>/^(?:nonland )?(?:permanent|creature|planeswalker)\b/i.test(target)&&
+  !temporarilyExiled&&!/\b(?:with|that (?:attacked|blocked|attacks|blocks|dealt|entered|has|is|was)|that['’]s|if|unless)\b/i.test(target))||
+  /return target (?:nonland )?permanent to its owner's hand/i.test(t);
+ const narrower=opponentTargets.some(target=>/\b(?:artifact|enchantment|planeswalker|creature|permanent|noncreature)\b/i.test(target));
+ const mass=/\b(?:destroy|exile) (?:all creatures|each creature)(?=[.\n]|$)/i.test(t);
+ const limitedMass=!mass&&/\b(?:destroy|exile) (?:all creatures|each creature)\b/i.test(t);
+ const counterBroad=/\bcounter target spell(?=[.\n]|$)/i.test(t);
+ let removal=mass||broad||counterBroad?'broad':narrower||limitedMass||counter?'conditional':'none';
  if(removal==='conditional')reason.push('answer has a targeting or payment restriction');
- const protection=/(?:target|equipped|enchanted|creatures you control|permanents you control)[^.\n]{0,140}(?:hexproof|indestructible|protection from|phases? out|shroud)/i.test(t);
+ const protection=/(?:(?:target|enchanted)(?! land\b)|equipped|creatures you control|permanents you control)[^.\n]{0,140}(?:hexproof|indestructible|protection from|phases? out|shroud)/i.test(t);
  const selfOnly=/\b(?:this creature|~|itself) (?:has|gains|gets)\b/i.test(t)&&!protection;
  const shield=protection&&(instant||spellIs(c,'Equipment')||cmc<=4)?'dedicated':counterBroad&&instant?'counterspell':'none';
  if(selfOnly)reason.push('self-protection is not commander shielding');

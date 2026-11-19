@@ -19,6 +19,7 @@ panel.innerHTML = `<h2>Generative AI Architect</h2>
 <button id="ai-run" type="button" class="primary" disabled>Generate with AI Architect</button>
 <button id="ai-cancel" type="button">Cancel AI job</button>
 <p id="ai-message" role="status"></p><div id="ai-bracket-results" class="architect-actions"></div>
+<section id="ai-card-review" class="discovery-box" aria-label="Card quality review" hidden></section>
 <section id="ai-budget-optimization" class="discovery-box" aria-label="Budget optimization" hidden></section>
 <details id="ai-connection"><summary>Connect ChatGPT and review usage settings</summary>
 <p>Connected generation uses eligible included ChatGPT plan allowance. Each bracket is a separate request.</p>
@@ -267,6 +268,53 @@ function renderBudgetReview(x) {
   target.append(d);
 }
 
+function renderCardReview(report) {
+  const root = $("ai-card-review");
+  root.replaceChildren();
+  root.hidden = !report;
+  if (!report) return;
+
+  const labels = {
+    illegal: "Illegal",
+    uncastable: "Casting requirement unsupported",
+    "weak-synergy": "Weak fit",
+    situational: "Situational or unverified",
+    strong: "Supported role",
+  };
+  const heading = document.createElement("h3");
+  heading.textContent = "Card quality review";
+  const summary = document.createElement("p");
+  const findings = report.counts.illegal + report.counts.uncastable + report.counts["weak-synergy"];
+  summary.textContent = `Reviewed ${report.checked} cards. ${report.counts.strong} with supported roles, ` +
+    `${report.counts.situational} situational or unverified, ${findings} unresolved findings.` +
+    (report.corrected ? ` Resolved ${report.corrected} draft findings.` : "");
+  root.append(heading, summary);
+
+  function addEntries(parent, title, entries) {
+    const details = document.createElement("details");
+    const caption = document.createElement("summary");
+    caption.textContent = title;
+    const list = document.createElement("ul");
+    for (const row of entries) {
+      const item = document.createElement("li");
+      const name = document.createElement("strong");
+      name.textContent = (row.quantity > 1 ? `${row.quantity} × ` : "") + row.card;
+      const evidence = [...new Set([...row.reasons, ...row.casting, ...row.activation])];
+      const jobs = row.jobs.length ? ` (${row.jobs.join(", ")})` : "";
+      item.append(name, ` · ${labels[row.status]}${jobs}. ${evidence.join(" ")}`);
+      list.append(item);
+    }
+    details.append(caption, list);
+    parent.append(details);
+  }
+  if (report.initialFindings?.length)
+    addEntries(root, "Draft findings", report.initialFindings);
+  const order = Object.keys(labels);
+  const entries = report.entries.slice().sort((a,b) =>
+    order.indexOf(a.status)-order.indexOf(b.status) || a.card.localeCompare(b.card));
+  addEntries(root, "Final card-by-card review", entries);
+}
+
 function renderBudgetOptimization(report) {
   const root = $("ai-budget-optimization");
   root.replaceChildren();
@@ -348,6 +396,7 @@ function show(x) {
       ].join("\n")
     : "";
   renderBudgetReview(x);
+  renderCardReview(x.cardQuality);
   renderBudgetOptimization(x.budgetOptimization);
   renderManaPolish(x, review?.manaPolish);
   $("ai-evidence").textContent = JSON.stringify(x, null, 2);
@@ -614,6 +663,7 @@ document.addEventListener("input", (event) => {
     labResult = null;
     bracketResults.clear();
     $("ai-bracket-results").replaceChildren();
+    renderCardReview(null);
     renderBudgetOptimization(null);
     $("ai-lab-results").replaceChildren();
     $("ai-lab-status").textContent="";

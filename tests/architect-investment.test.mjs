@@ -91,7 +91,11 @@ test('budget is enforced on each proposal and ordinary validation and AI revisio
  assert.equal(original.budgetOptimization,undefined);
  assert.equal(revision.budgetOptimization,undefined);
  assert.equal(optimize(params,extras).valid,true);
- assert.equal(optimize({...params,budget:99},extras).valid,false);
+ const repriced=optimize({...params,budget:99},extras);
+ assert.equal(repriced.valid,true);
+ assert.ok(repriced.price<=99);
+ assert.equal(repriced.audit.count,100);
+ assert.equal(optimize({...params,budget:10},extras).valid,false);
 });
 
 test('headroom remains available when the catalog offers no supported improvement',()=>{

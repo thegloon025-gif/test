@@ -1,3 +1,9 @@
+## Unreleased Architect card quality review
+
+- Review the entire draft for common printed casting and activation requirements, commander synergy and actual card advantage. Surface supported roles, situational cards and unresolved findings in the Architect result.
+- Use those findings to make affordable replacements even near the budget ceiling. Reconcile each accepted swap with the selected pricing mode, preserve known combo routes and retain the bracket's legality gates.
+- Let optimized drafts recover from an over-budget estimate when a cheaper swap preserves supported functions. Show the draft's issues and the reasons for the swaps.
+
 ## Unreleased cEDH
 
 - Add Bracket 5 generation, analysis and TXT export. Tune the competitive profile for early mana, interaction and compact win routes within the selected budget.
