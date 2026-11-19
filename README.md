@@ -4,6 +4,8 @@ On a fresh install, click **Update database** in **Scryfall catalog** and wait f
 
 Choose a commander, budget and a generation bracket. Set an optional playstyle, then generate with Architect. Connected generation uses one ChatGPT request per bracket. The manual prompt and import flow also validates complete 100-card lists. The local builder is available under Advanced.
 
+Architect can fill one open slot in a fully resolved 99-card draft and make several cheaper substitutions together when a draft exceeds its ceiling. It checks the completed list against the same commander, pricing mode, and bracket before offering an export. To repair an imported draft, enable **Look for upgrades within the budget after validating this list**.
+
 Architect reviews all 100 cards against the deck's mana sources, additional casting costs, activation requirements and strategy. It looks for affordable replacements for unsupported costs and weak roles even when the draft is near its ceiling. **Card quality review** shows the draft findings and a card-by-card breakdown of the final list. Situational cards can stay when the deck supports their role. The local rules cover common printed requirements and report uncertain interactions for review.
 
 When there is substantial budget left, Architect also searches for improvements to mana, ramp, tutors, card advantage, protection, interaction and win routes. It preserves supported engines and known combo packages. **Budget optimization** shows the starting estimate, final estimate, remaining EUR, and the reasons for accepted and rejected swaps. The 85–100% spending range is a flexible target when meaningful upgrades are available. An import shows the card review and can opt into automatic swaps.
@@ -22,7 +24,7 @@ Use the **Bracket 3** and **Bracket 4** buttons above the generated deck to comp
 
 ## Build and research cEDH
 
-Select **Bracket 5 — cEDH** and set the EUR budget you want. Architect prioritizes fast mana, efficient interaction, tutors and compact win routes when the cards fit the ceiling. Bracket 5 supports validation, analysis and TXT export for a single commander. The local builder offers a competitive profile and can use declared Bracket 5 community decks. [Wizards' Commander brackets](https://www.magic.wizards.com/en/formats/commander)
+Select **Bracket 5 — cEDH** and choose a budget range. The choices are €0–€1,000, €1,000–€2,000, €2,000–€3,000, €3,000–€4,000, and **Open budget**. The upper end of a range is its ceiling. Open budget still shows the selected-printing estimate. Architect prioritizes fast mana, efficient interaction, tutors and compact win routes. The local builder also uses the selected range and can use declared Bracket 5 community decks. [Wizards' Commander brackets](https://www.magic.wizards.com/en/formats/commander)
 
 Open the **cEDH rankings** tab for links to EDHTop16 and its tournament results. To show rankings inside CommanderOracle, create a free TopDeck developer key and set `TOPDECK_API_KEY` in your server environment. For PowerShell, run these commands from the app folder. [TopDeck.gg API documentation](https://topdeck.gg/api/docs/)
 

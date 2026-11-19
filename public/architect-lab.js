@@ -37,10 +37,10 @@ function comparison(root,base,other,heading){
  table(root,cols,measures.map(([label,read,key])=>[label,read(base.result),
   ...(other?[read(other.result),key?delta(other.deltas[key]):'—']:[])]));
 }
-function showDeck(root,deck,heading){
+function showDeck(root,deck,heading,open){
  const out=deck.result;
  root.append(item('h4',heading+' · '+out.commander));
- root.append(item('p',eur(deck.price)+(deck.withinBudget?' · within the selected ceiling':'')+
+ root.append(item('p',eur(deck.price)+(!open&&deck.withinBudget?' · within the selected ceiling':'')+
   (deck.bracketIssue?' · exceeds the Bracket 3 Game Changer allowance':'')+' · '+deck.comboCoverage));
  const counts=deck.combos;
  root.append(item('p',counts.twoCard+' two-card lines · '+counts.threeCard+' three-card lines · '+counts.directWins+' direct wins · '+counts.engines+' engines/value · '+counts.delayedWins+' delayed wins · '+deck.independentRoutes+' independent scored routes'));
@@ -65,18 +65,19 @@ function showDeck(root,deck,heading){
 export function renderArchitectLab(root,analysis,choose){
  root.replaceChildren();
  const {original,comparison:other,upgrade}=analysis;
- root.append(item('p',original.result.trials+' seeded goldfish trials per deck · seed '+original.result.seed+' · turn 10 horizon · '+analysis.ceiling.toFixed(2)+' EUR ceiling'));
+ const open=analysis.ceiling===null;
+ root.append(item('p',original.result.trials+' seeded goldfish trials per deck · seed '+original.result.seed+' · turn 10 horizon · '+(open?'Open budget':eur(analysis.ceiling)+' ceiling')));
  root.append(item('p','Commander uses a free first London mulligan, then up to two paid mulligans. Goldfish models own turns, card access and supported payments. Opponents, combat, tutor decisions, most triggers, and combo execution are outside this model.'));
  if(analysis.snapshotStatus==='stale')root.append(item('p','Combo matching used a saved Spellbook snapshot.'));
  if(analysis.snapshotStatus==='unavailable')root.append(item('p','The Spellbook snapshot was unavailable. Only saved variant definitions were checked.'));
- showDeck(root,original,'Original');
- if(other)showDeck(root,other,'Comparison');
+ showDeck(root,original,'Original',open);
+ if(other)showDeck(root,other,'Comparison',open);
  comparison(root,original,other,'Comparison');
  if(analysis.observations.length){
   const list=item('ul');list.append(...analysis.observations.map(text=>item('li',text)));root.append(list);
  }
  if(upgrade){
-  showDeck(root,upgrade,'Suggested revision');
+  showDeck(root,upgrade,'Suggested revision',open);
   root.append(item('p',upgrade.reason+' · full-deck cost change '+(upgrade.priceChange===null?'unavailable':delta(upgrade.priceChange)+' EUR')));
   if(upgrade.swaps.length)table(root,['Cut','Add','Reason','Change in card value','Isolated effect'],
    upgrade.swaps.map(swap=>[swap.cut,swap.add,upgrade.reason,swap.priceChange===null?'Unavailable':delta(swap.priceChange)+' EUR',

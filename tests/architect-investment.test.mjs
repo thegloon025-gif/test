@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {validateArchitectResult} from '../src/aiArchitect.mjs';
+import {architectRequest,validateArchitectResult} from '../src/aiArchitect.mjs';
+import {architectLab} from '../src/architectLab.mjs';
 import {normalizeVariant} from '../src/combos.mjs';
 import {indexDiscoveryCombos} from '../src/discoveryCombos.mjs';
 
@@ -133,4 +134,83 @@ test('Bracket 3 and 4 budget review can complete a published combo and honors ex
  const excluded=optimize({...params,excludedStrategies:'No infinite combos'},[missing],{snapshot});
  assert.equal(excluded.valid,true);
  assert.ok(!excluded.deck.includes(missing.name));
+});
+
+test('Bracket 3 repairs a €522.43 draft under €450 when it takes more than one cheaper substitution',()=>{
+ const priceyRamp={...rock,prices:{eur:44.50}};
+ const priceyDraw={...draw,prices:{eur:45.13}};
+ const cheapRamp={...priceyRamp,id:'Alternate Ramp',name:'Alternate Ramp',prices:{eur:1.25}};
+ const cheapDraw={...priceyDraw,id:'Alternate Draw',name:'Alternate Draw',prices:{eur:2.25}};
+ const priced=catalog.map(c=>c===reservoir?{...c,prices:{eur:335.90}}:c);
+ const draft=deck.replace('1 '+filler[56].name,'1 '+priceyRamp.name).replace('1 '+filler[57].name,'1 '+priceyDraw.name);
+ const p={...params,budget:450};
+ const results=[cheapRamp,cheapDraw];
+ const verify=options=>validateArchitectResult(p,JSON.stringify({deck:draft,strategy:{engines:vault.name}}),
+  [...priced,priceyRamp,priceyDraw,...options],[preserved],{optimizeBudget:true});
+ const result=verify(results);
+ assert.equal(result.valid,true,JSON.stringify(result.issues));
+ assert.equal(result.audit.count,100);
+ assert.equal(result.budgetOptimization.initialEUR,522.43);
+ assert.equal(result.price,436.3);
+ assert.equal(result.budgetOptimization.accepted[0].steps.length,2);
+ assert.ok(result.budgetOptimization.accepted.every(row=>row.priceEUR<=450));
+ assert.match(result.deck,/Engine Reservoir/);
+ assert.match(result.deck,/Damage Outlet/);
+ assert.equal(result.cardQuality.comboRoutes,1);
+ const blocked=verify([cheapRamp]);
+ assert.equal(blocked.valid,false);
+ assert.equal(blocked.deck,undefined);
+ assert.match(blocked.issues[0],/exceeds.*450\.00 ceiling/);
+});
+
+test('Bracket 4 fills one missing slot with a priced legal card and leaves unresolved imports blocked',()=>{
+ const draft=deck.replace('1 '+filler.at(-1).name,'');
+ const p={...params,bracket:4,budget:100};
+ const removal=card('Affordable Answer','Instant','{W}',1,'Exile target creature.',.28,['W']);
+ const unpriced=card('Unpriced Answer','Instant','{G}',1,'Exile target permanent.',null,['G']);
+ const illegal=card('Off-Color Answer','Instant','{B}',1,'Exile target permanent.',.01,['B']);
+ const priced=[...catalog,removal,unpriced,illegal];
+ const run=(text,opts)=>validateArchitectResult(p,text,priced,[preserved],opts);
+ const result=run(draft,{optimizeBudget:true});
+ assert.equal(result.valid,true,JSON.stringify(result.issues));
+ assert.equal(result.audit.count,100);
+ assert.equal(result.budgetOptimization.initialCards,99);
+ assert.equal(result.price,99.73);
+ assert.deepEqual(result.budgetOptimization.accepted[0].adds,[removal.name]);
+ assert.deepEqual(result.budgetOptimization.accepted[0].cuts,[]);
+ assert.match(result.deck,/Engine Reservoir/);
+ for(const text of [draft+'\n1 Unknown Card',draft.replace('1 '+filler[0].name,'1 '+unpriced.name),
+  draft.replace('1 '+filler[0].name,'1 '+filler[1].name),draft+'\n1 '+illegal.name,
+  draft.replace('1 '+filler[0].name,'')])assert.equal(run(text,{optimizeBudget:true}).valid,false);
+ assert.match(run(draft).issues.join(' '),/Expected 100 cards, resolved 99/);
+ assert.equal(run(draft,{optimizeBudget:false}).valid,false);
+});
+
+test('Bracket 5 applies the range ceiling and supports a genuinely open price policy through analysis',()=>{
+ const p={...params,bracket:5,budget:3000};
+ const priced=catalog.map(c=>c===reservoir?{...c,prices:{eur:3511.98}}:c);
+ assert.equal(validateArchitectResult(p,deck,priced,[preserved]).valid,false);
+ const tier={...p,cedhBudgetTier:'4000'};
+ const result=validateArchitectResult(tier,deck,priced,[preserved],{optimizeBudget:true});
+ assert.equal(result.valid,true,JSON.stringify(result.issues));
+ assert.equal(result.ceiling,4000);
+ assert.equal(result.price,3609.98);
+ assert.equal(result.budgetOptimization.initialEUR,3609.98);
+ assert.equal(result.budgetOptimization.remainingEUR,390.02);
+
+ const open={...p,cedhBudgetTier:'open',budget:null};
+ const highPrice=priced.map(c=>c===zacama?{...c,prices:{eur:120000}}:c);
+ const uncapped=validateArchitectResult(open,deck,highPrice,[preserved],{optimizeBudget:true});
+ assert.equal(uncapped.valid,true,JSON.stringify(uncapped.issues));
+ assert.ok(uncapped.price>100000);
+ assert.equal(uncapped.ceiling,null);
+ assert.equal(uncapped.budgetOptimization.remainingEUR,null);
+ assert.equal(uncapped.budgetOptimization.utilizationPercent,null);
+ const request=architectRequest(open,highPrice,[preserved]);
+ assert.match(request.prompt,/open budget/i);
+ const lab=architectLab({...open,text:uncapped.deck,trials:100},{catalog:highPrice,variants:[preserved]});
+ assert.equal(lab.original.withinBudget,true);
+ assert.equal(lab.original.price,uncapped.price);
+ assert.equal(lab.ceiling,null);
+ assert.equal(validateArchitectResult({...open,bracket:4},deck,priced,[preserved]).valid,false);
 });

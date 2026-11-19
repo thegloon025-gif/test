@@ -285,7 +285,7 @@ const server=http.createServer(async(req,res)=>{
      if(ownsDiscovery)communityDiscoveryBusy=true;
      try{
       const result=await researchForGeneration({commanderId:oracleId(commander),commanderName:commander.name,
-       bracket:Number(bracket),budget:Number(p.budget),catalog:catalog.cards,savedCommunity:community,
+       bracket:Number(bracket),budget:purchasing.target??Infinity,catalog:catalog.cards,savedCommunity:community,
        reuseDiscovery:Date.now()<(cached?.until||0),reusedAt:cached?.at||null,discoveryBusy:!ownsDiscovery,catalogFetchedAt:catalog.meta?.savedAt||null,sharedLookups});
       // Concurrent Spellbook-only work must not replace a newer imported cohort.
       if(ownsDiscovery)community=result.community;
@@ -304,7 +304,7 @@ const server=http.createServer(async(req,res)=>{
      if(!selected)throw Error('Selected community strategy is no longer available. Refresh community research and choose another strategy.');
      communityPrepared.selected=selected;communityPrepared.userSelected=true;
     }
-    const deck=generateDeck({cards:candidateCards,commander:selectedCommander,budget:p.budget,budgetTolerance:purchasing.tolerance,basicLandsOwned:purchasing.basicLandsOwned,bracket,powerTarget,comboVariants:localCombos,communityBuild:communityPrepared,communityDecks:community,constructionMode:p.constructionMode==='legacy'?'legacy':'strategy-first'});
+    const deck=generateDeck({cards:candidateCards,commander:selectedCommander,budget:purchasing.target,cedhBudgetTier:purchasing.cedhBudgetTier,budgetTolerance:purchasing.tolerance,basicLandsOwned:purchasing.basicLandsOwned,bracket,powerTarget,comboVariants:localCombos,communityBuild:communityPrepared,communityDecks:community,constructionMode:p.constructionMode==='legacy'?'legacy':'strategy-first'});
     deck.communityKnowledge=communityStrategySummary(communityPrepared);
     // Stage 12: optional manually imported EDHREC observation. Never a remote
     // request and never a constructor score or ranking input.

@@ -104,6 +104,15 @@ test('combined generation endpoint returns separate audited, exportable bracket 
  assert.equal(b5.landCount,33);
  assert.ok(b5.landCount<results[1].deck.landCount);
 
+ const open=await generate({bracket:5,budget:null,cedhBudgetTier:'open',powerTarget:'balanced'});
+ const openDeck=await open.json();
+ assert.equal(open.status,200,openDeck.error);
+ assert.equal(openDeck.budget,null);
+ assert.equal(openDeck.budgetPolicy.open,true);
+ assert.equal(openDeck.totalCards,100);
+ assert.equal(openDeck.pricingAudit.withinBudget,true);
+ assert.equal(openDeck.pricingAudit.total,openDeck.price);
+
  const rankings='http://127.0.0.1:'+port+'/api/cedh/rankings';
  assert.equal((await fetch(rankings).then(response=>response.json())).status,'setup');
  assert.equal((await fetch(rankings,{headers:{Origin:'https://example.org'}})).status,403);

@@ -116,7 +116,9 @@ function deckResult(deck){
 export function renderRankedDecks(root,result){
  root.replaceChildren();
  const budgetCount=result.results.filter(deck=>deck.budgetStatus==='within-budget').length;
- root.append(element('p',`${result.pricingLabel} · ${eur(result.budgetMaximum)} ceiling · ${budgetCount} within budget. Shipping excluded.`, 'tiny'));
+ const budgetLabel=result.budgetMaximum===null?`Open budget · ${budgetCount} with complete prices`:
+  `${eur(result.budgetMaximum)} ceiling · ${budgetCount} within budget`;
+ root.append(element('p',`${result.pricingLabel} · ${budgetLabel}. Shipping excluded.`, 'tiny'));
  if(result.pricingWarning)root.append(element('p',result.pricingWarning,'tiny'));
  const feed=result.spellbook;
  if(feed.timestamp){

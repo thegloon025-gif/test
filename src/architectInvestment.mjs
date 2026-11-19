@@ -8,6 +8,7 @@ import {analyzeDiscoveryCombos,indexDiscoveryCombos} from './discoveryCombos.mjs
 import {sourceStructureEvidence} from './sourceQuality.mjs';
 import {landEntryEvidence} from './manaPolish.mjs';
 import {createArchitectCardReview} from './architectCardReview.mjs';
+import {BRACKETS} from './generator.mjs';
 
 const cents=n=>Math.round(n*100);
 const euros=n=>n/100;
@@ -218,9 +219,11 @@ export function reviewArchitectCards({commander,cards,variants=[],snapshot=null}
 
 export function investArchitectBudget({commander,cards,catalog,variants=[],snapshot=null,bracket,ceiling,strategy={},exclusions='',preferences='',verify}){
  let current=cards.slice();
- const initial=total([commander,...cards]), cap=cents(ceiling);
- const report={initialEUR:euros(initial),ceilingEUR:ceiling,finalEUR:euros(initial),remainingEUR:euros(cap-initial),
-  utilizationPercent:Math.round(initial*1000/cap)/10,targetPercent:[85,100],
+ const initial=total([commander,...cards]), cap=cents(ceiling),open=ceiling===Infinity;
+ const remainingEUR=price=>open?null:euros(cap-price);
+ const utilization=price=>open?null:Math.round(price*1000/cap)/10;
+ const report={initialCards:cards.length+1,initialEUR:euros(initial),ceilingEUR:open?null:ceiling,finalEUR:euros(initial),remainingEUR:remainingEUR(initial),
+  utilizationPercent:utilization(initial),targetPercent:open?null:[85,100],
   accepted:[],considered:[],rounds:0,stopReason:'The draft has limited budget headroom and no unresolved card requirements or weak roles.'};
  const nearlyExhausted=Math.min(100,Math.round(cap*.005));
  const broadThreshold=Math.min(2500,Math.round(cap*.15));
@@ -240,7 +243,7 @@ export function investArchitectBudget({commander,cards,catalog,variants=[],snaps
  let currentQuality=originalQuality;
  const finish=()=>({cards:current,report,quality:{...currentQuality.report,initialFindings,
   corrected:initialFindings.filter(entry=>!currentQuality.report.entries.some(row=>row.card===entry.card&&actionable(row))).length}});
- if(cap-initial>=0&&cap-initial<broadThreshold&&!initialFindings.length)return finish();
+ if(cards.length===99&&cap-initial>=0&&cap-initial<broadThreshold&&!initialFindings.length)return finish();
  const originalEvidence=deckEvidence(current);
  const native=new Set(originalEvidence.infrastructure.filter(row=>row.kind!=='tutor').map(row=>row.card));
  const notes=singletonName({name:[strategy?.engines,strategy?.winConversion].filter(x=>typeof x==='string').join('\n')});
@@ -270,7 +273,8 @@ export function investArchitectBudget({commander,cards,catalog,variants=[],snaps
  }).map(variant=>[variant.id,variant])).values()];
  const sourceAffinities=['strategy_tutor','strategy_costReduction','strategy_castCopy','strategy_passiveTriggerCopy','strategy_activatedTriggerCopy',
   'strategy_cascade','topAccessEngines','independentDraw','scalableDraw','shields','answers'];
- const retained=report.accepted;
+ const repairSteps=[],repairAdds=new Set();
+ const hasRoomForGameChanger=list=>[commander,...list].filter(card=>card.game_changer).length<(bracket===2?0:bracket===3?3:Infinity);
  let currentPrice=initial;
  let investSpare=cap-initial>=broadThreshold;
  let currentInventory=originalInventory;
@@ -279,15 +283,20 @@ export function investArchitectBudget({commander,cards,catalog,variants=[],snaps
  for(let round=1;;round++){
   const remaining=cap-currentPrice;
   const repairingBudget=remaining<0;
+  const filling=current.length===98;
   investSpare||=remaining>=broadThreshold;
-  const broadPass=investSpare&&remaining>nearlyExhausted;
+  const broadPass=!filling&&investSpare&&remaining>nearlyExhausted;
   const currentLands=current.filter(isLandSlot);
+  const preferLand=filling&&currentLands.length<BRACKETS[bracket].lands+Number(colors.length>=4);
+  const canAddGameChanger=!filling||hasRoomForGameChanger(current);
   const occupied=new Set([commander,...current].map(singletonName));
-  const options=pool.filter(row=>!occupied.has(singletonName(row.card))||isBasic(row.card));
-  const cuts=current.map(discover).filter(row=>!protectedNames.has(singletonName(row.card)));
+  const options=pool.filter(row=>(!occupied.has(singletonName(row.card))||isBasic(row.card))&&
+   (canAddGameChanger||!row.card.game_changer));
+  const cuts=current.map(discover).filter(row=>!protectedNames.has(singletonName(row.card))&&
+   (!repairingBudget||!repairAdds.has(row.card)));
   const targeted=cuts.filter(row=>!row.land&&actionable(currentQuality.byCard.get(row.card)))
    .sort((a,b)=>severity[currentQuality.byCard.get(b.card).status]-severity[currentQuality.byCard.get(a.card).status]||stable(a,b));
-  if(!broadPass&&!targeted.length&&!repairingBudget){
+  if(!broadPass&&!targeted.length&&!repairingBudget&&!filling){
    if(currentQuality.report.entries.some(actionable))report.stopReason='Remaining findings concern cards kept in protected packages.';
    break;
   }
@@ -300,20 +309,29 @@ export function investArchitectBudget({commander,cards,catalog,variants=[],snaps
    sumEffects(currentQuality.byCard.get(a.card))+.08*onPlan(a.card).impact-
    sumEffects(currentQuality.byCard.get(b.card))-.08*onPlan(b.card).impact||b.mv-a.mv||stable(a,b)).slice(0,12);
   const targets=targeted.map(row=>'quality:'+oracleId(row.card));
-  const proposals=Object.fromEntries([...(repairingBudget?['budget']:[]),...targets,...roles,'combos'].map(role=>[role,[]]));
+  const proposals=Object.fromEntries([...(repairingBudget&&!filling?['budget']:[]),...targets,...roles,'combos'].map(role=>[role,[]]));
   const addProposal=(role,adds,remove,priority,repair=false)=>{
-   if(adds.length!==remove.length||new Set(remove).size!==remove.length)return;
+   if(adds.length!==remove.length+Number(filling)||new Set(remove).size!==remove.length)return;
    if(adds.some((row,i)=>row===remove[i]))return;
    const delta=total(adds.map(row=>row.card))-total(remove.map(row=>row.card));
    proposals[role].push({round,adds,cuts:remove,delta,priority,repair});
   };
   const landOptions=options.filter(row=>row.land&&row.landInfo.readiness>=.7&&
-   (row.landInfo.fetch||row.landInfo.colors.some(color=>colors.includes(color))));
+   (row.landInfo.fetch||row.landInfo.colors.some(color=>colors.includes(color))||filling&&row.landInfo.units>0));
   const landPriority=row=>row.landInfo.fetch?2.7:
    (row.landInfo.colors.filter(color=>colors.includes(color)).length+.13*row.landInfo.types.length)*row.landInfo.readiness;
   const rankedLands=landOptions.sort((a,b)=>landPriority(b)-landPriority(a)||cost(a.card)-cost(b.card)||stable(a,b));
-  if(broadPass||repairingBudget)for(const row of rankedLands.slice(0,100)){
-   const candidates=repairingBudget?cuts.filter(cut=>cut.land&&!cut.landInfo.utility&&cost(row.card)-cost(cut.card)<=remaining):landCuts;
+  if(filling){
+   const byMana=row=>landEvidence([...currentLands,row.card],discover,colors).value-currentLand.value;
+   // Include basic and simple mana sources so a needed color can win on the
+   // final commander payment check even when the best-ranked duals are complex.
+   const shortlist=[...new Set([...rankedLands.slice(0,12),
+    ...rankedLands.filter(row=>cost(row.card)<=remaining).slice(0,12),
+    ...rankedLands.filter(row=>isBasic(row.card)),
+    ...rankedLands.slice().sort((a,b)=>cost(a.card)-cost(b.card)||stable(a,b)).slice(0,8)])];
+   for(const row of shortlist)addProposal('mana',[row],[],byMana(row));
+  }else if(broadPass||repairingBudget)for(const row of rankedLands.slice(0,100)){
+   const candidates=repairingBudget?cuts.filter(cut=>cut.land&&!cut.landInfo.utility&&cost(row.card)<cost(cut.card)):landCuts;
    for(const cut of candidates){
     const next=current.slice();next[next.indexOf(cut.card)]=row.card;
     const gain=landEvidence(next.filter(isLandSlot),discover,colors).value-currentLand.value;
@@ -326,20 +344,27 @@ export function investArchitectBudget({commander,cards,catalog,variants=[],snaps
    const viable=options.filter(row=>!row.land&&row.effects[role]>0)
     .sort((a,b)=>rank(b)-rank(a)||a.mv-b.mv||cost(a.card)-cost(b.card)||stable(a,b));
    const slate=[...viable.filter(row=>cost(row.card)<=remaining).slice(0,10),...viable.filter(row=>cost(row.card)>remaining).slice(0,4)];
+   if(filling){
+    const economical=viable.slice().sort((a,b)=>cost(a.card)-cost(b.card)||rank(b)-rank(a)).slice(0,4);
+    for(const add of new Set([...slate,...economical]))addProposal(role,[add],[],rank(add));
+    continue;
+   }
    if(broadPass)for(const add of slate)for(const cut of spellCuts){
     const gain=add.effects[role]-currentQuality.byCard.get(cut.card).effects[role];
     if(gain>.24)addProposal(role,[add],[cut],gain+.04*(onPlan(add.card).impact-onPlan(cut.card).impact));
    }
    for(const [i,cut] of targeted.entries()){
-    const best=viable.filter(row=>cost(row.card)-cost(cut.card)<=remaining).slice(0,8);
+    const best=viable.filter(row=>repairingBudget?cost(row.card)<cost(cut.card):cost(row.card)-cost(cut.card)<=remaining).slice(0,8);
     for(const add of best){
      const gain=add.effects[role]-currentQuality.byCard.get(cut.card).effects[role];
-     if(gain>.24)addProposal(targets[i],[add],[cut],gain+Math.min(.8,(cut.effects[role]||0)*.35));
+     if(gain>.24)addProposal(targets[i],[add],[cut],gain+Math.min(.8,(cut.effects[role]||0)*.35),repairingBudget);
     }
    }
    if(repairingBudget)for(const cut of cuts.filter(row=>!row.land&&row.effects[role]>0)){
     const old=currentQuality.byCard.get(cut.card).effects[role];
-    const best=viable.filter(row=>cost(row.card)-cost(cut.card)<=remaining&&row.effects[role]>=old-.3).slice(0,4);
+    const suitable=viable.filter(row=>cost(row.card)<cost(cut.card)&&row.effects[role]>=old-.3);
+    const best=[...new Set([...suitable.filter(row=>cost(row.card)-cost(cut.card)<=remaining).slice(0,4),
+     ...suitable.slice().sort((a,b)=>cost(a.card)-cost(b.card)||rank(b)-rank(a)).slice(0,4)])];
     for(const add of best)addProposal('budget',[add],[cut],add.effects[role]-old,true);
    }
   }
@@ -352,7 +377,8 @@ export function investArchitectBudget({commander,cards,catalog,variants=[],snaps
    if(!payoff)continue;
    for(let i=0;i<3;i++)addProposal('combos',adds,spellCuts.slice(i,i+adds.length),payoff+.1*adds.reduce((n,row)=>n+sumEffects(row),0));
   }
-  const sort=(a,b)=>Number(a.delta>remaining)-Number(b.delta>remaining)||b.priority-a.priority||a.delta-b.delta;
+  const sort=(a,b)=>Number(a.delta>remaining)-Number(b.delta>remaining)||
+   (a.delta>remaining&&b.delta>remaining&&(filling||repairingBudget)?a.delta-b.delta:0)||b.priority-a.priority||a.delta-b.delta;
   for(const [role,bucket] of Object.entries(proposals)){
    bucket.sort(sort);
    const distinct=new Set(),primary=[],alternate=[];
@@ -381,11 +407,12 @@ export function investArchitectBudget({commander,cards,catalog,variants=[],snaps
   const priorDependencies=new Map(current.map(card=>[card,dependencyEvidence(card,current)]));
   const colorlessFloor=currentEvidence.land.realColorless;
   for(const [i,p] of scheduled.entries()){
-   if(i>=evaluationsPerRound&&viable.length)break;
+   if(i>=evaluationsPerRound&&viable.some(item=>item.p.delta<=remaining))break;
    const reject=reason=>report.considered.push(receipt(p,'rejected',reason));
-   if(currentPrice+p.delta>cap){reject('Above the full-deck ceiling.');continue;}
+   if(!filling&&p.delta>remaining&&(!repairingBudget||p.delta>=0)){reject('Above the full-deck ceiling.');continue;}
    const next=current.slice();
    for(const [i,cut] of p.cuts.entries())next[next.indexOf(cut.card)]=p.adds[i].card;
+   if(filling)next.push(p.adds[0].card);
    const nextLands=next.filter(isLandSlot);
    if([commander,...next].filter(card=>card.game_changer).length>(bracket===2?0:bracket===3?3:Infinity)){
     reject('Would exceed this bracket’s Game Changer limit.');continue;
@@ -459,12 +486,15 @@ export function investArchitectBudget({commander,cards,catalog,variants=[],snaps
    viable.push({p,next,changes,gain,restored,findings,improvement,land,quality,combos,evidence});
   }
   const resolved=row=>row.findings.reduce((n,entry)=>n+severity[entry.status],0);
-  viable.sort((a,b)=>resolved(b)-resolved(a)||(b.gain+b.restored)-(a.gain+a.restored)||a.p.delta-b.p.delta);
+  viable.sort((a,b)=>Number(a.p.delta>remaining)-Number(b.p.delta>remaining)||
+   (a.p.delta>remaining&&b.p.delta>remaining&&(filling||repairingBudget)?a.p.delta-b.p.delta:0)||
+   (filling?Number(b.p.adds[0].land===preferLand)-Number(a.p.adds[0].land===preferLand):0)||
+   resolved(b)-resolved(a)||(b.gain+b.restored)-(a.gain+a.restored)||a.p.delta-b.p.delta);
   let chosen=null;
   for(const candidate of viable){
-   if(chosen){report.considered.push(receipt(candidate.p,'rejected','Another affordable candidate had stronger functional evidence.'));continue;}
+   if(chosen){report.considered.push(receipt(candidate.p,'rejected','Another candidate offered a better combination of role coverage and price.'));continue;}
    const nextPrice=total([commander,...candidate.next]);
-   const validation=verify(candidate.next,euros(nextPrice));
+   const validation=verify(candidate.next,euros(nextPrice),{provisional:nextPrice>cap});
    if(!validation.valid){
     report.considered.push(receipt(candidate.p,'rejected',validation.reason||'Final deck validation failed.'));
     continue;
@@ -479,19 +509,33 @@ export function investArchitectBudget({commander,cards,catalog,variants=[],snaps
    const changes=Object.fromEntries(significant(candidate.changes).map(([role,gain])=>[titles[role],Math.round(gain*100)/100]));
    const routes=changes[titles.combos]?' Adds a published Commander Spellbook route.':'';
    const corrected=candidate.findings.map(entry=>entry.card+' — '+entry.reasons.join(' ')).join(' ');
-   const reason=candidate.improvement?'Improves '+Object.keys(changes).join(', ')+' with supported deck functions preserved.'+routes:
-    'Brings the list within the budget ceiling while preserving its supported functions.';
+   const reason=filling?'Fills the open slot and improves '+Object.keys(changes).join(', ')+'.'+routes:
+    candidate.improvement?'Improves '+Object.keys(changes).join(', ')+' with supported deck functions preserved.'+routes:
+    'Reduces the estimate while retaining supported deck functions.';
    const entry=receipt(candidate.p,'accepted',reason+(corrected?' '+corrected:''),changes);
-   retained.push({...entry,priceEUR:euros(currentPrice),remainingEUR:euros(cap-currentPrice)});
-   report.considered.push(entry);
+   if(filling||repairingBudget){
+    repairSteps.push(entry);
+    for(const row of candidate.p.adds)repairAdds.add(row.card);
+   }
+   if(currentPrice<=cap){
+    const combined=repairSteps.length>1&&(filling||repairingBudget);
+    const accepted=combined?{
+     ...entry,cuts:repairSteps.flatMap(step=>step.cuts),adds:repairSteps.flatMap(step=>step.adds),
+     changeEUR:euros(currentPrice-initial),reason:'Coordinated changes brought the draft within the ceiling and retained its supported functions.',
+     steps:repairSteps.map(({cuts,adds,changeEUR,reason})=>({cuts,adds,changeEUR,reason})),
+    }:entry;
+    report.accepted.push({...accepted,priceEUR:euros(currentPrice),remainingEUR:remainingEUR(currentPrice)});
+    report.considered.push(accepted);
+   }
   }
-  if(!chosen){report.stopReason=repairingBudget?'No ceiling-safe replacement preserved the deck’s supported functions.':
+  if(!chosen){report.stopReason=filling?'The open slot could not be filled with a validated card.':
+   repairingBudget?'The available replacements did not bring the draft within the ceiling and preserve its supported functions.':
    'No meaningful upgrade passed the bounded search and validation.';break;}
   report.stopReason='No further targeted issue or substantial budget headroom remained.';
  }
  report.finalEUR=euros(currentPrice);
- report.remainingEUR=euros(cap-currentPrice);
+ report.remainingEUR=remainingEUR(currentPrice);
  if(cap-currentPrice>=0&&cap-currentPrice<=nearlyExhausted&&!currentQuality.report.entries.some(actionable))report.stopReason='Budget nearly exhausted.';
- report.utilizationPercent=Math.round(currentPrice*1000/cap)/10;
+ report.utilizationPercent=utilization(currentPrice);
  return finish();
 }

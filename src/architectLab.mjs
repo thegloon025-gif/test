@@ -73,7 +73,7 @@ export function architectLab(p,{catalog,variants=[],snapshot=null}={}){
    completeLineIds:combos.completeLineIds,result:simulateArchitectDeck({...parsed,combos:combos.details},options)};
  }
  const parsed=parsedDeck(p.text,priced,p.commanderId),original=analyze(parsed);
- const result={original,comparison:null,upgrade:null,ceiling:policy.effectiveMaximum};
+ const result={original,comparison:null,upgrade:null,ceiling:policy.open?null:policy.effectiveMaximum};
  if(p.comparison){
   const comparisonBracket=Number(p.comparisonBracket??p.bracket);
   if(![3,4,5].includes(comparisonBracket))throw Error('Choose a valid comparison bracket.');
@@ -96,7 +96,7 @@ export function architectLab(p,{catalog,variants=[],snapshot=null}={}){
   proposed=parsedDeck(p.proposed,priced,oracleId(parsed.commander));
   reason='Architect revision guided by the prior simulation. Review any strategy trade-offs before using it.';
  }else if(p.suggest&&original.withinBudget&&!original.bracketIssue){
-  const params={text:original.deck,commanderId:oracleId(parsed.commander),bracket:Number(p.bracket),budget:policy.effectiveMaximum};
+  const params={text:original.deck,commanderId:oracleId(parsed.commander),bracket:Number(p.bracket),budget:policy.open?100000:policy.effectiveMaximum};
   const builderPolicy={allowCompactCombosInBracket3:true};
   const review=upgradeDeck(params,priced,variants,builderPolicy);
   for(const suggestion of (review.proposals||[]).slice(0,4)){

@@ -41,7 +41,7 @@ function evaluateDeck(deck,byOracle,pricedById,maximum,spellbook){
  const comboStatus=!combo?'unavailable':
   spellbook.status==='stale'||spellbook.snapshot.skipped>0||combo.unresolvedTemplates>0||combo.unresolvedPrerequisites>0?'partial':'checked';
  const structurePoints=round(Math.max(0,0.78*structure.score-manaPenalty));
- const budgetPoints=price.budgetStatus==='within-budget'?round(2*(1-price.knownEur/maximum)):0;
+ const budgetPoints=price.budgetStatus==='within-budget'&&Number.isFinite(maximum)?round(2*(1-price.knownEur/maximum)):0;
  return {...sourceRecord(deck),commander:commander.name,cardCount:deck.totalCards,...price,
   structure,mana:{sources:mana.sources,realColorless:mana.realColorless,needsColorless,penalty:manaPenalty},
   score:round(structurePoints+budgetPoints+(combo?.scoring.points??0)),

@@ -1,3 +1,9 @@
+## Unreleased Architect draft repair and cEDH budgets
+
+- Complete a fully resolved 99-card Architect draft with a legal, priced card chosen for its role in the deck.
+- Look for coordinated cheaper substitutions when an initial draft exceeds its ceiling. Validate and export the completed repair as a whole.
+- Add Bracket 5 budget ranges through €4,000 and an Open budget option for generation, analysis, and export.
+
 ## Unreleased Architect card quality review
 
 - Review the entire draft for common printed casting and activation requirements, commander synergy and actual card advantage. Surface supported roles, situational cards and unresolved findings in the Architect result.

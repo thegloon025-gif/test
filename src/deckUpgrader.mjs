@@ -13,7 +13,7 @@ import {auditExportPricing} from './pricing.mjs';
 const euro=n=>Math.round(n*100)/100, cents=c=>{const p=priceOf(c);if(p===null)throw Error('Missing eligible selected price: '+c.name);return Math.round(p*100);};
 const key=c=>String(oracleId(c));
 const indices=new WeakMap();
-export function parseUpgradeDeck(text,catalog,{commanderId=null}={}){
+export function parseUpgradeDeck(text,catalog,{commanderId=null,allowOneShort=false}={}){
  if(typeof text!=='string'||text.length>100000)throw Error('Paste a decklist of at most 100 KB.');
  let lookup=indices.get(catalog);if(!lookup){lookup=new Map();for(const c of catalog)for(const alias of [c.name,...(c.card_faces||[]).map(f=>f.name)]){const n=normalizedName(alias),xs=lookup.get(n)||[];if(!xs.some(x=>key(x)===key(c)))xs.push(c);lookup.set(n,xs);}indices.set(catalog,lookup);}
  const rows=[],errors=[],marked=[];let section='main';
@@ -34,7 +34,7 @@ export function parseUpgradeDeck(text,catalog,{commanderId=null}={}){
  else if(marked.length)errors.push('A single legal commander marker is required; partners/backgrounds are not supported yet.');
  if(!commander&&candidates.length===1&&!marked.length)commander=candidates[0];
  const cards=rows.slice();if(commander)cards.splice(cards.indexOf(commander),1);
- if(rows.length!==100)errors.push(`Expected 100 cards, resolved ${rows.length}.`);
+ if(rows.length!==100&&!(allowOneShort&&rows.length===99))errors.push(`Expected 100 cards, resolved ${rows.length}.`);
  if(commander){const s=validateCommanderSingleton(commander,cards);errors.push(...s.violations);for(const c of cards)if(!legalFor(c,commander))errors.push('Commander/color legality: '+c.name);}
  return {commander,cards,candidates:candidates.map(c=>({id:key(c),name:c.name})),errors:[...new Set(errors)],needsCommander:!commander&&candidates.length>1,originalText:text};
 }
@@ -47,8 +47,8 @@ function manaProfile(c,commander){
  if(/^\{T\}: Add one mana of any color in your commander's color identity\.$/.test(text))return {units:1,options:commander.color_identity||[],tapped:false};
  return null;
 }
-function gates(commander,cards,{bracket,variants,catalog,allowCompactCombosInBracket3}){
- const errors=[];if(cards.length!==99)errors.push('Not commander + 99.');if(!isCommander(commander))errors.push('Illegal commander.');errors.push(...validateCommanderSingleton(commander,cards).violations);
+export function deckConstraintErrors(commander,cards,{bracket,variants,catalog,allowCompactCombosInBracket3,expectedMainboard=99}){
+ const errors=[];if(cards.length!==expectedMainboard)errors.push('Not commander + '+expectedMainboard+'.');if(!isCommander(commander))errors.push('Illegal commander.');errors.push(...validateCommanderSingleton(commander,cards).violations);
  if(cards.some(c=>!legalFor(c,commander)))errors.push('Illegal card/color identity.');
  const gc=[commander,...cards].filter(c=>c.game_changer).length;if(gc>(bracket<=2?0:bracket===3?3:Infinity))errors.push('Known Game Changer allowance exceeded.');
  if(!(bracket===3&&allowCompactCombosInBracket3)){
@@ -67,7 +67,7 @@ export function upgradeDeck({text,commanderId,bracket=3,budget=40,budgetToleranc
  if(![owned,locked,accepted,customPackages].every(Array.isArray)||owned.length>100||locked.length>100||accepted.length>12||customPackages.length>8)throw Error('Bounded choices exceeded.');
  if(typeof resaleEnabled!=='boolean'||!Number.isFinite(resaleCredit)||resaleCredit<0||resaleCredit>100000||euro(resaleCredit)!==resaleCredit)throw Error('Invalid explicit resale credit.');
  const parsed=parseUpgradeDeck(text,catalog,{commanderId});if(parsed.errors.length||!parsed.commander)return {stage:'import',...parsed,cards:undefined,commander:undefined,errors:parsed.errors};
- const {commander,cards}=parsed,ctx={bracket,variants,catalog,allowCompactCombosInBracket3},inputErrors=gates(commander,cards,ctx);if(inputErrors.length)return {stage:'validation',errors:inputErrors};
+ const {commander,cards}=parsed,ctx={bracket,variants,catalog,allowCompactCombosInBracket3},inputErrors=deckConstraintErrors(commander,cards,ctx);if(inputErrors.length)return {stage:'validation',errors:inputErrors};
  const start=performance.now(),original=value(commander,cards,catalog),ledger=buildCardJobLedger({commander,cards}),combo=auditComboExecutions(variants,{commander,cards,catalog});
  const analysisDone=performance.now();
  const comboRows=combo.combinations.filter(c=>c.inventoryComplete),protectedNames=new Set([...locked.map(normalizedName),...comboRows.flatMap(r=>[...r.requirements.map(q=>normalizedName(q.name)),...(r.templateInventory.matches||[]).map(normalizedName)])]);
@@ -107,7 +107,7 @@ export function upgradeDeck({text,commanderId,bracket=3,budget=40,budgetToleranc
  const proposalsDone=performance.now();
  const byId=new Map(catalog.map(c=>[key(c),c]));let result=cards.slice();const usedCuts=new Set(),usedAdds=new Set();
  for(const id of accepted){const p=proposals.find(p=>p.id===id);if(!p)throw Error('Proposal expired or unknown; analyze again.');for(const cut of p.cuts){if(usedCuts.has(cut.id))throw Error('Conflicting packages remove the same card.');if(protectedNames.has(normalizedName(cut.name)))throw Error('Protected native engine, locked card or combo commitment: '+cut.name);const i=result.findIndex(c=>key(c)===cut.id);if(i<0)throw Error('Cut not present.');result.splice(i,1);usedCuts.add(cut.id);}for(const add of p.adds){if(usedAdds.has(add.id))throw Error('Conflicting packages add the same card.');result.push(byId.get(add.id));usedAdds.add(add.id);}}
- const errors=gates(commander,result,ctx);const afterLedger=accepted.length?buildCardJobLedger({commander,cards:result}):ledger;
+ const errors=deckConstraintErrors(commander,result,ctx);const afterLedger=accepted.length?buildCardJobLedger({commander,cards:result}):ledger;
  // Preserve actual recognized mana channels, not price or generic role superiority.
  for(const color of ['W','U','B','R','G','C']){const capacity=xs=>xs.reduce((n,c)=>n+(manaProfile(c,commander)?.options.includes(color)?manaProfile(c,commander).units:0),0);if(capacity(result)<capacity(cards))errors.push('Lost recognized '+color+' mana availability.');}
  for(const old of ledger.obligations.filter(o=>o.id.endsWith('|qualifying-input')&&o.status==='supported')){const next=afterLedger.obligations.find(o=>o.id===old.id);if(next?.status==='unsupported')errors.push('Disconnected existing supported strategy input: '+old.id);}

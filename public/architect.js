@@ -1,5 +1,6 @@
 import {renderArchitectLab} from "./architect-lab.js";
 import {postWithProgress} from './progress.js';
+import {budgetSettings} from './app.js';
 
 const $ = (id) => document.getElementById(id);
 let csrf = null,
@@ -135,8 +136,7 @@ function params() {
           : {}),
         commanderName:
           $("ai-name").value.trim() || $("commander-name").textContent,
-        budget: Number($("budget").value),
-        budgetTolerance: $("budget-leeway").checked ? 4 : 0,
+        ...budgetSettings(architectBracket()),
         bracket: architectBracket(),
         basicLandsOwned: $("basics-owned").checked,
         pricingMode: $("pricing-mode").value,
@@ -327,32 +327,45 @@ function renderBudgetOptimization(report) {
   heading.textContent = "Budget optimization";
   const totals = document.createElement("dl");
   totals.className = "architect-budget-totals";
-  for (const [label, amount] of [
-    ["Budget ceiling", report.ceilingEUR],
-    ["Final estimated price", report.finalEUR],
-    ["Remaining budget", report.remainingEUR],
+  const open=report.ceilingEUR===null;
+  for (const [label, amount] of open?[
+    ["Budget", "Open budget"], ["Final estimated price", euros(report.finalEUR)],
+  ]:[
+    ["Budget ceiling", euros(report.ceilingEUR)], ["Final estimated price", euros(report.finalEUR)],
+    ["Remaining budget", euros(report.remainingEUR)],
   ]) {
     const group = document.createElement("div");
     const term = document.createElement("dt"), value = document.createElement("dd");
     term.textContent = label;
-    value.textContent = euros(amount);
+    value.textContent = amount;
     group.append(term, value);
     totals.append(group);
   }
   const summary = document.createElement("p");
-  summary.textContent = `Initial deck ${euros(report.initialEUR)}. ${report.utilizationPercent}% of the ceiling used. ` +
-    `The ${report.targetPercent.join("–")}% range applies when upgrades improve the deck. ${report.stopReason}`;
+  const cardCount=report.initialCards===99?" (99 cards)":"";
+  summary.textContent = `Initial deck ${euros(report.initialEUR)}${cardCount}. ` +
+    (open?"":`${report.utilizationPercent}% of the ceiling used. The ${report.targetPercent.join("–")}% range applies when upgrades improve the deck. `) +
+    report.stopReason;
   root.append(heading, totals, summary);
 
   const accepted = document.createElement("h4");
-  accepted.textContent = `Upgrades accepted (${report.accepted.length})`;
+  accepted.textContent = `Accepted changes (${report.accepted.length})`;
   root.append(accepted);
-  const describe = row => `${row.cuts.join(" + ")} → ${row.adds.join(" + ")}. ${row.reason}`;
+  const describe = row => (row.cuts.length?`${row.cuts.join(" + ")} → ${row.adds.join(" + ")}`:`Added ${row.adds.join(" + ")}`)+`. ${row.reason}`;
   if (report.accepted.length) {
     const list = document.createElement("ol");
     for (const row of report.accepted) {
       const entry = document.createElement("li");
       entry.textContent = `${describe(row)} Updated deck ${euros(row.priceEUR)}.`;
+      if(row.steps?.length){
+        const steps=document.createElement("ul");
+        for(const step of row.steps){
+          const item=document.createElement("li");
+          item.textContent=describe(step);
+          steps.append(item);
+        }
+        entry.append(steps);
+      }
       list.append(entry);
     }
     root.append(list);
@@ -360,7 +373,7 @@ function renderBudgetOptimization(report) {
 
   const details = document.createElement("details");
   const caption = document.createElement("summary");
-  caption.textContent = `Upgrades considered (${report.considered.length})`;
+  caption.textContent = `Changes considered (${report.considered.length})`;
   details.append(caption);
   const list = document.createElement("ul");
   for (const row of [...report.considered].sort((a, b) => a.round - b.round || a.status.localeCompare(b.status))) {
@@ -398,7 +411,7 @@ function show(x) {
   renderBudgetReview(x);
   renderCardReview(x.cardQuality);
   renderBudgetOptimization(x.budgetOptimization);
-  renderManaPolish(x, review?.manaPolish);
+  renderManaPolish(x, x.ceiling===null?null:review?.manaPolish);
   $("ai-evidence").textContent = JSON.stringify(x, null, 2);
 }
 async function action(fn) {

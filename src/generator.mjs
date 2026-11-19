@@ -1,5 +1,5 @@
 import {auditExportPricing} from './pricing.mjs';
-import {budgetPolicy,applyBudgetValuation,budgetUsage} from './budgetPolicy.mjs';
+import {budgetPolicy,applyBudgetValuation,budgetUsage,openDeckPriceBound} from './budgetPolicy.mjs';
 import {auditComboExecutions} from './comboExecutionEvidence.mjs';
 import {investmentEvidence,functionallyBetter} from './packageInvestment.mjs';
 import {constructStrategyDeck,strategyScore} from './strategyFirst.mjs';
@@ -587,10 +587,14 @@ export function generateDeck(opts){
  const policy=budgetPolicy(opts),cards=applyBudgetValuation(opts.cards,policy);
  const commander=cards.find(c=>oracleId(c)===oracleId(opts.commander));
  if(!commander)throw Error('Commander is missing from priced catalog.');
- const result=generateWithEffectiveBudget({...opts,cards,commander,budget:policy.effectiveMaximum});
+ const result=generateWithEffectiveBudget({...opts,cards,commander,budget:policy.open?openDeckPriceBound(cards):policy.effectiveMaximum});
  if(result.totalCards!==100||selectedCards(result)?.length!==100)throw Error('Final physical deck count is not 100; refusing export.');
  if(result.price>policy.effectiveMaximum+0.005)throw Error('Final selected deck exceeds the effective maximum.');
  result.budgetPolicy=budgetUsage(policy,result.price);
+ if(policy.open){
+  result.budget=null;
+  if(result.budgetInvestment)Object.assign(result.budgetInvestment,{ceiling:null,remaining:null});
+ }
  result.warnings=result.warnings.map(w=>w.startsWith('Budget estimates use cached Scryfall EUR prices')?'Selected EUR estimates; '+policy.assumption+'. Shipping excluded.':w);
  return result;
 }
