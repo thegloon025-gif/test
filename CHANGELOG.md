@@ -1,3 +1,7 @@
+## Unreleased Architect catalog setup
+
+- Show the database download or refresh step in Architect when its local catalog is unavailable or needs updated printing data.
+
 ## Unreleased Architect budget optimization
 
 - Reinvest spare budget after a connected Architect draft passes validation. Evaluate land, ramp, tutor, protection, draw, interaction and win-route upgrades using the selected catalog and cached combo evidence.

@@ -1,5 +1,7 @@
 ## Generate and evaluate decks in Architect
 
+On a fresh install, click **Update database** in **Scryfall catalog** and wait for the card count before generating a deck.
+
 Choose a commander, budget and Bracket 3, Bracket 4 or both. Set an optional playstyle, then generate with Architect. Connected generation uses one ChatGPT request per bracket. The manual prompt and import flow also validates complete 100-card lists. The local builder is available under Advanced.
 
 Architect validates the first complete deck, then searches the local catalog for upgrades when there is substantial budget left. It checks mana, ramp, tutors, card advantage, protection, interaction and supported win routes while preserving the deck’s engines and known combos. The **Budget optimization** report shows the starting and final estimates, remaining budget, and the reasons for accepted and rejected candidates. The spending range of 85–100% is a flexible target when meaningful upgrades are available. You can also enable the same review for an imported draft.

@@ -49,15 +49,25 @@ function architectOrigin(req){
  if(req.method!=='GET'&&req.headers['x-commander-ai-session']!==architectCSRF)throw Error('Reload the local app before using Architect actions.');
 }
 async function architectInputs(p){
- if(!state.cards.length)throw Error('Load the local eligible-printing catalog first.');const mode=p.pricingMode||PRICING_SCRYFALL;
+ if(!state.cards.length){
+  const message=syncing?'The Scryfall catalog is downloading. Wait for the card count to appear, then try again.':
+   'No card catalog is installed. In Scryfall catalog, click Update database and wait for the card count to appear.';
+  throw Object.assign(Error(message),{statusCode:409});
+ }
+ const mode=p.pricingMode||PRICING_SCRYFALL;
  if(![PRICING_SCRYFALL,PRICING_CM,PRICING_ESTIMATED_EN_NM].includes(mode))throw Error('Unsupported pricing mode.');
- if(mode!==PRICING_CM&&!pricingCatalogStatus(state.cards,state.meta).audited)throw Error('Refresh eligible-printing metadata first.');
+ if(mode!==PRICING_CM&&!pricingCatalogStatus(state.cards,state.meta).audited)
+  throw Object.assign(Error('Click Update database in Scryfall catalog to refresh the pricing and printing data.'),{statusCode:409});
  const cards=mode===PRICING_CM?applyCardmarketPrices(state.cards,offers):mode===PRICING_ESTIMATED_EN_NM?applyEstimatedEnglishNM(state.cards):state.cards;
  const library=await readComboLibrary();return {cards,variants:library.flatMap(e=>e.variants),research:{decks:community}};
 }
 const headers={'X-Content-Type-Options':'nosniff','Cache-Control':'no-store'};
 function json(res,obj,status=200){res.writeHead(status,{...headers,'Content-Type':'application/json; charset=utf-8'});res.end(JSON.stringify(obj));}
 function error(res,err,status=400){json(res,{error:err.message||String(err)},status);}
+function architectPlanError(res,err){
+ const safe=safePlanError(err);
+ return json(res,{error:safe.message,code:safe.code},400);
+}
 async function body(req){let str='';for await(const chunk of req){str+=chunk;if(str.length>8_000_000)throw Error('Request too large (8 MB maximum)');}return JSON.parse(str||'{}');}
 function discoveryPricing(p,cards){
  const policy=budgetPolicy(p),mode=p.pricingMode||PRICING_SCRYFALL;
@@ -104,6 +114,18 @@ const server=http.createServer(async(req,res)=>{
     const feed=await getSpellbookSnapshot();
     return json(res,{...architectLab(p,{catalog:x.cards,variants:x.variants,snapshot:feed.snapshot}),snapshotStatus:feed.status});
    }
+   if(url.pathname==='/api/architect/run'){
+    const x=await architectInputs(p),request=architectRequest(p,x.cards,x.variants,x.research);
+    const optimizeBudget=p.mode==='builder'&&!p.revisionRequest&&!p.revisionDeck;
+    res.on('close',()=>{if(!res.writableEnded)architect.cancel();});
+    try{
+     return json(res,await architect.run({prompt:request.prompt,maxRepairs:p.mode==='builder'?0:2,
+      validate:async raw=>{
+       const snapshot=optimizeBudget?(await getSpellbookSnapshot({localOnly:true})).snapshot:null;
+       return validateArchitectResult(p,raw,x.cards,x.variants,{optimizeBudget,snapshot});
+      }}));
+    }catch(e){return architectPlanError(res,e);}
+   }
    try{
     if(url.pathname==='/api/architect/connect'){
      const cancelled=new AbortController();
@@ -120,17 +142,7 @@ const server=http.createServer(async(req,res)=>{
     if(url.pathname==='/api/architect/configure'){await architect.configure(p);return json(res,await architect.status());}
     if(url.pathname==='/api/architect/cancel'){architect.cancel();return json(res,{cancelled:true});}
     if(url.pathname==='/api/architect/disconnect'){await architect.disconnect();return json(res,await architect.status());}
-    if(url.pathname==='/api/architect/run'){
-     const x=await architectInputs(p),request=architectRequest(p,x.cards,x.variants,x.research);
-     const optimizeBudget=p.mode==='builder'&&!p.revisionRequest&&!p.revisionDeck;
-     res.on('close',()=>{if(!res.writableEnded)architect.cancel();});
-     return json(res,await architect.run({prompt:request.prompt,maxRepairs:p.mode==='builder'?0:2,
-      validate:async raw=>{
-       const snapshot=optimizeBudget?(await getSpellbookSnapshot({localOnly:true})).snapshot:null;
-       return validateArchitectResult(p,raw,x.cards,x.variants,{optimizeBudget,snapshot});
-      }}));
-    }
-   }catch(e){const safe=safePlanError(e);return json(res,{error:safe.message,code:safe.code},400);}
+   }catch(e){return architectPlanError(res,e);}
    throw Error('Unknown Architect operation.');
   }
   if(req.method==='POST'&&url.pathname==='/api/upgrader/analyze'){
