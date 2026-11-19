@@ -5,7 +5,7 @@ import {loadCommunity} from './community.mjs';
 import {fetchSpellbookForDeck} from './combos.mjs';
 import {recordSpellbookVariants} from './comboLibrary.mjs';
 import {lookupCommanderVariants,lookupColorVariants} from './commanderComboResearch.mjs';
-export async function researchForGeneration({commanderId,commanderName,bracket,budget,catalog=[],savedCommunity=[],reuseDiscovery=false,reusedAt=null,discoveryBusy=false,catalogFetchedAt=null,
+export async function researchForGeneration({commanderId,commanderName,bracket,budget,catalog=[],savedCommunity=[],reuseDiscovery=false,reusedAt=null,discoveryBusy=false,catalogFetchedAt=null,sharedLookups,
  discover=autoResearchArchidekt,reload=loadCommunity,analyze=fetchSpellbookForDeck,record=recordSpellbookVariants,
  lookup=lookupCommanderVariants,lookupColors=lookupColorVariants,now=()=>Date.now()}={}){
  let decks=savedCommunity,discovery={status:discoveryBusy?'busy':reuseDiscovery?'reused':'pending',added:0,examined:0,skipped:0,rateLimited:false,...(reuseDiscovery?{fetchedAt:reusedAt,cacheAgeMs:reusedAt?Math.max(0,now()-Date.parse(reusedAt)):null}: {})};
@@ -26,8 +26,8 @@ export async function researchForGeneration({commanderId,commanderName,bracket,b
    return{status:r.stale?'cached-fallback':r.partial?'partial':'checked',variants:r.variants.length,total:r.total??null,truncated:r.truncated===true,partial:r.partial===true,fromCache:r.fromCache===true,stale:r.stale===true,pages:r.pages,query:r.query||null,endpoint:r.endpoint||'https://backend.commanderspellbook.com/variants/',fetchedAt,cacheAgeMs:r.cacheAgeMs??null,error:r.error||null,note:'Documented candidate variants only; no included pieces, execution, timing or wins certified.'};
   }catch(err){return{status:'unavailable',variants:null,total:null,error:String(err.message||err).slice(0,250)};}
  }
- const commanderLookup=await channel(lookup,'commander-card'),commander=catalog.find(c=>c.id===commanderId);
- const colorLookup=commander?await channel(lookupColors,'color-identity',{catalog,identity:commander.color_identity||[]}):{status:'not-attempted',variants:null,total:null,reason:'Known local commander identity is required.'};
+ const commanderLookup=sharedLookups?.commanderLookup??await channel(lookup,'commander-card'),commander=catalog.find(c=>c.id===commanderId);
+ const colorLookup=sharedLookups?.colorLookup??(commander?await channel(lookupColors,'color-identity',{catalog,identity:commander.color_identity||[]}):{status:'not-attempted',variants:null,total:null,reason:'Known local commander identity is required.'});
  const eligible=decks.filter(d=>d.validated&&d.commanderIds?.length===1&&d.commanderIds[0]===commanderId&&d.edhBracket===Number(bracket));
  const source=eligible.find(d=>discovery.newSourceIds?.includes(d.sourceId))||eligible[0];let combos={status:'no-source',checkedSources:0};
  if(source){

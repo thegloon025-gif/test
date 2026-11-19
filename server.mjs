@@ -15,7 +15,7 @@ import {pricingCatalogStatus} from './src/printingEligibility.mjs';
 import {generateDeck} from './src/generator.mjs';
 import {prepareCommunityConstruction,communityStrategySummary} from './src/communityConstruction.mjs';
 import {loadCommunity,importPublicDeck,communityInsights} from './src/community.mjs';
-import {discoverPublicDecks,importDiscoveredDecks} from './src/discovery.mjs';
+import {COMBINED_BRACKETS,discoverPublicDecks,importDiscoveredDecks} from './src/discovery.mjs';
 import {rankPublicDecks} from './src/rankedDiscovery.mjs';
 import {autoResearchArchidekt} from './src/autoResearch.mjs';
 import {researchForGeneration} from './src/researchFlow.mjs';
@@ -40,7 +40,7 @@ try{state=await loadCatalog();if(state.cards.length)update={phase:'ready',unique
 // This is local-only; a missing cache never triggers an API call.
 try{const recovered=await repairComboLibraryFromCache(community,state.cards);if(recovered.cacheHits)console.log('Local Spellbook cache repair:',recovered);if(recovered.errors.length)console.warn('Some local combo caches could not be repaired:',recovered.errors.slice(0,5));}catch(e){console.warn('Combo cache repair skipped:',e.message);}
 const architectCSRF=randomBytes(32).toString('hex');
-const architect=createPlanOnly({sdkFactory:()=>loadOfficialChatGPT({dataDir:DATA_DIR}),historyFile:path.join(DATA_DIR,'chatgpt-architect','usage.json')});
+const architect=createPlanOnly({sdkFactory:options=>loadOfficialChatGPT({dataDir:DATA_DIR,...options}),historyFile:path.join(DATA_DIR,'chatgpt-architect','usage.json')});
 function architectOrigin(req){
  const host=req.headers.host,allowed=new Set(['127.0.0.1:'+PORT,'localhost:'+PORT]);
  if(!allowed.has(host)||req.headers.origin&&req.headers.origin!=='http://'+host||req.headers['sec-fetch-site']==='cross-site')throw Error('Architect requests must originate from this local app.');
@@ -72,17 +72,17 @@ function discoveryPricing(p,cards){
  return {pricedCatalog:applyBudgetValuation(priced,policy),budgetMaximum:policy.effectiveMaximum,
   pricingLabel,pricingWarning};
 }
-async function sendRankedDiscovery(req,res,options){
- if(req.headers.accept!=='application/x-ndjson')return json(res,await rankPublicDecks(options));
+async function sendWithProgress(req,res,run){
+ if(req.headers.accept!=='application/x-ndjson')return json(res,await run(()=>{}));
  res.writeHead(200,{...headers,'Content-Type':'application/x-ndjson; charset=utf-8'});
  const send=event=>{if(!res.destroyed)res.write(JSON.stringify(event)+'\n');};
  try{
-  const result=await rankPublicDecks({...options,onProgress:progress=>send({type:'progress',...progress})});
+  const result=await run(progress=>send({type:'progress',...progress}));
   send({type:'result',result});
  }catch(err){send({type:'error',error:err.message});}
  finally{res.end();}
 }
-const staticFiles={'/':'index.html','/index.html':'index.html','/app.js':'app.js','/strategy.js':'strategy.js','/research.js':'research.js','/discovery-results.js':'discovery-results.js','/upgrader.js':'upgrader.js','/architect.js':'architect.js','/style.css':'style.css'};
+const staticFiles={'/':'index.html','/index.html':'index.html','/app.js':'app.js','/strategy.js':'strategy.js','/research.js':'research.js','/discovery-results.js':'discovery-results.js','/progress.js':'progress.js','/upgrader.js':'upgrader.js','/architect.js':'architect.js','/style.css':'style.css'};
 const mime={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8'};
 const server=http.createServer(async(req,res)=>{
  const url=new URL(req.url,'http://localhost');
@@ -94,7 +94,17 @@ const server=http.createServer(async(req,res)=>{
    if(url.pathname==='/api/architect/request'){const x=await architectInputs(p);return json(res,architectRequest(p,x.cards,x.variants,x.research));}
    if(url.pathname==='/api/architect/import'){const x=await architectInputs(p);return json(res,validateArchitectResult(p,p.result,x.cards,x.variants));}
    try{
-    if(url.pathname==='/api/architect/connect')return json(res,{auth:await architect.signIn(p)});
+    if(url.pathname==='/api/architect/connect'){
+     const cancelled=new AbortController();
+     res.once('close',()=>{if(!res.writableEnded)cancelled.abort();});
+     if(req.headers.accept!=='application/x-ndjson')return json(res,{auth:await architect.signIn(p,{signal:cancelled.signal})});
+     return await sendWithProgress(req,res,async progress=>{
+      try{
+       const auth=await architect.signIn(p,{signal:cancelled.signal,openBrowser:url=>progress({phase:'authorize',url})});
+       return {auth};
+      }catch(err){throw Error(safePlanError(err).message);}
+     });
+    }
     if(url.pathname==='/api/architect/models')return json(res,{models:await architect.discover()});
     if(url.pathname==='/api/architect/configure'){await architect.configure(p);return json(res,await architect.status());}
     if(url.pathname==='/api/architect/cancel'){architect.cancel();return json(res,{cancelled:true});}
@@ -141,8 +151,9 @@ const server=http.createServer(async(req,res)=>{
     const startPage=p.startPage??1;
     if(p.ranked!==true)return json(res,await discoverPublicDecks(selectedCard.name,{bracket:p.bracket,startPage}));
     const catalog=state.cards;
-    return await sendRankedDiscovery(req,res,{commanderId:oracleId(selectedCard),commanderName:selectedCard.name,
-     bracket:p.bracket,startPage,catalog,...discoveryPricing(p,catalog)});
+    const pricing=discoveryPricing(p,catalog);
+    return await sendWithProgress(req,res,onProgress=>rankPublicDecks({commanderId:oracleId(selectedCard),commanderName:selectedCard.name,
+     bracket:p.bracket,startPage,catalog,...pricing,onProgress}));
    }
    finally{communityDiscoveryBusy=false;}
   }
@@ -208,72 +219,95 @@ const server=http.createServer(async(req,res)=>{
   }
   if(req.method==='POST'&&url.pathname==='/api/generate'){
    if(!state.cards.length)throw Error('Please update the Scryfall catalog before generating a deck.');
-   const p=await body(req);const commander=state.cards.find(c=>c.id===p.commanderId);if(!commander)throw Error('Selected commander not found in local database. Search after syncing.');
+   const p=await body(req),catalog=state,priceOffers=offers;const commander=catalog.cards.find(c=>c.id===p.commanderId);if(!commander)throw Error('Selected commander not found in local database. Search after syncing.');
+   const combined=p.bracket===COMBINED_BRACKETS;
+   if(combined&&p.communityMode!=='off'&&p.communityStrategy&&p.communityStrategy!=='auto')
+    throw Error('Choose Automatic community archetype to generate both brackets.');
    const mode=p.pricingMode||PRICING_SCRYFALL;
    if(![PRICING_SCRYFALL,PRICING_CM,PRICING_ESTIMATED_EN_NM].includes(mode))throw Error('Unsupported pricing mode.');
-   if(mode!==PRICING_CM&&!pricingCatalogStatus(state.cards,state.meta).audited)throw Error('This Scryfall catalog predates v1.1.3 printing eligibility checks. Click Update database and wait for the full refresh before generating a budget-constrained deck. Your existing imported community decks are preserved.');
-   if(mode===PRICING_CM&&!offers)throw Error('Cardmarket English NM requires imported Cardmarket offer prices. Select a CSV file under Pricing and import it first.');
+   if(mode!==PRICING_CM&&!pricingCatalogStatus(catalog.cards,catalog.meta).audited)throw Error('This Scryfall catalog predates v1.1.3 printing eligibility checks. Click Update database and wait for the full refresh before generating a budget-constrained deck. Your existing imported community decks are preserved.');
+   if(mode===PRICING_CM&&!priceOffers)throw Error('Cardmarket English NM requires imported Cardmarket offer prices. Select a CSV file under Pricing and import it first.');
    const purchasing=budgetPolicy(p);
    if(!purchasing.basicLandsOwned&&mode!==PRICING_SCRYFALL)throw Object.assign(Error('Counting unowned basics currently requires selected Scryfall EUR records; offer/model basics are not priced independently.'),{statusCode:400});
-   const pricedCards=mode===PRICING_CM?applyCardmarketPrices(state.cards,offers):mode===PRICING_ESTIMATED_EN_NM?applyEstimatedEnglishNM(state.cards):state.cards;
+   const pricedCards=mode===PRICING_CM?applyCardmarketPrices(catalog.cards,priceOffers):mode===PRICING_ESTIMATED_EN_NM?applyEstimatedEnglishNM(catalog.cards):catalog.cards;
    const candidateCards=applyBudgetValuation(pricedCards,purchasing);
    if(mode===PRICING_CM&&candidateCards.length<400)throw Error(`Only ${candidateCards.length} locally catalogued cards have usable English NM/Mint offer prices (including basics). A full Commander deck requires broader offer coverage. No Scryfall fallback was used.`);
    const selectedCommander=candidateCards.find(c=>c.id===p.commanderId);
    if(!selectedCommander)throw Error('No matching English NM Cardmarket price for this commander in the imported offers. No Scryfall fallback was used.');
-   let automaticResearch=null;
-   if(p.autoResearch===true&&p.communityMode!=='off'){
-    const key=oracleId(commander)+':'+String(Number(p.bracket));
-    const cached=completedAutomaticResearch.get(key),ownsDiscovery=!communityDiscoveryBusy;
-    if(ownsDiscovery)communityDiscoveryBusy=true;
-    try{
-     const result=await researchForGeneration({commanderId:oracleId(commander),commanderName:commander.name,
-      bracket:Number(p.bracket),budget:Number(p.budget),catalog:state.cards,savedCommunity:community,
-      reuseDiscovery:Date.now()<(cached?.until||0),reusedAt:cached?.at||null,discoveryBusy:!ownsDiscovery,catalogFetchedAt:state.meta?.savedAt||null});
-     // Concurrent Spellbook-only work must not replace a newer imported cohort.
-     if(ownsDiscovery)community=result.community;
-     automaticResearch=result.report;
-     if(ownsDiscovery&&result.report.discovery.status==='completed')completedAutomaticResearch.set(key,{until:Date.now()+6*60*60*1000,at:result.report.discovery.fetchedAt||new Date().toISOString()});
-    }finally{if(ownsDiscovery)communityDiscoveryBusy=false;}
-   }
-   let localCombos=[],comboLibraryError=null;
-   try{localCombos=(await readComboLibrary()).find(x=>x.commanderId===p.commanderId)?.variants||[];}catch(e){comboLibraryError=e.message;console.error('Combo library unavailable:',e.message);}
-   const communityMode=p.communityMode==='off'?'off':'auto';
-   const communityPrepared=prepareCommunityConstruction({decks:community,commander:selectedCommander,bracket:p.bracket,catalog:candidateCards,mode:communityMode});
-   if(communityPrepared.status==='ready'&&typeof p.communityStrategy==='string'&&p.communityStrategy!=='auto'){
-    const selected=communityPrepared.candidates.find(x=>x.id===p.communityStrategy);
-    if(!selected)throw Error('Selected community strategy is no longer available. Refresh community research and choose another strategy.');
-    communityPrepared.selected=selected;communityPrepared.userSelected=true;
-   }
-   const deck=generateDeck({cards:candidateCards,commander:selectedCommander,budget:p.budget,budgetTolerance:purchasing.tolerance,basicLandsOwned:purchasing.basicLandsOwned,bracket:p.bracket,powerTarget:p.powerTarget||'balanced',comboVariants:localCombos,communityBuild:communityPrepared,communityDecks:community,constructionMode:p.constructionMode==='legacy'?'legacy':'strategy-first'});
-   deck.communityKnowledge=communityStrategySummary(communityPrepared);
-   // Stage 12: optional manually imported EDHREC observation. Never a remote
-   // request and never a constructor score or ranking input.
-   try{deck.edhrecKnowledge=await readEdhrecCommanderJson({commanderName:commander.name});}
-   catch(e){deck.edhrecKnowledge={status:'unavailable',source:'EDHREC local JSON',error:String(e.message).slice(0,180)};}
+   let sharedLookups,edhrecKnowledge;
+   async function build(bracket,powerTarget,progress){
+    let automaticResearch=null;
+    if(p.autoResearch===true&&p.communityMode!=='off'){
+     progress({phase:'research',bracket});
+     const key=oracleId(commander)+':'+String(bracket);
+     const cached=completedAutomaticResearch.get(key),ownsDiscovery=!communityDiscoveryBusy;
+     if(ownsDiscovery)communityDiscoveryBusy=true;
+     try{
+      const result=await researchForGeneration({commanderId:oracleId(commander),commanderName:commander.name,
+       bracket:Number(bracket),budget:Number(p.budget),catalog:catalog.cards,savedCommunity:community,
+       reuseDiscovery:Date.now()<(cached?.until||0),reusedAt:cached?.at||null,discoveryBusy:!ownsDiscovery,catalogFetchedAt:catalog.meta?.savedAt||null,sharedLookups});
+      // Concurrent Spellbook-only work must not replace a newer imported cohort.
+      if(ownsDiscovery)community=result.community;
+      automaticResearch=result.report;
+      sharedLookups=automaticResearch;
+      if(ownsDiscovery&&result.report.discovery.status==='completed')completedAutomaticResearch.set(key,{until:Date.now()+6*60*60*1000,at:result.report.discovery.fetchedAt||new Date().toISOString()});
+     }finally{if(ownsDiscovery)communityDiscoveryBusy=false;}
+    }
+    progress({phase:'build',bracket});
+    let localCombos=[],comboLibraryError=null;
+    try{localCombos=(await readComboLibrary()).find(x=>x.commanderId===p.commanderId)?.variants||[];}catch(e){comboLibraryError=e.message;console.error('Combo library unavailable:',e.message);}
+    const communityMode=p.communityMode==='off'?'off':'auto';
+    const communityPrepared=prepareCommunityConstruction({decks:community,commander:selectedCommander,bracket,catalog:candidateCards,mode:communityMode});
+    if(communityPrepared.status==='ready'&&typeof p.communityStrategy==='string'&&p.communityStrategy!=='auto'){
+     const selected=communityPrepared.candidates.find(x=>x.id===p.communityStrategy);
+     if(!selected)throw Error('Selected community strategy is no longer available. Refresh community research and choose another strategy.');
+     communityPrepared.selected=selected;communityPrepared.userSelected=true;
+    }
+    const deck=generateDeck({cards:candidateCards,commander:selectedCommander,budget:p.budget,budgetTolerance:purchasing.tolerance,basicLandsOwned:purchasing.basicLandsOwned,bracket,powerTarget,comboVariants:localCombos,communityBuild:communityPrepared,communityDecks:community,constructionMode:p.constructionMode==='legacy'?'legacy':'strategy-first'});
+    deck.communityKnowledge=communityStrategySummary(communityPrepared);
+    // Stage 12: optional manually imported EDHREC observation. Never a remote
+    // request and never a constructor score or ranking input.
+    try{deck.edhrecKnowledge=await (edhrecKnowledge??=readEdhrecCommanderJson({commanderName:commander.name}));}
+    catch(e){deck.edhrecKnowledge={status:'unavailable',source:'EDHREC local JSON',error:String(e.message).slice(0,180)};}
 
-   if(automaticResearch){deck.automaticResearch=automaticResearch;
-    if(automaticResearch.discovery?.status==='unavailable')deck.warnings.push('Automatic Archidekt research unavailable; built from saved sources/local fallback: '+automaticResearch.discovery.error);
-    if(automaticResearch.combos?.status==='unavailable')deck.warnings.push('Automatic Spellbook source check unavailable; retained previously cached combos: '+automaticResearch.combos.error);
-    if(['unavailable','partial','cached-fallback'].includes(automaticResearch.commanderLookup?.status))deck.warnings.push('Commander-specific Spellbook research unavailable; retained saved combo library/local fallback: '+automaticResearch.commanderLookup.error);
-    if(automaticResearch.discovery?.status==='busy')deck.warnings.push('Archidekt research was busy; built from previously saved community sources.');
+    if(automaticResearch){deck.automaticResearch=automaticResearch;
+     if(automaticResearch.discovery?.status==='unavailable')deck.warnings.push('Automatic Archidekt research unavailable; built from saved sources/local fallback: '+automaticResearch.discovery.error);
+     if(automaticResearch.combos?.status==='unavailable')deck.warnings.push('Automatic Spellbook source check unavailable; retained previously cached combos: '+automaticResearch.combos.error);
+     if(['unavailable','partial','cached-fallback'].includes(automaticResearch.commanderLookup?.status))deck.warnings.push('Commander-specific Spellbook research unavailable; retained saved combo library/local fallback: '+automaticResearch.commanderLookup.error);
+     if(automaticResearch.discovery?.status==='busy')deck.warnings.push('Archidekt research was busy; built from previously saved community sources.');
+    }
+    if(automaticResearch?.colorLookup?.status==='unavailable')deck.warnings.push('Color-compatible Spellbook discovery unavailable; retained saved combo knowledge: '+automaticResearch.colorLookup.error);
+    // Validate the FINAL exported list, not just intermediate construction costs.
+    // Any inconsistency fails closed instead of presenting a misleading budget.
+    const audit=auditExportPricing(deck,selectedCommander,candidateCards);
+    if(audit.count!==100||audit.missing.length||!audit.agreesWithGenerator||!audit.withinBudget)
+     throw Error(`Final price integrity failure: ${audit.count}/100 cards; ${audit.missing.length} unpriced; calculated €${audit.total}; generator €${deck.price}; cap €${deck.budget}. ${audit.anomalies.length?'First mismatches: '+audit.anomalies.slice(0,4).map(x=>x.card+': '+x.reason).join('; ')+'. ':''}No unverified deck exported.`);
+    deck.pricingAudit=audit;
+    deck.archidektImport=archidektTextExport(deck.deck);
+    deck.tempoEvidence=tempoEvidence((selectedCards(deck)||[]).slice(1));
+    deck.pricingCatalog=pricingCatalogStatus(catalog.cards,catalog.meta);
+    if(!deck.pricingCatalog.audited)deck.warnings.push(deck.pricingCatalog.warning);
+    deck.version=APP_VERSION;
+    if(comboLibraryError)deck.warnings.push('Combo library is unreadable; skipped optional combo packages ('+comboLibraryError+').');
+    deck.pricing={mode,label:mode===PRICING_CM?'Imported Cardmarket offers · English NM or Mint (not live verified)':mode===PRICING_ESTIMATED_EN_NM?'Modeled English NM price (unverified markup, NOT a Cardmarket quote)':'Scryfall eligible-printing EUR market estimate (not English NM verified)',updatedAt:mode===PRICING_CM?priceOffers.importedAt:catalog.meta?.savedAt||null,shippingIncluded:false};
+    deck.warnings=deck.warnings.filter(w=>!w.startsWith('Budget estimates use cached Scryfall EUR prices'));
+    deck.warnings.push(mode===PRICING_CM?'Prices from the imported English NM/Mint offer snapshot; offers may be stale or unavailable. Shipping excluded; basics presumed owned.':mode===PRICING_ESTIMATED_EN_NM?'Modeled EN NM prices based on Scryfall EUR. NOT live offers and NOT verified English/NM stock. Shipping excluded; basics presumed owned.':'Scryfall EUR estimates only — NOT verified Cardmarket English NM offers. Shipping excluded; '+purchasing.assumption+'.');
+    return deck;
    }
-   if(automaticResearch?.colorLookup?.status==='unavailable')deck.warnings.push('Color-compatible Spellbook discovery unavailable; retained saved combo knowledge: '+automaticResearch.colorLookup.error);
-   // Validate the FINAL exported list, not just intermediate construction costs.
-   // Any inconsistency fails closed instead of presenting a misleading budget.
-   const audit=auditExportPricing(deck,selectedCommander,candidateCards);
-   if(audit.count!==100||audit.missing.length||!audit.agreesWithGenerator||!audit.withinBudget)
-    throw Error(`Final price integrity failure: ${audit.count}/100 cards; ${audit.missing.length} unpriced; calculated €${audit.total}; generator €${deck.price}; cap €${deck.budget}. ${audit.anomalies.length?'First mismatches: '+audit.anomalies.slice(0,4).map(x=>x.card+': '+x.reason).join('; ')+'. ':''}No unverified deck exported.`);
-   deck.pricingAudit=audit;
-   deck.archidektImport=archidektTextExport(deck.deck);
-   deck.tempoEvidence=tempoEvidence((selectedCards(deck)||[]).slice(1));
-   deck.pricingCatalog=pricingCatalogStatus(state.cards,state.meta);
-   if(!deck.pricingCatalog.audited)deck.warnings.push(deck.pricingCatalog.warning);
-   deck.version=APP_VERSION;
-   if(comboLibraryError)deck.warnings.push('Combo library is unreadable; skipped optional combo packages ('+comboLibraryError+').');
-   deck.pricing={mode,label:mode===PRICING_CM?'Imported Cardmarket offers · English NM or Mint (not live verified)':mode===PRICING_ESTIMATED_EN_NM?'Modeled English NM price (unverified markup, NOT a Cardmarket quote)':'Scryfall eligible-printing EUR market estimate (not English NM verified)',updatedAt:mode===PRICING_CM?offers.importedAt:state.meta?.savedAt||null,shippingIncluded:false};
-   deck.warnings=deck.warnings.filter(w=>!w.startsWith('Budget estimates use cached Scryfall EUR prices'));
-   deck.warnings.push(mode===PRICING_CM?'Prices from the imported English NM/Mint offer snapshot; offers may be stale or unavailable. Shipping excluded; basics presumed owned.':mode===PRICING_ESTIMATED_EN_NM?'Modeled EN NM prices based on Scryfall EUR. NOT live offers and NOT verified English/NM stock. Shipping excluded; basics presumed owned.':'Scryfall EUR estimates only — NOT verified Cardmarket English NM offers. Shipping excluded; '+purchasing.assumption+'.');
-   return json(res,deck);
+   const powerTarget=p.powerTarget||'balanced';
+   return await sendWithProgress(req,res,async progress=>{
+    if(!combined)return build(p.bracket===undefined?3:p.bracket,powerTarget,progress);
+    const results=[];
+    for(const bracket of [3,4]){
+     try{
+      const deck=await build(bracket,bracket===3?powerTarget:'balanced',progress);
+      results.push({bracket,deck});
+     }catch(err){
+      results.push({bracket,error:String(err.message||err)});
+     }
+    }
+    return {version:APP_VERSION,results};
+   });
   }
   if(req.method==='GET'&&staticFiles[url.pathname]){
    const filename=path.join(ROOT,'public',staticFiles[url.pathname]);

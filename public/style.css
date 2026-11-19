@@ -15,3 +15,6 @@
 .pricing-ledger,.pricing-budget-panel{margin:16px 0;background:#102435;border:1px solid #355469;border-radius:9px;padding:14px}.pricing-ledger summary{cursor:pointer;color:#a8e0d8;font-size:12px;font-weight:700}.pricing-lines{max-height:260px;overflow:auto;margin:8px 0;font-size:12px}.price-row{display:flex;justify-content:space-between;gap:12px;padding:6px 0;border-bottom:1px solid #234054}.price-row a{color:#87dace;overflow-wrap:anywhere}.price-row span{text-align:right;font-variant-numeric:tabular-nums}.pricing-budget-panel h4{margin:0}.pricing-budget-panel button{margin-top:10px}#comparison-result{padding-top:10px;white-space:pre-line}
 
 #previous-deck{margin-top:12px}#previous-deck summary{cursor:pointer;padding:9px;color:#9de4cf;font-size:12px}#previous-deck button{margin:8px 0}#previous-deck-text{min-height:180px}
+
+.generated-brackets:not([hidden]){display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 14px}
+.generated-brackets button[aria-pressed="true"]{border-color:#75dcd1;color:#75dcd1}

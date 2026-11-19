@@ -1,3 +1,4 @@
+import {postWithProgress} from './progress.js';
 import {renderStrategy} from './strategy.js';
 import {researchSummary} from './research.js';
 import {findRankedDecks,renderRankedDecks} from './discovery-results.js';
@@ -23,6 +24,7 @@ function appendComboExecutionAudit(audit,parent){
 const $=id=>document.getElementById(id);
 const APP_VERSION='1.1.5';
 let selected=null,lastDeck=null,poll=null,searchSeq=0,regeneration=null,originalBudget=null;
+let generationBusy=false,generatedFor=null,generatedResults=[],generationComparison=null;
 async function pricingStatus(){try{const s=await get('/api/pricing/status');$('cm-status').textContent=s.cardmarket.available?`${s.cardmarket.matchedCards.toLocaleString()} priced cards · imported ${new Date(s.cardmarket.importedAt).toLocaleString()} · coverage ${s.cardmarket.coverage.priced.toLocaleString()}/${s.cardmarket.coverage.total.toLocaleString()}`:'No Cardmarket offers imported yet.';}catch(e){$('cm-status').textContent=e.message;}}
 $('pricing-mode').addEventListener('change',()=>{const mode=$('pricing-mode').value,cm=mode==='cardmarket_en_nm';$('cm-import').hidden=!cm;$('pricing-description').textContent=cm?'Imported English NM/Mint offer snapshot; never silently falls back to Scryfall.':mode==='estimated_en_nm'?'Model-calculated EN NM purchasing estimate from Scryfall EUR. NOT live Cardmarket pricing, stock, or a verified quote.':'Automatic eligible-printing Scryfall EUR estimate; not guaranteed English Near Mint or current Cardmarket stock.';pricingStatus();});
 $('cm-import-btn').addEventListener('click',async()=>{const file=$('cm-file').files?.[0];if(!file){notice('Choose a Cardmarket listing CSV first.');return;}if(file.size>5_000_000){notice('Cardmarket CSV is larger than 5 MB.');return;}notice('Filtering imported offers to English NM/Mint…');$('cm-import-btn').disabled=true;try{const data=await post('/api/pricing/import',{csv:await file.text()});notice(`Imported ${data.matchedCards} matching card prices. EN/NM or better only. This is a snapshot, not live verified.`);await pricingStatus();}catch(e){notice(e.message);}finally{$('cm-import-btn').disabled=false;}});
@@ -32,8 +34,11 @@ async function post(url,payload){const r=await fetch(url,{method:'POST',headers:
 function notice(s){$('action-message').textContent=s;}
 let communityBuildSeq=0;
 async function refreshCommunityBuildOptions(){
- const seq=++communityBuildSeq,choice=$('community-strategy');choice.replaceChildren();
+ const seq=++communityBuildSeq,choice=$('community-strategy'),combined=$('bracket').value==='3+4';
+ choice.disabled=combined||$('community-mode').value==='off';
+ choice.replaceChildren();
  const generic=document.createElement('option');generic.value='auto';generic.textContent='Automatic: best supported package';choice.append(generic);
+ if(combined){$('community-build-status').textContent='Each bracket automatically chooses from its own saved community evidence.';return;}
  if(!selected){$('community-build-status').textContent='Select a commander to inspect local research.';return;}
  try{
   const r=await get(`/api/community/build-options?commanderId=${encodeURIComponent(selected.id)}&bracket=${encodeURIComponent($('bracket').value)}`);
@@ -42,17 +47,96 @@ async function refreshCommunityBuildOptions(){
   $('community-build-status').textContent=r.status==='ready'?`${r.sampleSize} distinct validated lists. ${r.highConfidence?'Moderate':'Exploratory'} evidence; ${r.candidates.length} coherent research seed(s) available. Source patterns are not proven power.`:r.reason;
  }catch(e){if(seq===communityBuildSeq)$('community-build-status').textContent=e.message;}
 }
-$('community-mode').addEventListener('change',()=>{$('community-strategy').disabled=$('community-mode').value==='off';});
+$('community-mode').addEventListener('change',()=>{$('community-strategy').disabled=$('bracket').value==='3+4'||$('community-mode').value==='off';});
 
 async function status(){try{const s=await get('/api/status');if(s.version!==APP_VERSION){$('catalog-status').textContent=`Version mismatch: server ${s.version||'older than v1.1.5'}, page ${APP_VERSION}. Close old CommanderOracle server windows, restart this release, and hard-refresh.`;$('generate').disabled=true;return s;}$('catalog-status').textContent=s.count?`${s.count.toLocaleString()} cards • ${s.metadata?.savedAt?new Date(s.metadata.savedAt).toLocaleDateString():'local cache'}${s.printingAudit?.audited?' • pricing printings screened':' • RE-SYNC FOR PRINTING PRICE CHECK'}`:s.syncing?'Downloading Scryfall catalog…':'No catalog installed';$('status-dot').className='dot'+(s.count?' ready':'');$('sync').disabled=s.syncing;
  if(s.syncing){$('progress').hidden=false;const p=s.update;const percent=p.totalBytes?Math.min(100,Math.round(100*p.bytes/p.totalBytes)):0;$('progress-bar').style.width=percent+'%';$('sync-note').textContent=`${p.phase||'working'} • ${p.bytes?Math.round(p.bytes/1024/1024)+' MB':'waiting'} • ${p.parsed||0} cards parsed`;}else {$('progress').hidden=true;$('sync-note').textContent=s.update?.error||'Scryfall data is cached locally; refresh when prices or legalities change.';}
- $('generate').disabled=!selected||!s.count;return s;
+ $('generate').disabled=generationBusy||!selected||!s.count;return s;
  }catch(e){$('catalog-status').textContent='Server unavailable';$('sync-note').textContent=e.message;}}
 $('sync').addEventListener('click',async()=>{notice('');try{await post('/api/sync',{});await status();if(poll)clearInterval(poll);poll=setInterval(async()=>{const s=await status();if(!s?.syncing){clearInterval(poll);poll=null;}},1000);}catch(e){notice(e.message);}});
 let debounce=null;$('search').addEventListener('input',()=>{clearTimeout(debounce);const q=$('search').value.trim();if(q.length<2){$('results').replaceChildren();return;}debounce=setTimeout(()=>search(q),320);});
 async function search(q){const seq=++searchSeq;try{const cards=await get('/api/commanders?q='+encodeURIComponent(q));if(seq!==searchSeq)return;const list=$('results');list.replaceChildren();for(const card of cards){const btn=document.createElement('button');btn.className='search-item';const n=document.createElement('span');n.textContent=card.name;const small=document.createElement('small');small.textContent=(card.color_identity||[]).join('')||'Colorless';btn.append(n,small);btn.addEventListener('click',()=>{selected=card;$('commander-name').textContent=card.name;$('commander-meta').textContent=`Identity: ${(card.color_identity||[]).join('')||'C'} • Estimated €${card.price??'unknown'}`;$('commander-image').src=card.image_url||'';$('selected').hidden=false;$('results').replaceChildren();$('search').value=card.name;notice('');status();refreshCommunityBuildOptions();});list.append(btn);}if(!cards.length)list.textContent='No matches. Try a shorter commander name.';}catch(e){if(seq===searchSeq)notice(e.message);}}
-$('bracket').addEventListener('change',()=>{const onlyThree=$('bracket').value==='3';$('power-target').disabled=!onlyThree;$('power-target').value=onlyThree?'high':'balanced';refreshCommunityBuildOptions();});
-$('generate').addEventListener('click',async()=>{if(!selected)return;const pending=regeneration;regeneration=null;const previousDeck=lastDeck;if(!pending)originalBudget=Number($('budget').value);const autoResearch=$('research-on-generate').checked&&$('community-mode').value!=='off';notice(autoResearch?'Researching this commander on Archidekt and Spellbook, then building… This may take a few minutes.':'Generating locally…');$('generate').disabled=true;try{const r=await post('/api/generate',{commanderId:selected.id,budget:Number($('budget').value),budgetTolerance:$('budget-leeway').checked?4:0,basicLandsOwned:$('basics-owned').checked,bracket:Number($('bracket').value),powerTarget:$('power-target').value,pricingMode:$('pricing-mode').value,constructionMode:$('construction-engine').value,communityMode:$('community-mode').value,communityStrategy:$('community-strategy').value,autoResearch});if(r.version!==APP_VERSION)throw Error(`Generator version mismatch (expected ${APP_VERSION}, got ${r.version||'unknown'}). Restart the correct local server.`);lastDeck=r;render(r);if(pending&&previousDeck)showRegenerationComparison(previousDeck,r,pending);notice([r.automaticResearch?.discovery,r.automaticResearch?.commanderLookup,r.automaticResearch?.colorLookup,r.automaticResearch?.combos].some(c=>['unavailable','partial','cached-fallback'].includes(c?.status))?'Some online research was unavailable or incomplete; saved evidence/local fallback was retained. See research details.':'');}catch(e){notice(e.message);}finally{status();}});
+function generationScope(){
+ const bracket=$('bracket').value;
+ return bracket==='3+4'?bracket:Number(bracket);
+}
+function updateGenerationScope(){
+ const scope=generationScope();
+ $('power-target').disabled=scope!==3&&scope!=='3+4';
+ $('generate-label').textContent=scope==='3+4'?'Research & generate both decks':'Research & generate 100-card deck';
+ refreshCommunityBuildOptions();
+}
+$('bracket').addEventListener('change',updateGenerationScope);
+updateGenerationScope();
+
+function selectGeneratedDeck(result){
+ lastDeck=result.deck;
+ $('generated-title').textContent='Generated deck · Bracket '+result.bracket;
+ for(const button of $('generated-brackets').querySelectorAll('button')){
+  button.setAttribute('aria-pressed',String(Number(button.dataset.bracket)===result.bracket));
+ }
+ render(lastDeck);
+ const previous=generationComparison?.before.find(row=>row.bracket===result.bracket&&row.deck);
+ if(previous)showRegenerationComparison(previous.deck,lastDeck,generationComparison.context);
+ if(['match','3+4'].includes($('community-bracket').value)&&generationScope()==='3+4')communityInsights();
+}
+function renderGeneratedChoices(results){
+ const choices=$('generated-brackets');
+ choices.replaceChildren();
+ choices.hidden=results.length<2;
+ if(choices.hidden)return;
+ for(const row of results){
+  const label='Bracket '+row.bracket;
+  if(!row.deck){appendMsg(choices,label+' — '+row.error,'tiny');continue;}
+  const button=document.createElement('button');
+  button.className='secondary';
+  button.type='button';
+  button.dataset.bracket=row.bracket;
+  button.textContent=label+' · €'+row.deck.price.toFixed(2);
+  button.addEventListener('click',()=>selectGeneratedDeck(row));
+  choices.append(button);
+ }
+}
+$('generate').addEventListener('click',async()=>{
+ if(!selected||generationBusy)return;
+ const pending=regeneration;
+ regeneration=null;
+ const previous=generatedFor===selected.id?generatedResults:[];
+ const previousBracket=lastDeck?.bracket;
+ const bracket=generationScope();
+ const autoResearch=$('research-on-generate').checked&&$('community-mode').value!=='off';
+ const query={commanderId:selected.id,budget:Number($('budget').value),
+  budgetTolerance:$('budget-leeway').checked?4:0,basicLandsOwned:$('basics-owned').checked,
+  bracket,powerTarget:bracket===3||bracket==='3+4'?$('power-target').value:'balanced',
+  pricingMode:$('pricing-mode').value,constructionMode:$('construction-engine').value,
+  communityMode:$('community-mode').value,communityStrategy:$('community-strategy').value,autoResearch};
+ generationBusy=true;
+ $('generate').disabled=true;
+ $('regenerate-extra').disabled=true;
+ notice(bracket==='3+4'?'Preparing Brackets 3 and 4…':'Preparing Bracket '+bracket+'…');
+ try{
+  const response=await postWithProgress('/api/generate',query,event=>{
+   if(selected?.id===query.commanderId)notice((event.phase==='research'?'Researching':'Building')+' Bracket '+event.bracket+'…');
+  });
+  if(response.version!==APP_VERSION)throw Error('Generator version mismatch. Restart the correct local server.');
+  if(selected?.id!==query.commanderId)return;
+  const results=response.results||[{bracket:response.bracket,deck:response}];
+  const choice=results.find(row=>pending&&row.deck&&row.bracket===previousBracket)||results.find(row=>row.deck);
+  if(!choice)throw Error(results.map(row=>'Bracket '+row.bracket+' — '+row.error).join(' | '));
+  generatedFor=query.commanderId;
+  generatedResults=results;
+  generationComparison=pending?{before:previous,context:pending}:null;
+  if(!pending)originalBudget=query.budget;
+  renderGeneratedChoices(results);
+  selectGeneratedDeck(choice);
+  const incomplete=results.some(({deck})=>
+   [deck?.automaticResearch?.discovery,deck?.automaticResearch?.commanderLookup,deck?.automaticResearch?.colorLookup,deck?.automaticResearch?.combos]
+    .some(item=>['unavailable','partial','cached-fallback','busy'].includes(item?.status)));
+  const failed=results.filter(row=>!row.deck).map(row=>'Bracket '+row.bracket+' could not be generated.');
+  notice([...failed,...(incomplete?['Some online research was incomplete. See the generated deck’s research details.']:[])].join(' '));
+ }catch(e){if(selected?.id===query.commanderId)notice(e.message);}
+ finally{generationBusy=false;$('regenerate-extra').disabled=false;status();}
+});
 function render(r){renderStrategy(r,$('why-this-deck'));$('empty').hidden=true;$('deck-result').hidden=false;$('deck-price').textContent=`€${r.price.toFixed(2)}`;renderPriceLedger(r);$('comparison-result').textContent='';$('previous-deck').hidden=true;updateBudgetPreview();$('price-source').textContent=`Pricing: ${r.pricing?.label||'Scryfall EUR estimate'} · ${r.pricing?.updatedAt?new Date(r.pricing.updatedAt).toLocaleDateString():'date unknown'} · no shipping`;$('deck-count').textContent=r.totalCards;$('deck-lands').textContent=r.landCount;$('deck-colorless').textContent=r.colorlessSources;$('plan-title').textContent=r.plan;$('verdict').textContent=r.qualityVerdict;$('verdict').className='verdict'+(r.warnings.some(w=>w.includes(': ')&&!w.includes('Budget'))||r.qualityVerdict.includes('INCOMPLETE')?' problem':'');$('checks').replaceChildren();if(r.edhrecKnowledge){
  const k=r.edhrecKnowledge,el=document.createElement('span');el.className='check';
  el.textContent=k.status==='local-import'
@@ -208,11 +292,14 @@ function communityBracket(){
  const scope=$('community-bracket').value;
  if(scope==='3+4')return scope;
  if(scope==='any')return null;
- return scope==='match'?Number($('bracket').value):Number(scope);
+ return scope==='match'?generationScope():Number(scope);
 }
 function communityResearchBracket(){
  const scope=communityBracket();
- return scope==='3+4'?Number($('bracket').value):scope;
+ if(scope!=='3+4')return scope;
+ const bracket=generationScope();
+ if(bracket!=='3+4')return bracket;
+ return generatedFor===selected?.id&&[3,4].includes(lastDeck?.bracket)?lastDeck.bracket:3;
 }
 function updateDiscoveryButtons(){
  $('community-discover').disabled=$('community-auto').disabled=!selected||discoveryRunning||autoResearchRunning;
@@ -324,7 +411,8 @@ $('budget-leeway').addEventListener('change',updateBudgetPreview);
 $('actual-cart').addEventListener('input',updateBudgetPreview);
 $('extra-budget').addEventListener('input',updateBudgetPreview);
 $('regenerate-extra').addEventListener('click',()=>{
- if(!lastDeck){notice('Generate a deck before regenerating.');return;}
+ if(generationBusy)return;
+ if(!lastDeck||selected?.id!==generatedFor){notice('Generate a deck for the selected commander before regenerating.');return;}
  const extra=Number($('extra-budget').value),cartText=$('actual-cart').value.trim(),cart=cartText===''?null:Number(cartText);
  if(!Number.isFinite(extra)||extra<=0||extra>100000){notice('Enter a positive additional budget (up to €100,000).');return;}
  if(cart!==null&&(!Number.isFinite(cart)||cart<0||cart>1000000)){notice('Enter a valid cart total or leave it blank.');return;}

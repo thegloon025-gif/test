@@ -1,5 +1,6 @@
-## Ranked public deck discovery (unreleased)
+## Ranked discovery and combined generation (unreleased)
 
+- [x] Generate independent B3 and B4 decks in one run with a shared input ceiling, individual exports and bracket-specific validation.
 - [x] Compare verified Bracket 3 and 4 cardlists together, retain source bracket metadata and collapse identical lists.
 - [x] Index the official Commander Spellbook snapshot locally, match inventory and requirements, and explain bounded combo contributions alongside structure and budget.
 - [ ] Broaden support for documented wildcard and game-state prerequisites as evidence becomes available. Use playtests to calibrate the discovery score.

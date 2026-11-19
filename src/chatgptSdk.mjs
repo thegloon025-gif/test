@@ -7,6 +7,33 @@ import { spawn } from "node:child_process";
 export const DEVKIT_REVISION = "0a36fefeb913055c8c7a1a29b63d82b96b2e841a";
 export const USAGE_URL = "https://chatgpt.com/settings/usage";
 const fail = (code, message) => Object.assign(new Error(message), { code });
+
+export function chatGPTAuthorizationUrl(value) {
+  const url = URL.parse(value);
+  const callback = URL.parse(url?.searchParams.get("redirect_uri") || "");
+  if (url?.origin !== "https://auth.openai.com" || url.username || url.password ||
+      callback?.protocol !== "http:" || callback.hostname !== "127.0.0.1" ||
+      !callback.port || callback.pathname !== "/auth/callback" ||
+      url.searchParams.get("response_type") !== "code" ||
+      url.searchParams.get("code_challenge_method") !== "S256") {
+    throw fail("discovery_failed", "Invalid ChatGPT authorization URL.");
+  }
+  // The SDK may attach a saved email as a convenience hint. The browser
+  // handoff only needs the public authorization parameters.
+  url.searchParams.delete("login_hint");
+  return url.href;
+}
+
+export function openChatGPTBrowser(url) {
+  return new Promise((resolve, reject) => {
+    const child = spawn("rundll32", ["url.dll,FileProtocolHandler", url], {
+      stdio: "ignore", shell: false,
+    });
+    const unavailable = () => fail("browser_unavailable", "The default browser could not be opened.");
+    child.once("error", () => reject(unavailable()));
+    child.once("exit", code => code === 0 ? resolve() : reject(unavailable()));
+  });
+}
 /** DPAPI CurrentUser. Secrets go over stdin/stdout pipes, never arguments or logs. */
 export function windowsCredentialEncryption({
   platform = process.platform,
@@ -102,7 +129,7 @@ function runPowerShell(bytes, decrypt) {
     child.stdin.end(Buffer.from(bytes).toString("base64"));
   });
 }
-export async function loadOfficialChatGPT({ dataDir }) {
+export async function loadOfficialChatGPT({ dataDir, openBrowser }) {
   const [major, minor] = process.versions.node.split(".").map(Number);
   if (major < 22 || (major === 22 && minor < 12))
     throw fail(
@@ -157,6 +184,7 @@ export async function loadOfficialChatGPT({ dataDir }) {
     redirectPort: 0,
     storageDir: path.resolve(dataDir, "chatgpt-credentials"),
     credentialEncryption: provider,
+    openBrowser,
     sendHostId: false,
   });
 }

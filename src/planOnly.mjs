@@ -2,7 +2,7 @@ import { randomUUID } from "node:crypto";
 /** Mandatory plan-only controller. No fetch, API key, provider switch or paid route. */
 import { readFile, mkdir, writeFile, rename } from "node:fs/promises";
 import path from "node:path";
-import { USAGE_URL } from "./chatgptSdk.mjs";
+import { USAGE_URL,chatGPTAuthorizationUrl,openChatGPTBrowser } from "./chatgptSdk.mjs";
 export const QUOTA_MESSAGE =
   "ChatGPT usage limit reached. AI deckbuilding has stopped. No paid API fallback was attempted. You can continue using CommanderOracle's local features or try again after your usage resets.";
 const fail = (code, message) => Object.assign(new Error(message), { code });
@@ -15,6 +15,10 @@ const known = new Set([
   "sign_in_required",
   "secure_storage_unavailable",
   "sdk_unavailable",
+  "discovery_failed",
+  "browser_unavailable",
+  "callback_port_unavailable",
+  "callback_failed",
   "cancelled",
   "timed_out",
   "response_too_large",
@@ -51,6 +55,8 @@ export function safePlanError(error) {
             ? "Secure OS credential storage is unavailable; use manual copy/import."
             : code === "sdk_unavailable"
               ? "The pinned official SDK is not installed or verified; see local setup instructions."
+              : code === "browser_unavailable"
+                ? "The default browser could not open. Start sign-in from the local Architect panel."
               : code === "confirmation_required"
                 ? "Confirm ChatGPT credit/app-limit settings and explicit plan-use authorization before enabling AI."
                 : code === "daily_limit"
@@ -83,7 +89,7 @@ export function createPlanOnly({
     authorized = false,
     profile = null,
     active = null,
-    authBusy = false,
+    signInAttempt = null,
     limit = 3,
     history = [],
     initialized = false,
@@ -155,7 +161,11 @@ export function createPlanOnly({
   }
   const used = () => (counter.day === day() ? counter.count : 0);
   async function client() {
-    sdk ??= await sdkFactory();
+    sdk ??= await sdkFactory({openBrowser: url => {
+      const attempt = signInAttempt;
+      if (!attempt || attempt.signal.aborted) throw fail("cancelled","Sign-in cancelled.");
+      return attempt.open(chatGPTAuthorizationUrl(url));
+    }});
     return sdk;
   }
   // Pinned DevKit sharing=true requires verified credentials and chatgpt.tokens.use.direct.
@@ -214,7 +224,7 @@ export function createPlanOnly({
         models,
         selectedModel: selected,
         active: !!active,
-        connecting: authBusy,
+        connecting: !!signInAttempt,
         dailyLimit: limit,
         requestsToday: used(),
         resetBasis: "UTC calendar day",
@@ -223,32 +233,37 @@ export function createPlanOnly({
         history: history.slice(-100),
       };
     },
-    async signIn({ directUseAuthorized = false } = {}) {
+    async signIn({ directUseAuthorized = false } = {}, {openBrowser=openChatGPTBrowser,signal:requestSignal} = {}) {
       await load();
-      if (!directUseAuthorized)
+      if (directUseAuthorized !== true)
         throw fail(
           "confirmation_required",
           "Explicit plan authorization required.",
         );
-      if (authBusy || active) throw fail("busy", "Job or sign-in active.");
-      authBusy = true;
+      if (signInAttempt || active) throw fail("busy", "Job or sign-in active.");
+      const controller = new AbortController();
+      const signal = requestSignal ? AbortSignal.any([controller.signal,requestSignal]) : controller.signal;
+      signInAttempt = {controller,signal,open:openBrowser};
       clear();
       try {
-        const c = await client(),
-          s = await c.signIn({ reconsent: true });
+        const c = await client();
+        signal.throwIfAborted();
+        const s = await c.signIn({ reconsent: true,signal });
+        signal.throwIfAborted();
         auth = { status: s.status, sharing: s.sharing === true };
         await record("success", null, "sign-in");
         return auth;
       } catch (e) {
         auth = { status: "disconnected", sharing: false };
-        await record("failed", safePlanError(e).code, "sign-in");
-        throw e;
+        const error = signal.aborted ? fail("cancelled","Sign-in cancelled.") : e;
+        await record("failed", safePlanError(error).code, "sign-in");
+        throw error;
       } finally {
-        authBusy = false;
+        signInAttempt = null;
       }
     },
     async discover() {
-      if (active || authBusy) throw fail("busy", "Wait for current job.");
+      if (active || signInAttempt) throw fail("busy", "Wait for current job.");
       await fresh();
       try {
         models = (await sdk.listModels())
@@ -269,7 +284,7 @@ export function createPlanOnly({
     },
     async configure(p) {
       await load();
-      if (active || authBusy) throw fail("busy", "Job active.");
+      if (active || signInAttempt) throw fail("busy", "Job active.");
       if (!p.enabled) {
         clear();
         return;
@@ -302,10 +317,12 @@ export function createPlanOnly({
     },
     cancel() {
       active?.abort();
+      signInAttempt?.controller.abort();
       sdk?.cancelSignIn();
     },
     async disconnect() {
       active?.abort();
+      signInAttempt?.controller.abort();
       sdk?.cancelSignIn();
       clear();
       auth = { status: "disconnected", sharing: false };
@@ -314,7 +331,7 @@ export function createPlanOnly({
     async run({ prompt, validate, maxRepairs = 2 }) {
       if (!Number.isInteger(maxRepairs) || maxRepairs < 0 || maxRepairs > 2)
         throw fail("invalid_request", "Repair bound must be 0–2.");
-      if (active || authBusy) throw fail("busy", "Only one active AI job.");
+      if (active || signInAttempt) throw fail("busy", "Only one active AI job.");
       if (typeof prompt !== "string" || Buffer.byteLength(prompt) > 64000)
         throw fail("invalid_request", "Input exceeds 64 KB.");
       const controller = new AbortController();

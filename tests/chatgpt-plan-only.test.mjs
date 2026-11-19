@@ -299,7 +299,12 @@ test("deadline is distinguishable from manual cancellation; stopped and no paid 
     async streamResponse(p) {
       f.calls.push(p);
       return new Promise((resolve,reject) => {
-        p.signal.addEventListener("abort", () => reject(Object.assign(new Error("abort"),{code:"cancelled"})),{once:true});
+        // A real transport keeps the event loop active while waiting for data.
+        const waitingForData = setTimeout(() => reject(Error("Abort was not delivered.")), 1000);
+        p.signal.addEventListener("abort", () => {
+          clearTimeout(waitingForData);
+          reject(Object.assign(new Error("abort"),{code:"cancelled"}));
+        },{once:true});
       });
     }
   });
@@ -329,4 +334,73 @@ test("output-bound abort is reported as response_too_large instead of manual can
   await assert.rejects(f.c.run({prompt:"x",maxRepairs:0,validate:()=>({valid:true})}),e=>e.code==="response_too_large");
   assert.equal((await f.c.status()).stopped.code,"response_too_large");
   assert.equal(f.calls.length,1);
+});
+
+test("sign-in sends the official authorization URL only to the pending browser handoff", async () => {
+  const f = await fixture();
+  const endpoint = new URL("https://auth.openai.com/authorize");
+  endpoint.search = new URLSearchParams({
+    redirect_uri: "http://127.0.0.1:54321/auth/callback",
+    response_type: "code",
+    code_challenge_method: "S256",
+    state: "test-state",
+    login_hint: "private@example.test",
+  });
+  let open, publish, finish;
+  const started = new Promise(resolve => {publish = resolve;});
+  const wait = new Promise(resolve => {finish = resolve;});
+  const ctrl = createPlanOnly({ historyFile: f.file, sdkFactory: async options => {
+    open = options.openBrowser;
+    return {
+      async signIn() {
+        await open(endpoint.href);
+        return wait;
+      },
+      cancelSignIn() {},
+    };
+  }});
+  const connecting = ctrl.signIn({directUseAuthorized:true}, {openBrowser: publish});
+  const authorizedUrl = new URL(await started);
+  assert.equal(authorizedUrl.origin, "https://auth.openai.com");
+  assert.equal(authorizedUrl.searchParams.get("state"), "test-state");
+  assert.equal(authorizedUrl.searchParams.has("login_hint"), false);
+  const status = await ctrl.status();
+  assert.equal(status.connecting, true);
+  assert.equal(JSON.stringify(status).includes(authorizedUrl.href), false);
+  await assert.rejects(ctrl.signIn({directUseAuthorized:true}, {openBrowser: () => assert.fail()}), {code:"busy"});
+  finish({status:"connected",sharing:true,profileId:"private-profile-id"});
+  assert.deepEqual(await connecting,{status:"connected",sharing:true});
+  await assert.rejects(async () => open(endpoint.href), {code:"cancelled"});
+});
+
+test("sign-in rejects a non-OpenAI auth URL and requires explicit authorization", async () => {
+  const f = await fixture();
+  let initialized = 0;
+  const ctrl = createPlanOnly({ historyFile: f.file, sdkFactory: async ({openBrowser}) => {
+    initialized++;
+    return {signIn: () => openBrowser("https://example.test/authorize"),cancelSignIn() {}};
+  }});
+  await assert.rejects(ctrl.signIn({directUseAuthorized:"true"}), {code:"confirmation_required"});
+  assert.equal(initialized,0);
+  await assert.rejects(ctrl.signIn({directUseAuthorized:true},{openBrowser: () => assert.fail()}), {code:"discovery_failed"});
+  assert.equal((await ctrl.status()).auth.status,"disconnected");
+});
+
+test("cancelling during SDK setup prevents the browser from opening later", async () => {
+  const f = await fixture();
+  let begin, release, invoked = 0;
+  const waiting = new Promise(resolve => {begin=resolve;});
+  const ready = new Promise(resolve => {release=resolve;});
+  const ctrl = createPlanOnly({ historyFile:f.file,sdkFactory:async()=>{
+    begin();
+    await ready;
+    return {signIn(){invoked++;},cancelSignIn(){}};
+  }});
+  const pending=ctrl.signIn({directUseAuthorized:true});
+  await waiting;
+  ctrl.cancel();
+  release();
+  await assert.rejects(pending,{code:"cancelled"});
+  assert.equal(invoked,0);
+  assert.equal((await ctrl.status()).connecting,false);
 });

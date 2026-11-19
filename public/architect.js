@@ -1,3 +1,5 @@
+import {postWithProgress} from './progress.js';
+
 const $ = (id) => document.getElementById(id);
 let csrf = null,
   validated = null,
@@ -6,8 +8,17 @@ let csrf = null,
 const panel = document.createElement("section");
 panel.className = "panel";
 panel.id = "chatgpt-architect";
-panel.innerHTML = `<details><summary><strong>Experimental ChatGPT AI Architect</strong></summary><h2>ChatGPT plan-only mode — no paid API fallback</h2><p>Optional and off by default. Included-plan eligibility and account limits apply. No API key is accepted. Local/manual features remain available without sign-in.</p><p><a href="https://chatgpt.com/settings/usage" target="_blank" rel="noopener noreferrer">ChatGPT Settings → Usage</a></p><ol><li>After sign-in, open Settings → Usage.</li><li>Disable “Allow apps to use credits” if available.</li><li>Find CommanderOracle under App limits, set its weekly limit below 100% (preferably 25%), save and verify.</li></ol><p>We cannot read or modify those account settings. Your confirmation is not verified billing telemetry, proof of remaining allowance or an unlimited-free-AI guarantee.</p><label><input id="ai-authorize" type="checkbox"> I explicitly authorize use of eligible included ChatGPT-plan allowance.</label><button id="ai-connect" type="button">Sign in with ChatGPT</button> <button id="ai-models" type="button">Discover eligible models</button> <button id="ai-disconnect" type="button">Disconnect</button><label>Eligible model<select id="ai-model"><option value="">Discover models after sign-in</option></select></label><label><input id="ai-settings" type="checkbox"> I saved and verified the account settings above, including this app’s below-100% weekly limit.</label><label><input id="ai-credits" type="checkbox"> I reviewed credit settings and disabled app credit use where available.</label><label>Weekly app limit I set (%)<input id="ai-weekly" type="number" min="1" max="99" value="25"></label><label>Local daily AI-request maximum (UTC day, including repairs)<input id="ai-daily" type="number" min="1" max="10" value="3"></label><button id="ai-enable" type="button">Confirm and enable plan-only AI</button> <button id="ai-disable" type="button">Disable AI</button><p id="ai-status" role="status"></p><label>Task<select id="ai-mode"><option value="builder">Deck Builder — uses commander/budget/bracket above</option><option value="upgrader">Deck Upgrader — uses original list and purchase settings in Upgrader</option></select></label><label>Exact commander name (Builder; blank uses selected commander above)<input id="ai-name" type="text"></label><label>Preferences<textarea id="ai-preferences" rows="2" maxlength="2000"></textarea></label><label>Excluded strategies (advisory, not mechanically certified)<textarea id="ai-exclusions" rows="2" maxlength="2000"></textarea></label><label>Optional strategic revision request (Builder; requires a validated deck below)<textarea id="ai-revision" rows="2" maxlength="2000"></textarea></label><button id="ai-run" type="button" disabled>Build / analyze with ChatGPT</button> <button id="ai-cancel" type="button">Cancel pending sign-in or AI job</button><p>Clicking the AI job button sends the current deck, preferences and bounded verified catalog context to OpenAI. No inference on startup, form changes, importing or viewing a deck. Builder: one request per click, no automatic repairs. Upgrader: at most two hard-validation repairs. Functional warnings never cause another request. Prompt size, response size and time are bounded; local controls do not replace account billing controls.</p><hr><h3>Manual copy/import bridge — no API call by CommanderOracle</h3><p>Copy the structured request into your ChatGPT conversation, then import its JSON/deck result here. Your ChatGPT plan’s own limits still apply.</p><button id="ai-copy" type="button">Copy AI deckbuilding request</button><label>Verified structured request<textarea id="ai-prompt" rows="6" readonly></textarea></label><label>Paste ChatGPT result<textarea id="ai-result" rows="8"></textarea></label><button id="ai-import" type="button">Import ChatGPT result</button><button id="ai-review" type="button" disabled>Review packages in Experimental Upgrader</button><button id="ai-download" type="button" disabled>Revalidate and download AI deck</button><p id="ai-message" role="status"></p><div id="ai-functional-review" role="status" style="white-space: pre-wrap"></div><div id="ai-budget-review"></div><div id="ai-mana-polish"></div><details><summary>Full local evidence (ledger, dependencies and sampled observations)</summary><pre id="ai-evidence"></pre></details><details><summary>Local usage history (no prompts or credentials)</summary><pre id="ai-history"></pre></details></details>`;
+panel.innerHTML = `<details><summary><strong>Experimental ChatGPT AI Architect</strong></summary><h2>ChatGPT plan-only mode — no paid API fallback</h2><p>Optional and off by default. Included-plan eligibility and account limits apply. No API key is accepted. Local/manual features remain available without sign-in.</p><p><a href="https://chatgpt.com/settings/usage" target="_blank" rel="noopener noreferrer">ChatGPT Settings → Usage</a></p><ol><li>After sign-in, open Settings → Usage.</li><li>Disable “Allow apps to use credits” if available.</li><li>Find CommanderOracle under App limits, set its weekly limit below 100% (preferably 25%), save and verify.</li></ol><p>We cannot read or modify those account settings. Your confirmation is not verified billing telemetry, proof of remaining allowance or an unlimited-free-AI guarantee.</p><label><input id="ai-authorize" type="checkbox"> I explicitly authorize use of eligible included ChatGPT-plan allowance.</label><button id="ai-connect" type="button">Sign in with ChatGPT</button> <button id="ai-cancel-sign-in" type="button" hidden>Cancel sign-in</button><p id="ai-sign-in-status" role="status"></p><p id="ai-sign-in-link-row" hidden><a id="ai-sign-in-link" target="_blank" rel="noopener noreferrer">Open ChatGPT sign-in</a></p><details id="ai-setup"><summary>Sign-in setup on Windows</summary><p>Install the official DevKit once from this app’s folder with <code>node tools/install-chatgpt-devkit.mjs</code>. Use Node.js 22.12 or newer, Git and npm. Restart CommanderOracle after installation.</p></details> <button id="ai-models" type="button">Discover eligible models</button> <button id="ai-disconnect" type="button">Disconnect</button><label>Eligible model<select id="ai-model"><option value="">Discover models after sign-in</option></select></label><label><input id="ai-settings" type="checkbox"> I saved and verified the account settings above, including this app’s below-100% weekly limit.</label><label><input id="ai-credits" type="checkbox"> I reviewed credit settings and disabled app credit use where available.</label><label>Weekly app limit I set (%)<input id="ai-weekly" type="number" min="1" max="99" value="25"></label><label>Local daily AI-request maximum (UTC day, including repairs)<input id="ai-daily" type="number" min="1" max="10" value="3"></label><button id="ai-enable" type="button">Confirm and enable plan-only AI</button> <button id="ai-disable" type="button">Disable AI</button><p id="ai-status" role="status"></p><label>Task<select id="ai-mode"><option value="builder">Deck Builder — uses commander/budget/bracket above</option><option value="upgrader">Deck Upgrader — uses original list and purchase settings in Upgrader</option></select></label><label id="ai-builder-bracket-field" hidden>Architect build bracket<select id="ai-builder-bracket"><option value="3">Bracket 3</option><option value="4">Bracket 4</option></select></label><label>Exact commander name (Builder; blank uses selected commander above)<input id="ai-name" type="text"></label><label>Preferences<textarea id="ai-preferences" rows="2" maxlength="2000"></textarea></label><label>Excluded strategies (advisory, not mechanically certified)<textarea id="ai-exclusions" rows="2" maxlength="2000"></textarea></label><label>Optional strategic revision request (Builder; requires a validated deck below)<textarea id="ai-revision" rows="2" maxlength="2000"></textarea></label><button id="ai-run" type="button" disabled>Build / analyze with ChatGPT</button> <button id="ai-cancel" type="button">Cancel pending sign-in or AI job</button><p>Clicking the AI job button sends the current deck, preferences and bounded verified catalog context to OpenAI. No inference on startup, form changes, importing or viewing a deck. Builder: one request per click, no automatic repairs. Upgrader: at most two hard-validation repairs. Functional warnings never cause another request. Prompt size, response size and time are bounded; local controls do not replace account billing controls.</p><hr><h3>Manual copy/import bridge — no API call by CommanderOracle</h3><p>Copy the structured request into your ChatGPT conversation, then import its JSON/deck result here. Your ChatGPT plan’s own limits still apply.</p><button id="ai-copy" type="button">Copy AI deckbuilding request</button><label>Verified structured request<textarea id="ai-prompt" rows="6" readonly></textarea></label><label>Paste ChatGPT result<textarea id="ai-result" rows="8"></textarea></label><button id="ai-import" type="button">Import ChatGPT result</button><button id="ai-review" type="button" disabled>Review packages in Experimental Upgrader</button><button id="ai-download" type="button" disabled>Revalidate and download AI deck</button><p id="ai-message" role="status"></p><div id="ai-functional-review" role="status" style="white-space: pre-wrap"></div><div id="ai-budget-review"></div><div id="ai-mana-polish"></div><details><summary>Full local evidence (ledger, dependencies and sampled observations)</summary><pre id="ai-evidence"></pre></details><details><summary>Local usage history (no prompts or credentials)</summary><pre id="ai-history"></pre></details></details>`;
 document.querySelector("main").append(panel);
+function architectBracket() {
+  return Number($("bracket").value === "3+4" ? $("ai-builder-bracket").value : $("bracket").value);
+}
+function updateArchitectBracket() {
+  $("ai-builder-bracket-field").hidden = $("bracket").value !== "3+4" || $("ai-mode").value !== "builder";
+}
+$("bracket").addEventListener("change", updateArchitectBracket);
+$("ai-mode").addEventListener("change", updateArchitectBracket);
+updateArchitectBracket();
 async function status() {
   const r = await fetch("/api/architect/status"),
     x = await r.json();
@@ -72,7 +83,7 @@ function params() {
           $("ai-name").value.trim() || $("commander-name").textContent,
         budget: Number($("budget").value),
         budgetTolerance: $("budget-leeway").checked ? 4 : 0,
-        bracket: Number($("bracket").value),
+        bracket: architectBracket(),
         basicLandsOwned: $("basics-owned").checked,
         pricingMode: $("pricing-mode").value,
       }
@@ -137,7 +148,7 @@ function renderManaPolish(x, audit) {
       if (input.value.trim() && input.value.trim() !== x.deck &&
           !window.confirm("Replace the Upgrader input with this validated Architect deck? The old Upgrader input should be backed up first.")) return;
       input.value = x.deck;
-      $("up-bracket").value = String($("bracket").value);
+      $("up-bracket").value = String(architectBracket());
       $("up-pricing").value = $("pricing-mode").value;
       window.dispatchEvent(new CustomEvent("architect-upgrade", {
         detail: { packages: [{ cuts: [swap.cut], adds: [swap.add],
@@ -237,12 +248,56 @@ async function action(fn) {
     await status().catch(() => {});
   }
 }
-$("ai-connect").onclick = () =>
-  action(async () => {
-    await post("connect", { directUseAuthorized: $("ai-authorize").checked });
-    $("ai-message").textContent =
-      "Sign-in completed. Discover models, then confirm saved account settings before enabling requests.";
-  });
+$("ai-connect").onclick = async () => {
+  const message = $("ai-sign-in-status"), link = $("ai-sign-in-link");
+  if (!$("ai-authorize").checked) {
+    message.textContent = "Check the included-plan authorization box to start sign-in.";
+    return;
+  }
+  const button = $("ai-connect"), cancel = $("ai-cancel-sign-in");
+  button.disabled = true;
+  cancel.hidden = false;
+  $("ai-sign-in-link-row").hidden = true;
+  message.textContent = "Preparing ChatGPT sign-in…";
+  let popup;
+  try {
+    popup = window.open("about:blank", "_blank");
+    if (popup) {
+      popup.opener = null;
+      popup.document.title = "ChatGPT sign-in";
+      popup.document.body.textContent = "Preparing ChatGPT sign-in…";
+    }
+  } catch {/* A blocked popup can use the visible link. */}
+  try {
+    if (!csrf) await status();
+    const result = await postWithProgress("/api/architect/connect", {directUseAuthorized:true}, event => {
+      if (event.phase !== "authorize") return;
+      link.href = event.url;
+      $("ai-sign-in-link-row").hidden = false;
+      message.textContent = "Complete sign-in in the ChatGPT tab. Use the link below if it did not open.";
+      if (popup && !popup.closed) {
+        try {popup.location.replace(event.url);} catch {/* The visible link remains available. */}
+      }
+    }, {"x-commander-ai-session":csrf});
+    message.textContent = result.auth.sharing
+      ? "Signed in. Discover eligible models, then confirm your account settings."
+      : "ChatGPT sign-in finished. Direct plan access is unavailable for this connection.";
+  } catch (err) {
+    message.textContent = err.message;
+    if (/SDK|credential storage/i.test(err.message)) $("ai-setup").open = true;
+  } finally {
+    if (popup && !popup.closed) popup.close();
+    $("ai-sign-in-link-row").hidden = true;
+    link.removeAttribute("href");
+    cancel.hidden = true;
+    button.disabled = false;
+    await status().catch(() => {});
+  }
+};
+$("ai-cancel-sign-in").onclick = async () => {
+  try {await post("cancel", {});}
+  catch (err) {$("ai-sign-in-status").textContent = err.message;}
+};
 $("ai-models").onclick = () =>
   action(async () => {
     const x = await post("models", {});

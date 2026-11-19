@@ -1,3 +1,9 @@
+## Generate Brackets 3 and 4 together
+
+Select a commander and budget, then choose **Research & generate both decks**. **Brackets 3 + 4** is the default generation setting. The EUR ceiling applies to each 100-card list. Each build uses its own bracket profile and community cohort. Commander and color Spellbook lookups are shared within the run.
+
+Use the **Bracket 3** and **Bracket 4** buttons above the generated deck to compare prices, inspect each list and export it. If one build fails, the other is still available when it passes validation. Choose an individual bracket to run a single build or use a specific community archetype. Extra-budget regeneration compares each successful result with its previous list for the same bracket.
+
 ## Find and rank public decks
 
 Select a commander from the local Scryfall catalog and open **Find and rank public decks**. **Brackets 3 + 4** is the default search. **Bracket 3** and **Bracket 4** search separately. The combined search reserves places for both brackets and ranks their verified cardlists together, retaining the Archidekt source and declared bracket for each copy of an identical deck.

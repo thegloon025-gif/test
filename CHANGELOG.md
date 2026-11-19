@@ -1,3 +1,13 @@
+## Unreleased Architect sign-in
+
+- Open ChatGPT authorization from the browser's sign-in click, keep a visible fallback link during authorization, and show setup or connection errors beside the button.
+- Cancel pending sign-in from the same panel. Connected sign-in uses the official DevKit and Windows credential storage.
+
+## Unreleased combined deck generation
+
+- Generate separate Bracket 3 and 4 decks in one run, with per-deck pricing and export validation, shared commander and color combo research, and bracket-specific construction.
+- Switch between the results to inspect and export either deck. Report individual generation failures and compare extra-budget revisions within the same bracket.
+
 ## Unreleased ranked public deck discovery
 
 - Default public deck search to combined Brackets 3 + 4, with independent B3 and B4 options, declared bracket checks and exact cardlist deduplication across sources.

@@ -1,3 +1,5 @@
+import {postWithProgress} from './progress.js';
+
 const eur=value=>'€'+value.toFixed(2);
 const bracketName=value=>value?'Bracket '+value:'Bracket not declared';
 const zones={B:'battlefield',H:'hand',G:'graveyard',E:'exile',L:'library',C:'command zone',S:'stack'};
@@ -30,30 +32,8 @@ function startingState(piece){
  return [zone?'Starting zone — '+zone:'',...states].filter(Boolean).join(' · ');
 }
 
-export async function findRankedDecks(payload,onProgress){
- const response=await fetch('/api/community/discover',{
-  method:'POST',headers:{'Content-Type':'application/json',Accept:'application/x-ndjson'},
-  body:JSON.stringify({...payload,ranked:true})
- });
- if(!response.ok){
-  const message=await response.json();
-  throw Error(message.error||response.statusText);
- }
- const text=response.body.pipeThrough(new TextDecoderStream());
- let pending='',result;
- for await(const chunk of text){
-  pending+=chunk;
-  const lines=pending.split('\n');
-  pending=lines.pop();
-  for(const line of lines){
-   const event=JSON.parse(line);
-   if(event.type==='progress')onProgress(event);
-   if(event.type==='result')result=event.result;
-   if(event.type==='error')throw Error(event.error);
-  }
- }
- if(!result)throw Error('Deck search ended before the results arrived. Try again.');
- return result;
+export function findRankedDecks(payload,onProgress){
+ return postWithProgress('/api/community/discover',{...payload,ranked:true},onProgress);
 }
 
 function comboDetail(line){

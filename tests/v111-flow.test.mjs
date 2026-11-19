@@ -51,3 +51,19 @@ test('research does not confuse a different commander or bracket with eligible c
  assert.equal(result.report.matchingSaved,0);
  assert.equal(result.report.combos.status,'no-source');
 });
+
+test('paired builds share Spellbook lookups while checking the source for each bracket',async()=>{
+ const fourth={...sample,key:'archidekt:401',sourceId:'401',edhBracket:4};
+ const checked=[],channels=[];
+ const input={...args,savedCommunity:[sample,fourth],reuseDiscovery:true,catalog:[{id:'cmr',color_identity:['U']}],
+  lookup:async()=>{channels.push('commander');return {variants:[]};},
+  lookupColors:async()=>{channels.push('color');return {variants:[]};},
+  analyze:async deck=>{checked.push(deck.edhBracket);return {counts:{complete:0,infiniteComplete:0}};}};
+ const first=await researchForGeneration(input);
+ const second=await researchForGeneration({...input,bracket:4,sharedLookups:first.report});
+ assert.deepEqual(channels,['commander','color']);
+ assert.deepEqual(checked,[3,4]);
+ assert.equal(first.report.combos.sourceKey,sample.key);
+ assert.equal(second.report.combos.sourceKey,fourth.key);
+ assert.equal(second.report.commanderLookup,first.report.commanderLookup);
+});
