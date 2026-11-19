@@ -58,7 +58,7 @@ export function architectLab(p,{catalog,variants=[],snapshot=null}={}){
  const {trials,seed}=simulationSettings(p);
  const options={trials,seed};
  const policy=budgetPolicy(p);
- if(![3,4].includes(Number(p.bracket)))throw Error('Choose Bracket 3 or 4 for the deck under review.');
+ if(![3,4,5].includes(Number(p.bracket)))throw Error('Choose Bracket 3, 4 or 5 for the deck under review.');
  if(!policy.basicLandsOwned&&p.pricingMode&&p.pricingMode!=='scryfall_eur')throw Error('Count unowned basic lands with Scryfall EUR pricing.');
  const priced=applyBudgetValuation(catalog,policy);
  function analyze(parsed,bracket=Number(p.bracket)){
@@ -76,7 +76,7 @@ export function architectLab(p,{catalog,variants=[],snapshot=null}={}){
  const result={original,comparison:null,upgrade:null,ceiling:policy.effectiveMaximum};
  if(p.comparison){
   const comparisonBracket=Number(p.comparisonBracket??p.bracket);
-  if(![3,4].includes(comparisonBracket))throw Error('Choose a valid comparison bracket.');
+  if(![3,4,5].includes(comparisonBracket))throw Error('Choose a valid comparison bracket.');
   const comparison=analyze(parsedDeck(p.comparison,priced),comparisonBracket);
   result.comparison={...comparison,deltas:metrics(original.result,comparison.result)};
  }

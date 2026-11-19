@@ -37,7 +37,7 @@ test('combined generation endpoint returns separate audited, exportable bracket 
  await once(reservation,'listening');
  const {port}=reservation.address();
  await new Promise(resolve=>reservation.close(resolve));
- const server=spawn(process.execPath,['server.mjs'],{cwd:workspace,env:{...process.env,PORT:String(port)}});
+ const server=spawn(process.execPath,['server.mjs'],{cwd:workspace,env:{...process.env,PORT:String(port),TOPDECK_API_KEY:''}});
  t.after(async()=>{
   if(server.exitCode===null&&server.signalCode===null){const closed=once(server,'close');server.kill();await closed;}
  });
@@ -56,14 +56,14 @@ test('combined generation endpoint returns separate audited, exportable bracket 
   if(stream)headers.Accept='application/x-ndjson';
   return fetch(endpoint,{method:'POST',headers,body:JSON.stringify({...payload,...params})});
  }
- function audit(deck,bracket,power){
+ function audit(deck,bracket,power,budget=20){
   assert.equal(deck.bracket,bracket);
   assert.equal(deck.powerTarget,power);
-  assert.equal(deck.budget,24);
-  assert.equal(deck.budgetPolicy.target,20);
+  assert.equal(deck.budget,budget+4);
+  assert.equal(deck.budgetPolicy.target,budget);
   assert.equal(deck.budgetPolicy.tolerance,4);
   assert.equal(deck.totalCards,100);
-  assert.ok(deck.price<=24);
+  assert.ok(deck.price<=budget+4);
   assert.equal(deck.pricingAudit.total,deck.price);
   assert.equal(deck.pricingAudit.withinBudget,true);
   assert.equal(deck.pricingAudit.count,100);
@@ -96,4 +96,15 @@ test('combined generation endpoint returns separate audited, exportable bracket 
  assert.match(partial.results[0].error,/power target/i);
  assert.equal(partial.results[0].deck,undefined);
  audit(partial.results[1].deck,4,'balanced');
+
+ const competitive=await generate({bracket:5,budget:750,powerTarget:'balanced',constructionMode:'strategy-first'});
+ const b5=await competitive.json();
+ assert.equal(competitive.status,200,b5.error);
+ audit(b5,5,'balanced',750);
+ assert.equal(b5.landCount,33);
+ assert.ok(b5.landCount<results[1].deck.landCount);
+
+ const rankings='http://127.0.0.1:'+port+'/api/cedh/rankings';
+ assert.equal((await fetch(rankings).then(response=>response.json())).status,'setup');
+ assert.equal((await fetch(rankings,{headers:{Origin:'https://example.org'}})).status,403);
 });

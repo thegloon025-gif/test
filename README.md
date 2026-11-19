@@ -2,7 +2,7 @@
 
 On a fresh install, click **Update database** in **Scryfall catalog** and wait for the card count before generating a deck.
 
-Choose a commander, budget and Bracket 3, Bracket 4 or both. Set an optional playstyle, then generate with Architect. Connected generation uses one ChatGPT request per bracket. The manual prompt and import flow also validates complete 100-card lists. The local builder is available under Advanced.
+Choose a commander, budget and a generation bracket. Set an optional playstyle, then generate with Architect. Connected generation uses one ChatGPT request per bracket. The manual prompt and import flow also validates complete 100-card lists. The local builder is available under Advanced.
 
 Architect validates the first complete deck, then searches the local catalog for upgrades when there is substantial budget left. It checks mana, ramp, tutors, card advantage, protection, interaction and supported win routes while preserving the deck’s engines and known combos. The **Budget optimization** report shows the starting and final estimates, remaining budget, and the reasons for accepted and rejected candidates. The spending range of 85–100% is a flexible target when meaningful upgrades are available. You can also enable the same review for an imported draft.
 
@@ -18,9 +18,22 @@ Select a commander and budget, then choose **Research & generate both decks**. *
 
 Use the **Bracket 3** and **Bracket 4** buttons above the generated deck to compare prices, inspect each list and export it. If one build fails, the other is still available when it passes validation. Choose an individual bracket to run a single build or use a specific community archetype. Extra-budget regeneration compares each successful result with its previous list for the same bracket.
 
+## Build and research cEDH
+
+Select **Bracket 5 — cEDH** and set the EUR budget you want. Architect prioritizes fast mana, efficient interaction, tutors and compact win routes when the cards fit the ceiling. Bracket 5 supports validation, analysis and TXT export for a single commander. The local builder offers a competitive profile and can use declared Bracket 5 community decks. [Wizards' Commander brackets](https://www.magic.wizards.com/en/formats/commander)
+
+Open the **cEDH rankings** tab for links to EDHTop16 and its tournament results. To show rankings inside CommanderOracle, create a free TopDeck developer key and set `TOPDECK_API_KEY` in your server environment. For PowerShell, run these commands from the app folder. [TopDeck.gg API documentation](https://topdeck.gg/api/docs/)
+
+```powershell
+$env:TOPDECK_API_KEY = 'your-key'
+node server.mjs
+```
+
+The table uses documented TopDeck standings from the past 90 days for completed EDH events with at least 32 entrants and a competitive label in the title. It shows share among entries with a recorded commander and game results where wins, draws and losses are available. Sort by entries or reported win rate. Rankings include partners and backgrounds. Choose **Build B5** on a single-commander row to select that commander and Bracket 5. The server refreshes its in-memory results on access after six hours and can display the last successful results during an outage.
+
 ## Find and rank public decks
 
-Select a commander from the local Scryfall catalog and open **Find and rank public decks**. **Brackets 3 + 4** is the default search. **Bracket 3** and **Bracket 4** search separately. The combined search reserves places for both brackets and ranks their verified cardlists together, retaining the Archidekt source and declared bracket for each copy of an identical deck.
+Select a commander from the local Scryfall catalog and open **Find and rank public decks**. **Brackets 3 + 4** is the default search, and **Bracket 5 — cEDH** selects declared competitive decks. The combined search reserves places for both brackets and ranks their verified cardlists together, retaining the Archidekt source and declared bracket for each copy of an identical deck.
 
 Expand **Score and combo details** to see the named cards or wildcard slots, commander participation, setup, published outcomes and each route's score contribution. The app checks the public Commander Spellbook snapshot against every candidate's commander and 99 cards. Mana, token, trigger and draw engines are shown with their payoff requirements. Recorded direct or delayed wins still require the published starting state. Compact lines, alternative routes, available tutors, mana, draw and protection contribute to a capped combo bonus. Scores are discovery heuristics.
 

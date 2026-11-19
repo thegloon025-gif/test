@@ -19,6 +19,7 @@ import {COMBINED_BRACKETS,discoverPublicDecks,importDiscoveredDecks} from './src
 import {rankPublicDecks} from './src/rankedDiscovery.mjs';
 import {getSpellbookSnapshot} from './src/spellbookSnapshot.mjs';
 import {architectLab} from './src/architectLab.mjs';
+import {createCedhRankingsStore} from './src/cedhRankings.mjs';
 import {autoResearchArchidekt} from './src/autoResearch.mjs';
 import {researchForGeneration} from './src/researchFlow.mjs';
 import {readEdhrecCommanderJson} from './src/edhrecKnowledge.mjs';
@@ -43,9 +44,13 @@ try{state=await loadCatalog();if(state.cards.length)update={phase:'ready',unique
 try{const recovered=await repairComboLibraryFromCache(community,state.cards);if(recovered.cacheHits)console.log('Local Spellbook cache repair:',recovered);if(recovered.errors.length)console.warn('Some local combo caches could not be repaired:',recovered.errors.slice(0,5));}catch(e){console.warn('Combo cache repair skipped:',e.message);}
 const architectCSRF=randomBytes(32).toString('hex');
 const architect=createPlanOnly({sdkFactory:options=>loadOfficialChatGPT({dataDir:DATA_DIR,...options}),historyFile:path.join(DATA_DIR,'chatgpt-architect','usage.json')});
-function architectOrigin(req){
+const cedhRankings=createCedhRankingsStore({apiKey:process.env.TOPDECK_API_KEY?.trim()});
+function localOrigin(req){
  const host=req.headers.host,allowed=new Set(['127.0.0.1:'+PORT,'localhost:'+PORT]);
- if(!allowed.has(host)||req.headers.origin&&req.headers.origin!=='http://'+host||req.headers['sec-fetch-site']==='cross-site')throw Error('Architect requests must originate from this local app.');
+ return allowed.has(host)&&(!req.headers.origin||req.headers.origin==='http://'+host)&&req.headers['sec-fetch-site']!=='cross-site';
+}
+function architectOrigin(req){
+ if(!localOrigin(req))throw Error('Architect requests must originate from this local app.');
  if(req.method!=='GET'&&req.headers['x-commander-ai-session']!==architectCSRF)throw Error('Reload the local app before using Architect actions.');
 }
 async function architectInputs(p){
@@ -94,7 +99,7 @@ async function sendWithProgress(req,res,run){
  }catch(err){send({type:'error',error:err.message});}
  finally{res.end();}
 }
-const staticFiles={'/':'index.html','/index.html':'index.html','/app.js':'app.js','/strategy.js':'strategy.js','/research.js':'research.js','/discovery-results.js':'discovery-results.js','/progress.js':'progress.js','/upgrader.js':'upgrader.js','/architect.js':'architect.js','/architect-lab.js':'architect-lab.js','/style.css':'style.css'};
+const staticFiles={'/':'index.html','/index.html':'index.html','/app.js':'app.js','/strategy.js':'strategy.js','/research.js':'research.js','/discovery-results.js':'discovery-results.js','/progress.js':'progress.js','/upgrader.js':'upgrader.js','/architect.js':'architect.js','/architect-lab.js':'architect-lab.js','/cedh.js':'cedh.js','/style.css':'style.css'};
 const mime={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8'};
 const server=http.createServer(async(req,res)=>{
  const url=new URL(req.url,'http://localhost');
@@ -155,6 +160,10 @@ const server=http.createServer(async(req,res)=>{
    return json(res,upgradeDeck(p,priced,variants));
   }
   if(req.method==='GET'&&url.pathname==='/api/status')return json(res,{version:APP_VERSION,count:state.cards.length,metadata:state.meta,printingAudit:pricingCatalogStatus(state.cards,state.meta),update,syncing});
+  if(req.method==='GET'&&url.pathname==='/api/cedh/rankings'){
+   if(!localOrigin(req))return json(res,{error:'Rankings requests must originate from this local app.'},403);
+   return json(res,await cedhRankings());
+  }
   if(req.method==='GET'&&url.pathname==='/api/community/decks')return json(res,{decks:community.map(d=>({key:d.key,url:d.url,title:d.title,commanderNames:d.commanderNames,totalCards:d.totalCards,validated:d.validated,issues:d.issues,unmatchedCount:d.unmatched?.length||0,unmatched:d.unmatched||[],excluded:d.excluded||[],excludedCount:d.excludedCount||0,sourceIncludedCards:d.sourceIncludedCards,sourceExcludedCards:d.sourceExcludedCards,importedAt:d.importedAt,owner:d.owner,edhBracket:d.edhBracket??null})),count:community.length});
   if(req.method==='POST'&&url.pathname==='/api/community/import'){
    if(!state.cards.length)throw Error('Download the Scryfall catalog first so imported cards can be verified.');
@@ -203,7 +212,7 @@ const server=http.createServer(async(req,res)=>{
    if(!state.cards.length)throw Error('Download the local Scryfall catalog before automatic research.');
    const p=await body(req);const selectedCard=state.cards.find(c=>c.id===p.commanderId);
    if(!selectedCard||!isCommander(selectedCard))throw Error('Select a legal commander first.');
-   if(![2,3,4].includes(Number(p.bracket)))throw Error('Choose a specific community Bracket 2, 3 or 4.');
+   if(![2,3,4,5].includes(Number(p.bracket)))throw Error('Choose a specific community Bracket 2, 3, 4 or 5.');
    if(communityDiscoveryBusy)return json(res,{error:'A community search/import is already running.'},409);
    communityDiscoveryBusy=true;
    try{

@@ -20,7 +20,7 @@ const listIds=d=>new Set((d.mainboard||[]).filter(x=>Number(x.quantity)>0).map(x
 export function prepareCommunityConstruction({decks=[],commander,bracket,catalog=[],mode='auto'}={}){
  const empty=(status,reason,extra={})=>({status,reason,selected:null,candidates:[],sampleSize:0,highConfidence:false,...extra});
  if(mode==='off')return empty('disabled','Community-guided construction disabled by user.');
- if(!commander||![2,3,4].includes(Number(bracket)))return empty('unavailable','Missing commander or valid bracket.');
+ if(!commander||![2,3,4,5].includes(Number(bracket)))return empty('unavailable','Missing commander or valid bracket.');
  const id=oracleId(commander),b=Number(bracket);
  const basics=new Set(catalog.filter(isBasic).map(oracleId));
  const stats=analyzeCommunityKnowledge(decks,{commanderId:id,bracket:b,basicIds:basics});

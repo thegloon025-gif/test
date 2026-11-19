@@ -1,6 +1,8 @@
 ## Architect simulations (unreleased)
 
 - [x] Primary Architect workflow, separate B3/B4 validation and individual TXT export.
+- [x] Bracket 5 cEDH builds, analysis and TXT export with a user-defined EUR ceiling.
+- [x] cEDH rankings tab with tournament provenance, recorded results and single-commander build shortcuts.
 - [x] Seeded goldfish and paired deck comparisons with budget and combo-aware revision review.
 - [x] Automatically review spare budget after generation, report supported upgrades with price reconciliation, and protect known combo packages.
 - [x] Include published two-card infinite lines in Bracket 3 combo analysis and allow validated lists to export.
@@ -114,7 +116,7 @@ See `benchmarks/restoration-followup-VALIDATION.md` for the latest PR #2 follow-
 - [ ] Prioritize activation/loyalty timing, modal/adventure additional costs and whole-board versus single-target protection before treating further internal-score gains as card-quality improvements.
 - [ ] Calibrate against measured gameplay and fresh external evaluation. Historical scores remain unchanged; cached-catalog results are not live quotes.
 - [ ] Extend the new bounded atomic investment beyond its current frontier and land-repair limits, with realistic mana sequencing.
-- [ ] Support and verify the complete current official bracket 1–5 policy; current implementation retains approximate 2–4 profiles.
+- [ ] Verify profiles for the complete current official bracket 1–5 policy. Local profiles cover Brackets 2–5.
 
 The user has now supplied a 32,197-record Scryfall catalog and cached community/Spellbook data. Current offline comparisons and limitations are recorded in `benchmarks/budget-search-VALIDATION.md`; prior absence-of-data statements below describe historical releases.
 

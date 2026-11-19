@@ -79,6 +79,7 @@ export function scoreWholeDeck(cards,{commander,plan,bracket,limits,variants=[],
  const spells=cards.filter(c=>!isLandSlot(c)),t=totalsFor(cards,infos);
  const combo=comboCoverage(spells,commander,variants);
  const typed=limits.typed;
+ const optimized=bracket>=4;
  let synergy=0,resources=0,resilience=0,tempo=0;
  for(const c of spells){const i=infos.get(oracleId(c));
   synergy+=i.value;
@@ -94,20 +95,21 @@ export function scoreWholeDeck(cards,{commander,plan,bracket,limits,variants=[],
   if(i.evidence.removal==='conditional')resilience-=6;
   if(i.evidence.draw==='cantrip-or-conditional')resources-=4;
  }
- resources-=over(t.early,bracket===4?14:12,3);resources-=over(t.realDraw,bracket===4?13:11,4);
- resilience-=over(t.interaction,bracket===4?13:11,5);
- resilience-=over(t.shielding,bracket===4?7:6,5);
+ resources-=over(t.early,optimized?14:12,3);resources-=over(t.realDraw,optimized?13:11,4);
+ resilience-=over(t.interaction,bracket===5?15:optimized?13:11,5);
+ resilience-=over(t.shielding,optimized?7:6,5);
  synergy-=over(t.narrowCount,1,9);
  if(typed){
-  synergy-=over(t.instantCount,bracket===4?13:12,8);
-  synergy-=over(spells.length-t.onPlan,bracket===4?19:17,7);
-  tempo-=over(t.sevenPlus,bracket===4?6:7,4);
+  synergy-=over(t.instantCount,optimized?13:12,8);
+  synergy-=over(spells.length-t.onPlan,optimized?19:17,7);
+  tempo-=over(t.sevenPlus,bracket===5?5:optimized?6:7,4);
  }
  // Diminishing returns: a cluster of 11 near-identical loops is NOT 11
  // independent winning lines. Shared parts still contribute strategically.
  const networks=12*Math.min(3,combo.complete)+4*Math.sqrt(Math.max(0,combo.complete-3))+
    5*Math.min(3,combo.direct)+1.8*Math.min(12,combo.components);
- const weights=bracket===4?{synergy:1.0,resources:1.2,resilience:.8,tempo:1.3,networks:1.25}:
+ const weights=bracket===5?{synergy:1.0,resources:1.25,resilience:1.0,tempo:1.45,networks:1.4}:
+               optimized?{synergy:1.0,resources:1.2,resilience:.8,tempo:1.3,networks:1.25}:
                         {synergy:1.15,resources:1.12,resilience:1.12,tempo:.85,networks:.9};
  const final=synergy*weights.synergy+resources*weights.resources+resilience*weights.resilience+
   tempo*weights.tempo+networks*weights.networks-landIssues.length*10;
@@ -124,8 +126,8 @@ export function optimizeWholeDeck({cards99,commander,plan,bracket,limits,variant
  const baseline=scoreWholeDeck(initial,{commander,plan,bracket,limits,variants,infoCache});
  const floor=baseline.counts;
  const min=(n,goal)=>Math.min(n,goal);
- const required={early:min(floor.early,bracket===4?10:8),interaction:min(floor.interaction,8),
-  shielding:min(floor.shielding,3),realDraw:min(floor.realDraw,bracket===4?8:7),
+ const required={early:min(floor.early,bracket>=4?10:8),interaction:min(floor.interaction,8),
+  shielding:min(floor.shielding,3),realDraw:min(floor.realDraw,bracket>=4?8:7),
   spotRemoval:min(floor.spotRemoval,3),directShield:min(floor.directShield,3),
   onPlan:Math.max(minOnPlan,min(floor.onPlan,plan.needs.some(n=>n.kind==='typed-cast')?21:10)),
   trueColorless:min(floor.trueColorless,plan.needsColorless?8:0),
@@ -202,6 +204,7 @@ export function optimizeWholeDeck({cards99,commander,plan,bracket,limits,variant
   selected:winner.name,distinctCandidates:new Set(portfolios.map(x=>x.cards.map(oracleId).join("|"))).size,baselineScore:baseline.score,selectedScore:winner.metrics.score,
   gain:round(winner.metrics.score-baseline.score),swaps:winner.swaps,
   candidates:portfolios.map(x=>({name:x.name,score:x.metrics.score,swaps:x.swaps.length,onPlan:x.metrics.counts.onPlan,inventoryComplete:x.metrics.combo.complete})),
-  scoreParts:winner.metrics.parts,weights:bracket===4?'optimized: tempo and usable combo networks':'upgraded: synergy and resilience',
+  scoreParts:winner.metrics.parts,weights:bracket===5?'cEDH tempo, interaction and compact win routes':
+   bracket===4?'optimized: tempo and usable combo networks':'upgraded: synergy and resilience',
   externallyVerified:false}};
 }

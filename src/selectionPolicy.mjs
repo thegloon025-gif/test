@@ -61,10 +61,10 @@ export function selectionLimits(plan,bracket,powerTarget='balanced'){
  // actual commander engine; they are intentionally NOT one-size-fits-all for
  // instants/sorceries commanders.
  return {typed, maxInstants:typed?20:Infinity,
-  maxCounters:typed?(bracket===4?5:4):Infinity,
+  maxCounters:typed?(bracket>=4?5:4):Infinity,
   maxNarrow:typed?2:4,
   interactionGoal:typed?8:null,
-  drawGoal:typed?(bracket===4?8:powerTarget==='high'?8:7):null,
+  drawGoal:typed?(bracket>=4?8:powerTarget==='high'?8:7):null,
   shieldingGoal:typed?3:null};
 }
 export function selectionTotals(cards){

@@ -1,3 +1,9 @@
+## Unreleased cEDH
+
+- Add Bracket 5 generation, analysis and TXT export. Tune the competitive profile for early mana, interaction and compact win routes within the selected budget.
+- Allow declared Bracket 5 lists in community deck discovery and research.
+- Add a commander rankings tab with EDHTop16 links and an optional TopDeck tournament feed. Show sample coverage, entry share and recorded win rate.
+
 ## Unreleased Architect Bracket 3 export
 
 - Report two-card infinite combos in Architect’s combo analysis and allow validated Bracket 3 lists containing them to export.

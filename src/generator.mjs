@@ -21,7 +21,8 @@ import {roleEvidence,evidenceAudit,dependencyEvidence} from './roleEvidence.mjs'
 export const BRACKETS={
   2:{name:'Core',lands:37,curve:3.6,synergy:1.55,popularity:.35,interaction:8,ramp:9,draw:8,protection:2,maxGameChangers:0},
   3:{name:'Upgraded',lands:36,curve:3.0,synergy:1.75,popularity:.65,interaction:10,ramp:10,draw:9,protection:3,maxGameChangers:3},
-  4:{name:'Optimized',lands:35,curve:2.55,synergy:1.6,popularity:1.05,interaction:13,ramp:12,draw:10,protection:4,maxGameChangers:99}
+  4:{name:'Optimized',lands:35,curve:2.55,synergy:1.6,popularity:1.05,interaction:13,ramp:12,draw:10,protection:4,maxGameChangers:99},
+  5:{name:'cEDH',lands:33,curve:2.1,synergy:1.6,popularity:1.05,interaction:15,ramp:13,draw:11,protection:4,maxGameChangers:99}
 };
 const r2=n=>Math.round(n*100)/100;
 const displayName=exportCardName;
@@ -124,13 +125,11 @@ function targetsFor(plan,commander,profile,all){
 function buildLegacyScaffold({cards,commander,budget=191,bracket=3,comboVariants=[],powerTarget='balanced',communityBuild=null}){
  const fitsSelectionLimits=createSelectionLimitChecker();
  const b=Number(bracket),profile=BRACKETS[b],cap=Number(budget);
- if(!profile)throw Error('Choose bracket 2, 3 or 4.');
+ if(!profile)throw Error('Choose Bracket 2, 3, 4 or 5.');
  if(!validPowerTarget(powerTarget))throw Error('Choose balanced or high as power target.');
  if(b!==3&&powerTarget!=='balanced')throw Error('Power target is currently supported only for Bracket 3.');
  const high=b===3&&powerTarget==='high';
- // Bracket 4 is an intentionally optimized search profile, not Bracket 3
- // with a relaxed Game Changer count. B3 High remains the bounded profile.
- const optimized=b===4;
+ const optimized=b>=4;
  const tuning=high?{...profile,ramp:12,interaction:12,draw:10,protection:4}:profile;
  if(!Number.isFinite(cap)||cap<=0)throw Error('Budget must be a positive euro amount.');
  if(!commander||!isCommander(commander))throw Error('Choose a legal legendary commander from the Scryfall catalog.');
@@ -206,7 +205,7 @@ function buildLegacyScaffold({cards,commander,budget=191,bracket=3,comboVariants
  // Reserve real early acceleration BEFORE filling the Eldrazi and finisher
  // slots. Otherwise a deck can meet its tribal quota while having no way to
  // cast its expensive payoffs in time.
- const earlyManaGoal=high?Math.min(tuning.ramp,10):optimized?Math.min(tuning.ramp,12):Math.min(profile.ramp,Math.max(6,Math.round(profile.ramp*.65)));
+ const earlyManaGoal=high?Math.min(tuning.ramp,10):optimized?tuning.ramp:Math.min(profile.ramp,Math.max(6,Math.round(profile.ramp*.65)));
  function earlyManaCount(){return chosen.filter(c=>!isLandSlot(c)&&earlyAcceleration(c,analyzedById.get(oracleId(c))?.a||analysis(c))>-Infinity).length;}
  while(earlyManaCount()<earlyManaGoal&&chosen.length-landQuota<spellQuota){
   const available=analyzed.filter(e=>!picked.has(oracleId(e.c))&&allowed(e.c)&&spent+priceOf(e.c)<=cap&&earlyAcceleration(e.c,e.a)>-Infinity);
@@ -238,9 +237,9 @@ function buildLegacyScaffold({cards,commander,budget=191,bracket=3,comboVariants
  // Reserve enough real answers and protection before Eldrazi density can
  // consume every spell slot. These targets count FUNCTION, not word matches.
  // The later generic stage fills remaining gaps where the catalog supports it.
- const reserve=[{key:'interaction',target:limits.interactionGoal??Math.min(tuning.interaction,b===4?10:b===3?high?11:8:6),label:'Useful interaction'},
-                {key:'draw',target:limits.drawGoal??(b===4?8:b===3?high?10:7:6),label:'Accessible card advantage'},
-                {key:'protection',target:limits.shieldingGoal??(b===4?3:b===3?high?4:3:2),label:'Commander shielding'}];
+ const reserve=[{key:'interaction',target:limits.interactionGoal??Math.min(tuning.interaction,b===5?12:optimized?10:b===3?high?11:8:6),label:'Useful interaction'},
+                {key:'draw',target:limits.drawGoal??(b===5?9:optimized?8:b===3?high?10:7:6),label:'Accessible card advantage'},
+                {key:'protection',target:limits.shieldingGoal??(optimized?3:b===3?high?4:3:2),label:'Commander shielding'}];
  const functionalCount=key=>chosen.filter(c=>!isLandSlot(c)&&functionalRoles(c)[key]).length;
  if(high||optimized){
   // Diversify answers: a dozen counterspells cannot replace permanent removal,
@@ -668,7 +667,7 @@ function generateWithEffectiveBudget(opts){
   return {id:row.strategy,recommended:row.strategy===candidate.strategy,deck:alternative.deck,price:audit.total,pricingAudit:audit,relations:row.relations,comparison,sourceKey:row.sourceKey,committedCombos:row.committedCombos,
    explanation:comparison?.selection.reason==='selected'?'Provisional recommendation under existing comparator; incomparable alternatives are not proved inferior':comparison?.selection.reason};
  });
- const high=Number(bracket)===4||(Number(bracket)===3&&powerTarget==='high');
+ const high=Number(bracket)>=4||(Number(bracket)===3&&powerTarget==='high');
  return withSelectedCards({...legacy,deck,price:roundCost(candidate.price),totalCards:100,landCount:lands.length,colorlessSources:all.filter(trueColorlessSource).length,
   alternatives,whyThisDeck:{relations:pool.report.comparison.find(x=>x.id===candidate.strategy)?.relations,discovered:pool.report.discovered,selection:'Supported capabilities constrain pruning. Remaining incomparable strategies use the existing heuristic; this is not an objective power winner.',alternatives:alternatives.map(a=>({id:a.id,price:a.price,explanation:a.explanation}))},
   comboPlan,needs,qualityAudit:quality,roleAudit:evidence,selectionAudit:selection,

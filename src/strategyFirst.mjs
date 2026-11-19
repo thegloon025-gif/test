@@ -38,7 +38,7 @@ const cardSignature=c=>singletonName(c);
  * This is not official bracket certification or an execution oracle.
  */
 export function conservativeComboViolation(cards,commander,variants=[],bracket=3){
- if(Number(bracket)===4||!variants.length)return null;
+ if(Number(bracket)>=4||!variants.length)return null;
  const pool=[commander,...cards],byName=new Map(pool.map(c=>[normalizedName(c.name),c]));
  for(const v of variants){
   if(!v?.isInfinite||v.spoiler||v.legalities?.commander===false)continue;
@@ -161,7 +161,7 @@ function buildOne({pool,commander,plan,bracket,budget,profile,entry,limits,comma
  const cardLimit=budget-commanderPrice;
  const availableToSpells=cardLimit-Math.max(1.0,Math.min(12,cardLimit*.12));
  const style=entry.style.id;
- const needed={ramp:bracket===4?11:bracket===3?10:8,draw:bracket===4?9:8,broad:bracket===4?8:7,shield:bracket===4?4:3};
+ const needed={ramp:bracket===5?12:bracket===4?11:bracket===3?10:8,draw:bracket===5?10:bracket===4?9:8,broad:bracket===5?10:bracket===4?8:7,shield:bracket>=4?4:3};
  const primaryGoal=plan.needs.some(n=>n.kind==='typed-cast')?21:plan.needs.some(n=>n.kind==='death-tribal')?24:16;
  const count=(role)=>selected.filter(f=>role==='primary'?f.primary:f[role]).length;
  const highMV=()=>selected.filter(f=>f.cmc>=7).length;
@@ -345,8 +345,8 @@ function investBudgetPath({built,pool,commander,plan=planFor(commander),bracket=
  const sourceCount=()=>spells.filter(c=>source?.has(oracleId(c))).length;
  const sourceFloor=source?Math.min(20,sourceCount()):0;
  const floorKeys=['ramp','efficientRamp','draw','broad','shield','primary'];
- const targets={ramp:bracket===4?11:bracket===3?10:8,efficientRamp:10,draw:bracket===4?9:8,
-  broad:bracket===4?8:7,shield:bracket===4?4:3,primary:21};
+ const targets={ramp:bracket===5?12:bracket===4?11:bracket===3?10:8,efficientRamp:10,draw:bracket===5?10:bracket===4?9:8,
+  broad:bracket===5?10:bracket===4?8:7,shield:bracket>=4?4:3,primary:21};
  const count=key=>spells.filter(c=>fact(c)[key]).length;
  // Don't make an unmet floor worse, or strip out stronger existing evidence.
  const preserved=Object.fromEntries(floorKeys.map(key=>[key,Math.min(count(key),targets[key])]));
@@ -471,8 +471,8 @@ function finishPackageInvestments(options,selected,starts,plan){
 }
 
 export function constructStrategyDeck({cards,commander,bracket,budget,powerTarget='balanced',communityBuild=null,communityDecks=[],preferredCombos=[],comboVariants=[],investmentTrace=[],referenceDeck=null}={}){
- const profile={2:{lands:37,maxGameChangers:0},3:{lands:36,maxGameChangers:3},4:{lands:35,maxGameChangers:99}}[Number(bracket)];
- if(!profile)throw Error('Choose bracket 2, 3 or 4.');
+ const profile={2:{lands:37,maxGameChangers:0},3:{lands:36,maxGameChangers:3},4:{lands:35,maxGameChangers:99},5:{lands:33,maxGameChangers:99}}[Number(bracket)];
+ if(!profile)throw Error('Choose Bracket 2, 3, 4 or 5.');
  const plan=planFor(commander),pool=dedupeCatalog(cards,commander),commanderPrice=cost(commander);
  const limits=selectionLimits(plan,Number(bracket),powerTarget);
  const entries=candidatePlans(communityDecks,commander,bracket,communityBuild?.status==='ready',communityBuild,pool);

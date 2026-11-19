@@ -55,7 +55,32 @@ async function status(){try{const s=await get('/api/status');if(s.version!==APP_
  }catch(e){$('catalog-status').textContent='Server unavailable';$('sync-note').textContent=e.message;}}
 $('sync').addEventListener('click',async()=>{notice('');try{await post('/api/sync',{});await status();if(poll)clearInterval(poll);poll=setInterval(async()=>{const s=await status();if(!s?.syncing){clearInterval(poll);poll=null;}},1000);}catch(e){notice(e.message);}});
 let debounce=null;$('search').addEventListener('input',()=>{clearTimeout(debounce);const q=$('search').value.trim();if(q.length<2){$('results').replaceChildren();return;}debounce=setTimeout(()=>search(q),320);});
-async function search(q){const seq=++searchSeq;try{const cards=await get('/api/commanders?q='+encodeURIComponent(q));if(seq!==searchSeq)return;const list=$('results');list.replaceChildren();for(const card of cards){const btn=document.createElement('button');btn.className='search-item';const n=document.createElement('span');n.textContent=card.name;const small=document.createElement('small');small.textContent=(card.color_identity||[]).join('')||'Colorless';btn.append(n,small);btn.addEventListener('click',()=>{selected=card;$('commander-name').textContent=card.name;$('commander-meta').textContent=`Identity: ${(card.color_identity||[]).join('')||'C'} • Estimated €${card.price??'unknown'}`;$('commander-image').src=card.image_url||'';$('selected').hidden=false;$('results').replaceChildren();$('search').value=card.name;notice('');status();refreshCommunityBuildOptions();});list.append(btn);}if(!cards.length)list.textContent='No matches. Try a shorter commander name.';}catch(e){if(seq===searchSeq)notice(e.message);}}
+const searchCommanders=name=>get('/api/commanders?q='+encodeURIComponent(name));
+function selectCommander(card){
+ selected=card;
+ $('commander-name').textContent=card.name;
+ $('commander-meta').textContent=`Identity: ${(card.color_identity||[]).join('')||'C'} • Estimated €${card.price??'unknown'}`;
+ $('commander-image').src=card.image_url||'';
+ $('selected').hidden=false;
+ $('results').replaceChildren();
+ $('search').value=card.name;
+ notice('');
+ status();
+ refreshCommunityBuildOptions();
+}
+async function search(q){const seq=++searchSeq;try{const cards=await searchCommanders(q);if(seq!==searchSeq)return;const list=$('results');list.replaceChildren();for(const card of cards){const btn=document.createElement('button');btn.className='search-item';const n=document.createElement('span');n.textContent=card.name;const small=document.createElement('small');small.textContent=(card.color_identity||[]).join('')||'Colorless';btn.append(n,small);btn.addEventListener('click',()=>selectCommander(card));list.append(btn);}if(!cards.length)list.textContent='No matches. Try a shorter commander name.';}catch(e){if(seq===searchSeq)notice(e.message);}}
+
+export async function chooseCedhCommander(name){
+ const key=s=>s.normalize('NFKC').replace(/[‘’]/g,"'").trim().toLowerCase();
+ const cards=await searchCommanders(name.replace(/[‘’]/g,"'"));
+ const card=cards.find(card=>key(card.name)===key(name)||key(card.name.split(' // ')[0])===key(name));
+ if(!card)throw Error('This commander is missing from the current catalog. Update the database and try again.');
+ const bracket=$('bracket');
+ bracket.value='5';
+ selectCommander(card);
+ bracket.dispatchEvent(new Event('input',{bubbles:true}));
+ bracket.dispatchEvent(new Event('change',{bubbles:true}));
+}
 function generationScope(){
  const bracket=$('bracket').value;
  return bracket==='3+4'?bracket:Number(bracket);
@@ -152,7 +177,7 @@ const quality=$('quality-audit');quality.replaceChildren();
 if(r.tempoEvidence){const t=r.tempoEvidence;const x=document.createElement('p');x.textContent=`v1.1.5 timing evidence: efficient ≤2-MV repeatable ramp ${t.efficientRamp} · 3-MV ramp ${t.threeManaRamp} · Spawn/Scion/Treasure bursts ${t.burstSources} · weighted draw access ${t.weightedCardFlow.toFixed(2)} · 7+ MV spells ${t.sevenPlusSpells} · heavy-curve acceleration gap ${t.heavyCurveAccelerationGap}. Non-simulated heuristics, not real turn-by-turn castability.`;$('quality-audit').append(x);}
 if(r.selectionAudit){const a=r.selectionAudit,t=a.totals,l=a.limits;const p=document.createElement('p');p.textContent=`Selection safeguards: ${t.instants} instant(s)${Number.isFinite(l.maxInstants)?'/'+l.maxInstants:''} · ${t.counters} counter(s)${Number.isFinite(l.maxCounters)?'/'+l.maxCounters:''} · ${t.narrow} narrow counter(s)${Number.isFinite(l.maxNarrow)?'/'+l.maxNarrow:''} · ${t.cardAdvantage} loose card-advantage candidates (not verified) · ${t.snowDependent} spells requiring snow mana. ${a.castabilityIssues.length?'CASTABILITY ISSUES: '+a.castabilityIssues.map(x=>x.card+': '+x.issue).join('; '):'No unsupported snow costs found.'} (Heuristic, not complete rules verification)`;quality.append(p);}
 
-if(r.roleAudit){const e=r.roleAudit,c=e.counts;const p=document.createElement('p');p.textContent=`Strict role evidence: ${c.positiveDraw} directly positive draw · ${c.conditionalDraw} conditional draw engines · ${c.cantrips} cantrips/uncertain draw · ${c.broadAnswers} broad answers · ${c.conditionalAnswers} conditional answers · ${c.dedicatedShields} dedicated shields. These are text-evidence classifications, not game simulation.`;quality.append(p);for(const x of e.unsupported.slice(0,8)){const line=document.createElement('p');line.textContent=`Dependency review: ${x.card} — ${x.reasons.join('; ')}`;quality.append(line);}}if(r.highPowerAudit){const h=r.highPowerAudit;const hp=document.createElement('p');hp.textContent=`${r.bracket===4?'Optimized B4':'High B3'} goals (not certification): efficient ≤2-MV ramp ${h.efficientMana}/${h.targets.efficientMana} · dedicated shields ${h.directShield}/${h.targets.directShield} · hard answers ${h.hardAnswers}/${h.targets.hardAnswers} · permanent removal ${h.spotRemoval}/${h.targets.spotRemoval} · affordable draw ${h.cheapDraw}/${h.targets.cheapDraw} · weak tax-counters ${h.softCounters}. ${h.warnings.length?'Review: '+h.warnings.join('; '):'Heuristic floors met.'}`;quality.append(hp);}if(r.qualityAudit){const q=r.qualityAudit;
+if(r.roleAudit){const e=r.roleAudit,c=e.counts;const p=document.createElement('p');p.textContent=`Strict role evidence: ${c.positiveDraw} directly positive draw · ${c.conditionalDraw} conditional draw engines · ${c.cantrips} cantrips/uncertain draw · ${c.broadAnswers} broad answers · ${c.conditionalAnswers} conditional answers · ${c.dedicatedShields} dedicated shields. These are text-evidence classifications, not game simulation.`;quality.append(p);for(const x of e.unsupported.slice(0,8)){const line=document.createElement('p');line.textContent=`Dependency review: ${x.card} — ${x.reasons.join('; ')}`;quality.append(line);}}if(r.highPowerAudit){const h=r.highPowerAudit;const hp=document.createElement('p');hp.textContent=`${r.bracket===5?'cEDH B5':r.bracket===4?'Optimized B4':'High B3'} goals (not certification): efficient ≤2-MV ramp ${h.efficientMana}/${h.targets.efficientMana} · dedicated shields ${h.directShield}/${h.targets.directShield} · hard answers ${h.hardAnswers}/${h.targets.hardAnswers} · permanent removal ${h.spotRemoval}/${h.targets.spotRemoval} · affordable draw ${h.cheapDraw}/${h.targets.cheapDraw} · weak tax-counters ${h.softCounters}. ${h.warnings.length?'Review: '+h.warnings.join('; '):'Heuristic floors met.'}`;quality.append(hp);}if(r.qualityAudit){const q=r.qualityAudit;
  const messages=[`Legacy broad-role status (not power certification): ${q.status}`,`Repeatable early mana ${q.earlyMana}/${q.targets.early}; bursts ${q.burstMana}; Powerstone makers ${q.powerstoneMakers}`,
  `Loose Oracle-text candidates: interaction ${q.interaction}/${q.targets.interaction} · protection ${q.protection}/${q.targets.protection} · draw mentions ${q.draw}/${q.targets.draw} (${q.conditionalDraw} conditional)`,
  ...q.landIssues.slice(0,6).map(x=>`Land review: ${x.card} — ${x.reasons.join('; ')}`),
@@ -354,7 +379,7 @@ $('community-discover').addEventListener('click',async()=>{
 $('community-auto').addEventListener('click',async()=>{
  if(!selected){$('community-auto-status').textContent='Select a commander first.';return;}
  const target={id:selected.id,name:selected.name,bracket:communityResearchBracket(),budget:Number($('budget').value)};
- if(![2,3,4].includes(target.bracket)){$('community-auto-status').textContent='Choose a specific community bracket (2, 3 or 4), not All brackets.';return;}
+ if(![2,3,4,5].includes(target.bracket)){$('community-auto-status').textContent='Choose a specific community Bracket 2, 3, 4 or 5.';return;}
  autoResearchRunning=true;updateDiscoveryButtons();
  $('community-auto-status').textContent=`Researching ${target.name} Bracket ${target.bracket}… verifying up to 24 lists, paced to respect Archidekt. Please wait; no clicking needed.`;
  try{

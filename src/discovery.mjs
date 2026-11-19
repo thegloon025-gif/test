@@ -16,8 +16,8 @@ export const COMBINED_BRACKETS='3+4';
 function normalizeRequestedBracket(value){
  if(value==null||value==='')return null;
  if(value===COMBINED_BRACKETS)return value;
- if([2,3,4,'2','3','4'].includes(value))return Number(value);
- throw Error('Choose bracket 2, 3, 4, 3+4, or any.');
+ if([2,3,4,5,'2','3','4','5'].includes(value))return Number(value);
+ throw Error('Choose Bracket 2, 3, 4, 5, 3+4, or any.');
 }
 export function bracketMatches(actual,requested){
  return requested===null||(requested===COMBINED_BRACKETS ? actual===3||actual===4 : actual===requested);

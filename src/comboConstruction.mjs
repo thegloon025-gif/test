@@ -51,7 +51,7 @@ export function proposeComboPackages({variants=[],cards,commander,chosen=[],plan
   const newGc=added.filter(c=>c.game_changer).length;
   if(gameChangers+newGc>maxGameChangers){deny('game-changer limit');continue;}
   const cost=added.reduce((sum,c)=>sum+priceOf(c),0);
-  if(cost>budget*(bracket===4?.26:.20)){deny('combo spends too much budget');continue;}
+  if(cost>budget*(bracket>=4?.26:.20)){deny('combo spends too much budget');continue;}
   // Never reward an unrelated infinite combo simply for being listed online.
   const packageCards=[...requirements.values(),...templateMatches.map(x=>catalogByName.get(normalizedName(x.card)))].filter(c=>oracleId(c)!==commanderId);
   const onPlan=packageCards.filter(c=>score(c).s.impact>=4).length;
@@ -60,7 +60,7 @@ export function proposeComboPackages({variants=[],cards,commander,chosen=[],plan
   // deck solely because Spellbook found a technically legal loop. Already
   // owned off-plan cards may participate, but *new* inclusions must pull
   // their weight as part of the plan or fill a protected utility function.
-  const colorlessEngine=bracket===4&&plan.needsColorless>0&&v.isInfinite&&
+  const colorlessEngine=bracket>=4&&plan.needsColorless>0&&v.isInfinite&&
    (v.results||[]).some(r=>/infinite colorless mana/i.test(r))&&
    packageCards.length<=2&&packageCards.every(c=>/mana|colorless|\{C\}/i.test(castOracle(c))||score(c).a.ramp);
   const offPlanAdditions=added.filter(c=>{

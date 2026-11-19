@@ -52,7 +52,7 @@ function gates(commander,cards,{bracket,variants,catalog,allowCompactCombosInBra
  if(cards.some(c=>!legalFor(c,commander)))errors.push('Illegal card/color identity.');
  const gc=[commander,...cards].filter(c=>c.game_changer).length;if(gc>(bracket<=2?0:bracket===3?3:Infinity))errors.push('Known Game Changer allowance exceeded.');
  if(!(bracket===3&&allowCompactCombosInBracket3)){
-  const violation=conservativeComboViolation(cards,commander,variants,bracket===5?4:bracket);
+  const violation=conservativeComboViolation(cards,commander,variants,bracket);
   if(violation)errors.push(violation.rule+': '+violation.id);
  }
  for(const c of [commander,...cards]){const active=catalog.find(x=>key(x)===key(c));if(!active||JSON.stringify(active.printing)!==JSON.stringify(c.printing)||priceOf(active)!==priceOf(c))errors.push('Selected printing mismatch: '+c.name);if(priceOf(c)===null)errors.push('Unpriced card: '+c.name);if(c.pricingWarning||(!isBasic(c)&&c.printing?.eligibleVersion!==2&&c.pricingMethod!=='imported-en-nm-quote'))errors.push('Unverified eligible printing: '+c.name);}

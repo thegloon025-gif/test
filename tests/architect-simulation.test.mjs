@@ -111,12 +111,12 @@ test('Bracket 3 analysis and Builder validation enforce the three-Game Changer l
  assert.match(result.issues.join(' '),/Game Changer allowance exceeded/);
 });
 
-test('connected Architect protocol validates and exports mocked AI decks for both bracket selections',async t=>{
+test('connected Architect protocol validates and exports mocked AI decks for Brackets 3, 4 and 5',async t=>{
  const {mkdtemp,rm}=await import('node:fs/promises');
  const {tmpdir}=await import('node:os');
  const {join}=await import('node:path');
  const {createPlanOnly}=await import('../src/planOnly.mjs');
- const {validateArchitectResult}=await import('../src/aiArchitect.mjs');
+ const {architectRequest,validateArchitectResult}=await import('../src/aiArchitect.mjs');
  const dir=await mkdtemp(join(tmpdir(),'architect-simulation-ai-'));
  t.after(()=>rm(dir,{recursive:true,force:true}));
  const session={status:'connected',sharing:true,profileId:'local-fixture'};
@@ -129,9 +129,11 @@ test('connected Architect protocol validates and exports mocked AI decks for bot
  await architect.configure({enabled:true,directUseAuthorized:true,accountSettingsConfirmed:true,
   creditsSettingReviewed:true,weeklyLimitPercent:25,dailyLimit:3,model:'fixture-model'});
  const variants=[variant('1',[a,b])];
- for(const bracket of [3,4]){
-  const params={...settings,bracket,mode:'builder',commanderName:commander.name};
-  const result=await architect.run({prompt:'Fixture deck request',maxRepairs:0,
+ for(const bracket of [3,4,5]){
+  const params={...settings,bracket,budget:bracket===5?1500:settings.budget,mode:'builder',commanderName:commander.name};
+  const {prompt}=architectRequest(params,catalog,variants);
+  assert.equal(prompt.includes('Bracket 5 cEDH'),bracket===5);
+  const result=await architect.run({prompt,maxRepairs:0,
    validate:raw=>validateArchitectResult(params,raw,catalog,variants)});
   assert.ok(result.valid,result.issues?.join(' | '));
   assert.equal(result.strategy.direction,'Land ramp into Zacama');
@@ -140,6 +142,12 @@ test('connected Architect protocol validates and exports mocked AI decks for bot
   const exported=validateArchitectResult(params,result.deck,catalog,variants);
   assert.equal(exported.valid,true);
   assert.equal(exported.deck,result.deck);
+  if(bracket===5){
+   assert.equal(result.ceiling,1500);
+   const lab=architectLab({...params,text:result.deck,comparison:result.deck,comparisonBracket:4},{catalog,variants});
+   assert.equal(lab.original.bracketIssue,false);
+   assert.equal(lab.original.result.combo.length,1);
+  }
  }
- assert.equal((await architect.status()).requestsToday,2);
+ assert.equal((await architect.status()).requestsToday,3);
 });

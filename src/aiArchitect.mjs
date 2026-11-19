@@ -197,6 +197,9 @@ export function architectRequest(p, catalog, variants = [], research = {}) {
         : "full cost of newly acquired cards; cuts are NOT resale cash",
     bracket: p.bracket,
     basicLandsOwned: p.basicLandsOwned !== false,
+    ...(p.mode === "builder" && Number(p.bracket) === 5 ? {
+      competitivePlan: "Bracket 5 cEDH. Build for a competitive multiplayer field. Favor early untapped mana, cheap interaction on the stack, resilient card access, reliable tutors, and compact win routes with the pieces and resources to execute them. Use the commander where it contributes to that plan. Choose affordable functional substitutes for premium cards outside the budget, and describe any speed or resilience trade-offs."
+    } : {}),
     preferences: p.preferences || "",
     excludedStrategies: p.excludedStrategies || "",
     original: x.cards.map((c) => {
