@@ -41,7 +41,7 @@ export function normalizeVariant(raw){
  const prerequisites=[...listText(raw.other_prerequisites),...listText(raw.prerequisites),...listText(raw.mana_needed),...listText(raw.manaNeeded),...listText(raw.easyPrerequisites),...listText(raw.notablePrerequisites)];
  const steps=[...listText(raw.description),...listText(raw.steps)];
  const results=[...listText(raw.produces),...listText(raw.results)];
- const comboIds=(Array.isArray(raw.of)?raw.of.map(x=>x?.id):[]).filter(Number.isInteger);
+ const comboIds=(Array.isArray(raw.of)?raw.of.map(x=>x?.id):Array.isArray(raw.comboIds)?raw.comboIds:[]).filter(Number.isInteger);
  return {id,url:comboUrl(id),cards:names,uses,templates:templateRequirements.map(x=>x.name),templateRequirements,manaNeeded:String(raw.manaNeeded??raw.mana_needed??''),manaValueNeeded:Number(raw.manaValueNeeded??0)||0,prerequisites:[...new Set(prerequisites)],steps:[...new Set(steps)],results:[...new Set(results)],isInfinite:results.some(result=>/\binfinite\b|\barbitrarily many\b/i.test(result)),bracket:raw.bracket??null,bracketTag:raw.bracketTag??null,legalities:raw.legalities??null,identity:raw.identity??null,spoiler:raw.spoiler===true,comboIds};
 }
 /** Extract documented Find My Combos response groups conservatively.

@@ -1,0 +1,272 @@
+[
+  {
+    "name": "Zacama, Primal Calamity",
+    "oracle_id": "23270e4a-a222-4ffb-a946-d0e20d665187",
+    "oracle_text": "Reach, vigilance, trample\nWhen Zacama enters, if you cast it, untap all lands you control.\n{2}{R}: Zacama deals 3 damage to target creature.\n{2}{G}: Destroy target artifact or enchantment.\n{2}{W}: You gain 3 life.",
+    "power": "9",
+    "type_line": "Legendary Creature — Elder Dinosaur",
+    "mana_cost": "{6}{R}{G}{W}",
+    "cmc": 9.0,
+    "color_identity": [
+      "G",
+      "R",
+      "W"
+    ],
+    "keywords": [
+      "Reach",
+      "Vigilance",
+      "Trample"
+    ]
+  },
+  {
+    "name": "Temur Sabertooth",
+    "oracle_id": "8bf8e846-9d10-4dbc-a379-df37bb9fb6d4",
+    "oracle_text": "{1}{G}: You may return another creature you control to its owner's hand. If you do, this creature gains indestructible until end of turn.",
+    "power": "4",
+    "type_line": "Creature — Cat",
+    "mana_cost": "{2}{G}{G}",
+    "cmc": 4.0,
+    "color_identity": [
+      "G"
+    ],
+    "keywords": []
+  },
+  {
+    "name": "Impact Tremors",
+    "oracle_id": "9242cd3e-1a71-4700-8182-9c1005616033",
+    "oracle_text": "Whenever a creature you control enters, this enchantment deals 1 damage to each opponent.",
+    "type_line": "Enchantment",
+    "mana_cost": "{1}{R}",
+    "cmc": 2.0,
+    "color_identity": [
+      "R"
+    ],
+    "keywords": []
+  },
+  {
+    "name": "Warleader's Call",
+    "oracle_id": "a751c07b-fc21-4854-96e7-f71abf4e86c9",
+    "oracle_text": "Creatures you control get +1/+1.\nWhenever a creature you control enters, this enchantment deals 1 damage to each opponent.",
+    "type_line": "Enchantment",
+    "mana_cost": "{1}{R}{W}",
+    "cmc": 3.0,
+    "color_identity": [
+      "R",
+      "W"
+    ],
+    "keywords": []
+  },
+  {
+    "name": "Zaxara, the Exemplary",
+    "oracle_id": "a9946ea0-bf0e-4c9c-a3c6-21337a5029ab",
+    "oracle_text": "Deathtouch\n{T}: Add two mana of any one color.\nWhenever you cast a spell with {X} in its mana cost, create a 0/0 green Hydra creature token, then put X +1/+1 counters on it.",
+    "power": "2",
+    "type_line": "Legendary Creature — Nightmare Hydra",
+    "mana_cost": "{1}{B}{G}{U}",
+    "cmc": 4.0,
+    "color_identity": [
+      "B",
+      "G",
+      "U"
+    ],
+    "keywords": [
+      "Deathtouch"
+    ]
+  },
+  {
+    "name": "Freed from the Real",
+    "oracle_id": "03d32ace-dd99-48c6-bcae-9b915d041aef",
+    "oracle_text": "Enchant creature\n{U}: Tap enchanted creature.\n{U}: Untap enchanted creature.",
+    "type_line": "Enchantment — Aura",
+    "mana_cost": "{2}{U}",
+    "cmc": 3.0,
+    "color_identity": [
+      "U"
+    ],
+    "keywords": [
+      "Enchant"
+    ]
+  },
+  {
+    "name": "Exsanguinate",
+    "oracle_id": "8164b1e8-3350-465e-8a17-75f57d326344",
+    "oracle_text": "Each opponent loses X life. You gain life equal to the life lost this way.",
+    "type_line": "Sorcery",
+    "mana_cost": "{X}{B}{B}",
+    "cmc": 2.0,
+    "color_identity": [
+      "B"
+    ],
+    "keywords": []
+  },
+  {
+    "name": "Judith, the Scourge Diva",
+    "oracle_id": "c01516e0-eec3-4370-b935-7674982e8850",
+    "oracle_text": "Other creatures you control get +1/+0.\nWhenever a nontoken creature you control dies, Judith deals 1 damage to any target.",
+    "power": "2",
+    "type_line": "Legendary Creature — Human Shaman",
+    "mana_cost": "{1}{B}{R}",
+    "cmc": 3.0,
+    "color_identity": [
+      "B",
+      "R"
+    ],
+    "keywords": []
+  },
+  {
+    "name": "Repercussion",
+    "oracle_id": "f6069a4f-744e-43e8-9f8b-7c13b8b0187f",
+    "oracle_text": "Whenever a creature is dealt damage, this enchantment deals that much damage to that creature's controller.",
+    "type_line": "Enchantment",
+    "mana_cost": "{1}{R}{R}",
+    "cmc": 3.0,
+    "color_identity": [
+      "R"
+    ],
+    "keywords": []
+  },
+  {
+    "name": "Blasphemous Act",
+    "oracle_id": "7a2484a9-04fd-41a0-8224-610c1c07ed10",
+    "oracle_text": "This spell costs {1} less to cast for each creature on the battlefield.\nBlasphemous Act deals 13 damage to each creature.",
+    "type_line": "Sorcery",
+    "mana_cost": "{8}{R}",
+    "cmc": 9.0,
+    "color_identity": [
+      "R"
+    ],
+    "keywords": []
+  },
+  {
+    "name": "Vivi Ornitier",
+    "oracle_id": "0452be2a-e97a-4269-a9e3-b616265ecb2e",
+    "oracle_text": "{0}: Add X mana in any combination of {U} and/or {R}, where X is Vivi Ornitier's power. Activate only during your turn and only once each turn.\nWhenever you cast a noncreature spell, put a +1/+1 counter on Vivi Ornitier and it deals 1 damage to each opponent.",
+    "power": "0",
+    "type_line": "Legendary Creature — Wizard",
+    "mana_cost": "{1}{U}{R}",
+    "cmc": 3.0,
+    "color_identity": [
+      "R",
+      "U"
+    ],
+    "keywords": []
+  },
+  {
+    "name": "Underworld Breach",
+    "oracle_id": "27e0948b-9916-473b-8d8c-a51bdfbc7457",
+    "oracle_text": "Each nonland card in your graveyard has escape. The escape cost is equal to the card's mana cost plus exile three other cards from your graveyard. (You may cast cards from your graveyard for their escape cost.)\nAt the beginning of the end step, sacrifice this enchantment.",
+    "type_line": "Enchantment",
+    "mana_cost": "{1}{R}",
+    "cmc": 2.0,
+    "color_identity": [
+      "R"
+    ],
+    "keywords": []
+  },
+  {
+    "name": "Lion's Eye Diamond",
+    "oracle_id": "ee6099b0-fb1f-42f1-b862-7708c6e36d05",
+    "oracle_text": "Discard your hand, Sacrifice this artifact: Add three mana of any one color. Activate only as an instant.",
+    "type_line": "Artifact",
+    "mana_cost": "{0}",
+    "cmc": 0.0,
+    "color_identity": [],
+    "keywords": []
+  },
+  {
+    "name": "Brain Freeze",
+    "oracle_id": "464c0150-3dbc-403b-9ada-fef25ab1f29d",
+    "oracle_text": "Target player mills three cards.\nStorm (When you cast this spell, copy it for each spell cast before it this turn. You may choose new targets for the copies.)",
+    "type_line": "Instant",
+    "mana_cost": "{1}{U}",
+    "cmc": 2.0,
+    "color_identity": [
+      "U"
+    ],
+    "keywords": [
+      "Storm",
+      "Mill"
+    ]
+  },
+  {
+    "name": "Laboratory Maniac",
+    "oracle_id": "aa286dd5-aa19-446d-9003-684d81eb57ca",
+    "oracle_text": "If you would draw a card while your library has no cards in it, you win the game instead.",
+    "power": "2",
+    "type_line": "Creature — Human Wizard",
+    "mana_cost": "{2}{U}",
+    "cmc": 3.0,
+    "color_identity": [
+      "U"
+    ],
+    "keywords": []
+  },
+  {
+    "name": "Purphoros, God of the Forge",
+    "oracle_id": "4fdbbec2-e921-4b63-958d-f9ba1e417197",
+    "oracle_text": "Indestructible\nAs long as your devotion to red is less than five, Purphoros isn't a creature.\nWhenever another creature you control enters, Purphoros deals 2 damage to each opponent.\n{2}{R}: Creatures you control get +1/+0 until end of turn.",
+    "power": "6",
+    "type_line": "Legendary Enchantment Creature — God",
+    "mana_cost": "{3}{R}",
+    "cmc": 4.0,
+    "color_identity": [
+      "R"
+    ],
+    "keywords": [
+      "Indestructible"
+    ]
+  },
+  {
+    "name": "Tendrils of Agony",
+    "oracle_id": "78db3190-59bc-4033-95bc-32d8ed872b6a",
+    "oracle_text": "Target player loses 2 life and you gain 2 life.\nStorm (When you cast this spell, copy it for each spell cast before it this turn. You may choose new targets for the copies.)",
+    "type_line": "Sorcery",
+    "mana_cost": "{2}{B}{B}",
+    "cmc": 4.0,
+    "color_identity": [
+      "B"
+    ],
+    "keywords": [
+      "Storm"
+    ]
+  },
+  {
+    "name": "Craterhoof Behemoth",
+    "oracle_id": "8c52bd39-0586-48ca-b263-17210cf9feb6",
+    "oracle_text": "Haste\nWhen this creature enters, creatures you control gain trample and get +X/+X until end of turn, where X is the number of creatures you control.",
+    "power": "5",
+    "type_line": "Creature — Beast",
+    "mana_cost": "{5}{G}{G}{G}",
+    "cmc": 8.0,
+    "color_identity": [
+      "G"
+    ],
+    "keywords": [
+      "Haste"
+    ]
+  },
+  {
+    "name": "Blood Artist",
+    "oracle_id": "310f141c-7f37-4729-aed6-dd9c09db448d",
+    "oracle_text": "Whenever this creature or another creature dies, target player loses 1 life and you gain 1 life.",
+    "power": "0",
+    "type_line": "Creature — Vampire",
+    "mana_cost": "{1}{B}",
+    "cmc": 2.0,
+    "color_identity": [
+      "B"
+    ],
+    "keywords": []
+  },
+  {
+    "name": "Walking Ballista",
+    "oracle_id": "4b515bb0-f275-4400-8032-3173b799ab40",
+    "oracle_text": "This creature enters with X +1/+1 counters on it.\n{4}: Put a +1/+1 counter on this creature.\nRemove a +1/+1 counter from this creature: It deals 1 damage to any target.",
+    "power": "0",
+    "type_line": "Artifact Creature — Construct",
+    "mana_cost": "{X}{X}",
+    "cmc": 0.0,
+    "color_identity": [],
+    "keywords": []
+  }
+]

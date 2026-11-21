@@ -70,7 +70,7 @@ function payment(cost,sources){
 }
 const hasC=(card,kind)=>card.types.split('—').at(-1).trim().split(/\s+/).some(type=>type.toLowerCase()===kind.toLowerCase());
 
-function trial(compiled,commander,seed,index,combos){
+function trial(compiled,commander,seed,index,combos,assembly){
  // Sorting beforehand makes the decklist's textual order immaterial. Both
  // compared decks use the same per-trial and per-mulligan random stream.
  let library,hand,attempt=0,opening=0,bottomed=0;
@@ -188,7 +188,8 @@ function trial(compiled,commander,seed,index,combos){
   seenByTurn.push({lands:count(board,x=>x.card.land),mana,landsSeen,ramp:observed.has('rampRole'),draw:observed.has('drawRole'),
    interaction:observed.has('interaction'),tutor:observed.has('tutor')});
  }
- return {opening:keptLands,bottomed,attempt,commanderTurn,drawn,rampTurn,postCastMana,seenByTurn,comboSeen,comboReady,
+ const assembled=assembly.map(choices=>choices.some(ids=>ids.every(id=>seen.has(id))));
+ return {assembled,opening:keptLands,bottomed,attempt,commanderTurn,drawn,rampTurn,postCastMana,seenByTurn,comboSeen,comboReady,
   flood:seenByTurn[5].landsSeen>=8,screw:seenByTurn[3].lands<3};
 }
 
@@ -211,16 +212,24 @@ function alignedSlots(compiled,referenceCards){
  return slots.map(card=>card??replacements.shift());
 }
 
-export function simulateArchitectSample({commander,cards,combos=[]},options={}){
+export function simulateArchitectSample({commander,cards,combos=[],assembly=[]},options={}){
  if(!commander||cards?.length!==99)throw Error('Simulation requires a validated commander and 99 cards.');
  const {trials,seed}=simulationSettings(options);
  const cmd=compile(commander,commander);
  const sorted=cards.map(c=>compile(c,commander)).sort((a,b)=>String(a.id).localeCompare(String(b.id)));
  const compiled=options.referenceCards?alignedSlots(sorted,options.referenceCards):sorted;
+ const cardById=new Map([cmd,...compiled].map(c=>[c.id,c]));
+ const supportedZone=p=>{
+  const card=cardById.get(p.id);
+  if(!card||!p.zoneLocations.length||p.usedFace||p.exileCardState||p.libraryCardState)return false;
+  if(p.zoneLocations.includes('B')&&!card.land&&(!card.cost||!card.permanent||/Aura/.test(card.types)&&!card.aura))return false;
+  if(p.zoneLocations.includes('G')&&(card.permanent||!card.cost||!(card.draws||card.ramp)))return false;
+  return p.zoneLocations.every(z=>['B','H','G','C'].includes(z))&&!p.battlefieldCardState&&!p.graveyardCardState;
+ };
  const lines=combos.slice(0,12).map(line=>({...line,simulatable:!line.templateRequirements.length&&!line.prerequisites.some(s=>s.trim()&&s.trim()!==line.manaNeeded)&&
-  line.pieces.every(p=>p.zoneLocations.every(z=>['B','H','G','C'].includes(z))&&!p.battlefieldCardState&&!p.graveyardCardState)&&
+  line.pieces.every(supportedZone)&&
   (!line.manaNeeded||manaCost.test(line.manaNeeded))&&new Set(line.pieces.map(p=>p.id)).size===line.pieces.length}));
- const runs=Array.from({length:trials},(_,i)=>trial(compiled,cmd,seed,i,lines));
+ const runs=Array.from({length:trials},(_,i)=>trial(compiled,cmd,seed,i,lines,assembly));
  const pct=n=>round(n*100/trials);
  const average=values=>values.length?round(values.reduce((a,b)=>a+b,0)/values.length):null;
  const turns=Array.from({length:TURNS},(_,i)=>{
@@ -233,7 +242,7 @@ export function simulateArchitectSample({commander,cards,combos=[]},options={}){
   const seen=runs.map(r=>r.comboSeen[i]).filter(n=>n!==null),ready=runs.map(r=>r.comboReady[i]).filter(n=>n!==null);
   return {id:line.id,url:line.url,pieces:line.pieces.map(p=>p.name),outcomes:line.results,
    prerequisites:line.prerequisites,requiredMana:line.manaNeeded,commander:line.commanderInvolved,relationship:line.relationship,
-   kind:line.directWin?'Direct win':line.delayedWin?'Delayed win':'Engine or value',piecesSeenPct:pct(seen.length),
+   kind:line.classification||(line.directWin?'Direct win':line.delayedWin?'Delayed win':'Engine or value'),piecesSeenPct:pct(seen.length),
    averagePiecesTurn:average(seen),startingStatePct:line.simulatable?pct(ready.length):null,averageStartingStateTurn:average(ready)};
  }).sort((a,b)=>(b.startingStatePct??-1)-(a.startingStatePct??-1)||b.piecesSeenPct-a.piecesSeenPct);
  const result={trials,seed,turnLimit:TURNS,turns,commander:cmd.name,opening:{
@@ -245,6 +254,6 @@ export function simulateArchitectSample({commander,cards,combos=[]},options={}){
   screwPct:pct(count(runs,r=>r.screw)),floodPct:pct(count(runs,r=>r.flood)),
   manaCurve:Object.fromEntries(Array.from({length:8},(_,n)=>[n===7?'7+':n,count(compiled,c=>!c.land&&Math.min(7,Math.floor(c.mv))===n)])),
   supported:{castUntapsLands:cmd.earliestUntap,manaSources:count(compiled,c=>!!c.source),landSearch:count(compiled,c=>!!c.ramp),landAuras:count(compiled,c=>!!c.aura),doublers:count(compiled,c=>!!c.double)},
-  combo:byCombo,unsupportedCards:[...new Set([cmd,...compiled].filter(c=>c.unsupported).map(c=>c.name))]};
+  assemblyPct:assembly.map((_,i)=>pct(count(runs,r=>r.assembled[i]))),combo:byCombo,unsupportedCards:[...new Set([cmd,...compiled].filter(c=>c.unsupported).map(c=>c.name))]};
  return {result,runs};
 }

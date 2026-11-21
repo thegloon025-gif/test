@@ -1,9 +1,10 @@
+import {renderWinConditions} from './win-conditions.js';
 function item(tag,text){
  const node=document.createElement(tag);
  if(text!==undefined)node.textContent=text;
  return node;
 }
-const pct=n=>n===null?'Unsupported':n+'%';
+const pct=n=>n===null?'Not modeled':n+'%';
 const norm=n=>n===null?'Unavailable':n;
 const eur=n=>n===null?'Price coverage incomplete':'€'+n.toFixed(2);
 const delta=(n,unit='')=>Number.isFinite(n)?(n>0?'+':'')+n+(unit?' '+unit:''):'Unavailable';
@@ -43,8 +44,9 @@ function showDeck(root,deck,heading,open){
  root.append(item('h4',heading+' · '+out.commander));
  root.append(item('p',eur(deck.price)+(!open&&deck.withinBudget?' · within the selected ceiling':'')+
   (deck.bracketIssue?' · exceeds the Bracket 3 Game Changer allowance':'')+' · '+deck.comboCoverage));
- const counts=deck.combos;
- root.append(item('p',counts.twoCard+' two-card lines · '+counts.threeCard+' three-card lines · '+counts.directWins+' direct wins · '+counts.engines+' engines/value · '+counts.delayedWins+' delayed wins · '+deck.independentRoutes+' independent scored routes'));
+ if(heading!=='Original'){
+  const wins=item('section');renderWinConditions(wins,deck.winConditions);root.append(wins);
+ }
  const detail=item('details');detail.append(item('summary','Turn-by-turn development, combos and model coverage'));
  table(detail,['Turn','Lands','Available mana','Ramp seen','Draw seen','Tutor seen','Interaction seen'],
   out.turns.map(row=>[row.turn,row.lands,row.mana,pct(row.rampSeenPct),pct(row.drawSeenPct),pct(row.tutorSeenPct),pct(row.interactionSeenPct)]));
@@ -52,7 +54,7 @@ function showDeck(root,deck,heading,open){
  detail.append(item('p','Modeled sources · '+out.supported.manaSources+' tap sources · '+out.supported.landSearch+' land-search spells · '+out.supported.landAuras+' land Auras · '+out.supported.doublers+' mana multipliers'+(out.supported.castUntapsLands?' · cast-triggered land untap':'')));
  detail.append(item('p','Commander cast estimate 95% interval · '+out.commanderCastInterval95.join('–')+'%'));
  if(out.combo.length)table(detail,['Line','Pieces seen by turn 10','Avg. turn seen','Modeled starting state','Avg. turn ready'],
-  out.combo.map(line=>[line.pieces.join(' + ')+' · '+line.kind+(line.commander?' · commander involved':'')+(line.relationship?' · '+line.relationship:''),pct(line.piecesSeenPct),norm(line.averagePiecesTurn),pct(line.startingStatePct),norm(line.averageStartingStateTurn)]));
+  out.combo.map(line=>[line.pieces.join(' + ') +(line.commander?' · commander involved':'')+(line.relationship?' · '+line.relationship:''),pct(line.piecesSeenPct),norm(line.averagePiecesTurn),pct(line.startingStatePct),norm(line.averageStartingStateTurn)]));
  for(const line of out.combo){
   const note=item('p',line.outcomes.join(' · ')+(line.requiredMana?' · starting mana '+line.requiredMana:'')+
    (line.prerequisites.length?' · '+line.prerequisites.join(' · '):'')+' ');

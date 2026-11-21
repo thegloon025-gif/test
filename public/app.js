@@ -1,3 +1,4 @@
+import {renderWinConditions} from './win-conditions.js';
 import {postWithProgress} from './progress.js';
 import {renderStrategy} from './strategy.js';
 import {researchSummary} from './research.js';
@@ -179,7 +180,7 @@ $('generate').addEventListener('click',async()=>{
  }catch(e){if(selected?.id===query.commanderId)notice(e.message);}
  finally{generationBusy=false;$('regenerate-extra').disabled=false;status();}
 });
-function render(r){renderStrategy(r,$('why-this-deck'));$('empty').hidden=true;$('deck-result').hidden=false;$('deck-price').textContent=`€${r.price.toFixed(2)}`;renderPriceLedger(r);$('comparison-result').textContent='';$('previous-deck').hidden=true;updateBudgetPreview();$('price-source').textContent=`Pricing: ${r.pricing?.label||'Scryfall EUR estimate'} · ${r.pricing?.updatedAt?new Date(r.pricing.updatedAt).toLocaleDateString():'date unknown'} · no shipping`;$('deck-count').textContent=r.totalCards;$('deck-lands').textContent=r.landCount;$('deck-colorless').textContent=r.colorlessSources;$('plan-title').textContent=r.plan;$('verdict').textContent=r.qualityVerdict;$('verdict').className='verdict'+(r.warnings.some(w=>w.includes(': ')&&!w.includes('Budget'))||r.qualityVerdict.includes('INCOMPLETE')?' problem':'');$('checks').replaceChildren();if(r.edhrecKnowledge){
+function render(r){renderWinConditions($('local-win-conditions'),r.winConditions);renderStrategy(r,$('why-this-deck'));$('empty').hidden=true;$('deck-result').hidden=false;$('deck-price').textContent=`€${r.price.toFixed(2)}`;renderPriceLedger(r);$('comparison-result').textContent='';$('previous-deck').hidden=true;updateBudgetPreview();$('price-source').textContent=`Pricing: ${r.pricing?.label||'Scryfall EUR estimate'} · ${r.pricing?.updatedAt?new Date(r.pricing.updatedAt).toLocaleDateString():'date unknown'} · no shipping`;$('deck-count').textContent=r.totalCards;$('deck-lands').textContent=r.landCount;$('deck-colorless').textContent=r.colorlessSources;$('plan-title').textContent=r.plan;$('verdict').textContent=r.qualityVerdict;$('verdict').className='verdict'+(r.warnings.some(w=>w.includes(': ')&&!w.includes('Budget'))||r.qualityVerdict.includes('INCOMPLETE')?' problem':'');$('checks').replaceChildren();if(r.edhrecKnowledge){
  const k=r.edhrecKnowledge,el=document.createElement('span');el.className='check';
  el.textContent=k.status==='local-import'
  ? 'Local EDHREC JSON: '+k.cardCount+' distinct recommendations, '+k.categories.length+' overlapping category groups · imported '+k.importedAt+' ('+(k.ageHours??'unknown')+' hours since local import) · advisory only, not a power or bracket assessment.'
@@ -228,14 +229,14 @@ async function communityList(){
     for(const item of (d.excluded||[]).slice(0,15))appendMsg(breakdown,`EXCLUDED: ${item.quantity||1}× ${item.name} [${item.primary||'no category'}] — ${item.reason}`,'tiny');
     card.append(breakdown);
     const refresh=document.createElement('button');refresh.className='secondary';refresh.type='button';refresh.textContent='Recheck from Archidekt';
-    refresh.addEventListener('click',async()=>{refresh.disabled=true;$('community-message').textContent='Checking live deck and refreshing the saved import…';try{const r=await post('/api/community/import',{url:d.url,forceRefresh:true});$('community-message').textContent=`Rechecked: ${r.deck.totalCards} verified cards. ${r.deck.issues?.join(' • ')||'Complete import.'}`;await communityList();await communityInsights();await refreshCommunityBuildOptions();}catch(e){$('community-message').textContent=e.message;refresh.disabled=false;}});
+    refresh.addEventListener('click',async()=>{refresh.disabled=true;$('community-message').textContent='Checking live deck and refreshing the saved import…';try{const r=await post('/api/community/import',{url:d.url,forceRefresh:true});renderWinConditions($('community-win-conditions'),r.winConditions);$('community-message').textContent=`Rechecked: ${r.deck.totalCards} verified cards. ${r.deck.issues?.join(' • ')||'Complete import.'}`;await communityList();await communityInsights();await refreshCommunityBuildOptions();}catch(e){$('community-message').textContent=e.message;refresh.disabled=false;}});
     card.append(refresh);
    }else{
     // A valid deck imported before bracket support may have no saved metadata.
     // Let users re-read its declared bracket without editing the 100-card deck.
     if(d.edhBracket==null)appendMsg(card,'Bracket not yet recorded. Refresh this deck to read its current Archidekt bracket.','tiny');
     const refresh=document.createElement('button');refresh.className='secondary';refresh.type='button';refresh.textContent='Refresh deck / bracket';
-    refresh.addEventListener('click',async()=>{refresh.disabled=true;$('community-message').textContent='Refreshing deck and bracket from Archidekt…';try{const r=await post('/api/community/import',{url:d.url,forceRefresh:true});$('community-message').textContent=`Refreshed: ${r.deck.totalCards} cards · ${r.deck.edhBracket?'Bracket '+r.deck.edhBracket:'no bracket declared'}.`;await communityList();await communityInsights();await refreshCommunityBuildOptions();}catch(e){$('community-message').textContent=e.message;refresh.disabled=false;}});
+    refresh.addEventListener('click',async()=>{refresh.disabled=true;$('community-message').textContent='Refreshing deck and bracket from Archidekt…';try{const r=await post('/api/community/import',{url:d.url,forceRefresh:true});renderWinConditions($('community-win-conditions'),r.winConditions);$('community-message').textContent=`Refreshed: ${r.deck.totalCards} cards · ${r.deck.edhBracket?'Bracket '+r.deck.edhBracket:'no bracket declared'}.`;await communityList();await communityInsights();await refreshCommunityBuildOptions();}catch(e){$('community-message').textContent=e.message;refresh.disabled=false;}});
     card.append(refresh);
    }
    if(d.validated){
@@ -325,6 +326,7 @@ $('community-import').addEventListener('click',async()=>{
  $('community-import').disabled=true;$('community-message').textContent='Importing one public deck…';
  try{
   const result=await post('/api/community/import',{url,forceRefresh:true});
+  renderWinConditions($('community-win-conditions'),result.winConditions);
   $('community-message').textContent=`${result.fromCache?'Loaded cached':'Imported'}: ${result.deck.title} · ${result.deck.totalCards} verified cards · ${result.deck.validated?'eligible for exploratory statistics':'needs review; excluded from statistics'}. ${result.deck.issues?.join(' • ')||''}`;
   await communityList();await communityInsights();await refreshCommunityBuildOptions();
  }catch(e){$('community-message').textContent=e.message;}finally{$('community-import').disabled=false;}
@@ -419,6 +421,12 @@ $('discovery-import').addEventListener('click',async()=>{
  $('discovery-import').disabled=true;$('discovery-status').textContent=`Verifying ${ids.length} deck(s) against Scryfall and commander identity…`;
  try{
   const result=await post('/api/community/discover-import',{...discoveryQuery,ids});
+  const wins=$('community-win-conditions');wins.replaceChildren();
+  for(const deck of result.added){
+   if(!deck.winConditions)continue;
+   const heading=document.createElement('h3'),section=document.createElement('section');
+   heading.textContent=deck.title;renderWinConditions(section,deck.winConditions);wins.append(heading,section);
+  }
   const reasons=result.skipped.map(x=>`#${x.id}: ${x.reason}`);
   $('discovery-status').textContent=`Imported ${result.added.length} verified deck(s). ${result.skipped.length} skipped.${reasons.length?' '+reasons.join(' | '):''}`;
   await communityList();await communityInsights();await refreshCommunityBuildOptions();

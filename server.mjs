@@ -3,7 +3,7 @@ import {createPlanOnly,safePlanError} from './src/planOnly.mjs';
 import {loadOfficialChatGPT} from './src/chatgptSdk.mjs';
 import {architectRequest,validateArchitectResult} from './src/aiArchitect.mjs';
 import {DATA_DIR} from './src/scryfall.mjs';
-import {upgradeDeck} from './src/deckUpgrader.mjs';
+import {parseUpgradeDeck,upgradeDeck} from './src/deckUpgrader.mjs';
 import {budgetPolicy,applyBudgetValuation} from './src/budgetPolicy.mjs';
 import http from 'node:http';
 import {readFile} from 'node:fs/promises';
@@ -18,6 +18,7 @@ import {loadCommunity,importPublicDeck,communityInsights} from './src/community.
 import {COMBINED_BRACKETS,discoverPublicDecks,importDiscoveredDecks} from './src/discovery.mjs';
 import {rankPublicDecks} from './src/rankedDiscovery.mjs';
 import {getSpellbookSnapshot} from './src/spellbookSnapshot.mjs';
+import {analyzeWinConditions} from './src/winConditions.mjs';
 import {architectLab} from './src/architectLab.mjs';
 import {createCedhRankingsStore} from './src/cedhRankings.mjs';
 import {autoResearchArchidekt} from './src/autoResearch.mjs';
@@ -66,6 +67,18 @@ async function architectInputs(p){
  const cards=mode===PRICING_CM?applyCardmarketPrices(state.cards,offers):mode===PRICING_ESTIMATED_EN_NM?applyEstimatedEnglishNM(state.cards):state.cards;
  const library=await readComboLibrary();return {cards,variants:library.flatMap(e=>e.variants),research:{decks:community}};
 }
+async function importedWinConditions(decks){
+ if(!decks.length)return [];
+ const library=await readComboLibrary();
+ const variants=library.flatMap(e=>e.variants),{snapshot}=await getSpellbookSnapshot({localOnly:true});
+ const byId=new Map(state.cards.map(c=>[oracleId(c),c]));
+ return decks.map(deck=>{
+  if(!deck?.validated||deck.commanderIds.length!==1)return null;
+  const commander=byId.get(deck.commanderIds[0]);
+  const cards=deck.mainboard.flatMap(({id,quantity})=>Array(quantity).fill(byId.get(id)));
+  return commander&&cards.length===99&&cards.every(Boolean)?analyzeWinConditions({commander,cards},{variants,snapshot}):null;
+ });
+}
 const headers={'X-Content-Type-Options':'nosniff','Cache-Control':'no-store'};
 function json(res,obj,status=200){res.writeHead(status,{...headers,'Content-Type':'application/json; charset=utf-8'});res.end(JSON.stringify(obj));}
 function error(res,err,status=400){json(res,{error:err.message||String(err)},status);}
@@ -99,7 +112,7 @@ async function sendWithProgress(req,res,run){
  }catch(err){send({type:'error',error:err.message});}
  finally{res.end();}
 }
-const staticFiles={'/':'index.html','/index.html':'index.html','/app.js':'app.js','/strategy.js':'strategy.js','/research.js':'research.js','/discovery-results.js':'discovery-results.js','/progress.js':'progress.js','/upgrader.js':'upgrader.js','/architect.js':'architect.js','/architect-lab.js':'architect-lab.js','/cedh.js':'cedh.js','/style.css':'style.css'};
+const staticFiles={'/':'index.html','/index.html':'index.html','/app.js':'app.js','/strategy.js':'strategy.js','/research.js':'research.js','/discovery-results.js':'discovery-results.js','/progress.js':'progress.js','/upgrader.js':'upgrader.js','/architect.js':'architect.js','/architect-lab.js':'architect-lab.js','/win-conditions.js':'win-conditions.js','/cedh.js':'cedh.js','/style.css':'style.css'};
 const mime={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8'};
 const server=http.createServer(async(req,res)=>{
  const url=new URL(req.url,'http://localhost');
@@ -111,7 +124,7 @@ const server=http.createServer(async(req,res)=>{
    if(url.pathname==='/api/architect/request'){const x=await architectInputs(p);return json(res,architectRequest(p,x.cards,x.variants,x.research));}
    if(url.pathname==='/api/architect/import'){
     const x=await architectInputs(p),optimizeBudget=p.mode==='builder'&&p.optimizeBudget===true;
-    const snapshot=optimizeBudget?(await getSpellbookSnapshot({localOnly:true})).snapshot:null;
+    const snapshot=(await getSpellbookSnapshot({localOnly:true})).snapshot;
     return json(res,validateArchitectResult(p,p.result,x.cards,x.variants,{optimizeBudget,snapshot}));
    }
    if(url.pathname==='/api/architect/simulate'){
@@ -126,7 +139,7 @@ const server=http.createServer(async(req,res)=>{
     try{
      return json(res,await architect.run({prompt:request.prompt,maxRepairs:p.mode==='builder'?0:2,
       validate:async raw=>{
-       const snapshot=optimizeBudget?(await getSpellbookSnapshot({localOnly:true})).snapshot:null;
+       const snapshot=(await getSpellbookSnapshot({localOnly:true})).snapshot;
        return validateArchitectResult(p,raw,x.cards,x.variants,{optimizeBudget,snapshot});
       }}));
     }catch(e){return architectPlanError(res,e);}
@@ -157,7 +170,13 @@ const server=http.createServer(async(req,res)=>{
    if(mode!==PRICING_CM&&!pricingCatalogStatus(state.cards,state.meta).audited)throw Error('Refresh the catalog for eligible-printing prices first.');
    const priced=mode===PRICING_CM?applyCardmarketPrices(state.cards,offers):mode===PRICING_ESTIMATED_EN_NM?applyEstimatedEnglishNM(state.cards):state.cards;
    const library=await readComboLibrary();const variants=library.flatMap(e=>e.variants);
-   return json(res,upgradeDeck(p,priced,variants));
+   const review=upgradeDeck(p,priced,variants);
+   if(review.stage==='review'){
+    const parsed=parseUpgradeDeck(review.canExport?review.proposed.deck:review.original.deck,priced,{commanderId:p.commanderId});
+    const {snapshot}=await getSpellbookSnapshot({localOnly:true});
+    if(parsed.commander&&!parsed.errors.length)review.winConditions=analyzeWinConditions(parsed,{variants,snapshot});
+   }
+   return json(res,review);
   }
   if(req.method==='GET'&&url.pathname==='/api/status')return json(res,{version:APP_VERSION,count:state.cards.length,metadata:state.meta,printingAudit:pricingCatalogStatus(state.cards,state.meta),update,syncing});
   if(req.method==='GET'&&url.pathname==='/api/cedh/rankings'){
@@ -170,7 +189,9 @@ const server=http.createServer(async(req,res)=>{
    const p=await body(req);
    if(typeof p.url!=='string'||p.url.length>500)throw Error('Supply a public Archidekt deck URL.');
    const result=await importPublicDeck(p.url,{catalog:state.cards,forceRefresh:p.forceRefresh===true});
-   community=await loadCommunity();return json(res,result);
+   community=await loadCommunity();
+   const [winConditions]=await importedWinConditions([result.deck]);
+   return json(res,{...result,winConditions});
   }
   if(req.method==='POST'&&url.pathname==='/api/community/combos'){
    if(!state.cards.length)throw Error('Download the Scryfall catalog first.');
@@ -205,7 +226,9 @@ const server=http.createServer(async(req,res)=>{
    if(communityDiscoveryBusy)return json(res,{error:'A community search/import is already running.'},409);
    communityDiscoveryBusy=true;
    try{const result=await importDiscoveredDecks({commanderId:selectedCard.id,commanderName:selectedCard.name,bracket:p.bracket,startPage:p.startPage??1,ids:p.ids,catalog:state.cards});
-    community=await loadCommunity();return json(res,result);}
+    community=await loadCommunity();
+    const reports=await importedWinConditions(result.added.map(d=>community.find(stored=>stored.key==='archidekt:'+d.id)));
+    return json(res,{...result,added:result.added.map((d,i)=>({...d,winConditions:reports[i]}))});}
    finally{communityDiscoveryBusy=false;}
   }
   if(req.method==='POST'&&url.pathname==='/api/community/auto-research'){
@@ -324,6 +347,11 @@ const server=http.createServer(async(req,res)=>{
     if(audit.count!==100||audit.missing.length||!audit.agreesWithGenerator||!audit.withinBudget)
      throw Error(`Final price integrity failure: ${audit.count}/100 cards; ${audit.missing.length} unpriced; calculated €${audit.total}; generator €${deck.price}; cap €${deck.budget}. ${audit.anomalies.length?'First mismatches: '+audit.anomalies.slice(0,4).map(x=>x.card+': '+x.reason).join('; ')+'. ':''}No unverified deck exported.`);
     deck.pricingAudit=audit;
+    const finalCards=selectedCards(deck);
+    if(finalCards?.length===100){
+     const {snapshot}=await getSpellbookSnapshot({localOnly:true});
+     deck.winConditions=analyzeWinConditions({commander:finalCards[0],cards:finalCards.slice(1)},{variants:localCombos,snapshot});
+    }
     deck.archidektImport=archidektTextExport(deck.deck);
     deck.tempoEvidence=tempoEvidence((selectedCards(deck)||[]).slice(1));
     deck.pricingCatalog=pricingCatalogStatus(catalog.cards,catalog.meta);

@@ -1,3 +1,4 @@
+import {analyzeWinConditions,lostWinPath} from './winConditions.mjs';
 import comboSupplement from "./architectComboEvidence.json" with { type: "json" };
 import {
   architectEvidence,
@@ -167,6 +168,7 @@ export function architectRequest(p, catalog, variants = [], research = {}) {
     revision = {
       userRequest: p.revisionRequest,
       previousDeck: previous.deck,
+      winConditionReview: previous.winConditions.findings.slice(0,5),
       observedWarnings: previous.functionalReview.warnings
         .slice(0, 12)
         .map((w) => ({
@@ -339,9 +341,11 @@ export function validateArchitectResult(p, raw, catalog, variants = [], {optimiz
       if(parsed.errors.length||!parsed.commander)return issues(parsed.errors.length?parsed.errors:["Unresolved commander"]);
       const short=parsed.cards.length===98;
       const checkDeck=text=>upgradeDeck({text,commanderId,bracket,budget:0,budgetTolerance:0},catalog,variants,builderRules);
-      let review=null,mana=null;
+      let review=null,mana=null,winConditions;
+      const assess=cards=>analyzeWinConditions({commander:parsed.commander,cards},{variants,snapshot});
+      const reviewIssues=messages=>({...issues(messages),...(!short?{winConditions:assess(parsed.cards)}:{})});
       const supportsPayment=payment=>payment.commanderPayment==="supported"&&payment.extraCopyPayment?.status!=="unknown";
-      const budgetError=(price,repair=false)=>issues([
+      const budgetError=(price,repair=false)=>reviewIssues([
         `Selected-printing value €${price.toFixed(2)} exceeds the €${ceiling.toFixed(2)} ceiling.`+
         (repair?" Architect could not find a budget repair that preserved the deck’s supported functions.":""),
       ]);
@@ -350,15 +354,16 @@ export function validateArchitectResult(p, raw, catalog, variants = [], {optimiz
         if(errors.length)return issues(errors);
       }else{
         review=checkDeck(result.deck);
-        if(review.stage!=="review"||!review.canExport)return issues(review.errors||["Unresolved commander"]);
+        if(review.stage!=="review"||!review.canExport)return reviewIssues(review.errors||["Unresolved commander"]);
         if(!optimize&&review.original.value>ceiling)return budgetError(review.original.value);
         mana=architectManaEvidence(parsed.commander,parsed.cards);
-        if(!supportsPayment(mana))return issues([
+        if(!supportsPayment(mana))return reviewIssues([
           "Supported mana/payment feasibility could not be established; repair colored/true-C channels and preserve commander follow-up costs. Unmodeled sources are unknown, not free mana.",
         ]);
       }
       let budgetOptimization=null,cardQuality;
       if(optimize){
+        const originalWins=assess(parsed.cards);
         const investment=investArchitectBudget({commander:parsed.commander,cards:parsed.cards,catalog,variants,snapshot,
           bracket,ceiling,strategy:result.strategy,exclusions:p.excludedStrategies,preferences:p.preferences,verify:(cards,price,{provisional})=>{
             const checked=checkDeck(architectDeckText(parsed.commander,cards));
@@ -367,7 +372,11 @@ export function validateArchitectResult(p, raw, catalog, variants = [], {optimiz
             const payment=architectManaEvidence(parsed.commander,cards);
             if(!supportsPayment(payment))
               return {valid:false,reason:"Would lose validated commander payment or a required follow-up channel."};
+            const candidateWins=assess(cards);
+            const lost=lostWinPath(originalWins,candidateWins);
+            if(lost)return {valid:false,reason:"Would lose the supported finish "+lost.name+"."};
             if(!provisional&&price<=ceiling){
+              winConditions=candidateWins;
               review=checked;
               mana=payment;
             }
@@ -404,6 +413,7 @@ export function validateArchitectResult(p, raw, catalog, variants = [], {optimiz
           : null;
       return {
         strategy,
+        winConditions:winConditions??assess(parsed.cards),
         cardQuality,
         functionalReview,
         budgetOpportunity,

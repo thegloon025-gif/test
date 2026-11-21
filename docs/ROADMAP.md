@@ -10,6 +10,7 @@
 - [x] Review every card's supported costs and jobs in context. Apply affordable corrections to weak or unsupported slots and show the final per-card evidence.
 - [x] Complete clean 99-card drafts and apply coordinated budget repairs before offering export.
 - [x] Include published two-card infinite lines in Bracket 3 combo analysis and allow validated lists to export.
+- [x] Explain final-deck win conditions, distinguish resource engines from lethal outlets, and measure access to grouped routes in the seeded trials.
 - [ ] Extend supported triggered abilities, tutor decisions and combo execution checks. Gather multiplayer playtest evidence.
 
 ## Ranked discovery and combined generation (unreleased)

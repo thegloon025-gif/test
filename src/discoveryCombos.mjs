@@ -46,10 +46,10 @@ function classifyOutcome(results,steps){
  const directWin=results.some(result=>
   /^(?:you )?win the game[.!]?$/i.test(result)||
   /^(?:each|all) opponents? lose(?:s)? the game[.!]?$/i.test(result)||
-  /^(?:infinite|unbounded) (?:damage|life ?loss) (?:to|for) (?:each opponent|all opponents|any target)[.!]?$/i.test(result)||
+  /^(?:infinite|unbounded) (?:damage|life ?loss) (?:to|for) (?:each opponent|all opponents|any target|target (?:opponent|player))[.!]?$/i.test(result)||
   // Spellbook's generic damage result can also mean damage to creatures.
   /^infinite (?:damage|life ?loss)[.!]?$/i.test(result)&&steps.some(step=>
-   /\bdeal(?:s|t|ing)? [^.\n]+ damage to (?:each opponent|all opponents|any target)\b|\b(?:each opponent|all opponents) (?:to )?los(?:e|es|ing) [^.\n]*life\b/i.test(step)));
+   /\bdeal(?:s|t|ing)? [^.\n]+ damage to (?:each opponent|all opponents|any target|target (?:opponent|player))\b|\b(?:each opponent|all opponents) (?:to )?los(?:e|es|ing) [^.\n]*life\b/i.test(step)));
  const delayedWin=!directWin&&results.some(result=>/^win the game (?:at|on|during|after)\b/i.test(result));
  const kinds=categories.filter(([pattern])=>results.some(result=>pattern.test(result))).map(([,kind])=>kind);
  if(directWin)kinds.unshift('direct win');
@@ -157,7 +157,7 @@ function scoreRoutes(routes){
 /** Inspect actual quantities and assigned commanders, reserve named pieces,
  * then resolve distinct wildcard slots. Free-text game state remains a
  * prerequisite for play, separate from the deck inventory. */
-export function analyzeDiscoveryCombos(deck,byOracle,index,structure){
+export function analyzeDiscoveryCombos(deck,byOracle,index,structure,{additionalIndex,onMatch,onIncomplete}={}){
  const entries=[...deck.commanderIds.map(id=>({id,quantity:1,inCommandZone:true})),...deck.mainboard];
  const lookup=new Map(),selected=[];
  for(const entry of entries){
@@ -176,8 +176,12 @@ export function analyzeDiscoveryCombos(deck,byOracle,index,structure){
  const support=comboSupport(selected.map(item=>item.card),structure);
  const routes=new Map();
  let unresolvedTemplates=0,unresolvedPrerequisites=0;
+ const visited=new Set();
  for(const key of lookup.keys()){
-  for(const variant of index.get(key)||[]){
+  for(const variant of [...(index.get(key)||[]),...(additionalIndex?.get(key)||[])]){
+   if(visited.has(variant.id))continue;
+   visited.add(variant.id);
+   if(variant.spoiler||[false,'banned','not_legal'].includes(variant.legalities?.commander))continue;
    const identity=Array.isArray(variant.identity)?variant.identity:String(variant.identity||'').match(/[WUBRG]/g)||[];
    if(!identity.every(color=>commander?.color_identity?.includes(color)))continue;
    const named=new Map(),pieces=[];
@@ -193,7 +197,17 @@ export function analyzeDiscoveryCombos(deck,byOracle,index,structure){
     named.set(item.id,needed);
     pieces.push({...use,id:item.id,card:item.card,inCommandZone:!!item.inCommandZone});
    }
-   if(!complete)continue;
+   if(!complete){
+    if(onIncomplete){
+     const missing=variant.uses.filter(use=>{
+      const item=lookup.get(useKey(use));
+      return !item||use.quantity>item.quantity||((use.mustBeCommander||use.zoneLocations.join('')==='C')&&!item.inCommandZone);
+     });
+     if(missing.length===0||missing.length===1&&variant.uses.length>=2)
+      onIncomplete(variant,missing.length?missing.map(u=>'Missing or incorrectly assigned · '+u.name):['Required quantities exceed inventory.']);
+    }
+    continue;
+   }
    const templates=variant.templateRequirements;
    const supportConditions=variant.prerequisites.flatMap(text=>text.split(/\r?\n/)).flatMap(text=>{
     const hand=handCardPrerequisite(text.trim()),battlefield=battlefieldManaPrerequisite(text.trim());
@@ -207,6 +221,7 @@ export function analyzeDiscoveryCombos(deck,byOracle,index,structure){
    }));
    // For example, another permanent might grant the needed tap ability. Leave
    // such a line out of confirmed deck inventory when that state is unmodeled.
+   if(supportingCards.some(s=>!s.cards.length))onIncomplete?.(variant,["Additional hand or battlefield prerequisite has no matching support."]);
    if(supportingCards.some(support=>support.zone==='Battlefield'&&!support.cards.length)){
     unresolvedPrerequisites++;
     continue;
@@ -215,6 +230,7 @@ export function analyzeDiscoveryCombos(deck,byOracle,index,structure){
    const eligibleFor=(card,template)=>template.zoneLocations?.length!==1||template.zoneLocations[0]!=='C'||card===commander;
    const matched=templates.length?satisfyTemplates(templates,available,{allowCopies:true,eligibleFor}):{satisfied:true,matched:[]};
    if(!matched.satisfied){
+    onIncomplete?.(variant,[...matched.unresolved,...matched.missing].map(name=>"Unfilled or unresolved template · "+name));
     if(matched.unresolved.length)unresolvedTemplates++;
     continue;
    }
@@ -226,6 +242,7 @@ export function analyzeDiscoveryCombos(deck,byOracle,index,structure){
     commanderInvolved:pieces.some(piece=>piece.inCommandZone||matched.matched.includes(commander?.name)),
     pieces:pieces.map(({card,...piece})=>({...piece,castCost:faces(card)[0].mana_cost||card.mana_cost||null})),
     deckPieces:new Set(pieces.filter(piece=>!piece.inCommandZone).map(piece=>piece.id))};
+   onMatch?.(line);
    line.fit=fitScore(line,pieces,support);
    const requirements=[...named].sort();
    const wildcard=templates.map(t=>[normalizedName(t.name),t.scryfallQuery,t.quantity]).sort();

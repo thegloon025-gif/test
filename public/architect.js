@@ -1,3 +1,4 @@
+import {renderWinConditions} from './win-conditions.js';
 import {renderArchitectLab} from "./architect-lab.js";
 import {postWithProgress} from './progress.js';
 import {budgetSettings} from './app.js';
@@ -53,6 +54,7 @@ panel.innerHTML = `<h2>Generative AI Architect</h2>
 <div id="ai-functional-review" style="white-space:pre-wrap"></div><div id="ai-budget-review"></div><div id="ai-mana-polish"></div>
 <details><summary>Local validation evidence</summary><pre id="ai-evidence"></pre></details>
 <details><summary>Local usage history</summary><pre id="ai-history"></pre></details></details>
+<section id="ai-win-conditions" aria-live="polite"></section>
 <section class="architect-lab">
 <h3>Deck analysis and comparison</h3>
 <div class="field-row"><label>Simulation trials<select id="ai-trials"><option>100</option><option>500</option><option selected>1000</option></select></label>
@@ -421,6 +423,7 @@ function show(x) {
         ),
       ].join("\n")
     : "";
+  renderWinConditions($("ai-win-conditions"),x.winConditions);
   renderBudgetReview(x);
   renderCardReview(x.cardQuality);
   renderBudgetOptimization(x.budgetOptimization);
@@ -530,6 +533,7 @@ async function runLab(deck, settings, {suggest=false, proposed}={}) {
     const outcome = await post("simulate", {...simulationInput(deck,settings),suggest,proposed});
     if (!current()) return;
     labResult=outcome;
+    renderWinConditions($("ai-win-conditions"),outcome.original.winConditions);
     renderArchitectLab($("ai-lab-results"),outcome,candidate => action(async()=>{
       if(!current()||!outcome.upgrade?.eligible||candidate!==outcome.upgrade.deck)return;
       const verified=await post("import",{...settings,result:candidate});
@@ -693,6 +697,7 @@ document.addEventListener("input", (event) => {
     labResult = null;
     bracketResults.clear();
     $("ai-bracket-results").replaceChildren();
+    renderWinConditions($("ai-win-conditions"),null);
     renderCardReview(null);
     renderBudgetOptimization(null);
     $("ai-lab-results").replaceChildren();

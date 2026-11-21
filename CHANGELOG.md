@@ -1,3 +1,9 @@
+## Unreleased Architect win conditions
+
+- Analyze the commander and final 99 for direct wins, resource loops needing a payoff, conditional finishes, value engines and incomplete packages. Expand a line to inspect its starting state, payments, execution, selected Oracle text and source.
+- Group equivalent variants and show shared pieces. Generated decks, plain-text or JSON imports, reviewed Upgrader lists and public deck imports use the same report.
+- Include win-path findings in revision evidence and check proposed revisions for lost finishes. The seeded goldfish reports named-piece access and supported starting states separately. Full combo execution is shown as “Not modeled”.
+
 ## Unreleased Architect usage resume
 
 - Resume the connected plan after a ChatGPT quota reset with explicit confirmation in the connection panel. Keep the daily local attempt count and display local exhaustion separately from the provider stop.
