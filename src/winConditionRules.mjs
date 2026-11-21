@@ -1,7 +1,10 @@
 // Local Oracle rules are deliberately narrow. Keep costs, zones and targets
 // with the evidence, especially when extending a published resource loop.
 import {castHasType,faces,isLandSlot,oracleId} from './cards.mjs';
-import {sourceGrammar,allocateMana} from './functionalGoldfish.mjs';
+import {allocateMana} from './functionalGoldfish.mjs';
+import {manaProfile,battlefieldSources,auraTarget} from './architectMana.mjs';
+
+import {alternateVictoryPaths} from './alternateVictory.mjs';
 
 const firstText=c=>faces(c)[0].oracle_text||'';
 const direct='DIRECT WIN',conditional='CONDITIONAL FINISHER',needs='NEEDS PAYOFF';
@@ -11,26 +14,88 @@ const ownLTB=/^Whenever (?:another |a )?creature you control leaves (?:the battl
 const ownSac=/^Whenever you sacrifice (?:a|another) creature, (?:each opponent loses [1-9]\d* life|[^.,]+ deals [1-9]\d* damage to (?:each opponent|any target))\.$/i;
 const ownCast=/^Whenever you cast (?:a|another) spell, (?:each opponent loses [1-9]\d* life|[^.,]+ deals [1-9]\d* damage to (?:each opponent|any target))\.$/i;
 
-function supportedPayment(cards,cost){
- const sources=cards.flatMap((c,id)=>{
-  const grammar=sourceGrammar(c);
-  return grammar?[{...grammar,id}]:[];
- });
+function canPay(sources,cost){
  const pips=[...cost.matchAll(/\{([WUBRGC])\}/g)].map(m=>m[1]);
  if(pips.some(p=>!sources.some(s=>s.options.includes(p))))return false;
  const needed=pips.length+[...cost.matchAll(/\{(\d+)\}/g)].reduce((sum,m)=>sum+Number(m[1]),0);
  if(sources.reduce((sum,s)=>sum+s.units,0)<needed)return false;
- // Limit the exact allocator to sources that could be useful for this cost.
- // Sources with the same output are interchangeable for a single payment.
  const counts=new Map(),available=sources.filter(source=>{
-  const key=source.options.join('')+source.units;
+  const key=JSON.stringify([source.options,source.units,source.outputs]);
   counts.set(key,(counts.get(key)||0)+1);
   return counts.get(key)<=needed;
  });
  return allocateMana(cost,available,{limit:4000}).status==='supported';
 }
 
-function manaOutlet(card,production,available){
+// An inventory witness assumes the named permanents have been deployed.
+// Only lands untap on each Zacama cycle. Track every modifier used in the
+// witness so tutoring, path protection and assembly measurements include it.
+function paymentSetup(cards,cost,commander,landsOnly=false){
+ const sources=[],effects=[];
+ for(const card of cards){
+  const profile=manaProfile(card,commander);
+  if(profile.source&&(!landsOnly||profile.land))sources.push({card:profile,name:card.name,id:sources.length});
+  if((profile.double||profile.aura)&&!profile.land&&/Enchantment|Artifact|Creature/.test(profile.types))
+   effects.push({card:profile,name:card.name});
+ }
+ function witness(selected){
+  const board=sources.map(s=>({...s,card:{...s.card,double:null},attached:[]}));
+  const required=[];
+  const choices=[...new Set(cost.match(/[WUBRG]/g)||['G'])];
+  const coloredAuras=[];
+  for(const effect of selected){
+   if(effect.card.double){
+    board.push({card:{...effect.card,source:null},attached:[]});
+    required.push({name:effect.name,setup:effect.name+' · Battlefield'});
+   }else{
+    const target=auraTarget(board,effect.card.aura);
+    if(!target)return null;
+    const aura={...effect.card.aura};
+    target.attached.push(aura);
+    const entry={name:effect.name,setup:effect.name+' · Battlefield, enchanting '+target.name};
+    required.push(entry);
+    if(!aura.matching&&!aura.color)coloredAuras.push({aura,entry});
+   }
+  }
+  let attempts=0;
+  function assign(i){
+   if(attempts>=64)return false;
+   if(i===coloredAuras.length){
+    attempts++;
+    return canPay(battlefieldSources(board,1),cost);
+   }
+   const {aura,entry}=coloredAuras[i];
+   for(const color of choices){
+    aura.color=color;
+    if(assign(i+1)){entry.setup+=' with {'+color+'} chosen';return true;}
+   }
+   return false;
+  }
+  return assign(0)?required:null;
+ }
+ const plain=witness([]);
+ if(plain)return plain;
+ // Try individually first. An Aura with no legal land cannot help a group.
+ const applicable=effects.filter(e=>e.card.double||auraTarget(sources,e.card.aura));
+ for(const effect of applicable){const alone=witness([effect]);if(alone)return alone;}
+ if(applicable.length<2||!witness(applicable))return null;
+ let needed=applicable;
+ for(const effect of applicable){
+  const fewer=needed.filter(e=>e!==effect);
+  if(witness(fewer))needed=fewer;
+ }
+ return witness(needed);
+}
+
+function requireManaSetup(route,support){
+ for(const {name,setup} of support||[]){
+  if(!route.cards.includes(name))route.cards=[...route.cards,name];
+  if(!route.setup.includes(setup))route.setup=[...route.setup,setup];
+ }
+ if(support?.length)route.name=route.cards.join(' + ');
+}
+
+function manaOutlet(card,production,available,commander){
  const text=firstText(card),cost=faces(card)[0].mana_cost||card.mana_cost||'';
  if(card.card_faces?.length>1||/additional cost|activate (?:this ability )?only|once each turn|only during|spend only|cast this spell only/i.test(text))return null;
  if(cost==='{X}{X}'&&/^This creature enters with X \+1\/\+1 counters on it\.$/m.test(text)&&
@@ -48,8 +113,9 @@ function manaOutlet(card,production,available){
  if(activ&&((activ[2]==='X'&&!payment.includes('{X}'))||Number(activ[2])===0))return null;
  if(payment.replace(/\{(?:\d+|[WUBRGCX])\}/g,''))return null;
  const fixed=[...payment.matchAll(/\{([WUBRGC])\}/g)].filter(([,pip])=>!production.includes(pip)).map(m=>m[0]).join('');
- if(fixed&&(!spell||!supportedPayment(available,fixed)))return null;
- return {fixed,zone:activ?'Battlefield':'Hand',step:activ?
+ const support=fixed&&spell?paymentSetup(available,fixed,commander):[];
+ if(fixed&&(!spell||!support))return null;
+ return {fixed,support,zone:activ?'Battlefield':'Hand',step:activ?
   'Spend the generated mana on '+card.name+'’s '+payment+' ability. Choose lethal damage for each opponent, repeating the activation as needed.':
   'In your main phase, cast '+card.name+' for '+cost+' with X at least the highest opposing life total. Resolve it.'};
 }
@@ -69,6 +135,8 @@ export function specializeLoop(line,route,deck){
  };
  if(line.id==='2484-4083'){
   route.classification=conditional;
+  route.damagePerCreature=13;
+  route.prerequisites.push('At 40 life, three creatures taking 13 each leave their controller at 1 life. Four deal 52, enough for lethal damage if all four triggers resolve.');
   route.sequencing=['Hold Blasphemous Act until the creature counts favor you. If you delay deploying Repercussion, budget its {1}{R}{R} as well.'];
   route.prerequisites.push('Check life totals, creatures actually dealt damage and prevention for every player, including yourself.');
   route.mana='{R} plus max(0, 8 minus the number of creatures on the battlefield) generic mana, before other modifiers.';
@@ -97,7 +165,9 @@ export function specializeLoop(line,route,deck){
   route.mana='No floating mana once the Aura is attached to an untapped Zaxara that can tap.';
   route.steps.push('Bank blue mana first. Then alternate producing other colors with spending banked blue to untap.');
  }
- if(route.simpleSetup&&line.manaNeeded&&!supportedPayment(remaining,line.manaNeeded)){
+ const initial=route.simpleSetup&&line.manaNeeded?paymentSetup(remaining,line.manaNeeded,deck.commander):[];
+ requireManaSetup(route,initial);
+ if(!initial){
   route.simpleSetup=false;
   route.prerequisites.push('The selected cards do not establish the starting payment '+line.manaNeeded+' in the supported mana model.');
   if(route.classification===direct){
@@ -105,10 +175,11 @@ export function specializeLoop(line,route,deck){
    route.missing.push('Starting mana prerequisite unresolved.');
   }
  }
- let canCycle=false;
+ let cycle=null,surplus=null;
  if(zacama){
   route.sequencing=['Develop reusable land mana first. Deploy Sabertooth and the payoff before starting the recasts. Keep protection for the creature and its return ability.'];
-  canCycle=supportedPayment(deck.cards.filter(isLandSlot),'{7}{R}{G}{G}{W}');
+  cycle=paymentSetup(cards,'{7}{R}{G}{G}{W}',deck.commander,true);
+  surplus=paymentSetup(cards,'{8}{R}{G}{G}{W}',deck.commander,true);
   route.prerequisites.push('Recast from hand in your main phase with an empty stack. Only a cast Zacama untaps the lands. Its own damage ability targets creatures.');
  }
  const unbounded=(pattern)=>line.results.some(r=>pattern.test(r));
@@ -118,12 +189,13 @@ export function specializeLoop(line,route,deck){
  else if(zacama||unbounded(/^Infinite (?:colored )?mana\.?$/i))producer=''; // The result alone does not specify which colors.
  if(route.classification!==needs)return [route];
  for(const card of extras){
-  const outlet=producer!==null&&manaOutlet(card,producer,remaining.filter(c=>c!==card&&!zacama));
+  const outlet=producer!==null&&manaOutlet(card,producer,remaining.filter(c=>c!==card&&!zacama),deck.commander);
   if(outlet){
-   const ready=zaxara||zacama&&supportedPayment(deck.cards.filter(isLandSlot),'{8}{R}{G}{G}{W}');
+   const ready=zaxara||zacama&&surplus;
    addOutlet(card,outlet.zone,outlet.step,ready?direct:conditional,'mana damage',
     [...(!ready?['Check mana spending restrictions and a legal exit from the loop with that mana available for the outlet.']:[]),
      ...(outlet.fixed?['Reserve '+outlet.fixed+' from separate sources for the fixed part of the outlet cost.']:[])]);
+   requireManaSetup(added.at(-1),[...(outlet.support||[]),...(surplus||[])]);
   }
   const text=firstText(card);
   const triggers=[
@@ -137,14 +209,15 @@ export function specializeLoop(line,route,deck){
   if(trigger){
    const event=trigger[2],subject=event==='is cast by you'?'spell':'creature';
    addOutlet(card,'Battlefield','Resolve '+card.name+'’s trigger each time a qualifying '+subject+' '+event+'. Choose opponents for targeted triggers and repeat until all opponents lose.',
-    zacama&&canCycle?direct:conditional,event,['Confirm the loop repeatedly produces the required event while the payoff remains on the battlefield.']);
+    zacama&&cycle?direct:conditional,event,['Confirm the loop repeatedly produces the required event while the payoff remains on the battlefield.']);
+   if(zacama)requireManaSetup(added.at(-1),cycle);
    if(zacama&&trigger[0]===ownETB){
     const win=added.at(-1);
     win.mana='{7}{R}{G}{G}{W} from reusable lands per cycle (11 total). The published surplus-mana version needs 12.';
     win.prerequisites=['Control Zacama, Sabertooth and the payoff. Untapped lands must pay both costs each cycle.',
      'Recast from hand during your main phase. Only a cast Zacama untaps the lands.',
-     canCycle?'Selected land sources can supply the cycle once deployed.':'Land production at the required colors and quantity needs confirmation.'];
-    if(!canCycle){
+     cycle?'Selected land sources can supply the cycle once deployed.':'Land production at the required colors and quantity needs confirmation.'];
+    if(!cycle){
      win.classification='INCOMPLETE';
      win.missing=['The reusable land payment has not been established.'];
      win.verification='Land payment unresolved in the supported source model.';
@@ -154,10 +227,11 @@ export function specializeLoop(line,route,deck){
    }
   }
  }
+ if(zacama)requireManaSetup(route,surplus);
  return [route,...added];
 }
 
-export function oracleFinishers({commander,cards}){
+export function oracleFinishers({commander,cards},published=[]){
  const routes=[];
  const creatures=cards.filter(c=>castHasType(c,'Creature')).length;
  const tokens=cards.some(c=>/create [^.\n]*creature tokens?/i.test(firstText(c)));
@@ -166,13 +240,16 @@ export function oracleFinishers({commander,cards}){
    const text=face.oracle_text||'',cost=face.mana_cost||card.mana_cost;
    const spells=/Instant|Sorcery/.test(face.type_line||card.type_line);
    const create=(kind,requirement,step,outcome,clause=text)=>{
-    routes.push({name:card.name+' · '+kind,classification:conditional,cards:[card.name],
+    const route={name:card.name+' · '+kind,classification:conditional,cards:[card.name],
      setup:[card.name+' · '+(spells?'Hand':'Battlefield')+(face.name!==card.name?' · use '+face.name:'')],
      prerequisites:[requirement],steps:[step,clause].filter(Boolean),mana:cost?'Deployment '+cost+'. See the ability for additional payments.':'See Oracle costs.',
-     outcome,source:'Scryfall Oracle · '+face.name,verification:'Conditional route inferred from printed text.',family:null});
+     outcome,source:'Scryfall Oracle · '+face.name,verification:'Conditional route inferred from printed text.',family:null};
+    if(kind==='Alternate victory')routes.push(...alternateVictoryPaths(route,text,card,{commander,cards},published));
+    else routes.push(route);
    };
-   if(/\byou win the game\b/i.test(text)&&!/target opponent wins|that player wins/i.test(text))
+   if(/\byou win the game\b/i.test(text)&&!/target opponent wins|that player wins/i.test(text)){
     create('Alternate victory','Meet the printed win condition at its specified time, including any intervening “if”.','Set up the printed condition and resolve the spell, trigger or replacement effect.','Win when the printed condition is fulfilled.');
+   }
    else if(castHasType(card,'Creature')&&Number(face.power)>=7&&
     (card.keywords||[]).some(k=>['Trample','Flying','Infect','Annihilator','Double strike'].includes(k))){
     const poison=card.keywords.includes('Infect');

@@ -2,8 +2,8 @@ import {oracleId,castHasType,isLandSlot} from './cards.mjs';
 import {sourceGrammar,allocateMana,wilson} from './functionalGoldfish.mjs';
 import {roleEvidence,oracleText} from './roleEvidence.mjs';
 import {manaRole} from './deckQuality.mjs';
+import {manaProfile,battlefieldSources,auraTarget,hasLandSubtype} from './architectMana.mjs';
 
-const COLORS='WUBRG'.split('');
 const TURNS=10;
 const round=n=>Math.round(n*100)/100;
 const count=(rows,pred)=>rows.filter(pred).length;
@@ -21,33 +21,20 @@ function compile(card,commander){
  const text=oracleText(card),land=isLandSlot(card),creature=castHasType(card,'Creature');
  const permanent=['Artifact','Creature','Enchantment','Planeswalker','Battle'].some(type=>castHasType(card,type));
  const single=!card.card_faces?.length;
- let source=single?sourceGrammar(card):null;
+ const {source,tapped,double,aura}=manaProfile(card,commander);
  const lines=text.split('\n');
- const unrestricted=!/spend this mana|only|unless|can't untap|doesn't untap|does not untap/i.test(text);
- if(!source&&single&&unrestricted){
-  const manaLine=lines.find(line=>/^\{T\}: Add (?:one|two|three) mana of any (?:one )?color(?: in your commander's color identity)?\.$/.test(line));
-  if(manaLine)source={options:manaLine.includes("commander's")?commander.color_identity||[]:COLORS,units:({one:1,two:2,three:3})[manaLine.match(/Add (\w+)/)[1]]};
- }
- if(source&&!source.options.length)source=null;
  const ramp=single&&text.match(/^Search your library for (?:a|up to (one|two)) (basic land|Plains|Island|Swamp|Mountain|Forest|Plains, Island, Swamp, or Mountain) cards?, put (?:it|them|that card|those cards) onto the battlefield( tapped)?, then shuffle\.(?:\s*\([^\n]*\))?$/i);
  const cultivate=single&&/^Search your library for up to two basic land cards, reveal those cards, put one onto the battlefield tapped and the other into your hand, then shuffle\.$/i.test(text);
- const aura=single&&text.match(/^Enchant (land|Forest)\n(?:As this Aura enters, choose a color\.\n)?Whenever enchanted (?:land|Forest) is tapped for mana, (?:its controller adds|add) (?:an additional )?(\{[WUBRGC]\}|(?:one|two) mana of (?:any|that|the chosen) color)\.$/i);
- const double=single&&lines.some(line=>/^Whenever (?:you tap a land for mana, add|a player taps a land for mana, that player adds) (?:one|an additional|one additional) mana of any type that land produced\.$/i.test(line))?'plus':
-  single&&lines.some(line=>/^If you tap a land for mana, it produces twice as much of that mana instead\.$/i.test(line))?'twice-land':
-  single&&lines.some(line=>/^If you tap a permanent for mana, it produces twice as much of that mana instead\.$/i.test(line))?'twice-all':null;
  const earliestUntap=single&&lines.some(line=>/^When .+ enters(?: the battlefield)?, if you cast it, untap all lands you control\.$/.test(line));
  const draws=single&&text.match(/^Draw (a|one|two|three) cards?\.$/);
  const cost=single&&manaCost.test(card.mana_cost||'')&&!/additional cost|costs? .+ less|can't cast|cast this spell only/i.test(text)?card.mana_cost:null;
- const tapped=!!source?.tapped||/(?:^|\n)[^\n]+ enters(?: the battlefield)? tapped\.(?:$|\n)/.test(text);
- // Conditional land entry and alternative faces are held outside the casting model.
- if(land&&/enters[^\n]*(?:unless|if)|(?:as .* enters|enters.*you may pay)/i.test(text))source=null;
  const roles=roleEvidence(card);
  const modeled=!!(source||ramp||cultivate||aura||double||draws||earliestUntap);
  const residual=lines.some(line=>line.trim()&&!/^\{T\}: Add |^Enchant (?:land|Forest)$|^Whenever enchanted land is tapped|^When .+ enters(?: the battlefield)?, if you cast it, untap all lands you control\.|enters(?: the battlefield)? tapped\.$/.test(line));
  return {name:card.name,id:oracleId(card),colors:card.color_identity||[],land,creature,permanent,source,tapped,cost,
   basic:/\bBasic Land\b/.test(card.type_line||''),types:card.type_line||'',mv:card.cmc||0,
   ramp:cultivate?{quantity:2,type:'basic land',tapped:true,secondToHand:true}:ramp?{quantity:ramp[1]==='two'?2:1,type:ramp[2],tapped:!!ramp[3]}:null,
-  aura:aura?{type:aura[1],color:aura[2].match(/\{(.)\}/)?.[1],units:aura[2].startsWith('two')?2:1,matching:/that color/i.test(aura[2])}:null,
+  aura,
   double,earliestUntap,draws:draws?({a:1,one:1,two:2,three:3}[draws[1]]):0,
   interaction:roles.removal==='broad'||roles.removal==='conditional',drawRole:roles.draw==='positive'||roles.draw==='engine-conditional',
   rampRole:!!(ramp||cultivate||aura||double||!land&&source||manaRole(card).effective),tutor:/search your library for (?:a|an|any) (?!basic |land |Forest |Island |Mountain |Plains |Swamp )[^.\n]*card/i.test(text),
@@ -68,7 +55,6 @@ function payment(cost,sources){
  const out=allocateMana(cost,sources,{limit:240});
  return out.status==='supported'?out:null;
 }
-const hasC=(card,kind)=>card.types.split('—').at(-1).trim().split(/\s+/).some(type=>type.toLowerCase()===kind.toLowerCase());
 
 function trial(compiled,commander,seed,index,combos,assembly){
  // Sorting beforehand makes the decklist's textual order immaterial. Both
@@ -115,19 +101,7 @@ function trial(compiled,commander,seed,index,combos,assembly){
   if(landOptions.length){const c=hand.splice(landOptions[0].i,1)[0];place(c,c.tapped);}
   let pool=[];
   function available(){
-   const allDoubles=count(board,({card})=>card.double==='twice-all');
-   const landDoubles=count(board,({card})=>card.double==='twice-land');
-   const plus=count(board,({card})=>card.double==='plus');
-   return [...pool,...board.flatMap(item=>{
-    const {card,tapped,id,entered,attached}=item;
-    if(tapped||!card.source||card.creature&&entered===turn)return [];
-    const matching=attached.filter(a=>a.matching).reduce((n,a)=>n+a.units,0);
-    const units=card.source.units*2**(allDoubles+(card.land?landDoubles:0))+(card.land?plus:0)+matching;
-    const bonus=attached.filter(a=>!a.matching).flatMap(a=>Array(a.units).fill(a.color));
-    if(!bonus.length)return [{id,options:card.source.options,units}];
-    const outputs=card.source.options.map(color=>[...Array(units).fill(color),...bonus]);
-    return [{id,options:[...new Set([...card.source.options,...bonus])],units:units+bonus.length,outputs}];
-   })];
+   return [...pool,...battlefieldSources(board,turn)];
   }
   function pay(cost){
    const paid=affordable(cost,available());
@@ -150,7 +124,7 @@ function trial(compiled,commander,seed,index,combos,assembly){
    candidates.sort((a,b)=>Number(!a.rampRole)-Number(!b.rampRole)||a.mv-b.mv||a.name.localeCompare(b.name));
    let played=false;
    for(const c of candidates){
-    const target=c.aura&&board.find(item=>item.card.land&&item.card.source&&(c.aura.type.toLowerCase()==='land'||hasC(item.card,c.aura.type)));
+    const target=c.aura&&auraTarget(board,c.aura);
     if(c.aura&&!target||!pay(c.cost))continue;
     hand.splice(hand.indexOf(c),1);
     if(c.permanent)place(c,c.tapped);
@@ -158,7 +132,7 @@ function trial(compiled,commander,seed,index,combos,assembly){
     if(target)target.attached.push({...c.aura,color:c.aura.color||[...colorNeed].find(color=>color!=='C')||commander.colors[0]||'G'});
     if(c.ramp){
      for(let n=0;n<c.ramp.quantity;n++){
-      const landIndex=library.findIndex(x=>x.land&&(c.ramp.type.toLowerCase()==='basic land'?x.basic:c.ramp.type.replace(', or ', ', ').split(', ').some(kind=>hasC(x,kind))));
+      const landIndex=library.findIndex(x=>x.land&&(c.ramp.type.toLowerCase()==='basic land'?x.basic:c.ramp.type.replace(', or ', ', ').split(', ').some(kind=>hasLandSubtype(x,kind))));
       if(landIndex<0)break;
       const land=library.splice(landIndex,1)[0];see(land);landsSeen++;
       if(n===1&&c.ramp.secondToHand)hand.push(land);

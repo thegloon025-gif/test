@@ -189,3 +189,51 @@ test('revision protection preserves interchangeable outlets and rejects loss of 
  assert.equal(combat.classification,'CONDITIONAL FINISHER');
  assert.match(combat.outcome,/ten poison counters/);
 });
+
+test('Zacama uses reusable land production and records the mana support needed in the starting state',()=>{
+ const reflection={name:'Mana Reflection',type_line:'Enchantment',mana_cost:'{4}{G}{G}',oracle_text:'If you tap a permanent for mana, it produces twice as much of that mana instead.'};
+ const inert=Array.from({length:99},(_,i)=>({name:'Blank '+i,type_line:'Artifact',oracle_text:''}));
+ function withBoard(landCards,helpers){
+  const cards=[card('Temur'),card('Impact'),...landCards,...helpers];
+  return analyzeWinConditions({commander:card('Zacama'),cards:[...cards,...inert.slice(cards.length)]});
+ }
+ const six=[lands.G,lands.G,lands.R,lands.R,lands.W,lands.W];
+ const out=withBoard(six,[reflection]),win=groups(out,'DIRECT WIN')[0].variants[0];
+ assert.equal(win.pieceCount,4);
+ assert.ok(win.setup.includes('Mana Reflection · Battlefield'));
+ assert.doesNotMatch(out.findings.join(' '),/Missing conversion/);
+ assert.equal(groups(withBoard(six,[]),'DIRECT WIN').length,0);
+ assert.equal(groups(withBoard(Array(6).fill(lands.G),[reflection]),'DIRECT WIN').length,0);
+ assert.equal(groups(withBoard(six.slice(1),[reflection]),'DIRECT WIN').length,0);
+ assert.equal(groups(withBoard([...six,...six],[reflection]),'DIRECT WIN')[0].variants[0].pieceCount,3);
+ const aura={name:'Wild Growth',type_line:'Enchantment — Aura',oracle_text:'Enchant land\nWhenever enchanted land is tapped for mana, its controller adds an additional {G}.'};
+ assert.match(groups(withBoard([...six,...six.slice(0,4)],[aura]),'DIRECT WIN')[0].variants[0].setup.join(' '),/Wild Growth · Battlefield, enchanting/);
+});
+
+test('alternate payoffs remain visible while quality control asks for a way to reach the condition',()=>{
+ const bare=analyzeWinConditions(deck('Zaxara',['Laboratory']));
+ assert.equal(physical(bare).find(v=>v.cards.includes('Laboratory Maniac')&&v.setupGap).classification,'CONDITIONAL FINISHER');
+ assert.match(bare.findings[0],/empty your own library/);
+ assert.match(bare.findings.join(' '),/No credible finish/);
+ assert.doesNotMatch(bare.findings.join(' '),/Prioritize protection/);
+ assert.deepEqual(bare.independent,[]);
+ const opponentMill={name:'Enemy mill',type_line:'Sorcery',oracle_text:'Target opponent mills their entire library.'};
+ assert.match(analyzeWinConditions(deck('Zaxara',['Laboratory',opponentMill])).findings[0],/empty your own library/);
+ const leveler={name:'Leveler',type_line:'Artifact Creature',oracle_text:'When this creature enters, exile all cards from your library.'};
+ const supported=analyzeWinConditions(deck('Zaxara',['Laboratory',leveler]));
+ const route=physical(supported).find(v=>v.cards.includes('Laboratory Maniac')&&v.cards.includes('Leveler'));
+ assert.equal(route.classification,'CONDITIONAL FINISHER');
+ assert.match(route.guidance.join(' '),/next draw attempt/);
+ assert.doesNotMatch(supported.findings.join(' '),/No credible finish|First identify/);
+ assert.ok(lostWinPath(supported,bare));
+});
+
+test('Repercussion shows each player’s lethal threshold and rejects incomplete scenario inputs',async()=>{
+ const {repercussionDamage}=await import('../public/win-conditions.js');
+ const line=physical(analyzeWinConditions(deck('Judith',['Blasphemous','Repercussion']))).find(v=>v.variantId==='2484-4083');
+ assert.deepEqual(repercussionDamage(40,3,line.damagePerCreature),{damage:39,remaining:1,lethalAt:4});
+ assert.deepEqual(repercussionDamage(40,4,line.damagePerCreature),{damage:52,remaining:-12,lethalAt:4});
+ assert.deepEqual(repercussionDamage(26,2,line.damagePerCreature),{damage:26,remaining:0,lethalAt:2});
+ assert.deepEqual(repercussionDamage(1,0,line.damagePerCreature),{damage:0,remaining:1,lethalAt:1});
+ for(const [life,count] of [[NaN,2],[40,-1],[40,0.5]])assert.equal(repercussionDamage(life,count,13),null);
+});

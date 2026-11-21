@@ -33,7 +33,7 @@ function published(variant,missing=[]){
   family:variant.comboIds?.length?'spellbook:'+variant.comboIds.slice().sort().join(',')+':'+results.slice().sort().join('|'):null,
   steps,prerequisites:[...prerequisites,...(variant.supportingCards||[]).map(s=>s.zone+' support · '+s.cards.join(' or ')),...reasons],
   mana:variant.manaNeeded||'No separate starting payment listed. Pay the deployment and activation costs in the instructions.',
-  outcome:results.join(' · '),source:'Commander Spellbook',url:variant.url,variantId:variant.id,
+  outcome:results.join(' · '),results,source:'Commander Spellbook',url:variant.url,variantId:variant.id,
   verification:reasons.length?'Inventory or prerequisite incomplete.':'Published instructions checked against deck inventory. Board state requires confirmation.',
   templateSlots:templates.map(t=>t.name+(t.quantity>1?' ×'+t.quantity:'')),missing:reasons};
 }
@@ -76,7 +76,7 @@ export function analyzeWinConditions(deck,{variants=[],snapshot=null,report=arch
   const route=published(line);
   return route.classification==='INCOMPLETE'?[route]:specializeLoop(line,route,deck);
  });
- routes.push(...oracleFinishers(deck),...report.partial.map(({variant,reasons})=>published(variant,reasons)));
+ routes.push(...oracleFinishers(deck,routes),...report.partial.map(({variant,reasons})=>published(variant,reasons)));
  for(const route of routes){
   route.cards=unique(route.cards.map(name=>catalog.get(name)?.name||name));
   route.commander=route.cards.includes(deck.commander.name);
@@ -98,25 +98,29 @@ export function analyzeWinConditions(deck,{variants=[],snapshot=null,report=arch
    return available.length?[t.name+' can search for '+available.join(' or ')+'. Check its cost, timing and destination.']:[];
   });
   route.guidance=[
-   ...(route.sequencing||(early.length?['Develop '+early.join(', ')+' as mana allows. Consider holding exposed pieces until protection is available.']:[])),
-   ...(early.length&&winning(route)?['Protect '+early.join(', ')+' through the critical trigger or activation.']:[]),
+   ...(route.guidanceNote?[route.guidanceNote]:[]),
+   ...(route.sequencing||(early.length&&!route.setupGap?['Develop '+early.join(', ')+' as mana allows. Consider holding exposed pieces until protection is available.']:[])),
+   ...(early.length&&winning(route)&&!route.setupGap?['Protect '+early.join(', ')+' through the critical trigger or activation.']:[]),
    ...(held.length?['Keep '+held.join(', ')+' available in hand for the execution window.']:[]),
    ...(searches.length?unique(searches):targets.length?['If you have a compatible search effect, prioritize the missing piece among '+targets.join(', ')+'.']:[])
   ];
  }
- const groups=groupRoutes(routes),wins=groups.filter(winning);
- const essential=g=>g.variants[0].cards.filter(c=>g.variants.every(v=>v.cards.includes(c)));
+ const groups=groupRoutes(routes),wins=groups.filter(g=>winning(g)&&g.variants.some(v=>!v.setupGap));
+ const essential=g=>{
+  const credible=g.variants.filter(v=>!v.setupGap);
+  return credible[0].cards.filter(c=>credible.every(v=>v.cards.includes(c)));
+ };
  const independent=[],occupied=new Set(),usage=new Map();
  for(const group of wins)for(const name of essential(group))usage.set(name,(usage.get(name)||0)+1);
  for(const group of wins){
-  const choice=group.variants.find(v=>v.cards.every(c=>!occupied.has(c))&&!v.templateSlots?.length&&
+  const choice=group.variants.find(v=>!v.setupGap&&v.cards.every(c=>!occupied.has(c))&&!v.templateSlots?.length&&
    !v.prerequisites.some(p=>/^(?:Hand|Battlefield) support ·/.test(p)));
   if(choice){independent.push(choice.name);choice.cards.forEach(c=>occupied.add(c));}
   group.shared=essential(group).filter(c=>usage.get(c)>1);
  }
- const findings=[];
+ const findings=unique(routes.map(r=>r.setupGap));
  const needs=groups.filter(g=>g.classification==='NEEDS PAYOFF'&&!wins.some(w=>w.variants.some(v=>
-  g.variants.some(engine=>engine.cards.every(name=>v.cards.includes(name))))));
+  g.variants.some(engine=>(engine.variantId===v.variantId||engine.cards.every(name=>v.cards.includes(name)))))));
  if(needs.length)findings.push('Missing conversion for '+needs[0].name+'. Look for an on-plan outlet that spends its mana colors or triggers on its repeated event.');
  const partial=groups.find(g=>g.classification==='INCOMPLETE');
  if(partial)findings.push('Incomplete package · '+partial.name+'. '+partial.variants[0].missing.join(' ')+' Review whether completing it fits the deck’s plan.');
@@ -133,8 +137,8 @@ export function analyzeWinConditions(deck,{variants=[],snapshot=null,report=arch
 // A replacement can keep a published family or another verified outlet for
 // the same loop. A conditional route cannot replace a formerly direct finish.
 export function lostWinPath(original,candidate){
- const next=candidate.groups.filter(winning).flatMap(g=>g.variants);
- return original.groups.find(g=>winning(g)&&!g.variants.some(before=>next.some(after=>{
+ const next=candidate.groups.filter(winning).flatMap(g=>g.variants).filter(v=>!v.setupGap);
+ return original.groups.find(g=>winning(g)&&g.variants.some(v=>!v.setupGap)&&!g.variants.some(before=>next.some(after=>{
   if(before.classification==='DIRECT WIN'&&after.classification!=='DIRECT WIN')return false;
   return before.name===after.name||Boolean(before.family&&before.family===after.family);
  })));
@@ -145,7 +149,7 @@ export function lostWinPath(original,candidate){
 export function assemblyQueries(analysis,deck){
  const byName=new Map([deck.commander,...deck.cards].map(c=>[c.name,oracleId(c)]));
  return analysis.groups.filter(g=>g.classification!=='INCOMPLETE').map(g=>({group:g,choices:g.variants.flatMap(v=>{
-  if(v.templateSlots?.length||v.setup.some(s=>s.includes(' ×'))||v.prerequisites.some(p=>/^(?:Hand|Battlefield) support ·/.test(p)))return [];
+  if(v.setupGap||v.templateSlots?.length||v.setup.some(s=>s.includes(' ×'))||v.prerequisites.some(p=>/^(?:Hand|Battlefield) support ·/.test(p)))return [];
   const ids=v.cards.filter(n=>n!==deck.commander.name).map(n=>byName.get(n));
   return ids.every(Boolean)?[ids]:[];
  })})).filter(q=>q.choices.length===q.group.variants.length);
