@@ -184,4 +184,8 @@ test('revision protection preserves interchangeable outlets and rejects loss of 
  assert.equal(line.classification,'CONDITIONAL FINISHER');
  assert.match(line.mana,/Equip \{2\}/);
  assert.match(line.outcome,/21 cumulative combat damage/);
+ const attacker={name:'Infect attacker',type_line:'Artifact Creature',power:'11',mana_cost:'{12}',keywords:['Infect','Trample'],oracle_text:'Trample, infect'};
+ const combat=physical(analyzeWinConditions(deck('Zaxara',[attacker]))).find(v=>v.cards.includes(attacker.name));
+ assert.equal(combat.classification,'CONDITIONAL FINISHER');
+ assert.match(combat.outcome,/ten poison counters/);
 });

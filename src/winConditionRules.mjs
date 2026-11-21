@@ -173,6 +173,16 @@ export function oracleFinishers({commander,cards}){
    };
    if(/\byou win the game\b/i.test(text)&&!/target opponent wins|that player wins/i.test(text))
     create('Alternate victory','Meet the printed win condition at its specified time, including any intervening “if”.','Set up the printed condition and resolve the spell, trigger or replacement effect.','Win when the printed condition is fulfilled.');
+   else if(castHasType(card,'Creature')&&Number(face.power)>=7&&
+    (card.keywords||[]).some(k=>['Trample','Flying','Infect','Annihilator','Double strike'].includes(k))){
+    const poison=card.keywords.includes('Infect');
+    create(poison?'Poison combat':'Combat damage','The creature must be able to attack. Check blockers, prevention and the defending player’s '+(poison?'poison counters.':'life total.'),
+     'Deploy the attacker and arrange a combat in which it can connect.',
+     poison?'A player loses at ten poison counters. Infect deals damage to players as poison counters.':'Repeated unblocked combat damage can reduce an opponent to zero life.');
+   }
+   else if(/(?:there is|you get) an additional combat phase/i.test(text)&&(creatures>=3||tokens))
+    create('Extra combat','Have enough attackers able to attack in each combat. Check the printed untap instruction and restrictions.',
+     'Meet the printed trigger or cost, then allocate attackers again during the additional combat.','Successive combat steps can eliminate opponents whose defenses are exhausted.');
    else if((creatures>=3||tokens)&&/creatures you control (?:get \+[X1-9]|gain (?:double strike|infect|trample))|creatures you control (?:gain|have) trample and get \+/i.test(text))
     create('Combat finisher','Deploy enough attackers that can attack. Account for blockers, prevention and opposing life totals.','Resolve the team effect before the relevant combat damage step, then allocate attacks.','Lethal combat if sufficient damage connects.');
    else if(/each opponent loses (?:X|life equal to)|deals X damage to each opponent|deals damage (?:to each opponent )?equal to [^.\n]+to each opponent/i.test(text))
