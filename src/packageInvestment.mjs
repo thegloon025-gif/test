@@ -262,7 +262,7 @@ export function refinePackageInvestments({built,pool,commander,plan=planFor(comm
     // Reject cheap, certain failures before limiting outgoing alternatives per
     // incoming bundle. Otherwise two invalid cuts can hide a valid third cut.
     if(requireColorless&&cards.reduce((n,c)=>n+manaFor(c).colorless,0)<original.raw.trueColorless){record(add,'mana base/demand');return;}
-    const sourceLimit=Math.max(Number(bracket)===4?13:Number(bracket)===3?12:10,state.cards.filter(c=>manaFor(c).units>0).length);
+    const sourceLimit=Math.max(Number(bracket)>=4?13:Number(bracket)===3?12:10,state.cards.filter(c=>manaFor(c).units>0).length);
     if(cards.filter(c=>manaFor(c).units>0).length>sourceLimit){record(add,'ramp overprovision');return;}
     const key=signature(cards);if(seen.has(key))return;
     // Cheap ranking schedules promising complete packages, not per-card merit.
@@ -304,7 +304,7 @@ export function refinePackageInvestments({built,pool,commander,plan=planFor(comm
     report.evaluated++;seen.add(p.key);for(const c of p.add){const w=watch.get(c.name);if(w)w.considered++;}
     const fail=reason=>record(p.add,reason),lands=p.cards.filter(isLandSlot);
     if(p.remove.some(c=>{const m=manaFor(c);return m.fast&&m.units>=2&&p.cards.filter(x=>{const n=manaFor(x);return n.fast&&n.units>=m.units;}).length<state.cards.filter(x=>{const n=manaFor(x);return n.fast&&n.units>=m.units;}).length;})){fail('high-output early mana');continue;}
-    const maxSources=Math.max(Number(bracket)===4?13:Number(bracket)===3?12:10,state.cards.filter(c=>manaFor(c).units>0).length);
+    const maxSources=Math.max(Number(bracket)>=4?13:Number(bracket)===3?12:10,state.cards.filter(c=>manaFor(c).units>0).length);
     if(p.cards.filter(c=>manaFor(c).units>0).length>maxSources){fail('ramp overprovision');continue;}
     if(p.remove.some(c=>committed.has(singletonName(c)))){fail('committed combo');continue;}
     if(p.cards.length!==99||!validateCommanderSingleton(commander,p.cards).valid){fail('singleton/count');continue;}

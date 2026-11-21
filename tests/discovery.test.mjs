@@ -72,13 +72,15 @@ test('bracket-specific previews trust creator-declared edhBracket, not title hin
   {id:1002,name:'Eldrazi strategy',edhBracket:3},
   {id:1003,name:'Ulalek Bracket 3 no metadata',edhBracket:null},
   {id:1004,name:'Another Ulalek',edhBracket:2},
+  {id:1005,name:'Competitive Ulalek',edhBracket:5},
  ];
  const b3=normalizeSearchResults({results:candidates},{bracket:3});
  assert.deepEqual(b3.map(d=>d.id),['1002']);
  assert.equal(b3[0].edhBracket,3);
  assert.equal(normalizeSearchResults({results:candidates},{bracket:4})[0].id,'1001');
- assert.equal(normalizeSearchResults({results:candidates}).length,4);
- assert.throws(()=>normalizeSearchResults({results:candidates},{bracket:7}),/Choose bracket/);
+ assert.deepEqual(normalizeSearchResults({results:candidates},{bracket:5}).map(d=>d.id),['1005']);
+ assert.equal(normalizeSearchResults({results:candidates}).length,5);
+ assert.throws(()=>normalizeSearchResults({results:candidates},{bracket:7}),/Choose Bracket/);
  assert.throws(()=>discoverySearchUrl('Ulalek',{page:4}),/bounded/);
 });
 

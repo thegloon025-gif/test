@@ -1,7 +1,8 @@
 /** Text-only explanations; no scores or generic commander archetype labels. */
 export function whyRows(result){
  const why=result.whyThisDeck,policy=result.budgetPolicy,rows=[];
- if(policy)rows.push(`Card-value target €${policy.target.toFixed(2)}; tolerance €${policy.tolerance.toFixed(2)}; hard maximum €${policy.effectiveMaximum.toFixed(2)}; estimate €${policy.selectedCardValue.toFixed(2)}; unused €${policy.unused.toFixed(2)}; above target €${policy.overTarget.toFixed(2)}. ${policy.assumption}. Shipping excluded.`);
+ if(policy)rows.push(policy.open?`Open budget. Selected-printing estimate €${policy.selectedCardValue.toFixed(2)}. ${policy.assumption}. Shipping excluded.`:
+  `Card-value target €${policy.target.toFixed(2)}; tolerance €${policy.tolerance.toFixed(2)}; hard maximum €${policy.effectiveMaximum.toFixed(2)}; estimate €${policy.selectedCardValue.toFixed(2)}; unused €${policy.unused.toFixed(2)}; above target €${policy.overTarget.toFixed(2)}. ${policy.assumption}. Shipping excluded.`);
  if(!why){rows.push('Detailed strategy relationships are unavailable for this fallback or legacy build.');return rows;}
  rows.push(why.selection);
  for(const candidate of result.constructionEngine?.comparison||[]){

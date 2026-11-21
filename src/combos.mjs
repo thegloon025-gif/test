@@ -15,7 +15,7 @@ const ENDPOINT='https://backend.commanderspellbook.com/find-my-combos';
 const DAY=24*60*60*1000;
 export const normalizedName=s=>String(s||'').normalize('NFKC').replace(/[‘’]/g,"'").replace(/\s*\/\/\s*/g,' // ').trim().toLowerCase();
 const text=x=>typeof x==='string'?x:typeof x?.name==='string'?x.name:typeof x?.description==='string'?x.description:typeof x?.card?.name==='string'?x.card.name:typeof x?.card==='string'?x.card:typeof x?.feature?.name==='string'?x.feature.name:typeof x?.template?.name==='string'?x.template.name:'';
-const listText=value=>Array.isArray(value)?value.map(text).filter(Boolean).slice(0,24):typeof value==='string'?[value]:[];
+const listText=value=>Array.isArray(value)?value.map(text).filter(Boolean).slice(0,24):typeof value==='string'&&value.trim()?[value]:[];
 const namesFromUses=variant=>{
  const uses=Array.isArray(variant.uses)?variant.uses:Array.isArray(variant.cards)?variant.cards:[];
  return uses.map(x=>text(x.card||x.used_card||x)).filter(Boolean);
@@ -30,11 +30,19 @@ export function normalizeVariant(raw){
  if(!names.length||!/^\d+(?:(?:-\d+)|(?:--\d+))*$/.test(id))return null;
  const templates=Array.isArray(raw.templateRequirements)?raw.templateRequirements:Array.isArray(raw.requires)?raw.requires:Array.isArray(raw.templates)?raw.templates:[];
  const templateRequirements=templates.map(x=>({name:text(x?.template||x),quantity:Number(x?.quantity??1),scryfallQuery:String(x?.template?.scryfallQuery??x?.template?.scryfall_query??x?.scryfallQuery??''),zoneLocations:Array.isArray(x?.zoneLocations)?x.zoneLocations:[],battlefieldCardState:String(x?.battlefieldCardState||''),exileCardState:String(x?.exileCardState||''),libraryCardState:String(x?.libraryCardState||''),graveyardCardState:String(x?.graveyardCardState||'')})).filter(x=>x.name);
- const uses=(Array.isArray(raw.uses)?raw.uses:Array.isArray(raw.cards)?raw.cards:[]).map(x=>({name:text(x?.card||x?.used_card||x),quantity:Number(x?.quantity??1),zoneLocations:Array.isArray(x?.zoneLocations)?x.zoneLocations:[],battlefieldCardState:String(x?.battlefieldCardState||''),exileCardState:String(x?.exileCardState||''),libraryCardState:String(x?.libraryCardState||''),graveyardCardState:String(x?.graveyardCardState||''),mustBeCommander:x?.mustBeCommander===true})).filter(x=>x.name);
+ const uses=(Array.isArray(raw.uses)?raw.uses:Array.isArray(raw.cards)?raw.cards:[]).map(x=>({
+  name:text(x?.card||x?.used_card||x),quantity:Number(x?.quantity??1),
+  oracleId:x?.card?.oracleId||x?.oracleId||null,usedFace:x?.usedFace??null,
+  zoneLocations:Array.isArray(x?.zoneLocations)?x.zoneLocations:[],
+  battlefieldCardState:String(x?.battlefieldCardState||''),exileCardState:String(x?.exileCardState||''),
+  libraryCardState:String(x?.libraryCardState||''),graveyardCardState:String(x?.graveyardCardState||''),
+  mustBeCommander:x?.mustBeCommander===true
+ })).filter(x=>x.name);
  const prerequisites=[...listText(raw.other_prerequisites),...listText(raw.prerequisites),...listText(raw.mana_needed),...listText(raw.manaNeeded),...listText(raw.easyPrerequisites),...listText(raw.notablePrerequisites)];
  const steps=[...listText(raw.description),...listText(raw.steps)];
  const results=[...listText(raw.produces),...listText(raw.results)];
- return {id,url:comboUrl(id),cards:names,uses,templates:templateRequirements.map(x=>x.name),templateRequirements,manaNeeded:String(raw.manaNeeded??raw.mana_needed??''),manaValueNeeded:Number(raw.manaValueNeeded??0)||0,prerequisites:[...new Set(prerequisites)],steps:[...new Set(steps)],results:[...new Set(results)],isInfinite:results.some(result=>/\binfinite\b|\barbitrarily many\b/i.test(result)),bracket:raw.bracket??null,bracketTag:raw.bracketTag??null,legalities:raw.legalities??null,identity:raw.identity??null,spoiler:raw.spoiler===true};
+ const comboIds=(Array.isArray(raw.of)?raw.of.map(x=>x?.id):[]).filter(Number.isInteger);
+ return {id,url:comboUrl(id),cards:names,uses,templates:templateRequirements.map(x=>x.name),templateRequirements,manaNeeded:String(raw.manaNeeded??raw.mana_needed??''),manaValueNeeded:Number(raw.manaValueNeeded??0)||0,prerequisites:[...new Set(prerequisites)],steps:[...new Set(steps)],results:[...new Set(results)],isInfinite:results.some(result=>/\binfinite\b|\barbitrarily many\b/i.test(result)),bracket:raw.bracket??null,bracketTag:raw.bracketTag??null,legalities:raw.legalities??null,identity:raw.identity??null,spoiler:raw.spoiler===true,comboIds};
 }
 /** Extract documented Find My Combos response groups conservatively.
  * A response shape change is surfaced as an error, never represented as 0 combos. */

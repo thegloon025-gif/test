@@ -2,12 +2,13 @@ import { randomUUID } from "node:crypto";
 /** Mandatory plan-only controller. No fetch, API key, provider switch or paid route. */
 import { readFile, mkdir, writeFile, rename } from "node:fs/promises";
 import path from "node:path";
-import { USAGE_URL } from "./chatgptSdk.mjs";
+import { USAGE_URL,chatGPTAuthorizationUrl,openChatGPTBrowser } from "./chatgptSdk.mjs";
+const usageLimitCode = "subscription_sharing_usage_limit_exceeded";
 export const QUOTA_MESSAGE =
-  "ChatGPT usage limit reached. AI deckbuilding has stopped. No paid API fallback was attempted. You can continue using CommanderOracle's local features or try again after your usage resets.";
+  "ChatGPT usage limit reached. After your reset, choose Resume after ChatGPT usage reset in the Architect connection panel.";
 const fail = (code, message) => Object.assign(new Error(message), { code });
 const known = new Set([
-  "subscription_sharing_usage_limit_exceeded",
+  usageLimitCode,
   "subscription_sharing_user_not_eligible",
   "subscription_sharing_usage_unavailable",
   "sharing_not_enabled",
@@ -15,7 +16,13 @@ const known = new Set([
   "sign_in_required",
   "secure_storage_unavailable",
   "sdk_unavailable",
+  "discovery_failed",
+  "browser_unavailable",
+  "callback_port_unavailable",
+  "callback_failed",
   "cancelled",
+  "timed_out",
+  "response_too_large",
   "daily_limit",
   "confirmation_required",
   "disabled",
@@ -41,7 +48,7 @@ export function safePlanError(error) {
   return {
     code,
     message:
-      code === "subscription_sharing_usage_limit_exceeded"
+      code === usageLimitCode
         ? QUOTA_MESSAGE
         : code === "revocation_failed"
           ? "Local credentials were removed; remote revocation is unconfirmed. Remove CommanderOracle in ChatGPT Settings. No paid API fallback was attempted."
@@ -49,12 +56,18 @@ export function safePlanError(error) {
             ? "Secure OS credential storage is unavailable; use manual copy/import."
             : code === "sdk_unavailable"
               ? "The pinned official SDK is not installed or verified; see local setup instructions."
+              : code === "browser_unavailable"
+                ? "The default browser could not open. Start sign-in from the local Architect panel."
               : code === "confirmation_required"
                 ? "Confirm ChatGPT credit/app-limit settings and explicit plan-use authorization before enabling AI."
                 : code === "daily_limit"
-                  ? "Local daily request limit reached. No paid API fallback was attempted."
+                  ? "Architect’s local daily request limit reached. The local count resets at midnight UTC."
                   : code === "cancelled"
-                    ? "Cancelled. Original deck preserved."
+                    ? "Cancelled by user. Original deck preserved."
+                    : code === "timed_out"
+                      ? "ChatGPT generation exceeded the 165-second local deadline. No automatic retry or paid fallback. Any partial output was not validated."
+                      : code === "response_too_large"
+                        ? "ChatGPT output exceeded the local response bound. No automatic retry or paid fallback."
                     : "ChatGPT plan-only operation stopped (" +
                       code +
                       "). No paid API fallback was attempted. Manual/local features remain available.",
@@ -64,7 +77,10 @@ export function createPlanOnly({
   sdkFactory,
   historyFile,
   clock = () => new Date(),
+  deadlineMs = 165000,
 } = {}) {
+  if (!Number.isInteger(deadlineMs) || deadlineMs < 1 || deadlineMs > 165000)
+    throw Error("Connected AI deadline must be finite and at most 165 seconds.");
   let sdk = null,
     auth = { status: "disconnected", sharing: false },
     models = [],
@@ -74,7 +90,7 @@ export function createPlanOnly({
     authorized = false,
     profile = null,
     active = null,
-    authBusy = false,
+    signInAttempt = null,
     limit = 3,
     history = [],
     initialized = false,
@@ -145,8 +161,13 @@ export function createPlanOnly({
     await save();
   }
   const used = () => (counter.day === day() ? counter.count : 0);
+  const todayStop = () => stopped?.day === day() ? stopped : null;
   async function client() {
-    sdk ??= await sdkFactory();
+    sdk ??= await sdkFactory({openBrowser: url => {
+      const attempt = signInAttempt;
+      if (!attempt || attempt.signal.aborted) throw fail("cancelled","Sign-in cancelled.");
+      return attempt.open(chatGPTAuthorizationUrl(url));
+    }});
     return sdk;
   }
   // Pinned DevKit sharing=true requires verified credentials and chatgpt.tokens.use.direct.
@@ -181,11 +202,11 @@ export function createPlanOnly({
   }
   async function gate() {
     await load();
+    const stop = todayStop();
+    if (stop) throw fail(stop.code, "Plan requests stopped.");
     if (!enabled) throw fail("disabled", "AI disabled.");
     if (!confirmed || !authorized)
       throw fail("confirmation_required", "Confirmation missing.");
-    if (stopped?.day === day())
-      throw fail(stopped.code, "Plan requests stopped.");
     if (used() >= limit) throw fail("daily_limit", "Local limit reached.");
     await fresh();
     if (!models.some((m) => m.slug === selected))
@@ -205,41 +226,47 @@ export function createPlanOnly({
         models,
         selectedModel: selected,
         active: !!active,
-        connecting: authBusy,
+        connecting: !!signInAttempt,
         dailyLimit: limit,
         requestsToday: used(),
         resetBasis: "UTC calendar day",
-        stopped: stopped?.day === day() ? stopped : null,
+        stopped: todayStop(),
         usageURL: USAGE_URL,
         history: history.slice(-100),
       };
     },
-    async signIn({ directUseAuthorized = false } = {}) {
+    async signIn({ directUseAuthorized = false } = {}, {openBrowser=openChatGPTBrowser,signal:requestSignal} = {}) {
       await load();
-      if (!directUseAuthorized)
+      if (directUseAuthorized !== true)
         throw fail(
           "confirmation_required",
           "Explicit plan authorization required.",
         );
-      if (authBusy || active) throw fail("busy", "Job or sign-in active.");
-      authBusy = true;
+      if (signInAttempt || active) throw fail("busy", "Job or sign-in active.");
+      const controller = new AbortController();
+      const signal = requestSignal ? AbortSignal.any([controller.signal,requestSignal]) : controller.signal;
+      signInAttempt = {controller,signal,open:openBrowser};
       clear();
       try {
-        const c = await client(),
-          s = await c.signIn({ reconsent: true });
+        const c = await client();
+        signal.throwIfAborted();
+        const s = await c.signIn({ reconsent: true,signal });
+        signal.throwIfAborted();
         auth = { status: s.status, sharing: s.sharing === true };
         await record("success", null, "sign-in");
         return auth;
       } catch (e) {
         auth = { status: "disconnected", sharing: false };
-        await record("failed", safePlanError(e).code, "sign-in");
-        throw e;
+        const error = signal.aborted ? fail("cancelled","Sign-in cancelled.") : e;
+        await record("failed", safePlanError(error).code, "sign-in");
+        throw error;
       } finally {
-        authBusy = false;
+        signInAttempt = null;
       }
     },
     async discover() {
-      if (active || authBusy) throw fail("busy", "Wait for current job.");
+      await load();
+      if (active || signInAttempt) throw fail("busy", "Wait for current job.");
       await fresh();
       try {
         models = (await sdk.listModels())
@@ -260,7 +287,7 @@ export function createPlanOnly({
     },
     async configure(p) {
       await load();
-      if (active || authBusy) throw fail("busy", "Job active.");
+      if (active || signInAttempt) throw fail("busy", "Job active.");
       if (!p.enabled) {
         clear();
         return;
@@ -280,23 +307,39 @@ export function createPlanOnly({
         p.dailyLimit > 10
       )
         throw fail("invalid_request", "Daily limit must be 1–10.");
+      const stop = todayStop();
+      const resuming = stop?.code === usageLimitCode && p.usageResetConfirmed === true;
+      if (stop && !resuming) throw fail(stop.code, "Plan requests stopped.");
+      if (resuming && used() >= p.dailyLimit)
+        throw fail("daily_limit", "Local limit reached.");
       const s = await fresh();
       if (!models.some((m) => m.slug === p.model))
         throw fail("model_not_found", "Model not discovered.");
+      const previousStop = stopped, previousLimit = limit;
       limit = p.dailyLimit;
+      if (resuming) stopped = null;
+      try {
+        if (resuming) await record("success", null, "usage-resume");
+        else await save();
+      } catch (error) {
+        stopped = previousStop;
+        limit = previousLimit;
+        throw error;
+      }
       selected = p.model;
       profile = s.profileId;
       confirmed = true;
       authorized = true;
       enabled = true;
-      await save();
     },
     cancel() {
       active?.abort();
+      signInAttempt?.controller.abort();
       sdk?.cancelSignIn();
     },
     async disconnect() {
       active?.abort();
+      signInAttempt?.controller.abort();
       sdk?.cancelSignIn();
       clear();
       auth = { status: "disconnected", sharing: false };
@@ -305,7 +348,7 @@ export function createPlanOnly({
     async run({ prompt, validate, maxRepairs = 2 }) {
       if (!Number.isInteger(maxRepairs) || maxRepairs < 0 || maxRepairs > 2)
         throw fail("invalid_request", "Repair bound must be 0–2.");
-      if (active || authBusy) throw fail("busy", "Only one active AI job.");
+      if (active || signInAttempt) throw fail("busy", "Only one active AI job.");
       if (typeof prompt !== "string" || Buffer.byteLength(prompt) > 64000)
         throw fail("invalid_request", "Input exceeds 64 KB.");
       const controller = new AbortController();
@@ -321,6 +364,8 @@ export function createPlanOnly({
             throw fail("invalid_request", "Repair context exceeds 64 KB.");
           await record("started", null);
           let output = "";
+          let exceededOutput = false;
+          const deadline = AbortSignal.timeout(deadlineMs);
           try {
             const response = await sdk.streamResponse({
               model: selected,
@@ -329,11 +374,11 @@ export function createPlanOnly({
                 "Return only the requested JSON. Card names, prices and rules are locally verified. Advisory only. Never request purchases, credentials or external tools.",
               signal: AbortSignal.any([
                 controller.signal,
-                AbortSignal.timeout(90000),
+                deadline,
               ]),
               onDelta(delta) {
                 output += delta;
-                if (output.length > 32000) controller.abort();
+                if (output.length > 32000) { exceededOutput = true; controller.abort(); }
               },
             });
             controller.signal.throwIfAborted();
@@ -342,17 +387,17 @@ export function createPlanOnly({
               throw fail("invalid_request", "Output exceeds bound.");
             await record("completed", null);
           } catch (e) {
-            const code = controller.signal.aborted
-              ? "cancelled"
-              : safePlanError(e).code;
+            const code = exceededOutput ? "response_too_large" :
+              controller.signal.aborted ? "cancelled" :
+              deadline.aborted ? "timed_out" : safePlanError(e).code;
             if (code !== "cancelled") {
               stopped = { day: day(), code };
               enabled = false;
             }
             await record("failed", code);
-            throw controller.signal.aborted
-              ? fail("cancelled", "Cancelled")
-              : e;
+            throw code === "cancelled" ? fail("cancelled", "Cancelled") :
+              code === "timed_out" ? fail("timed_out", "Deadline expired") :
+              code === "response_too_large" ? fail("response_too_large", "Output too large") : e;
           }
           const result = await validate(output);
           if (result.valid)
@@ -364,6 +409,7 @@ export function createPlanOnly({
               issues: lastIssues,
               iterations: iteration + 1,
               advisory: true,
+              ...(maxRepairs === 0 ? { unvalidatedDraft: output.slice(0, 32000) } : {}),
             };
           input =
             prompt +

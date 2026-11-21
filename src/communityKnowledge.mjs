@@ -77,7 +77,7 @@ export function communityClusters(decks,{threshold=0.23}={}){
  * *different* and independent cohort, never a proxy for win rate or power level.
  */
 export function analyzeCommunityKnowledge(allDecks,{commanderId,bracket=null,minSamples=3,basicIds=null}={}){
- if(bracket!==null&&![2,3,4].includes(Number(bracket)))throw Error('Invalid community bracket.');
+ if(bracket!==null&&![2,3,4,5].includes(Number(bracket)))throw Error('Invalid community bracket.');
  const bracketFilter=bracket===null?null:Number(bracket);
  // Scryfall-sourced identities of basic lands prevent 99-card source lists from
  // reporting "Forest + Wastes" as an archetype package. Also handle named test IDs.

@@ -174,7 +174,7 @@ export function auditExportPricing(deck,commander,cards){
  const totalRounded=Math.round(total*100)/100;
  return {cards:result,total:totalRounded,count:result.length,missing:missing.map(x=>x.card),
   agreesWithGenerator:Math.abs(totalRounded-Number(deck.price))<=0.02,
-  withinBudget:total<=Number(deck.budget)+0.005&&missing.length===0,
+  withinBudget:missing.length===0&&(deck.budgetPolicy?.open===true||total<=Number(deck.budget)+0.005),
   provenance:original?'exact-selected-cards':'unique-catalog-name',
   anomalies:result.filter(x=>x.issue).map(x=>({card:x.card,reason:x.issue}))};
 }

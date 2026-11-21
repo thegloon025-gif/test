@@ -127,7 +127,52 @@ for (const code of [
     assert.ok(!(await readFile(f.file, "utf8")).includes("secret"));
     if (code === "subscription_sharing_usage_limit_exceeded")
       assert.equal(safePlanError({ code }).message, QUOTA_MESSAGE);
+    else
+      await assert.rejects(f.c.configure({...config,usageResetConfirmed:true}),{code});
   });
+test("an explicit provider usage resume clears the saved quota stop and keeps the daily count",async()=>{
+ const quotaCode="subscription_sharing_usage_limit_exceeded";
+ let providerLimited=true;
+ const f=await fixture({
+  async streamResponse(p){
+   f.calls.push(p);
+   if(providerLimited)throw Object.assign(Error("quota"),{code:quotaCode});
+   return {text:'{"ok":true}'};
+  },
+ });
+ const job={prompt:"x",maxRepairs:0,validate:()=>({valid:true})};
+ await enable(f);
+ await assert.rejects(f.c.run(job),{code:quotaCode});
+ const restarted=createPlanOnly({sdkFactory:f.factory,historyFile:f.file});
+ await restarted.discover();
+ assert.equal((await restarted.status()).stopped.code,quotaCode);
+ await assert.rejects(restarted.configure(config),{code:quotaCode});
+ await assert.rejects(restarted.configure({...config,usageResetConfirmed:true,creditsSettingReviewed:false}),
+  {code:"confirmation_required"});
+ await assert.rejects(restarted.configure({...config,usageResetConfirmed:true,dailyLimit:1}),{code:"daily_limit"});
+ assert.equal((await restarted.status()).stopped.code,quotaCode);
+ assert.equal(f.calls.length,1);
+
+ providerLimited=false;
+ await restarted.configure({...config,usageResetConfirmed:true});
+ const resumed=await restarted.status();
+ assert.equal(resumed.enabled,true);
+ assert.equal(resumed.stopped,null);
+ assert.equal(resumed.requestsToday,1);
+ assert.equal(f.calls.length,1);
+ const saved=JSON.parse(await readFile(f.file,"utf8"));
+ assert.equal(saved.stopped,null);
+ assert.equal(saved.counter.count,1);
+ assert.equal(saved.history.at(-1).operation,"usage-resume");
+ assert.equal((await restarted.run(job)).valid,true);
+
+ providerLimited=true;
+ await assert.rejects(restarted.run(job),{code:quotaCode});
+ assert.equal((await restarted.status()).stopped.code,quotaCode);
+ assert.equal((await restarted.status()).requestsToday,3);
+ await assert.rejects(restarted.configure({...config,usageResetConfirmed:true}),{code:"daily_limit"});
+ assert.equal(f.calls.length,3);
+});
 test("missing direct scope and unsupported discovered model never infer", async () => {
   const f = await fixture();
   f.state.sharing = false;
@@ -272,4 +317,135 @@ test("explicit one-request Builder bound never repairs invalid output or functio
   });
   assert.equal(ok.valid, true);
   assert.equal(f.calls.length, 2);
+});
+
+
+test("builder invalid output is retained as unvalidated local draft without another request", async () => {
+  const f = await fixture({
+    async streamResponse(p) {
+      f.calls.push(p);
+      return { text: '{"deck":"1 Commander *CMDR*\\n1 Wastes"}' };
+    },
+  });
+  await enable(f);
+  const r = await f.c.run({
+    prompt:"builder", maxRepairs:0,
+    validate: () => ({valid:false,issues:["Expected 100 cards, resolved 2."]})
+  });
+  assert.equal(r.valid,false);
+  assert.equal(r.iterations,1);
+  assert.match(r.unvalidatedDraft,/Wastes/);
+  assert.equal(f.calls.length,1);
+  assert.equal((await f.c.status()).requestsToday,1);
+  assert.ok(!(await readFile(f.file,"utf8")).includes("Wastes"));
+});
+test("deadline is distinguishable from manual cancellation; stopped and no paid fallback", async () => {
+  const f = await fixture({
+    async streamResponse(p) {
+      f.calls.push(p);
+      return new Promise((resolve,reject) => {
+        // A real transport keeps the event loop active while waiting for data.
+        const waitingForData = setTimeout(() => reject(Error("Abort was not delivered.")), 1000);
+        p.signal.addEventListener("abort", () => {
+          clearTimeout(waitingForData);
+          reject(Object.assign(new Error("abort"),{code:"cancelled"}));
+        },{once:true});
+      });
+    }
+  });
+  const ctrl=createPlanOnly({sdkFactory:f.factory,historyFile:f.file,deadlineMs:15});
+  await ctrl.signIn({directUseAuthorized:true});
+  await ctrl.discover();
+  await ctrl.configure(config);
+  await assert.rejects(ctrl.run({prompt:"x",maxRepairs:0,validate:()=>({valid:true})}),e => e.code==="timed_out");
+  assert.equal(f.calls.length,1);
+  const status=await ctrl.status();
+  assert.equal(status.stopped.code,"timed_out");
+  assert.equal(status.enabled,false);
+  assert.equal(status.requestsToday,1);
+  assert.match(safePlanError({code:"timed_out"}).message,/165-second/);
+  await assert.rejects(ctrl.run({prompt:"x",maxRepairs:0,validate:()=>({valid:true})}));
+  assert.equal(f.calls.length,1);
+});
+test("output-bound abort is reported as response_too_large instead of manual cancellation", async () => {
+  const f = await fixture({
+    async streamResponse(p) {
+      f.calls.push(p);
+      p.onDelta("x".repeat(33000));
+      throw Object.assign(Error("aborted"),{code:"cancelled"});
+    }
+  });
+  await enable(f);
+  await assert.rejects(f.c.run({prompt:"x",maxRepairs:0,validate:()=>({valid:true})}),e=>e.code==="response_too_large");
+  assert.equal((await f.c.status()).stopped.code,"response_too_large");
+  assert.equal(f.calls.length,1);
+});
+
+test("sign-in sends the official authorization URL only to the pending browser handoff", async () => {
+  const f = await fixture();
+  const endpoint = new URL("https://auth.openai.com/authorize");
+  endpoint.search = new URLSearchParams({
+    redirect_uri: "http://127.0.0.1:54321/auth/callback",
+    response_type: "code",
+    code_challenge_method: "S256",
+    state: "test-state",
+    login_hint: "private@example.test",
+  });
+  let open, publish, finish;
+  const started = new Promise(resolve => {publish = resolve;});
+  const wait = new Promise(resolve => {finish = resolve;});
+  const ctrl = createPlanOnly({ historyFile: f.file, sdkFactory: async options => {
+    open = options.openBrowser;
+    return {
+      async signIn() {
+        await open(endpoint.href);
+        return wait;
+      },
+      cancelSignIn() {},
+    };
+  }});
+  const connecting = ctrl.signIn({directUseAuthorized:true}, {openBrowser: publish});
+  const authorizedUrl = new URL(await started);
+  assert.equal(authorizedUrl.origin, "https://auth.openai.com");
+  assert.equal(authorizedUrl.searchParams.get("state"), "test-state");
+  assert.equal(authorizedUrl.searchParams.has("login_hint"), false);
+  const status = await ctrl.status();
+  assert.equal(status.connecting, true);
+  assert.equal(JSON.stringify(status).includes(authorizedUrl.href), false);
+  await assert.rejects(ctrl.signIn({directUseAuthorized:true}, {openBrowser: () => assert.fail()}), {code:"busy"});
+  finish({status:"connected",sharing:true,profileId:"private-profile-id"});
+  assert.deepEqual(await connecting,{status:"connected",sharing:true});
+  await assert.rejects(async () => open(endpoint.href), {code:"cancelled"});
+});
+
+test("sign-in rejects a non-OpenAI auth URL and requires explicit authorization", async () => {
+  const f = await fixture();
+  let initialized = 0;
+  const ctrl = createPlanOnly({ historyFile: f.file, sdkFactory: async ({openBrowser}) => {
+    initialized++;
+    return {signIn: () => openBrowser("https://example.test/authorize"),cancelSignIn() {}};
+  }});
+  await assert.rejects(ctrl.signIn({directUseAuthorized:"true"}), {code:"confirmation_required"});
+  assert.equal(initialized,0);
+  await assert.rejects(ctrl.signIn({directUseAuthorized:true},{openBrowser: () => assert.fail()}), {code:"discovery_failed"});
+  assert.equal((await ctrl.status()).auth.status,"disconnected");
+});
+
+test("cancelling during SDK setup prevents the browser from opening later", async () => {
+  const f = await fixture();
+  let begin, release, invoked = 0;
+  const waiting = new Promise(resolve => {begin=resolve;});
+  const ready = new Promise(resolve => {release=resolve;});
+  const ctrl = createPlanOnly({ historyFile:f.file,sdkFactory:async()=>{
+    begin();
+    await ready;
+    return {signIn(){invoked++;},cancelSignIn(){}};
+  }});
+  const pending=ctrl.signIn({directUseAuthorized:true});
+  await waiting;
+  ctrl.cancel();
+  release();
+  await assert.rejects(pending,{code:"cancelled"});
+  assert.equal(invoked,0);
+  assert.equal((await ctrl.status()).connecting,false);
 });

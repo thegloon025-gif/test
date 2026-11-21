@@ -1,3 +1,52 @@
+## Generate and evaluate decks in Architect
+
+On a fresh install, click **Update database** in **Scryfall catalog** and wait for the card count before generating a deck.
+
+Choose a commander, budget and a generation bracket. Set an optional playstyle, then generate with Architect. Connected generation uses one ChatGPT request per bracket. The manual prompt and import flow also validates complete 100-card lists. The local builder is available under Advanced.
+
+Architect can fill one open slot in a fully resolved 99-card draft and make several cheaper substitutions together when a draft exceeds its ceiling. It checks the completed list against the same commander, pricing mode, and bracket before offering an export. To repair an imported draft, enable **Look for upgrades within the budget after validating this list**.
+
+Architect reviews all 100 cards against the deck's mana sources, additional casting costs, activation requirements and strategy. It looks for affordable replacements for unsupported costs and weak roles even when the draft is near its ceiling. **Card quality review** shows the draft findings and a card-by-card breakdown of the final list. Situational cards can stay when the deck supports their role. The local rules cover common printed requirements and report uncertain interactions for review.
+
+When there is substantial budget left, Architect also searches for improvements to mana, ramp, tutors, card advantage, protection, interaction and win routes. It preserves supported engines and known combo packages. **Budget optimization** shows the starting estimate, final estimate, remaining EUR, and the reasons for accepted and rejected swaps. The 85–100% spending range is a flexible target when meaningful upgrades are available. An import shows the card review and can opt into automatic swaps.
+
+Validated decks run 1,000 seeded goldfish trials by default. Choose 100 or 500 for a faster run. View lands, mana, commander deployment, draw and interaction access, and published Spellbook combo availability. Two-card infinite lines appear in the combo report and can be part of an exported Bracket 3 Architect list. Paste a second marked Commander list to compare on the same seed and trial count. With both brackets generated, the other result is the default comparison.
+
+Review local swap suggestions and their paired simulation results. Matched cards stay in the same shuffle slots for each deck. Architect recommends a revision when the paired trials support a meaningful gain and show no material modeled regression. An AI revision that falls short stays visible as a candidate comparison while the original remains selected. Request an AI revision explicitly or enable one extra request after the first deck is simulated. Costs use the selected price source and apply to the whole deck.
+
+The goldfish uses multiplayer London mulligans with one free mulligan and a two-paid-mulligan policy. It models up to turn 10, supported mana payments, several land-search and Aura effects, simple draw, mana multipliers, and cast-triggered land untaps such as Zacama’s. Opponents, combat, tutor decisions, most triggers and activated abilities, many conditional mana sources, and full combo execution are outside its coverage. Combo measurements describe named pieces and supported starting conditions.
+
+## Generate Brackets 3 and 4 together
+
+Select a commander and budget, then choose **Research & generate both decks**. **Brackets 3 + 4** is the default generation setting. The EUR ceiling applies to each 100-card list. Each build uses its own bracket profile and community cohort. Commander and color Spellbook lookups are shared within the run.
+
+Use the **Bracket 3** and **Bracket 4** buttons above the generated deck to compare prices, inspect each list and export it. If one build fails, the other is still available when it passes validation. Choose an individual bracket to run a single build or use a specific community archetype. Extra-budget regeneration compares each successful result with its previous list for the same bracket.
+
+## Build and research cEDH
+
+Select **Bracket 5 — cEDH** and choose a budget range. The choices are €0–€1,000, €1,000–€2,000, €2,000–€3,000, €3,000–€4,000, and **Open budget**. The upper end of a range is its ceiling. Open budget still shows the selected-printing estimate. Architect prioritizes fast mana, efficient interaction, tutors and compact win routes. The local builder also uses the selected range and can use declared Bracket 5 community decks. [Wizards' Commander brackets](https://www.magic.wizards.com/en/formats/commander)
+
+Open the **cEDH rankings** tab for links to EDHTop16 and its tournament results. To show rankings inside CommanderOracle, create a free TopDeck developer key and set `TOPDECK_API_KEY` in your server environment. For PowerShell, run these commands from the app folder. [TopDeck.gg API documentation](https://topdeck.gg/api/docs/)
+
+```powershell
+$env:TOPDECK_API_KEY = 'your-key'
+node server.mjs
+```
+
+The table uses documented TopDeck standings from the past 90 days for completed EDH events with at least 32 entrants and a competitive label in the title. It shows share among entries with a recorded commander and game results where wins, draws and losses are available. Sort by entries or reported win rate. Rankings include partners and backgrounds. Choose **Build B5** on a single-commander row to select that commander and Bracket 5. The server refreshes its in-memory results on access after six hours and can display the last successful results during an outage.
+
+## Find and rank public decks
+
+Select a commander from the local Scryfall catalog and open **Find and rank public decks**. **Brackets 3 + 4** is the default search, and **Bracket 5 — cEDH** selects declared competitive decks. The combined search reserves places for both brackets and ranks their verified cardlists together, retaining the Archidekt source and declared bracket for each copy of an identical deck.
+
+Expand **Score and combo details** to see the named cards or wildcard slots, commander participation, setup, published outcomes and each route's score contribution. The app checks the public Commander Spellbook snapshot against every candidate's commander and 99 cards. Mana, token, trigger and draw engines are shown with their payoff requirements. Recorded direct or delayed wins still require the published starting state. Compact lines, alternative routes, available tutors, mana, draw and protection contribute to a capped combo bonus. Scores are discovery heuristics.
+
+The search uses the active pricing mode, owned-basics setting and effective EUR ceiling. Decks with a confirmed estimate within that ceiling are shown first. Over-budget lists and lists with missing price coverage are available under **Over budget or price unconfirmed** for source research. Search results can be imported into the saved community library.
+
+Archidekt searches deck titles, verifies up to 12 single-commander cardlists and uses the declared bracket from the deck detail. Filtered searches may miss untagged decks and titles that omit the commander. The official Spellbook snapshot is streamed into a compact local cache in `data/`, reused for seven days, and retained with its date if refresh fails. When no snapshot is available, discovery continues with combo counts marked unavailable. Setup outside the supported template and card grammar requires manual review.
+
+Run the source ZIP with Node.js 22 or newer using `start-windows.bat` or `npm start`. Copy your existing `data/` directory to the new installation to reuse your catalog and local research.
+
 > Architect now receives [typed strategy evidence and a score-free functional review](docs/ARCHITECT_STRATEGY_EVIDENCE.md). Builder: one explicit request per click; warnings do not trigger AI repairs. Still unreleased 1.1.5.
 
 > Optional [ChatGPT Architect setup and strict plan-only safeguards](docs/CHATGPT_ARCHITECT.md). Connected AI stays off by default; manual copy/import needs no SDK or account connection.

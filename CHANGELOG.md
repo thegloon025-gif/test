@@ -1,3 +1,68 @@
+## Unreleased Architect usage resume
+
+- Resume the connected plan after a ChatGPT quota reset with explicit confirmation in the connection panel. Keep the daily local attempt count and display local exhaustion separately from the provider stop.
+
+## Unreleased Architect revision assessment
+
+- Match shared cards across paired shuffles when comparing an optional revision with its original deck.
+- Recommend a revision only when the paired trials support a meaningful modeled gain and show no material regression. Keep the original active and show the evidence for AI candidates that fall short.
+- Display previously missing deltas for early ramp, mana after casting the commander, opening hands, and mana curve.
+
+## Unreleased Architect draft repair and cEDH budgets
+
+- Complete a fully resolved 99-card Architect draft with a legal, priced card chosen for its role in the deck.
+- Look for coordinated cheaper substitutions when an initial draft exceeds its ceiling. Validate and export the completed repair as a whole.
+- Add Bracket 5 budget ranges through €4,000 and an Open budget option for generation, analysis, and export.
+
+## Unreleased Architect card quality review
+
+- Review the entire draft for common printed casting and activation requirements, commander synergy and actual card advantage. Surface supported roles, situational cards and unresolved findings in the Architect result.
+- Use those findings to make affordable replacements even near the budget ceiling. Reconcile each accepted swap with the selected pricing mode, preserve known combo routes and retain the bracket's legality gates.
+- Let optimized drafts recover from an over-budget estimate when a cheaper swap preserves supported functions. Show the draft's issues and the reasons for the swaps.
+
+## Unreleased cEDH
+
+- Add Bracket 5 generation, analysis and TXT export. Tune the competitive profile for early mana, interaction and compact win routes within the selected budget.
+- Allow declared Bracket 5 lists in community deck discovery and research.
+- Add a commander rankings tab with EDHTop16 links and an optional TopDeck tournament feed. Show sample coverage, entry share and recorded win rate.
+
+## Unreleased Architect Bracket 3 export
+
+- Report two-card infinite combos in Architect’s combo analysis and allow validated Bracket 3 lists containing them to export.
+
+## Unreleased Architect catalog setup
+
+- Show the database download or refresh step in Architect when its local catalog is unavailable or needs updated printing data.
+
+## Unreleased Architect budget optimization
+
+- Reinvest spare budget after a connected Architect draft passes validation. Evaluate land, ramp, tutor, protection, draw, interaction and win-route upgrades using the selected catalog and cached combo evidence.
+- Retain supported deck functions and known combo packages. Revalidate the 100-card list, bracket restrictions and exact-printing total after each accepted pass.
+- Show the ceiling, starting and final estimates, remaining budget, and why candidates were accepted or rejected. Manual import can opt into the same review.
+
+## Unreleased Architect-first deckbuilding
+
+- Put Architect generation and TXT export in the main workflow. Move local generator controls and results under Advanced.
+- Add 100, 500 and 1,000-trial seeded goldfish comparisons, published combo availability and modeled starting conditions.
+- Simulate suggested revisions on the original seed and disclose cost, consistency and combo changes before a user can adopt them.
+
+## Unreleased Architect sign-in
+
+- Open ChatGPT authorization from the browser's sign-in click, keep a visible fallback link during authorization, and show setup or connection errors beside the button.
+- Cancel pending sign-in from the same panel. Connected sign-in uses the official DevKit and Windows credential storage.
+
+## Unreleased combined deck generation
+
+- Generate separate Bracket 3 and 4 decks in one run, with per-deck pricing and export validation, shared commander and color combo research, and bracket-specific construction.
+- Switch between the results to inspect and export either deck. Report individual generation failures and compare extra-budget revisions within the same bracket.
+
+## Unreleased ranked public deck discovery
+
+- Default public deck search to combined Brackets 3 + 4, with independent B3 and B4 options, declared bracket checks and exact cardlist deduplication across sources.
+- Check every verified candidate against the locally cached Commander Spellbook bulk snapshot. Show two- and three-card matches, direct and delayed wins, engine outcomes, and setup requirements.
+- Rank with a shared structure, mana, budget and bounded combo score. Discount redundant routes and surface unavailable or partial combo coverage while preserving the active EUR budget and pricing assumptions.
+- Stream search progress and preserve source imports, the bracket-specific generator, and its saved community and EDHREC research.
+
 ## Unreleased Architect strategy evidence — still 1.1.5
 
 - Replaced alphabetical candidate context with commander-specific package/function retrieval, cached source structures, published combo prerequisites and exact selected-record price options.

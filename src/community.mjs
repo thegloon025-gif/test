@@ -1,4 +1,4 @@
-/** Archidekt public-deck data: user-selected URLs only; never crawl/search the site. */
+/** Archidekt public-deck validation, storage and shared request pacing. */
 import {mkdir,readFile,writeFile,rename} from 'node:fs/promises';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
@@ -12,8 +12,34 @@ const EXCLUDED=/^(maybeboard|sideboard|considering|consider|tokens?|extras?|outs
 const COMMANDER=/^(commander|commanders|partner|partners)$/i;
 const TTL=24*60*60*1000;
 const USER_AGENT='CommanderOracleIndependent/0.9.0 (read-only public deck access)';
-let lastFetch=0;
-const sleep=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+const recentDecks=new WeakMap(),archidektRequests=new WeakMap();
+function requestState(fetcher){
+ if(!archidektRequests.has(fetcher))archidektRequests.set(fetcher,{lastAt:null,retryAt:0,queue:Promise.resolve()});
+ return archidektRequests.get(fetcher);
+}
+const rateLimitError=()=>Error('Archidekt rate limit reached. Please wait before trying again.');
+export async function waitForArchidekt({fetcher,now,minGapMs}){
+ const state=requestState(fetcher);
+ const pending=state.queue.then(async()=>{
+  if(state.retryAt>now())throw rateLimitError();
+  const elapsed=state.lastAt===null?Infinity:now()-state.lastAt;
+  if(elapsed>=0&&elapsed<minGapMs)await new Promise(resolve=>setTimeout(resolve,minGapMs-elapsed));
+  if(state.retryAt>now())throw rateLimitError();
+  state.lastAt=now();
+ });
+ state.queue=pending.catch(()=>{});
+ await pending;
+}
+export function checkArchidektRateLimit(response,{fetcher,now}){
+ if(response.status!==429)return;
+ const retryAfter=response.headers?.get?.('retry-after');
+ const delay=/^\d+$/.test(retryAfter)?Number(retryAfter)*1000:Date.parse(retryAfter)-now();
+ requestState(fetcher).retryAt=now()+(Number.isFinite(delay)?Math.max(1000,delay):60_000);
+ throw rateLimitError();
+}
+export function declaredBracket(value){
+ return [1,2,3,4,5,'1','2','3','4','5'].includes(value)?Number(value):null;
+}
 
 export function parseArchidektUrl(value){
  let u;try{u=new URL(value);}catch{throw Error('Enter a public Archidekt URL such as https://archidekt.com/decks/123456/title');}
@@ -76,6 +102,7 @@ export function normalizeArchidektDeck(payload,source,cardCatalog=[]){
  const totalCards=mainboard.reduce((s,x)=>s+x.quantity,0)+[...commanders.values()].reduce((s,q)=>s+q,0);
  const issues=[];
  if(!commanderIds.length)issues.push('No commander identified in Archidekt categories.');
+ if([...commanders.values()].some(quantity=>quantity!==1))issues.push('Each commander must appear once.');
  if(commanderIds.length>2)issues.push('More than two commanders; partner/background rules not verified.');
  if(commanderIds.length===2)issues.push('Two-commanders deck: partner/background eligibility and combined color identity not yet verified; excluded from statistics.');
  if(!payload.categories?.length)issues.push('Missing category metadata; mainboard versus non-deck sections cannot be verified.');
@@ -99,7 +126,7 @@ export function normalizeArchidektDeck(payload,source,cardCatalog=[]){
  return {
   key:`archidekt:${parsed.id}`,source:'Archidekt',sourceId:parsed.id,url:parsed.url,title,
   owner,format:payload.deckFormat?.name||payload.deckFormat||null,
-  edhBracket:(Number.isInteger(Number(payload.edhBracket))&&Number(payload.edhBracket)>=1&&Number(payload.edhBracket)<=5&&payload.edhBracket!==null&&payload.edhBracket!=='')?Number(payload.edhBracket):null,
+  edhBracket:declaredBracket(payload.edhBracket),
   commanderIds,commanderNames,mainboard,totalCards,sourceIncludedCards,sourceExcludedCards,
   validated:issues.length===0,issues,unmatched:unknown,excludedCount:excluded.length,excluded:excluded.slice(0,100),importedAt,
   // The source deck is attributed, never published as our own original brew.
@@ -114,22 +141,29 @@ export async function saveCommunity(decks,file=COMMUNITY_FILE){
  await mkdir(path.dirname(file),{recursive:true});
  const tmp=file+'.tmp';await writeFile(tmp,JSON.stringify({version:1,decks},null,2));await rename(tmp,file);
 }
-export async function fetchArchidektDeck(id,{fetcher=fetch,now=()=>Date.now(),minGapMs=2000}={}){
+export async function fetchArchidektDeck(id,{fetcher=fetch,now=()=>Date.now(),minGapMs=2000,reuseRecent=false}={}){
  // All user input has already been converted to a numeric ID; fixed upstream host prevents SSRF.
  if(!/^[1-9]\d{0,11}$/.test(String(id)))throw Error('Invalid Archidekt ID');
- const remaining=minGapMs-(now()-lastFetch);if(remaining>0)await sleep(remaining);
- lastFetch=now();
+ if(reuseRecent&&!recentDecks.has(fetcher))recentDecks.set(fetcher,new Map());
+ const cache=recentDecks.get(fetcher),saved=cache?.get(String(id));
+ if(reuseRecent&&saved&&now()-saved.stamp>=0&&now()-saved.stamp<15*60_000)return saved.json;
+ await waitForArchidekt({fetcher,now,minGapMs});
  const response=await fetcher(`https://archidekt.com/api/decks/${id}/`,{
   method:'GET',headers:{'Accept':'application/json','User-Agent':USER_AGENT},
   redirect:'manual',signal:AbortSignal.timeout(15000)
  });
- if(response.status===429)throw Error('Archidekt rate limit reached. Please wait before trying again.');
+ checkArchidektRateLimit(response,{fetcher,now});
  if(response.status===401||response.status===403||response.status===404)throw Error('Deck unavailable or not public. Only public decks are supported.');
  if(!response.ok)throw Error(`Archidekt deck fetch failed (HTTP ${response.status}).`);
  const len=Number(response.headers?.get?.('content-length'))||0;
  if(len>4_000_000)throw Error('Archidekt response exceeds 4 MB.');
  const text=await response.text();if(text.length>4_000_000)throw Error('Archidekt response exceeds 4 MB.');
  let json;try{json=JSON.parse(text);}catch{throw Error('Archidekt returned unexpected non-JSON content.');}
+ if(cache){
+  cache.delete(String(id));
+  cache.set(String(id),{json,stamp:now()});
+  if(cache.size>36)cache.delete(cache.keys().next().value);
+ }
  return json;
 }
 export async function importPublicDeck(rawUrl,{catalog=[],file=COMMUNITY_FILE,fetcher=fetch,now=()=>Date.now(),forceRefresh=false}={}){

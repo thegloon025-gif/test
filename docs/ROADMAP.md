@@ -1,3 +1,25 @@
+## Architect simulations (unreleased)
+
+- [x] Primary Architect workflow, separate B3/B4 validation and individual TXT export.
+- [x] Bracket 5 cEDH builds, analysis and TXT export with a user-defined EUR ceiling.
+- [x] cEDH budget ranges and Open budget with selected-printing estimates.
+- [x] cEDH rankings tab with tournament provenance, recorded results and single-commander build shortcuts.
+- [x] Seeded goldfish and paired deck comparisons with budget and combo-aware revision review.
+- [x] Recommend optional revisions from paired gameplay-model evidence and preserve the original when the improvement is inconclusive or regresses.
+- [x] Automatically review spare budget after generation, report supported upgrades with price reconciliation, and protect known combo packages.
+- [x] Review every card's supported costs and jobs in context. Apply affordable corrections to weak or unsupported slots and show the final per-card evidence.
+- [x] Complete clean 99-card drafts and apply coordinated budget repairs before offering export.
+- [x] Include published two-card infinite lines in Bracket 3 combo analysis and allow validated lists to export.
+- [ ] Extend supported triggered abilities, tutor decisions and combo execution checks. Gather multiplayer playtest evidence.
+
+## Ranked discovery and combined generation (unreleased)
+
+- [x] Generate independent B3 and B4 decks in one run with a shared input ceiling, individual exports and bracket-specific validation.
+- [x] Compare verified Bracket 3 and 4 cardlists together, retain source bracket metadata and collapse identical lists.
+- [x] Index the official Commander Spellbook snapshot locally, match inventory and requirements, and explain bounded combo contributions alongside structure and budget.
+- [ ] Broaden support for documented wildcard and game-state prerequisites as evidence becomes available. Use playtests to calibrate the discovery score.
+- [ ] Recheck the source ZIP and launcher on native Windows.
+
 ## Architect information-quality checkpoint (unreleased)
 
 - [x] Typed commander/package/function evidence replaces alphabetical context; full catalog remains available to validation.
@@ -98,7 +120,7 @@ See `benchmarks/restoration-followup-VALIDATION.md` for the latest PR #2 follow-
 - [ ] Prioritize activation/loyalty timing, modal/adventure additional costs and whole-board versus single-target protection before treating further internal-score gains as card-quality improvements.
 - [ ] Calibrate against measured gameplay and fresh external evaluation. Historical scores remain unchanged; cached-catalog results are not live quotes.
 - [ ] Extend the new bounded atomic investment beyond its current frontier and land-repair limits, with realistic mana sequencing.
-- [ ] Support and verify the complete current official bracket 1–5 policy; current implementation retains approximate 2–4 profiles.
+- [ ] Verify profiles for the complete current official bracket 1–5 policy. Local profiles cover Brackets 2–5.
 
 The user has now supplied a 32,197-record Scryfall catalog and cached community/Spellbook data. Current offline comparisons and limitations are recorded in `benchmarks/budget-search-VALIDATION.md`; prior absence-of-data statements below describe historical releases.
 

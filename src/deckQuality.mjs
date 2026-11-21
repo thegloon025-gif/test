@@ -140,7 +140,7 @@ export function deckQuality({cards,commander,plan,bracket}){
  const landIssues=[];
  for(const c of lands){const a=landAccess(c,{commander,plan,lands,spells});for(const color of a.reliable)mana[color]++;for(const color of a.conditional)conditional[color]++;if(a.reasons.length)landIssues.push({card:c.name,reasons:a.reasons});}
  const nonLandIssues=spells.flatMap(c=>supportProblems(c,cards,plan).map(reason=>({card:c.name,reason})));
- const wanted=bracket===4?{early:10,interaction:8,protection:3,draw:8}:bracket===3?{early:8,interaction:8,protection:3,draw:7}:{early:7,interaction:6,protection:2,draw:6};
+ const wanted=bracket===5?{early:11,interaction:10,protection:3,draw:9}:bracket===4?{early:10,interaction:8,protection:3,draw:8}:bracket===3?{early:8,interaction:8,protection:3,draw:7}:{early:7,interaction:6,protection:2,draw:6};
  const warnings=[];
  if(early<wanted.early)warnings.push(`Repeatable early mana ${early}/${wanted.early} (burst mana excluded)`);
  if(interaction<wanted.interaction)warnings.push(`Effective interaction ${interaction}/${wanted.interaction}`);

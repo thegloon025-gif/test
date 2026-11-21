@@ -28,7 +28,7 @@ Within a function, stable identity hashing and mana-value/price bands provide
 bounded variety. Prices constrain affordability/diversity; they never earn a
 quality bonus. No commander names, personal-reference recipes, popularity vote
 or universal card score select the context. Published policy examples get a
-reserved disclosure position, followed by commander-required, compact-risk,
+reserved disclosure position, followed by commander-required, compact,
 native and source-only package channels. Numeric combo IDs only stabilize order
 inside a channel, not rank strategy strength.
 
@@ -58,13 +58,10 @@ must resolve before it can be sacrificed for `{C}`. Its death produces the next
 counter through Blade; the same Spawn cannot also pay another sacrifice cost.
 
 The published outcomes include repeatable true-colorless mana, counters and
-ETB/death/sacrifice events. They are not automatically damage or a game win.
-The Architect preserves the existing conservative compact-infinite B3 rejection
-when both pieces are present; B4 permits that gate but does not certify execution.
-No turn-three/six/reliable timing is invented. This is local policy, not current
-Wizards certification. Issue #10 remains open and the custom pod profile inactive.
-The supplement affects Architect prompt/result checks only; production generator
-and existing Upgrader implementation/caches are unchanged.
+ETB/death/sacrifice events. A payoff is required to turn those outcomes into a
+win. Architect Builder shows the package in its Bracket 3 combo analysis and
+allows its inclusion in a validated export. Documented prerequisites and
+unknown timing appear in the review. Issue #10 tracks official bracket data.
 
 ## After hard validation
 

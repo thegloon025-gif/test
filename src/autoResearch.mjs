@@ -65,7 +65,7 @@ export function chooseResearchDecks(candidates,existing,{limit=8,catalog=[],budg
 export async function autoResearchArchidekt({commanderId,commanderName,bracket,budget=null,
  catalog=[],file,fetcher=fetch,now=()=>Date.now(),minGapMs=2000,
  search=discoverPublicDecks,fetchDeck=fetchArchidektDeck}={}){
- if(![2,3,4].includes(Number(bracket)))throw Error('Automatic research requires Bracket 2, 3 or 4.');
+ if(![2,3,4,5].includes(Number(bracket)))throw Error('Automatic research requires Bracket 2, 3, 4 or 5.');
  const targetBracket=Number(bracket);
  if(!catalog.some(c=>oracleId(c)===commanderId))throw Error('Commander must exist in the downloaded Scryfall catalog.');
  if(budget!==null&&(!Number.isFinite(Number(budget))||Number(budget)<=0))throw Error('Choose a valid EUR budget.');
