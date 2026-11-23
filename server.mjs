@@ -112,8 +112,8 @@ async function sendWithProgress(req,res,run){
  }catch(err){send({type:'error',error:err.message});}
  finally{res.end();}
 }
-const staticFiles={'/':'index.html','/index.html':'index.html','/app.js':'app.js','/strategy.js':'strategy.js','/research.js':'research.js','/discovery-results.js':'discovery-results.js','/progress.js':'progress.js','/upgrader.js':'upgrader.js','/architect.js':'architect.js','/architect-lab.js':'architect-lab.js','/win-conditions.js':'win-conditions.js','/cedh.js':'cedh.js','/style.css':'style.css'};
-const mime={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8'};
+const staticFiles={'/':'index.html','/index.html':'index.html','/app.js':'app.js','/strategy.js':'strategy.js','/research.js':'research.js','/discovery-results.js':'discovery-results.js','/progress.js':'progress.js','/upgrader.js':'upgrader.js','/precons.js':'precons.js','/commander-precons.json':'commander-precons.json','/architect.js':'architect.js','/architect-lab.js':'architect-lab.js','/win-conditions.js':'win-conditions.js','/cedh.js':'cedh.js','/style.css':'style.css'};
+const mime={'.json':'application/json; charset=utf-8','.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8'};
 const server=http.createServer(async(req,res)=>{
  const url=new URL(req.url,'http://localhost');
  try{

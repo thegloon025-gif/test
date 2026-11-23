@@ -1,3 +1,7 @@
+## Unreleased precon upgrades
+
+- Find a stock Commander precon by product name, set code or commander and load the list into the Upgrader. The bundled MTGJSON snapshot works offline. Secret Lair products can add their SLD card names to the cut locks.
+
 ## Unreleased Architect win conditions
 
 - Analyze the commander and final 99 for direct wins, resource loops needing a payoff, conditional finishes, value engines and incomplete packages. Expand a line to inspect its starting state, payments, execution, selected Oracle text and source.

@@ -1,3 +1,8 @@
+## Precon upgrades
+
+- [x] Load bundled MTGJSON stock lists into the existing single-commander upgrade review.
+- [ ] Support products with multiple designated commanders in the Upgrader.
+
 ## Architect simulations (unreleased)
 
 - [x] Primary Architect workflow, separate B3/B4 validation and individual TXT export.
