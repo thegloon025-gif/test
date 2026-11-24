@@ -1,3 +1,4 @@
+import {deckTxtFilename} from './deck-filename.js';
 import {localPost} from './local-api.js';
 import {mountPreconPicker} from './precons.js';
 import {renderWinConditions} from './win-conditions.js';
@@ -45,7 +46,7 @@ $('up-file').onchange = async () => {
 async function analyze(){if(busy)return;busy=true;current=null;const requestRevision=revision;for(const b of $('up-results').querySelectorAll('button'))b.disabled=true;$('up-analyze').disabled=true;$('up-download').disabled=true;$('up-export').value='';$('up-status').textContent='Analyzing local catalog…';
  try{const text=$('up-text').value;if(text!==original){accepted=[];rejected.clear();original=text;architectPackages=[];$('up-original').value='';}
  const cuts=lines('up-cuts'),adds=lines('up-adds');const payload={text,commanderId:$('up-commander').value||null,bracket:Number($('up-bracket').value),budget:Number($('up-budget').value),budgetTolerance:$('up-tolerance').checked?4:0,pricingMode:$('up-pricing').value,owned:lines('up-owned'),locked:lines('up-locked'),accepted,customPackages:[...architectPackages,...(cuts.length||adds.length?[{cuts,adds}]:[])],resaleEnabled:$('up-resale').checked,resaleCredit:Number($('up-credit').value),compare:$('up-compare').checked};
- const response=await localPost('/api/upgrader/analyze',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});const x=await response.json();if(requestRevision!==revision)return;if(!response.ok)throw Error(x.error||'Request failed');current=x;$('up-results').replaceChildren();
+ const response=await localPost('/api/upgrader/analyze',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});const x=await response.json();if(requestRevision!==revision)return;if(!response.ok)throw Error(x.error||'Request failed');current={...x,bracket:payload.bracket};$('up-results').replaceChildren();
  if(x.candidates){const value=$('up-commander').value;$('up-commander').replaceChildren(new Option('Choose commander',''),...x.candidates.map(c=>new Option(c.name,c.id)));$('up-commander').value=value;}
  if(x.stage!=='review'){$('up-status').textContent=x.needsCommander?'Choose the commander above and analyze again.':(x.errors||[]).join('\n');return;}
  const wins=document.createElement('section');renderWinConditions(wins,x.winConditions);$('up-results').append(wins);
@@ -60,7 +61,7 @@ async function analyze(){if(busy)return;busy=true;current=null;const requestRevi
  const evidence=document.createElement('details'),summary=document.createElement('summary'),pre=document.createElement('pre');summary.textContent='Functions, dependencies, combo prerequisites and exact printing receipts';pre.textContent=JSON.stringify({analysis:x.analysis,originalPricing:x.original.audit,proposedPricing:x.proposed.audit,goldfish:x.goldfish,runtime:x.runtime},null,2);evidence.append(summary,pre);$('up-results').append(evidence);
  }catch(e){$('up-status').textContent=e.message;}finally{busy=false;$('up-analyze').disabled=false;for(const b of $('up-results').querySelectorAll('button'))b.disabled=false;}}
 $('up-analyze').onclick=analyze;$('up-reset').onclick=()=>{accepted=[];rejected.clear();analyze();};
-$('up-download').onclick=()=>{if(!current?.canExport)return;const blob=new Blob([current.proposed.deck],{type:'text/plain'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='CommanderOracle-experimental-upgraded.txt';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
+$('up-download').onclick=()=>{if(!current?.canExport)return;const blob=new Blob([current.proposed.deck],{type:'text/plain'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=deckTxtFilename(current.proposed.deck,current.bracket);a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
 for(const id of ['up-text','up-commander','up-budget','up-tolerance','up-bracket','up-pricing','up-owned','up-locked','up-resale','up-credit','up-cuts','up-adds'])$(id).addEventListener('input',()=>{revision++;current=null;$('up-download').disabled=true;$('up-export').value='';$('up-status').textContent='Inputs changed. Recalculate before exporting.';});
 
 window.addEventListener('architect-upgrade',event=>{if(!Array.isArray(event.detail?.packages)||event.detail.packages.length>3)return;architectPackages=structuredClone(event.detail.packages);original=$('up-text').value;accepted=[];revision++;analyze();});

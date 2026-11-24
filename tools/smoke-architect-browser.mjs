@@ -108,7 +108,7 @@ try {
   );
   const download = page.waitForEvent("download");
   await page.locator("#ai-download").click();
-  assert.match((await download).suggestedFilename(), /AI-advisory/);
+  assert.match((await download).suggestedFilename(), / - Bracket [345]\.txt$/);
   checks.push("manual 100-card builder result revalidated on download");
   await page.locator("#experimental-upgrader summary").first().click();
   await page

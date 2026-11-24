@@ -1,3 +1,4 @@
+import {deckTxtFilename} from './deck-filename.js';
 import {localPost} from './local-api.js';
 const $=id=>document.getElementById(id);
 const panel=document.createElement('details');
@@ -160,7 +161,7 @@ command('pl-inspect',async()=>{
 });
 async function download(format){
   const v=await post('inspect',inputs()),url=URL.createObjectURL(new Blob([format==='Archidekt'?v.archidekt:v.text],{type:'text/plain'}));
-  const a=document.createElement('a');a.href=url;a.download='CommanderOracle-'+format+'.txt';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+  const a=document.createElement('a');a.href=url;a.download=deckTxtFilename(v.text,v.bracket);a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
 }
 command('pl-archidekt',()=>download('Archidekt'));command('pl-mox',()=>download('Moxfield'));
 $('pl-filter').oninput=showStock;$('pl-card').onchange=showReserved;

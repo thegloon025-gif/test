@@ -1,3 +1,4 @@
+import {deckTxtFilename} from './deck-filename.js';
 import {localPost} from './local-api.js';
 import {renderWinConditions} from './win-conditions.js';
 import {renderArchitectLab} from "./architect-lab.js";
@@ -680,8 +681,9 @@ $("ai-library").onclick=()=>{
 $("ai-download").onclick = () =>
   action(async () => {
     if (!validated || validated.mode !== "builder" || labResult?.original.bracketIssue) return;
+    const settings = buildSettings;
     const x = await post("import", {
-      ...buildSettings,
+      ...settings,
       result: JSON.stringify({ deck: validated.deck }),
     });
     if (!x.valid){show(x);return;}
@@ -690,7 +692,7 @@ $("ai-download").onclick = () =>
       ),
       a = document.createElement("a");
     a.href = url;
-    a.download = "CommanderOracle-Architect-B"+buildSettings.bracket+".txt";
+    a.download = deckTxtFilename(x.deck, settings.bracket);
     a.click();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   });

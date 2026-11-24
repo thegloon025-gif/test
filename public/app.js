@@ -1,3 +1,4 @@
+import {deckTxtFilename} from './deck-filename.js';
 import {localPost} from './local-api.js';
 import {renderWinConditions} from './win-conditions.js';
 import {postWithProgress} from './progress.js';
@@ -208,7 +209,7 @@ const w=$('warnings');w.replaceChildren();for(const msg of r.warnings){const p=d
 $('copy-archidekt').addEventListener('click',async()=>{if(!lastDeck?.archidektImport)return;try{await navigator.clipboard.writeText(lastDeck.archidektImport);$('copy-archidekt').textContent='Copied Archidekt list!';setTimeout(()=>$('copy-archidekt').textContent='Copy Archidekt category list',1400);}catch(e){notice('Could not copy Archidekt import: '+e.message);}});
 $('save-generated-library').onclick=()=>{if(lastDeck)window.dispatchEvent(new CustomEvent('player-deck',{detail:{text:lastDeck.deck,name:lastDeck.commander?.name||lastDeck.commander||'Generated deck',bracket:lastDeck.bracket,pricingMode:lastDeck.pricing?.mode,ownedBasics:lastDeck.budgetPolicy?.basicLandsOwned}}));};
 $('copy').addEventListener('click',async()=>{if(!lastDeck)return;try{await navigator.clipboard.writeText(lastDeck.deck);$('copy').textContent='Copied!';setTimeout(()=>$('copy').textContent='Copy Moxfield-format list',1300);}catch(e){notice('Could not copy: '+e.message);}});
-$('save').addEventListener('click',()=>{if(!lastDeck)return;const blob=new Blob([lastDeck.deck],{type:'text/plain;charset=utf-8'});const href=URL.createObjectURL(blob);const a=document.createElement('a');a.href=href;a.download='CommanderOracle-'+lastDeck.commander.replace(/[^a-z0-9]+/gi,'-')+'-B'+lastDeck.bracket+'.txt';a.click();URL.revokeObjectURL(href);});
+$('save').addEventListener('click',()=>{if(!lastDeck)return;const blob=new Blob([lastDeck.deck],{type:'text/plain;charset=utf-8'});const href=URL.createObjectURL(blob);const a=document.createElement('a');a.href=href;a.download=deckTxtFilename(lastDeck.deck,lastDeck.bracket);a.click();URL.revokeObjectURL(href);});
 status();
 
 // Community intelligence: local, read-only import of user-specified public decks.
