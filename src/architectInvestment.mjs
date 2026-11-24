@@ -1,4 +1,4 @@
-import {castHasSubtype,castHasType,isBasic,isLandSlot,landFaces,legalFor,oracleId,priceOf} from './cards.mjs';
+import {castHasSubtype,castHasType,isBasic,isLandSlot,landFaces,legalFor,oracleId,priceOf,trueColorlessSource} from './cards.mjs';
 import {exportCardName,singletonName} from './deckValidation.mjs';
 import {dependencyEvidence,oracleText,roleEvidence} from './roleEvidence.mjs';
 import {investmentEvidence,manaCapacity} from './packageInvestment.mjs';
@@ -60,6 +60,23 @@ function landProfile(card){
  const utility=units>1||card.layout==='modal_dfc'||/^(?:Each|Other) lands? (?:is|are|you control have) /im.test(text)||
   /\{[^}]+\}[^:\n]*:\s*(?:draw|surveil|scry|exile target|destroy target|return target)/i.test(text);
  return {types,colors:[...colors],units,readiness,utility,fetch:fetchTypes(text)};
+}
+
+// Only exchange rules we can compare directly. This deliberately excludes
+// fetches, lands with other abilities, and cards with multiple playable faces.
+function simpleManaLand(row){
+ if(!row.land||row.card.card_faces?.length||row.landInfo.utility||row.landInfo.units!==1)return false;
+ const lines=landFaces(row.card)[0].oracle_text?.replaceAll(row.card.name,'This land').split('\n')||[];
+ return lines.length>0&&lines.every(line=>
+  /^\(?\{T\}: Add (?:\{[WUBRGC]\}(?:(?:, |,? or )\{[WUBRGC]\})*|one mana of any color in your commander's color identity)\.\)?$/i.test(line)||
+  /^This land enters tapped(?: unless you control (?:two or fewer other lands|two or more (?:other lands|opponents)))?\.$/i.test(line)||
+  /^As this land enters, you may pay 2 life\. If you don't, it enters tapped\.$/i.test(line));
+}
+
+function equivalentSpellKey(row){
+ const c=row.card;
+ if(row.land||c.card_faces?.length||!row.text||!['Instant','Sorcery'].includes(c.type_line))return null;
+ return JSON.stringify([c.type_line,c.mana_cost,c.cmc,[...(c.color_identity||[])].sort(),[...(c.colors||[])].sort(),row.text]);
 }
 
 function profile(card){
@@ -247,9 +264,13 @@ export function investArchitectBudget({commander,cards,catalog,variants=[],snaps
  const originalEvidence=deckEvidence(current);
  const native=new Set(originalEvidence.infrastructure.filter(row=>row.kind!=='tutor').map(row=>row.card));
  const notes=singletonName({name:[strategy?.engines,strategy?.winConversion].filter(x=>typeof x==='string').join('\n')});
- const protectedNames=new Set([...native,...originalInventory.details.flatMap(line=>[
-  ...line.pieces.map(piece=>piece.name),...line.templateMatches,...line.supportingCards.flatMap(support=>support.cards)
- ])].map(name=>singletonName({name})));
+ const protectedNames=new Set([...native,...originalInventory.details.flatMap(line=>line.pieces.map(piece=>piece.name))]
+  .map(name=>singletonName({name})));
+ // During repair, a template or supporting slot may be filled by a different
+ // card. The full inventory check below must still resolve every original line.
+ const supportNames=new Set(originalInventory.details.flatMap(line=>[
+  ...line.templateMatches,...line.supportingCards.flatMap(support=>support.cards)
+ ]).map(name=>singletonName({name})));
  const planJobs=['payoff','outlet','finisher'];
  for(const card of cards){
   const entry=originalQuality.byCard.get(card);
@@ -293,7 +314,7 @@ export function investArchitectBudget({commander,cards,catalog,variants=[],snaps
   const options=pool.filter(row=>(!occupied.has(singletonName(row.card))||isBasic(row.card))&&
    (canAddGameChanger||!row.card.game_changer));
   const cuts=current.map(discover).filter(row=>!protectedNames.has(singletonName(row.card))&&
-   (!repairingBudget||!repairAdds.has(row.card)));
+   (repairingBudget?!repairAdds.has(row.card):!supportNames.has(singletonName(row.card))));
   const targeted=cuts.filter(row=>!row.land&&actionable(currentQuality.byCard.get(row.card)))
    .sort((a,b)=>severity[currentQuality.byCard.get(b.card).status]-severity[currentQuality.byCard.get(a.card).status]||stable(a,b));
   if(!broadPass&&!targeted.length&&!repairingBudget&&!filling){
@@ -309,13 +330,39 @@ export function investArchitectBudget({commander,cards,catalog,variants=[],snaps
    sumEffects(currentQuality.byCard.get(a.card))+.08*onPlan(a.card).impact-
    sumEffects(currentQuality.byCard.get(b.card))-.08*onPlan(b.card).impact||b.mv-a.mv||stable(a,b)).slice(0,12);
   const targets=targeted.map(row=>'quality:'+oracleId(row.card));
-  const proposals=Object.fromEntries([...(repairingBudget&&!filling?['budget']:[]),...targets,...roles,'combos'].map(role=>[role,[]]));
-  const addProposal=(role,adds,remove,priority,repair=false)=>{
+  const proposals=Object.fromEntries([...(repairingBudget&&!filling?['budget','equivalent','landRepair']:[]),...targets,...roles,'combos'].map(role=>[role,[]]));
+  const addProposal=(role,adds,remove,priority,repair=false,tradeoff='')=>{
    if(adds.length!==remove.length+Number(filling)||new Set(remove).size!==remove.length)return;
    if(adds.some((row,i)=>row===remove[i]))return;
    const delta=total(adds.map(row=>row.card))-total(remove.map(row=>row.card));
-   proposals[role].push({round,adds,cuts:remove,delta,priority,repair});
+   proposals[role].push({round,adds,cuts:remove,delta,priority,repair,tradeoff});
   };
+  if(repairingBudget&&!filling){
+   const spellsByRules=new Map(),simpleLands=options.filter(simpleManaLand);
+   for(const row of options){
+    const key=equivalentSpellKey(row);
+    if(!key)continue;
+    if(!spellsByRules.has(key))spellsByRules.set(key,[]);
+    spellsByRules.get(key).push(row);
+   }
+   for(const cut of new Set(cuts)){
+    if(cost(cut.card)<=0)continue;
+    for(const add of spellsByRules.get(equivalentSpellKey(cut))||[]){
+     if(cost(add.card)<cost(cut.card))addProposal('equivalent',[add],[cut],0,true);
+    }
+    if(!simpleManaLand(cut))continue;
+    const from=cut.landInfo;
+    for(const add of simpleLands){
+     const to=add.landInfo;
+     if(cost(add.card)>=cost(cut.card)||!from.colors.every(color=>to.colors.includes(color))||
+      !from.types.every(type=>to.types.includes(type))||trueColorlessSource(cut.card)&&!trueColorlessSource(add.card))continue;
+     const tradeoff=to.readiness<from.readiness
+      ?(landEntryEvidence(add.card).kind==='always-tapped'?add.card.name+' enters tapped.':
+       add.card.name+' has less reliable untapped mana.'):'';
+     addProposal('landRepair',[add],[cut],to.readiness-from.readiness,true,tradeoff);
+    }
+   }
+  }
   const landOptions=options.filter(row=>row.land&&row.landInfo.readiness>=.7&&
    (row.landInfo.fetch||row.landInfo.colors.some(color=>colors.includes(color))||filling&&row.landInfo.units>0));
   const landPriority=row=>row.landInfo.fetch?2.7:
@@ -470,7 +517,10 @@ export function investArchitectBudget({commander,cards,catalog,variants=[],snaps
    changes.combos=Math.max(routeBenefit,manaOutlet&&manaRoute?1.4:0);
    changes.draw+=.75*Math.max(0,evidence.vector.independentDraw-currentEvidence.vector.independentDraw);
    changes.finish+=.5*(evidence.vector.threats-currentEvidence.vector.threats);
-   const losses=Object.keys(changes).filter(role=>changes[role]<-.4);
+   // Allow a small cumulative tempo cost only for an explicit equivalent-channel
+   // land substitution. Each earlier source, type and commander check still applies.
+   const tempoTradeoff=Boolean(p.tradeoff)&&land.value>=originalLand.value-1.5;
+   const losses=Object.keys(changes).filter(role=>changes[role]<-.4&&!(role==='mana'&&tempoTradeoff));
    if(losses.length){
     reject('Would weaken '+losses.map(role=>titles[role]).join(', ')+'.');continue;
    }
@@ -482,7 +532,8 @@ export function investArchitectBudget({commander,cards,catalog,variants=[],snaps
     return n+.5*Math.min(2,value);
    },0);
    const improvement=gain>0&&gain+restored>.35&&significant(changes).length;
-   if(!improvement&&!(p.repair&&gain>=-.28)){reject('No meaningful improvement to a supported deck function.');continue;}
+   const repairGain=tempoTradeoff?gain-.8*Math.min(0,changes.mana):gain;
+   if(!improvement&&!(p.repair&&repairGain>=-.28)){reject('No meaningful improvement to a supported deck function.');continue;}
    viable.push({p,next,changes,gain,restored,findings,improvement,land,quality,combos,evidence});
   }
   const resolved=row=>row.findings.reduce((n,entry)=>n+severity[entry.status],0);
@@ -512,7 +563,7 @@ export function investArchitectBudget({commander,cards,catalog,variants=[],snaps
    const reason=filling?'Fills the open slot and improves '+Object.keys(changes).join(', ')+'.'+routes:
     candidate.improvement?'Improves '+Object.keys(changes).join(', ')+' with supported deck functions preserved.'+routes:
     'Reduces the estimate while retaining supported deck functions.';
-   const entry=receipt(candidate.p,'accepted',reason+(corrected?' '+corrected:''),changes);
+   const entry=receipt(candidate.p,'accepted',reason+(candidate.p.tradeoff?' '+candidate.p.tradeoff:'')+(corrected?' '+corrected:''),changes);
    if(filling||repairingBudget){
     repairSteps.push(entry);
     for(const row of candidate.p.adds)repairAdds.add(row.card);

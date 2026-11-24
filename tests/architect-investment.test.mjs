@@ -160,7 +160,58 @@ test('Bracket 3 repairs a €522.43 draft under €450 when it takes more than o
  const blocked=verify([cheapRamp]);
  assert.equal(blocked.valid,false);
  assert.equal(blocked.deck,undefined);
- assert.match(blocked.issues[0],/exceeds.*450\.00 ceiling/);
+ assert.match(blocked.issues[0],/€522.43 exceeds.*450\.00 ceiling/);
+ assert.match(blocked.issues[0],/reached €479.18.*€29.18 over budget/);
+});
+
+// Prices are controlled fixtures. The two totals reproduce the reported overages.
+test('B3 repairs €285.23 by exchanging same-color lands, and reports the tapped-entry tradeoff',()=>{
+ const fast=card('Razorverge Thicket','Land','',0,
+  'This land enters tapped unless you control two or fewer other lands.\n{T}: Add {G} or {W}.',15.55,['G','W']);
+ const guildgate=card('Selesnya Guildgate','Land — Gate','',0,
+  'This land enters tapped.\n{T}: Add {G} or {W}.',.32,['G','W']);
+ const priced=catalog.map(c=>c===reservoir?{...c,prices:{eur:171.68}}:c);
+ const draft=deck.replace('13 Forest\n13 Plains\n12 Mountain','9 Forest\n9 Plains\n19 Mountain\n1 '+fast.name);
+ const verify=extras=>validateArchitectResult({...params,budget:270},JSON.stringify({deck:draft,strategy:{engines:vault.name}}),
+  [...priced,fast,...extras],[preserved],{optimizeBudget:true});
+ const repaired=verify([guildgate]);
+ assert.equal(repaired.valid,true,JSON.stringify(repaired.issues));
+ assert.equal(repaired.budgetOptimization.initialEUR,285.23);
+ assert.equal(repaired.price,270);
+ assert.equal(repaired.audit.count,100);
+ assert.deepEqual(repaired.budgetOptimization.accepted[0].adds,[guildgate.name]);
+ assert.match(repaired.budgetOptimization.accepted[0].reason,/enters tapped/i);
+ assert.equal(repaired.cardQuality.comboRoutes,1);
+ const missingWhite={...guildgate,id:'Green only',name:'Green only',oracle_text:'This land enters tapped.\n{T}: Add {G}.'};
+ assert.equal(verify([missingWhite]).valid,false);
+ const oneCentShort=verify([{...guildgate,prices:{eur:.33}}]);
+ assert.equal(oneCentShort.valid,false);
+ assert.equal(oneCentShort.deck,undefined);
+ assert.match(oneCentShort.issues[0],/reached €270.01.*€0.01 over budget/);
+});
+
+test('B4 repairs €285.37 with an equivalent token spell and honors an explicit exclusion',()=>{
+ const text='Create two 1/1 red Goblin creature tokens.';
+ const tokens=card("Krenko's Command",'Sorcery','{1}{R}',2,text,15.68,['R']);
+ const alternative=card('Dragon Fodder','Sorcery','{1}{R}',2,text,.31,['R']);
+ const priced=catalog.map(c=>c===reservoir?{...c,prices:{eur:172.24}}:c);
+ const draft=deck.replace('1 '+filler.at(-1).name,'1 '+tokens.name);
+ // The spell also fills a generic Spellbook hand prerequisite. The named
+ // combo pieces and the requirement must survive the exchange.
+ const needsSorcery={...preserved,prerequisites:['You have a sorcery card in hand with the mana to cast it.']};
+ const verify=excludedStrategies=>validateArchitectResult({...params,bracket:4,budget:270,excludedStrategies},
+  JSON.stringify({deck:draft,strategy:{engines:vault.name}}),[...priced,tokens,alternative],[needsSorcery],{optimizeBudget:true});
+ const repaired=verify('');
+ assert.equal(repaired.valid,true,JSON.stringify(repaired.issues));
+ assert.equal(repaired.budgetOptimization.initialEUR,285.37);
+ assert.equal(repaired.price,270);
+ assert.equal(repaired.audit.count,100);
+ assert.equal(repaired.cardQuality.comboRoutes,1);
+ assert.deepEqual(repaired.budgetOptimization.accepted[0].adds,[alternative.name]);
+ const blocked=verify(alternative.name);
+ assert.equal(blocked.valid,false);
+ assert.equal(blocked.deck,undefined);
+ assert.match(blocked.issues[0],/€15.37/);
 });
 
 test('Bracket 4 fills one missing slot with a priced legal card and leaves unresolved imports blocked',()=>{

@@ -1,3 +1,7 @@
+## 1.2.1 — Architect budget repair
+
+- Architect budget repair checks cheaper spells with matching rules and mana costs, interchangeable combo support, and lands that preserve mana channels with a limited tapped-entry tradeoff. Failed builds show the remaining shortfall and retain each bracket’s editable draft.
+
 ## 1.2.0 — Deck library and player tools (unreleased)
 
 - Save and branch single-commander deck versions, compare cuts and additions by role and win path, and track incremental spending. Open versions in the Upgrader or export for Archidekt and Moxfield.

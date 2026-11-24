@@ -345,9 +345,11 @@ export function validateArchitectResult(p, raw, catalog, variants = [], {optimiz
       const assess=cards=>analyzeWinConditions({commander:parsed.commander,cards},{variants,snapshot});
       const reviewIssues=messages=>({...issues(messages),...(!short?{winConditions:assess(parsed.cards)}:{})});
       const supportsPayment=payment=>payment.commanderPayment==="supported"&&payment.extraCopyPayment?.status!=="unknown";
-      const budgetError=(price,repair=false)=>reviewIssues([
+      const budgetError=(price,repair)=>reviewIssues([
         `Selected-printing value €${price.toFixed(2)} exceeds the €${ceiling.toFixed(2)} ceiling.`+
-        (repair?" Architect could not find a budget repair that preserved the deck’s supported functions.":""),
+        (repair&&repair.finalEUR<price?` The local repair reached €${repair.finalEUR.toFixed(2)}.`:"")+
+        ` Still €${((repair?.finalEUR??price)-ceiling).toFixed(2)} over budget.`+
+        (repair?" The checked replacements could not cover the difference while preserving the deck’s supported functions.":""),
       ]);
       if(short){
         const errors=deckConstraintErrors(parsed.commander,parsed.cards,{bracket,variants,catalog,...builderRules,expectedMainboard:98});
@@ -382,11 +384,11 @@ export function validateArchitectResult(p, raw, catalog, variants = [], {optimiz
             }
             return {valid:true};
           }});
-        parsed.cards=investment.cards;
         budgetOptimization=investment.report;
         cardQuality=investment.quality;
-        if(parsed.cards.length!==99)return issues(["Expected 100 cards, resolved 99. Architect could not find a validated card for the open slot."]);
-        if(budgetOptimization.finalEUR>ceiling)return budgetError(budgetOptimization.finalEUR,true);
+        if(investment.cards.length!==99)return issues(["Expected 100 cards, resolved 99. Architect could not find a validated card for the open slot."]);
+        if(budgetOptimization.finalEUR>ceiling)return budgetError(budgetOptimization.initialEUR,budgetOptimization);
+        parsed.cards=investment.cards;
       }
       cardQuality??=reviewArchitectCards({...parsed,variants,snapshot});
       const functionalReview = safeFunctionalReview({

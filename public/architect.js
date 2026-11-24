@@ -8,7 +8,7 @@ import {budgetSettings} from './app.js';
 const $ = (id) => document.getElementById(id);
 let csrf = null,
   validated = null,
-  rawResult = null,
+  rawResult = null, editingDraft = null,
   revision = 0, running = false, canRequest = false, labResult = null;
 let quotaStopped = false, restoredDailyLimit = false;
 const bracketResults = new Map();
@@ -557,6 +557,7 @@ async function runLab(deck, settings, {suggest=false, proposed}={}) {
 }
 async function showBuilt(deck,settings,{suggest=true}={}){
   buildSettings=settings;
+  editingDraft=null;
   labResult=null;
   $("ai-result").value=JSON.stringify({deck:deck.deck,strategy:deck.strategy});
   $("ai-lab-results").replaceChildren();
@@ -605,7 +606,19 @@ $("ai-run").onclick = () => action(async () => {
   $("ai-upgrade-pass").disabled=true;
   bracketResults.clear();
   $("ai-bracket-results").replaceChildren();
-  const errors=[];
+  editingDraft=null;
+  const errors=[], drafts=new Map();
+  function openDraft(bracket,result){
+    editingDraft=result;
+    if($("bracket").value==="3+4")$("ai-builder-bracket").value=String(bracket);
+    labResult=null;
+    $("ai-lab-results").replaceChildren();
+    $("ai-lab-status").textContent="";
+    $("ai-upgrade-pass").disabled=true;
+    show(result);
+    $("ai-result").value=result.unvalidatedDraft;
+    $("ai-manual").open=true;
+  }
   try {
     for(const bracket of brackets){
       $("ai-message").textContent=p.mode==="builder"&&!p.revisionRequest
@@ -617,7 +630,7 @@ $("ai-run").onclick = () => action(async () => {
       catch(err){errors.push("B"+bracket+" · "+err.message);break;}
       if(rev!==revision){$("ai-message").textContent="Inputs changed during generation.";return;}
       if(!x.valid){
-        if(x.unvalidatedDraft){$("ai-result").value=x.unvalidatedDraft;$("ai-manual").open=true;}
+        if(x.unvalidatedDraft)drafts.set(bracket,x);
         errors.push("B"+bracket+" · "+(x.issues||["Validation failed."]).join(" | "));
         continue;
       }
@@ -625,15 +638,18 @@ $("ai-run").onclick = () => action(async () => {
       bracketResults.set(bracket,{deck:x,settings});
     }
     if(brackets.length>1){
-      for(const [bracket,{deck}] of bracketResults){
+      for(const bracket of brackets){
+        const result=bracketResults.get(bracket),draft=drafts.get(bracket);
+        if(!result&&!draft)continue;
         const button=document.createElement("button");
         button.type="button";
-        button.textContent="Bracket "+bracket+" · €"+deck.price.toFixed(2);
-        button.onclick=()=>{const row=bracketResults.get(bracket);return showBuilt(row.deck,row.settings);};
+        button.textContent=result?"Bracket "+bracket+" · €"+result.deck.price.toFixed(2):"Edit Bracket "+bracket+" draft";
+        button.onclick=()=>result?showBuilt(result.deck,result.settings):openDraft(bracket,draft);
         $("ai-bracket-results").append(button);
       }
     }
     const first=bracketResults.values().next().value;
+    if(!first&&drafts.size)openDraft(...drafts.entries().next().value);
     const pending=first?showBuilt(first.deck,first.settings):null;
     if(errors.length)$("ai-message").textContent=[first?$("ai-message").textContent:"",...errors].filter(Boolean).join(" · ");
     await pending;
@@ -704,8 +720,13 @@ document.addEventListener("input", (event) => {
     revision++;
     validated = null;
     labResult = null;
-    bracketResults.clear();
-    $("ai-bracket-results").replaceChildren();
+    if(event.target.id==="ai-result"){
+      if(editingDraft)editingDraft.unvalidatedDraft=event.target.value;
+    }else{
+      editingDraft=null;
+      bracketResults.clear();
+      $("ai-bracket-results").replaceChildren();
+    }
     renderWinConditions($("ai-win-conditions"),null);
     renderCardReview(null);
     renderBudgetOptimization(null);
