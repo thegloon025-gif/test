@@ -29,6 +29,7 @@ test('combined generation endpoint returns separate audited, exportable bracket 
  const workspace=await mkdtemp(join(tmpdir(),'commander-combined-generation-'));
  t.after(()=>rm(workspace,{recursive:true,force:true}));
  await cp(join(root,'src'),join(workspace,'src'),{recursive:true});
+ await cp(join(root,'package.json'),join(workspace,'package.json'));
  await cp(join(root,'server.mjs'),join(workspace,'server.mjs'));
  await mkdir(join(workspace,'data'));
  await writeFile(join(workspace,'data','cards.json'),JSON.stringify(catalog));
@@ -49,10 +50,12 @@ test('combined generation endpoint returns separate audited, exportable bracket 
   server.stdout.on('data',chunk=>{if(chunk.toString().includes('running at'))resolve();});
  });
  const endpoint='http://127.0.0.1:'+port+'/api/generate';
+ const {csrf}=await (await fetch(new URL('/api/session',endpoint))).json();
+ assert.equal((await fetch(endpoint,{method:'POST'})).status,403);
  const payload={commanderId:eldrazi.id,bracket:'3+4',budget:20,budgetTolerance:4,
   powerTarget:'high',constructionMode:'legacy',communityMode:'off'};
  function generate(params={},stream=false){
-  const headers={'Content-Type':'application/json'};
+  const headers={'Content-Type':'application/json','x-commander-ai-session':csrf};
   if(stream)headers.Accept='application/x-ndjson';
   return fetch(endpoint,{method:'POST',headers,body:JSON.stringify({...payload,...params})});
  }

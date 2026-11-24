@@ -65,7 +65,7 @@ test('comparison aligns identical seeds, true combo access, and unsupported abil
  assert.equal(result.comparison.deltas.commanderCastPct,0);
  const direct=result.original.result.combo.find(line=>line.id==='1');
  assert.ok(direct.piecesSeenPct>0&&direct.startingStatePct>0);
- assert.equal(direct.kind,'Direct win');
+ assert.equal(direct.kind,'INCOMPLETE'); // The fixture has an outcome but no execution instructions.
  assert.equal(result.original.result.combo.find(line=>line.id==='2').startingStatePct,null);
  assert.throws(()=>architectLab({...settings,text,comparison:text.replace('1 Line B','1 Line A')},{catalog,variants}),/maximum 1/i);
 });

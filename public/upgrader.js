@@ -1,15 +1,54 @@
+import {localPost} from './local-api.js';
+import {mountPreconPicker} from './precons.js';
+import {renderWinConditions} from './win-conditions.js';
 const $=id=>document.getElementById(id);let original='',current=null,accepted=[],rejected=new Set(),busy=false,revision=0,architectPackages=[];
-const panel=document.createElement('section');panel.className='panel';panel.id='experimental-upgrader';panel.innerHTML=`<details><summary><strong>Experimental Deck Upgrader</strong> — review changes to a deck you own</summary><p>Local only. Preserves your original list. Proposals are experiments, not certified stronger decks. No purchasing or account changes.</p><label>Paste a complete 100-card text export<textarea id="up-text" rows="12" aria-label="Original decklist"></textarea></label><label>Or upload TXT<input id="up-file" type="file" accept=".txt,text/plain"></label><label>Commander (choose if ambiguous)<select id="up-commander"><option value="">Detect from list</option></select></label><label>Upgrade budget (€)<select id="up-preset"><option>20</option><option selected>40</option><option>60</option><option>Custom</option></select><input id="up-budget" type="number" min="0" step="0.01" value="40"></label><label><input id="up-tolerance" type="checkbox"> Allow an extra €4 acquisition tolerance</label><label>Target bracket<select id="up-bracket"><option>2</option><option selected>3</option><option>4</option><option value="5">5 — cEDH</option></select></label><label>Price mode<select id="up-pricing"><option value="scryfall_eur">Scryfall selected-printing estimate</option><option value="estimated_en_nm">Modeled EN NM estimate (not a quote)</option><option value="cardmarket_en_nm">Imported EN NM offers</option></select></label><label>New cards already owned (one name per line)<textarea id="up-owned" rows="2"></textarea></label><label>Lock additional cards (one name per line)<textarea id="up-locked" rows="2"></textarea></label><label><input id="up-resale" type="checkbox"> Explicitly credit my supplied resale cash</label><label>Resale cash (€; shipping excluded)<input id="up-credit" type="number" min="0" step="0.01" value="0"></label><details><summary>Optional user-directed atomic package</summary><p>One to three names on each side, one per line. Equal additions and cuts. Revalidated with every accepted package; native engines and known combos remain protected.</p><label>Cut<textarea id="up-cuts" rows="3"></textarea></label><label>Add<textarea id="up-adds" rows="3"></textarea></label></details><label><input id="up-compare" type="checkbox"> Run optional 16-trial supported goldfish comparison</label><button id="up-analyze" type="button">Analyze / recalculate</button> <button id="up-reset" type="button" class="secondary">Undo all changes</button><p id="up-status" role="status"></p><div id="up-results"></div><label>Original canonical export<textarea id="up-original" rows="8" readonly></textarea></label><label>Validated proposed export<textarea id="up-export" rows="8" readonly></textarea></label><button id="up-download" type="button" disabled>Download proposed TXT</button></details>`;
+const panel=document.createElement('section');panel.className='panel';panel.id='experimental-upgrader';panel.innerHTML=`<details><summary><strong>Experimental Deck Upgrader</strong> — review changes to a deck you own</summary><p>Local only. Preserves your original list. Proposals are experiments, not certified stronger decks. No purchasing or account changes.</p><label>Paste a complete 100-card text export<textarea id="up-text" rows="12" aria-label="Original decklist"></textarea></label><label>Or upload TXT<input id="up-file" type="file" accept=".txt,text/plain"></label><label>Commander (choose if ambiguous)<select id="up-commander"><option value="">Detect from list</option></select></label><label>Upgrade budget (€)<select id="up-preset"><option>20</option><option selected>40</option><option>60</option><option>Custom</option></select><input id="up-budget" type="number" min="0" step="0.01" value="40"></label><label><input id="up-tolerance" type="checkbox"> Allow an extra €4 acquisition tolerance</label><label>Target bracket<select id="up-bracket"><option>2</option><option selected>3</option><option>4</option><option value="5">5 — cEDH</option></select></label><label>Price mode<select id="up-pricing"><option value="scryfall_eur">Scryfall selected-printing estimate</option><option value="estimated_en_nm">Modeled EN NM estimate (not a quote)</option><option value="cardmarket_en_nm">Imported EN NM offers</option></select></label><label>New cards already owned (one name per line)<textarea id="up-owned" rows="2"></textarea></label><label>Lock additional cards (one name per line)<textarea id="up-locked" rows="2"></textarea></label><label><input id="up-resale" type="checkbox"> Explicitly credit my supplied resale cash</label><label>Resale cash (€; shipping excluded)<input id="up-credit" type="number" min="0" step="0.01" value="0"></label><details><summary>Optional user-directed atomic package</summary><p>One to three names on each side, one per line. Equal additions and cuts. Revalidated with every accepted package; native engines and known combos remain protected.</p><label>Cut<textarea id="up-cuts" rows="3"></textarea></label><label>Add<textarea id="up-adds" rows="3"></textarea></label></details><label><input id="up-compare" type="checkbox"> Run optional 16-trial supported goldfish comparison</label><button id="up-analyze" type="button">Analyze / recalculate</button> <button id="up-reset" type="button" class="secondary">Undo all changes</button><p id="up-status" role="status"></p><div id="up-results"></div><label>Original canonical export<textarea id="up-original" rows="8" readonly></textarea></label><label>Validated proposed export<textarea id="up-export" rows="8" readonly></textarea></label><button type="button" id="up-library">Open list in deck library</button> <button id="up-download" type="button" disabled>Download proposed TXT</button></details>`;
 document.querySelector('main').append(panel);
 const lines=id=>$(id).value.split('\n').map(s=>s.trim()).filter(Boolean);
+let libraryParent=null,libraryBasics=true;
+let fileRead = 0;
+let productLocks = new Set();
+function replaceDeck(text, newLocks = []) {
+  const manualLocks = lines('up-locked').filter(name => !productLocks.has(name));
+  const retained = new Set(manualLocks);
+  productLocks = new Set(newLocks.filter(name => !retained.has(name)));
+  $('up-locked').value = [...retained, ...productLocks].join('\n');
+  libraryParent=null;
+  libraryBasics=true;
+  fileRead++;
+  $('up-text').value = text;
+  $('up-commander').replaceChildren(new Option('Detect from list', ''));
+  for (const id of ['up-cuts', 'up-adds', 'up-original']) $(id).value = '';
+  $('up-results').replaceChildren();
+  accepted = [];
+  rejected.clear();
+  architectPackages = [];
+  original = text;
+  $('up-text').dispatchEvent(new Event('input'));
+}
+mountPreconPicker($('up-text').closest('label'), (deck, lockSecretLair) => {
+  if ($('up-text').value.trim() && !window.confirm('Replace the current decklist and its reviewed swaps with ' + deck.name + '?')) return false;
+  replaceDeck(deck.text, lockSecretLair ? deck.secretLair : []);
+  $('up-file').value = '';
+  $('up-status').textContent = deck.name + ' loaded. Choose your budget and bracket, then select Analyze / recalculate.';
+  return true;
+});
 $('up-preset').onchange=()=>{if($('up-preset').value!=='Custom')$('up-budget').value=$('up-preset').value;$('up-budget').dispatchEvent(new Event('input'));};
-$('up-file').onchange=async()=>{const f=$('up-file').files?.[0];if(!f)return;if(f.size>100000){$('up-status').textContent='File exceeds 100 KB';return;}$('up-text').value=await f.text();accepted=[];current=null;revision++;$('up-download').disabled=true;$('up-export').value='';};
+$('up-file').onchange = async () => {
+  const file = $('up-file').files?.[0];
+  if (!file) return;
+  if (file.size > 100000) { $('up-status').textContent = 'File exceeds 100 KB'; return; }
+  const read = ++fileRead;
+  const text = await file.text();
+  if (read === fileRead) replaceDeck(text);
+};
 async function analyze(){if(busy)return;busy=true;current=null;const requestRevision=revision;for(const b of $('up-results').querySelectorAll('button'))b.disabled=true;$('up-analyze').disabled=true;$('up-download').disabled=true;$('up-export').value='';$('up-status').textContent='Analyzing local catalog…';
  try{const text=$('up-text').value;if(text!==original){accepted=[];rejected.clear();original=text;architectPackages=[];$('up-original').value='';}
  const cuts=lines('up-cuts'),adds=lines('up-adds');const payload={text,commanderId:$('up-commander').value||null,bracket:Number($('up-bracket').value),budget:Number($('up-budget').value),budgetTolerance:$('up-tolerance').checked?4:0,pricingMode:$('up-pricing').value,owned:lines('up-owned'),locked:lines('up-locked'),accepted,customPackages:[...architectPackages,...(cuts.length||adds.length?[{cuts,adds}]:[])],resaleEnabled:$('up-resale').checked,resaleCredit:Number($('up-credit').value),compare:$('up-compare').checked};
- const response=await fetch('/api/upgrader/analyze',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});const x=await response.json();if(requestRevision!==revision)return;if(!response.ok)throw Error(x.error||'Request failed');current=x;$('up-results').replaceChildren();
+ const response=await localPost('/api/upgrader/analyze',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});const x=await response.json();if(requestRevision!==revision)return;if(!response.ok)throw Error(x.error||'Request failed');current=x;$('up-results').replaceChildren();
  if(x.candidates){const value=$('up-commander').value;$('up-commander').replaceChildren(new Option('Choose commander',''),...x.candidates.map(c=>new Option(c.name,c.id)));$('up-commander').value=value;}
  if(x.stage!=='review'){$('up-status').textContent=x.needsCommander?'Choose the commander above and analyze again.':(x.errors||[]).join('\n');return;}
+ const wins=document.createElement('section');renderWinConditions(wins,x.winConditions);$('up-results').append(wins);
  $('up-original').value=x.original.deck;$('up-export').value=x.canExport?x.proposed.deck:'';$('up-download').disabled=!x.canExport;
  $('up-status').textContent=`Original value €${x.original.value.toFixed(2)} · Result value €${x.proposed.value.toFixed(2)} · New purchases €${x.budget.grossPurchaseCost.toFixed(2)} · Explicit resale €${x.budget.resaleCredit.toFixed(2)} · Net €${x.budget.netAcquisitionCost.toFixed(2)} · Remaining €${x.budget.remaining.toFixed(2)}. ${x.errors.join(' ')}`;
  for(const p of x.proposals){const box=document.createElement('div');box.className='discovery-box';const title=document.createElement('h3');title.textContent=`${p.cuts.map(c=>c.name).join(' + ')} → ${p.adds.map(c=>c.name).join(' + ')} (€${p.purchaseCost.toFixed(2)} purchase)`;box.append(title);const info=document.createElement('p');info.textContent=p.reason+'. '+p.confidence+'. '+p.uncertainties.join('; ');box.append(info);
@@ -25,3 +64,22 @@ $('up-download').onclick=()=>{if(!current?.canExport)return;const blob=new Blob(
 for(const id of ['up-text','up-commander','up-budget','up-tolerance','up-bracket','up-pricing','up-owned','up-locked','up-resale','up-credit','up-cuts','up-adds'])$(id).addEventListener('input',()=>{revision++;current=null;$('up-download').disabled=true;$('up-export').value='';$('up-status').textContent='Inputs changed. Recalculate before exporting.';});
 
 window.addEventListener('architect-upgrade',event=>{if(!Array.isArray(event.detail?.packages)||event.detail.packages.length>3)return;architectPackages=structuredClone(event.detail.packages);original=$('up-text').value;accepted=[];revision++;analyze();});
+
+window.addEventListener('library-upgrade',event=>{
+  const p=event.detail;
+  if($('up-text').value.trim()&&$('up-text').value!==p.text&&!window.confirm('Replace the Upgrader input with this version?'))return;
+  replaceDeck(p.text);libraryParent=p.parent;libraryBasics=p.ownedBasics;
+  $('up-bracket').value=p.bracket;$('up-budget').value=p.budget;$('up-preset').value='Custom';
+  $('up-pricing').value=p.pricingMode;$('up-locked').value=p.locked.join('\n');
+  if(p.commanderId)$('up-commander').replaceChildren(new Option(p.parent?.commander||'Selected commander',p.commanderId));
+  panel.querySelector('details').open=true;panel.scrollIntoView();
+});
+$('up-library').onclick=()=>{
+  const reviewed=current?.canExport;
+  window.dispatchEvent(new CustomEvent('player-deck',{detail:{
+    text:reviewed&&accepted.length?current.proposed.deck:$('up-text').value,
+    commanderId:current?.commander?.id||$('up-commander').value||null,name:reviewed?current.commander.name+' upgrade':'Imported deck',
+    parent:libraryParent,bracket:Number($('up-bracket').value),budget:reviewed?current.budget.remaining:Number($('up-budget').value),
+    locked:lines('up-locked'),ownedBasics:libraryBasics,pricingMode:$('up-pricing').value
+  }}));
+};

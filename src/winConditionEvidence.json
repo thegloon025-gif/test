@@ -1,0 +1,231 @@
+{
+  "source": "Commander Spellbook published variants",
+  "variants": [
+    {
+      "id": "215-2226",
+      "uses": [
+        {
+          "name": "Zacama, Primal Calamity",
+          "quantity": 1,
+          "oracleId": "23270e4a-a222-4ffb-a946-d0e20d665187",
+          "usedFace": null,
+          "zoneLocations": [
+            "B"
+          ],
+          "battlefieldCardState": "",
+          "exileCardState": "",
+          "libraryCardState": "",
+          "graveyardCardState": "",
+          "mustBeCommander": false
+        },
+        {
+          "name": "Temur Sabertooth",
+          "quantity": 1,
+          "oracleId": "8bf8e846-9d10-4dbc-a379-df37bb9fb6d4",
+          "usedFace": null,
+          "zoneLocations": [
+            "B"
+          ],
+          "battlefieldCardState": "",
+          "exileCardState": "",
+          "libraryCardState": "",
+          "graveyardCardState": "",
+          "mustBeCommander": false
+        }
+      ],
+      "templateRequirements": [],
+      "manaNeeded": "",
+      "manaValueNeeded": 0,
+      "prerequisites": [
+        "Lands you control can tap to produce at least {8}{R}{G}{G}{W}."
+      ],
+      "steps": [
+        "Activate all mana producing lands you control by tapping them, adding at least {8}{R}{G}{G}{W}.\nActivate Temur Sabertooth by paying {1}{G}, returning Zacama from the battlefield to your hand.\nCast Zacama by paying {6}{R}{G}{W}.\nZacama triggers, untapping all lands you control.\nRepeat."
+      ],
+      "results": [
+        "Destroy all artifacts and enchantments opponents control",
+        "Infinite damage to creatures",
+        "Infinite enchantment destruction",
+        "Infinite creature ETB",
+        "Infinite lifegain",
+        "Infinite lifegain triggers",
+        "Infinite creature LTB",
+        "Infinite mana lands you control can produce",
+        "Infinite storm count"
+      ],
+      "identity": "RGW",
+      "comboIds": [
+        2112
+      ],
+      "url": "https://commanderspellbook.com/combo/215-2226/"
+    },
+    {
+      "id": "1835-4222",
+      "uses": [
+        {
+          "name": "Zaxara, the Exemplary",
+          "quantity": 1,
+          "oracleId": "a9946ea0-bf0e-4c9c-a3c6-21337a5029ab",
+          "usedFace": null,
+          "zoneLocations": [
+            "B"
+          ],
+          "battlefieldCardState": "",
+          "exileCardState": "",
+          "libraryCardState": "",
+          "graveyardCardState": "",
+          "mustBeCommander": false
+        },
+        {
+          "name": "Freed from the Real",
+          "quantity": 1,
+          "oracleId": "03d32ace-dd99-48c6-bcae-9b915d041aef",
+          "usedFace": null,
+          "zoneLocations": [
+            "B"
+          ],
+          "battlefieldCardState": "",
+          "exileCardState": "",
+          "libraryCardState": "",
+          "graveyardCardState": "",
+          "mustBeCommander": false
+        }
+      ],
+      "templateRequirements": [],
+      "manaNeeded": "",
+      "manaValueNeeded": 0,
+      "prerequisites": [
+        "Freed from the Real attached to Zaxara.\nZaxara does not have summoning sickness."
+      ],
+      "steps": [
+        "Activate Zaxara by tapping it, adding {U}{U}.\nActivate Freed from the Real's second ability by paying {U}, untapping Zaxara.\nRepeat."
+      ],
+      "results": [
+        "Infinite colored mana"
+      ],
+      "identity": "BGU",
+      "comboIds": [
+        2114
+      ],
+      "url": "https://commanderspellbook.com/combo/1835-4222/"
+    },
+    {
+      "id": "2484-4083",
+      "uses": [
+        {
+          "name": "Blasphemous Act",
+          "quantity": 1,
+          "oracleId": "7a2484a9-04fd-41a0-8224-610c1c07ed10",
+          "usedFace": null,
+          "zoneLocations": [
+            "H"
+          ],
+          "battlefieldCardState": "",
+          "exileCardState": "",
+          "libraryCardState": "",
+          "graveyardCardState": "",
+          "mustBeCommander": false
+        },
+        {
+          "name": "Repercussion",
+          "quantity": 1,
+          "oracleId": "f6069a4f-744e-43e8-9f8b-7c13b8b0187f",
+          "usedFace": null,
+          "zoneLocations": [
+            "B"
+          ],
+          "battlefieldCardState": "",
+          "exileCardState": "",
+          "libraryCardState": "",
+          "graveyardCardState": "",
+          "mustBeCommander": false
+        }
+      ],
+      "templateRequirements": [],
+      "manaNeeded": "{8}{R} at most",
+      "manaValueNeeded": 9,
+      "prerequisites": [
+        "{8}{R} at most"
+      ],
+      "steps": [
+        "Cast Blasphemous Act by paying at most {8}{R}, dealing 13 damage to each creature.\nRepercussion triggers for each creature dealt damage this way.\nResolve the first Repercussion trigger, dealing 13 damage to an opponent.\nRepeat step 3 for each Repercussion trigger, ensuring to resolve all triggers that would damage your opponent(s) first."
+      ],
+      "results": [
+        "Near-infinite damage to all players"
+      ],
+      "identity": "R",
+      "comboIds": [
+        28202
+      ],
+      "url": "https://commanderspellbook.com/combo/2484-4083/"
+    },
+    {
+      "id": "1368-3518-4856",
+      "uses": [
+        {
+          "name": "Underworld Breach",
+          "quantity": 1,
+          "oracleId": "27e0948b-9916-473b-8d8c-a51bdfbc7457",
+          "usedFace": null,
+          "zoneLocations": [
+            "B"
+          ],
+          "battlefieldCardState": "",
+          "exileCardState": "",
+          "libraryCardState": "",
+          "graveyardCardState": "",
+          "mustBeCommander": false
+        },
+        {
+          "name": "Lion's Eye Diamond",
+          "quantity": 1,
+          "oracleId": "ee6099b0-fb1f-42f1-b862-7708c6e36d05",
+          "usedFace": null,
+          "zoneLocations": [
+            "B"
+          ],
+          "battlefieldCardState": "",
+          "exileCardState": "",
+          "libraryCardState": "",
+          "graveyardCardState": "",
+          "mustBeCommander": false
+        },
+        {
+          "name": "Brain Freeze",
+          "quantity": 1,
+          "oracleId": "464c0150-3dbc-403b-9ada-fef25ab1f29d",
+          "usedFace": null,
+          "zoneLocations": [
+            "G"
+          ],
+          "battlefieldCardState": "",
+          "exileCardState": "",
+          "libraryCardState": "",
+          "graveyardCardState": "",
+          "mustBeCommander": false
+        }
+      ],
+      "templateRequirements": [],
+      "manaNeeded": "",
+      "manaValueNeeded": 0,
+      "prerequisites": [
+        "You have at least six other cards in hand and/or graveyard."
+      ],
+      "steps": [
+        "Activate Lion's Eye Diamond by discarding your hand and sacrificing it, adding {U}{U}{U}.\nCast Lion's Eye Diamond from your graveyard for its escape cost by exiling three cards besides Brain Freeze from your graveyard.\nCast Brain Freeze from your graveyard for its escape cost by paying {1}{U} and exiling three cards from your graveyard.\nBrain Freeze's storm ability triggers, creating at least one copy of Brain Freeze targeting yourself, and any remaining copies targeting an opponent.\nResolve each Brain Freeze, causing yourself to mill six cards and, if applicable, an opponent to mill three cards for each Brain Freeze remaining.\nRepeat."
+      ],
+      "results": [
+        "Infinite self-mill",
+        "Near-infinite colored mana",
+        "Near-infinite magecraft triggers",
+        "Near-infinite mill",
+        "Near-infinite storm count"
+      ],
+      "identity": "UR",
+      "comboIds": [
+        2425
+      ],
+      "url": "https://commanderspellbook.com/combo/1368-3518-4856/"
+    }
+  ]
+}

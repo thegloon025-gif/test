@@ -1,7 +1,7 @@
 /** Purely synthetic, self-contained A/B stress fixture. NOT a live Scryfall
  * data benchmark or independent gameplay simulation; fixed € amounts are fake.
  */
-import {generateDeck as previous} from '../benchmarks/generator-v085-reference.mjs';
+import {generateDeck as previous} from '../benchmarks/frozen/generator-v085-reference.mjs';
 import {generateDeck as updated} from '../src/generator.mjs';
 import {deckQuality} from '../src/deckQuality.mjs';
 import {planFor} from '../src/mechanics.mjs';

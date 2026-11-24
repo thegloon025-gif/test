@@ -1,3 +1,5 @@
+import {localPost} from './local-api.js';
+import {renderWinConditions} from './win-conditions.js';
 import {renderArchitectLab} from "./architect-lab.js";
 import {postWithProgress} from './progress.js';
 import {budgetSettings} from './app.js';
@@ -53,6 +55,7 @@ panel.innerHTML = `<h2>Generative AI Architect</h2>
 <div id="ai-functional-review" style="white-space:pre-wrap"></div><div id="ai-budget-review"></div><div id="ai-mana-polish"></div>
 <details><summary>Local validation evidence</summary><pre id="ai-evidence"></pre></details>
 <details><summary>Local usage history</summary><pre id="ai-history"></pre></details></details>
+<section id="ai-win-conditions" aria-live="polite"></section>
 <section class="architect-lab">
 <h3>Deck analysis and comparison</h3>
 <div class="field-row"><label>Simulation trials<select id="ai-trials"><option>100</option><option>500</option><option selected>1000</option></select></label>
@@ -60,7 +63,7 @@ panel.innerHTML = `<h2>Generative AI Architect</h2>
 <label>Second decklist for comparison<textarea id="ai-comparison" rows="4" placeholder="Optional. Mark its commander with *CMDR*."></textarea></label>
 <div class="architect-actions"><button id="ai-simulate" type="button" disabled>Run simulation</button>
 <button id="ai-upgrade-pass" type="button" disabled>Request AI upgrade pass</button>
-<button id="ai-download" type="button" disabled>Export validated deck TXT</button></div>
+<button type="button" id="ai-library" disabled>Open in deck library</button> <button id="ai-download" type="button" disabled>Export validated deck TXT</button></div>
 <p id="ai-lab-status" role="status"></p><div id="ai-lab-results"></div>
 </section>`;
 $("architect-main").append(panel);
@@ -115,7 +118,7 @@ async function status() {
 }
 async function post(action, payload) {
   if (!csrf) await status();
-  const response = await fetch("/api/architect/" + action, {
+  const response = await localPost("/api/architect/" + action, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -402,6 +405,7 @@ function renderBudgetOptimization(report) {
 function show(x) {
   validated = x.valid ? x : null;
   $("ai-review").disabled = !x.valid || x.mode !== "upgrader";
+  $("ai-library").disabled = !x.valid || x.mode !== "builder";
   $("ai-download").disabled = !x.valid || x.mode !== "builder";
   $("ai-simulate").disabled = $("ai-download").disabled;
   $("ai-message").textContent = x.valid
@@ -421,6 +425,7 @@ function show(x) {
         ),
       ].join("\n")
     : "";
+  renderWinConditions($("ai-win-conditions"),x.winConditions);
   renderBudgetReview(x);
   renderCardReview(x.cardQuality);
   renderBudgetOptimization(x.budgetOptimization);
@@ -530,6 +535,7 @@ async function runLab(deck, settings, {suggest=false, proposed}={}) {
     const outcome = await post("simulate", {...simulationInput(deck,settings),suggest,proposed});
     if (!current()) return;
     labResult=outcome;
+    renderWinConditions($("ai-win-conditions"),outcome.original.winConditions);
     renderArchitectLab($("ai-lab-results"),outcome,candidate => action(async()=>{
       if(!current()||!outcome.upgrade?.eligible||candidate!==outcome.upgrade.deck)return;
       const verified=await post("import",{...settings,result:candidate});
@@ -555,6 +561,7 @@ async function showBuilt(deck,settings,{suggest=true}={}){
   $("ai-lab-results").replaceChildren();
   show(deck);
   $("ai-message").textContent="Bracket "+settings.bracket+" · validated 100-card deck · €"+deck.price.toFixed(2);
+  if(deck.collectionPurchases)$("ai-message").textContent+=" · estimated new purchases "+(deck.collectionPurchases.cost===null?"unpriced":"€"+deck.collectionPurchases.cost.toFixed(2));
   if($("bracket").value==="3+4")$("ai-builder-bracket").value=String(settings.bracket);
   await runLab(deck,settings,{suggest});
 }
@@ -666,6 +673,10 @@ $("ai-review").onclick = () => {
   $("experimental-upgrader").querySelector("details").open = true;
   $("experimental-upgrader").scrollIntoView();
 };
+$("ai-library").onclick=()=>{
+  if(validated?.valid&&validated.mode==="builder")window.dispatchEvent(new CustomEvent('player-deck',{detail:{
+    text:validated.deck,bracket:buildSettings?.bracket,pricingMode:buildSettings?.pricingMode,ownedBasics:buildSettings?.basicLandsOwned,name:'Architect build'}}));
+};
 $("ai-download").onclick = () =>
   action(async () => {
     if (!validated || validated.mode !== "builder" || labResult?.original.bracketIssue) return;
@@ -693,6 +704,7 @@ document.addEventListener("input", (event) => {
     labResult = null;
     bracketResults.clear();
     $("ai-bracket-results").replaceChildren();
+    renderWinConditions($("ai-win-conditions"),null);
     renderCardReview(null);
     renderBudgetOptimization(null);
     $("ai-lab-results").replaceChildren();

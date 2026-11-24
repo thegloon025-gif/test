@@ -1,6 +1,6 @@
 # CommanderOracle v0.8.9 — validation and real-world limitations
 
-Date: 2026-10-21. Based on the **actual v0.8.8 release ZIP**. `benchmarks/generator-v088-reference.mjs` contains the frozen predecessor generator with imports pointing to shared current support modules; it is useful for controlled regressions, not a byte-for-byte entire-app comparison.
+Date: 2026-10-21. Based on the **actual v0.8.8 release ZIP**. `benchmarks/frozen/generator-v088-reference.mjs` contains the frozen predecessor generator with imports pointing to shared current support modules; it is useful for controlled regressions, not a byte-for-byte entire-app comparison.
 
 ## User-provided baseline (do not reverse evaluator names)
 

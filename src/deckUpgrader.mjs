@@ -61,7 +61,7 @@ export function deckConstraintErrors(commander,cards,{bracket,variants,catalog,a
 function value(commander,cards,catalog){const all=[commander,...cards],price=all.reduce((n,c)=>n+cents(c),0)/100,deck=withSelectedCards({deck:exportText(commander,cards),price,budget:price},commander,cards),audit=auditExportPricing(deck,commander,catalog);if(audit.anomalies.length||!audit.agreesWithGenerator||audit.count!==100||!audit.withinBudget)throw Error('Exact selected-printing audit failed.');return {value:price,audit,deck:deck.deck};}
 const recurringDraw=c=>(c.oracle_text||'').split('\n').some(l=>/^(?:\{[WUBRGC0-9]+\})+(?:, \{T\})?(?:, Pay [12] life)?(?:, Sacrifice (?:a|another) creature)?: (?:You gain [12] life and )?[Dd]raw (?:a|two) cards?\.$/.test(l));
 const protectedJob=j=>j.kind==='native:infrastructure'||j.kind==='recovery:zone-access'||j.kind==='payoff:death'||j.kind==='payoff:cast-pressure'||j.kind==='win:printed-outlet'||j.kind.startsWith('access:')&&j.sourceIsPersistent||j.provides.some(p=>p.kind==='token');
-export function upgradeDeck({text,commanderId,bracket=3,budget=40,budgetTolerance=0,owned=[],locked=[],accepted=[],customPackages=[],resaleEnabled=false,resaleCredit=0,compare=false}={},catalog,variants=[],{allowCompactCombosInBracket3=false}={}){
+export function upgradeDeck({text,commanderId,bracket=3,budget=40,budgetTolerance=0,owned=[],locked=[],accepted=[],customPackages=[],resaleEnabled=false,resaleCredit=0,compare=false}={},catalog,variants=[],{allowCompactCombosInBracket3=false,collectionNames=[]}={}){
  if(![2,3,4,5].includes(Number(bracket)))throw Error('Bracket must be 2–5.');bracket=Number(bracket);
  if(!Number.isFinite(budget)||budget<0||budget>100000||euro(budget)!==budget||![0,4].includes(budgetTolerance))throw Error('Upgrade budget must be EUR with at most two decimals; tolerance 0 or 4.');
  if(![owned,locked,accepted,customPackages].every(Array.isArray)||owned.length>100||locked.length>100||accepted.length>12||customPackages.length>8)throw Error('Bounded choices exceeded.');
@@ -72,7 +72,7 @@ export function upgradeDeck({text,commanderId,bracket=3,budget=40,budgetToleranc
  const analysisDone=performance.now();
  const comboRows=combo.combinations.filter(c=>c.inventoryComplete),protectedNames=new Set([...locked.map(normalizedName),...comboRows.flatMap(r=>[...r.requirements.map(q=>normalizedName(q.name)),...(r.templateInventory.matches||[]).map(normalizedName)])]);
  for(const row of ledger.cards)if(row.jobs.some(protectedJob))protectedNames.add(normalizedName(row.card));
- const normalizedOwned=new Set(owned.map(normalizedName)),seenNames=new Set([commander,...cards].map(singletonName));
+ const normalizedOwned=new Set([...owned,...collectionNames].map(normalizedName)),seenNames=new Set([commander,...cards].map(singletonName));
  const safeCuts=cards.filter(c=>!isLandSlot(c)&&!isBasic(c)&&!protectedNames.has(singletonName(c))&&/Artifact/.test(c.type_line)&&!/Creature/.test(c.type_line)&&/\bAdd\b/.test(c.oracle_text||''));
  const pool=catalog.filter(c=>legalFor(c,commander)&&!seenNames.has(singletonName(c))&&priceOf(c)!==null&&manaProfile(c,commander)&&!isLandSlot(c)&&!/Creature/.test(c.type_line)&&typeof c.mana_cost==='string'&&c.mana_cost.length>0&&!/\{[XS]\}|\/P/.test(c.mana_cost));
  // Bounded lexicographic enumeration. No merit, weighted roles, popularity or price reward.

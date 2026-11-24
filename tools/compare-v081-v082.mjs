@@ -2,7 +2,7 @@
 import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import {resolve,join} from 'node:path';
 import {gunzipSync} from 'node:zlib';
-import {generateDeck as oldGenerate} from '../benchmarks/generator-v081-reference.mjs';
+import {generateDeck as oldGenerate} from '../benchmarks/frozen/generator-v081-reference.mjs';
 import {generateDeck as newGenerate} from '../src/generator.mjs';
 import {readComboLibrary} from '../src/comboLibrary.mjs';
 import {isCommander,legalFor,isLandSlot,oracleId,priceOf} from '../src/cards.mjs';

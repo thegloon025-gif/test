@@ -2,8 +2,8 @@ import {oracleId,priceOf} from './cards.mjs';
 import {deckConstraintErrors,parseUpgradeDeck,upgradeDeck} from './deckUpgrader.mjs';
 import {applyBudgetValuation,budgetPolicy} from './budgetPolicy.mjs';
 import {exportCardName} from './deckValidation.mjs';
-import {analyzeDiscoveryCombos,indexDiscoveryCombos} from './discoveryCombos.mjs';
-import {sourceStructureEvidence} from './sourceQuality.mjs';
+import {architectComboReport} from './architectComboReport.mjs';
+import {analyzeWinConditions,assemblyQueries,lostWinPath} from './winConditions.mjs';
 import {simulateArchitectSample,simulationSettings} from './architectSimulation.mjs';
 import {assessArchitectRevision} from './architectRevisionEvidence.mjs';
 import {architectManaEvidence} from './aiArchitect.mjs';
@@ -15,21 +15,6 @@ function parsedDeck(text,catalog,commanderId){
  if(parsed.errors.length||!parsed.commander)throw Error(parsed.errors.slice(0,10).join(' | ')||'Mark the commander with *CMDR*.');
  if(commanderId&&oracleId(parsed.commander)!==commanderId)throw Error('The deck commander differs from the selected commander.');
  return parsed;
-}
-function comboReport({commander,cards},variants,snapshot){
- const quantities=new Map();
- for(const card of cards){const id=oracleId(card);quantities.set(id,(quantities.get(id)||0)+1);}
- const deck={commanderIds:[oracleId(commander)],mainboard:[...quantities].map(([id,quantity])=>({id,quantity}))};
- const catalog=[commander,...cards],byOracle=new Map(catalog.map(card=>[oracleId(card),card]));
- const index=snapshot?.index||indexDiscoveryCombos(variants);
- const result=analyzeDiscoveryCombos(deck,byOracle,index,sourceStructureEvidence(deck,catalog));
- const inventory=new Set(catalog.map(card=>card.name.toLowerCase()));
- const incomplete=(snapshot?.variants||variants).filter(variant=>{
-  const uses=variant.uses||[];
-  const missing=uses.filter(use=>!inventory.has(use.name.toLowerCase()));
-  return uses.length>=2&&missing.length===1&&uses.some(use=>use.name.toLowerCase()===commander.name.toLowerCase());
- }).slice(0,8).map(variant=>({id:variant.id,missing:variant.uses.filter(use=>!inventory.has(use.name.toLowerCase())).map(use=>use.name)}));
- return {...result,incomplete,coverage:snapshot?'Spellbook snapshot':'Saved variants only'};
 }
 const deckText=({commander,cards})=>['1 '+exportCardName(commander)+' *CMDR*',...cards.map(card=>'1 '+exportCardName(card))].join('\n');
 
@@ -73,11 +58,26 @@ export function architectLab(p,{catalog,variants=[],snapshot=null}={}){
   const all=[parsed.commander,...parsed.cards];
   const prices=all.map(priceOf);
   const price=prices.every(value=>value!==null)?prices.reduce((total,value)=>total+cents(value),0)/100:null;
-  const combos=comboReport(parsed,variants,snapshot);
+  const combos=architectComboReport(parsed,variants,snapshot);
+  const winConditions=analyzeWinConditions(parsed,{report:combos});
+  const queries=assemblyQueries(winConditions,parsed);
+  const baseLines=new Map();
+  for(const group of winConditions.groups)for(const variant of group.variants){
+   if(variant.variantId&&variant.source==='Commander Spellbook'&&!variant.family?.startsWith('conversion:'))
+    baseLines.set(variant.variantId,variant.classification);
+  }
+  const classified=combos.details.map(line=>({...line,classification:baseLines.get(line.id)}));
   const bracketIssue=targetBracket===3&&all.filter(card=>card.game_changer).length>3;
-  const {result,runs}=simulateArchitectSample({...parsed,combos:combos.details},{trials,seed,referenceCards});
-  return {runs,view:{deck:deckText(parsed),price,withinBudget:price!==null&&price<=policy.effectiveMaximum,
-   pricedCards:prices.filter(value=>value!==null).length,bracketIssue,combos:combos.counts,independentRoutes:combos.scoring.independent,
+  const {result,runs}=simulateArchitectSample({...parsed,combos:classified,assembly:queries.map(q=>q.choices)},{trials,seed,referenceCards});
+  queries.forEach(({group},i)=>{
+   const row=group.variants.length===1&&result.combo.find(c=>c.id===group.variants[0].variantId&&
+    c.pieces.length===group.variants[0].cards.length&&c.pieces.every(n=>group.variants[0].cards.includes(n)));
+   group.simulation={trials,turn:result.turnLimit,piecesSeenPct:result.assemblyPct[i],startingStatePct:row?.startingStatePct??null,execution:'Not modeled'};
+  });
+  return {runs,view:{winConditions,deck:deckText(parsed),price,withinBudget:price!==null&&price<=policy.effectiveMaximum,
+   pricedCards:prices.filter(value=>value!==null).length,bracketIssue,combos:{...combos.counts,
+    documentedDirectOutcomes:combos.counts.directWins,directWins:winConditions.groups.filter(g=>g.classification==='DIRECT WIN').length},
+   independentRoutes:winConditions.independent.length,
    comboCoverage:combos.coverage,incomplete:combos.incomplete,unmodeledComboRequirements:combos.unresolvedTemplates+combos.unresolvedPrerequisites,
    completeLineIds:combos.completeLineIds,result}};
  }
@@ -92,6 +92,7 @@ export function architectLab(p,{catalog,variants=[],snapshot=null}={}){
  }
  const recommendation=original.result;
  result.observations=[
+  ...original.winConditions.findings,
   recommendation.screwPct>=15&&'Land drops are frequently missed in the model. Review land count and cheap land search.',
   recommendation.floodPct>=15&&'Land-heavy draws are common. Review repeatable draw and lands with useful late-game effects.',
   recommendation.rampPlayedByTurnThreePct<35&&'Early ramp is rarely deployed. Review ramp cost, fixing, and entry timing.',
@@ -111,6 +112,8 @@ export function architectLab(p,{catalog,variants=[],snapshot=null}={}){
   const assessment=assessArchitectRevision(originalRuns,runs);
   const issues=deckConstraintErrors(proposed.commander,proposed.cards,{bracket,catalog:priced,variants,...builderPolicy});
   if(!next.withinBudget)issues.push('The candidate needs a fully priced list within the selected budget.');
+  const lostFinish=lostWinPath(original.winConditions,next.winConditions);
+  if(lostFinish)issues.push('The candidate loses a recognized finish: '+lostFinish.name+'.');
   if(lostCombos.length)issues.push('The candidate loses a documented combo already in the deck.');
   if(!changes.swaps.length)issues.push('The candidate has the same cards as the original.');
   if(!issues.length&&assessment.status==='supported'){

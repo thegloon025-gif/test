@@ -1,12 +1,13 @@
-// Frozen v0.8.7 generator for deterministic synthetic A/B; dependencies point to current shared modules.
-import {COLORS,faces,castHasType,castHasSubtype,playableLand,isLandSlot,isBasic,priceOf,legalFor,trueColorlessSource,coloredSources,oracleId,isCommander,landManaQuality,castFaces} from '../src/cards.mjs';
-import {planFor,analysis,synergy} from '../src/mechanics.mjs';
-import {proposeComboPackages} from '../src/comboConstruction.mjs';
-import {annotateCombos,normalizedName} from '../src/combos.mjs';
-import {exportCardName,singletonName,validateCommanderSingleton} from '../src/deckValidation.mjs';
-import {landAccess,manaRole,functionalRoles,deckQuality} from '../src/deckQuality.mjs';
-import {sampleOpeningHands} from '../src/handSampling.mjs';
-import {spellEfficiency,highPowerAudit,validPowerTarget} from '../src/highPower.mjs';
+import {COLORS,faces,castHasType,castHasSubtype,playableLand,isLandSlot,isBasic,priceOf,legalFor,trueColorlessSource,coloredSources,oracleId,isCommander,landManaQuality,castFaces} from '../../src/cards.mjs';
+import {planFor,analysis,synergy} from '../../src/mechanics.mjs';
+import {proposeComboPackages} from '../../src/comboConstruction.mjs';
+import {rankPackageNetwork,completeNetworkPackages} from '../../src/packageNetwork.mjs';
+import {annotateCombos,normalizedName} from '../../src/combos.mjs';
+import {exportCardName,singletonName,validateCommanderSingleton} from '../../src/deckValidation.mjs';
+import {landAccess,manaRole,functionalRoles,deckQuality} from '../../src/deckQuality.mjs';
+import {sampleOpeningHands} from '../../src/handSampling.mjs';
+import {spellEfficiency,highPowerAudit,validPowerTarget} from '../../src/highPower.mjs';
+import {castabilityIssues,responseProfile,cardAdvantage,selectionLimits,selectionTotals,fitsSelectionLimits} from '../../src/selectionPolicy.mjs';
 
 export const BRACKETS={
   2:{name:'Core',lands:37,curve:3.6,synergy:1.55,popularity:.35,interaction:8,ramp:9,draw:8,protection:2,maxGameChangers:0},
@@ -66,6 +67,12 @@ function quality(c,p,profile,s,a,powerTarget='balanced'){
   if(functions.mana.kind==='powerstone'||functions.mana.kind==='activated-only')base-=10;
   if(functions.draw)base+=7-(functions.conditionalDraw?5:0);
   if(functions.interaction)base+=9;
+  const response=responseProfile(c);
+  // Conditional permission counters are not equivalent to general answers;
+  // an Eldrazi deck gets no intrinsic advantage from narrow counter text.
+  if(response.narrow)base-=17;
+  if(response.soft)base-=7;
+  if(functions.draw&&!cardAdvantage(c))base-=9;
   if(functions.protection)base+=9;
   if(!functions.interaction&&a.removal)base-=4;
   if(!functions.protection&&a.protection)base-=4;
@@ -78,7 +85,7 @@ function quality(c,p,profile,s,a,powerTarget='balanced'){
     const efficient=spellEfficiency(c);
     base+=efficient.score*2.5;
     // Extra weight for proven primary gameplan; not generic popularity.
-    if(s.impact>0)base+=Math.min(10,s.impact*.25);
+    if(s.impact>0)base+=Math.min(18,s.impact*.65);
     if(s.impact===0&&!efficient.hardAnswer&&!efficient.directShield&&!efficient.cheapDraw&&!functions.mana.effective)base-=12;
   }
   return base;
@@ -106,6 +113,9 @@ export function generateDeck({cards,commander,budget=191,bracket=3,comboVariants
  if(!validPowerTarget(powerTarget))throw Error('Choose balanced or high as power target.');
  if(b!==3&&powerTarget!=='balanced')throw Error('Power target is currently supported only for Bracket 3.');
  const high=b===3&&powerTarget==='high';
+ // Bracket 4 is an intentionally optimized search profile, not Bracket 3
+ // with a relaxed Game Changer count. B3 High remains the bounded profile.
+ const optimized=b===4;
  const tuning=high?{...profile,ramp:12,interaction:12,draw:10,protection:4}:profile;
  if(!Number.isFinite(cap)||cap<=0)throw Error('Budget must be a positive euro amount.');
  if(!commander||!isCommander(commander))throw Error('Choose a legal legendary commander from the Scryfall catalog.');
@@ -113,21 +123,22 @@ export function generateDeck({cards,commander,budget=191,bracket=3,comboVariants
  const cmdPrice=priceOf(commander);
  if(cmdPrice===null)throw Error('Commander has no EUR price; cannot verify the total budget.');
  if(cmdPrice>cap)throw Error('Commander alone exceeds the requested budget.');
- const plan=planFor(commander),remaining=new Map(),chosen=[],reasons=new Map(),chosenNames=new Map();
+ const plan=planFor(commander),limits=selectionLimits(plan,b,powerTarget),remaining=new Map(),chosen=[],reasons=new Map(),chosenNames=new Map();
  let spent=cmdPrice,gcs=commander.game_changer?1:0;
  const pool=cards.filter(c=>legalFor(c,commander)&&priceOf(c)!==null);
  const lands=pool.filter(isLandSlot),nonlands=pool.filter(c=>!isLandSlot(c));
  if(nonlands.length<62)throw Error('Not enough eligible priced spells in the catalog.');
- const analyzed=nonlands.map(c=>{const a=analysis(c),s=synergy(c,plan,a);return {c,a,s,rank:quality(c,plan,tuning,s,a,powerTarget)};});
+ const analyzed=nonlands.map(c=>{const a=analysis(c),s=synergy(c,plan,a);return {c,a,s,rank:quality(c,plan,tuning,s,a,(high||optimized)?'high':'balanced')};});
  const analyzedById=new Map(analyzed.map(e=>[oracleId(e.c),e]));
  function allowed(c){return !remaining.has(oracleId(c))&&(isBasic(c)||!(chosenNames.get(singletonName(c))>0))&&singletonName(c)!==singletonName(commander)&&(!c.game_changer||gcs<profile.maxGameChangers);}
- function append(obj,why){const c=obj.c||obj;if(!allowed(c)||spent+(priceOf(c)||0)>cap+.00001)return false;remaining.set(oracleId(c),c);chosen.push(c);if(!isBasic(c))chosenNames.set(singletonName(c),(chosenNames.get(singletonName(c))||0)+1);spent+=priceOf(c)||0;gcs+=c.game_changer?1:0;reasons.set(oracleId(c),why);return true;}
+ function spellFits(c,replaces=null){return !castabilityIssues(c,chosen.filter(isLandSlot)).length&&fitsSelectionLimits(c,chosen,limits,replaces);}
+ function append(obj,why){const c=obj.c||obj;if(!allowed(c)||!spellFits(c)||spent+(priceOf(c)||0)>cap+.00001)return false;remaining.set(oracleId(c),c);chosen.push(c);if(!isBasic(c))chosenNames.set(singletonName(c),(chosenNames.get(singletonName(c))||0)+1);spent+=priceOf(c)||0;gcs+=c.game_changer?1:0;reasons.set(oracleId(c),why);return true;}
  const basicMap=new Map(lands.filter(isBasic).map(c=>[c.name,c]));
  const legalColors=(commander.color_identity||[]).filter(c=>COLORS.includes(c));
  const minBasics=legalColors.length===0?['Wastes']:legalColors.map(c=>({W:'Plains',U:'Island',B:'Swamp',R:'Mountain',G:'Forest'})[c]);
  for(const name of minBasics)if(!basicMap.has(name))throw Error(`Missing basic land ${name} in imported Scryfall dataset.`);
  const landQuota=profile.lands+(legalColors.length>=4?1:0);
- const landBudget=cap*(high?.30:.21);
+ const landBudget=cap*((high||optimized)?.30:.21);
  let landSpend=0;
  const nonBasics=lands.filter(c=>!isBasic(c)).map(c=>{
   const m=landManaQuality(c);
@@ -172,7 +183,7 @@ export function generateDeck({cards,commander,budget=191,bracket=3,comboVariants
  // Reserve real early acceleration BEFORE filling the Eldrazi and finisher
  // slots. Otherwise a deck can meet its tribal quota while having no way to
  // cast its expensive payoffs in time.
- const earlyManaGoal=high?Math.min(tuning.ramp,10):Math.min(profile.ramp,Math.max(6,Math.round(profile.ramp*.65)));
+ const earlyManaGoal=high?Math.min(tuning.ramp,10):optimized?Math.min(tuning.ramp,12):Math.min(profile.ramp,Math.max(6,Math.round(profile.ramp*.65)));
  function earlyManaCount(){return chosen.filter(c=>!isLandSlot(c)&&earlyAcceleration(c,analyzedById.get(oracleId(c))?.a||analysis(c))>-Infinity).length;}
  while(earlyManaCount()<earlyManaGoal&&chosen.length-landQuota<spellQuota){
   const available=analyzed.filter(e=>!picked.has(oracleId(e.c))&&allowed(e.c)&&spent+priceOf(e.c)<=cap&&earlyAcceleration(e.c,e.a)>-Infinity);
@@ -190,7 +201,7 @@ export function generateDeck({cards,commander,budget=191,bracket=3,comboVariants
   return true;
  }
 
- const eligibleEntry=(e,role)=>!picked.has(oracleId(e.c))&&(!role||e.s.roles.includes(role))&&allowed(e.c)&&curveAllowed(e.c)&&(spent+priceOf(e.c)<=cap)&&(!e.c.game_changer||gcs<profile.maxGameChangers);
+ const eligibleEntry=(e,role)=>!picked.has(oracleId(e.c))&&(!role||e.s.roles.includes(role))&&allowed(e.c)&&spellFits(e.c)&&curveAllowed(e.c)&&(spent+priceOf(e.c)<=cap)&&(!e.c.game_changer||gcs<profile.maxGameChangers);
  function pick(role,count,caption){
   let added=0;
   while(roleCounts(role)<count&&chosen.length-landQuota<spellQuota){
@@ -204,16 +215,16 @@ export function generateDeck({cards,commander,budget=191,bracket=3,comboVariants
  // Reserve enough real answers and protection before Eldrazi density can
  // consume every spell slot. These targets count FUNCTION, not word matches.
  // The later generic stage fills remaining gaps where the catalog supports it.
- const reserve=[{key:'interaction',target:Math.min(tuning.interaction,b===4?10:b===3?high?11:8:6),label:'Early effective interaction'},
-                {key:'draw',target:b===4?8:b===3?high?10:7:6,label:'Accessible card advantage'},
-                {key:'protection',target:b===4?3:b===3?high?4:3:2,label:'Commander shielding'}];
+ const reserve=[{key:'interaction',target:limits.interactionGoal??Math.min(tuning.interaction,b===4?10:b===3?high?11:8:6),label:'Useful interaction'},
+                {key:'draw',target:limits.drawGoal??(b===4?8:b===3?high?10:7:6),label:'Accessible card advantage'},
+                {key:'protection',target:limits.shieldingGoal??(b===4?3:b===3?high?4:3:2),label:'Commander shielding'}];
  const functionalCount=key=>chosen.filter(c=>!isLandSlot(c)&&functionalRoles(c)[key]).length;
- if(high){
+ if(high||optimized){
   // Diversify answers: a dozen counterspells cannot replace permanent removal,
   // and a counterspell counted as 'protection' cannot replace real shields.
-  for(const specialized of [{test:e=>spellEfficiency(e.c).directShield,count:3,label:'High-B3 dedicated commander protection'},
-                            {test:e=>spellEfficiency(e.c).spotRemoval,count:3,label:'High-B3 permanent removal'},
-                            {test:e=>spellEfficiency(e.c).cheapDraw,count:5,label:'High-B3 efficient card flow'}]){
+  for(const specialized of [{test:e=>spellEfficiency(e.c).directShield,count:3,label:'Dedicated commander protection'},
+                            {test:e=>spellEfficiency(e.c).spotRemoval,count:limits.typed&&high?5:3,label:'Permanent removal'},
+                            {test:e=>spellEfficiency(e.c).cheapDraw&&cardAdvantage(e.c),count:5,label:'Efficient card advantage'}]){
    let guard=0;
    while(chosen.filter(c=>!isLandSlot(c)&&specialized.test({c})).length<specialized.count&&chosen.length-landQuota<spellQuota&&guard++<60){
     const opts=analyzed.filter(e=>eligibleEntry(e,null)&&specialized.test(e));
@@ -226,46 +237,63 @@ export function generateDeck({cards,commander,budget=191,bracket=3,comboVariants
  }
  for(const q of reserve){let guard=0;
   while(functionalCount(q.key)<q.target&&chosen.length-landQuota<spellQuota&&guard++<100){
-   const options=analyzed.filter(e=>eligibleEntry(e,null)&&functionalRoles(e.c)[q.key]);
+   const options=analyzed.filter(e=>eligibleEntry(e,null)&&functionalRoles(e.c)[q.key]&&(q.key!=='draw'||!limits.typed||cardAdvantage(e.c)));
    if(!options.length)break;
    options.sort((a,b)=>b.rank-a.rank||a.c.name.localeCompare(b.c.name));
    const next=options[0];if(!append(next,q.label))break;picked.add(oracleId(next.c));
   }
  }
- // Fulfil primary plan first; generic staples must not displace the essential engine.
- for(const q of targets)pick(q.role,q.target,q.label);
- // Big on-plan spells are important: a pile of small tribal creatures is not
- // sufficient to produce a credible high-mana win condition.
- if(plan.needs.some(n=>n.kind==='typed-cast'))pick('finisher',b===2?3:4,'On-plan game-ending threat');
- const generic=[{role:'ramp' ,limit:tuning.ramp,label:'Mana development'}, {role:'removal',limit:tuning.interaction,label:'Interaction'}, {role:'draw',limit:tuning.draw,label:'Card advantage'}, {role:'protection',limit:tuning.protection,label:'Protection'}];
- const genericCount=role=>chosen.filter(c=>!isLandSlot(c)&&(role==='ramp'?manaRole(c).effective:functionalRoles(c)[role==='removal'?'interaction':role])).length;
- for(const q of generic){let safety=0;while(genericCount(q.role)<q.limit&&chosen.length-landQuota<spellQuota&&safety++<100){const p=analyzed.filter(x=>eligibleEntry(x,null)&&(q.role==='ramp'?manaRole(x.c).effective:functionalRoles(x.c)[q.role==='removal'?'interaction':q.role]));if(!p.length)break;p.sort((a,b)=>b.rank-a.rank||a.c.name.localeCompare(b.c.name));const o=p[0];if(!append(o,q.label))break;picked.add(oracleId(o.c));}}
- // v0.8.2: optional, recorded Spellbook packages AFTER ramp, plan and
- // generic safeguards, BEFORE filler. Never download during generation.
- const comboLocks=new Set(),comboSelections=[];
+ // v0.8.8: scored combo *networks* after functional reserves but before
+ // primary engine quotas and filler. A card shared by multiple viable combos
+ // has genuine marginal value. The other protection/ramp floors are already
+ // reserved and cannot be swapped away later.
+ const comboLocks=new Set(),comboSelections=[],comboNetworkTrace=[];
  const {candidates:comboCandidates,rejected:comboRejected}=proposeComboPackages({variants:comboVariants,cards:[commander,...nonlands],commander,chosen,plan,bracket:b,budget:cap,remainingSlots:99-chosen.length,gameChangers:gcs,maxGameChangers:profile.maxGameChangers,curveAllowed});
- for(const pkg of comboCandidates){
-  if(comboSelections.length)break; // bounded commitment, no combo arms race
-  if(pkg.added.length>99-chosen.length||spent+pkg.cost>cap+1e-6)continue;
-  const currentSpells=chosen.filter(c=>!isLandSlot(c));
-  if(currentSpells.filter(c=>c.cmc>=5).length+pkg.added.filter(c=>c.cmc>=5).length>maxCurve.fivePlus)continue;
-  if(currentSpells.filter(c=>c.cmc>=7).length+pkg.added.filter(c=>c.cmc>=7).length>maxCurve.sevenPlus)continue;
-  // Mandatory roles have already had priority. Unachievable targets must
-  // not block remaining free slots, nor may combo cards replace those roles.
-  if(pkg.added.some(c=>!eligibleEntry(analyzedById.get(oracleId(c)),null)))continue;
-  const added=[];
-  for(const c of pkg.added){
-   if(!append(c,`Spellbook package ${pkg.id}; game-state prerequisites require verification`))break;
+ const maxNetworkPackages=optimized?4:high?3:1;
+ const maxNetworkCards=optimized?8:high?6:3;
+ let networkNewCards=0;
+ for(let attempt=0;attempt<maxNetworkPackages;attempt++){
+  const ranked=rankPackageNetwork(comboCandidates,chosen,commander,maxNetworkCards-networkNewCards);
+  // Keep enough open spell slots for the commander's *primary strategy*.
+  // Cards in a package can themselves satisfy that strategy quota.
+  let selection=null;
+  for(const option of ranked){
+   const pkg=option.pkg,adds=option.missing;
+   if(comboSelections.some(x=>x.id===pkg.id)||!adds.length)continue;
+   if(addedTooMany(adds))continue;
+   if(spent+option.addedPrice>cap+1e-6)continue;
+   if(gcs+adds.filter(c=>c.game_changer).length>profile.maxGameChangers)continue;
+   if(adds.some(c=>!allowed(c)||!curveAllowed(c)||!analyzedById.has(oracleId(c))||castabilityIssues(c,chosen.filter(isLandSlot)).length))continue;
+   // Evaluate the complete package, not its members independently: several
+   // narrow spells can collectively exceed the cap even if each alone fits.
+   if(adds.reduce((ok,c)=>{if(!ok.valid)return ok;const next=[...ok.cards];if(!fitsSelectionLimits(c,next,limits))return {valid:false,cards:next};next.push(c);return {valid:true,cards:next};},{valid:true,cards:[...chosen]}).valid===false)continue;
+   const five=chosen.filter(c=>!isLandSlot(c)&&c.cmc>=5).length+adds.filter(c=>c.cmc>=5).length;
+   const seven=chosen.filter(c=>!isLandSlot(c)&&c.cmc>=7).length+adds.filter(c=>c.cmc>=7).length;
+   if(five>maxCurve.fivePlus||seven>maxCurve.sevenPlus)continue;
+   const afterRoleCount=role=>roleCounts(role)+adds.filter(c=>analyzedById.get(oracleId(c))?.s.roles.includes(role)).length;
+   const outstanding=Math.max(0,...targets.map(t=>t.target-afterRoleCount(t.role)));
+   if(spellQuota-(chosen.length-landQuota)-adds.length<outstanding)continue;
+   selection=option;break;
+  }
+  if(!selection)break;
+  const pkg=selection.pkg,added=[];
+  for(const c of selection.missing){
+   if(!append(c,`Overlapping Spellbook package ${pkg.id}; prerequisites unverified`))throw Error('Network package feasibility changed during selection.');
    picked.add(oracleId(c));comboLocks.add(oracleId(c));added.push(c.name);
   }
-  if(added.length===pkg.added.length){
-   for(const name of [...pkg.namedCards,...pkg.templateMatches.map(x=>x.card)]){
-    const c=[commander,...nonlands].find(x=>normalizedName(x.name)===normalizedName(name));
-    if(c&&picked.has(oracleId(c)))comboLocks.add(oracleId(c));
-   }
-   comboSelections.push({id:pkg.id,url:pkg.url,added,namedCards:pkg.namedCards,results:pkg.results,templateMatches:pkg.templateMatches,alreadyPresent:pkg.alreadyPresent,onPlanCards:pkg.onPlanCards,commanderInCombo:pkg.commanderInCombo,missingCostEstimate:r2(pkg.cost),isInfinite:pkg.isInfinite,prerequisites:pkg.prerequisites});
-  }
+  for(const id of pkg.memberIds||[])if(picked.has(id))comboLocks.add(id);
+  comboSelections.push({id:pkg.id,url:pkg.url,added,namedCards:pkg.namedCards,results:pkg.results,templateMatches:pkg.templateMatches,alreadyPresent:pkg.alreadyPresent,onPlanCards:pkg.onPlanCards,commanderInCombo:pkg.commanderInCombo,missingCostEstimate:r2(selection.addedPrice),isInfinite:pkg.isInfinite,prerequisites:pkg.prerequisites,sharedLinks:selection.sharedLinks,additionalCompleted:selection.additionalCompleted});
+  networkNewCards+=selection.missing.length;
+  comboNetworkTrace.push({id:pkg.id,added:added.length,linkedVariants:selection.sharedLinks,additionalComplete:selection.additionalCompleted});
  }
+ function addedTooMany(adds){return adds.length>spellQuota-(chosen.length-landQuota)||adds.length>maxNetworkCards-networkNewCards;}
+ // Fulfil original strategy targets *after* useful package inclusions; this
+ // counts engine cards acquired through the network toward typed-cast quotas.
+ for(const q of targets)pick(q.role,q.target,q.label);
+ if(plan.needs.some(n=>n.kind==='typed-cast'))pick('finisher',b===2?3:4,'On-plan game-ending threat');
+ const generic=[{role:'ramp',limit:tuning.ramp,label:'Mana development'}, {role:'removal',limit:limits.interactionGoal??tuning.interaction,label:'Interaction'}, {role:'draw',limit:limits.drawGoal??tuning.draw,label:'Card advantage'}, {role:'protection',limit:limits.shieldingGoal??tuning.protection,label:'Protection'}];
+ const genericCount=role=>chosen.filter(c=>!isLandSlot(c)&&(role==='ramp'?manaRole(c).effective:role==='draw'&&limits.typed?cardAdvantage(c):functionalRoles(c)[role==='removal'?'interaction':role])).length;
+ for(const q of generic){let safety=0;while(genericCount(q.role)<q.limit&&chosen.length-landQuota<spellQuota&&safety++<100){const p=analyzed.filter(x=>eligibleEntry(x,null)&&(q.role==='ramp'?manaRole(x.c).effective:q.role==='draw'&&limits.typed?cardAdvantage(x.c):functionalRoles(x.c)[q.role==='removal'?'interaction':q.role]));if(!p.length)break;p.sort((a,b)=>b.rank-a.rank||a.c.name.localeCompare(b.c.name));const o=p[0];if(!append(o,q.label))break;picked.add(oracleId(o.c));}}
  // Fill the remaining slots with on-strategy cards or useful interaction, not foreign packages.
  while(chosen.length-landQuota<spellQuota){
   const opts=analyzed.filter(e=>eligibleEntry(e,null)&&((e.s.impact>0)||(functionalRoles(e.c).interaction||functionalRoles(e.c).draw||manaRole(e.c).effective||functionalRoles(e.c).protection)));
@@ -287,12 +315,12 @@ export function generateDeck({cards,commander,budget=191,bracket=3,comboVariants
  const intrinsic=e=>e.rank+1.8*Math.log1p(priceOf(e.c)||0);
  const byMerit=analyzed.slice().sort((x,y)=>intrinsic(y)-intrinsic(x)||x.c.name.localeCompare(y.c.name));
  const genericRoles=['ramp','removal','draw','protection'];
- const genericThresholds={ramp:tuning.ramp,removal:tuning.interaction,draw:tuning.draw,protection:tuning.protection};
- for(let iteration=0;iteration<(high?24:12)&&cap-spent>0.10;iteration++){
+ const genericThresholds={ramp:tuning.ramp,removal:limits.interactionGoal??tuning.interaction,draw:limits.drawGoal??tuning.draw,protection:limits.shieldingGoal??tuning.protection};
+ for(let iteration=0;iteration<((high||optimized)?24:12)&&cap-spent>0.10;iteration++){
   const spells=chosen.filter(c=>!isLandSlot(c));
   const roleTotal=Object.fromEntries([...new Set(targets.map(x=>x.role))].map(role=>[role,spells.filter(c=>analyzedById.get(oracleId(c))?.s.roles.includes(role)).length]));
   const genericTotal=Object.fromEntries(genericRoles.map(role=>[role,spells.filter(c=>role==='ramp'?manaRole(c).effective:functionalRoles(c)[role==='removal'?'interaction':role]).length]));
-  const powerCounts=high?highPowerAudit(spells):null;
+  const powerCounts=(high||optimized)?highPowerAudit(spells):null;
   const currentC=chosen.filter(trueColorlessSource).length;
   const currentEarly=earlyManaCount();
   const fiveCount=spells.filter(c=>c.cmc>=5).length,sevenCount=spells.filter(c=>c.cmc>=7).length;
@@ -312,7 +340,7 @@ export function generateDeck({cards,commander,budget=191,bracket=3,comboVariants
     const newMerit=intrinsic(next);
     const delta=newMerit-oldMerit;
     if(delta<=1.5)break; // Candidates are sorted by intrinsic merit.
-    if(priceOf(next.c)>maxUpgradeCost+1e-6||!allowed(next.c))continue;
+    if(priceOf(next.c)>maxUpgradeCost+1e-6||!allowed(next.c)||!spellFits(next.c,old))continue;
     if(next.c.game_changer&&!old.game_changer&&gcs>=profile.maxGameChangers)continue;
     if(plan.needsColorless&&trueColorlessSource(old)&&!trueColorlessSource(next.c)&&currentC<=9)continue;
     // A stronger-looking generic card must not replace a markedly more
@@ -324,12 +352,12 @@ export function generateDeck({cards,commander,budget=191,bracket=3,comboVariants
     // current build could not reach a quota, don't make its deficit worse.
     const losesCore=targets.some(t=>oldRoles.includes(t.role)&&!next.s.roles.includes(t.role)&&roleTotal[t.role]<=t.target);
     if(losesCore)continue;
-    const fn=(card,r)=>r==='ramp'?manaRole(card).effective:functionalRoles(card)[r==='removal'?'interaction':r];
+    const fn=(card,r)=>r==='ramp'?manaRole(card).effective:r==='draw'&&limits.typed?cardAdvantage(card):functionalRoles(card)[r==='removal'?'interaction':r];
     const losesGeneric=genericRoles.some(r=>fn(old,r)&&!fn(next.c,r)&&genericTotal[r]<=genericThresholds[r]);
     if(losesGeneric)continue;
-    if(high){
+    if(high||optimized){
      const oldEff=spellEfficiency(old),newEff=spellEfficiency(next.c);
-     const critical=[['directShield',3],['spotRemoval',3],['cheapDraw',5]];
+     const critical=[['directShield',3],['spotRemoval',limits.typed&&high?5:3],['cheapDraw',5]];
      if(critical.some(([key,floor])=>oldEff[key]&&!newEff[key]&&powerCounts[key]<=floor))continue;
     }
 
@@ -384,20 +412,23 @@ export function generateDeck({cards,commander,budget=191,bracket=3,comboVariants
  const selectedSpells=cards99.filter(c=>!isLandSlot(c));
  const demand=Object.fromEntries(legalColors.map(color=>[color,selectedSpells.reduce((n,c)=>n+manaPips(c).filter(x=>x===color).length,0)]));
  const qualityAudit=deckQuality({cards:cards99,commander,plan,bracket:b});
- const highAudit=high?highPowerAudit(cards99):null;
+ const selectionAudit={limits,totals:selectionTotals(cards99),castabilityIssues:cards99.filter(c=>!isLandSlot(c)).flatMap(c=>castabilityIssues(c,cards99.filter(isLandSlot)).map(issue=>({card:c.name,issue}))),method:'Card-independent interaction ceilings and explicit snow-mana feasibility; not full casting simulation'};
+ const highAudit=(high||optimized)?highPowerAudit(cards99):null;
  const openingHands=sampleOpeningHands(cards99,{seed:`${oracleId(commander)}:B${b}`});
  const sources=Object.fromEntries(legalColors.map(color=>[color,qualityAudit.landSources[color]]));
  const weakColors=legalColors.filter(color=>demand[color]>0&&sources[color]<Math.min(12,legalColors.length>=4?Math.max(6,Math.min(9,Math.ceil(demand[color]*.7))):Math.max(10,Math.ceil(demand[color]*.8))));
  const missing=actualCounts.filter(x=>x.actual<x.target).map(q=>`${q.label}: ${q.actual}/${q.target}`);
  if(plan.needsColorless>0 && colorless < (legalColors.length>=4?9:8))missing.push(`True colorless-producing cards: ${colorless}`);
  for(const color of weakColors)missing.push(`Weak ${color} access: ${sources[color]} sources for ${demand[color]} colored pips`);
+ if(selectionAudit.castabilityIssues.length)missing.push(`${selectionAudit.castabilityIssues.length} spell(s) with unsupported casting costs`);
  if(!valid)missing.push(`Deck size or lands incomplete: ${cards99.length}/99 cards; ${cards99.filter(isLandSlot).length}/${landQuota} lands`);
  const comboInventory=comboVariants.length?annotateCombos({included:comboVariants,near:[],reportedIncluded:comboVariants.length,reportedNear:0},{commanderIds:[oracleId(commander)],mainboard:cards99.map(c=>({id:oracleId(c),quantity:1}))},cards):null;
- const comboPlan={source:'Locally recorded Commander Spellbook variants',knownVariants:comboVariants.length,candidatePackages:comboCandidates.length,rejectedPackages:comboRejected.length,selected:comboSelections,inventoryComplete:comboInventory?.counts.complete??0,inventoryInfinite:comboInventory?.counts.infiniteComplete??0,inventoryCombinations:(comboInventory?.complete||[]).slice(0,20).map(v=>({id:v.id,url:v.url,namedCards:v.cards,templateMatches:v.templateMatches,results:v.results,prerequisites:v.prerequisites,executionVerified:false})),executionVerified:false};
+ const comboNetwork={packagesCommitted:comboSelections.length,newCards:networkNewCards,completeEligibleNetworks:completeNetworkPackages(comboCandidates,[...chosen],commander).length,selections:comboNetworkTrace,method:'Shared-component Spellbook graph; inventory evidence only, not executable wins or externally measured power'};
+ const comboPlan={network:comboNetwork,source:'Locally recorded Commander Spellbook variants',knownVariants:comboVariants.length,candidatePackages:comboCandidates.length,rejectedPackages:comboRejected.length,selected:comboSelections,inventoryComplete:comboInventory?.counts.complete??0,inventoryInfinite:comboInventory?.counts.infiniteComplete??0,inventoryCombinations:(comboInventory?.complete||[]).slice(0,20).map(v=>({id:v.id,url:v.url,namedCards:v.cards,templateMatches:v.templateMatches,results:v.results,prerequisites:v.prerequisites,executionVerified:false})),executionVerified:false};
  // Independently check the final *exported* list, not only catalog identities.
  const finalCards=cards99.sort((a,b)=>Number(isLandSlot(a))-Number(isLandSlot(b))||a.name.localeCompare(b.name));
  const exportAudit=validateCommanderSingleton({name:exportCardName(commander),type_line:commander.type_line,oracle_text:commander.oracle_text,card_faces:commander.card_faces,layout:commander.layout},finalCards.map(c=>({...c,name:exportCardName(c)})));
  if(!exportAudit.valid)throw Error(`Export singleton validation failed: ${exportAudit.violations.join('; ')}`);
  const exportDeck=[`1 ${displayName(commander)} *CMDR*`,...finalCards.map(c=>`1 ${displayName(c)}`)].join('\n');
- return {commander:commander.name,plan:plan.label,confidence:plan.confidence,powerTarget,highPowerAudit:highAudit,bracket:b,budget:cap,price:r2(spent),totalCards:cards99.length+1,landCount:cards99.filter(isLandSlot).length,colorlessSources:colorless,comboPlan,reinvestment:{spentBefore:r2(beforeReinvest),spentAfter:r2(spent),swaps:reinvestments},earlyAcceleration:earlyManaCount(),qualityAudit,openingHands,highManaValueSpells:cards99.filter(c=>!isLandSlot(c)&&c.cmc>=5).length,sevenPlusSpells:cards99.filter(c=>!isLandSlot(c)&&c.cmc>=7).length,coloredMana:{demand,sources},gameChangers:gcs,qualityVerdict:!valid?'INCOMPLETE':plan.confidence==='low'?'UNCLASSIFIED COMMANDER':(missing.length||qualityAudit.warnings.length)?'PLAYABILITY NEEDS REVIEW':'HEURISTIC TARGETS MET — NOT PLAYTEST CERTIFIED',warnings:[...missing,...qualityAudit.warnings,...(plan.confidence==='low'?['Commander mechanic not yet recognized. This deck cannot be certified.']:[]),'Budget estimates use cached Scryfall EUR prices (not necessarily the cheapest printing); basic lands assumed owned.','Brackets are approximate playstyle profiles, not independently verified official bracket compliance. Combo policy is deliberately conservative.',...(comboVariants.length?['Combo inventory matches are not proof of executable win conditions or bracket compliance.']:['No locally verified Spellbook variants for this commander; generation used existing strategy rules without combo assertions.'])],needs:actualCounts,deck:exportDeck,sections:{lands:cards99.filter(isLandSlot).map(displayName),spells:cards99.filter(c=>!isLandSlot(c)).map(displayName)},reasons:cards99.filter(c=>!isLandSlot(c)).slice(0,20).map(c=>({name:c.name,reason:reasons.get(oracleId(c))}))};
+ return {commander:commander.name,plan:plan.label,confidence:plan.confidence,powerTarget,highPowerAudit:highAudit,bracket:b,budget:cap,price:r2(spent),totalCards:cards99.length+1,landCount:cards99.filter(isLandSlot).length,colorlessSources:colorless,comboPlan,reinvestment:{spentBefore:r2(beforeReinvest),spentAfter:r2(spent),swaps:reinvestments},earlyAcceleration:earlyManaCount(),qualityAudit,selectionAudit,openingHands,highManaValueSpells:cards99.filter(c=>!isLandSlot(c)&&c.cmc>=5).length,sevenPlusSpells:cards99.filter(c=>!isLandSlot(c)&&c.cmc>=7).length,coloredMana:{demand,sources},gameChangers:gcs,qualityVerdict:!valid?'INCOMPLETE':plan.confidence==='low'?'UNCLASSIFIED COMMANDER':(missing.length||qualityAudit.warnings.length)?'PLAYABILITY NEEDS REVIEW':'HEURISTIC TARGETS MET — NOT PLAYTEST CERTIFIED',warnings:[...missing,...qualityAudit.warnings,...(plan.confidence==='low'?['Commander mechanic not yet recognized. This deck cannot be certified.']:[]),'Budget estimates use cached Scryfall EUR prices (not necessarily the cheapest printing); basic lands assumed owned.','Brackets are approximate playstyle profiles, not independently verified official bracket compliance. Combo policy is deliberately conservative.',...(comboVariants.length?['Combo inventory matches are not proof of executable win conditions or bracket compliance.']:['No locally verified Spellbook variants for this commander; generation used existing strategy rules without combo assertions.'])],needs:actualCounts,deck:exportDeck,sections:{lands:cards99.filter(isLandSlot).map(displayName),spells:cards99.filter(c=>!isLandSlot(c)).map(displayName)},reasons:cards99.filter(c=>!isLandSlot(c)).slice(0,20).map(c=>({name:c.name,reason:reasons.get(oracleId(c))}))};
 }

@@ -5,7 +5,7 @@ import {fileURLToPath} from 'node:url';
 import {gzipSync} from 'node:zlib';
 
 const here=dirname(fileURLToPath(import.meta.url));
-const roots=[resolve(here,'..'),here];
+const roots=[here,resolve(here,'..')];
 let root, source;
 for(const dir of roots){const candidate=join(dir,'data','cards.json');try{await stat(candidate);root=dir;source=candidate;break;}catch{}}
 if(!source){console.error('Cannot find data/cards.json. Place this file beside server.mjs (or in its tools/ folder) inside your already-synced CommanderOracle installation.');process.exitCode=1;}

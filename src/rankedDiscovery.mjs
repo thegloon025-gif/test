@@ -10,19 +10,20 @@ const round=n=>Math.round(n*100)/100;
 const sourceRecord=deck=>({id:deck.sourceId,title:deck.title,url:deck.url,owner:deck.owner,edhBracket:deck.edhBracket});
 const cardlistKey=deck=>JSON.stringify([deck.commanderIds,deck.mainboard.map(({id,quantity})=>[id,quantity])]);
 
-function sourcePrice(deck,pricedById,maximum){
+function sourcePrice(deck,pricedById,maximum,stock){
  let known=0,unpricedCards=0;
  for(const {id,quantity} of [...deck.commanderIds.map(id=>({id,quantity:1})),...deck.mainboard]){
   const record=pricedById.get(id),price=record?priceOf(record):null;
-  if(price===null||price<0)unpricedCards+=quantity;
-  else known+=price*quantity;
+  const needed=Math.max(0,quantity-(stock?.get(id)||0));
+  if(price===null||price<0)unpricedCards+=needed;
+  else known+=price*needed;
  }
  const knownEur=round(known);
  const budgetStatus=knownEur>maximum?'over-budget':unpricedCards?'unconfirmed':'within-budget';
  return {estimatedEur:unpricedCards?null:knownEur,knownEur,unpricedCards,budgetStatus};
 }
 
-function evaluateDeck(deck,byOracle,pricedById,maximum,spellbook){
+function evaluateDeck(deck,byOracle,pricedById,maximum,spellbook,stock){
  const commander=byOracle.get(deck.commanderIds[0]);
  const records=[commander,...deck.mainboard.map(item=>byOracle.get(item.id))];
  const structure=sourceStructureEvidence(deck,records);
@@ -36,7 +37,7 @@ function evaluateDeck(deck,byOracle,pricedById,maximum,spellbook){
  });
  const largestGap=Math.max(0,...coloredGaps);
  const manaPenalty=round(8*largestGap+(needsColorless?Math.max(0,4-mana.realColorless):0));
- const price=sourcePrice(deck,pricedById,maximum);
+ const price=sourcePrice(deck,pricedById,maximum,stock);
  const combo=spellbook.snapshot?analyzeDiscoveryCombos(deck,byOracle,spellbook.snapshot.index,structure):null;
  const comboStatus=!combo?'unavailable':
   spellbook.status==='stale'||spellbook.snapshot.skipped>0||combo.unresolvedTemplates>0||combo.unresolvedPrerequisites>0?'partial':'checked';
@@ -52,7 +53,7 @@ function evaluateDeck(deck,byOracle,pricedById,maximum,spellbook){
 /** Read-only ranked public search. The title list is bounded and each ranked
  * source must pass exact commander, bracket and inventory verification. */
 export async function rankPublicDecks({commanderId,commanderName,bracket='3+4',startPage=1,
- catalog,pricedCatalog=catalog,budgetMaximum,pricingLabel,pricingWarning=null,onProgress=()=>{},
+ catalog,pricedCatalog=catalog,stock,budgetMaximum,pricingLabel,pricingWarning=null,onProgress=()=>{},
  search=discoverPublicDecks,fetchDeck=fetchArchidektDeck,snapshot=getSpellbookSnapshot,archidektOptions={}}){
  onProgress({phase:'search'});
  const listing=await search(commanderName,{bracket,startPage,...archidektOptions});
@@ -104,7 +105,7 @@ export async function rankPublicDecks({commanderId,commanderName,bracket='3+4',s
  const results=[];
  for(const {deck,sources} of lists.values()){
   onProgress({phase:'score',checked:results.length,total:lists.size});
-  results.push({...evaluateDeck(deck,byOracle,pricedById,budgetMaximum,spellbook),sources});
+  results.push({...evaluateDeck(deck,byOracle,pricedById,budgetMaximum,spellbook,stock),sources});
  }
  results.sort((a,b)=>b.score-a.score||b.scoreBreakdown.structure-a.scoreBreakdown.structure||
   (a.estimatedEur??Infinity)-(b.estimatedEur??Infinity)||Number(a.id)-Number(b.id));

@@ -33,6 +33,7 @@ for(const {name,version,message} of scenarios)test('Architect handles '+name,{ti
   }
   await rm(directory,{recursive:true,force:true});
  });
+ await cp(join(root,'package.json'),join(directory,'package.json'));
  await cp(join(root,'server.mjs'),join(directory,'server.mjs'));
  await cp(join(root,'src'),join(directory,'src'),{recursive:true});
  if(version!==null){

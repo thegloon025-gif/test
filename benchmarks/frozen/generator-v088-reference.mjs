@@ -1,12 +1,12 @@
-import {COLORS,faces,castHasType,castHasSubtype,playableLand,isLandSlot,isBasic,priceOf,legalFor,trueColorlessSource,coloredSources,oracleId,isCommander,landManaQuality,castFaces} from '../src/cards.mjs';
-import {planFor,analysis,synergy} from '../src/mechanics.mjs';
-import {proposeComboPackages} from '../src/comboConstruction.mjs';
-import {rankPackageNetwork,completeNetworkPackages} from '../src/packageNetwork.mjs';
-import {annotateCombos,normalizedName} from '../src/combos.mjs';
-import {exportCardName,singletonName,validateCommanderSingleton} from '../src/deckValidation.mjs';
-import {landAccess,manaRole,functionalRoles,deckQuality} from '../src/deckQuality.mjs';
-import {sampleOpeningHands} from '../src/handSampling.mjs';
-import {spellEfficiency,highPowerAudit,validPowerTarget} from '../src/highPower.mjs';
+import {COLORS,faces,castHasType,castHasSubtype,playableLand,isLandSlot,isBasic,priceOf,legalFor,trueColorlessSource,coloredSources,oracleId,isCommander,landManaQuality,castFaces} from '../../src/cards.mjs';
+import {planFor,analysis,synergy} from '../../src/mechanics.mjs';
+import {proposeComboPackages} from '../../src/comboConstruction.mjs';
+import {rankPackageNetwork,completeNetworkPackages} from '../../src/packageNetwork.mjs';
+import {annotateCombos,normalizedName} from '../../src/combos.mjs';
+import {exportCardName,singletonName,validateCommanderSingleton} from '../../src/deckValidation.mjs';
+import {landAccess,manaRole,functionalRoles,deckQuality} from '../../src/deckQuality.mjs';
+import {sampleOpeningHands} from '../../src/handSampling.mjs';
+import {spellEfficiency,highPowerAudit,validPowerTarget} from '../../src/highPower.mjs';
 
 export const BRACKETS={
   2:{name:'Core',lands:37,curve:3.6,synergy:1.55,popularity:.35,interaction:8,ramp:9,draw:8,protection:2,maxGameChangers:0},

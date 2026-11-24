@@ -6,25 +6,36 @@ import {auditExportPricing} from '../src/pricing.mjs';
 import {validateCommanderSingleton} from '../src/deckValidation.mjs';
 import {isLandSlot,priceOf,oracleId} from '../src/cards.mjs';
 
+// Yield between CPU-bound cases so the parent can report progress and enforce
+// the wall-clock deadline even when this process cannot service its own timer.
+test.beforeEach(async t=>{
+ process.send?.({kind:'strategy-case',name:t.name});
+ await new Promise(resolve=>setImmediate(resolve));
+});
+
 // Invented names/prices/source lists: reproducible architecture tests only.
 const c=(name,type_line,oracle_text='',cmc=2,eur=.14,extra={})=>({id:name,name,type_line,oracle_text,cmc,prices:{eur},legalities:{commander:'legal'},color_identity:[],...extra});
 const commander={...c('Strategy Test Commander','Legendary Creature — Eldrazi','Whenever you cast an Eldrazi spell, you may pay {C}{C}. If you do, copy that spell.',5,.4),color_identity:['W','U','B','R','G']};
 const basics=[['Plains','W'],['Island','U'],['Swamp','B'],['Mountain','R'],['Forest','G'],['Wastes','C']].map(([n,s])=>c(n,`Basic Land — ${n}`,`{T}: Add {${s}}.`,0,0));
 const lands=Array.from({length:28},(_,i)=>c(`Community Prism ${i}`,'Land','{T}: Add one mana of any color.',0,.17));
 const strategy=Array.from({length:90},(_,i)=>c(`On-plan Creature ${i}`,'Creature — Eldrazi',`When you cast this spell, ${i%3===0?'draw two cards':'create a 0/1 Eldrazi Spawn creature token'}.`,2+i%5,.12+i%4*.04));
-const mana=Array.from({length:42},(_,i)=>c(`Early Mana ${i}`,'Artifact','{T}: Add {C}.',2,.13));
-const removal=Array.from({length:40},(_,i)=>c(`Universal Answer ${i}`,'Instant','Exile target creature.',2,.13));
-const draw=Array.from({length:38},(_,i)=>c(`Actual Draw ${i}`,'Sorcery','Draw two cards.',2,.13));
-const shield=Array.from({length:33},(_,i)=>c(`Protect Piece ${i}`,'Instant','Target creature gains hexproof until end of turn.',1,.13));
-const filler=Array.from({length:350},(_,i)=>c(`Unrelated Filler ${i}`,'Artifact','Scry 1.',3,.13));
-const cards=[commander,...basics,...lands,...strategy,...mana,...removal,...draw,...shield,...filler];
+const mana=Array.from({length:27},(_,i)=>c(`Early Mana ${i}`,'Artifact','{T}: Add {C}.',2,.13));
+const removal=Array.from({length:22},(_,i)=>c(`Universal Answer ${i}`,'Instant','Exile target creature.',2,.13));
+const draw=Array.from({length:22},(_,i)=>c(`Actual Draw ${i}`,'Sorcery','Draw two cards.',2,.13));
+const shield=Array.from({length:12},(_,i)=>c(`Protect Piece ${i}`,'Instant','Target creature gains hexproof until end of turn.',1,.13));
+const filler=Array.from({length:12},(_,i)=>c(`Unrelated Filler ${i}`,'Artifact','Scry 1.',3,.13));
+const playable=[commander,...basics,...lands,...strategy,...mana,...removal,...draw,...shield,...filler];
+// The public generator checks for a 400-record local catalog. Unpriced rows
+// exercise that entry point without expanding the strategic candidate pool.
+const unpriced=Array.from({length:400-playable.length},(_,i)=>c('No price '+i,'Artifact','',2,null));
+const cards=[...playable,...unpriced];
 const sources=Array.from({length:4},(_,i)=>({key:`archidekt:source${i}`,validated:true,commanderIds:[commander.id],edhBracket:3,owner:`author${i}`,title:`Source strategy ${i}`,
  mainboard:[...strategy.slice(i*12,i*12+38),...mana.slice(i*5,i*5+10),...draw.slice(i*4,i*4+8),
  ...removal.slice(i*4,i*4+8),...lands.slice(i*4,i*4+12)].map(x=>({id:oracleId(x),quantity:1}))}));
 const communityBuild={status:'ready',highConfidence:false,selected:{sourceDecks:[sources[2].key]}};
 const shared={cards,commander,bracket:3,budget:191,powerTarget:'high',communityBuild,communityDecks:sources};
 
-test('v1.1 constructs independent complete decks from source templates and local archetypes',()=>{
+test('v1.1 constructs independent complete decks from source templates and local archetypes',{timeout:120000},()=>{
  const result=constructStrategyDeck(shared);
  assert.equal(result.report.generated,7);
  assert.ok(result.report.complete>=3,JSON.stringify(result.report));
@@ -39,7 +50,7 @@ test('v1.1 constructs independent complete decks from source templates and local
  }
 });
 
-test('v1.1 engine can be switched on independently of v1.0; export and evidence agree',()=>{
+test('v1.1 engine can be switched on independently of v1.0; export and evidence agree',{timeout:120000},()=>{
  const next=generateDeck({...shared,constructionMode:'strategy-first'});
  const old=generateDeck({...shared,constructionMode:'legacy'});
  assert.equal(next.totalCards,100);assert.equal(next.landCount,37);
@@ -59,7 +70,7 @@ test('v1.1 engine can be switched on independently of v1.0; export and evidence 
  assert.equal(next.deck,same.deck,'deterministic source and profile selection');
 });
 
-test('v1.1 source matching is isolated to correct commander and bracket, with explicit local-only behavior',()=>{
+test('v1.1 source matching is isolated to correct commander and bracket, with explicit local-only behavior',{timeout:120000},()=>{
  const off=constructStrategyDeck({...shared,communityBuild:{status:'disabled'},communityDecks:sources});
  const wrong=constructStrategyDeck({...shared,communityDecks:sources.map(d=>({...d,edhBracket:4}))});
  assert.equal(off.report.generated,4);
@@ -68,14 +79,14 @@ test('v1.1 source matching is isolated to correct commander and bracket, with ex
 });
 
 
-test('v1.1 explicit source archetype selection honors provenance rather than merely re-scoring it',()=>{
+test('v1.1 explicit source archetype selection honors provenance rather than merely re-scoring it',{timeout:120000},()=>{
  const input={...shared,communityBuild:{...communityBuild,userSelected:true,selected:{sourceDecks:[sources[3].key]}}};
  const result=constructStrategyDeck(input);
  assert.ok(result.selected);
  assert.equal(result.selected.sourceKey,sources[3].key,'explicit user pick should choose a legal representative source');
 });
 
-test('v1.1 Bracket 2 vs 4 choose distinct 100-card objectives without invalid Game Changers',()=>{
+test('v1.1 Bracket 2 vs 4 choose distinct 100-card objectives without invalid Game Changers',{timeout:120000},()=>{
  const b2=constructStrategyDeck({...shared,bracket:2,communityBuild:{status:'disabled'}});
  const b4=constructStrategyDeck({...shared,bracket:4,communityBuild:{status:'disabled'}});
  assert.ok(b2.selected&&b4.selected);
@@ -84,8 +95,8 @@ test('v1.1 Bracket 2 vs 4 choose distinct 100-card objectives without invalid Ga
  assert.notDeepEqual(b2.selected.cards.map(c=>c.name),b4.selected.cards.map(c=>c.name));
 });
 
-test('v1.1 Spellbook proposals can be seeded atomically with source-independent validation',()=>{
- const components=strategy.slice(80,82);
+test('v1.1 Spellbook proposals can be seeded atomically with source-independent validation',{timeout:120000},()=>{
+ const components=strategy.slice(-2);
  const result=constructStrategyDeck({...shared,communityBuild:{status:'disabled'},preferredCombos:[{id:'synthetic-combo',
   namedCards:components.map(c=>c.name),added:components.map(c=>c.name),templateMatches:[]}]});
  assert.ok(result.selected);
@@ -95,7 +106,7 @@ test('v1.1 Spellbook proposals can be seeded atomically with source-independent 
   assert.ok(components.every(c=>selected.has(c.name)),'combo is all-or-nothing');}
 });
 
-test('v1.1 blocks inventory-complete recorded 2-card infinites at B3, not at B4',async()=>{
+test('v1.1 blocks inventory-complete recorded 2-card infinites at B3, not at B4',{timeout:120000},async()=>{
  const {conservativeComboViolation}=await import('../src/strategyFirst.mjs');
  const pair=[strategy[3],strategy[4]];
  const known={id:'100-101',isInfinite:true,uses:pair.map(x=>({name:x.name,quantity:1})),templateRequirements:[]};
@@ -105,7 +116,7 @@ test('v1.1 blocks inventory-complete recorded 2-card infinites at B3, not at B4'
  assert.equal(conservativeComboViolation(pair,commander,[{...known,isInfinite:false}],3),null);
 });
 
-test('explicit tolerance and owned basics propagate through completed candidate audits',()=>{
+test('explicit tolerance and owned basics propagate through completed candidate audits',{timeout:120000},()=>{
  const d=generateDeck({...shared,budget:160,budgetTolerance:4,basicLandsOwned:true,constructionMode:'strategy-first'});
  assert.equal(d.budget,164);assert.equal(d.budgetPolicy.target,160);assert.equal(d.budgetPolicy.tolerance,4);
  assert.equal(d.budgetPolicy.unused,Math.round((164-d.price)*100)/100);
@@ -113,7 +124,7 @@ test('explicit tolerance and owned basics propagate through completed candidate 
  for(const alt of d.alternatives){assert.equal(alt.deck.split('\n').length,100);assert.equal(alt.pricingAudit.provenance,'exact-selected-cards');assert.ok(alt.pricingAudit.withinBudget&&alt.pricingAudit.agreesWithGenerator);}
  assert.ok(d.whyThisDeck.relations);assert.equal(d.constructionEngine.packageExpansion.limit,4);
 });
-test('counting explicitly unowned basics reconciles exact records and preserves the original catalog',()=>{
+test('counting explicitly unowned basics reconciles exact records and preserves the original catalog',{timeout:120000},()=>{
  const priced=cards.map(c=>c.type_line.startsWith('Basic')?{...c,prices:{eur:.2}}:c);
  const d=generateDeck({...shared,cards:priced,basicLandsOwned:false,constructionMode:'strategy-first'});
  assert.equal(d.totalCards,100);assert.equal(d.budgetPolicy.basicLandsOwned,false);
@@ -121,8 +132,8 @@ test('counting explicitly unowned basics reconciles exact records and preserves 
  assert.ok(priced.filter(c=>c.type_line.startsWith('Basic')).every(c=>priceOf(c)===0),'caller records stay owned-by-default');
 });
 
-test('explicit tolerance permits a selected-record total above target but never above its effective cap',()=>{
- const premium={...commander,prices:{eur:160.01}},free=cards.map(c=>c.id===commander.id?premium:{...c,prices:{eur:0}});
+test('explicit tolerance permits a selected-record total above target but never above its effective cap',{timeout:120000},()=>{
+ const premium={...commander,prices:{eur:160.01}},free=cards.map(c=>c.id===commander.id?premium:priceOf(c)===null?c:{...c,prices:{eur:0}});
  const options={...shared,cards:free,commander:premium,budget:160,constructionMode:'strategy-first'};
  assert.throws(()=>generateDeck(options),/Commander alone exceeds/);
  const deck=generateDeck({...options,budgetTolerance:4});

@@ -28,7 +28,7 @@ The displayed candidate 'score' is **an internal, uncalibrated utility function*
 
 Run: `node tools/compare-v089-v0810.mjs`.
 
-The comparator preserves the entire v0.8.9 generator as `benchmarks/generator-v089-reference.mjs`. It uses explicitly invented generic card records and invented prices, not real Scryfall or Cardmarket prices. The static synthetic catalog shown in `benchmarks/v0810-synthetic-compare.json` is already strong under the internal objective and therefore may show **zero beneficial swaps**. This is valid behavior, not proof of improvement.
+The comparator preserves the entire v0.8.9 generator as `benchmarks/frozen/generator-v089-reference.mjs`. It uses explicitly invented generic card records and invented prices, not real Scryfall or Cardmarket prices. The static synthetic catalog shown in `benchmarks/v0810-synthetic-compare.json` is already strong under the internal objective and therefore may show **zero beneficial swaps**. This is valid behavior, not proof of improvement.
 
 An independent adversarial portfolio regression in `tests/v0810-portfolio.test.mjs` starts with a full 99-card deck intentionally containing 12 unsupported filler artifacts, then supplies useful on-plan alternatives. It requires the new optimizer to improve its internally scored full deck while respecting 100-card, land, EUR, singleton and role constraints. This test demonstrates the optimization path is active; it does **not** establish that users' real Ulalek decks score higher on third-party sites.
 

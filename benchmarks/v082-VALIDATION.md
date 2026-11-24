@@ -14,6 +14,6 @@ Performed on 2026-10-20 with Node.js 22.16.0 and the **uploaded v0.8.1 source ZI
 | Live Spellbook `test2` count of 10 | **not verified** | no live API response or independently captured fixture |
 | Real Scryfall snapshot v0.8.1/v0.8.2 comparison | **not run** | genuine full catalog absent |
 
-The A/B reference engine is frozen as source in `benchmarks/generator-v081-reference.mjs`. To execute a genuine Scryfall benchmark after downloading the catalog locally, run `node tools/export-benchmark.mjs` per its documented arguments to export a snapshot, then `node tools/compare-v081-v082.mjs <path-to-snapshot.json.gz>`. The comparison tool fails closed if fewer than 10,000 records are supplied and writes full decklists and legality checks.
+The A/B reference engine is frozen as source in `benchmarks/frozen/generator-v081-reference.mjs`. To execute a genuine Scryfall benchmark after downloading the catalog locally, run `node tools/export-benchmark.mjs` per its documented arguments to export a snapshot, then `node tools/compare-v081-v082.mjs <path-to-snapshot.json.gz>`. The comparison tool fails closed if fewer than 10,000 records are supplied and writes full decklists and legality checks.
 
 Caution: simulated tests use invented cards/prices expressly for testing invariants. There are no fabricated actual card or pricing claims in this report. Combo inventory coverage does not verify that spells can be cast from required zones or that a player can produce required mana.

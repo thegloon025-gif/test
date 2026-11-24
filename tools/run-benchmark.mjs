@@ -1,3 +1,4 @@
+import {auditExportPricing} from '../src/pricing.mjs';
 /** Reproducible internal benchmarking on an uploaded PUBLIC Scryfall snapshot. */
 import {readFile,mkdir,writeFile} from 'node:fs/promises';
 import {dirname,resolve,join} from 'node:path';
@@ -28,6 +29,9 @@ for(const name of selected){
   try {
    const began=Date.now();
    const result=generateDeck({cards,commander,budget,bracket});
+   const audit=auditExportPricing(result,commander,cards);
+   if(audit.count!==100||!audit.agreesWithGenerator||!audit.withinBudget||audit.anomalies.length||audit.total>budget)
+     throw Error('Final deck price or printing audit failed. Audited €'+audit.total+' against €'+budget);
    const spellNames=new Set(result.sections.spells);
    const eldrazi=result.sections.spells.filter(n=>{const c=cardIndex.get(n);return c&&independentlyHasCastableEldrazi(c);});
    const row={commander:name,bracket,independentDeckCount:independentlyValidDeckCount(result.deck),runtimeMs:Date.now()-began,price:result.price,totalCards:result.totalCards,landCount:result.landCount,earlyAcceleration:result.earlyAcceleration,sevenPlusSpells:result.sevenPlusSpells,gameChangers:result.gameChangers,plan:result.plan,qualityVerdict:result.qualityVerdict,colorlessSources:result.colorlessSources,eldraziSpells:eldrazi.length,needs:result.needs,warnings:result.warnings.filter(x=>!x.startsWith('Budget estimates')&&!x.startsWith('Brackets are')),reinvestments:result.reinvestment?.swaps||[],deck:result.deck,spellSet:[...spellNames]};
@@ -48,3 +52,5 @@ report+='\n## Warnings and bracket sensitivity\n';
 for(const r of outputRows){report+=`\n### ${r.commander} Bracket ${r.bracket}\n`;if(r.error){report+=`ERROR: ${r.error}\n`;continue;}report+=`Plan: ${r.plan}. Changed selected spells vs other brackets: ${JSON.stringify(r.changedSpellCards)}.\nWarnings:\n${r.warnings.length?r.warnings.map(w=>'- '+w).join('\n'):'- None reported (not proof of quality)'}\n`;}
 await writeFile(join(output,'BENCHMARK_RESULTS.md'),report);
 console.log(`Benchmark outputs saved to ${output}`);
+
+if(outputRows.some(row=>row.error))process.exitCode=1;

@@ -1,3 +1,20 @@
+## 1.2.0 — Deck library and player tools (unreleased)
+
+- Save and branch single-commander deck versions, compare cuts and additions by role and win path, and track incremental spending. Open versions in the Upgrader or export for Archidekt and Moxfield.
+- Import a quantity-aware local collection, reserve copies, and use available stock for purchase budgets. Preview bracket swaps and practice opening hands with repeatable shuffles, manual London mulligans and four turns of play.
+- Gate local API requests consistently and require a session token for mutations. Split the fast and slow test commands and verify exported pricing in the benchmark runner.
+
+## Unreleased precon upgrades
+
+- Find a stock Commander precon by product name, set code or commander and load the list into the Upgrader. The bundled MTGJSON snapshot works offline. Secret Lair products can add their SLD card names to the cut locks.
+
+## Unreleased Architect win conditions
+
+- Analyze the commander and final 99 for direct wins, resource loops needing a payoff, conditional finishes, value engines and incomplete packages. Expand a line to inspect its starting state, payments, execution, selected Oracle text and source.
+- Group equivalent variants and show shared pieces. Generated decks, plain-text or JSON imports, reviewed Upgrader lists and public deck imports use the same report.
+- Include win-path findings in revision evidence and check proposed revisions for lost finishes. The seeded goldfish reports named-piece access and supported starting states separately. Full combo execution is shown as “Not modeled”.
+- Use shared mana production rules for combo witnesses and include required doublers and land Auras in the line. Check the enablers for alternate wins. Repercussion lines include a per-player damage calculator.
+
 ## Unreleased Architect usage resume
 
 - Resume the connected plan after a ChatGPT quota reset with explicit confirmation in the connection panel. Keep the daily local attempt count and display local exhaustion separately from the provider stop.
@@ -329,7 +346,7 @@ Adds a local read-only, score-free card-job ledger, plan-specific obligation obs
 - `src/comboLibrary.mjs`: atomic, provenance-labeled cache of normalized API variants by commander. Populated **only** after a successful on-demand `/api/community/combos` request (or a valid previously cached response). Cards/decks can be generated locally even without that cache.
 - `src/comboConstruction.mjs`: optional whole-package evaluator with catalog identity, Commander legality/color identity, price, commander strategy, curve limits, game-changer limits, conservative bracket policies and limited extra card slots. The primary generator completes ramp, interaction, draw and plan roles first. Selected cards are protected from budget reinvestment swaps.
 - Generator/UI reports locally known variants, selected package cards and matched template replacements, and explicitly never labels card inventory as a mechanically executable win condition.
-- Frozen `benchmarks/generator-v081-reference.mjs` and reproducible `tools/compare-v081-v082.mjs` script for real Scryfall cache A/B when supplied.
+- Frozen `benchmarks/frozen/generator-v081-reference.mjs` and reproducible `tools/compare-v081-v082.mjs` script for real Scryfall cache A/B when supplied.
 - `tests/combo-construction.test.mjs` with explicit hand-checked *synthetic* regression cases; current full suite 61/61.
 
 ### Compatibility and verification

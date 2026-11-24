@@ -4,7 +4,7 @@ Date: 2026-10-21
 
 ## Why this release exists
 
-The user's full Ulalek deck exports and third-party screenshots showed v0.8.10 optimising its own score while losing external power. In one recorded B4 result it gave +40.35 internal utility for **Collective Resistance → Spell Satchel** even though the resulting deck had a fragile, non-proactive plan. The previous app counted 39 cards with positive/repeatable draw and 23 hard answers, based partly on broad Oracle-text matches. The labels implied more reliability than was evidenced. The previously archived v0.8.8 generator has the strongest externally tested **generated** Ulalek result of the releases supplied. It remains frozen at `benchmarks/generator-v088-reference.mjs` and is used as a comparison, not asserted to be globally best.
+The user's full Ulalek deck exports and third-party screenshots showed v0.8.10 optimising its own score while losing external power. In one recorded B4 result it gave +40.35 internal utility for **Collective Resistance → Spell Satchel** even though the resulting deck had a fragile, non-proactive plan. The previous app counted 39 cards with positive/repeatable draw and 23 hard answers, based partly on broad Oracle-text matches. The labels implied more reliability than was evidenced. The previously archived v0.8.8 generator has the strongest externally tested **generated** Ulalek result of the releases supplied. It remains frozen at `benchmarks/frozen/generator-v088-reference.mjs` and is used as a comparison, not asserted to be globally best.
 
 ## Implemented in v0.8.11
 
