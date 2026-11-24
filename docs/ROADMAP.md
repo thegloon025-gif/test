@@ -1,3 +1,9 @@
+## Single-commander deck library
+
+- [x] Persistent deck versions, branched upgrade budgets and role and win-path comparisons.
+- [x] Local CSV inventory with reservations, collection-aware purchase costs and budget search.
+- [x] Local bracket conflict explanations, reviewable swaps and four-turn opening-hand practice.
+
 ## Precon upgrades
 
 - [x] Load bundled MTGJSON stock lists into the existing single-commander upgrade review.

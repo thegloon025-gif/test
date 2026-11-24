@@ -40,33 +40,63 @@ export function allocateMana(printed,sources,{limit=20000}={}){
  return r?{status:'supported',...r,nodes}:{status:bounded?'unknown':'unsupported',reason:bounded?'payment search bound':sources.reduce((n,s)=>n+s.units,0)<generic+pips.length?'insufficient supported mana quantity':'colored/true-colorless allocation conflict in supported sources',nodes};
 }
 const drawGrammar=c=>!permanent(c)&&/^(?:Draw (a|two|three) cards?\.)$/.test(oracleText(c))?({a:1,two:2,three:3}[oracleText(c).match(/^Draw (\w+)/)[1]]):0;
-export function goldfishTrial({commander,cards,seed='functional-v1',trial=0,turns=8,policy='commander-first',disabled=[],recastTurns=[]}){
+export function goldfishTrial({commander,cards,seed='functional-v1',trial=0,turns=8,policy='commander-first',disabled=[],recastTurns=[],openingAttempt=null,bottomIds=null,landChoices=[],firstCasts=[],referenceCards=null}){
  if(cards?.length!==99||!commander)throw Error('Exactly commander + 99 required');
  if(!Number.isInteger(turns)||turns<1||turns>12||!['commander-first','development-first'].includes(policy))throw Error('Invalid bounded protocol');
  const slots=cards.map((card,i)=>({card,id:(card.oracle_id||card.name)+'#'+cards.slice(0,i).filter(c=>(c.oracle_id||c.name)===(card.oracle_id||card.name)).length}));
- const order=attempt=>slots.slice().sort((a,b)=>hash(`${seed}:${trial}:${attempt}:${a.id}`).localeCompare(hash(`${seed}:${trial}:${attempt}:${b.id}`)));
- let library,hand,attempt=0,bottom=[];
- // First multiplayer mulligan free; at most two further mulligans, always draw seven.
- for(;attempt<=3;attempt++){library=order(attempt);hand=library.splice(0,7);const lands=hand.filter(s=>isLandSlot(s.card)).length;if(lands>=2&&lands<=4||attempt===3)break;}
+ if(openingAttempt!==null&&(!Number.isInteger(openingAttempt)||openingAttempt<0||openingAttempt>3))throw Error('Choose mulligan 0–3.');
+ if(referenceCards){
+  if(referenceCards.length!==99)throw Error('Replay requires 99 reference cards.');
+  const seen=new Map(),keys=referenceCards.map(c=>{
+   const key=c.oracle_id||c.name,n=seen.get(key)||0;seen.set(key,n+1);return key+'#'+n;
+  }).sort();
+  const ids=new Set(slots.map(s=>s.id)),ref=new Set(keys),vacant=keys.filter(k=>!ids.has(k));
+  for(const slot of slots.filter(s=>!ref.has(s.id)).sort((a,b)=>a.id.localeCompare(b.id)))slot.shuffleKey=vacant.shift();
+ }
+ const order=attempt=>slots.slice().sort((a,b)=>hash(`${seed}:${trial}:${attempt}:${a.shuffleKey??a.id}`).localeCompare(hash(`${seed}:${trial}:${attempt}:${b.shuffleKey??b.id}`)));
+ let library,hand,attempt=openingAttempt??0,bottom=[];
+ for(;attempt<=3;attempt++){library=order(attempt);hand=library.splice(0,7);const lands=hand.filter(s=>isLandSlot(s.card)).length;if(openingAttempt!==null||lands>=2&&lands<=4||attempt===3)break;}
+ const openingSeven=hand.map(s=>({id:s.id,name:s.card.name}));
  const bottomCount=Math.max(0,attempt-1);hand.sort((a,b)=>Number(isLandSlot(b.card))-Number(isLandSlot(a.card))||String(a.id).localeCompare(b.id));
- // Bottom excess spells first; deterministic, not an optimal mulligan claim.
- for(let i=0;i<bottomCount;i++)bottom.push(hand.pop());library.push(...bottom);
+ if(bottomIds!==null){
+  if(!Array.isArray(bottomIds)||new Set(bottomIds).size!==bottomCount||bottomIds.length!==bottomCount||bottomIds.some(id=>!hand.some(s=>s.id===id)))throw Error('Select the required cards from your opening hand to bottom.');
+  for(const id of bottomIds)bottom.push(hand.splice(hand.findIndex(s=>s.id===id),1)[0]);
+ }else for(let i=0;i<bottomCount;i++)bottom.push(hand.pop());
+ library.push(...bottom);
  const initialHand=hand.map(s=>s.id);const board=[],grave=[],events=[],observations=[];let commandZone=true,casts=0,commanderTurn=null,terminal=null;
- const draw=(n,turn,why)=>{for(let i=0;i<n;i++){const s=library.shift();if(!s){terminal={turn,kind:'empty-library-draw loss',why};break;}if(s){hand.push(s);events.push({turn,kind:'draw',id:s.id,why});}}};
+ const draw=(n,turn,why)=>{for(let i=0;i<n;i++){const s=library.shift();if(!s){terminal={turn,kind:'empty-library-draw loss',why};break;}if(s){hand.push(s);events.push({turn,kind:'draw',id:s.id,card:s.card.name,why});}}};
  const unknown=[...new Set([commander,...cards].filter(c=>c.catalogMissing||oracleText(c)&&!sourceGrammar(c)&&!drawGrammar(c)).map(c=>c.name))];
  for(let turn=1;turn<=turns;turn++){
   if(recastTurns.includes(turn)){const i=board.findIndex(s=>s.commander);if(i>=0){board.splice(i,1);commandZone=true;events.push({turn,kind:'scripted-command-zone-return',unknown:'external intervention, not opponent simulation'});}}
   draw(1,turn,'multiplayer draw step');if(terminal)break;
   const lands=hand.filter(s=>isLandSlot(s.card));lands.sort((a,b)=>Number(sourceGrammar(a.card)?.tapped??true)-Number(sourceGrammar(b.card)?.tapped??true)||a.id.localeCompare(b.id));
-  if(lands[0]){const s=lands[0];hand.splice(hand.indexOf(s),1);board.push({...s,entered:turn});events.push({turn,kind:'land',id:s.id});}
+  const choices=lands.map(s=>({id:s.id,name:s.card.name}));
+  const chosen=landChoices[turn-1];
+  if(chosen){const i=lands.findIndex(s=>s.id===chosen);if(i<0)throw Error('Land choice is no longer in hand.');lands.unshift(lands.splice(i,1)[0]);}
+  if(lands[0]){const s=lands[0];hand.splice(hand.indexOf(s),1);board.push({...s,entered:turn});events.push({turn,kind:'land',id:s.id,card:s.card.name});}
   let available=board.flatMap(s=>{const g=disabled.includes(s.card.name)?null:sourceGrammar(s.card);return g&&(!g.tapped||s.entered<turn)&&(!castHasType(s.card,'Creature')||s.entered<turn)?[{...g,id:s.id}]:[];});
-  let actionsPerformed=0;const startMana=available.map(s=>({id:s.id,options:s.options,units:s.units}));let throughput=0,immediateDraw=0;const blocked=[];
+  const castChoices=[];let actionsPerformed=0;const startMana=available.map(s=>({id:s.id,options:s.options,units:s.units}));let throughput=0,immediateDraw=0;const blocked=[];
   for(let action=0;action<20;action++){
    const cmd={card:commander,id:'command-zone',commander:true};let candidates=hand.filter(s=>!isLandSlot(s.card));if(commandZone)candidates.push(cmd);
    candidates.sort((a,b)=>{const priority=s=>s.commander?(policy==='commander-first'?0:1):sourceGrammar(s.card)?(policy==='commander-first'?1:0):2;return priority(a)-priority(b)||a.id.localeCompare(b.id);});
+   function payment(s){
+    const c=s.card;
+    if(c.catalogMissing||!cost(c)||/additional cost|cast .*only|can't cast|as an additional|alternative cost|spells?[^.]*cost[^.]*\{|'?cast this spell'?/i.test(oracleText(c))||c.card_faces?.length>1)
+      return {status:'unknown',reason:'unsupported casting cost/restriction/face'};
+    return allocateMana(cost(c)+(s.commander?`{${2*casts}}`:''),available);
+   }
+   if(!action&&openingAttempt!==null){
+    for(const s of candidates)if(payment(s).status==='supported')castChoices.push({id:s.id,name:s.card.name});
+    const choice=firstCasts[turn-1];
+    if(choice==='pass')break;
+    if(choice){
+     const i=candidates.findIndex(s=>s.id===choice);
+     if(!castChoices.some(s=>s.id===choice))throw Error('Selected spell cannot be paid for with the modeled sources.');
+     candidates.unshift(candidates.splice(i,1)[0]);
+    }
+   }
    let played=false;for(const s of candidates){
-    const c=s.card,t=oracleText(c);if(c.catalogMissing||!cost(c)||/additional cost|cast .*only|can't cast|as an additional|alternative cost|spells?[^.]*cost[^.]*\{|'?cast this spell'?/i.test(t)||c.card_faces?.length>1){blocked.push({card:c.name,status:'unknown',reason:'unsupported casting cost/restriction/face'});continue;}
-    const p=allocateMana(cost(c)+(s.commander?`{${2*casts}}`:''),available);if(p.status!=='supported'){blocked.push({card:c.name,status:p.status,reason:p.reason});continue;}
+    const c=s.card,p=payment(s);if(p.status!=='supported'){blocked.push({card:c.name,status:p.status,reason:p.reason});continue;}
     available=[...p.available,...p.pool.map((color,i)=>({id:`float-${turn}-${action}-${i}`,units:1,options:[color],floating:true}))];
     if(s.commander){commandZone=false;casts++;commanderTurn??=turn;}else hand.splice(hand.indexOf(s),1);
     actionsPerformed++;throughput++;events.push({turn,kind:'cast',id:s.id,card:c.name,cost:cost(c)+(s.commander?`{${2*(casts-1)}}`:''),payment:p.receipt,manaValue:c.cmc??null,types:c.type_line,commander:!!s.commander});
@@ -74,10 +104,10 @@ export function goldfishTrial({commander,cards,seed='functional-v1',trial=0,turn
     const n=disabled.includes(c.name)?0:drawGrammar(c);const obtained=Math.min(n,library.length);draw(n,turn,'supported immediate draw');immediateDraw+=obtained;played=true;break;
    }if(!played||terminal)break;
   }
-  observations.push({actionBoundReached:actionsPerformed===20,status:actionsPerformed===20?'unknown remaining deployment after action bound':'bounded policy completed',turn,landDrop:!!lands[0],startMana,remainingMana:available,hand:hand.length,commanderOnBoard:!commandZone,throughput,immediateDraw,blocked,engines:board.filter(s=>sourceGrammar(s.card)).map(s=>s.card.name)});
+  observations.push({actionBoundReached:actionsPerformed===20,status:actionsPerformed===20?'unknown remaining deployment after action bound':'bounded policy completed',turn,castChoices,landChoices:choices,landDrop:!!lands[0],startMana,remainingMana:available,hand:hand.length,commanderOnBoard:!commandZone,throughput,immediateDraw,blocked,engines:board.filter(s=>sourceGrammar(s.card)).map(s=>s.card.name)});
   if(hand.length+library.length+board.filter(s=>!s.commander).length+grave.length!==99)throw Error('Zone conservation failed');if(terminal)break;
  }
- return {terminal,initialHand,finalZones:{hand:hand.map(s=>s.id),library:library.map(s=>s.id),battlefield:board.filter(s=>!s.commander).map(s=>s.id),graveyard:grave.map(s=>s.id)},seed,trial,policy,mulligans:attempt,bottomed:bottom.map(s=>s.id),commanderTurn,observations,events,coverage:{supported:['simple unconditional tap mana','exact colored/hybrid/generic/C','simple immediate draw','land timing','creature mana sickness','command zone/tax'],unknownCards:unknown,unsupported:['opponents','combat','triggers','recursion','restricted mana','cost reduction','top casting','alternative faces'],interpretation:'Absence of an unmodeled event is unknown, never zero strategy performance'}};
+ return {terminal,openingSeven,initialHand,finalZones:{hand:hand.map(s=>s.id),library:library.map(s=>s.id),battlefield:board.filter(s=>!s.commander).map(s=>s.id),graveyard:grave.map(s=>s.id)},seed,trial,policy,mulligans:attempt,bottomed:bottom.map(s=>s.id),commanderTurn,observations,events,coverage:{supported:['simple unconditional tap mana','exact colored/hybrid/generic/C','simple immediate draw','land timing','creature mana sickness','command zone/tax'],unknownCards:unknown,unsupported:['opponents','combat','triggers','recursion','restricted mana','cost reduction','top casting','alternative faces'],interpretation:'Absence of an unmodeled event is unknown, never zero strategy performance'}};
 }
 export function wilson(success,n){if(!n)return null;const z=1.96,d=1+z*z/n,c=(success/n+z*z/(2*n))/d,h=z*Math.sqrt(success/n*(1-success/n)/n+z*z/(4*n*n))/d;return [Math.max(0,c-h),Math.min(1,c+h)];}
 export function runGoldfish(input,{trials=32,...options}={}){if(!Number.isInteger(trials)||trials<1||trials>512)throw Error('1–512 trials required');const runs=Array.from({length:trials},(_,trial)=>goldfishTrial({...input,...options,trial}));const deployed=runs.filter(r=>r.commanderTurn!==null).length;return {mode:'shadow only',trials,deployed,interval95:wilson(deployed,trials),runs};}

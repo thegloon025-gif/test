@@ -1,0 +1,1 @@
+These historical generator implementations are used by comparison tools and regression tests. Keep their selection behavior fixed so an old baseline remains reproducible. Current construction lives in `src/generator.mjs` and `src/strategyFirst.mjs`.

@@ -1,6 +1,6 @@
 /** Deterministic, adversarial synthetic catalog only. No actual Scryfall
  * EUR values or EDHCheck/EDHPowerLevel measurements are synthesized here. */
-import {generateDeck as baseline} from '../benchmarks/generator-v088-reference.mjs';
+import {generateDeck as baseline} from '../benchmarks/frozen/generator-v088-reference.mjs';
 import {generateDeck as updated} from '../src/generator.mjs';
 import {selectionTotals,castabilityIssues} from '../src/selectionPolicy.mjs';
 import {evidenceAudit} from '../src/roleEvidence.mjs';

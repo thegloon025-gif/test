@@ -8,7 +8,7 @@ import {normalizeVariant,annotateCombos,normalizeFindResponse} from '../src/comb
 import {recordSpellbookVariants,readComboLibrary} from '../src/comboLibrary.mjs';
 import {generateDeck} from '../src/generator.mjs';
 import {proposeComboPackages} from '../src/comboConstruction.mjs';
-import {generateDeck as baseline} from '../benchmarks/generator-v081-reference.mjs';
+import {generateDeck as baseline} from '../benchmarks/frozen/generator-v081-reference.mjs';
 import {planFor,analysis} from '../src/mechanics.mjs';
 import {castHasSubtype,legalFor,oracleId} from '../src/cards.mjs';
 

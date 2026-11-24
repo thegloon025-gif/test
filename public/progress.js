@@ -1,5 +1,6 @@
+import {localPost} from './local-api.js';
 export async function postWithProgress(url,payload,onProgress,headers={}){
- const response=await fetch(url,{
+ const response=await localPost(url,{
   method:'POST',headers:{'Content-Type':'application/json',Accept:'application/x-ndjson',...headers},
   body:JSON.stringify(payload)
  });

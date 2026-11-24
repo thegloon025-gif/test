@@ -1,6 +1,6 @@
 /** Synthetic A/B fixture. This is NOT a real Scryfall catalog, Cardmarket
  * pricing, EDHCheck score, or EDHPowerLevel score. */
-import {generateDeck as oldGenerator} from '../benchmarks/generator-v087-reference.mjs';
+import {generateDeck as oldGenerator} from '../benchmarks/frozen/generator-v087-reference.mjs';
 import {generateDeck as newGenerator} from '../src/generator.mjs';
 const c=(name,type_line,oracle_text='',cmc=2)=>({id:name,name,type_line,oracle_text,cmc,prices:{eur:.22},legalities:{commander:'legal'},color_identity:[],edhrec_rank:null});
 const commander={...c('Synthetic Ulalek','Legendary Creature — Eldrazi','Whenever you cast an Eldrazi spell, you may pay {C}{C}.',5),color_identity:['W','U','B','R','G']};

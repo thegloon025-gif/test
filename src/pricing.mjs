@@ -15,7 +15,7 @@ export const CM_OFFERS_FILE=path.join(DATA_DIR,'cardmarket-en-nm-offers.json');
 export const PRICING_SCRYFALL='scryfall_eur';
 export const PRICING_CM='cardmarket_en_nm';
 
-function csvRows(source){
+export function csvRows(source){
  const text=String(source).replace(/^\uFEFF/,'');
  const first=text.split(/\r?\n/,1)[0]||'';
  const delimit=first.includes(';')&&!first.includes(',')?';':',';
@@ -166,7 +166,7 @@ export function auditExportPricing(deck,commander,cards){
   }
   const cost=c?priceOf(c):null;
   result.push({card:name,price:cost,unpriced:cost===null,issue:issue||(cost===null?'No eligible price':null),
-   baseEur:c?.baseScryfallEur??null,printing:c?.printing||null,
+   ...(c?.collectionOwned?{collectionCredit:true,selectedMarketEur:c.prices?.eur}:{}),baseEur:c?.baseScryfallEur??null,printing:c?.printing||null,
    cardmarketUrl:cardmarketEnglishNMSearchUrl(name)});
  }
  const total=result.reduce((acc,e)=>acc+(e.price??0),0);

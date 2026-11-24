@@ -49,3 +49,10 @@
 .cedh-table button{padding:6px 9px;margin:0}
 .cedh-panel pre{overflow:auto}
 @media(max-width:600px){.workspace-nav{padding:0 12px}.cedh-heading{align-items:flex-start}}
+
+.player-library { grid-column:1/-1; min-width:0 }
+.player-library summary { cursor:pointer }
+.player-library button { margin:4px 4px 4px 0 }
+.pl-columns { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr)); gap:16px }
+.pl-columns section { min-width:0; overflow-wrap:anywhere }
+.pl-columns h5 { margin:12px 0 4px }

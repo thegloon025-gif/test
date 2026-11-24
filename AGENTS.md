@@ -1,10 +1,10 @@
 # AGENTS.md — CommanderOracle Codex working instructions
 
-Read `CODEX_HANDOFF.md`, `README.md`, `docs/ROADMAP.md`, and `CHANGELOG.md` before making major changes. Version at handoff: v1.1.5.
+Read `CODEX_HANDOFF.md`, `README.md`, `docs/ROADMAP.md`, and `CHANGELOG.md` before making major changes. Use `package.json` for the current release version. Historical benchmark labels refer to the runs that produced them.
 
 ## Project operating rules
 
-- Node.js >=22, ES modules. Run `npm test` and meaningful targeted tests; if test runner hangs, isolate test files and report incompleteness rather than claiming the suite passed. Test startup and `start-windows.bat` compatibility.
+- Node.js >=22, ES modules. Run `npm run test:all` and meaningful targeted tests; if test runner hangs, isolate test files and report incompleteness rather than claiming the suite passed. Test startup and `start-windows.bat` compatibility.
 - Improve the **actual deck-building and budget user experience**, not just an internal scoring number. Generate 100 legal cards incl commander. Preserve true `{C}` requirements, brackets, rules safeguards and relevant on-plan Spellbook commitments.
 - User supplies only commander, euro cap and bracket for standard generation: Archidekt research and combo evaluation must be automatic when accessible, cached/offline fallback when not.
 - Budget is a HARD CEILING. Seek strongest deck attainable within budget; invest meaningful spare budget in quality. Never spend only to consume budget. Verify exact selected playable printings and completed deck price. Clearly separate Scryfall EUR estimates, modeled EN NM, and verified imported offers.

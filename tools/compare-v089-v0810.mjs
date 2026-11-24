@@ -1,6 +1,6 @@
 /** v0.8.9 frozen generator vs v0.8.10 on independent synthetic cards.
  * No external scores, real card prices, or gameplay wins are asserted. */
-import {generateDeck as old} from '../benchmarks/generator-v089-reference.mjs';
+import {generateDeck as old} from '../benchmarks/frozen/generator-v089-reference.mjs';
 import {generateDeck as next} from '../src/generator.mjs';
 import {scoreWholeDeck} from '../src/wholeDeckOptimizer.mjs';
 import {selectionLimits,selectionTotals} from '../src/selectionPolicy.mjs';
