@@ -69,7 +69,7 @@ Last revised: 2026-10-24. Local, deterministic Commander generator: **no paid AI
   relationship reports, shared multi-role dependencies and capability guards.
 - [x] Preserve existing refinement starts and add a bounded opportunity for a
   screened source alternative; expose full audited alternatives and explanations.
-- [x] Explicit basics-owned pricing, strict default ceiling, opt-in €4 tolerance
+- [x] Explicit basics-owned pricing, strict default ceiling, opt-in 7% allowance
   and original-target regeneration with one application of tolerance.
 - [ ] Establish an objective winner among incomparable Wilhelt strategies;
   provisional legacy selection remains visible and is not power certification.

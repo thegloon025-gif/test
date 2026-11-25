@@ -93,7 +93,7 @@ export function budgetSettings(bracket=generationScope()){
   const cedhBudgetTier=$('cedh-budget-tier').value;
   return {cedhBudgetTier,budget:cedhBudgetTier==='open'?null:Number(cedhBudgetTier),budgetTolerance:0};
  }
- return {budget:Number($('budget').value),budgetTolerance:$('budget-leeway').checked?4:0};
+ return {budget:Number($('budget').value),budgetTolerance:$('budget-leeway').checked?'7%':0};
 }
 let cedhTierInitialized=false;
 function updateGenerationScope(){
@@ -459,17 +459,24 @@ function renderPriceLedger(r){
  }
  const p=document.createElement('p');p.textContent=`Export recheck: ${audit.count}/100 cards, €${audit.total.toFixed(2)} · ${audit.withinBudget?(r.budgetPolicy?.open?'open budget':'within requested ceiling'):'PRICE REVIEW FAILED'}. ${r.budgetPolicy?.assumption||'Basic lands assumed owned'}.`;root.prepend(p);
 }
+function previewAllowance(target){
+ return $('budget-leeway').checked?Math.floor(Math.round(target*100)*7/100)/100:0;
+}
 function updateBudgetPreview(){
+ const target=Number($('budget').value);
+ $('budget-maximum').textContent=Number.isFinite(target)&&target>=5?' · maximum €'+(target+previewAllowance(target)).toFixed(2):'';
  $('budget-regeneration').hidden=generationScope()===5||!!lastDeck?.budgetPolicy?.cedhBudgetTier;
  if($('budget-regeneration').hidden)return;
  if(!lastDeck)return;
  const base=Number.isFinite(originalBudget)?originalBudget:Number(lastDeck.budgetPolicy?.target??lastDeck.budget);
  const extra=Number($('extra-budget').value);
  const cart=$('actual-cart').value.trim();
- const tolerance=$('budget-leeway').checked?4:0;
- $('budget-preview').textContent=`Original target €${base.toFixed(2)} + €${Number.isFinite(extra)&&extra>0?extra.toFixed(2):'0.00'} = €${(base+(Number.isFinite(extra)&&extra>0?extra:0)).toFixed(2)} target; tolerance €${tolerance.toFixed(2)} once, hard maximum €${(base+(Number.isFinite(extra)&&extra>0?extra:0)+tolerance).toFixed(2)}. ${cart!==''?'Reported current cart total €'+Number(cart).toFixed(2)+' (reference only).':''}`;
+ const nextTarget=base+(Number.isFinite(extra)&&extra>0?extra:0);
+ const tolerance=previewAllowance(nextTarget);
+ $('budget-preview').textContent=`Original target €${base.toFixed(2)} + €${Number.isFinite(extra)&&extra>0?extra.toFixed(2):'0.00'} = €${nextTarget.toFixed(2)} target. Allowance €${tolerance.toFixed(2)}, maximum €${(nextTarget+tolerance).toFixed(2)}. ${cart!==''?'Reported current cart total €'+Number(cart).toFixed(2)+' (reference only).':''}`;
 }
 $('budget-leeway').addEventListener('change',updateBudgetPreview);
+$('budget').addEventListener('input',updateBudgetPreview);
 $('actual-cart').addEventListener('input',updateBudgetPreview);
 $('extra-budget').addEventListener('input',updateBudgetPreview);
 $('regenerate-extra').addEventListener('click',()=>{

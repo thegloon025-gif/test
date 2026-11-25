@@ -18,6 +18,8 @@ Compare the working deck with a saved version to see cuts, additions, recognized
 
 ## Prices and bracket review
 
+Enable **Allow up to 7% over budget** for a flexible target. At €270 the maximum is €288.90. The Upgrader applies the same option to new purchases. Bracket 5 budget ranges keep their displayed upper limit.
+
 Under **My collection**, import or paste CSV with `Name`, `Quantity`, and optional `Reserved` columns. Quote names containing commas. Duplicate rows are summed. Enable collection credits to use available inventory in local generation, Architect pricing, ranked search and upgrade passes. The library calculates purchases by copy. Construction conservatively credits repeatable cards when enough copies are available to cover the maximum selectable quantity. Basic-land ownership is separately configurable.
 
 **Check bracket & purchase cost** shows the dated catalog flags, matched infinite combos and the app’s local policy for the chosen bracket. Preview a swap to see its price and changes in win paths before applying it. The practice simulator models a subset of Magic rules. A supported cast or a complete card inventory does not establish a winning turn.

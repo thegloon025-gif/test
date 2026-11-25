@@ -1,3 +1,4 @@
+import {allowanceEUR} from './budgetPolicy.mjs';
 /** Experimental, local, score-free and stateless. Never invokes production selection. */
 import {createHash} from 'node:crypto';
 import {oracleId,isCommander,isBasic,isLandSlot,legalFor,priceOf} from './cards.mjs';
@@ -61,9 +62,11 @@ export function deckConstraintErrors(commander,cards,{bracket,variants,catalog,a
 function value(commander,cards,catalog){const all=[commander,...cards],price=all.reduce((n,c)=>n+cents(c),0)/100,deck=withSelectedCards({deck:exportText(commander,cards),price,budget:price},commander,cards),audit=auditExportPricing(deck,commander,catalog);if(audit.anomalies.length||!audit.agreesWithGenerator||audit.count!==100||!audit.withinBudget)throw Error('Exact selected-printing audit failed.');return {value:price,audit,deck:deck.deck};}
 const recurringDraw=c=>(c.oracle_text||'').split('\n').some(l=>/^(?:\{[WUBRGC0-9]+\})+(?:, \{T\})?(?:, Pay [12] life)?(?:, Sacrifice (?:a|another) creature)?: (?:You gain [12] life and )?[Dd]raw (?:a|two) cards?\.$/.test(l));
 const protectedJob=j=>j.kind==='native:infrastructure'||j.kind==='recovery:zone-access'||j.kind==='payoff:death'||j.kind==='payoff:cast-pressure'||j.kind==='win:printed-outlet'||j.kind.startsWith('access:')&&j.sourceIsPersistent||j.provides.some(p=>p.kind==='token');
-export function upgradeDeck({text,commanderId,bracket=3,budget=40,budgetTolerance=0,owned=[],locked=[],accepted=[],customPackages=[],resaleEnabled=false,resaleCredit=0,compare=false}={},catalog,variants=[],{allowCompactCombosInBracket3=false,collectionNames=[]}={}){
+export function upgradeDeck({text,commanderId,bracket=3,budget=40,budgetTolerance:allowance=0,owned=[],locked=[],accepted=[],customPackages=[],resaleEnabled=false,resaleCredit=0,compare=false}={},catalog,variants=[],{allowCompactCombosInBracket3=false,collectionNames=[]}={}){
  if(![2,3,4,5].includes(Number(bracket)))throw Error('Bracket must be 2–5.');bracket=Number(bracket);
- if(!Number.isFinite(budget)||budget<0||budget>100000||euro(budget)!==budget||![0,4].includes(budgetTolerance))throw Error('Upgrade budget must be EUR with at most two decimals; tolerance 0 or 4.');
+ if(!Number.isFinite(budget)||budget<0||budget>100000||euro(budget)!==budget)throw Error('Upgrade budget must be EUR with at most two decimals.');
+ const budgetTolerance=allowanceEUR(budget,allowance);
+ const ceiling=euro(budget+budgetTolerance);
  if(![owned,locked,accepted,customPackages].every(Array.isArray)||owned.length>100||locked.length>100||accepted.length>12||customPackages.length>8)throw Error('Bounded choices exceeded.');
  if(typeof resaleEnabled!=='boolean'||!Number.isFinite(resaleCredit)||resaleCredit<0||resaleCredit>100000||euro(resaleCredit)!==resaleCredit)throw Error('Invalid explicit resale credit.');
  const parsed=parseUpgradeDeck(text,catalog,{commanderId});if(parsed.errors.length||!parsed.commander)return {stage:'import',...parsed,cards:undefined,commander:undefined,errors:parsed.errors};
@@ -84,14 +87,14 @@ export function upgradeDeck({text,commanderId,bracket=3,budget=40,budgetToleranc
  }
  for(const cut of safeCuts.sort((a,b)=>a.name.localeCompare(b.name)).slice(0,12))for(const add of pool.sort((a,b)=>a.name.localeCompare(b.name)).slice(0,120)){
   const a=manaProfile(add,commander),b=manaProfile(cut,commander);if(!b)continue;const lower=(add.cmc??100)<(cut.cmc??100),untap=b?.tapped&&!a.tapped;
-  if(!normalizedOwned.has(singletonName(add))&&priceOf(add)>budget+budgetTolerance)continue;
+  if(!normalizedOwned.has(singletonName(add))&&priceOf(add)>ceiling)continue;
   if((add.cmc??100)<=(cut.cmc??0)&&(lower||untap)&&(!b||a.units>=b.units&&b.options.every(x=>a.options.includes(x))))propose([cut],[add],b?'Earlier supported mana deployment with the recognized output preserved; review additional lost Oracle abilities':'Optional ramp replacement: lower casting cost; old conditional output remains uncertain',b?'supported mana property; whole-deck improvement unverified':'unverified');
   if(proposals.length>=12)break;
  }proposals.splice(12);
  // A one-shot/persistent access tradeoff is an experiment, never an automatic superiority claim.
  proposals.splice(4);
  const oneShotCuts=cards.filter(c=>!protectedNames.has(singletonName(c))&&ledger.cards.find(r=>normalizedName(r.card)===singletonName(c))?.jobs.some(j=>j.kind.startsWith('access:')&&!j.sourceIsPersistent)).sort((a,b)=>Number(!/^Draw /.test(a.oracle_text||''))-Number(!/^Draw /.test(b.oracle_text||''))||a.name.localeCompare(b.name)).slice(0,8);
- const accessPool=catalog.filter(c=>legalFor(c,commander)&&!seenNames.has(singletonName(c))&&/Creature|Enchantment|Artifact/.test(c.type_line)&&recurringDraw(c)&&typeof c.mana_cost==='string'&&c.mana_cost.length>0&&priceOf(c)!==null&&(normalizedOwned.has(singletonName(c))||priceOf(c)<=budget+budgetTolerance)).sort((a,b)=>Number(!/^\{[^\n]*:.*draw/i.test(a.oracle_text||''))-Number(!/^\{[^\n]*:.*draw/i.test(b.oracle_text||''))||(a.cmc??100)-(b.cmc??100)||a.name.localeCompare(b.name)).slice(0,80);
+ const accessPool=catalog.filter(c=>legalFor(c,commander)&&!seenNames.has(singletonName(c))&&/Creature|Enchantment|Artifact/.test(c.type_line)&&recurringDraw(c)&&typeof c.mana_cost==='string'&&c.mana_cost.length>0&&priceOf(c)!==null&&(normalizedOwned.has(singletonName(c))||priceOf(c)<=ceiling)).sort((a,b)=>Number(!/^\{[^\n]*:.*draw/i.test(a.oracle_text||''))-Number(!/^\{[^\n]*:.*draw/i.test(b.oracle_text||''))||(a.cmc??100)-(b.cmc??100)||a.name.localeCompare(b.name)).slice(0,80);
  let evaluatedAccess=0;
  for(const cut of oneShotCuts){for(const add of accessPool){
   if(evaluatedAccess++>=40||proposals.length>=8)break;if((add.cmc??100)>(cut.cmc??0)+1)continue;
@@ -113,7 +116,7 @@ export function upgradeDeck({text,commanderId,bracket=3,budget=40,budgetToleranc
  for(const old of ledger.obligations.filter(o=>o.id.endsWith('|qualifying-input')&&o.status==='supported')){const next=afterLedger.obligations.find(o=>o.id===old.id);if(next?.status==='unsupported')errors.push('Disconnected existing supported strategy input: '+old.id);}
  const afterCombo=auditComboExecutions(variants,{commander,cards:result,catalog});for(const old of comboRows)if(!afterCombo.combinations.some(r=>r.id===old.id&&r.inventoryComplete))errors.push('Broken existing combo commitment: '+old.id);
  const added=result.filter(c=>!seenNames.has(singletonName(c))),removed=cards.filter(c=>!result.some(x=>key(x)===key(c))),gross=added.reduce((n,c)=>n+(normalizedOwned.has(singletonName(c))?0:cents(c)),0)/100;
- const credit=resaleEnabled&&removed.length?resaleCredit:0,net=Math.max(0,euro(gross-credit)),ceiling=euro(budget+budgetTolerance);if(net>ceiling)errors.push('Incremental purchase cost exceeds upgrade ceiling.');
+ const credit=resaleEnabled&&removed.length?resaleCredit:0,net=Math.max(0,euro(gross-credit));if(net>ceiling)errors.push('Incremental purchase cost exceeds upgrade ceiling.');
  const proposed=value(commander,result,catalog),delta=compareJobLedgers(ledger,afterLedger);
  const validationDone=performance.now(),goldfish=compare?{original:runGoldfish({commander,cards},{trials:16,seed:'upgrader-v1'}),proposed:runGoldfish({commander,cards:result},{trials:16,seed:'upgrader-v1'}),warning:'Conditional supported projections only; unknown native effects cannot be compared.'}:null;
  const knownPolicy=bracket===3&&allowCompactCombosInBracket3?'The local Bracket 3 check applies the Game Changer allowance.':

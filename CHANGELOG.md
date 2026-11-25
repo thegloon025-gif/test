@@ -1,3 +1,7 @@
+## 1.2.2 — Optional 7% budget allowance
+
+- Show the maximum beside the budget control. Apply the allowance once to a deck target or an upgrade purchase budget, rounded down to the cent.
+
 ## 1.2.1 — Architect budget repair
 
 - Architect budget repair checks cheaper spells with matching rules and mana costs, interchangeable combo support, and lands that preserve mana channels with a limited tapped-entry tradeoff. Failed builds show the remaining shortfall and retain each bracket’s editable draft.

@@ -368,7 +368,7 @@ const server=http.createServer(async(req,res)=>{
      if(!selected)throw Error('Selected community strategy is no longer available. Refresh community research and choose another strategy.');
      communityPrepared.selected=selected;communityPrepared.userSelected=true;
     }
-    const deck=generateDeck({cards:candidateCards,commander:selectedCommander,budget:purchasing.target,cedhBudgetTier:purchasing.cedhBudgetTier,budgetTolerance:purchasing.tolerance,basicLandsOwned:purchasing.basicLandsOwned,bracket,powerTarget,comboVariants:localCombos,communityBuild:communityPrepared,communityDecks:community,constructionMode:p.constructionMode==='legacy'?'legacy':'strategy-first'});
+    const deck=generateDeck({cards:candidateCards,commander:selectedCommander,budget:purchasing.target,cedhBudgetTier:purchasing.cedhBudgetTier,budgetTolerance:p.budgetTolerance,basicLandsOwned:purchasing.basicLandsOwned,bracket,powerTarget,comboVariants:localCombos,communityBuild:communityPrepared,communityDecks:community,constructionMode:p.constructionMode==='legacy'?'legacy':'strategy-first'});
     deck.communityKnowledge=communityStrategySummary(communityPrepared);
     // Stage 12: optional manually imported EDHREC observation. Never a remote
     // request and never a constructor score or ranking input.

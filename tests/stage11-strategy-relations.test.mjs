@@ -59,6 +59,13 @@ test('strict budget and explicit four-euro tolerance share one hard maximum and 
  assert.deepEqual([budgetUsage(p,162).unused,budgetUsage(p,162).overTarget],[2,2]);
  for(const input of [{budget:NaN},{budget:1},{budget:160.001},{budget:Infinity},{budgetTolerance:20},{budgetTolerance:'4'},{basicLandsOwned:'true'}])assert.throws(()=>budgetPolicy(input));
 });
+test('percentage allowance rounds down to cents and respects fixed cEDH tiers',()=>{
+ const settings={budget:19.99,budgetTolerance:'7%'};
+ assert.equal(budgetPolicy(settings).tolerance,1.39);
+ assert.equal(budgetPolicy(settings).effectiveMaximum,21.38);
+ assert.equal(budgetPolicy({...settings,bracket:5,cedhBudgetTier:'1000'}).effectiveMaximum,1000);
+ assert.equal(budgetPolicy({...settings,bracket:5,cedhBudgetTier:'open'}).effectiveMaximum,Infinity);
+});
 test('owned basics include Wastes while commander/nonbasics always count; original records unchanged',()=>{
  const wastes=card('Wastes','Basic Land','',{prices:{eur:0.5}}),nonbasic=card('Utility','Land','',{prices:{eur:2}});
  const original=[commander,wastes,nonbasic],owned=applyBudgetValuation(original,budgetPolicy({budget:160}));

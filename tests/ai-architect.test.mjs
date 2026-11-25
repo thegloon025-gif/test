@@ -95,6 +95,29 @@ test("total budget tolerance applied exactly once", () => {
     false,
   );
 });
+test("the 7% allowance accepts both reported drafts and enforces the final cent on export", () => {
+  for (const [bracket, total] of [[3,285.23],[4,285.37],[3,288.90],[4,288.91]]) {
+    const priced=catalog.map(card=>card===slow?{...card,prices:{eur:total-1}}:card);
+    const settings={...build,bracket,budget:270,budgetTolerance:"7%"};
+    const result=validateArchitectResult(settings,deck,priced);
+    assert.equal(result.valid,total<=288.90,JSON.stringify(result.issues));
+    if(result.valid){
+      assert.equal(result.price,total);
+      assert.equal(result.ceiling,288.90);
+      assert.equal(result.audit.count,100);
+    } else assert.equal(result.deck,undefined);
+    assert.equal(validateArchitectResult({...settings,budgetTolerance:0},deck,priced).valid,false);
+  }
+});
+test("Architect prompts distinguish the target, allowed euros and absolute ceiling",()=>{
+  const builder=architectRequest({...build,budget:270,budgetTolerance:"7%"},catalog);
+  assert.match(builder.prompt,/Aim for €270.00/);
+  assert.match(builder.prompt,/hard ceiling is €288.90/);
+  for(const [request,expected] of [[builder,18.9],[architectRequest({...upgrade,budgetTolerance:"7%"},catalog),2.8]]){
+    const payload=JSON.parse(request.prompt.slice(request.prompt.indexOf('\n')+1));
+    assert.equal(payload.tolerance,expected);
+  }
+});
 test("model recommendations are previews, not accepted edits; original is immutable", () => {
   const before = JSON.stringify(catalog),
     raw = JSON.stringify({ packages: [{ cuts: ["Slow"], adds: ["Fast"] }] });

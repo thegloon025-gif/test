@@ -163,7 +163,7 @@ function params() {
         text: $("up-text").value,
         commanderId: $("up-commander").value || null,
         budget: Number($("up-budget").value),
-        budgetTolerance: $("up-tolerance").checked ? 4 : 0,
+        budgetTolerance: $("up-tolerance").checked ? "7%" : 0,
         bracket: Number($("up-bracket").value),
         pricingMode: $("up-pricing").value,
         owned: names("up-owned"),
@@ -563,6 +563,10 @@ async function showBuilt(deck,settings,{suggest=true}={}){
   $("ai-lab-results").replaceChildren();
   show(deck);
   $("ai-message").textContent="Bracket "+settings.bracket+" · validated 100-card deck · €"+deck.price.toFixed(2);
+  if(deck.ceiling>deck.budget&&deck.price>deck.budget){
+    $("ai-message").textContent+=" · €"+(deck.price-deck.budget).toFixed(2)+" over target, within the €"+deck.ceiling.toFixed(2)+" maximum";
+    if(deck.strategy?.budgetDecisions)$("ai-message").textContent+=" · Architect’s budget reasoning: "+deck.strategy.budgetDecisions;
+  }
   if(deck.collectionPurchases)$("ai-message").textContent+=" · estimated new purchases "+(deck.collectionPurchases.cost===null?"unpriced":"€"+deck.collectionPurchases.cost.toFixed(2));
   if($("bracket").value==="3+4")$("ai-builder-bracket").value=String(settings.bracket);
   await runLab(deck,settings,{suggest});

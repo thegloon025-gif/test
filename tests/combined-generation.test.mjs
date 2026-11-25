@@ -52,21 +52,21 @@ test('combined generation endpoint returns separate audited, exportable bracket 
  const endpoint='http://127.0.0.1:'+port+'/api/generate';
  const {csrf}=await (await fetch(new URL('/api/session',endpoint))).json();
  assert.equal((await fetch(endpoint,{method:'POST'})).status,403);
- const payload={commanderId:eldrazi.id,bracket:'3+4',budget:20,budgetTolerance:4,
+ const payload={commanderId:eldrazi.id,bracket:'3+4',budget:20,budgetTolerance:'7%',
   powerTarget:'high',constructionMode:'legacy',communityMode:'off'};
  function generate(params={},stream=false){
   const headers={'Content-Type':'application/json','x-commander-ai-session':csrf};
   if(stream)headers.Accept='application/x-ndjson';
   return fetch(endpoint,{method:'POST',headers,body:JSON.stringify({...payload,...params})});
  }
- function audit(deck,bracket,power,budget=20){
+ function audit(deck,bracket,power,budget=20,allowance=1.40){
   assert.equal(deck.bracket,bracket);
   assert.equal(deck.powerTarget,power);
-  assert.equal(deck.budget,budget+4);
+  assert.equal(deck.budget,budget+allowance);
   assert.equal(deck.budgetPolicy.target,budget);
-  assert.equal(deck.budgetPolicy.tolerance,4);
+  assert.equal(deck.budgetPolicy.tolerance,allowance);
   assert.equal(deck.totalCards,100);
-  assert.ok(deck.price<=budget+4);
+  assert.ok(deck.price<=budget+allowance);
   assert.equal(deck.pricingAudit.total,deck.price);
   assert.equal(deck.pricingAudit.withinBudget,true);
   assert.equal(deck.pricingAudit.count,100);
@@ -103,7 +103,7 @@ test('combined generation endpoint returns separate audited, exportable bracket 
  const competitive=await generate({bracket:5,budget:750,powerTarget:'balanced',constructionMode:'strategy-first'});
  const b5=await competitive.json();
  assert.equal(competitive.status,200,b5.error);
- audit(b5,5,'balanced',750);
+ audit(b5,5,'balanced',750,52.50);
  assert.equal(b5.landCount,33);
  assert.ok(b5.landCount<results[1].deck.landCount);
 

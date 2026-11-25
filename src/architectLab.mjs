@@ -130,7 +130,7 @@ export function architectLab(p,{catalog,variants=[],snapshot=null}={}){
   proposed=parsedDeck(p.proposed,priced,oracleId(parsed.commander));
   result.upgrade=preview(proposed,'Architect revision guided by the prior simulation.');
  }else if(p.suggest&&original.withinBudget&&!original.bracketIssue){
-  const params={text:original.deck,commanderId:oracleId(parsed.commander),bracket,budget:policy.open?100000:policy.effectiveMaximum};
+  const params={text:original.deck,commanderId:oracleId(parsed.commander),bracket,budget:policy.open?100000:policy.target,budgetTolerance:policy.cedhBudgetTier?0:p.budgetTolerance};
   const review=upgradeDeck(params,priced,variants,builderPolicy);
   for(const suggestion of (review.proposals||[]).slice(0,4)){
    const proposedReview=upgradeDeck({...params,accepted:[suggestion.id]},priced,variants,builderPolicy);
