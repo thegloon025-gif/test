@@ -108,7 +108,11 @@ try {
   );
   const download = page.waitForEvent("download");
   await page.locator("#ai-download").click();
-  assert.match((await download).suggestedFilename(), / - Bracket [345]\.txt$/);
+  const exported=await download;
+  assert.match(exported.suggestedFilename(), / - Bracket [345]\.txt$/);
+  const rows=(await readFile(await exported.path(),"utf8")).trim().split(/\r?\n/);
+  assert.match(rows[0],/^1x .+ \[Commander\]$/);
+  assert.equal(rows.reduce((n,line)=>n+Number(line.match(/^(\d+)x /)[1]),0),100);
   checks.push("manual 100-card builder result revalidated on download");
   await page.locator("#experimental-upgrader summary").first().click();
   await page

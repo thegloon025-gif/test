@@ -45,7 +45,7 @@ panel.innerHTML = `<h2>Generative AI Architect</h2>
 <button id="ai-copy" type="button">Copy AI deckbuilding request</button>
 <label>Manual prompt<textarea id="ai-prompt" rows="5" readonly></textarea></label>
 <label>Decklist or Architect result<textarea id="ai-result" rows="8"></textarea></label>
-<label><input id="ai-optimize-import" type="checkbox"> Look for upgrades within the budget after validating this list</label>
+<label><input id="ai-optimize-import" type="checkbox"> Optimize within budget and replace one unavailable main-deck card if needed</label>
 <button id="ai-import" type="button">Validate imported deck or result</button>
 </details>
 <details id="ai-advanced"><summary>Advanced Architect options</summary>
@@ -64,7 +64,7 @@ panel.innerHTML = `<h2>Generative AI Architect</h2>
 <label>Second decklist for comparison<textarea id="ai-comparison" rows="4" placeholder="Optional. Mark its commander with *CMDR*."></textarea></label>
 <div class="architect-actions"><button id="ai-simulate" type="button" disabled>Run simulation</button>
 <button id="ai-upgrade-pass" type="button" disabled>Request AI upgrade pass</button>
-<button type="button" id="ai-library" disabled>Open in deck library</button> <button id="ai-download" type="button" disabled>Export validated deck TXT</button></div>
+<button type="button" id="ai-library" disabled>Open in deck library</button> <button id="ai-download" type="button" disabled>Export Archidekt TXT</button></div>
 <p id="ai-lab-status" role="status"></p><div id="ai-lab-results"></div>
 </section>`;
 $("architect-main").append(panel);
@@ -359,11 +359,17 @@ function renderBudgetOptimization(report) {
     totals.append(group);
   }
   const summary = document.createElement("p");
-  const cardCount=report.initialCards===99?" (99 cards)":"";
+  const cardCount=report.initialCards===99?" (99 resolved cards)":"";
   summary.textContent = `Initial deck ${euros(report.initialEUR)}${cardCount}. ` +
     (open?"":`${report.utilizationPercent}% of the ceiling used. The ${report.targetPercent.join("–")}% range applies when upgrades improve the deck. `) +
     report.stopReason;
   root.append(heading, totals, summary);
+  if(report.unavailableCardReplacement){
+    const {line,name,replacement}=report.unavailableCardReplacement;
+    const note=document.createElement("p");
+    note.textContent=`Line ${line} · ${name} was unavailable in the local catalog. The validated deck fills that slot with ${replacement}.`;
+    root.append(note);
+  }
 
   const accepted = document.createElement("h4");
   accepted.textContent = `Accepted changes (${report.accepted.length})`;
@@ -678,7 +684,8 @@ $("ai-import").onclick = () =>
     const rev = revision;
     rawResult = $("ai-result").value;
     const settings=params();
-    const x = await post("import", { ...settings, result: rawResult, optimizeBudget: $("ai-optimize-import").checked });
+    const optimizeBudget=$("ai-optimize-import").checked;
+    const x = await post("import", { ...settings, result: rawResult, optimizeBudget, repairUnavailable:optimizeBudget });
     if (rev === revision) {
       if(x.valid&&x.mode==="builder")await showBuilt(x,settings);
       else show(x);
@@ -708,7 +715,7 @@ $("ai-download").onclick = () =>
     });
     if (!x.valid){show(x);return;}
     const url = URL.createObjectURL(
-        new Blob([x.deck + "\n"], { type: "text/plain" }),
+        new Blob([x.archidektImport + "\n"], { type: "text/plain;charset=utf-8" }),
       ),
       a = document.createElement("a");
     a.href = url;

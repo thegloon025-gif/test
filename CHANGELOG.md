@@ -1,3 +1,9 @@
+## 1.2.3 — Architect slot repair and Archidekt text export
+
+- Builder and Upgrader TXT downloads use Archidekt quantities, group repeated basics and mark the commander on the first line.
+
+- A generated deck with one unavailable main-deck card can use the existing local slot repair. The budget review names the original line and its replacement. Manual imports can opt in.
+
 ## 1.2.2 — Optional 7% budget allowance
 
 - Show the maximum beside the budget control. Apply the allowance once to a deck target or an upgrade purchase budget, rounded down to the cent.

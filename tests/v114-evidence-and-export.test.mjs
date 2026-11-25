@@ -48,3 +48,16 @@ test('export marks commander category for Archidekt without altering original ex
  assert.equal(original.split('\n')[0],'1 Ulalek, Fused Atrocity *CMDR*');
  assert.throws(()=>archidektTextExport('1 Ulalek *CMDR*'),/100-card/);
 });
+
+test('Archidekt TXT round-trips repeated basics and a punctuation-bearing commander',async()=>{
+ const {parseUpgradeDeck}=await import('../src/deckUpgrader.mjs');
+ const jin={name:'Jin Sakai, Ghost of Tsushima',type_line:'Legendary Creature',legalities:{commander:'legal'}};
+ const island={name:'Island',type_line:'Basic Land — Island',legalities:{commander:'legal'}};
+ const original=['1 '+jin.name+' *CMDR*',...Array(99).fill('1 Island')].join('\n');
+ const output=archidektTextExport(original);
+ assert.equal(output,'1x Jin Sakai, Ghost of Tsushima [Commander]\n99x Island');
+ const parsed=parseUpgradeDeck(output,[jin,island]);
+ assert.deepEqual(parsed.errors,[]);
+ assert.equal(parsed.commander.name,jin.name);
+ assert.equal(parsed.cards.length,99);
+});

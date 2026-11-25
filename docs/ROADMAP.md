@@ -19,6 +19,7 @@
 - [x] Recommend optional revisions from paired gameplay-model evidence and preserve the original when the improvement is inconclusive or regresses.
 - [x] Automatically review spare budget after generation, report supported upgrades with price reconciliation, and protect known combo packages.
 - [x] Review every card's supported costs and jobs in context. Apply affordable corrections to weak or unsupported slots and show the final per-card evidence.
+- [x] Recover one unavailable main-deck name in a generated draft and identify the validated replacement.
 - [x] Complete clean 99-card drafts and apply coordinated budget repairs before offering export.
 - [x] Check affordable equivalent spells and same-channel land tradeoffs against the original win lines. Keep separate editable drafts when both bracket checks fail.
 - [x] Include published two-card infinite lines in Bracket 3 combo analysis and allow validated lists to export.

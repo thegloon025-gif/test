@@ -17,7 +17,7 @@ const indices=new WeakMap();
 export function parseUpgradeDeck(text,catalog,{commanderId=null,allowOneShort=false}={}){
  if(typeof text!=='string'||text.length>100000)throw Error('Paste a decklist of at most 100 KB.');
  let lookup=indices.get(catalog);if(!lookup){lookup=new Map();for(const c of catalog)for(const alias of [c.name,...(c.card_faces||[]).map(f=>f.name)]){const n=normalizedName(alias),xs=lookup.get(n)||[];if(!xs.some(x=>key(x)===key(c)))xs.push(c);lookup.set(n,xs);}indices.set(catalog,lookup);}
- const rows=[],errors=[],marked=[];let section='main';
+ const rows=[],errors=[],marked=[];let section='main',unavailableSlot=null;
  for(const [i,raw] of text.split(/\r?\n/).entries()){
   let line=raw.trim();if(!line||line.startsWith('#')||line.startsWith('//'))continue;
   if(/^(?:\/\/\s*)?commander:?$/i.test(line)){section='commander';continue;}if(/^(?:deck|mainboard|main):?$/i.test(line)){section='main';continue;}
@@ -26,7 +26,11 @@ export function parseUpgradeDeck(text,catalog,{commanderId=null,allowOneShort=fa
   line=line.replace(/\*CMDR\*|\[(?:Commander|CMDR)\]/gi,'').trim();const m=line.match(/^(\d+)\s*x?\s+(.+?)$/i);if(!m){errors.push(`Line ${i+1}: expected quantity and card name.`);continue;}
   const n=Number(m[1]);if(n<1||n>100){errors.push(`Line ${i+1}: invalid quantity.`);continue;}
   let name=m[2].replace(/\s+\([A-Za-z0-9]+\)\s+[A-Za-z0-9★-]+(?:\s+\*F\*)?$/,'').replace(/\s+\*F\*$/,'');
-  let xs=lookup.get(normalizedName(name))||[];const exact=xs.filter(c=>normalizedName(c.name)===normalizedName(name));if(exact.length===1)xs=exact;if(xs.length!==1){errors.push(`Line ${i+1}: ${xs.length?'ambiguous identity':'unresolved card'}: ${name}`);continue;}
+  let xs=lookup.get(normalizedName(name))||[];const exact=xs.filter(c=>normalizedName(c.name)===normalizedName(name));if(exact.length===1)xs=exact;if(xs.length!==1){
+   errors.push(`Line ${i+1}: ${xs.length?'ambiguous identity':'unresolved card'}: ${name}`);
+   if(!xs.length&&n===1&&!marker&&!/[\[\]*]/.test(name))unavailableSlot={line:i+1,name};
+   continue;
+  }
   if(rows.length+n>100){errors.push('More than 100 physical cards.');continue;}for(let j=0;j<n;j++){rows.push(xs[0]);if(marker)marked.push(xs[0]);}
  }
  let commander=null;const candidates=[...new Map(rows.filter(isCommander).map(c=>[key(c),c])).values()];
@@ -37,7 +41,10 @@ export function parseUpgradeDeck(text,catalog,{commanderId=null,allowOneShort=fa
  const cards=rows.slice();if(commander)cards.splice(cards.indexOf(commander),1);
  if(rows.length!==100&&!(allowOneShort&&rows.length===99))errors.push(`Expected 100 cards, resolved ${rows.length}.`);
  if(commander){const s=validateCommanderSingleton(commander,cards);errors.push(...s.violations);for(const c of cards)if(!legalFor(c,commander))errors.push('Commander/color legality: '+c.name);}
- return {commander,cards,candidates:candidates.map(c=>({id:key(c),name:c.name})),errors:[...new Set(errors)],needsCommander:!commander&&candidates.length>1,originalText:text};
+ // Only an otherwise valid 100-card draft can exchange this single unresolved slot.
+ const markerMatches=!marked.length||(marked.length===1&&marked[0]===commander);
+ const repairable=allowOneShort&&commander&&markerMatches&&rows.length===99&&errors.length===1&&unavailableSlot;
+ return {commander,cards,...(repairable?{unavailableSlot}:{}),candidates:candidates.map(c=>({id:key(c),name:c.name})),errors:[...new Set(errors)],needsCommander:!commander&&candidates.length>1,originalText:text};
 }
 const exportText=(c,cards)=>[`${'1 '+exportCardName(c)} *CMDR*`,...cards.map(x=>'1 '+exportCardName(x))].join('\n');
 function manaProfile(c,commander){

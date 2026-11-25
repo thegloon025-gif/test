@@ -237,6 +237,44 @@ test('Bracket 4 fills one missing slot with a priced legal card and leaves unres
  assert.equal(run(draft,{optimizeBudget:false}).valid,false);
 });
 
+test("B4 can replace one unavailable main-deck entry on line 42 with a validated catalog card",()=>{
+ const lines=deck.split('\n'),unavailable="Kemba's Outfitter";
+ lines[41]='1 '+unavailable;
+ const text=lines.join('\n');
+ const priced=[...catalog,card('Affordable Answer','Instant','{W}',1,'Exile target creature.',.28,['W'])];
+ const p={...params,bracket:4,budget:100};
+ const run=(draft,settings=p,opts={optimizeBudget:true,repairUnavailable:true})=>
+  validateArchitectResult(settings,draft,priced,[preserved],opts);
+ const result=run(text);
+ assert.equal(result.valid,true,JSON.stringify(result.issues));
+ assert.equal(result.audit.count,100);
+ assert.ok(result.price<=p.budget);
+ assert.equal(result.cardQuality.comboRoutes,1);
+ assert.ok(!result.deck.includes(unavailable));
+ assert.deepEqual(result.budgetOptimization.unavailableCardReplacement,
+  {line:42,name:unavailable,replacement:'Affordable Answer'});
+ assert.ok(result.deck.includes('1 Affordable Answer'));
+ assert.ok(run(text,p,{}).issues.includes('Line 42: unresolved card: '+unavailable));
+ assert.equal(run(text,{...p,preferences:'Keep '+unavailable}).valid,false);
+ assert.equal(run(text,{...p,revisionRequest:'Keep my plan'}).valid,false);
+ const ambiguous=[{id:'Split Alpha',name:'Split Alpha'},{id:'Split Beta',name:'Split Beta'}].map(c=>({
+  ...priced.at(-1),...c,card_faces:[{name:unavailable,type_line:'Instant'}]}));
+ assert.equal(validateArchitectResult(p,text,[...priced,...ambiguous],[preserved],
+  {optimizeBudget:true,repairUnavailable:true}).valid,false);
+ for(const bad of [text.replace('1 '+unavailable,'2 '+unavailable),
+  text.replace('1 '+unavailable,'1 '+unavailable+' *CMDR*'),
+  text.replace('1 '+unavailable,'Commander\n1 '+unavailable+'\nDeck'),
+  text.replace('1 '+unavailable,'1 '+unavailable+' [Sideboard]'),
+  text+'\n1 Another Unknown',text+'\n1 Forest',text+'\nMalformed row',
+  text.replace('1 '+filler.at(-1).name,'1 '+filler[0].name)]){
+  const rejected=run(bad);
+  assert.equal(rejected.valid,false);
+  assert.equal(rejected.deck,undefined);
+ }
+ const blocked=run(text,{...p,budget:5});
+ assert.equal(blocked.valid,false);
+ assert.ok(blocked.issues.includes('Line 42: unresolved card: '+unavailable));
+});
 test('Bracket 5 applies the range ceiling and supports a genuinely open price policy through analysis',()=>{
  const p={...params,bracket:5,budget:3000};
  const priced=catalog.map(c=>c===reservoir?{...c,prices:{eur:3511.98}}:c);

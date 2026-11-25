@@ -81,7 +81,7 @@ The bounded context now contains typed commander-specific engine/function packag
 - Paste it into your own ChatGPT conversation, subject to that service's plan limits.
 - Paste JSON or a supported plain deck result into **Import ChatGPT result**.
 - The same `validateArchitectResult` path is used by manual and connected output. Invalid/budget-broken results cannot enable export; no API charge is initiated by this bridge.
-- Builder download revalidates against the current catalog/settings before creating the TXT. Upgrader packages always go through separate user approval, combined checks and undo.
+- Builder download revalidates against the current catalog/settings before creating the Archidekt TXT with grouped quantities and a commander category. Upgrader packages always go through separate user approval, combined checks and undo.
 
 ## Reproduction and evidence
 

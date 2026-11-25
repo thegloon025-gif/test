@@ -161,7 +161,7 @@ const server=http.createServer(async(req,res)=>{
    if(url.pathname==='/api/architect/import'){
     const x=await architectInputs(p),optimizeBudget=p.mode==='builder'&&p.optimizeBudget===true;
     const snapshot=(await getSpellbookSnapshot({localOnly:true})).snapshot;
-    return json(res,validateForPlayer(p,p.result,x,{optimizeBudget,snapshot}));
+    return json(res,validateForPlayer(p,p.result,x,{optimizeBudget,repairUnavailable:p.repairUnavailable===true,snapshot}));
    }
    if(url.pathname==='/api/architect/simulate'){
     const x=await architectInputs(p);
@@ -176,7 +176,7 @@ const server=http.createServer(async(req,res)=>{
      return json(res,await architect.run({prompt:request.prompt,maxRepairs:p.mode==='builder'?0:2,
       validate:async raw=>{
        const snapshot=(await getSpellbookSnapshot({localOnly:true})).snapshot;
-       return validateForPlayer(p,raw,x,{optimizeBudget,snapshot});
+       return validateForPlayer(p,raw,x,{optimizeBudget,repairUnavailable:true,snapshot});
       }}));
     }catch(e){return architectPlanError(res,e);}
    }
@@ -210,6 +210,7 @@ const server=http.createServer(async(req,res)=>{
    const collectionNames=inventory.enabled?inventory.rows.filter(r=>r.quantity>r.reserved).map(r=>r.name):[];
    const review=upgradeDeck(p,priced,variants,{collectionNames});
    if(review.stage==='review'){
+    if(review.canExport)review.archidektImport=archidektTextExport(review.proposed.deck);
     const parsed=parseUpgradeDeck(review.canExport?review.proposed.deck:review.original.deck,priced,{commanderId:p.commanderId});
     const {snapshot}=await getSpellbookSnapshot({localOnly:true});
     if(parsed.commander&&!parsed.errors.length)review.winConditions=analyzeWinConditions(parsed,{variants,snapshot});
