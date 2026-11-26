@@ -35,9 +35,9 @@ inside a channel, not rank strategy strength.
 The 46 KB prompt bound trims whole combo/source/package units and interleaved
 card records, flags truncation, and retains concise priced function options.
 It never silently clips a selected combo's prerequisites. Oracle excerpts are
-explicitly marked when clipped. Retrieval is incomplete, **not an allowed-card
-whitelist**: any exact catalog-resolvable card can be proposed and is then
-validated against full local records. No network research, SDK initialization or
+explicitly marked when clipped. The Architect chooses additions from the verified names in the brief, including
+a name-only list of affordable options, basic lands and on-plan cards. Imported
+decks are validated against the full local paper Commander catalog. No network research, SDK initialization or
 inference occurs when copying a request. Missing cached research stays explicit.
 
 The brief asks the model to choose a coherent direction first, keep its resource

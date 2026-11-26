@@ -129,6 +129,7 @@ export function architectEvidence({
   bracket,
   allowCompactCombosInBracket3 = false,
   highlightVariantIds = [],
+  preferences = "",
 }) {
   const selectedBracket = Number(bracket);
   const reportCompactCombos = selectedBracket === 3 && allowCompactCombosInBracket3;
@@ -136,7 +137,8 @@ export function architectEvidence({
     eligible = unique(
       catalog.filter(
         (c) =>
-          legalFor(c, commander) &&
+          legalFor(c, commander) && !c.pricingWarning &&
+          (isBasic(c)||c.printing?.eligibleVersion===2||c.pricingMethod==='imported-en-nm-quote') &&
           priceOf(c) !== null &&
           priceOf(c) <= budget &&
           id(c) !== id(commander),
@@ -484,7 +486,23 @@ export function architectEvidence({
       .map((name) => byName.get(normalizedName(name)))
       .filter(Boolean)
       .map((c) => ({ name: c.name, manaCost: c.mana_cost, eur: priceOf(c) }));
+  // Keep a name-only bench alongside detailed records, including basic lands
+  // and budget spells when a premium or off-color card cannot be used.
+  const ranked=eligible.slice().sort((a,b)=>(a.edhrec_rank??Infinity)-(b.edhrec_rank??Infinity)||
+    priceOf(a)-priceOf(b)||a.name.localeCompare(b.name));
+  const requestText=normalizedName(preferences);
+  const spells=ranked.filter(c=>!isLandSlot(c));
+  const nativeSet=new Set(nativeCards);
+  const catalogChoices=[...new Set([
+    ...ranked.filter(isBasic),
+    ...ranked.filter(c=>requestText.includes(normalizedName(c.name))).slice(0,48),
+    ...ranked.filter(isLandSlot).slice(0,48),
+    ...ranked.filter(c=>isLandSlot(c)&&priceOf(c)<=1).slice(0,24),
+    ...spells.filter(c=>nativeSet.has(c)).slice(0,48),
+    ...spells.slice(0,96),...spells.filter(c=>priceOf(c)<=1).slice(0,72),
+  ].map(c=>c.name))];
   return {
+    catalogChoices,
     schema: 1,
     commander: architectCardRecord(commander),
     needs: plan.needs,
@@ -513,7 +531,7 @@ export function architectEvidence({
       totalDiscoveredEngineRelationships: packages.length,
     },
     unknowns: [
-      "Retrieval is bounded and incomplete, never an exclusive allowed-card list; any exact legal catalog card may be proposed",
+      "Detailed evidence covers a subset of the eligible local catalog. catalogChoices supplies additional verified names.",
       "Inventory relationships do not certify executable combos, timing, recurring draw, lethal damage or wins",
       "Unknown commander grammar: " +
         JSON.stringify(plan.unsupportedCast || []),

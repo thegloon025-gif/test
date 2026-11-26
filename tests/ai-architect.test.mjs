@@ -213,3 +213,31 @@ test("model strategy explanation remains bounded advisory text, not execution ev
   assert.equal(x.strategy.powerScore, undefined);
   assert.match(x.strategyEvidence, /no gameplay proof/);
 });
+
+test('Architect offers paper-legal names and rejects Alchemy, banned, off-color and unresolved choices',()=>{
+  const leader={...cmd,color_identity:['W','U','B']};
+  const make=(name,extra={})=>({...slow,id:name,name,...extra});
+  const malcolm=make('Malcolm, Keen-Eyed Navigator',{color_identity:['U'],games:['paper','arena'],legalities:{commander:'legal',alchemy:'legal'}});
+  const excluded=[
+    make("Kemba's Outfitter",{digital:true,games:['arena']}),
+    make('Arena exclusive',{games:['arena']}),
+    make('Alchemy-only card',{set_type:'alchemy'}),
+    make('A-Rebalanced Fixture'),
+    make('Banned Fixture',{legalities:{commander:'banned'}}),
+    make('Unknown Format',{legalities:{}}),
+    make('Professional Face-Breaker',{color_identity:['R']}),
+  ];
+  const records=[leader,land,malcolm,...excluded],p={...build,bracket:4};
+  const prompt=architectRequest(p,records).prompt;
+  const brief=JSON.parse(prompt.slice(prompt.indexOf('\n')+1)).deckbuildingBrief;
+  assert.ok(brief.catalogChoices.includes(malcolm.name));
+  for(const card of excluded)assert.ok(!JSON.stringify(brief).includes('"'+card.name+'"'),card.name);
+  const verify=name=>validateArchitectResult(p,deck.replace('1 Slow','1 '+name),records);
+  assert.equal(verify(malcolm.name).valid,true);
+  for(const name of [...excluded.map(c=>c.name),'Professional Face-Breaker Substitute Placeholder']){
+    const rejected=verify(name);
+    assert.equal(rejected.valid,false,name);
+    assert.equal(rejected.deck,undefined);
+  }
+  assert.equal(validateArchitectResult(p,deck,[{...leader,digital:true},land,slow]).valid,false);
+});

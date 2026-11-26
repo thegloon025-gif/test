@@ -254,6 +254,17 @@ test("B4 can replace one unavailable main-deck entry on line 42 with a validated
  assert.deepEqual(result.budgetOptimization.unavailableCardReplacement,
   {line:42,name:unavailable,replacement:'Affordable Answer'});
  assert.ok(result.deck.includes('1 Affordable Answer'));
+ const placeholder='Professional Face-Breaker Substitute Placeholder';
+ const badOptions=[{name:'Digital answer',digital:true},{name:'Banned answer',legalities:{commander:'banned'}}]
+  .map(extra=>({...priced.at(-1),...extra,id:extra.name,prices:{eur:0}}));
+ const nextDraft=deck.split('\n');
+ nextDraft[47]='1 '+placeholder;
+ const repaired=validateArchitectResult(p,nextDraft.join('\n'),[...priced,...badOptions],[preserved],
+  {optimizeBudget:true,repairUnavailable:true});
+ assert.equal(repaired.valid,true,JSON.stringify(repaired.issues));
+ assert.equal(repaired.audit.count,100);
+ assert.deepEqual(repaired.budgetOptimization.unavailableCardReplacement,
+  {line:48,name:placeholder,replacement:'Affordable Answer'});
  assert.ok(run(text,p,{}).issues.includes('Line 42: unresolved card: '+unavailable));
  assert.equal(run(text,{...p,preferences:'Keep '+unavailable}).valid,false);
  assert.equal(run(text,{...p,revisionRequest:'Keep my plan'}).valid,false);

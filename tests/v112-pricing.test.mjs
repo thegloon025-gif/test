@@ -17,7 +17,7 @@ test('collector copy can never undercut a regular paper printing for the same Or
  assert.deepEqual(parsed.cards[0].cardmarketIds,['136']);
 });
 test('printing screening includes language, digital, oversized, silver and gold bans',()=>{
- for(const changed of [{lang:'it'},{digital:true},{oversized:true},{games:['arena']},{border_color:'silver'},{border_color:'gold'},{set:'wc00',border_color:'black'}])
+ for(const changed of [{lang:'it'},{digital:true},{name:'A-Rebalanced Fixture'},{set_type:'alchemy'},{oversized:true},{games:['arena']},{border_color:'silver'},{border_color:'gold'},{set:'wc00',border_color:'black'}])
   assert.equal(eligibleScryfallPrinting(printing({set:'ulg',border_color:'black',...changed})),false,JSON.stringify(changed));
  assert.equal(eligibleScryfallPrinting(printing({set:'ulg',border_color:'borderless'})),true);
 });

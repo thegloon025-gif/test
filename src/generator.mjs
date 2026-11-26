@@ -588,7 +588,9 @@ export function generateDeck(opts){
  const commander=cards.find(c=>oracleId(c)===oracleId(opts.commander));
  if(!commander)throw Error('Commander is missing from priced catalog.');
  const result=generateWithEffectiveBudget({...opts,cards,commander,budget:policy.open?openDeckPriceBound(cards):policy.effectiveMaximum});
- if(result.totalCards!==100||selectedCards(result)?.length!==100)throw Error('Final physical deck count is not 100; refusing export.');
+ const selected=selectedCards(result);
+ if(result.totalCards!==100||selected?.length!==100)throw Error('Final physical deck count is not 100; refusing export.');
+ if(!isCommander(selected[0])||oracleId(selected[0])!==oracleId(commander)||selected.slice(1).some(card=>!legalFor(card,commander)))throw Error('Final selection contains a card outside paper Commander legality or commander color identity.');
  if(result.price>policy.effectiveMaximum+0.005)throw Error('Final selected deck exceeds the effective maximum.');
  result.budgetPolicy=budgetUsage(policy,result.price);
  if(policy.open){

@@ -2,10 +2,13 @@
  * A Commander-legal card may have a collector/gold-border copy that is not
  * an acceptable priced physical tournament printing.
  */
+export function digitalOnlyPrinting(card){
+ return card.digital===true||card.set_type==='alchemy'||/^A-/.test(card.name||'')||
+  (Array.isArray(card.games)&&!card.games.includes('paper'));
+}
 export function eligibleScryfallPrinting(raw){
- if(raw?.digital===true||raw?.oversized===true)return false;
+ if(!raw||digitalOnlyPrinting(raw)||raw.oversized===true)return false;
  if(raw?.lang && raw.lang!=='en')return false;
- if(Array.isArray(raw?.games)&&!raw.games.includes('paper'))return false;
  if(raw?.border_color&&!['black','white','borderless'].includes(raw.border_color))return false;
  if(raw?.security_stamp==='acorn')return false;
  // World Championship series remain in some datasets with Oracle legalities

@@ -19,7 +19,7 @@ async function api(resource){
 }
 export async function remoteCommanders(query){
  if(query.trim().length<2)return [];
- const s=encodeURIComponent(`is:commander f:commander ${query.trim()}`);
+ const s=encodeURIComponent(`is:commander game:paper f:commander ${query.trim()}`);
  try {const x=await api(`/cards/search?q=${s}&unique=cards&order=name`);return (x.data||[]).slice(0,20).map(compact);}catch(e){if(/404/.test(e.message))return [];throw e;}
 }
 export const DATA_DIR=path.join(import.meta.dirname,'..','data');

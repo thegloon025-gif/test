@@ -1,3 +1,7 @@
+## 1.2.4 — Paper Commander card choices
+
+- The Architect receives additional verified, on-color catalog names for substitutions. Deck selection and final validation reject digital-only and Arena-rebalanced records, including stale records with conflicting format flags.
+
 ## 1.2.3 — Architect slot repair and Archidekt text export
 
 - Builder and Upgrader TXT downloads use Archidekt quantities, group repeated basics and mark the commander on the first line.
