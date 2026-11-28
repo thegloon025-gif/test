@@ -2,6 +2,7 @@
  * No AI calls, quality score, automatic cuts, deck mutation or official bracket claim.
  */
 import { coloredSources, isLandSlot, legalFor, landFaces, landManaQuality, priceOf, trueColorlessSource, oracleId } from "./cards.mjs";
+import { earlyLandSource, openingManaReview } from "./openingMana.mjs";
 
 const colors = ["W", "U", "B", "R", "G"];
 const key = c => String(oracleId(c));
@@ -12,19 +13,22 @@ const subset = (a, b) => a.every(v => b.includes(v));
 /** Classify actual printed entry clauses conservatively. No guessed untap probability. */
 export function landEntryEvidence(c) {
   if (!isLandSlot(c)) return { kind: "not-a-land", reason: "Not a land slot." };
+  const faces = landFaces(c);
+  if (faces.length > 1) {
+    const choices = faces.map(face => landEntryEvidence({ ...face, layout: 'normal' }));
+    if (choices.every(choice => choice.kind === choices[0].kind)) return choices[0];
+    return { kind: "entry-cost-or-unknown", reason: "Entry depends on the land face played.", printed: text(c).slice(0, 400) };
+  }
   const t = text(c);
+  const normalized = t.replaceAll(faces[0].name || c.name, 'This land');
+  const clauses = normalized.split(/(?<=\.)\s+|\n/);
+  const selfEntry = /^(?:this (?:land|permanent|creature)|it) enters(?: the battlefield)? tapped\b/i;
+  const forced = clauses.find(s => /^this (?:land|permanent|creature) enters(?: the battlefield)? tapped\.$/i.test(s));
+  if (forced) return { kind: "always-tapped", reason: "Printed clause requires entering tapped.", printed: forced };
+  if (clauses.some(s => selfEntry.test(s) || /^(?:if|unless)\b[^.]*, (?:this land|it) enters(?: the battlefield)? tapped/i.test(s)))
+    return { kind: "conditional-tapped", reason: "Printed tapped-entry condition depends on board or payment.", printed: t.slice(0, 400) };
   if (/(?:\{T\},?\s*)?Sacrifice (?:this land|[^:\n]+):[^\n]*Search your library[^.\n]*put (?:it|that card) onto the battlefield tapped/i.test(t))
     return { kind: "delayed-fetch", reason: "Fetching a tapped replacement can defer available mana.", printed: t.slice(0, 400) };
-  const sentences = t.split(/(?<=\.)\s+|\n/);
-  const entry = sentences.filter(s => /\b(?:enters|enter)(?: the battlefield)? tapped\b/i.test(s));
-  if (entry.length) {
-    const conditional = entry.some(s => /\b(if|unless|may|pay|control|reveal|otherwise|choose)\b/i.test(s));
-    return {
-      kind: conditional ? "conditional-tapped" : "always-tapped",
-      reason: conditional ? "Printed tapped-entry condition; readiness depends on board or payment." : "Printed clause requires entering tapped.",
-      printed: entry.join(" ").slice(0, 400)
-    };
-  }
   if (/\b(?:enters|enter)(?: the battlefield)?\b/i.test(t) && /\b(sacrifice|return a land|pay \d+ life|unless)\b/i.test(t))
     return { kind: "entry-cost-or-unknown", reason: "Entry/payment condition needs review.", printed: t.slice(0, 400) };
   return { kind: "no-recognized-tap-clause", reason: "No tapped-entry clause recognized; other restrictions may remain.", printed: t.slice(0, 400) };
@@ -36,9 +40,10 @@ function adequateReplacement(old, next) {
   const a = channels(old), b = channels(next);
   return subset(a.colors, b.colors) && (!a.trueC || b.trueC);
 }
-function conservativeCandidate(c) {
+function conservativeCandidate(c, commander) {
   const e = landEntryEvidence(c);
   const t = text(c), q = landManaQuality(c);
+  if (e.kind === "conditional-tapped" && earlyLandSource(c, commander)?.delayed === false) return true;
   const earlyFastland = e.kind === "conditional-tapped" && /unless you control two or fewer other lands/i.test(t);
   // Favor source channels known to be untapped immediately, or fastlands whose early
   // timing is explicitly printed. Other conditional effects stay unsupported.
@@ -85,7 +90,7 @@ export function manaPolishReview({ commander, cards, catalog = [], budget = null
   if (originalCents !== null && ceilingCents !== null && Array.isArray(catalog)) {
     const pool = catalog.filter(c =>
       isLandSlot(c) && !current.has(key(c)) && legalFor(c, commander) &&
-      priceOf(c) !== null && c.printing?.eligibleVersion === 2 && conservativeCandidate(c)
+      priceOf(c) !== null && c.printing?.eligibleVersion === 2 && conservativeCandidate(c, commander)
     );
     const unique = new Map(pool.map(c => [key(c), c]));
     for (const old of lands) {
@@ -97,6 +102,7 @@ export function manaPolishReview({ commander, cards, catalog = [], budget = null
           /\bAdd\s+(?:\{[WUBRGC]\}){2,}/i.test(oldText)) continue;
       const from = landEntryEvidence(old);
       if (from.kind !== "always-tapped" && from.kind !== "conditional-tapped") continue;
+      if (from.kind === "conditional-tapped" && earlyLandSource(old, commander)?.delayed === false) continue;
       const matches = [...unique.values()].filter(c =>
         adequateReplacement(old, c) &&
         originalCents - cents(priceOf(old)) + cents(priceOf(c)) <= ceilingCents
@@ -118,7 +124,7 @@ export function manaPolishReview({ commander, cards, catalog = [], budget = null
         caveat: (/scry|surveil|search your library|draw|life|sacrifice|counter|cycling|when(?:ever)?/i.test(oldText)
           ? "Cut has additional printed function(s); review what is lost. "
           : "") + (landEntryEvidence(next).kind === "conditional-tapped"
-          ? "Fastland is early-untapped only when its printed condition holds. "
+          ? (/pay 2 life/i.test(text(next)) ? "Untapped entry costs 2 life. " : "Fastland is early-untapped only when its printed condition holds. ")
           : "") + "Other mana/entry restrictions and turn sequencing are not fully modeled.",
         status: "advisory-only; no change or gameplay proof"
       });
@@ -127,6 +133,7 @@ export function manaPolishReview({ commander, cards, catalog = [], budget = null
   const warning = counts["always-tapped"] + counts["conditional-tapped"] + counts["delayed-fetch"];
   return {
     mode: "read-only mana-polish",
+    openingMana: openingManaReview(commander, cards, counts["always-tapped"]),
     lands: lands.length, entryCounts: counts, entries, sources,
     printedTrueColorlessLands: knownC, earlyPrintedDemand: sourceDemand,
     originalFullDeckEUR: originalCents === null ? null : originalCents / 100,
@@ -138,6 +145,6 @@ export function manaPolishReview({ commander, cards, catalog = [], budget = null
     unavailableSuggestions: originalCents === null ? "Unpriced deck; no budget-safe suggestions." :
       ceilingCents === null ? "No ceiling supplied; no budget-safe suggestions." :
       !catalog.length ? "Full local priced catalog was not supplied." : null,
-    scope: "Printed source counts and entry grammar, not probabilities, deck strength, or exact early payment execution. New land options preserve printed color channels and true-C but may lose other utility. No automatic edits."
+    scope: "Source counts describe printed channels, not probabilities. Opening mana evaluates exactly two land slots before mulligans and compares printed spell costs using modeled sources. New land options preserve printed color channels and true-C but may lose other utility. No automatic edits."
   };
 }

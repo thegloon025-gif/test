@@ -6,6 +6,7 @@ import {analysis,planFor,synergy} from './mechanics.mjs';
 import {castabilityIssues} from './selectionPolicy.mjs';
 import {analyzeDiscoveryCombos,indexDiscoveryCombos} from './discoveryCombos.mjs';
 import {sourceStructureEvidence} from './sourceQuality.mjs';
+import {earlyLandSource,earlySpellCosts,pairPays} from './openingMana.mjs';
 import {landEntryEvidence} from './manaPolish.mjs';
 import {createArchitectCardReview} from './architectCardReview.mjs';
 import {BRACKETS} from './generator.mjs';
@@ -71,6 +72,15 @@ function simpleManaLand(row){
   /^\(?\{T\}: Add (?:\{[WUBRGC]\}(?:(?:, |,? or )\{[WUBRGC]\})*|one mana of any color in your commander's color identity)\.\)?$/i.test(line)||
   /^This land enters tapped(?: unless you control (?:two or fewer other lands|two or more (?:other lands|opponents)))?\.$/i.test(line)||
   /^As this land enters, you may pay 2 life\. If you don't, it enters tapped\.$/i.test(line));
+}
+
+// Keep land subtypes that the deck searches for or otherwise names (for example Gates).
+function keepsTempoTypes(cut, add, deckRules){
+ const [cardTypes, subtypes='']=cut.type_line.split('—');
+ const required=[...cardTypes.trim().split(/\s+/),...subtypes.trim().split(/\s+/).filter(type=>
+  landTypes.includes(type)||type&&(deckRules.has(type.toLowerCase())||deckRules.has(type.toLowerCase()+'s')))];
+ const available=add.type_line.split(/[\s—]+/);
+ return required.every(type=>available.includes(type));
 }
 
 function equivalentSpellKey(row){
@@ -260,7 +270,15 @@ export function investArchitectBudget({commander,cards,catalog,variants=[],snaps
  let currentQuality=originalQuality;
  const finish=()=>({cards:current,report,quality:{...currentQuality.report,initialFindings,
   corrected:initialFindings.filter(entry=>!currentQuality.report.entries.some(row=>row.card===entry.card&&actionable(row))).length}});
- if(cards.length===99&&cap-initial>=0&&cap-initial<broadThreshold&&!initialFindings.length)return finish();
+ const tempoSources=new Map();
+ const tempoSource=card=>{
+  if(!tempoSources.has(card))tempoSources.set(card,earlyLandSource(card,commander));
+  return tempoSources.get(card);
+ };
+ const tempoCut=row=>row.land&&simpleManaLand(row)&&tempoSource(row.card)?.delayed;
+ const checkTempo=cards.some(card=>tempoCut(discover(card)))&&earlySpellCosts(commander,cards).length>0;
+ if(!checkTempo&&cards.length===99&&cap-initial>=0&&cap-initial<broadThreshold&&!initialFindings.length)return finish();
+ const deckRules=new Set([commander,...cards].flatMap(card=>(oracleText(card).toLowerCase().match(/[a-z]+/g)||[])));
  const originalEvidence=deckEvidence(current);
  const native=new Set(originalEvidence.infrastructure.filter(row=>row.kind!=='tutor').map(row=>row.card));
  const notes=singletonName({name:[strategy?.engines,strategy?.winConversion].filter(x=>typeof x==='string').join('\n')});
@@ -317,7 +335,8 @@ export function investArchitectBudget({commander,cards,catalog,variants=[],snaps
    (repairingBudget?!repairAdds.has(row.card):!supportNames.has(singletonName(row.card))));
   const targeted=cuts.filter(row=>!row.land&&actionable(currentQuality.byCard.get(row.card)))
    .sort((a,b)=>severity[currentQuality.byCard.get(b.card).status]-severity[currentQuality.byCard.get(a.card).status]||stable(a,b));
-  if(!broadPass&&!targeted.length&&!repairingBudget&&!filling){
+  const tempoCuts=checkTempo&&!repairingBudget&&!filling?[...new Set(cuts.filter(tempoCut))]:[];
+  if(!tempoCuts.length&&!broadPass&&!targeted.length&&!repairingBudget&&!filling){
    if(currentQuality.report.entries.some(actionable))report.stopReason='Remaining findings concern cards kept in protected packages.';
    break;
   }
@@ -331,12 +350,53 @@ export function investArchitectBudget({commander,cards,catalog,variants=[],snaps
    sumEffects(currentQuality.byCard.get(b.card))-.08*onPlan(b.card).impact||b.mv-a.mv||stable(a,b)).slice(0,12);
   const targets=targeted.map(row=>'quality:'+oracleId(row.card));
   const proposals=Object.fromEntries([...(repairingBudget&&!filling?['budget','equivalent','landRepair']:[]),...targets,...roles,'combos'].map(role=>[role,[]]));
-  const addProposal=(role,adds,remove,priority,repair=false,tradeoff='')=>{
+  const addProposal=(role,adds,remove,priority,repair=false,tradeoff='',tempoReason='')=>{
    if(adds.length!==remove.length+Number(filling)||new Set(remove).size!==remove.length)return;
    if(adds.some((row,i)=>row===remove[i]))return;
    const delta=total(adds.map(row=>row.card))-total(remove.map(row=>row.card));
-   proposals[role].push({round,adds,cuts:remove,delta,priority,repair,tradeoff});
+   proposals[role].push({round,adds,cuts:remove,delta,priority,repair,tradeoff,tempoReason});
   };
+  const targetsByCost=earlySpellCosts(commander,current);
+  const otherSourceCounts=new Map();
+  function partnersOf(cut){
+   if(!otherSourceCounts.has(cut)){
+    const others=currentLands.slice();
+    others.splice(others.indexOf(cut),1);
+    const counts=new Map();
+    for(const other of others){
+     const source=tempoSource(other);
+     if(source)counts.set(source,(counts.get(source)||0)+1);
+    }
+    otherSourceCounts.set(cut,counts);
+   }
+   return otherSourceCounts.get(cut);
+  }
+  function paymentGain(target,before,after,partners){
+   let gain=0;
+   for(const [other,count] of partners)
+    gain+=count*(Number(pairPays(target,after,other))-Number(pairPays(target,before,other)));
+   return gain;
+  }
+  if(tempoCuts.length){
+   const readyOptions=options.filter(row=>row.land&&simpleManaLand(row)&&tempoSource(row.card)?.delayed===false);
+   for(const cut of tempoCuts){
+    const partners=partnersOf(cut.card);
+    for(const add of readyOptions){
+     if(!keepsTempoTypes(cut.card,add.card,deckRules)||
+      cost(add.card)-cost(cut.card)>remaining||
+      !cut.landInfo.colors.every(color=>add.landInfo.colors.includes(color))||
+      (trueColorlessSource(cut.card)&&!trueColorlessSource(add.card)))continue;
+     const before=tempoSource(cut.card),after=tempoSource(add.card);
+     const improved=targetsByCost.find(target=>paymentGain(target,before,after,partners)>0);
+     if(improved){
+      const priority=add.landInfo.readiness-cut.landInfo.readiness;
+      const reason='With a suitable second land, '+add.card.name+
+       ' opens a turn-'+improved.turn+' payment for '+improved.cards[0]+' ('+improved.cost+').';
+      addProposal('mana',[add],[cut],priority,false,'',reason);
+     }
+    }
+   }
+  }
   if(repairingBudget&&!filling){
    const spellsByRules=new Map(),simpleLands=options.filter(simpleManaLand);
    for(const row of options){
@@ -457,6 +517,12 @@ export function investArchitectBudget({commander,cards,catalog,variants=[],snaps
    if(i>=evaluationsPerRound&&viable.some(item=>item.p.delta<=remaining))break;
    const reject=reason=>report.considered.push(receipt(p,'rejected',reason));
    if(!filling&&p.delta>remaining&&(!repairingBudget||p.delta>=0)){reject('Above the full-deck ceiling.');continue;}
+   if(!repairingBudget&&p.cuts.length===1&&p.cuts[0].land&&p.adds[0].land){
+    const cut=p.cuts[0].card,before=tempoSource(cut),after=tempoSource(p.adds[0].card);
+    if(before&&after&&targetsByCost.some(target=>paymentGain(target,before,after,partnersOf(cut))<0)){
+     reject('Fewer two-land openings could pay an existing early spell on time.');continue;
+    }
+   }
    const next=current.slice();
    for(const [i,cut] of p.cuts.entries())next[next.indexOf(cut.card)]=p.adds[i].card;
    if(filling)next.push(p.adds[0].card);
@@ -563,7 +629,7 @@ export function investArchitectBudget({commander,cards,catalog,variants=[],snaps
    const reason=filling?'Fills the open slot and improves '+Object.keys(changes).join(', ')+'.'+routes:
     candidate.improvement?'Improves '+Object.keys(changes).join(', ')+' with supported deck functions preserved.'+routes:
     'Reduces the estimate while retaining supported deck functions.';
-   const entry=receipt(candidate.p,'accepted',reason+(candidate.p.tradeoff?' '+candidate.p.tradeoff:'')+(corrected?' '+corrected:''),changes);
+   const entry=receipt(candidate.p,'accepted',reason+(candidate.p.tempoReason?' '+candidate.p.tempoReason:'')+(candidate.p.tradeoff?' '+candidate.p.tradeoff:'')+(corrected?' '+corrected:''),changes);
    if(filling||repairingBudget){
     repairSteps.push(entry);
     for(const row of candidate.p.adds)repairAdds.add(row.card);

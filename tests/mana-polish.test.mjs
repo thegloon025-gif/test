@@ -73,3 +73,49 @@ test("bounce lands and two-mana sources do not silently trade their throughput f
   assert.equal(r.entryCounts["always-tapped"], 1);
   assert.equal(r.suggestions.length, 0);
 });
+
+test("two-land opening sevens count physical land slots, independent of color identity and budget", () => {
+  const cards = [...Array(10).fill(temple), ...Array(26).fill(swamp)];
+  for (const identity of [["B"], ["W","U","B","G"]]) {
+    const review = manaPolishReview({commander: {...commander, color_identity: identity}, cards});
+    assert.equal(review.openingMana.pairs, 630);
+    assert.equal(review.openingMana.forcedTappedPairFraction, 1 / 14);
+    assert.equal(review.ceilingEUR, null);
+  }
+  assert.equal(manaPolishReview({commander, cards: [temple]}).openingMana.forcedTappedPairFraction, null);
+});
+
+test("early printed costs use the better land order, each source once, including hybrid and true C", () => {
+  const spell = (cost, mv) => ({...commander, name: cost, cmc: mv, mana_cost: cost});
+  const spells = [spell("{U}",1), spell("{U}{B}",2), spell("{U}{U}",2), spell("{C}",1), spell("{1}{U/B}",2), spell("{X}{U}",1)];
+  const run = (lands, spellCards = spells) => manaPolishReview({commander, cards: [...lands, ...spellCards]}).openingMana;
+  const byCost = result => Object.fromEntries(result.costs.map(row => [row.cost, row.payablePairs]));
+  assert.deepEqual(byCost(run([temple, swamp])), {"{U}":0, "{U}{B}":1, "{U}{U}":0, "{C}":0, "{1}{U/B}":1});
+  assert.equal(byCost(run([swamp, temple]))["{U}{B}"], 1);
+  assert.equal(byCost(run([temple, temple]))["{U}{B}"], 0);
+  assert.equal(byCost(run([fastland, temple]))["{U}{U}"], 1);
+  assert.equal(byCost(run([wastes, temple]))["{C}"], 1);
+  const shock = {...temple, oracle_text: "As this land enters, you may pay 2 life. If you don't, it enters tapped.\n({T}: Add {U} or {B}.)"};
+  assert.equal(byCost(run([shock, shock]))["{U}{U}"], 1);
+  assert.equal(run([fetch, temple]).modeledPairs, 0);
+  assert.equal(run([fetch, temple]).pairs, 1);
+});
+
+test("a land tapping other permanents or offering a ready second face is not itself forced tapped", () => {
+  const face = (name, text) => ({name, type_line: "Land", oracle_text: text});
+  const split = {...temple, layout:"modal_dfc",card_faces:[face("Slow","Slow enters tapped."),face("Fast","{T}: Add {U}.")]};
+  const effect = {...temple, oracle_text:"Creatures your opponents control enter tapped.\n{T}: Add {B}."};
+  const review = manaPolishReview({commander, cards:[split, effect, fastland]});
+  assert.equal(review.openingMana.forcedTappedPairFraction, 0);
+  assert.equal(review.openingMana.modeledPairs, 0);
+});
+
+test("an affordable shockland can be recommended and a cycling triome can fund turn two", () => {
+  const shock = card("Watery Grave","Land — Island Swamp", "({T}: Add {U} or {B}.)\nAs this land enters, you may pay 2 life. If you don't, it enters tapped.", ["U","B"], 2);
+  const triome = card("Test Triome","Land — Plains Island Swamp", "({T}: Add {W}, {U}, or {B}.)\nThis land enters tapped.\nCycling {3}", ["W","U","B"]);
+  const spell = {...commander, name:"Two blue pips", mana_cost:"{U}{U}", cmc:2};
+  const review = manaPolishReview({commander, cards:[temple, fastland], catalog:[shock], budget:5});
+  assert.deepEqual(review.suggestions.map(s=>[s.cut,s.add]), [[temple.name,shock.name]]);
+  assert.match(review.suggestions[0].caveat,/2 life/);
+  assert.equal(manaPolishReview({commander, cards:[triome, shock, spell]}).openingMana.costs[0].payablePairs,1);
+});

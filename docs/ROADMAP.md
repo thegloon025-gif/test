@@ -11,6 +11,8 @@
 
 ## Architect simulations (unreleased)
 
+- [x] Review two-land opening hands against actual early spell costs and consider affordable tempo upgrades across commanders.
+
 - [x] Primary Architect workflow, separate B3/B4 validation and individual TXT export.
 - [x] Bracket 5 cEDH builds, analysis and TXT export with a user-defined EUR ceiling.
 - [x] cEDH budget ranges and Open budget with selected-printing estimates.

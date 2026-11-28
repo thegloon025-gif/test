@@ -1,6 +1,6 @@
 {
   "name": "commander-oracle-independent",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "private": true,
   "type": "module",
   "description": "Scryfall-backed, local-first experimental Commander deckbuilder",

@@ -53,9 +53,10 @@ panel.innerHTML = `<h2>Generative AI Architect</h2>
 <label>Exact commander name (optional override)<input id="ai-name" type="text"></label>
 <label>Strategic revision request<textarea id="ai-revision" rows="2" maxlength="2000"></textarea></label>
 <button id="ai-review" type="button" disabled>Review packages in Experimental Upgrader</button>
-<div id="ai-functional-review" style="white-space:pre-wrap"></div><div id="ai-budget-review"></div><div id="ai-mana-polish"></div>
+<div id="ai-functional-review" style="white-space:pre-wrap"></div><div id="ai-budget-review"></div>
 <details><summary>Local validation evidence</summary><pre id="ai-evidence"></pre></details>
 <details><summary>Local usage history</summary><pre id="ai-history"></pre></details></details>
+<section id="ai-mana-polish"></section>
 <section id="ai-win-conditions" aria-live="polite"></section>
 <section class="architect-lab">
 <h3>Deck analysis and comparison</h3>
@@ -176,6 +177,30 @@ function renderManaPolish(x, audit) {
   const root = $("ai-mana-polish");
   root.replaceChildren();
   if (!x.valid || x.mode !== "builder" || !audit) return;
+  const opening = audit.openingMana;
+  if (opening) {
+    const title = document.createElement("h3");
+    title.textContent = "Opening mana";
+    const risk = document.createElement("p");
+    risk.textContent = opening.forcedTappedPairFraction === null ? "Fewer than two land slots." :
+      "In opening sevens with exactly two land slots, both have a recognized forced tapped entry in " +
+      (100 * opening.forcedTappedPairFraction).toFixed(1) + "% of hands before mulligans.";
+    root.append(title, risk);
+    const breakdown = document.createElement("details");
+    const label = document.createElement("summary");
+    label.textContent = "Which early spells can these lands pay for?";
+    const scope = document.createElement("p");
+    scope.textContent = "Assumes the spell is available and you choose the better land order. Counts only printed mana costs, with one land drop per turn and life paid for shocklands. Each land-capable card counts as one land slot. " +
+      opening.modeledPairs + " of " + opening.pairs + " land pairs have modeled mana and entry rules. Other pairs and unlisted costs are not modeled.";
+    breakdown.append(label, scope);
+    for (const target of opening.costs) {
+      const row = document.createElement("p");
+      const result = opening.modeledPairs ? target.payablePairs + "/" + opening.modeledPairs + " modeled pairs" : "Not modeled";
+      row.textContent = "Turn " + target.turn + " · " + target.cost + " · " + result + " · " + target.cards.join(", ");
+      breakdown.append(row);
+    }
+    root.append(breakdown);
+  }
   const details = document.createElement("details");
   const heading = document.createElement("summary");
   heading.textContent = "Mana reliability and optional land-swap review (no AI call)";
@@ -436,7 +461,7 @@ function show(x) {
   renderBudgetReview(x);
   renderCardReview(x.cardQuality);
   renderBudgetOptimization(x.budgetOptimization);
-  renderManaPolish(x, x.ceiling===null?null:review?.manaPolish);
+  renderManaPolish(x, review?.manaPolish);
   $("ai-evidence").textContent = JSON.stringify(x, null, 2);
 }
 async function action(fn) {
@@ -738,6 +763,7 @@ document.addEventListener("input", (event) => {
       bracketResults.clear();
       $("ai-bracket-results").replaceChildren();
     }
+    $("ai-mana-polish").replaceChildren();
     renderWinConditions($("ai-win-conditions"),null);
     renderCardReview(null);
     renderBudgetOptimization(null);

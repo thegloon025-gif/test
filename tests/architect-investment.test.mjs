@@ -314,3 +314,27 @@ test('Bracket 5 applies the range ceiling and supports a genuinely open price po
  assert.equal(lab.ceiling,null);
  assert.equal(validateArchitectResult({...open,bracket:4},deck,priced,[preserved]).valid,false);
 });
+
+test('at the exact ceiling a ready dual opens an actual one-drop while retaining colors, utility and the combo',()=>{
+ const slow=card('Slow Practice Dual','Land','',0,'This land enters tapped.\n{T}: Add {G} or {W}.',1,['G','W']);
+ const utility={...slow,id:'Utility',name:'Utility',oracle_text:slow.oracle_text+'\n{3}, {T}: Draw a card.'};
+ const ready={...fastLand,prices:{eur:1}};
+ const higher={...ready,id:'Expensive',name:'Expensive',prices:{eur:1.01}};
+ const green=card('Practice Elf','Creature — Elf','{G}',1,'{T}: Add {G}.',.55,['G']);
+ const text=deck.replace('13 Forest','11 Forest\n1 '+slow.name+'\n1 '+utility.name).replace(filler[0].name,green.name);
+ const pool=[...catalog,slow,utility,green,higher];
+ const strict=validateArchitectResult(params,text,pool,[preserved]);
+ assert.equal(strict.valid,true);
+ const p={...params,budget:strict.price};
+ const run=extras=>validateArchitectResult(p,text,[...pool,...extras],[preserved],{optimizeBudget:true});
+ assert.deepEqual(run([]).budgetOptimization.accepted,[]);
+ const result=run([ready]);
+ assert.equal(result.valid,true,JSON.stringify(result.issues));
+ assert.equal(result.price,strict.price);
+ assert.equal(result.audit.count,100);
+ assert.deepEqual(result.budgetOptimization.accepted.map(row=>row.cuts),[[slow.name]]);
+ assert.deepEqual(result.budgetOptimization.accepted[0].adds,[ready.name]);
+ assert.match(result.budgetOptimization.accepted[0].reason,/turn-1 payment/);
+ assert.equal(result.cardQuality.comboRoutes,1);
+ assert.ok(result.functionalReview.manaPolish.openingMana.forcedTappedPairFraction < strict.functionalReview.manaPolish.openingMana.forcedTappedPairFraction);
+});

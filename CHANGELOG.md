@@ -1,3 +1,8 @@
+## 1.2.5 — Opening mana and tapped lands
+
+- Architect builds consider affordable land swaps even at the ceiling when a swap opens a turn-one or turn-two printed cost in the deck. The targeted pass retains source colors, land types and supported packages.
+- Generated and imported Builder lists show the chance that both lands in an exactly-two-land opening seven have forced tapped entry. A per-cost breakdown checks both land orders and reports coverage for supported sources.
+
 ## 1.2.4 — Paper Commander card choices
 
 - The Architect receives additional verified, on-color catalog names for substitutions. Deck selection and final validation reject digital-only and Arena-rebalanced records, including stale records with conflicting format flags.
